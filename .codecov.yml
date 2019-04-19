@@ -13,3 +13,4 @@ coverage:
         url: "secret:REDACTED_VALUE"
 comment:
   require_changes: yes
+  branches: master
