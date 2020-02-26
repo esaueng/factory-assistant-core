@@ -1,0 +1,19 @@
+codecov:
+  branch: dev
+coverage:
+  status:
+    project:
+      default:
+        target: 90
+        threshold: 0.09
+  notify:
+    # Notify codecov room in Discord. The webhook URL (encrypted below) ends in /slack which is why we configure a Slack notification.
+    slack:
+      default:
+        url: "secret:REDACTED_VALUE"
+comment:
+  require_changes: yes
+  layout: reach
+  branches:
+   - master
+   - !dev

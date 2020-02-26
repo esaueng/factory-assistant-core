@@ -18,7 +18,7 @@ API_KEY = "REDACTED_VALUE"
 
 @pytest.fixture(name="test_api")
 def mock_controller():
-    """Mock a successfull Solaredge API."""
+    """Mock a successful Solaredge API."""
     api = Mock()
     api.get_details.return_value = {"details": {"status": "active"}}
     with patch("solaredge.Solaredge", return_value=api):
