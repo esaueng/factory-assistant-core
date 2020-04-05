@@ -12,8 +12,8 @@ coverage:
       default:
         url: "secret:REDACTED_VALUE"
 comment:
-  require_changes: yes
+  require_changes: true
   layout: reach
   branches:
-   - master
-   - !dev
+    - master
+    - !dev
