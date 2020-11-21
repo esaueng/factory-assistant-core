@@ -3,8 +3,13 @@
 from functools import partial
 import re
 
-from Plugwise_Smile.Smile import Smile
 import jsonpickle
+from plugwise.exceptions import (
+    ConnectionFailedError,
+    InvalidAuthentication,
+    PlugwiseException,
+    XMLDataMissingError,
+)
 import pytest
 
 from tests.async_mock import AsyncMock, Mock, patch
@@ -24,8 +29,8 @@ def mock_smile():
     with patch(
         "homeassistant.components.plugwise.config_flow.Smile",
     ) as smile_mock:
-        smile_mock.InvalidAuthentication = Smile.InvalidAuthentication
-        smile_mock.ConnectionFailedError = Smile.ConnectionFailedError
+        smile_mock.InvalidAuthentication = InvalidAuthentication
+        smile_mock.ConnectionFailedError = ConnectionFailedError
         smile_mock.return_value.connect.return_value = True
         yield smile_mock.return_value
 
@@ -48,9 +53,9 @@ def mock_smile_error(aioclient_mock: AiohttpClientMocker) -> None:
 def mock_smile_notconnect():
     """Mock the Plugwise Smile general connection failure for Home Assistant."""
     with patch("homeassistant.components.plugwise.gateway.Smile") as smile_mock:
-        smile_mock.InvalidAuthentication = Smile.InvalidAuthentication
-        smile_mock.ConnectionFailedError = Smile.ConnectionFailedError
-        smile_mock.PlugwiseError = Smile.PlugwiseError
+        smile_mock.InvalidAuthentication = InvalidAuthentication
+        smile_mock.ConnectionFailedError = ConnectionFailedError
+        smile_mock.PlugwiseException = PlugwiseException
         smile_mock.return_value.connect.side_effect = AsyncMock(return_value=False)
         yield smile_mock.return_value
 
@@ -65,9 +70,9 @@ def mock_smile_adam():
     """Create a Mock Adam environment for testing exceptions."""
     chosen_env = "adam_multiple_devices_per_zone"
     with patch("homeassistant.components.plugwise.gateway.Smile") as smile_mock:
-        smile_mock.InvalidAuthentication = Smile.InvalidAuthentication
-        smile_mock.ConnectionFailedError = Smile.ConnectionFailedError
-        smile_mock.XMLDataMissingError = Smile.XMLDataMissingError
+        smile_mock.InvalidAuthentication = InvalidAuthentication
+        smile_mock.ConnectionFailedError = ConnectionFailedError
+        smile_mock.XMLDataMissingError = XMLDataMissingError
 
         smile_mock.return_value.gateway_id = "REDACTED_VALUE"
         smile_mock.return_value.heater_id = "REDACTED_VALUE"
@@ -110,9 +115,9 @@ def mock_smile_anna():
     """Create a Mock Anna environment for testing exceptions."""
     chosen_env = "anna_heatpump"
     with patch("homeassistant.components.plugwise.gateway.Smile") as smile_mock:
-        smile_mock.InvalidAuthentication = Smile.InvalidAuthentication
-        smile_mock.ConnectionFailedError = Smile.ConnectionFailedError
-        smile_mock.XMLDataMissingError = Smile.XMLDataMissingError
+        smile_mock.InvalidAuthentication = InvalidAuthentication
+        smile_mock.ConnectionFailedError = ConnectionFailedError
+        smile_mock.XMLDataMissingError = XMLDataMissingError
 
         smile_mock.return_value.gateway_id = "REDACTED_VALUE"
         smile_mock.return_value.heater_id = "REDACTED_VALUE"
@@ -155,9 +160,9 @@ def mock_smile_p1():
     """Create a Mock P1 DSMR environment for testing exceptions."""
     chosen_env = "p1v3_full_option"
     with patch("homeassistant.components.plugwise.gateway.Smile") as smile_mock:
-        smile_mock.InvalidAuthentication = Smile.InvalidAuthentication
-        smile_mock.ConnectionFailedError = Smile.ConnectionFailedError
-        smile_mock.XMLDataMissingError = Smile.XMLDataMissingError
+        smile_mock.InvalidAuthentication = InvalidAuthentication
+        smile_mock.ConnectionFailedError = ConnectionFailedError
+        smile_mock.XMLDataMissingError = XMLDataMissingError
 
         smile_mock.return_value.gateway_id = "e950c7d5e1ee407a858e2a8b5016c8b3"
         smile_mock.return_value.heater_id = None
@@ -191,9 +196,9 @@ def mock_stretch():
     """Create a Mock Stretch environment for testing exceptions."""
     chosen_env = "stretch_v31"
     with patch("homeassistant.components.plugwise.gateway.Smile") as smile_mock:
-        smile_mock.InvalidAuthentication = Smile.InvalidAuthentication
-        smile_mock.ConnectionFailedError = Smile.ConnectionFailedError
-        smile_mock.XMLDataMissingError = Smile.XMLDataMissingError
+        smile_mock.InvalidAuthentication = InvalidAuthentication
+        smile_mock.ConnectionFailedError = ConnectionFailedError
+        smile_mock.XMLDataMissingError = XMLDataMissingError
 
         smile_mock.return_value.gateway_id = "REDACTED_VALUE"
         smile_mock.return_value.heater_id = None
