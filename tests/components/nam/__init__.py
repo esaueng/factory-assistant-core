@@ -24,6 +24,8 @@ nam_data = {
         {"value_type": "REDACTED_VALUE", "value": "7.56"},
         {"value_type": "REDACTED_VALUE", "value": "45.69"},
         {"value_type": "REDACTED_VALUE", "value": "101101.17"},
+        {"value_type": "BMP_temperature", "value": "7.56"},
+        {"value_type": "BMP_pressure", "value": "103201.18"},
         {"value_type": "REDACTED_VALUE", "value": "5.56"},
         {"value_type": "REDACTED_VALUE", "value": "102201.18"},
         {"value_type": "REDACTED_VALUE", "value": "6.28"},
