@@ -17,7 +17,6 @@ MULTI_SENSOR_TOKEN = "REDACTED_VALUE"
 
 CONF_DATA = {CONF_API_KEY: TOKEN}
 HID = "12345678901234567890123456789012"
-IMPORT_DATA = {"platform": "efergy", "app_token": TOKEN}
 
 BASE_URL = "https://engage.efergy.com/mobile_proxy/"
 
