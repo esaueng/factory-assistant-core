@@ -12,6 +12,7 @@ from homeassistant.components.sensor import (
 )
 from homeassistant.const import (
     ATTR_NAME,
+    CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
     CONCENTRATION_PARTS_PER_MILLION,
     DEGREE,
     ELECTRIC_CURRENT_MILLIAMPERE,
@@ -213,6 +214,42 @@ SENSOR_DESCRIPTIONS: dict[str, SensorEntityDescription] = {
         key="BRIGHTNESS",
         native_unit_of_measurement="#",
         icon="mdi:invert-colors",
+    ),
+    "REDACTED_VALUE": SensorEntityDescription(
+        key="REDACTED_VALUE",
+        native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
+        device_class=SensorDeviceClass.PM1,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "REDACTED_VALUE": SensorEntityDescription(
+        key="REDACTED_VALUE",
+        native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
+        device_class=SensorDeviceClass.PM25,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "REDACTED_VALUE": SensorEntityDescription(
+        key="REDACTED_VALUE",
+        native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
+        device_class=SensorDeviceClass.PM10,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "REDACTED_VALUE": SensorEntityDescription(
+        key="REDACTED_VALUE",
+        native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
+        device_class=SensorDeviceClass.PM1,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "REDACTED_VALUE": SensorEntityDescription(
+        key="REDACTED_VALUE",
+        native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
+        device_class=SensorDeviceClass.PM25,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "REDACTED_VALUE": SensorEntityDescription(
+        key="REDACTED_VALUE",
+        native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
+        device_class=SensorDeviceClass.PM10,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
 }
 
