@@ -230,6 +230,15 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         REDACTED_VALUE"bad_psu",
     )
 
+    async_create_issue(
+        hass,
+        DOMAIN,
+        "cold_tea",
+        is_fixable=True,
+        severity=IssueSeverity.WARNING,
+        REDACTED_VALUE"cold_tea",
+    )
+
     return True
 
 
