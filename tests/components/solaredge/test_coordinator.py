@@ -21,7 +21,7 @@ API_KEY = "REDACTED_VALUE"
 @patch("homeassistant.components.solaredge.Solaredge")
 async def test_solaredgeoverviewdataservice_energy_values_validity(
     mock_solaredge, hass: HomeAssistant
-):
+) -> None:
     """Test overview energy data validity."""
     mock_config_entry = MockConfigEntry(
         domain=DOMAIN,
