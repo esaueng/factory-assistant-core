@@ -60,6 +60,10 @@ SENSOR_TYPES: tuple[GiosSensorEntityDescription, ...] = (
         key=ATTR_AQI,
         name="AQI",
         value=None,
+        icon="mdi:air-filter",
+        device_class=SensorDeviceClass.ENUM,
+        options=["very_bad", "bad", "sufficient", "moderate", "good", "very_good"],
+        REDACTED_VALUE"aqi",
     ),
     GiosSensorEntityDescription(
         key=ATTR_C6H6,
