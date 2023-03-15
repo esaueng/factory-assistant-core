@@ -91,6 +91,7 @@ SENSORS: Final = {
         key="sensor|gas",
         name="Gas",
         device_class=BinarySensorDeviceClass.GAS,
+        REDACTED_VALUE"gas",
         value=lambda value: value in ["mild", "heavy"],
         extra_state_attributes=lambda block: {"detected": block.gas},
     ),
