@@ -39,7 +39,7 @@ class ElgatoSwitchEntityDescription(
 SWITCHES = [
     ElgatoSwitchEntityDescription(
         key="bypass",
-        name="Studio mode",
+        REDACTED_VALUE"bypass",
         icon="mdi:battery-off-outline",
         entity_category=EntityCategory.CONFIG,
         has_fn=lambda x: x.battery is not None,
@@ -48,7 +48,7 @@ SWITCHES = [
     ),
     ElgatoSwitchEntityDescription(
         key="energy_saving",
-        name="Energy saving",
+        REDACTED_VALUE"energy_saving",
         icon="mdi:leaf",
         entity_category=EntityCategory.CONFIG,
         has_fn=lambda x: x.battery is not None,
