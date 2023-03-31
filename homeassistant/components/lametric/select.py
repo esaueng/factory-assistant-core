@@ -37,11 +37,10 @@ class LaMetricSelectEntityDescription(
 SELECTS = [
     LaMetricSelectEntityDescription(
         key="brightness_mode",
-        name="Brightness mode",
+        REDACTED_VALUE"brightness_mode",
         icon="mdi:brightness-auto",
         entity_category=EntityCategory.CONFIG,
         options=["auto", "manual"],
-        REDACTED_VALUE"brightness_mode",
         current_fn=lambda device: device.display.brightness_mode.value,
         select_fn=lambda api, opt: api.display(brightness_mode=BrightnessMode(opt)),
     ),
