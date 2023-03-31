@@ -39,7 +39,7 @@ class LaMetricSwitchEntityDescription(
 SWITCHES = [
     LaMetricSwitchEntityDescription(
         key="bluetooth",
-        name="Bluetooth",
+        REDACTED_VALUE"bluetooth",
         icon="mdi:bluetooth",
         entity_category=EntityCategory.CONFIG,
         available_fn=lambda device: device.bluetooth.available,
