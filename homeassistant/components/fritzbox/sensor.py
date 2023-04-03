@@ -91,7 +91,7 @@ def value_scheduled_preset(device: FritzhomeDevice) -> str:
 SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     FritzSensorEntityDescription(
         key="temperature",
-        name="Temperature",
+        REDACTED_VALUE"temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -101,7 +101,7 @@ SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     ),
     FritzSensorEntityDescription(
         key="humidity",
-        name="Humidity",
+        REDACTED_VALUE"humidity",
         native_unit_of_measurement=PERCENTAGE,
         device_class=SensorDeviceClass.HUMIDITY,
         state_class=SensorStateClass.MEASUREMENT,
@@ -110,7 +110,7 @@ SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     ),
     FritzSensorEntityDescription(
         key="battery",
-        name="Battery",
+        REDACTED_VALUE"battery",
         native_unit_of_measurement=PERCENTAGE,
         device_class=SensorDeviceClass.BATTERY,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -119,7 +119,7 @@ SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     ),
     FritzSensorEntityDescription(
         key="power_consumption",
-        name="Power Consumption",
+        REDACTED_VALUE"power_consumption",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -128,7 +128,7 @@ SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     ),
     FritzSensorEntityDescription(
         key="voltage",
-        name="Voltage",
+        REDACTED_VALUE"voltage",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -137,7 +137,7 @@ SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     ),
     FritzSensorEntityDescription(
         key="electric_current",
-        name="Electric Current",
+        REDACTED_VALUE"electric_current",
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -146,7 +146,7 @@ SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     ),
     FritzSensorEntityDescription(
         key="total_energy",
-        name="Total Energy",
+        REDACTED_VALUE"total_energy",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -156,7 +156,7 @@ SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     # Thermostat Sensors
     FritzSensorEntityDescription(
         key="comfort_temperature",
-        name="Comfort Temperature",
+        REDACTED_VALUE"comfort_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         suitable=suitable_comfort_temperature,
@@ -164,7 +164,7 @@ SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     ),
     FritzSensorEntityDescription(
         key="eco_temperature",
-        name="Eco Temperature",
+        REDACTED_VALUE"eco_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         suitable=suitable_eco_temperature,
@@ -172,7 +172,7 @@ SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     ),
     FritzSensorEntityDescription(
         key="nextchange_temperature",
-        name="Next Scheduled Temperature",
+        REDACTED_VALUE"nextchange_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         suitable=suitable_nextchange_temperature,
@@ -180,20 +180,20 @@ SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     ),
     FritzSensorEntityDescription(
         key="nextchange_time",
-        name="Next Scheduled Change Time",
+        REDACTED_VALUE"nextchange_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         suitable=suitable_nextchange_time,
         native_value=lambda device: utc_from_timestamp(device.nextchange_endperiod),
     ),
     FritzSensorEntityDescription(
         key="nextchange_preset",
-        name="Next Scheduled Preset",
+        REDACTED_VALUE"nextchange_preset",
         suitable=suitable_nextchange_temperature,
         native_value=value_nextchange_preset,
     ),
     FritzSensorEntityDescription(
         key="scheduled_preset",
-        name="Current Scheduled Preset",
+        REDACTED_VALUE"scheduled_preset",
         suitable=suitable_nextchange_temperature,
         native_value=value_scheduled_preset,
     ),
