@@ -17,55 +17,55 @@ from .const import DATA_KEY_API, DATA_KEY_COORDINATOR, DOMAIN as PIHOLE_DOMAIN
 SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="ads_blocked_today",
-        name="Ads Blocked Today",
+        REDACTED_VALUE"ads_blocked_today",
         native_unit_of_measurement="ads",
         icon="mdi:close-octagon-outline",
     ),
     SensorEntityDescription(
         key="ads_percentage_today",
-        name="Ads Percentage Blocked Today",
+        REDACTED_VALUE"ads_percentage_today",
         native_unit_of_measurement=PERCENTAGE,
         icon="mdi:close-octagon-outline",
     ),
     SensorEntityDescription(
         key="clients_ever_seen",
-        name="Seen Clients",
+        REDACTED_VALUE"clients_ever_seen",
         native_unit_of_measurement="clients",
         icon="mdi:account-outline",
     ),
     SensorEntityDescription(
         key="dns_queries_today",
-        name="DNS Queries Today",
+        REDACTED_VALUE"dns_queries_today",
         native_unit_of_measurement="queries",
         icon="mdi:comment-question-outline",
     ),
     SensorEntityDescription(
         key="domains_being_blocked",
-        name="Domains Blocked",
+        REDACTED_VALUE"domains_being_blocked",
         native_unit_of_measurement="domains",
         icon="mdi:block-helper",
     ),
     SensorEntityDescription(
         key="queries_cached",
-        name="DNS Queries Cached",
+        REDACTED_VALUE"queries_cached",
         native_unit_of_measurement="queries",
         icon="mdi:comment-question-outline",
     ),
     SensorEntityDescription(
         key="queries_forwarded",
-        name="DNS Queries Forwarded",
+        REDACTED_VALUE"queries_forwarded",
         native_unit_of_measurement="queries",
         icon="mdi:comment-question-outline",
     ),
     SensorEntityDescription(
         key="unique_clients",
-        name="DNS Unique Clients",
+        REDACTED_VALUE"unique_clients",
         native_unit_of_measurement="clients",
         icon="mdi:account-outline",
     ),
     SensorEntityDescription(
         key="unique_domains",
-        name="DNS Unique Domains",
+        REDACTED_VALUE"unique_domains",
         native_unit_of_measurement="domains",
         icon="mdi:domain",
     ),
@@ -95,6 +95,7 @@ class PiHoleSensor(PiHoleEntity, SensorEntity):
     """Representation of a Pi-hole sensor."""
 
     entity_description: SensorEntityDescription
+    _attr_has_entity_name = True
 
     def __init__(
         self,
@@ -108,8 +109,7 @@ class PiHoleSensor(PiHoleEntity, SensorEntity):
         super().__init__(api, coordinator, name, server_unique_id)
         self.entity_description = description
 
-        self._attr_name = f"{name} {description.name}"
-        self._attr_unique_id = f"{self._server_unique_id}/{description.name}"
+        self._attr_unique_id = f"{self._server_unique_id}/{description.key}"
 
     @property
     def native_value(self) -> StateType:
