@@ -47,21 +47,21 @@ class TractiveSwitchEntityDescription(
 SWITCH_TYPES: tuple[TractiveSwitchEntityDescription, ...] = (
     TractiveSwitchEntityDescription(
         key=ATTR_BUZZER,
-        name="Tracker buzzer",
+        REDACTED_VALUE"tracker_buzzer",
         icon="mdi:volume-high",
         method="async_set_buzzer",
         entity_category=EntityCategory.CONFIG,
     ),
     TractiveSwitchEntityDescription(
         key=ATTR_LED,
-        name="Tracker LED",
+        REDACTED_VALUE"tracker_led",
         icon="mdi:led-on",
         method="async_set_led",
         entity_category=EntityCategory.CONFIG,
     ),
     TractiveSwitchEntityDescription(
         key=ATTR_LIVE_TRACKING,
-        name="Live tracking",
+        REDACTED_VALUE"live_tracking",
         icon="mdi:map-marker-path",
         method="async_set_live_tracking",
         entity_category=EntityCategory.CONFIG,
