@@ -20,6 +20,8 @@ from homeassistant.core import HomeAssistant
 
 API_KEY = "REDACTED_VALUE"
 
+pytestmark = pytest.mark.usefixtures("mock_setup_entry")
+
 
 @pytest.fixture(name="invalid_key_api")
 def mock_invalid_key_api() -> Generator:
