@@ -21,19 +21,19 @@ from .util import plugwise_command
 SWITCHES: tuple[SwitchEntityDescription, ...] = (
     SwitchEntityDescription(
         key="dhw_cm_switch",
-        name="DHW comfort mode",
+        REDACTED_VALUE"dhw_cm_switch",
         icon="mdi:water-plus",
         entity_category=EntityCategory.CONFIG,
     ),
     SwitchEntityDescription(
         key="lock",
-        name="Lock",
+        REDACTED_VALUE"lock",
         icon="mdi:lock",
         entity_category=EntityCategory.CONFIG,
     ),
     SwitchEntityDescription(
         key="relay",
-        name="Relay",
+        REDACTED_VALUE"relay",
         device_class=SwitchDeviceClass.SWITCH,
     ),
     SwitchEntityDescription(

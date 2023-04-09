@@ -65,7 +65,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
         ),
         PrusaLinkSensorEntityDescription[PrinterInfo](
             key="printer.telemetry.temp-bed",
-            name="Heatbed",
+            REDACTED_VALUE"heatbed_temperature",
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             device_class=SensorDeviceClass.TEMPERATURE,
             state_class=SensorStateClass.MEASUREMENT,
@@ -74,7 +74,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
         ),
         PrusaLinkSensorEntityDescription[PrinterInfo](
             key="printer.telemetry.temp-nozzle",
-            name="Nozzle Temperature",
+            REDACTED_VALUE"nozzle_temperature",
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             device_class=SensorDeviceClass.TEMPERATURE,
             state_class=SensorStateClass.MEASUREMENT,
@@ -85,7 +85,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
     "job": (
         PrusaLinkSensorEntityDescription[JobInfo](
             key="job.progress",
-            name="Progress",
+            REDACTED_VALUE"progress",
             icon="mdi:progress-clock",
             native_unit_of_measurement=PERCENTAGE,
             value_fn=lambda data: cast(float, data["progress"]["completion"]) * 100,
@@ -93,14 +93,14 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
         ),
         PrusaLinkSensorEntityDescription[JobInfo](
             key="job.filename",
-            name="Filename",
+            REDACTED_VALUE"filename",
             icon="mdi:file-image-outline",
             value_fn=lambda data: cast(str, data["job"]["file"]["display"]),
             available_fn=lambda data: data.get("job") is not None,
         ),
         PrusaLinkSensorEntityDescription[JobInfo](
             key="job.start",
-            name="Print Start",
+            REDACTED_VALUE"print_start",
             device_class=SensorDeviceClass.TIMESTAMP,
             icon="mdi:clock-start",
             value_fn=ignore_variance(
@@ -113,7 +113,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
         ),
         PrusaLinkSensorEntityDescription[JobInfo](
             key="job.finish",
-            name="Print Finish",
+            REDACTED_VALUE"print_finish",
             icon="mdi:clock-end",
             device_class=SensorDeviceClass.TIMESTAMP,
             value_fn=ignore_variance(
