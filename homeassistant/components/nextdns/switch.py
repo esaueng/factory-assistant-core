@@ -205,12 +205,28 @@ SWITCHES = (
         state=lambda data: data.block_amazon,
     ),
     NextDnsSwitchEntityDescription[Settings](
+        key="block_bereal",
+        REDACTED_VALUE"block_bereal",
+        entity_category=EntityCategory.CONFIG,
+        entity_registry_enabled_default=False,
+        icon="mdi:alpha-b-box",
+        state=lambda data: data.block_bereal,
+    ),
+    NextDnsSwitchEntityDescription[Settings](
         key="block_blizzard",
         REDACTED_VALUE"block_blizzard",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         icon="mdi:sword-cross",
         state=lambda data: data.block_blizzard,
+    ),
+    NextDnsSwitchEntityDescription[Settings](
+        key="block_chatgpt",
+        REDACTED_VALUE"block_chatgpt",
+        entity_category=EntityCategory.CONFIG,
+        entity_registry_enabled_default=False,
+        icon="mdi:chat-processing-outline",
+        state=lambda data: data.block_chatgpt,
     ),
     NextDnsSwitchEntityDescription[Settings](
         key="block_dailymotion",
@@ -261,6 +277,22 @@ SWITCHES = (
         state=lambda data: data.block_fortnite,
     ),
     NextDnsSwitchEntityDescription[Settings](
+        key="block_google_chat",
+        REDACTED_VALUE"block_google_chat",
+        entity_category=EntityCategory.CONFIG,
+        entity_registry_enabled_default=False,
+        icon="mdi:forum",
+        state=lambda data: data.block_google_chat,
+    ),
+    NextDnsSwitchEntityDescription[Settings](
+        key="block_hbomax",
+        REDACTED_VALUE"block_hbomax",
+        entity_category=EntityCategory.CONFIG,
+        entity_registry_enabled_default=False,
+        icon="mdi:movie-search-outline",
+        state=lambda data: data.block_hbomax,
+    ),
+    NextDnsSwitchEntityDescription[Settings](
         key="block_hulu",
         name="Block Hulu",
         entity_category=EntityCategory.CONFIG,
@@ -293,6 +325,14 @@ SWITCHES = (
         state=lambda data: data.block_leagueoflegends,
     ),
     NextDnsSwitchEntityDescription[Settings](
+        key="block_mastodon",
+        REDACTED_VALUE"block_mastodon",
+        entity_category=EntityCategory.CONFIG,
+        entity_registry_enabled_default=False,
+        icon="mdi:mastodon",
+        state=lambda data: data.block_mastodon,
+    ),
+    NextDnsSwitchEntityDescription[Settings](
         key="block_messenger",
         REDACTED_VALUE"block_messenger",
         entity_category=EntityCategory.CONFIG,
@@ -323,6 +363,14 @@ SWITCHES = (
         entity_registry_enabled_default=False,
         icon="mdi:pinterest",
         state=lambda data: data.block_pinterest,
+    ),
+    NextDnsSwitchEntityDescription[Settings](
+        key="block_playstation_network",
+        REDACTED_VALUE"block_playstation_network",
+        entity_category=EntityCategory.CONFIG,
+        entity_registry_enabled_default=False,
+        icon="mdi:sony-playstation",
+        state=lambda data: data.block_playstation_network,
     ),
     NextDnsSwitchEntityDescription[Settings](
         key="block_primevideo",
@@ -501,6 +549,14 @@ SWITCHES = (
         state=lambda data: data.block_gambling,
     ),
     NextDnsSwitchEntityDescription[Settings](
+        key="block_online_gaming",
+        REDACTED_VALUE"block_online_gaming",
+        entity_category=EntityCategory.CONFIG,
+        entity_registry_enabled_default=False,
+        icon="mdi:gamepad-variant",
+        state=lambda data: data.block_online_gaming,
+    ),
+    NextDnsSwitchEntityDescription[Settings](
         key="block_piracy",
         REDACTED_VALUE"block_piracy",
         entity_category=EntityCategory.CONFIG,
@@ -523,6 +579,14 @@ SWITCHES = (
         entity_registry_enabled_default=False,
         icon="mdi:facebook",
         state=lambda data: data.block_social_networks,
+    ),
+    NextDnsSwitchEntityDescription[Settings](
+        key="block_video_streaming",
+        REDACTED_VALUE"block_video_streaming",
+        entity_category=EntityCategory.CONFIG,
+        entity_registry_enabled_default=False,
+        icon="mdi:video-wireless-outline",
+        state=lambda data: data.block_video_streaming,
     ),
 )
 
