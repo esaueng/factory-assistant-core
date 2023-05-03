@@ -36,12 +36,12 @@ COMMON_ENTITY_DESCRIPTIONS = (
     SensorEntityDescription(
         entity_registry_enabled_default=False,
         key=ATTR_VERSION,
-        name="Version",
+        REDACTED_VALUE"version",
     ),
     SensorEntityDescription(
         entity_registry_enabled_default=False,
         key=ATTR_VERSION_LATEST,
-        name="Newest version",
+        REDACTED_VALUE"version_latest",
     ),
 )
 
@@ -49,7 +49,7 @@ STATS_ENTITY_DESCRIPTIONS = (
     SensorEntityDescription(
         entity_registry_enabled_default=False,
         key=ATTR_CPU_PERCENT,
-        name="CPU percent",
+        REDACTED_VALUE"cpu_percent",
         icon="mdi:cpu-64-bit",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -57,7 +57,7 @@ STATS_ENTITY_DESCRIPTIONS = (
     SensorEntityDescription(
         entity_registry_enabled_default=False,
         key=ATTR_MEMORY_PERCENT,
-        name="Memory percent",
+        REDACTED_VALUE"memory_percent",
         icon="mdi:memory",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -73,19 +73,19 @@ HOST_ENTITY_DESCRIPTIONS = (
     SensorEntityDescription(
         entity_registry_enabled_default=False,
         key="agent_version",
-        name="OS Agent version",
+        REDACTED_VALUE"agent_version",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     SensorEntityDescription(
         entity_registry_enabled_default=False,
         key="apparmor_version",
-        name="Apparmor version",
+        REDACTED_VALUE"apparmor_version",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     SensorEntityDescription(
         entity_registry_enabled_default=False,
         key="disk_total",
-        name="Disk total",
+        REDACTED_VALUE"disk_total",
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -93,7 +93,7 @@ HOST_ENTITY_DESCRIPTIONS = (
     SensorEntityDescription(
         entity_registry_enabled_default=False,
         key="disk_used",
-        name="Disk used",
+        REDACTED_VALUE"disk_used",
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -101,7 +101,7 @@ HOST_ENTITY_DESCRIPTIONS = (
     SensorEntityDescription(
         entity_registry_enabled_default=False,
         key="disk_free",
-        name="Disk free",
+        REDACTED_VALUE"disk_free",
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         entity_category=EntityCategory.DIAGNOSTIC,
