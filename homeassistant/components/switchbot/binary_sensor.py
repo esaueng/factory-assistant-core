@@ -57,7 +57,7 @@ BINARY_SENSOR_TYPES: dict[str, BinarySensorEntityDescription] = {
     ),
     "unlocked_alarm": BinarySensorEntityDescription(
         key="unlocked_alarm",
-        REDACTED_VALUE"door_unclosed_alarm",
+        REDACTED_VALUE"door_unlocked_alarm",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=BinarySensorDeviceClass.PROBLEM,
     ),
