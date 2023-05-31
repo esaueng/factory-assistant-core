@@ -15,7 +15,7 @@ from .entity import YaleAlarmEntity
 BUTTON_TYPES = (
     ButtonEntityDescription(
         key="panic",
-        name="Panic button",
+        REDACTED_VALUE"panic",
         icon="mdi:alarm-light",
     ),
 )
