@@ -240,11 +240,11 @@ async def _async_setup_component(
         async_create_issue(
             hass,
             HOMEASSISTANT_DOMAIN,
-            f"integration_key_no_support_{domain}",
+            f"config_entry_only{domain}",
             is_fixable=False,
             severity=IssueSeverity.ERROR,
             issue_domain=domain,
-            REDACTED_VALUE"integration_key_no_support",
+            REDACTED_VALUE"config_entry_only",
             translation_placeholders={"domain": domain},
         )
 
