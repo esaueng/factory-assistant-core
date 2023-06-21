@@ -40,7 +40,7 @@ class AdGuardHomeSwitchEntityDescription(
 SWITCHES: tuple[AdGuardHomeSwitchEntityDescription, ...] = (
     AdGuardHomeSwitchEntityDescription(
         key="protection",
-        name="Protection",
+        REDACTED_VALUE"protection",
         icon="mdi:shield-check",
         is_on_fn=lambda adguard: adguard.protection_enabled,
         turn_on_fn=lambda adguard: adguard.enable_protection,
@@ -48,7 +48,7 @@ SWITCHES: tuple[AdGuardHomeSwitchEntityDescription, ...] = (
     ),
     AdGuardHomeSwitchEntityDescription(
         key="parental",
-        name="Parental control",
+        REDACTED_VALUE"parental",
         icon="mdi:shield-check",
         is_on_fn=lambda adguard: adguard.parental.enabled,
         turn_on_fn=lambda adguard: adguard.parental.enable,
@@ -56,7 +56,7 @@ SWITCHES: tuple[AdGuardHomeSwitchEntityDescription, ...] = (
     ),
     AdGuardHomeSwitchEntityDescription(
         key="safesearch",
-        name="Safe search",
+        REDACTED_VALUE"safe_search",
         icon="mdi:shield-check",
         is_on_fn=lambda adguard: adguard.safesearch.enabled,
         turn_on_fn=lambda adguard: adguard.safesearch.enable,
@@ -64,7 +64,7 @@ SWITCHES: tuple[AdGuardHomeSwitchEntityDescription, ...] = (
     ),
     AdGuardHomeSwitchEntityDescription(
         key="safebrowsing",
-        name="Safe browsing",
+        REDACTED_VALUE"safe_browsing",
         icon="mdi:shield-check",
         is_on_fn=lambda adguard: adguard.safebrowsing.enabled,
         turn_on_fn=lambda adguard: adguard.safebrowsing.enable,
@@ -72,7 +72,7 @@ SWITCHES: tuple[AdGuardHomeSwitchEntityDescription, ...] = (
     ),
     AdGuardHomeSwitchEntityDescription(
         key="filtering",
-        name="Filtering",
+        REDACTED_VALUE"filtering",
         icon="mdi:shield-check",
         is_on_fn=lambda adguard: adguard.filtering.enabled,
         turn_on_fn=lambda adguard: adguard.filtering.enable,
@@ -80,7 +80,7 @@ SWITCHES: tuple[AdGuardHomeSwitchEntityDescription, ...] = (
     ),
     AdGuardHomeSwitchEntityDescription(
         key="querylog",
-        name="Query log",
+        REDACTED_VALUE"query_log",
         icon="mdi:shield-check",
         is_on_fn=lambda adguard: adguard.querylog.enabled,
         turn_on_fn=lambda adguard: adguard.querylog.enable,
