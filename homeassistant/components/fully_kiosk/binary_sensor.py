@@ -18,18 +18,18 @@ from .entity import FullyKioskEntity
 SENSORS: tuple[BinarySensorEntityDescription, ...] = (
     BinarySensorEntityDescription(
         key="kioskMode",
-        name="Kiosk mode",
+        REDACTED_VALUE"kiosk_mode",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     BinarySensorEntityDescription(
         key="plugged",
-        name="Plugged in",
+        REDACTED_VALUE"plugged_in",
         device_class=BinarySensorDeviceClass.PLUG,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     BinarySensorEntityDescription(
         key="isDeviceAdmin",
-        name="Device admin",
+        REDACTED_VALUE"device_admin",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
 )
