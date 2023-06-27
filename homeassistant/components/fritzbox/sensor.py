@@ -91,7 +91,6 @@ def value_scheduled_preset(device: FritzhomeDevice) -> str:
 SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     FritzSensorEntityDescription(
         key="temperature",
-        REDACTED_VALUE"temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -101,7 +100,6 @@ SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     ),
     FritzSensorEntityDescription(
         key="humidity",
-        REDACTED_VALUE"humidity",
         native_unit_of_measurement=PERCENTAGE,
         device_class=SensorDeviceClass.HUMIDITY,
         state_class=SensorStateClass.MEASUREMENT,
@@ -110,7 +108,6 @@ SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     ),
     FritzSensorEntityDescription(
         key="battery",
-        REDACTED_VALUE"battery",
         native_unit_of_measurement=PERCENTAGE,
         device_class=SensorDeviceClass.BATTERY,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -119,7 +116,6 @@ SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     ),
     FritzSensorEntityDescription(
         key="power_consumption",
-        REDACTED_VALUE"power_consumption",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -128,7 +124,6 @@ SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     ),
     FritzSensorEntityDescription(
         key="voltage",
-        REDACTED_VALUE"voltage",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -137,7 +132,6 @@ SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     ),
     FritzSensorEntityDescription(
         key="electric_current",
-        REDACTED_VALUE"electric_current",
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -146,7 +140,6 @@ SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     ),
     FritzSensorEntityDescription(
         key="total_energy",
-        REDACTED_VALUE"total_energy",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
