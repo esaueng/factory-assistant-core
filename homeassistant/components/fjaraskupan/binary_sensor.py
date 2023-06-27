@@ -30,13 +30,13 @@ class EntityDescription(BinarySensorEntityDescription):
 SENSORS = (
     EntityDescription(
         key="grease-filter",
-        name="Grease filter",
+        REDACTED_VALUE"grease_filter",
         device_class=BinarySensorDeviceClass.PROBLEM,
         is_on=lambda state: state.grease_filter_full,
     ),
     EntityDescription(
         key="carbon-filter",
-        name="Carbon filter",
+        REDACTED_VALUE"carbon_filter",
         device_class=BinarySensorDeviceClass.PROBLEM,
         is_on=lambda state: state.carbon_filter_full,
     ),
