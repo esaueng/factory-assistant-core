@@ -9,33 +9,33 @@ from .sensor_entity_description import GrowattSensorEntityDescription
 TOTAL_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     GrowattSensorEntityDescription(
         key="total_money_today",
-        name="Total money today",
+        REDACTED_VALUE"total_money_today",
         api_key="plantMoneyText",
         currency=True,
     ),
     GrowattSensorEntityDescription(
         key="total_money_total",
-        name="Money lifetime",
+        REDACTED_VALUE"total_money_total",
         api_key="totalMoneyText",
         currency=True,
     ),
     GrowattSensorEntityDescription(
         key="total_energy_today",
-        name="Energy Today",
+        REDACTED_VALUE"total_energy_today",
         api_key="todayEnergy",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
     ),
     GrowattSensorEntityDescription(
         key="total_output_power",
-        name="Output Power",
+        REDACTED_VALUE"total_output_power",
         api_key="invTodayPpv",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
     ),
     GrowattSensorEntityDescription(
         key="total_energy_output",
-        name="Lifetime energy output",
+        REDACTED_VALUE"total_energy_output",
         api_key="totalEnergy",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -43,7 +43,7 @@ TOTAL_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="total_maximum_output",
-        name="Maximum power",
+        REDACTED_VALUE"total_maximum_output",
         api_key="nominalPower",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
