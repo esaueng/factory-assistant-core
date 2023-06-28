@@ -53,7 +53,7 @@ SWITCHES = [
     ),
     HomeWizardSwitchEntityDescription(
         key="switch_lock",
-        name="Switch lock",
+        REDACTED_VALUE"switch_lock",
         entity_category=EntityCategory.CONFIG,
         icon="mdi:lock",
         icon_off="mdi:lock-open",
@@ -64,7 +64,7 @@ SWITCHES = [
     ),
     HomeWizardSwitchEntityDescription(
         key="cloud_connection",
-        name="Cloud connection",
+        REDACTED_VALUE"cloud_connection",
         entity_category=EntityCategory.CONFIG,
         icon="mdi:cloud",
         icon_off="mdi:cloud-off-outline",
