@@ -161,7 +161,7 @@ INVERTER_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="inverter_temperature",
-        REDACTED_VALUE"inverter_energy_today",
+        REDACTED_VALUE"inverter_temperature",
         api_key="temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
