@@ -23,7 +23,6 @@ _LOGGER = logging.getLogger(__name__)
 
 RESTART_BUTTON: ButtonEntityDescription = ButtonEntityDescription(
     key="restart",
-    REDACTED_VALUE"restart",
     device_class=ButtonDeviceClass.RESTART,
     entity_category=EntityCategory.CONFIG,
 )
