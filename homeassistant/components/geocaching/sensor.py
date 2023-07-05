@@ -36,14 +36,14 @@ class GeocachingSensorEntityDescription(
 SENSORS: tuple[GeocachingSensorEntityDescription, ...] = (
     GeocachingSensorEntityDescription(
         key="find_count",
-        name="Total finds",
+        REDACTED_VALUE"find_count",
         icon="mdi:notebook-edit-outline",
         native_unit_of_measurement="caches",
         value_fn=lambda status: status.user.find_count,
     ),
     GeocachingSensorEntityDescription(
         key="hide_count",
-        name="Total hides",
+        REDACTED_VALUE"hide_count",
         icon="mdi:eye-off-outline",
         native_unit_of_measurement="caches",
         entity_registry_visible_default=False,
@@ -51,7 +51,7 @@ SENSORS: tuple[GeocachingSensorEntityDescription, ...] = (
     ),
     GeocachingSensorEntityDescription(
         key="favorite_points",
-        name="Favorite points",
+        REDACTED_VALUE"favorite_points",
         icon="mdi:heart-outline",
         native_unit_of_measurement="points",
         entity_registry_visible_default=False,
@@ -59,14 +59,14 @@ SENSORS: tuple[GeocachingSensorEntityDescription, ...] = (
     ),
     GeocachingSensorEntityDescription(
         key="souvenir_count",
-        name="Total souvenirs",
+        REDACTED_VALUE"souvenir_count",
         icon="mdi:license",
         native_unit_of_measurement="souvenirs",
         value_fn=lambda status: status.user.souvenir_count,
     ),
     GeocachingSensorEntityDescription(
         key="awarded_favorite_points",
-        name="Awarded favorite points",
+        REDACTED_VALUE"awarded_favorite_points",
         icon="mdi:heart",
         native_unit_of_measurement="points",
         entity_registry_visible_default=False,

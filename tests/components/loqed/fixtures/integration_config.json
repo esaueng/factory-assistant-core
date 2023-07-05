@@ -1,0 +1,9 @@
+{
+  "lock_id": "**REDACTED**",
+  "lock_key_local_id": 1,
+  "lock_key_key": "REDACTED_VALUE",
+  "backend_key": "REDACTED_VALUE",
+  "bridge_key": "REDACTED_VALUE",
+  "bridge_ip": "192.168.12.34",
+  "bridge_mdns_hostname": "LOQED-aabbccddeeff.local"
+}

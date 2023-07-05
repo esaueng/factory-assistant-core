@@ -36,13 +36,13 @@ class BAFSwitchDescription(
 BASE_SWITCHES = [
     BAFSwitchDescription(
         key="legacy_ir_remote_enable",
-        name="Legacy IR Remote",
+        REDACTED_VALUE"legacy_ir_remote_enable",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda device: cast(bool | None, device.legacy_ir_remote_enable),
     ),
     BAFSwitchDescription(
         key="led_indicators_enable",
-        name="Led Indicators",
+        REDACTED_VALUE"led_indicators_enable",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda device: cast(bool | None, device.led_indicators_enable),
     ),
@@ -51,7 +51,7 @@ BASE_SWITCHES = [
 AUTO_COMFORT_SWITCHES = [
     BAFSwitchDescription(
         key="comfort_heat_assist_enable",
-        name="Auto Comfort Heat Assist",
+        REDACTED_VALUE"comfort_heat_assist_enable",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda device: cast(bool | None, device.comfort_heat_assist_enable),
     ),
@@ -60,31 +60,31 @@ AUTO_COMFORT_SWITCHES = [
 FAN_SWITCHES = [
     BAFSwitchDescription(
         key="fan_beep_enable",
-        name="Beep",
+        REDACTED_VALUE"fan_beep_enable",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda device: cast(bool | None, device.fan_beep_enable),
     ),
     BAFSwitchDescription(
         key="eco_enable",
-        name="Eco Mode",
+        REDACTED_VALUE"eco_enable",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda device: cast(bool | None, device.eco_enable),
     ),
     BAFSwitchDescription(
         key="motion_sense_enable",
-        name="Motion Sense",
+        REDACTED_VALUE"motion_sense_enable",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda device: cast(bool | None, device.motion_sense_enable),
     ),
     BAFSwitchDescription(
         key="return_to_auto_enable",
-        name="Return to Auto",
+        REDACTED_VALUE"return_to_auto_enable",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda device: cast(bool | None, device.return_to_auto_enable),
     ),
     BAFSwitchDescription(
         key="whoosh_enable",
-        name="Whoosh",
+        REDACTED_VALUE"whoosh_enable",
         # Not a configuration switch
         value_fn=lambda device: cast(bool | None, device.whoosh_enable),
     ),
@@ -94,13 +94,13 @@ FAN_SWITCHES = [
 LIGHT_SWITCHES = [
     BAFSwitchDescription(
         key="light_dim_to_warm_enable",
-        name="Dim to Warm",
+        REDACTED_VALUE"light_dim_to_warm_enable",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda device: cast(bool | None, device.light_dim_to_warm_enable),
     ),
     BAFSwitchDescription(
         key="light_return_to_auto_enable",
-        name="Light Return to Auto",
+        REDACTED_VALUE"light_return_to_auto_enable",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda device: cast(bool | None, device.light_return_to_auto_enable),
     ),
@@ -134,7 +134,7 @@ class BAFSwitch(BAFEntity, SwitchEntity):
     def __init__(self, device: Device, description: BAFSwitchDescription) -> None:
         """Initialize the entity."""
         self.entity_description = description
-        super().__init__(device, f"{device.name} {description.name}")
+        super().__init__(device)
         self._attr_unique_id = f"{self._device.mac_address}-{description.key}"
 
     @callback
