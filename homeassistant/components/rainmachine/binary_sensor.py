@@ -44,14 +44,14 @@ class RainMachineBinarySensorDescription(
 BINARY_SENSOR_DESCRIPTIONS = (
     RainMachineBinarySensorDescription(
         key=TYPE_FLOW_SENSOR,
-        name="Flow sensor",
+        REDACTED_VALUETYPE_FLOW_SENSOR,
         icon="mdi:water-pump",
         api_category=DATA_PROVISION_SETTINGS,
         data_key="useFlowSensor",
     ),
     RainMachineBinarySensorDescription(
         key=TYPE_FREEZE,
-        name="Freeze restrictions",
+        REDACTED_VALUETYPE_FREEZE,
         icon="mdi:cancel",
         entity_category=EntityCategory.DIAGNOSTIC,
         api_category=DATA_RESTRICTIONS_CURRENT,
@@ -59,7 +59,7 @@ BINARY_SENSOR_DESCRIPTIONS = (
     ),
     RainMachineBinarySensorDescription(
         key=TYPE_HOURLY,
-        name="Hourly restrictions",
+        REDACTED_VALUETYPE_HOURLY,
         icon="mdi:cancel",
         entity_category=EntityCategory.DIAGNOSTIC,
         api_category=DATA_RESTRICTIONS_CURRENT,
@@ -67,7 +67,7 @@ BINARY_SENSOR_DESCRIPTIONS = (
     ),
     RainMachineBinarySensorDescription(
         key=TYPE_MONTH,
-        name="Month restrictions",
+        REDACTED_VALUETYPE_MONTH,
         icon="mdi:cancel",
         entity_category=EntityCategory.DIAGNOSTIC,
         api_category=DATA_RESTRICTIONS_CURRENT,
@@ -75,7 +75,7 @@ BINARY_SENSOR_DESCRIPTIONS = (
     ),
     RainMachineBinarySensorDescription(
         key=TYPE_RAINDELAY,
-        name="Rain delay restrictions",
+        REDACTED_VALUETYPE_RAINDELAY,
         icon="mdi:cancel",
         entity_category=EntityCategory.DIAGNOSTIC,
         api_category=DATA_RESTRICTIONS_CURRENT,
@@ -83,7 +83,7 @@ BINARY_SENSOR_DESCRIPTIONS = (
     ),
     RainMachineBinarySensorDescription(
         key=TYPE_RAINSENSOR,
-        name="Rain sensor restrictions",
+        REDACTED_VALUETYPE_RAINSENSOR,
         icon="mdi:cancel",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -92,7 +92,7 @@ BINARY_SENSOR_DESCRIPTIONS = (
     ),
     RainMachineBinarySensorDescription(
         key=TYPE_WEEKDAY,
-        name="Weekday restrictions",
+        REDACTED_VALUETYPE_WEEKDAY,
         icon="mdi:cancel",
         entity_category=EntityCategory.DIAGNOSTIC,
         api_category=DATA_RESTRICTIONS_CURRENT,
