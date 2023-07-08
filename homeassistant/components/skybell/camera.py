@@ -17,8 +17,14 @@ from .coordinator import SkybellDataUpdateCoordinator
 from .entity import SkybellEntity
 
 CAMERA_TYPES: tuple[CameraEntityDescription, ...] = (
-    CameraEntityDescription(key="activity", name="Last activity"),
-    CameraEntityDescription(key="avatar", name="Camera"),
+    CameraEntityDescription(
+        key="activity",
+        REDACTED_VALUE"activity",
+    ),
+    CameraEntityDescription(
+        key="avatar",
+        REDACTED_VALUE"camera",
+    ),
 )
 
 
