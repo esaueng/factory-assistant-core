@@ -30,36 +30,36 @@ from .const import (
 BINARY_SENSOR_TYPES: tuple[BinarySensorEntityDescription, ...] = (
     BinarySensorEntityDescription(
         key=ALERT_TYPE_UNKNOWN,
-        name="Unknown",
+        REDACTED_VALUE"unknown",
         device_class=BinarySensorDeviceClass.SAFETY,
     ),
     BinarySensorEntityDescription(
         key=ALERT_TYPE_AIR,
-        name="Air",
+        REDACTED_VALUE"air",
         device_class=BinarySensorDeviceClass.SAFETY,
         icon="mdi:cloud",
     ),
     BinarySensorEntityDescription(
         key=ALERT_TYPE_URBAN_FIGHTS,
-        name="Urban Fights",
+        REDACTED_VALUE"urban_fights",
         device_class=BinarySensorDeviceClass.SAFETY,
         icon="mdi:pistol",
     ),
     BinarySensorEntityDescription(
         key=ALERT_TYPE_ARTILLERY,
-        name="Artillery",
+        REDACTED_VALUE"artillery",
         device_class=BinarySensorDeviceClass.SAFETY,
         icon="mdi:tank",
     ),
     BinarySensorEntityDescription(
         key=ALERT_TYPE_CHEMICAL,
-        name="Chemical",
+        REDACTED_VALUE"chemical",
         device_class=BinarySensorDeviceClass.SAFETY,
         icon="mdi:chemical-weapon",
     ),
     BinarySensorEntityDescription(
         key=ALERT_TYPE_NUCLEAR,
-        name="Nuclear",
+        REDACTED_VALUE"nuclear",
         device_class=BinarySensorDeviceClass.SAFETY,
         icon="mdi:nuke",
     ),
@@ -92,6 +92,7 @@ class UkraineAlarmSensor(
     """Class for a Ukraine Alarm binary sensor."""
 
     _attr_attribution = ATTRIBUTION
+    _attr_has_entity_name = True
 
     def __init__(
         self,
@@ -105,7 +106,6 @@ class UkraineAlarmSensor(
 
         self.entity_description = description
 
-        self._attr_name = f"{name} {description.name}"
         self._attr_unique_id = f"{unique_id}-{description.key}".lower()
         self._attr_device_info = DeviceInfo(
             entry_type=DeviceEntryType.SERVICE,
