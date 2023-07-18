@@ -19,31 +19,31 @@ from .const import DOMAIN, NAME
 SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="Fajr",
-        name="Fajr prayer",
+        REDACTED_VALUE"fajr",
     ),
     SensorEntityDescription(
         key="Sunrise",
-        name="Sunrise time",
+        REDACTED_VALUE"sunrise",
     ),
     SensorEntityDescription(
         key="Dhuhr",
-        name="Dhuhr prayer",
+        REDACTED_VALUE"dhuhr",
     ),
     SensorEntityDescription(
         key="Asr",
-        name="Asr prayer",
+        REDACTED_VALUE"asr",
     ),
     SensorEntityDescription(
         key="Maghrib",
-        name="Maghrib prayer",
+        REDACTED_VALUE"maghrib",
     ),
     SensorEntityDescription(
         key="Isha",
-        name="Isha prayer",
+        REDACTED_VALUE"isha",
     ),
     SensorEntityDescription(
         key="Midnight",
-        name="Midnight time",
+        REDACTED_VALUE"midnight",
     ),
 )
 
