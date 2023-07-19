@@ -22,31 +22,31 @@ BUTTONS: dict[str, tuple[ButtonEntityDescription, ...]] = {
     "sd": (
         ButtonEntityDescription(
             key=DPCode.RESET_DUSTER_CLOTH,
-            name="Reset duster cloth",
+            REDACTED_VALUE"reset_duster_cloth",
             icon="mdi:restart",
             entity_category=EntityCategory.CONFIG,
         ),
         ButtonEntityDescription(
             key=DPCode.RESET_EDGE_BRUSH,
-            name="Reset edge brush",
+            REDACTED_VALUE"reset_edge_brush",
             icon="mdi:restart",
             entity_category=EntityCategory.CONFIG,
         ),
         ButtonEntityDescription(
             key=DPCode.RESET_FILTER,
-            name="Reset filter",
+            REDACTED_VALUE"reset_filter",
             icon="mdi:air-filter",
             entity_category=EntityCategory.CONFIG,
         ),
         ButtonEntityDescription(
             key=DPCode.RESET_MAP,
-            name="Reset map",
+            REDACTED_VALUE"reset_map",
             icon="mdi:map-marker-remove",
             entity_category=EntityCategory.CONFIG,
         ),
         ButtonEntityDescription(
             key=DPCode.RESET_ROLL_BRUSH,
-            name="Reset roll brush",
+            REDACTED_VALUE"reset_roll_brush",
             icon="mdi:restart",
             entity_category=EntityCategory.CONFIG,
         ),
@@ -56,7 +56,7 @@ BUTTONS: dict[str, tuple[ButtonEntityDescription, ...]] = {
     "hxd": (
         ButtonEntityDescription(
             key=DPCode.SWITCH_USB6,
-            name="Snooze",
+            REDACTED_VALUE"snooze",
             icon="mdi:sleep",
         ),
     ),
