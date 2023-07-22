@@ -22,55 +22,53 @@ from .const import DOMAIN
 SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="Chlorine",
+        REDACTED_VALUE"chlorine",
         native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
         icon="mdi:pool",
-        name="Chlorine",
     ),
     SensorEntityDescription(
         key="pH",
+        REDACTED_VALUE"ph",
         icon="mdi:pool",
-        name="pH",
     ),
     SensorEntityDescription(
         key="Battery",
         native_unit_of_measurement=PERCENTAGE,
-        name="Battery",
         device_class=SensorDeviceClass.BATTERY,
     ),
     SensorEntityDescription(
         key="Water Temp",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         icon="mdi:coolant-temperature",
-        name="Temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
     ),
     SensorEntityDescription(
         key="Last Seen",
+        REDACTED_VALUE"last_seen",
         icon="mdi:clock",
-        name="Last Seen",
         device_class=SensorDeviceClass.TIMESTAMP,
     ),
     SensorEntityDescription(
         key="Chlorine High",
+        REDACTED_VALUE"chlorine_high",
         native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
         icon="mdi:pool",
-        name="Chlorine High",
     ),
     SensorEntityDescription(
         key="Chlorine Low",
+        REDACTED_VALUE"chlorine_low",
         native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
         icon="mdi:pool",
-        name="Chlorine Low",
     ),
     SensorEntityDescription(
         key="pH High",
+        REDACTED_VALUE"ph_high",
         icon="mdi:pool",
-        name="pH High",
     ),
     SensorEntityDescription(
         key="pH Low",
+        REDACTED_VALUE"ph_low",
         icon="mdi:pool",
-        name="pH Low",
     ),
 )
 
