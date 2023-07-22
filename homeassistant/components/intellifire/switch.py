@@ -37,14 +37,14 @@ class IntellifireSwitchEntityDescription(
 INTELLIFIRE_SWITCHES: tuple[IntellifireSwitchEntityDescription, ...] = (
     IntellifireSwitchEntityDescription(
         key="on_off",
-        name="Flame",
+        REDACTED_VALUE"flame",
         on_fn=lambda control_api: control_api.flame_on(),
         off_fn=lambda control_api: control_api.flame_off(),
         value_fn=lambda data: data.is_on,
     ),
     IntellifireSwitchEntityDescription(
         key="pilot",
-        name="Pilot light",
+        REDACTED_VALUE"pilot_light",
         icon="mdi:fire-alert",
         on_fn=lambda control_api: control_api.pilot_on(),
         off_fn=lambda control_api: control_api.pilot_off(),
