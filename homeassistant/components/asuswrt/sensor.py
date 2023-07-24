@@ -50,14 +50,14 @@ UNIT_DEVICES = "Devices"
 CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     AsusWrtSensorEntityDescription(
         key=SENSORS_CONNECTED_DEVICE[0],
-        name="Devices Connected",
+        REDACTED_VALUE"devices_connected",
         icon="mdi:router-network",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UNIT_DEVICES,
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_RATES[0],
-        name="Download Speed",
+        REDACTED_VALUE"download_speed",
         icon="mdi:download-network",
         device_class=SensorDeviceClass.DATA_RATE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -68,7 +68,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_RATES[1],
-        name="Upload Speed",
+        REDACTED_VALUE"upload_speed",
         icon="mdi:upload-network",
         device_class=SensorDeviceClass.DATA_RATE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -79,7 +79,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_BYTES[0],
-        name="Download",
+        REDACTED_VALUE"download",
         icon="mdi:download",
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
@@ -90,7 +90,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_BYTES[1],
-        name="Upload",
+        REDACTED_VALUE"upload",
         icon="mdi:upload",
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
@@ -101,7 +101,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_LOAD_AVG[0],
-        name="Load Avg (1m)",
+        REDACTED_VALUE"load_avg_1m",
         icon="mdi:cpu-32-bit",
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -110,7 +110,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_LOAD_AVG[1],
-        name="Load Avg (5m)",
+        REDACTED_VALUE"load_avg_5m",
         icon="mdi:cpu-32-bit",
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -119,7 +119,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_LOAD_AVG[2],
-        name="Load Avg (15m)",
+        REDACTED_VALUE"load_avg_15m",
         icon="mdi:cpu-32-bit",
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -128,7 +128,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_TEMPERATURES[0],
-        name="2.4GHz Temperature",
+        REDACTED_VALUE"REDACTED_VALUE",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -138,7 +138,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_TEMPERATURES[1],
-        name="5GHz Temperature",
+        REDACTED_VALUE"5ghz_temperature",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -148,7 +148,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_TEMPERATURES[2],
-        name="CPU Temperature",
+        REDACTED_VALUE"cpu_temperature",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
