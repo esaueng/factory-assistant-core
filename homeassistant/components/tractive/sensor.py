@@ -187,7 +187,7 @@ SENSOR_TYPES: tuple[TractiveSensorEntityDescription, ...] = (
     ),
     TractiveSensorEntityDescription(
         key=ATTR_MINUTES_ACTIVE,
-        REDACTED_VALUE"minutes_active",
+        REDACTED_VALUE"activity_time",
         icon="mdi:clock-time-eight-outline",
         native_unit_of_measurement=UnitOfTime.MINUTES,
         entity_class=TractiveActivitySensor,
@@ -195,7 +195,7 @@ SENSOR_TYPES: tuple[TractiveSensorEntityDescription, ...] = (
     ),
     TractiveSensorEntityDescription(
         key=ATTR_MINUTES_REST,
-        REDACTED_VALUE"minutes_rest",
+        REDACTED_VALUE"rest_time",
         icon="mdi:clock-time-eight-outline",
         native_unit_of_measurement=UnitOfTime.MINUTES,
         entity_class=TractiveWellnessSensor,
