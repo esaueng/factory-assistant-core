@@ -37,11 +37,11 @@ class PegelOnlineSensorEntityDescription(
 
 SENSORS: tuple[PegelOnlineSensorEntityDescription, ...] = (
     PegelOnlineSensorEntityDescription(
-        key="current_measurement",
-        REDACTED_VALUE"current_measurement",
+        key="water_level",
+        REDACTED_VALUE"water_level",
         state_class=SensorStateClass.MEASUREMENT,
-        fn_native_unit=lambda data: data["current_measurement"].uom,
-        fn_native_value=lambda data: data["current_measurement"].value,
+        fn_native_unit=lambda data: data["water_level"].uom,
+        fn_native_value=lambda data: data["water_level"].value,
         icon="mdi:waves-arrow-up",
     ),
 )
