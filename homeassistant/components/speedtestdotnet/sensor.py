@@ -44,20 +44,20 @@ class SpeedtestSensorEntityDescription(SensorEntityDescription):
 SENSOR_TYPES: tuple[SpeedtestSensorEntityDescription, ...] = (
     SpeedtestSensorEntityDescription(
         key="ping",
-        name="Ping",
+        REDACTED_VALUE"ping",
         native_unit_of_measurement=UnitOfTime.MILLISECONDS,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SpeedtestSensorEntityDescription(
         key="download",
-        name="Download",
+        REDACTED_VALUE"download",
         native_unit_of_measurement=UnitOfDataRate.MEGABITS_PER_SECOND,
         state_class=SensorStateClass.MEASUREMENT,
         value=lambda value: round(value / 10**6, 2),
     ),
     SpeedtestSensorEntityDescription(
         key="upload",
-        name="Upload",
+        REDACTED_VALUE"upload",
         native_unit_of_measurement=UnitOfDataRate.MEGABITS_PER_SECOND,
         state_class=SensorStateClass.MEASUREMENT,
         value=lambda value: round(value / 10**6, 2),

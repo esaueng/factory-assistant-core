@@ -46,7 +46,6 @@ SENSOR_TYPES: dict[str, SensorEntityDescription] = {
     ),
     "battery": SensorEntityDescription(
         key="battery",
-        REDACTED_VALUE"battery",
         native_unit_of_measurement=PERCENTAGE,
         device_class=SensorDeviceClass.BATTERY,
         state_class=SensorStateClass.MEASUREMENT,
@@ -60,21 +59,19 @@ SENSOR_TYPES: dict[str, SensorEntityDescription] = {
     ),
     "humidity": SensorEntityDescription(
         key="humidity",
-        REDACTED_VALUE"humidity",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.HUMIDITY,
     ),
     "temperature": SensorEntityDescription(
         key="temperature",
-        REDACTED_VALUE"temperature",
+        name=None,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.TEMPERATURE,
     ),
     "power": SensorEntityDescription(
         key="power",
-        REDACTED_VALUE"power",
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.POWER,

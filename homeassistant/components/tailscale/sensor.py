@@ -38,21 +38,21 @@ class TailscaleSensorEntityDescription(
 SENSORS: tuple[TailscaleSensorEntityDescription, ...] = (
     TailscaleSensorEntityDescription(
         key="expires",
-        name="Expires",
+        REDACTED_VALUE"expires",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda device: device.expires,
     ),
     TailscaleSensorEntityDescription(
         key="ip",
-        name="IP address",
+        REDACTED_VALUE"ip",
         icon="mdi:ip-network",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda device: device.addresses[0] if device.addresses else None,
     ),
     TailscaleSensorEntityDescription(
         key="last_seen",
-        name="Last seen",
+        REDACTED_VALUE"last_seen",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda device: device.last_seen,
     ),

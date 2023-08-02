@@ -64,7 +64,7 @@ def _ensure_timezone(timestamp: datetime | None) -> datetime | None:
 SENSORS: tuple[WhoisSensorEntityDescription, ...] = (
     WhoisSensorEntityDescription(
         key="admin",
-        name="Admin",
+        REDACTED_VALUE"admin",
         icon="mdi:account-star",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -72,35 +72,35 @@ SENSORS: tuple[WhoisSensorEntityDescription, ...] = (
     ),
     WhoisSensorEntityDescription(
         key="creation_date",
-        name="Created",
+        REDACTED_VALUE"creation_date",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda domain: _ensure_timezone(domain.creation_date),
     ),
     WhoisSensorEntityDescription(
         key="days_until_expiration",
-        name="Days until expiration",
+        REDACTED_VALUE"days_until_expiration",
         icon="mdi:calendar-clock",
         native_unit_of_measurement=UnitOfTime.DAYS,
         value_fn=_days_until_expiration,
     ),
     WhoisSensorEntityDescription(
         key="expiration_date",
-        name="Expires",
+        REDACTED_VALUE"expiration_date",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda domain: _ensure_timezone(domain.expiration_date),
     ),
     WhoisSensorEntityDescription(
         key="last_updated",
-        name="Last updated",
+        REDACTED_VALUE"last_updated",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda domain: _ensure_timezone(domain.last_updated),
     ),
     WhoisSensorEntityDescription(
         key="owner",
-        name="Owner",
+        REDACTED_VALUE"owner",
         icon="mdi:account",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -108,7 +108,7 @@ SENSORS: tuple[WhoisSensorEntityDescription, ...] = (
     ),
     WhoisSensorEntityDescription(
         key="registrant",
-        name="Registrant",
+        REDACTED_VALUE"registrant",
         icon="mdi:account-edit",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -116,7 +116,7 @@ SENSORS: tuple[WhoisSensorEntityDescription, ...] = (
     ),
     WhoisSensorEntityDescription(
         key="registrar",
-        name="Registrar",
+        REDACTED_VALUE"registrar",
         icon="mdi:store",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -124,7 +124,7 @@ SENSORS: tuple[WhoisSensorEntityDescription, ...] = (
     ),
     WhoisSensorEntityDescription(
         key="reseller",
-        name="Reseller",
+        REDACTED_VALUE"reseller",
         icon="mdi:store",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,

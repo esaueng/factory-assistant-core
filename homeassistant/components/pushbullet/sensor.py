@@ -16,50 +16,50 @@ from .const import DATA_UPDATED, DOMAIN
 SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="application_name",
-        name="Application name",
+        REDACTED_VALUE"application_name",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="body",
-        name="Body",
+        REDACTED_VALUE"body",
     ),
     SensorEntityDescription(
         key="notification_id",
-        name="Notification ID",
+        REDACTED_VALUE"notification_id",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="notification_tag",
-        name="Notification tag",
+        REDACTED_VALUE"notification_tag",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="package_name",
-        name="Package name",
+        REDACTED_VALUE"package_name",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="receiver_email",
-        name="Receiver email",
+        REDACTED_VALUE"receiver_email",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="sender_email",
-        name="Sender email",
+        REDACTED_VALUE"sender_email",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="source_device_iden",
-        name="Sender device ID",
+        REDACTED_VALUE"source_device_identifier",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="title",
-        name="Title",
+        REDACTED_VALUE"title",
     ),
     SensorEntityDescription(
         key="type",
-        name="Type",
+        REDACTED_VALUE"type",
         entity_registry_enabled_default=False,
     ),
 )

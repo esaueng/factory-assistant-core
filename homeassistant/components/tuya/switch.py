@@ -29,12 +29,12 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "bh": (
         SwitchEntityDescription(
             key=DPCode.START,
-            name="Start",
+            REDACTED_VALUE"start",
             icon="mdi:kettle-steam",
         ),
         SwitchEntityDescription(
             key=DPCode.WARM,
-            name="Heat preservation",
+            REDACTED_VALUE"heat_preservation",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
@@ -43,12 +43,12 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "cn": (
         SwitchEntityDescription(
             key=DPCode.DISINFECTION,
-            name="Disinfection",
+            REDACTED_VALUE"disinfection",
             icon="mdi:bacteria",
         ),
         SwitchEntityDescription(
             key=DPCode.WATER,
-            name="Water",
+            REDACTED_VALUE"water",
             icon="mdi:water",
         ),
     ),
@@ -57,7 +57,7 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "cwwsq": (
         SwitchEntityDescription(
             key=DPCode.SLOW_FEED,
-            name="Slow feed",
+            REDACTED_VALUE"slow_feed",
             icon="mdi:speedometer-slow",
             entity_category=EntityCategory.CONFIG,
         ),
@@ -67,29 +67,29 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "cwysj": (
         SwitchEntityDescription(
             key=DPCode.FILTER_RESET,
-            name="Filter reset",
+            REDACTED_VALUE"filter_reset",
             icon="mdi:filter",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.PUMP_RESET,
-            name="Water pump reset",
+            REDACTED_VALUE"water_pump_reset",
             icon="mdi:pump",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            name="Power",
+            REDACTED_VALUE"power",
         ),
         SwitchEntityDescription(
             key=DPCode.WATER_RESET,
-            name="Reset of water usage days",
+            REDACTED_VALUE"reset_of_water_usage_days",
             icon="mdi:water-sync",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.UV,
-            name="UV sterilization",
+            REDACTED_VALUE"uv_sterilization",
             icon="mdi:lightbulb",
             entity_category=EntityCategory.CONFIG,
         ),
@@ -102,20 +102,20 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
         # switch to control the plug.
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            name="Plug",
+            REDACTED_VALUE"plug",
         ),
     ),
     # Cirquit Breaker
     "dlq": (
         SwitchEntityDescription(
             key=DPCode.CHILD_LOCK,
-            name="Child lock",
+            REDACTED_VALUE"asd",
             icon="mdi:account-lock",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            name="Switch",
+            REDACTED_VALUE"switch",
         ),
     ),
     # Wake Up Light II
@@ -123,36 +123,36 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "hxd": (
         SwitchEntityDescription(
             key=DPCode.SWITCH_1,
-            name="Radio",
+            REDACTED_VALUE"radio",
             icon="mdi:radio",
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_2,
-            name="Alarm 1",
+            REDACTED_VALUE"alarm_1",
             icon="mdi:alarm",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_3,
-            name="Alarm 2",
+            REDACTED_VALUE"alarm_2",
             icon="mdi:alarm",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_4,
-            name="Alarm 3",
+            REDACTED_VALUE"alarm_3",
             icon="mdi:alarm",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_5,
-            name="Alarm 4",
+            REDACTED_VALUE"alarm_4",
             icon="mdi:alarm",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_6,
-            name="Sleep aid",
+            REDACTED_VALUE"sleep_aid",
             icon="mdi:power-sleep",
         ),
     ),
@@ -162,12 +162,12 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "wkcz": (
         SwitchEntityDescription(
             key=DPCode.SWITCH_1,
-            name="Switch 1",
+            REDACTED_VALUE"switch_1",
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_2,
-            name="Switch 2",
+            REDACTED_VALUE"switch_2",
             device_class=SwitchDeviceClass.OUTLET,
         ),
     ),
@@ -176,77 +176,77 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "kg": (
         SwitchEntityDescription(
             key=DPCode.CHILD_LOCK,
-            name="Child lock",
+            REDACTED_VALUE"child_lock",
             icon="mdi:account-lock",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_1,
-            name="Switch 1",
+            REDACTED_VALUE"switch_1",
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_2,
-            name="Switch 2",
+            REDACTED_VALUE"switch_2",
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_3,
-            name="Switch 3",
+            REDACTED_VALUE"switch_3",
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_4,
-            name="Switch 4",
+            REDACTED_VALUE"switch_4",
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_5,
-            name="Switch 5",
+            REDACTED_VALUE"switch_5",
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_6,
-            name="Switch 6",
+            REDACTED_VALUE"switch_6",
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_7,
-            name="Switch 7",
+            REDACTED_VALUE"switch_7",
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_8,
-            name="Switch 8",
+            REDACTED_VALUE"switch_8",
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB1,
-            name="USB 1",
+            REDACTED_VALUE"usb_1",
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB2,
-            name="USB 2",
+            REDACTED_VALUE"usb_2",
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB3,
-            name="USB 3",
+            REDACTED_VALUE"usb_3",
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB4,
-            name="USB 4",
+            REDACTED_VALUE"usb_4",
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB5,
-            name="USB 5",
+            REDACTED_VALUE"usb_5",
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB6,
-            name="USB 6",
+            REDACTED_VALUE"usb_6",
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            name="Switch",
+            REDACTED_VALUE"switch",
             device_class=SwitchDeviceClass.OUTLET,
         ),
     ),
@@ -255,35 +255,35 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "kj": (
         SwitchEntityDescription(
             key=DPCode.ANION,
-            name="Ionizer",
+            REDACTED_VALUE"ionizer",
             icon="mdi:minus-circle-outline",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.FILTER_RESET,
-            name="Filter cartridge reset",
+            REDACTED_VALUE"filter_cartridge_reset",
             icon="mdi:filter",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.LOCK,
-            name="Child lock",
+            REDACTED_VALUE"child_lock",
             icon="mdi:account-lock",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            name="Power",
+            REDACTED_VALUE"power",
         ),
         SwitchEntityDescription(
             key=DPCode.WET,
-            name="Humidification",
+            REDACTED_VALUE"humidification",
             icon="mdi:water-percent",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.UV,
-            name="UV sterilization",
+            REDACTED_VALUE"uv_sterilization",
             icon="mdi:minus-circle-outline",
             entity_category=EntityCategory.CONFIG,
         ),
@@ -293,13 +293,13 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "kt": (
         SwitchEntityDescription(
             key=DPCode.ANION,
-            name="Ionizer",
+            REDACTED_VALUE"ionizer",
             icon="mdi:minus-circle-outline",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.LOCK,
-            name="Child lock",
+            REDACTED_VALUE"child_lock",
             icon="mdi:account-lock",
             entity_category=EntityCategory.CONFIG,
         ),
@@ -309,13 +309,13 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "mzj": (
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            name="Switch",
+            REDACTED_VALUE"switch",
             icon="mdi:power",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.START,
-            name="Start",
+            REDACTED_VALUE"start",
             icon="mdi:pot-steam",
             entity_category=EntityCategory.CONFIG,
         ),
@@ -325,67 +325,67 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "pc": (
         SwitchEntityDescription(
             key=DPCode.CHILD_LOCK,
-            name="Child lock",
+            REDACTED_VALUE"child_lock",
             icon="mdi:account-lock",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_1,
-            name="Socket 1",
+            REDACTED_VALUE"socket_1",
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_2,
-            name="Socket 2",
+            REDACTED_VALUE"socket_2",
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_3,
-            name="Socket 3",
+            REDACTED_VALUE"socket_3",
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_4,
-            name="Socket 4",
+            REDACTED_VALUE"socket_4",
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_5,
-            name="Socket 5",
+            REDACTED_VALUE"socket_5",
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_6,
-            name="Socket 6",
+            REDACTED_VALUE"socket_6",
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB1,
-            name="USB 1",
+            REDACTED_VALUE"usb_1",
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB2,
-            name="USB 2",
+            REDACTED_VALUE"usb_2",
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB3,
-            name="USB 3",
+            REDACTED_VALUE"usb_3",
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB4,
-            name="USB 4",
+            REDACTED_VALUE"usb_4",
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB5,
-            name="USB 5",
+            REDACTED_VALUE"usb_5",
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB6,
-            name="USB 6",
+            REDACTED_VALUE"usb_6",
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            name="Socket",
+            REDACTED_VALUE"socket",
             device_class=SwitchDeviceClass.OUTLET,
         ),
     ),
@@ -395,7 +395,7 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "qjdcz": (
         SwitchEntityDescription(
             key=DPCode.SWITCH_1,
-            name="Switch",
+            REDACTED_VALUE"switch",
         ),
     ),
     # Heater
@@ -403,13 +403,13 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "qn": (
         SwitchEntityDescription(
             key=DPCode.ANION,
-            name="Ionizer",
+            REDACTED_VALUE"ionizer",
             icon="mdi:minus-circle-outline",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.LOCK,
-            name="Child lock",
+            REDACTED_VALUE"child_lock",
             icon="mdi:account-lock",
             entity_category=EntityCategory.CONFIG,
         ),
@@ -419,13 +419,13 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "sd": (
         SwitchEntityDescription(
             key=DPCode.SWITCH_DISTURB,
-            name="Do not disturb",
+            REDACTED_VALUE"do_not_disturb",
             icon="mdi:minus-circle",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.VOICE_SWITCH,
-            name="Mute voice",
+            REDACTED_VALUE"mute_voice",
             icon="mdi:account-voice",
             entity_category=EntityCategory.CONFIG,
         ),
@@ -435,7 +435,7 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "sgbj": (
         SwitchEntityDescription(
             key=DPCode.MUFFLING,
-            name="Mute",
+            REDACTED_VALUE"mute",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
@@ -444,68 +444,68 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "sp": (
         SwitchEntityDescription(
             key=DPCode.WIRELESS_BATTERYLOCK,
-            name="Battery lock",
+            REDACTED_VALUE"battery_lock",
             icon="mdi:battery-lock",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.CRY_DETECTION_SWITCH,
+            REDACTED_VALUE"cry_detection",
             icon="mdi:emoticon-cry",
-            name="Cry detection",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.DECIBEL_SWITCH,
+            REDACTED_VALUE"sound_detection",
             icon="mdi:microphone-outline",
-            name="Sound detection",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.RECORD_SWITCH,
+            REDACTED_VALUE"video_recording",
             icon="mdi:record-rec",
-            name="Video recording",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.MOTION_RECORD,
+            REDACTED_VALUE"motion_recording",
             icon="mdi:record-rec",
-            name="Motion recording",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.BASIC_PRIVATE,
+            REDACTED_VALUE"privacy_mode",
             icon="mdi:eye-off",
-            name="Privacy mode",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.BASIC_FLIP,
+            REDACTED_VALUE"flip",
             icon="mdi:flip-horizontal",
-            name="Flip",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.BASIC_OSD,
+            REDACTED_VALUE"time_watermark",
             icon="mdi:watermark",
-            name="Time watermark",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.BASIC_WDR,
+            REDACTED_VALUE"wide_dynamic_range",
             icon="mdi:watermark",
-            name="Wide dynamic range",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.MOTION_TRACKING,
+            REDACTED_VALUE"motion_tracking",
             icon="mdi:motion-sensor",
-            name="Motion tracking",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.MOTION_SWITCH,
+            REDACTED_VALUE"motion_alarm",
             icon="mdi:motion-sensor",
-            name="Motion alarm",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
@@ -513,7 +513,7 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "szjqr": (
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            name="Switch",
+            REDACTED_VALUE"switch",
             icon="mdi:cursor-pointer",
         ),
     ),
@@ -522,27 +522,27 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "tdq": (
         SwitchEntityDescription(
             key=DPCode.SWITCH_1,
-            name="Switch 1",
+            REDACTED_VALUE"switch_1",
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_2,
-            name="Switch 2",
+            REDACTED_VALUE"switch_2",
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_3,
-            name="Switch 3",
+            REDACTED_VALUE"switch_3",
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_4,
-            name="Switch 4",
+            REDACTED_VALUE"switch_4",
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.CHILD_LOCK,
-            name="Child lock",
+            REDACTED_VALUE"child_lock",
             icon="mdi:account-lock",
             entity_category=EntityCategory.CONFIG,
         ),
@@ -552,7 +552,7 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "tyndj": (
         SwitchEntityDescription(
             key=DPCode.SWITCH_SAVE_ENERGY,
-            name="Energy saving",
+            REDACTED_VALUE"energy_saving",
             icon="mdi:leaf",
             entity_category=EntityCategory.CONFIG,
         ),
@@ -562,15 +562,22 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "wkf": (
         SwitchEntityDescription(
             key=DPCode.CHILD_LOCK,
-            name="Child lock",
+            REDACTED_VALUE"child_lock",
             icon="mdi:account-lock",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.WINDOW_CHECK,
-            name="Open window detection",
+            REDACTED_VALUE"open_window_detection",
             icon="mdi:window-open",
             entity_category=EntityCategory.CONFIG,
+        ),
+    ),
+    # Air Conditioner Mate (Smart IR Socket)
+    "wnykq": (
+        SwitchEntityDescription(
+            key=DPCode.SWITCH,
+            name=None,
         ),
     ),
     # SIREN: Siren (switch) with Temperature and humidity sensor
@@ -578,7 +585,7 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "wsdcg": (
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            name="Switch",
+            REDACTED_VALUE"switch",
             device_class=SwitchDeviceClass.OUTLET,
         ),
     ),
@@ -587,7 +594,7 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "xdd": (
         SwitchEntityDescription(
             key=DPCode.DO_NOT_DISTURB,
-            name="Do not disturb",
+            REDACTED_VALUE"do_not_disturb",
             icon="mdi:minus-circle-outline",
             entity_category=EntityCategory.CONFIG,
         ),
@@ -597,16 +604,16 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "xxj": (
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            name="Power",
+            REDACTED_VALUE"power",
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_SPRAY,
-            name="Spray",
+            REDACTED_VALUE"spray",
             icon="mdi:spray",
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_VOICE,
-            name="Voice",
+            REDACTED_VALUE"voice",
             icon="mdi:account-voice",
             entity_category=EntityCategory.CONFIG,
         ),
@@ -616,7 +623,7 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "zndb": (
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            name="Switch",
+            REDACTED_VALUE"switch",
         ),
     ),
     # Fan
@@ -624,37 +631,37 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "fs": (
         SwitchEntityDescription(
             key=DPCode.ANION,
-            name="Anion",
+            REDACTED_VALUE"anion",
             icon="mdi:atom",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.HUMIDIFIER,
-            name="Humidification",
+            REDACTED_VALUE"humidification",
             icon="mdi:air-humidifier",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.OXYGEN,
-            name="Oxygen bar",
+            REDACTED_VALUE"oxygen_bar",
             icon="mdi:molecule",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.FAN_COOL,
-            name="Natural wind",
+            REDACTED_VALUE"natural_wind",
             icon="mdi:weather-windy",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.FAN_BEEP,
-            name="Sound",
+            REDACTED_VALUE"sound",
             icon="mdi:minus-circle",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.CHILD_LOCK,
-            name="Child lock",
+            REDACTED_VALUE"child_lock",
             icon="mdi:account-lock",
             entity_category=EntityCategory.CONFIG,
         ),
@@ -664,13 +671,13 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "cl": (
         SwitchEntityDescription(
             key=DPCode.CONTROL_BACK,
-            name="Reverse",
+            REDACTED_VALUE"reverse",
             icon="mdi:swap-horizontal",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.OPPOSITE,
-            name="Reverse",
+            REDACTED_VALUE"reverse",
             icon="mdi:swap-horizontal",
             entity_category=EntityCategory.CONFIG,
         ),
@@ -680,19 +687,19 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
     "jsq": (
         SwitchEntityDescription(
             key=DPCode.SWITCH_SOUND,
-            name="Voice",
+            REDACTED_VALUE"voice",
             icon="mdi:account-voice",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SLEEP,
-            name="Sleep",
+            REDACTED_VALUE"sleep",
             icon="mdi:power-sleep",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.STERILIZATION,
-            name="Sterilization",
+            REDACTED_VALUE"sterilization",
             icon="mdi:minus-circle-outline",
             entity_category=EntityCategory.CONFIG,
         ),
