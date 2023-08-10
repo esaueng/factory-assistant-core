@@ -105,11 +105,11 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
             REDACTED_VALUE"plug",
         ),
     ),
-    # Cirquit Breaker
+    # Circuit Breaker
     "dlq": (
         SwitchEntityDescription(
             key=DPCode.CHILD_LOCK,
-            REDACTED_VALUE"asd",
+            REDACTED_VALUE"child_lock",
             icon="mdi:account-lock",
             entity_category=EntityCategory.CONFIG,
         ),
