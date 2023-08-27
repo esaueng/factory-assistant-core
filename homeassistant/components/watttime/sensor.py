@@ -36,14 +36,14 @@ SENSOR_TYPE_REALTIME_EMISSIONS_PERCENT = "percent"
 REALTIME_EMISSIONS_SENSOR_DESCRIPTIONS = (
     SensorEntityDescription(
         key=SENSOR_TYPE_REALTIME_EMISSIONS_MOER,
-        name="Marginal operating emissions rate",
+        REDACTED_VALUE"marginal_operating_emissions_rate",
         icon="mdi:blur",
         native_unit_of_measurement=f"{UnitOfMass.POUNDS} CO2/MWh",
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key=SENSOR_TYPE_REALTIME_EMISSIONS_PERCENT,
-        name="Relative marginal emissions intensity",
+        REDACTED_VALUE"relative_marginal_emissions_intensity",
         icon="mdi:blur",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
