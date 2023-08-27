@@ -18,6 +18,18 @@ from .entity import NextcloudEntity
 
 BINARY_SENSORS: Final[list[BinarySensorEntityDescription]] = [
     BinarySensorEntityDescription(
+        key="jit_enabled",
+        REDACTED_VALUE"nextcloud_jit_enabled",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    BinarySensorEntityDescription(
+        key="jit_on",
+        REDACTED_VALUE"nextcloud_jit_on",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    BinarySensorEntityDescription(
         key="system_debug",
         REDACTED_VALUE"nextcloud_system_debug",
         entity_category=EntityCategory.DIAGNOSTIC,
