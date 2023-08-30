@@ -17,7 +17,7 @@ async def async_setup_entry(
 
     entity = AuroraSensor(
         coordinator=coordinator,
-        name=f"{coordinator.name} Aurora Visibility %",
+        REDACTED_VALUE"visibility",
         icon="mdi:gauge",
     )
 

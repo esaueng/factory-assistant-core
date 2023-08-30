@@ -55,7 +55,7 @@ class ReolinkNVRSwitchEntityDescription(
 SWITCH_ENTITIES = (
     ReolinkSwitchEntityDescription(
         key="record_audio",
-        name="Record audio",
+        REDACTED_VALUE"record_audio",
         icon="mdi:microphone",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "audio"),
@@ -64,7 +64,7 @@ SWITCH_ENTITIES = (
     ),
     ReolinkSwitchEntityDescription(
         key="siren_on_event",
-        name="Siren on event",
+        REDACTED_VALUE"siren_on_event",
         icon="mdi:alarm-light",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "siren"),
@@ -73,7 +73,7 @@ SWITCH_ENTITIES = (
     ),
     ReolinkSwitchEntityDescription(
         key="auto_tracking",
-        name="Auto tracking",
+        REDACTED_VALUE"auto_tracking",
         icon="mdi:target-account",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "auto_track"),
@@ -82,7 +82,7 @@ SWITCH_ENTITIES = (
     ),
     ReolinkSwitchEntityDescription(
         key="auto_focus",
-        name="Auto focus",
+        REDACTED_VALUE"auto_focus",
         icon="mdi:focus-field",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "auto_focus"),
@@ -91,7 +91,7 @@ SWITCH_ENTITIES = (
     ),
     ReolinkSwitchEntityDescription(
         key="gaurd_return",
-        name="Guard return",
+        REDACTED_VALUE"gaurd_return",
         icon="mdi:crosshairs-gps",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "ptz_guard"),
@@ -100,7 +100,7 @@ SWITCH_ENTITIES = (
     ),
     ReolinkSwitchEntityDescription(
         key="email",
-        name="Email on event",
+        REDACTED_VALUE"email",
         icon="mdi:email",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "email") and api.is_nvr,
@@ -109,7 +109,7 @@ SWITCH_ENTITIES = (
     ),
     ReolinkSwitchEntityDescription(
         key="ftp_upload",
-        name="FTP upload",
+        REDACTED_VALUE"ftp_upload",
         icon="mdi:swap-horizontal",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "ftp") and api.is_nvr,
@@ -118,7 +118,7 @@ SWITCH_ENTITIES = (
     ),
     ReolinkSwitchEntityDescription(
         key="push_notifications",
-        name="Push notifications",
+        REDACTED_VALUE"push_notifications",
         icon="mdi:message-badge",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "push") and api.is_nvr,
@@ -127,7 +127,7 @@ SWITCH_ENTITIES = (
     ),
     ReolinkSwitchEntityDescription(
         key="record",
-        name="Record",
+        REDACTED_VALUE"record",
         icon="mdi:record-rec",
         supported=lambda api, ch: api.supported(ch, "recording") and api.is_nvr,
         value=lambda api, ch: api.recording_enabled(ch),
@@ -135,7 +135,7 @@ SWITCH_ENTITIES = (
     ),
     ReolinkSwitchEntityDescription(
         key="buzzer",
-        name="Buzzer on event",
+        REDACTED_VALUE"buzzer",
         icon="mdi:room-service",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "buzzer") and api.is_nvr,
@@ -144,7 +144,7 @@ SWITCH_ENTITIES = (
     ),
     ReolinkSwitchEntityDescription(
         key="doorbell_button_sound",
-        name="Doorbell button sound",
+        REDACTED_VALUE"doorbell_button_sound",
         icon="mdi:volume-high",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "doorbell_button_sound"),
@@ -156,7 +156,7 @@ SWITCH_ENTITIES = (
 NVR_SWITCH_ENTITIES = (
     ReolinkNVRSwitchEntityDescription(
         key="email",
-        name="Email on event",
+        REDACTED_VALUE"email",
         icon="mdi:email",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api: api.supported(None, "email"),
@@ -165,7 +165,7 @@ NVR_SWITCH_ENTITIES = (
     ),
     ReolinkNVRSwitchEntityDescription(
         key="ftp_upload",
-        name="FTP upload",
+        REDACTED_VALUE"ftp_upload",
         icon="mdi:swap-horizontal",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api: api.supported(None, "ftp"),
@@ -174,7 +174,7 @@ NVR_SWITCH_ENTITIES = (
     ),
     ReolinkNVRSwitchEntityDescription(
         key="push_notifications",
-        name="Push notifications",
+        REDACTED_VALUE"push_notifications",
         icon="mdi:message-badge",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api: api.supported(None, "push"),
@@ -183,7 +183,7 @@ NVR_SWITCH_ENTITIES = (
     ),
     ReolinkNVRSwitchEntityDescription(
         key="record",
-        name="Record",
+        REDACTED_VALUE"record",
         icon="mdi:record-rec",
         supported=lambda api: api.supported(None, "recording"),
         value=lambda api: api.recording_enabled(),
@@ -191,7 +191,7 @@ NVR_SWITCH_ENTITIES = (
     ),
     ReolinkNVRSwitchEntityDescription(
         key="buzzer",
-        name="Buzzer on event",
+        REDACTED_VALUE"buzzer",
         icon="mdi:room-service",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api: api.supported(None, "buzzer"),
