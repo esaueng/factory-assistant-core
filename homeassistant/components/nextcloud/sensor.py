@@ -1,8 +1,10 @@
 """Summary data from Nextcoud."""
 from __future__ import annotations
 
-from datetime import UTC, datetime
-from typing import Final, cast
+from collections.abc import Callable
+from dataclasses import dataclass
+from datetime import datetime
+from typing import Final
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -18,7 +20,7 @@ from homeassistant.const import (
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from homeassistant.helpers.typing import StateType
+from homeassistant.util.dt import utc_from_timestamp
 
 from .const import DOMAIN
 from .coordinator import NextcloudDataUpdateCoordinator
@@ -26,32 +28,42 @@ from .entity import NextcloudEntity
 
 UNIT_OF_LOAD: Final[str] = "load"
 
-SENSORS: Final[list[SensorEntityDescription]] = [
-    SensorEntityDescription(
+
+@dataclass
+class NextcloudSensorEntityDescription(SensorEntityDescription):
+    """Describes Nextcloud sensor entity."""
+
+    value_fn: Callable[
+        [str | int | float], str | int | float | datetime
+    ] = lambda value: value
+
+
+SENSORS: Final[list[NextcloudSensorEntityDescription]] = [
+    NextcloudSensorEntityDescription(
         key="activeUsers_last1hour",
         REDACTED_VALUE"nextcloud_activeusers_last1hour",
         entity_category=EntityCategory.DIAGNOSTIC,
         icon="mdi:account-multiple",
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="activeUsers_last24hours",
         REDACTED_VALUE"nextcloud_activeusers_last24hours",
         entity_category=EntityCategory.DIAGNOSTIC,
         icon="mdi:account-multiple",
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="activeUsers_last5minutes",
         REDACTED_VALUE"nextcloud_activeusers_last5minutes",
         entity_category=EntityCategory.DIAGNOSTIC,
         icon="mdi:account-multiple",
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="cache_expunges",
         REDACTED_VALUE"nextcloud_cache_expunges",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="cache_mem_size",
         REDACTED_VALUE"nextcloud_cache_mem_size",
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -60,56 +72,57 @@ SENSORS: Final[list[SensorEntityDescription]] = [
         suggested_display_precision=1,
         suggested_unit_of_measurement=UnitOfInformation.MEGABYTES,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="cache_memory_type",
         REDACTED_VALUE"nextcloud_cache_memory_type",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="cache_num_entries",
         REDACTED_VALUE"nextcloud_cache_num_entries",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="cache_num_hits",
         REDACTED_VALUE"nextcloud_cache_num_hits",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="cache_num_inserts",
         REDACTED_VALUE"nextcloud_cache_num_inserts",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="cache_num_misses",
         REDACTED_VALUE"nextcloud_cache_num_misses",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="cache_num_slots",
         REDACTED_VALUE"nextcloud_cache_num_slots",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="cache_start_time",
         REDACTED_VALUE"nextcloud_cache_start_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
+        value_fn=lambda val: utc_from_timestamp(float(val)),
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="cache_ttl",
         REDACTED_VALUE"nextcloud_cache_ttl",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="database_size",
         REDACTED_VALUE"nextcloud_database_size",
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -118,19 +131,19 @@ SENSORS: Final[list[SensorEntityDescription]] = [
         suggested_display_precision=1,
         suggested_unit_of_measurement=UnitOfInformation.MEGABYTES,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="database_type",
         REDACTED_VALUE"nextcloud_database_type",
         entity_category=EntityCategory.DIAGNOSTIC,
         icon="mdi:database",
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="database_version",
         REDACTED_VALUE"nextcloud_database_version",
         entity_category=EntityCategory.DIAGNOSTIC,
         icon="mdi:database",
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="interned_strings_usage_buffer_size",
         REDACTED_VALUE"nextcloud_interned_strings_usage_buffer_size",
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -140,7 +153,7 @@ SENSORS: Final[list[SensorEntityDescription]] = [
         suggested_display_precision=1,
         suggested_unit_of_measurement=UnitOfInformation.MEGABYTES,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="interned_strings_usage_free_memory",
         REDACTED_VALUE"nextcloud_interned_strings_usage_free_memory",
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -150,13 +163,13 @@ SENSORS: Final[list[SensorEntityDescription]] = [
         suggested_display_precision=1,
         suggested_unit_of_measurement=UnitOfInformation.MEGABYTES,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="interned_strings_usage_number_of_strings",
         REDACTED_VALUE"nextcloud_interned_strings_usage_number_of_strings",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="interned_strings_usage_used_memory",
         REDACTED_VALUE"nextcloud_interned_strings_usage_used_memory",
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -166,7 +179,7 @@ SENSORS: Final[list[SensorEntityDescription]] = [
         suggested_display_precision=1,
         suggested_unit_of_measurement=UnitOfInformation.MEGABYTES,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="jit_buffer_free",
         REDACTED_VALUE"nextcloud_jit_buffer_free",
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -176,7 +189,7 @@ SENSORS: Final[list[SensorEntityDescription]] = [
         suggested_display_precision=1,
         suggested_unit_of_measurement=UnitOfInformation.MEGABYTES,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="jit_buffer_size",
         REDACTED_VALUE"nextcloud_jit_buffer_size",
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -186,93 +199,94 @@ SENSORS: Final[list[SensorEntityDescription]] = [
         suggested_display_precision=1,
         suggested_unit_of_measurement=UnitOfInformation.MEGABYTES,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="jit_kind",
         REDACTED_VALUE"nextcloud_jit_kind",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="jit_opt_flags",
         REDACTED_VALUE"nextcloud_jit_opt_flags",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="jit_opt_level",
         REDACTED_VALUE"nextcloud_jit_opt_level",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="opcache_statistics_blacklist_miss_ratio",
         REDACTED_VALUE"nextcloud_opcache_statistics_blacklist_miss_ratio",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         native_unit_of_measurement=PERCENTAGE,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="opcache_statistics_blacklist_misses",
         REDACTED_VALUE"nextcloud_opcache_statistics_blacklist_misses",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="opcache_statistics_hash_restarts",
         REDACTED_VALUE"nextcloud_opcache_statistics_hash_restarts",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="opcache_statistics_hits",
         REDACTED_VALUE"nextcloud_opcache_statistics_hits",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="opcache_statistics_last_restart_time",
         REDACTED_VALUE"nextcloud_opcache_statistics_last_restart_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
+        value_fn=lambda val: utc_from_timestamp(float(val)),
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="opcache_statistics_manual_restarts",
         REDACTED_VALUE"nextcloud_opcache_statistics_manual_restarts",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="opcache_statistics_max_cached_keys",
         REDACTED_VALUE"nextcloud_opcache_statistics_max_cached_keys",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="opcache_statistics_misses",
         REDACTED_VALUE"nextcloud_opcache_statistics_misses",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="opcache_statistics_num_cached_keys",
         REDACTED_VALUE"nextcloud_opcache_statistics_num_cached_keys",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="opcache_statistics_num_cached_scripts",
         REDACTED_VALUE"nextcloud_opcache_statistics_num_cached_scripts",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="opcache_statistics_oom_restarts",
         REDACTED_VALUE"nextcloud_opcache_statistics_oom_restarts",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="opcache_statistics_opcache_hit_rate",
         REDACTED_VALUE"nextcloud_opcache_statistics_opcache_hit_rate",
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -280,14 +294,15 @@ SENSORS: Final[list[SensorEntityDescription]] = [
         native_unit_of_measurement=PERCENTAGE,
         suggested_display_precision=1,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="opcache_statistics_start_time",
         REDACTED_VALUE"nextcloud_opcache_statistics_start_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
+        value_fn=lambda val: utc_from_timestamp(float(val)),
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="server_php_opcache_memory_usage_current_wasted_percentage",
         REDACTED_VALUE"nextcloud_server_php_opcache_memory_usage_current_wasted_percentage",
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -296,7 +311,7 @@ SENSORS: Final[list[SensorEntityDescription]] = [
         native_unit_of_measurement=PERCENTAGE,
         suggested_display_precision=1,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="server_php_opcache_memory_usage_free_memory",
         REDACTED_VALUE"nextcloud_server_php_opcache_memory_usage_free_memory",
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -307,7 +322,7 @@ SENSORS: Final[list[SensorEntityDescription]] = [
         suggested_display_precision=1,
         suggested_unit_of_measurement=UnitOfInformation.MEGABYTES,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="server_php_opcache_memory_usage_used_memory",
         REDACTED_VALUE"nextcloud_server_php_opcache_memory_usage_used_memory",
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -318,7 +333,7 @@ SENSORS: Final[list[SensorEntityDescription]] = [
         suggested_display_precision=1,
         suggested_unit_of_measurement=UnitOfInformation.MEGABYTES,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="server_php_opcache_memory_usage_wasted_memory",
         REDACTED_VALUE"nextcloud_server_php_opcache_memory_usage_wasted_memory",
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -329,7 +344,7 @@ SENSORS: Final[list[SensorEntityDescription]] = [
         suggested_display_precision=1,
         suggested_unit_of_measurement=UnitOfInformation.MEGABYTES,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="server_php_max_execution_time",
         REDACTED_VALUE"nextcloud_server_php_max_execution_time",
         device_class=SensorDeviceClass.DURATION,
@@ -337,7 +352,7 @@ SENSORS: Final[list[SensorEntityDescription]] = [
         icon="mdi:language-php",
         native_unit_of_measurement=UnitOfTime.SECONDS,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="server_php_memory_limit",
         REDACTED_VALUE"nextcloud_server_php_memory_limit",
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -347,7 +362,7 @@ SENSORS: Final[list[SensorEntityDescription]] = [
         suggested_display_precision=1,
         suggested_unit_of_measurement=UnitOfInformation.MEGABYTES,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="server_php_upload_max_filesize",
         REDACTED_VALUE"nextcloud_server_php_upload_max_filesize",
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -357,62 +372,62 @@ SENSORS: Final[list[SensorEntityDescription]] = [
         suggested_display_precision=1,
         suggested_unit_of_measurement=UnitOfInformation.MEGABYTES,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="server_php_version",
         REDACTED_VALUE"nextcloud_server_php_version",
         entity_category=EntityCategory.DIAGNOSTIC,
         icon="mdi:language-php",
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="server_webserver",
         REDACTED_VALUE"nextcloud_server_webserver",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="shares_num_fed_shares_sent",
         REDACTED_VALUE"nextcloud_shares_num_fed_shares_sent",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="shares_num_fed_shares_received",
         REDACTED_VALUE"nextcloud_shares_num_fed_shares_received",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="shares_num_shares",
         REDACTED_VALUE"nextcloud_shares_num_shares",
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="shares_num_shares_groups",
         REDACTED_VALUE"nextcloud_shares_num_shares_groups",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="shares_num_shares_link",
         REDACTED_VALUE"nextcloud_shares_num_shares_link",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="shares_num_shares_link_no_password",
         REDACTED_VALUE"nextcloud_shares_num_shares_link_no_password",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="shares_num_shares_mail",
         REDACTED_VALUE"nextcloud_shares_num_shares_mail",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="shares_num_shares_room",
         REDACTED_VALUE"nextcloud_shares_num_shares_room",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
-    SensorEntityDescription(
-        key="server_num_shares_user",
+    NextcloudSensorEntityDescription(
+        key="shares_num_shares_user",
         REDACTED_VALUE"nextcloud_shares_num_shares_user",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="sma_avail_mem",
         REDACTED_VALUE"nextcloud_sma_avail_mem",
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -422,13 +437,13 @@ SENSORS: Final[list[SensorEntityDescription]] = [
         suggested_display_precision=1,
         suggested_unit_of_measurement=UnitOfInformation.MEGABYTES,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="sma_num_seg",
         REDACTED_VALUE"nextcloud_sma_num_seg",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="sma_seg_size",
         REDACTED_VALUE"nextcloud_sma_seg_size",
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -438,64 +453,64 @@ SENSORS: Final[list[SensorEntityDescription]] = [
         suggested_display_precision=1,
         suggested_unit_of_measurement=UnitOfInformation.MEGABYTES,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="storage_num_files",
         REDACTED_VALUE"nextcloud_storage_num_files",
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="storage_num_storages",
         REDACTED_VALUE"nextcloud_storage_num_storages",
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="storage_num_storages_home",
         REDACTED_VALUE"nextcloud_storage_num_storages_home",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="storage_num_storages_local",
         REDACTED_VALUE"nextcloud_storage_num_storages_local",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="storage_num_storages_other",
         REDACTED_VALUE"nextcloud_storage_num_storages_other",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="storage_num_users",
         REDACTED_VALUE"nextcloud_storage_num_users",
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="system_apps_num_installed",
         REDACTED_VALUE"nextcloud_system_apps_num_installed",
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="system_apps_num_updates_available",
         REDACTED_VALUE"nextcloud_system_apps_num_updates_available",
         icon="mdi:update",
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="system_cpuload_1",
         REDACTED_VALUE"nextcloud_system_cpuload_1",
         native_unit_of_measurement=UNIT_OF_LOAD,
         icon="mdi:chip",
         suggested_display_precision=2,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="system_cpuload_5",
         REDACTED_VALUE"nextcloud_system_cpuload_5",
         native_unit_of_measurement=UNIT_OF_LOAD,
         icon="mdi:chip",
         suggested_display_precision=2,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="system_cpuload_15",
         REDACTED_VALUE"nextcloud_system_cpuload_15",
         native_unit_of_measurement=UNIT_OF_LOAD,
         icon="mdi:chip",
         suggested_display_precision=2,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="system_freespace",
         REDACTED_VALUE"nextcloud_system_freespace",
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -504,7 +519,7 @@ SENSORS: Final[list[SensorEntityDescription]] = [
         suggested_display_precision=2,
         suggested_unit_of_measurement=UnitOfInformation.GIGABYTES,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="system_mem_free",
         REDACTED_VALUE"nextcloud_system_mem_free",
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -513,7 +528,7 @@ SENSORS: Final[list[SensorEntityDescription]] = [
         suggested_display_precision=2,
         suggested_unit_of_measurement=UnitOfInformation.GIGABYTES,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="system_mem_total",
         REDACTED_VALUE"nextcloud_system_mem_total",
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -522,25 +537,25 @@ SENSORS: Final[list[SensorEntityDescription]] = [
         suggested_display_precision=2,
         suggested_unit_of_measurement=UnitOfInformation.GIGABYTES,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="system_memcache.distributed",
         REDACTED_VALUE"nextcloud_system_memcache_distributed",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="system_memcache.local",
         REDACTED_VALUE"nextcloud_system_memcache_local",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="system_memcache.locking",
         REDACTED_VALUE"nextcloud_system_memcache_locking",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="system_swap_total",
         REDACTED_VALUE"nextcloud_system_swap_total",
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -549,7 +564,7 @@ SENSORS: Final[list[SensorEntityDescription]] = [
         suggested_display_precision=2,
         suggested_unit_of_measurement=UnitOfInformation.GIGABYTES,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="system_swap_free",
         REDACTED_VALUE"nextcloud_system_swap_free",
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -558,11 +573,11 @@ SENSORS: Final[list[SensorEntityDescription]] = [
         suggested_display_precision=2,
         suggested_unit_of_measurement=UnitOfInformation.GIGABYTES,
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="system_theme",
         REDACTED_VALUE"nextcloud_system_theme",
     ),
-    SensorEntityDescription(
+    NextcloudSensorEntityDescription(
         key="system_version",
         REDACTED_VALUE"nextcloud_system_version",
     ),
@@ -586,13 +601,10 @@ async def async_setup_entry(
 class NextcloudSensor(NextcloudEntity, SensorEntity):
     """Represents a Nextcloud sensor."""
 
+    entity_description: NextcloudSensorEntityDescription
+
     @property
-    def native_value(self) -> StateType | datetime:
+    def native_value(self) -> str | int | float | datetime:
         """Return the state for this sensor."""
         val = self.coordinator.data.get(self.entity_description.key)
-        if (
-            getattr(self.entity_description, "device_class", None)
-            == SensorDeviceClass.TIMESTAMP
-        ):
-            return datetime.fromtimestamp(cast(int, val), tz=UTC)
-        return val
+        return self.entity_description.value_fn(val)  # type: ignore[arg-type]
