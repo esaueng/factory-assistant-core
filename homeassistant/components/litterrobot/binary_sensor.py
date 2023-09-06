@@ -48,7 +48,7 @@ class LitterRobotBinarySensorEntity(LitterRobotEntity[_RobotT], BinarySensorEnti
 
 
 BINARY_SENSOR_MAP: dict[type[Robot], tuple[RobotBinarySensorEntityDescription, ...]] = {
-    LitterRobot: (
+    LitterRobot: (  # type: ignore[type-abstract]  # only used for isinstance check
         RobotBinarySensorEntityDescription[LitterRobot](
             key="sleeping",
             REDACTED_VALUE"sleeping",
@@ -66,7 +66,7 @@ BINARY_SENSOR_MAP: dict[type[Robot], tuple[RobotBinarySensorEntityDescription, .
             is_on_fn=lambda robot: robot.sleep_mode_enabled,
         ),
     ),
-    Robot: (
+    Robot: (  # type: ignore[type-abstract]  # only used for isinstance check
         RobotBinarySensorEntityDescription[Robot](
             key="power_status",
             REDACTED_VALUE"power_status",

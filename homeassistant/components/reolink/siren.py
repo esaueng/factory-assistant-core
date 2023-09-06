@@ -33,7 +33,7 @@ class ReolinkSirenEntityDescription(SirenEntityDescription):
 SIREN_ENTITIES = (
     ReolinkSirenEntityDescription(
         key="siren",
-        name="Siren",
+        REDACTED_VALUE"siren",
         icon="mdi:alarm-light",
         supported=lambda api, ch: api.supported(ch, "siren_play"),
     ),

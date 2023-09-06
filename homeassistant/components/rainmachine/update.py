@@ -44,7 +44,6 @@ UPDATE_STATE_MAP = {
 
 UPDATE_DESCRIPTION = RainMachineEntityDescription(
     key="update",
-    REDACTED_VALUE"firmware",
     api_category=DATA_MACHINE_FIRMWARE_UPDATE_STATUS,
 )
 
