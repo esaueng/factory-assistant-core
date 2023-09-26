@@ -31,12 +31,12 @@ from .entity import HydrawiseEntity
 SWITCH_TYPES: tuple[SwitchEntityDescription, ...] = (
     SwitchEntityDescription(
         key="auto_watering",
-        name="Automatic Watering",
+        REDACTED_VALUE"auto_watering",
         device_class=SwitchDeviceClass.SWITCH,
     ),
     SwitchEntityDescription(
         key="manual_watering",
-        name="Manual Watering",
+        REDACTED_VALUE"manual_watering",
         device_class=SwitchDeviceClass.SWITCH,
     ),
 )
