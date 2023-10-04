@@ -50,7 +50,7 @@ class WLEDSensorEntityDescription(
 SENSORS: tuple[WLEDSensorEntityDescription, ...] = (
     WLEDSensorEntityDescription(
         key="estimated_current",
-        name="Estimated current",
+        REDACTED_VALUE"estimated_current",
         native_unit_of_measurement=UnitOfElectricCurrent.MILLIAMPERE,
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -60,13 +60,13 @@ SENSORS: tuple[WLEDSensorEntityDescription, ...] = (
     ),
     WLEDSensorEntityDescription(
         key="info_leds_count",
-        name="LED count",
+        REDACTED_VALUE"info_leds_count",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda device: device.info.leds.count,
     ),
     WLEDSensorEntityDescription(
         key="info_leds_max_power",
-        name="Max current",
+        REDACTED_VALUE"info_leds_max_power",
         native_unit_of_measurement=UnitOfElectricCurrent.MILLIAMPERE,
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.CURRENT,
@@ -75,7 +75,7 @@ SENSORS: tuple[WLEDSensorEntityDescription, ...] = (
     ),
     WLEDSensorEntityDescription(
         key="uptime",
-        name="Uptime",
+        REDACTED_VALUE"uptime",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -83,7 +83,7 @@ SENSORS: tuple[WLEDSensorEntityDescription, ...] = (
     ),
     WLEDSensorEntityDescription(
         key="free_heap",
-        name="Free memory",
+        REDACTED_VALUE"free_heap",
         icon="mdi:memory",
         native_unit_of_measurement=UnitOfInformation.BYTES,
         state_class=SensorStateClass.MEASUREMENT,
@@ -94,7 +94,7 @@ SENSORS: tuple[WLEDSensorEntityDescription, ...] = (
     ),
     WLEDSensorEntityDescription(
         key="wifi_signal",
-        name="Wi-Fi signal",
+        REDACTED_VALUE"wifi_signal",
         icon="mdi:wifi",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -104,7 +104,7 @@ SENSORS: tuple[WLEDSensorEntityDescription, ...] = (
     ),
     WLEDSensorEntityDescription(
         key="wifi_rssi",
-        name="Wi-Fi RSSI",
+        REDACTED_VALUE"wifi_rssi",
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         state_class=SensorStateClass.MEASUREMENT,
@@ -114,7 +114,7 @@ SENSORS: tuple[WLEDSensorEntityDescription, ...] = (
     ),
     WLEDSensorEntityDescription(
         key="wifi_channel",
-        name="Wi-Fi channel",
+        REDACTED_VALUE"wifi_channel",
         icon="mdi:wifi",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -122,7 +122,7 @@ SENSORS: tuple[WLEDSensorEntityDescription, ...] = (
     ),
     WLEDSensorEntityDescription(
         key="wifi_bssid",
-        name="Wi-Fi BSSID",
+        REDACTED_VALUE"wifi_bssid",
         icon="mdi:wifi",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -130,7 +130,7 @@ SENSORS: tuple[WLEDSensorEntityDescription, ...] = (
     ),
     WLEDSensorEntityDescription(
         key="ip",
-        name="IP",
+        REDACTED_VALUE"ip",
         icon="mdi:ip-network",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda device: device.info.ip,
