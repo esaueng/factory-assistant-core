@@ -21,23 +21,22 @@ PARALLEL_UPDATES = 0
 BINARY_SENSOR_TYPES: tuple[BinarySensorEntityDescription, ...] = (
     BinarySensorEntityDescription(
         key="backlight",
-        name="Backlight",
+        REDACTED_VALUE"backlight",
         icon="mdi:clock-digital",
     ),
     BinarySensorEntityDescription(
         key="app_online",
-        name="App online",
+        REDACTED_VALUE"app_online",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     BinarySensorEntityDescription(
         key="isCharging",
-        name="Charging",
         device_class=BinarySensorDeviceClass.BATTERY_CHARGING,
     ),
     BinarySensorEntityDescription(
         key="inputDetected",
-        name="Input detected",
+        REDACTED_VALUE"input_detected",
         device_class=BinarySensorDeviceClass.POWER,
     ),
 )
