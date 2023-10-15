@@ -119,7 +119,7 @@ RtmAPI==0.7.2
 
 # homeassistant.components.recorder
 # homeassistant.components.sql
-SQLAlchemy==2.0.21
+SQLAlchemy==2.0.22
 
 # homeassistant.components.tami4
 REDACTED_VALUE==2.1
