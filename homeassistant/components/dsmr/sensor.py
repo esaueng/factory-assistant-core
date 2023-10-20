@@ -357,6 +357,22 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     DSMRSensorEntityDescription(
+        key="belgium_current_average_demand",
+        REDACTED_VALUE"current_average_demand",
+        obis_reference=obis_references.BELGIUM_CURRENT_AVERAGE_DEMAND,
+        dsmr_versions={"5B"},
+        force_update=True,
+        device_class=SensorDeviceClass.POWER,
+    ),
+    DSMRSensorEntityDescription(
+        key="belgium_maximum_demand_current_month",
+        REDACTED_VALUE"maximum_demand_current_month",
+        obis_reference=obis_references.BELGIUM_MAXIMUM_DEMAND_MONTH,
+        dsmr_versions={"5B"},
+        force_update=True,
+        device_class=SensorDeviceClass.POWER,
+    ),
+    DSMRSensorEntityDescription(
         key="hourly_gas_meter_reading",
         REDACTED_VALUE"gas_meter_reading",
         obis_reference=obis_references.HOURLY_GAS_METER_READING,
