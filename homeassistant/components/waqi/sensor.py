@@ -241,6 +241,14 @@ SENSORS: list[WAQISensorEntityDescription] = [
         available_fn=lambda aq: aq.extended_air_quality.pm25 is not None,
     ),
     WAQISensorEntityDescription(
+        key="neph",
+        REDACTED_VALUE"neph",
+        state_class=SensorStateClass.MEASUREMENT,
+        value_fn=lambda aq: aq.extended_air_quality.nephelometry,
+        available_fn=lambda aq: aq.extended_air_quality.nephelometry is not None,
+        entity_registry_enabled_default=False,
+    ),
+    WAQISensorEntityDescription(
         key="dominant_pollutant",
         REDACTED_VALUE"dominant_pollutant",
         device_class=SensorDeviceClass.ENUM,
