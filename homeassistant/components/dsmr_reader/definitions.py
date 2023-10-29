@@ -141,6 +141,7 @@ SENSORS: tuple[DSMRReaderSensorEntityDescription, ...] = (
         REDACTED_VALUE"gas_meter_usage",
         entity_registry_enabled_default=False,
         icon="mdi:fire",
+        device_class=SensorDeviceClass.GAS,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
@@ -209,6 +210,7 @@ SENSORS: tuple[DSMRReaderSensorEntityDescription, ...] = (
     DSMRReaderSensorEntityDescription(
         key="dsmr/consumption/gas/currently_delivered",
         REDACTED_VALUE"current_gas_usage",
+        device_class=SensorDeviceClass.GAS,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         state_class=SensorStateClass.MEASUREMENT,
     ),
@@ -283,6 +285,7 @@ SENSORS: tuple[DSMRReaderSensorEntityDescription, ...] = (
         key="dsmr/day-consumption/gas",
         REDACTED_VALUE"daily_gas_usage",
         icon="mdi:counter",
+        device_class=SensorDeviceClass.GAS,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
     ),
     DSMRReaderSensorEntityDescription(
@@ -460,6 +463,7 @@ SENSORS: tuple[DSMRReaderSensorEntityDescription, ...] = (
         key="dsmr/current-month/gas",
         REDACTED_VALUE"current_month_gas_usage",
         icon="mdi:counter",
+        device_class=SensorDeviceClass.GAS,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
     ),
     DSMRReaderSensorEntityDescription(
@@ -538,6 +542,7 @@ SENSORS: tuple[DSMRReaderSensorEntityDescription, ...] = (
         key="dsmr/current-year/gas",
         REDACTED_VALUE"current_year_gas_usage",
         icon="mdi:counter",
+        device_class=SensorDeviceClass.GAS,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
     ),
     DSMRReaderSensorEntityDescription(
