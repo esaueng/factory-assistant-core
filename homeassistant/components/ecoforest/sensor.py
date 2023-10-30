@@ -13,7 +13,12 @@ from homeassistant.components.sensor import (
     SensorEntityDescription,
 )
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import UnitOfTemperature
+from homeassistant.const import (
+    PERCENTAGE,
+    UnitOfPressure,
+    UnitOfTemperature,
+    UnitOfTime,
+)
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import StateType
@@ -87,6 +92,59 @@ SENSOR_TYPES: tuple[EcoforestSensorEntityDescription, ...] = (
         options=ALARM_TYPE,
         icon="mdi:alert",
         value_fn=lambda data: data.alarm.value if data.alarm else "none",
+    ),
+    EcoforestSensorEntityDescription(
+        key="depression",
+        REDACTED_VALUE"depression",
+        native_unit_of_measurement=UnitOfPressure.PA,
+        device_class=SensorDeviceClass.ATMOSPHERIC_PRESSURE,
+        entity_registry_enabled_default=False,
+        value_fn=lambda data: data.depression,
+    ),
+    EcoforestSensorEntityDescription(
+        key="working_hours",
+        REDACTED_VALUE"working_hours",
+        native_unit_of_measurement=UnitOfTime.HOURS,
+        device_class=SensorDeviceClass.DURATION,
+        entity_registry_enabled_default=False,
+        value_fn=lambda data: data.working_hours,
+    ),
+    EcoforestSensorEntityDescription(
+        key="ignitions",
+        REDACTED_VALUE"ignitions",
+        native_unit_of_measurement="ignitions",
+        entity_registry_enabled_default=False,
+        value_fn=lambda data: data.ignitions,
+    ),
+    EcoforestSensorEntityDescription(
+        key="live_pulse",
+        REDACTED_VALUE"live_pulse",
+        native_unit_of_measurement=UnitOfTime.SECONDS,
+        device_class=SensorDeviceClass.DURATION,
+        entity_registry_enabled_default=False,
+        value_fn=lambda data: data.live_pulse,
+    ),
+    EcoforestSensorEntityDescription(
+        key="pulse_offset",
+        REDACTED_VALUE"pulse_offset",
+        native_unit_of_measurement=UnitOfTime.SECONDS,
+        device_class=SensorDeviceClass.DURATION,
+        entity_registry_enabled_default=False,
+        value_fn=lambda data: data.pulse_offset,
+    ),
+    EcoforestSensorEntityDescription(
+        key="extractor",
+        REDACTED_VALUE"extractor",
+        native_unit_of_measurement=PERCENTAGE,
+        entity_registry_enabled_default=False,
+        value_fn=lambda data: data.extractor,
+    ),
+    EcoforestSensorEntityDescription(
+        key="convecto_air_flow",
+        REDACTED_VALUE"convecto_air_flow",
+        native_unit_of_measurement=PERCENTAGE,
+        entity_registry_enabled_default=False,
+        value_fn=lambda data: data.convecto_air_flow,
     ),
 )
 
