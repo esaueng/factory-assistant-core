@@ -25,8 +25,8 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="ph",
-        REDACTED_VALUE"ph",
         icon="mdi:pool",
+        device_class=SensorDeviceClass.PH,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(

@@ -29,8 +29,8 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="pH",
-        REDACTED_VALUE"ph",
         icon="mdi:pool",
+        device_class=SensorDeviceClass.PH,
     ),
     SensorEntityDescription(
         key="Battery",
