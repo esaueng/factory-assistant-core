@@ -220,6 +220,13 @@ BASE_SENSOR_TYPES: tuple[SystemBridgeSensorEntityDescription, ...] = (
         value=lambda data: f"{data.system.platform} {data.system.platform_version}",
     ),
     SystemBridgeSensorEntityDescription(
+        key="processes_count",
+        REDACTED_VALUE"processes",
+        state_class=SensorStateClass.MEASUREMENT,
+        icon="mdi:counter",
+        value=lambda data: int(data.processes.count),
+    ),
+    SystemBridgeSensorEntityDescription(
         key="processes_load",
         REDACTED_VALUE"load",
         state_class=SensorStateClass.MEASUREMENT,
