@@ -147,6 +147,9 @@
       },
       "REDACTED_VALUE": {
         "name": "Voltage swells phase L3"
+      },
+      "water_meter_reading": {
+        "name": "Water consumption"
       }
     }
   },
