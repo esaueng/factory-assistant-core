@@ -10,6 +10,7 @@ from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorEntity,
     SensorEntityDescription,
+    SensorStateClass,
 )
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
@@ -33,33 +34,37 @@ UNIT_OF_LOAD: Final[str] = "load"
 class NextcloudSensorEntityDescription(SensorEntityDescription):
     """Describes Nextcloud sensor entity."""
 
-    value_fn: Callable[
-        [str | int | float], str | int | float | datetime
-    ] = lambda value: value
+    value_fn: Callable[[str | int | float], str | int | float | datetime] = (
+        lambda value: value
+    )
 
 
 SENSORS: Final[list[NextcloudSensorEntityDescription]] = [
     NextcloudSensorEntityDescription(
         key="activeUsers_last1hour",
         REDACTED_VALUE"nextcloud_activeusers_last1hour",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         icon="mdi:account-multiple",
     ),
     NextcloudSensorEntityDescription(
         key="activeUsers_last24hours",
         REDACTED_VALUE"nextcloud_activeusers_last24hours",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         icon="mdi:account-multiple",
     ),
     NextcloudSensorEntityDescription(
         key="activeUsers_last5minutes",
         REDACTED_VALUE"nextcloud_activeusers_last5minutes",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         icon="mdi:account-multiple",
     ),
     NextcloudSensorEntityDescription(
         key="cache_expunges",
         REDACTED_VALUE"nextcloud_cache_expunges",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
@@ -81,30 +86,35 @@ SENSORS: Final[list[NextcloudSensorEntityDescription]] = [
     NextcloudSensorEntityDescription(
         key="cache_num_entries",
         REDACTED_VALUE"nextcloud_cache_num_entries",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
     NextcloudSensorEntityDescription(
         key="cache_num_hits",
         REDACTED_VALUE"nextcloud_cache_num_hits",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
     NextcloudSensorEntityDescription(
         key="cache_num_inserts",
         REDACTED_VALUE"nextcloud_cache_num_inserts",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
     NextcloudSensorEntityDescription(
         key="cache_num_misses",
         REDACTED_VALUE"nextcloud_cache_num_misses",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
     NextcloudSensorEntityDescription(
         key="cache_num_slots",
         REDACTED_VALUE"nextcloud_cache_num_slots",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
@@ -166,6 +176,7 @@ SENSORS: Final[list[NextcloudSensorEntityDescription]] = [
     NextcloudSensorEntityDescription(
         key="interned_strings_usage_number_of_strings",
         REDACTED_VALUE"nextcloud_interned_strings_usage_number_of_strings",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
@@ -220,6 +231,7 @@ SENSORS: Final[list[NextcloudSensorEntityDescription]] = [
     NextcloudSensorEntityDescription(
         key="opcache_statistics_blacklist_miss_ratio",
         REDACTED_VALUE"nextcloud_opcache_statistics_blacklist_miss_ratio",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         native_unit_of_measurement=PERCENTAGE,
@@ -227,18 +239,21 @@ SENSORS: Final[list[NextcloudSensorEntityDescription]] = [
     NextcloudSensorEntityDescription(
         key="opcache_statistics_blacklist_misses",
         REDACTED_VALUE"nextcloud_opcache_statistics_blacklist_misses",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
     NextcloudSensorEntityDescription(
         key="opcache_statistics_hash_restarts",
         REDACTED_VALUE"nextcloud_opcache_statistics_hash_restarts",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
     NextcloudSensorEntityDescription(
         key="opcache_statistics_hits",
         REDACTED_VALUE"nextcloud_opcache_statistics_hits",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
@@ -253,36 +268,42 @@ SENSORS: Final[list[NextcloudSensorEntityDescription]] = [
     NextcloudSensorEntityDescription(
         key="opcache_statistics_manual_restarts",
         REDACTED_VALUE"nextcloud_opcache_statistics_manual_restarts",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
     NextcloudSensorEntityDescription(
         key="opcache_statistics_max_cached_keys",
         REDACTED_VALUE"nextcloud_opcache_statistics_max_cached_keys",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
     NextcloudSensorEntityDescription(
         key="opcache_statistics_misses",
         REDACTED_VALUE"nextcloud_opcache_statistics_misses",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
     NextcloudSensorEntityDescription(
         key="opcache_statistics_num_cached_keys",
         REDACTED_VALUE"nextcloud_opcache_statistics_num_cached_keys",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
     NextcloudSensorEntityDescription(
         key="opcache_statistics_num_cached_scripts",
         REDACTED_VALUE"nextcloud_opcache_statistics_num_cached_scripts",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
     NextcloudSensorEntityDescription(
         key="opcache_statistics_oom_restarts",
         REDACTED_VALUE"nextcloud_opcache_statistics_oom_restarts",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
@@ -386,45 +407,54 @@ SENSORS: Final[list[NextcloudSensorEntityDescription]] = [
     NextcloudSensorEntityDescription(
         key="shares_num_fed_shares_sent",
         REDACTED_VALUE"nextcloud_shares_num_fed_shares_sent",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     NextcloudSensorEntityDescription(
         key="shares_num_fed_shares_received",
         REDACTED_VALUE"nextcloud_shares_num_fed_shares_received",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     NextcloudSensorEntityDescription(
         key="shares_num_shares",
         REDACTED_VALUE"nextcloud_shares_num_shares",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     NextcloudSensorEntityDescription(
         key="shares_num_shares_groups",
         REDACTED_VALUE"nextcloud_shares_num_shares_groups",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     NextcloudSensorEntityDescription(
         key="shares_num_shares_link",
         REDACTED_VALUE"nextcloud_shares_num_shares_link",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     NextcloudSensorEntityDescription(
         key="shares_num_shares_link_no_password",
         REDACTED_VALUE"nextcloud_shares_num_shares_link_no_password",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     NextcloudSensorEntityDescription(
         key="shares_num_shares_mail",
         REDACTED_VALUE"nextcloud_shares_num_shares_mail",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     NextcloudSensorEntityDescription(
         key="shares_num_shares_room",
         REDACTED_VALUE"nextcloud_shares_num_shares_room",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     NextcloudSensorEntityDescription(
         key="shares_num_shares_user",
         REDACTED_VALUE"nextcloud_shares_num_shares_user",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     NextcloudSensorEntityDescription(
@@ -440,6 +470,7 @@ SENSORS: Final[list[NextcloudSensorEntityDescription]] = [
     NextcloudSensorEntityDescription(
         key="sma_num_seg",
         REDACTED_VALUE"nextcloud_sma_num_seg",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
@@ -456,37 +487,45 @@ SENSORS: Final[list[NextcloudSensorEntityDescription]] = [
     NextcloudSensorEntityDescription(
         key="storage_num_files",
         REDACTED_VALUE"nextcloud_storage_num_files",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     NextcloudSensorEntityDescription(
         key="storage_num_storages",
         REDACTED_VALUE"nextcloud_storage_num_storages",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     NextcloudSensorEntityDescription(
         key="storage_num_storages_home",
         REDACTED_VALUE"nextcloud_storage_num_storages_home",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     NextcloudSensorEntityDescription(
         key="storage_num_storages_local",
         REDACTED_VALUE"nextcloud_storage_num_storages_local",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     NextcloudSensorEntityDescription(
         key="storage_num_storages_other",
         REDACTED_VALUE"nextcloud_storage_num_storages_other",
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     NextcloudSensorEntityDescription(
         key="storage_num_users",
         REDACTED_VALUE"nextcloud_storage_num_users",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     NextcloudSensorEntityDescription(
         key="system_apps_num_installed",
         REDACTED_VALUE"nextcloud_system_apps_num_installed",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     NextcloudSensorEntityDescription(
         key="system_apps_num_updates_available",
         REDACTED_VALUE"nextcloud_system_apps_num_updates_available",
+        state_class=SensorStateClass.MEASUREMENT,
         icon="mdi:update",
     ),
     NextcloudSensorEntityDescription(
