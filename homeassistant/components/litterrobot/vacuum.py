@@ -47,7 +47,7 @@ LITTER_BOX_STATUS_STATE_MAP = {
 }
 
 LITTER_BOX_ENTITY = StateVacuumEntityDescription(
-    "litter_box", REDACTED_VALUE"litter_box"
+    key="litter_box", REDACTED_VALUE"litter_box"
 )
 
 
