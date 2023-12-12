@@ -54,16 +54,19 @@ BUTTONS: tuple[FullyButtonEntityDescription, ...] = (
     FullyButtonEntityDescription(
         key="toForeground",
         REDACTED_VALUE"to_foreground",
+        entity_category=EntityCategory.CONFIG,
         press_action=lambda fully: fully.toForeground(),
     ),
     FullyButtonEntityDescription(
         key="toBackground",
         REDACTED_VALUE"to_background",
+        entity_category=EntityCategory.CONFIG,
         press_action=lambda fully: fully.toBackground(),
     ),
     FullyButtonEntityDescription(
         key="loadStartUrl",
         REDACTED_VALUE"load_start_url",
+        entity_category=EntityCategory.CONFIG,
         press_action=lambda fully: fully.loadStartUrl(),
     ),
 )
