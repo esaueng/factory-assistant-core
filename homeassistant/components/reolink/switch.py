@@ -49,6 +49,16 @@ class ReolinkNVRSwitchEntityDescription(
 
 SWITCH_ENTITIES = (
     ReolinkSwitchEntityDescription(
+        key="ir_lights",
+        cmd_key="GetIrLights",
+        REDACTED_VALUE"ir_lights",
+        icon="mdi:led-off",
+        entity_category=EntityCategory.CONFIG,
+        supported=lambda api, ch: api.supported(ch, "ir_lights"),
+        value=lambda api, ch: api.ir_enabled(ch),
+        method=lambda api, ch, value: api.set_ir_lights(ch, value),
+    ),
+    ReolinkSwitchEntityDescription(
         key="record_audio",
         cmd_key="GetEnc",
         REDACTED_VALUE"record_audio",
