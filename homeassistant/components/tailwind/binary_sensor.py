@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from gotailwind import TailwindDoor
 
 from homeassistant.components.binary_sensor import (
+    BinarySensorDeviceClass,
     BinarySensorEntity,
     BinarySensorEntityDescription,
 )
@@ -30,10 +31,11 @@ class TailwindDoorBinarySensorEntityDescription(BinarySensorEntityDescription):
 DESCRIPTIONS: tuple[TailwindDoorBinarySensorEntityDescription, ...] = (
     TailwindDoorBinarySensorEntityDescription(
         key="locked_out",
-        REDACTED_VALUE"operational_status",
+        REDACTED_VALUE"operational_problem",
         entity_category=EntityCategory.DIAGNOSTIC,
+        device_class=BinarySensorDeviceClass.PROBLEM,
         icon="mdi:garage-alert",
-        is_on_fn=lambda door: not door.locked_out,
+        is_on_fn=lambda door: door.locked_out,
     ),
 )
 
