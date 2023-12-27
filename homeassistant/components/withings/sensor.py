@@ -233,6 +233,33 @@ MEASUREMENT_SENSORS: dict[
         REDACTED_VALUE"vascular_age",
         entity_registry_enabled_default=False,
     ),
+    MeasurementType.VISCERAL_FAT: WithingsMeasurementSensorEntityDescription(
+        key="visceral_fat",
+        measurement_type=MeasurementType.VISCERAL_FAT,
+        REDACTED_VALUE"visceral_fat_index",
+        entity_registry_enabled_default=False,
+    ),
+    MeasurementType.ELECTRODERMAL_ACTIVITY_FEET: WithingsMeasurementSensorEntityDescription(
+        key="electrodermal_activity_feet",
+        measurement_type=MeasurementType.ELECTRODERMAL_ACTIVITY_FEET,
+        REDACTED_VALUE"electrodermal_activity_feet",
+        native_unit_of_measurement=PERCENTAGE,
+        entity_registry_enabled_default=False,
+    ),
+    MeasurementType.ELECTRODERMAL_ACTIVITY_LEFT_FOOT: WithingsMeasurementSensorEntityDescription(
+        key="electrodermal_activity_left_foot",
+        measurement_type=MeasurementType.ELECTRODERMAL_ACTIVITY_LEFT_FOOT,
+        REDACTED_VALUE"electrodermal_activity_left_foot",
+        native_unit_of_measurement=PERCENTAGE,
+        entity_registry_enabled_default=False,
+    ),
+    MeasurementType.ELECTRODERMAL_ACTIVITY_RIGHT_FOOT: WithingsMeasurementSensorEntityDescription(
+        key="electrodermal_activity_right_foot",
+        measurement_type=MeasurementType.ELECTRODERMAL_ACTIVITY_RIGHT_FOOT,
+        REDACTED_VALUE"electrodermal_activity_right_foot",
+        native_unit_of_measurement=PERCENTAGE,
+        entity_registry_enabled_default=False,
+    ),
 }
 
 
