@@ -34,39 +34,53 @@ class NetgearLTESensorEntityDescription(SensorEntityDescription):
 SENSORS: tuple[NetgearLTESensorEntityDescription, ...] = (
     NetgearLTESensorEntityDescription(
         key="sms",
+        REDACTED_VALUE"sms",
         native_unit_of_measurement="unread",
         value_fn=lambda modem_data: sum(1 for x in modem_data.data.sms if x.unread),
     ),
     NetgearLTESensorEntityDescription(
         key="sms_total",
+        REDACTED_VALUE"sms_total",
         native_unit_of_measurement="messages",
         value_fn=lambda modem_data: len(modem_data.data.sms),
     ),
     NetgearLTESensorEntityDescription(
         key="usage",
+        REDACTED_VALUE"usage",
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.MEBIBYTES,
         value_fn=lambda modem_data: round(modem_data.data.usage / 1024**2, 1),
     ),
     NetgearLTESensorEntityDescription(
         key="radio_quality",
+        REDACTED_VALUE"radio_quality",
         native_unit_of_measurement=PERCENTAGE,
     ),
     NetgearLTESensorEntityDescription(
         key="rx_level",
+        REDACTED_VALUE"rx_level",
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
     ),
     NetgearLTESensorEntityDescription(
         key="tx_level",
+        REDACTED_VALUE"tx_level",
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
     ),
-    NetgearLTESensorEntityDescription(key="upstream"),
-    NetgearLTESensorEntityDescription(key="connection_text"),
-    NetgearLTESensorEntityDescription(key="connection_type"),
-    NetgearLTESensorEntityDescription(key="current_ps_service_type"),
-    NetgearLTESensorEntityDescription(key="register_network_display"),
-    NetgearLTESensorEntityDescription(key="current_band"),
-    NetgearLTESensorEntityDescription(key="cell_id"),
+    NetgearLTESensorEntityDescription(key="upstream", REDACTED_VALUE"upstream"),
+    NetgearLTESensorEntityDescription(
+        key="connection_text", REDACTED_VALUE"connection_text"
+    ),
+    NetgearLTESensorEntityDescription(
+        key="connection_type", REDACTED_VALUE"connection_type"
+    ),
+    NetgearLTESensorEntityDescription(
+        key="current_ps_service_type", REDACTED_VALUE"service_type"
+    ),
+    NetgearLTESensorEntityDescription(
+        key="register_network_display", REDACTED_VALUE"register_network_display"
+    ),
+    NetgearLTESensorEntityDescription(key="current_band", REDACTED_VALUE"band"),
+    NetgearLTESensorEntityDescription(key="cell_id", REDACTED_VALUE"cell_id"),
 )
 
 

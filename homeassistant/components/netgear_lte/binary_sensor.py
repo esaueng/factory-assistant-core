@@ -16,13 +16,16 @@ from .entity import LTEEntity
 BINARY_SENSORS: tuple[BinarySensorEntityDescription, ...] = (
     BinarySensorEntityDescription(
         key="roaming",
+        REDACTED_VALUE"roaming",
     ),
     BinarySensorEntityDescription(
         key="wire_connected",
+        REDACTED_VALUE"wire_connected",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
     ),
     BinarySensorEntityDescription(
         key="mobile_connected",
+        REDACTED_VALUE"mobile_connected",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
     ),
 )
