@@ -82,6 +82,12 @@
       },
       "cpu_temperature": {
         "name": "CPU Temperature"
+      },
+      "REDACTED_VALUE": {
+        "name": "5GHz Temperature (Radio 2)"
+      },
+      "6ghz_temperature": {
+        "name": "6GHz Temperature"
       }
     }
   },

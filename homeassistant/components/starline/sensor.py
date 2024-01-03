@@ -9,6 +9,7 @@ from homeassistant.components.sensor import (
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
     PERCENTAGE,
+    EntityCategory,
     UnitOfElectricPotential,
     UnitOfLength,
     UnitOfTemperature,
@@ -60,6 +61,7 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
         key="errors",
         REDACTED_VALUE"errors",
         icon="mdi:alert-octagon",
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     SensorEntityDescription(
         key="mileage",
