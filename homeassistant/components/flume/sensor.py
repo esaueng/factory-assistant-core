@@ -37,6 +37,7 @@ FLUME_QUERIES_SENSOR: tuple[SensorEntityDescription, ...] = (
         REDACTED_VALUE"current_interval",
         suggested_display_precision=2,
         native_unit_of_measurement=f"{UnitOfVolume.GALLONS}/m",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="month_to_date",
