@@ -121,5 +121,6 @@ class TailwindDoorCoverEntity(TailwindDoorEntity, CoverEntity):
                 translation_domain=DOMAIN,
                 REDACTED_VALUE"communication_error",
             ) from exc
-        self._attr_is_closing = False
+        finally:
+            self._attr_is_closing = False
         await self.coordinator.async_request_refresh()
