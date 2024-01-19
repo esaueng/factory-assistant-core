@@ -38,7 +38,6 @@ SENSOR_DESCRIPTIONS: tuple[SensorValueEntityDescription, ...] = (
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfInformation.MEGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
-        icon="mdi:network",
     ),
     SensorValueEntityDescription(
         key="downloadedMb",
@@ -46,7 +45,6 @@ SENSOR_DESCRIPTIONS: tuple[SensorValueEntityDescription, ...] = (
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfInformation.MEGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
-        icon="mdi:download-network",
     ),
     SensorValueEntityDescription(
         key="uploadedMb",
@@ -54,21 +52,18 @@ SENSOR_DESCRIPTIONS: tuple[SensorValueEntityDescription, ...] = (
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfInformation.MEGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
-        icon="mdi:upload-network",
     ),
     # Mobile Phone Services sensors
     SensorValueEntityDescription(
         key="national",
         REDACTED_VALUE"national_calls",
         state_class=SensorStateClass.TOTAL_INCREASING,
-        icon="mdi:phone",
         value=lambda x: x.get("calls"),
     ),
     SensorValueEntityDescription(
         key="mobile",
         REDACTED_VALUE"mobile_calls",
         state_class=SensorStateClass.TOTAL_INCREASING,
-        icon="mdi:phone",
         value=lambda x: x.get("calls"),
     ),
     SensorValueEntityDescription(
@@ -76,14 +71,12 @@ SENSOR_DESCRIPTIONS: tuple[SensorValueEntityDescription, ...] = (
         REDACTED_VALUE"international_calls",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL_INCREASING,
-        icon="mdi:phone-plus",
         value=lambda x: x.get("calls"),
     ),
     SensorValueEntityDescription(
         key="sms",
         REDACTED_VALUE"sms_sent",
         state_class=SensorStateClass.TOTAL_INCREASING,
-        icon="mdi:message-processing",
         value=lambda x: x.get("calls"),
     ),
     SensorValueEntityDescription(
@@ -92,7 +85,6 @@ SENSOR_DESCRIPTIONS: tuple[SensorValueEntityDescription, ...] = (
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfInformation.KILOBYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
-        icon="mdi:network",
         value=lambda x: x.get("kbytes"),
     ),
     SensorValueEntityDescription(
@@ -100,7 +92,6 @@ SENSOR_DESCRIPTIONS: tuple[SensorValueEntityDescription, ...] = (
         REDACTED_VALUE"voicemail_calls",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL_INCREASING,
-        icon="mdi:phone",
         value=lambda x: x.get("calls"),
     ),
     SensorValueEntityDescription(
@@ -108,7 +99,6 @@ SENSOR_DESCRIPTIONS: tuple[SensorValueEntityDescription, ...] = (
         REDACTED_VALUE"other_calls",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL_INCREASING,
-        icon="mdi:phone",
         value=lambda x: x.get("calls"),
     ),
     # Generic sensors
@@ -116,13 +106,11 @@ SENSOR_DESCRIPTIONS: tuple[SensorValueEntityDescription, ...] = (
         key="daysTotal",
         REDACTED_VALUE"billing_cycle_length",
         native_unit_of_measurement=UnitOfTime.DAYS,
-        icon="mdi:calendar-range",
     ),
     SensorValueEntityDescription(
         key="daysRemaining",
         REDACTED_VALUE"billing_cycle_remaining",
         native_unit_of_measurement=UnitOfTime.DAYS,
-        icon="mdi:calendar-clock",
     ),
 )
 
