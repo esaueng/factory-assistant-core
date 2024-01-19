@@ -19,7 +19,6 @@ async def async_setup_entry(
     entity = AuroraSensor(
         coordinator=coordinator,
         REDACTED_VALUE"visibility_alert",
-        icon="mdi:hazard-lights",
     )
 
     async_add_entries([entity])
