@@ -48,7 +48,6 @@ SENSORS: Final[tuple[HomeWizardSensorEntityDescription, ...]] = (
     HomeWizardSensorEntityDescription(
         key="smr_version",
         REDACTED_VALUE"dsmr_version",
-        icon="mdi:counter",
         entity_category=EntityCategory.DIAGNOSTIC,
         has_fn=lambda data: data.smr_version is not None,
         value_fn=lambda data: data.smr_version,
@@ -56,7 +55,6 @@ SENSORS: Final[tuple[HomeWizardSensorEntityDescription, ...]] = (
     HomeWizardSensorEntityDescription(
         key="meter_model",
         REDACTED_VALUE"meter_model",
-        icon="mdi:gauge",
         entity_category=EntityCategory.DIAGNOSTIC,
         has_fn=lambda data: data.meter_model is not None,
         value_fn=lambda data: data.meter_model,
@@ -64,7 +62,6 @@ SENSORS: Final[tuple[HomeWizardSensorEntityDescription, ...]] = (
     HomeWizardSensorEntityDescription(
         key="unique_meter_id",
         REDACTED_VALUE"unique_meter_id",
-        icon="mdi:alphabetical-variant",
         entity_category=EntityCategory.DIAGNOSTIC,
         has_fn=lambda data: data.unique_meter_id is not None,
         value_fn=lambda data: data.unique_meter_id,
@@ -72,7 +69,6 @@ SENSORS: Final[tuple[HomeWizardSensorEntityDescription, ...]] = (
     HomeWizardSensorEntityDescription(
         key="wifi_ssid",
         REDACTED_VALUE"wifi_ssid",
-        icon="mdi:wifi",
         entity_category=EntityCategory.DIAGNOSTIC,
         has_fn=lambda data: data.wifi_ssid is not None,
         value_fn=lambda data: data.wifi_ssid,
@@ -80,7 +76,6 @@ SENSORS: Final[tuple[HomeWizardSensorEntityDescription, ...]] = (
     HomeWizardSensorEntityDescription(
         key="active_tariff",
         REDACTED_VALUE"active_tariff",
-        icon="mdi:calendar-clock",
         has_fn=lambda data: data.active_tariff is not None,
         value_fn=lambda data: (
             None if data.active_tariff is None else str(data.active_tariff)
@@ -91,7 +86,6 @@ SENSORS: Final[tuple[HomeWizardSensorEntityDescription, ...]] = (
     HomeWizardSensorEntityDescription(
         key="wifi_strength",
         REDACTED_VALUE"wifi_strength",
-        icon="mdi:wifi",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -315,7 +309,6 @@ SENSORS: Final[tuple[HomeWizardSensorEntityDescription, ...]] = (
     HomeWizardSensorEntityDescription(
         key="REDACTED_VALUE",
         REDACTED_VALUE"REDACTED_VALUE",
-        icon="mdi:alert",
         entity_category=EntityCategory.DIAGNOSTIC,
         has_fn=lambda data: data.REDACTED_VALUE is not None,
         value_fn=lambda data: data.REDACTED_VALUE,
@@ -323,7 +316,6 @@ SENSORS: Final[tuple[HomeWizardSensorEntityDescription, ...]] = (
     HomeWizardSensorEntityDescription(
         key="REDACTED_VALUE",
         REDACTED_VALUE"REDACTED_VALUE",
-        icon="mdi:alert",
         entity_category=EntityCategory.DIAGNOSTIC,
         has_fn=lambda data: data.REDACTED_VALUE is not None,
         value_fn=lambda data: data.REDACTED_VALUE,
@@ -331,7 +323,6 @@ SENSORS: Final[tuple[HomeWizardSensorEntityDescription, ...]] = (
     HomeWizardSensorEntityDescription(
         key="REDACTED_VALUE",
         REDACTED_VALUE"REDACTED_VALUE",
-        icon="mdi:alert",
         entity_category=EntityCategory.DIAGNOSTIC,
         has_fn=lambda data: data.REDACTED_VALUE is not None,
         value_fn=lambda data: data.REDACTED_VALUE,
@@ -339,7 +330,6 @@ SENSORS: Final[tuple[HomeWizardSensorEntityDescription, ...]] = (
     HomeWizardSensorEntityDescription(
         key="REDACTED_VALUE",
         REDACTED_VALUE"REDACTED_VALUE",
-        icon="mdi:alert",
         entity_category=EntityCategory.DIAGNOSTIC,
         has_fn=lambda data: data.REDACTED_VALUE is not None,
         value_fn=lambda data: data.REDACTED_VALUE,
@@ -347,7 +337,6 @@ SENSORS: Final[tuple[HomeWizardSensorEntityDescription, ...]] = (
     HomeWizardSensorEntityDescription(
         key="REDACTED_VALUE",
         REDACTED_VALUE"REDACTED_VALUE",
-        icon="mdi:alert",
         entity_category=EntityCategory.DIAGNOSTIC,
         has_fn=lambda data: data.REDACTED_VALUE is not None,
         value_fn=lambda data: data.REDACTED_VALUE,
@@ -355,7 +344,6 @@ SENSORS: Final[tuple[HomeWizardSensorEntityDescription, ...]] = (
     HomeWizardSensorEntityDescription(
         key="REDACTED_VALUE",
         REDACTED_VALUE"REDACTED_VALUE",
-        icon="mdi:alert",
         entity_category=EntityCategory.DIAGNOSTIC,
         has_fn=lambda data: data.REDACTED_VALUE is not None,
         value_fn=lambda data: data.REDACTED_VALUE,
@@ -363,7 +351,6 @@ SENSORS: Final[tuple[HomeWizardSensorEntityDescription, ...]] = (
     HomeWizardSensorEntityDescription(
         key="any_power_fail_count",
         REDACTED_VALUE"any_power_fail_count",
-        icon="mdi:transmission-tower-off",
         entity_category=EntityCategory.DIAGNOSTIC,
         has_fn=lambda data: data.any_power_fail_count is not None,
         value_fn=lambda data: data.any_power_fail_count,
@@ -371,7 +358,6 @@ SENSORS: Final[tuple[HomeWizardSensorEntityDescription, ...]] = (
     HomeWizardSensorEntityDescription(
         key="long_power_fail_count",
         REDACTED_VALUE"long_power_fail_count",
-        icon="mdi:transmission-tower-off",
         entity_category=EntityCategory.DIAGNOSTIC,
         has_fn=lambda data: data.long_power_fail_count is not None,
         value_fn=lambda data: data.long_power_fail_count,
@@ -404,7 +390,6 @@ SENSORS: Final[tuple[HomeWizardSensorEntityDescription, ...]] = (
     HomeWizardSensorEntityDescription(
         key="gas_unique_id",
         REDACTED_VALUE"gas_unique_id",
-        icon="mdi:alphabetical-variant",
         entity_category=EntityCategory.DIAGNOSTIC,
         has_fn=lambda data: data.gas_unique_id is not None,
         value_fn=lambda data: data.gas_unique_id,
@@ -413,7 +398,6 @@ SENSORS: Final[tuple[HomeWizardSensorEntityDescription, ...]] = (
         key="active_liter_lpm",
         REDACTED_VALUE"active_liter_lpm",
         native_unit_of_measurement="l/min",
-        icon="mdi:water",
         state_class=SensorStateClass.MEASUREMENT,
         has_fn=lambda data: data.active_liter_lpm is not None,
         value_fn=lambda data: data.active_liter_lpm,
@@ -422,7 +406,6 @@ SENSORS: Final[tuple[HomeWizardSensorEntityDescription, ...]] = (
         key="total_liter_m3",
         REDACTED_VALUE"total_liter_m3",
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
-        icon="mdi:gauge",
         device_class=SensorDeviceClass.WATER,
         state_class=SensorStateClass.TOTAL_INCREASING,
         has_fn=lambda data: data.total_liter_m3 is not None,
