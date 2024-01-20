@@ -33,13 +33,11 @@ SWITCHES: tuple[PlugwiseSwitchEntityDescription, ...] = (
     PlugwiseSwitchEntityDescription(
         key="dhw_cm_switch",
         REDACTED_VALUE"dhw_cm_switch",
-        icon="mdi:water-plus",
         entity_category=EntityCategory.CONFIG,
     ),
     PlugwiseSwitchEntityDescription(
         key="lock",
         REDACTED_VALUE"lock",
-        icon="mdi:lock",
         entity_category=EntityCategory.CONFIG,
     ),
     PlugwiseSwitchEntityDescription(
@@ -51,7 +49,6 @@ SWITCHES: tuple[PlugwiseSwitchEntityDescription, ...] = (
         key="cooling_ena_switch",
         REDACTED_VALUE"cooling_ena_switch",
         name="Cooling",
-        icon="mdi:snowflake-thermometer",
         entity_category=EntityCategory.CONFIG,
     ),
 )
