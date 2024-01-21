@@ -44,7 +44,6 @@ NUMBER_DESCRIPTIONS: list[RoborockNumberDescription] = [
     RoborockNumberDescription(
         key="volume",
         REDACTED_VALUE"volume",
-        icon="mdi:volume-source",
         native_min_value=0,
         native_max_value=100,
         native_unit_of_measurement=PERCENTAGE,
