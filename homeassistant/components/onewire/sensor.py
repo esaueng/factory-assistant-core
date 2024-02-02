@@ -236,7 +236,8 @@ DEVICE_SENSORS: dict[str, tuple[OneWireSensorEntityDescription, ...]] = {
             native_unit_of_measurement="count",
             read_mode=READ_MODE_INT,
             state_class=SensorStateClass.TOTAL_INCREASING,
-            REDACTED_VALUEf"counter_{id.lower()}",
+            REDACTED_VALUE"counter_id",
+            translation_placeholders={"id": str(id)},
         )
         for id in DEVICE_KEYS_A_B
     ),
@@ -276,7 +277,8 @@ HOBBYBOARD_EF: dict[str, tuple[OneWireSensorEntityDescription, ...]] = {
             native_unit_of_measurement=UnitOfPressure.CBAR,
             read_mode=READ_MODE_FLOAT,
             state_class=SensorStateClass.MEASUREMENT,
-            REDACTED_VALUEf"moisture_{id}",
+            REDACTED_VALUE"moisture_id",
+            translation_placeholders={"id": str(id)},
         )
         for id in DEVICE_KEYS_0_3
     ),
@@ -396,7 +398,8 @@ def get_entities(
                         description,
                         device_class=SensorDeviceClass.HUMIDITY,
                         native_unit_of_measurement=PERCENTAGE,
-                        REDACTED_VALUEf"wetness_{s_id}",
+                        REDACTED_VALUE"wetness_id",
+                        translation_placeholders={"id": s_id},
                     )
             override_key = None
             if description.override_key:
