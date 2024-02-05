@@ -39,7 +39,6 @@ SENSORS_PER_ENTITY: list[SensorEntityDescription] = [
     SensorEntityDescription(
         key=ATTR_DIR_OF_TRAVEL,
         REDACTED_VALUEATTR_DIR_OF_TRAVEL,
-        icon="mdi:compass-outline",
         device_class=SensorDeviceClass.ENUM,
         options=DIRECTIONS,
     ),
@@ -49,7 +48,6 @@ SENSORS_PER_PROXIMITY: list[SensorEntityDescription] = [
     SensorEntityDescription(
         key=ATTR_NEAREST,
         REDACTED_VALUEATTR_NEAREST,
-        icon="mdi:near-me",
     ),
     SensorEntityDescription(
         key=ATTR_DIST_TO,
@@ -60,7 +58,6 @@ SENSORS_PER_PROXIMITY: list[SensorEntityDescription] = [
     SensorEntityDescription(
         key=ATTR_DIR_OF_TRAVEL,
         REDACTED_VALUEATTR_NEAREST_DIR_OF_TRAVEL,
-        icon="mdi:compass-outline",
         device_class=SensorDeviceClass.ENUM,
         options=DIRECTIONS,
     ),
