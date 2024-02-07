@@ -30,14 +30,12 @@ SELECT_TYPES = (
     PlugwiseSelectEntityDescription(
         key="select_schedule",
         REDACTED_VALUE"select_schedule",
-        icon="mdi:calendar-clock",
         command=lambda api, loc, opt: api.set_schedule_state(loc, STATE_ON, opt),
         options_key="available_schedules",
     ),
     PlugwiseSelectEntityDescription(
         key="select_regulation_mode",
         REDACTED_VALUE"regulation_mode",
-        icon="mdi:hvac",
         entity_category=EntityCategory.CONFIG,
         command=lambda api, loc, opt: api.set_regulation_mode(opt),
         options_key="regulation_modes",
@@ -45,10 +43,16 @@ SELECT_TYPES = (
     PlugwiseSelectEntityDescription(
         key="select_dhw_mode",
         REDACTED_VALUE"dhw_mode",
-        icon="mdi:shower",
         entity_category=EntityCategory.CONFIG,
         command=lambda api, loc, opt: api.set_dhw_mode(opt),
         options_key="dhw_modes",
+    ),
+    PlugwiseSelectEntityDescription(
+        key="select_gateway_mode",
+        REDACTED_VALUE"gateway_mode",
+        entity_category=EntityCategory.CONFIG,
+        command=lambda api, loc, opt: api.set_gateway_mode(opt),
+        options_key="gateway_modes",
     ),
 )
 

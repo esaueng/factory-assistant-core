@@ -44,12 +44,10 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key=CURRENT_WARNING_SENSOR,
         REDACTED_VALUECURRENT_WARNING_SENSOR,
-        icon="mdi:close-octagon-outline",
     ),
     SensorEntityDescription(
         key=ADVANCE_WARNING_SENSOR,
         REDACTED_VALUEADVANCE_WARNING_SENSOR,
-        icon="mdi:close-octagon-outline",
     ),
 )
 
