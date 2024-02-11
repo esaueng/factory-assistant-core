@@ -58,7 +58,7 @@ BUTTONS: Final[list[ShellyButtonDescription[Any]]] = [
     ShellyButtonDescription[ShellyBlockCoordinator](
         key="self_test",
         name="Self test",
-        icon="mdi:progress-wrench",
+        REDACTED_VALUE"self_test",
         entity_category=EntityCategory.DIAGNOSTIC,
         press_action=lambda coordinator: coordinator.device.trigger_shelly_gas_self_test(),
         supported=lambda coordinator: coordinator.device.model in SHELLY_GAS_MODELS,
@@ -66,7 +66,7 @@ BUTTONS: Final[list[ShellyButtonDescription[Any]]] = [
     ShellyButtonDescription[ShellyBlockCoordinator](
         key="mute",
         name="Mute",
-        icon="mdi:volume-mute",
+        REDACTED_VALUE"mute",
         entity_category=EntityCategory.CONFIG,
         press_action=lambda coordinator: coordinator.device.trigger_shelly_gas_mute(),
         supported=lambda coordinator: coordinator.device.model in SHELLY_GAS_MODELS,
@@ -74,7 +74,7 @@ BUTTONS: Final[list[ShellyButtonDescription[Any]]] = [
     ShellyButtonDescription[ShellyBlockCoordinator](
         key="unmute",
         name="Unmute",
-        icon="mdi:volume-high",
+        REDACTED_VALUE"unmute",
         entity_category=EntityCategory.CONFIG,
         press_action=lambda coordinator: coordinator.device.trigger_shelly_gas_unmute(),
         supported=lambda coordinator: coordinator.device.model in SHELLY_GAS_MODELS,
