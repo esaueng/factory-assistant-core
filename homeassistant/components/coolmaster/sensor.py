@@ -32,7 +32,6 @@ class CoolmasterCleanFilter(CoolmasterEntity, SensorEntity):
         key="error_code",
         REDACTED_VALUE"error_code",
         entity_category=EntityCategory.DIAGNOSTIC,
-        icon="mdi:alert",
     )
 
     @property
