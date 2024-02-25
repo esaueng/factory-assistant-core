@@ -32,7 +32,6 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key=TYPE_WIFI_STRENGTH,
         REDACTED_VALUE"wifi_strength",
-        icon="mdi:wifi",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
     ),
