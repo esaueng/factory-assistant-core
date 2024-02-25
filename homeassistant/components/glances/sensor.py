@@ -79,7 +79,7 @@ SENSOR_TYPES = {
     ("mem", "memory_use"): GlancesSensorEntityDescription(
         key="memory_use",
         type="mem",
-        REDACTED_VALUE"memory_used",
+        REDACTED_VALUE"memory_use",
         native_unit_of_measurement=UnitOfInformation.MEBIBYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         icon="mdi:memory",
@@ -105,7 +105,7 @@ SENSOR_TYPES = {
     ("memswap", "swap_use"): GlancesSensorEntityDescription(
         key="swap_use",
         type="memswap",
-        REDACTED_VALUE"swap_used",
+        REDACTED_VALUE"swap_use",
         native_unit_of_measurement=UnitOfInformation.GIBIBYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         icon="mdi:memory",
