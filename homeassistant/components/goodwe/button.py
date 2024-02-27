@@ -35,7 +35,6 @@ class GoodweButtonEntityDescription(
 SYNCHRONIZE_CLOCK = GoodweButtonEntityDescription(
     key="synchronize_clock",
     REDACTED_VALUE"synchronize_clock",
-    icon="mdi:clock-check-outline",
     entity_category=EntityCategory.CONFIG,
     action=lambda inv: inv.write_setting("time", datetime.now()),
 )
