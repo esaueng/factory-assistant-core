@@ -1,7 +1,6 @@
 """Support for the NextDNS service."""
 from __future__ import annotations
 
-import asyncio
 from collections.abc import Callable
 from dataclasses import dataclass
 from typing import Any, Generic
@@ -43,42 +42,36 @@ SWITCHES = (
         key="block_page",
         REDACTED_VALUE"block_page",
         entity_category=EntityCategory.CONFIG,
-        icon="mdi:web-cancel",
         state=lambda data: data.block_page,
     ),
     NextDnsSwitchEntityDescription[Settings](
         key="cache_boost",
         REDACTED_VALUE"cache_boost",
         entity_category=EntityCategory.CONFIG,
-        icon="mdi:memory",
         state=lambda data: data.cache_boost,
     ),
     NextDnsSwitchEntityDescription[Settings](
         key="cname_flattening",
         REDACTED_VALUE"cname_flattening",
         entity_category=EntityCategory.CONFIG,
-        icon="mdi:tournament",
         state=lambda data: data.cname_flattening,
     ),
     NextDnsSwitchEntityDescription[Settings](
         key="anonymized_ecs",
         REDACTED_VALUE"anonymized_ecs",
         entity_category=EntityCategory.CONFIG,
-        icon="mdi:incognito",
         state=lambda data: data.anonymized_ecs,
     ),
     NextDnsSwitchEntityDescription[Settings](
         key="logs",
         REDACTED_VALUE"logs",
         entity_category=EntityCategory.CONFIG,
-        icon="mdi:file-document-outline",
         state=lambda data: data.logs,
     ),
     NextDnsSwitchEntityDescription[Settings](
         key="web3",
         REDACTED_VALUE"web3",
         entity_category=EntityCategory.CONFIG,
-        icon="mdi:web",
         state=lambda data: data.web3,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -139,14 +132,12 @@ SWITCHES = (
         key="dns_rebinding_protection",
         REDACTED_VALUE"dns_rebinding_protection",
         entity_category=EntityCategory.CONFIG,
-        icon="mdi:dns",
         state=lambda data: data.dns_rebinding_protection,
     ),
     NextDnsSwitchEntityDescription[Settings](
         key="google_safe_browsing",
         REDACTED_VALUE"google_safe_browsing",
         entity_category=EntityCategory.CONFIG,
-        icon="mdi:google",
         state=lambda data: data.google_safe_browsing,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -165,7 +156,6 @@ SWITCHES = (
         key="typosquatting_protection",
         REDACTED_VALUE"typosquatting_protection",
         entity_category=EntityCategory.CONFIG,
-        icon="mdi:keyboard-outline",
         state=lambda data: data.typosquatting_protection,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -178,14 +168,12 @@ SWITCHES = (
         key="safesearch",
         REDACTED_VALUE"safesearch",
         entity_category=EntityCategory.CONFIG,
-        icon="mdi:search-web",
         state=lambda data: data.safesearch,
     ),
     NextDnsSwitchEntityDescription[Settings](
         key="youtube_restricted_mode",
         REDACTED_VALUE"youtube_restricted_mode",
         entity_category=EntityCategory.CONFIG,
-        icon="mdi:youtube",
         state=lambda data: data.youtube_restricted_mode,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -193,7 +181,6 @@ SWITCHES = (
         REDACTED_VALUE"block_9gag",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:file-gif-box",
         state=lambda data: data.block_9gag,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -201,7 +188,6 @@ SWITCHES = (
         REDACTED_VALUE"block_amazon",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:cart-outline",
         state=lambda data: data.block_amazon,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -209,7 +195,6 @@ SWITCHES = (
         REDACTED_VALUE"block_bereal",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:alpha-b-box",
         state=lambda data: data.block_bereal,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -217,7 +202,6 @@ SWITCHES = (
         REDACTED_VALUE"block_blizzard",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:sword-cross",
         state=lambda data: data.block_blizzard,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -225,7 +209,6 @@ SWITCHES = (
         REDACTED_VALUE"block_chatgpt",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:chat-processing-outline",
         state=lambda data: data.block_chatgpt,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -233,7 +216,6 @@ SWITCHES = (
         REDACTED_VALUE"block_dailymotion",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:movie-search-outline",
         state=lambda data: data.block_dailymotion,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -241,7 +223,6 @@ SWITCHES = (
         REDACTED_VALUE"block_discord",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:message-text",
         state=lambda data: data.block_discord,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -249,7 +230,6 @@ SWITCHES = (
         REDACTED_VALUE"block_disneyplus",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:movie-search-outline",
         state=lambda data: data.block_disneyplus,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -257,7 +237,6 @@ SWITCHES = (
         REDACTED_VALUE"block_ebay",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:basket-outline",
         state=lambda data: data.block_ebay,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -265,7 +244,6 @@ SWITCHES = (
         REDACTED_VALUE"block_facebook",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:facebook",
         state=lambda data: data.block_facebook,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -273,7 +251,6 @@ SWITCHES = (
         REDACTED_VALUE"block_fortnite",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:tank",
         state=lambda data: data.block_fortnite,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -281,7 +258,6 @@ SWITCHES = (
         REDACTED_VALUE"block_google_chat",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:forum",
         state=lambda data: data.block_google_chat,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -289,7 +265,6 @@ SWITCHES = (
         REDACTED_VALUE"block_hbomax",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:movie-search-outline",
         state=lambda data: data.block_hbomax,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -297,7 +272,6 @@ SWITCHES = (
         name="Block Hulu",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:hulu",
         state=lambda data: data.block_hulu,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -305,7 +279,6 @@ SWITCHES = (
         REDACTED_VALUE"block_imgur",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:camera-image",
         state=lambda data: data.block_imgur,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -313,7 +286,6 @@ SWITCHES = (
         REDACTED_VALUE"block_instagram",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:instagram",
         state=lambda data: data.block_instagram,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -321,7 +293,6 @@ SWITCHES = (
         REDACTED_VALUE"block_leagueoflegends",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:sword",
         state=lambda data: data.block_leagueoflegends,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -329,7 +300,6 @@ SWITCHES = (
         REDACTED_VALUE"block_mastodon",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:mastodon",
         state=lambda data: data.block_mastodon,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -337,7 +307,6 @@ SWITCHES = (
         REDACTED_VALUE"block_messenger",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:message-text",
         state=lambda data: data.block_messenger,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -345,7 +314,6 @@ SWITCHES = (
         REDACTED_VALUE"block_minecraft",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:minecraft",
         state=lambda data: data.block_minecraft,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -353,7 +321,6 @@ SWITCHES = (
         REDACTED_VALUE"block_netflix",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:netflix",
         state=lambda data: data.block_netflix,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -361,7 +328,6 @@ SWITCHES = (
         REDACTED_VALUE"block_pinterest",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:pinterest",
         state=lambda data: data.block_pinterest,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -369,7 +335,6 @@ SWITCHES = (
         REDACTED_VALUE"block_playstation_network",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:sony-playstation",
         state=lambda data: data.block_playstation_network,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -377,7 +342,6 @@ SWITCHES = (
         REDACTED_VALUE"block_primevideo",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:filmstrip",
         state=lambda data: data.block_primevideo,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -385,7 +349,6 @@ SWITCHES = (
         REDACTED_VALUE"block_reddit",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:reddit",
         state=lambda data: data.block_reddit,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -393,7 +356,6 @@ SWITCHES = (
         REDACTED_VALUE"block_roblox",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:robot",
         state=lambda data: data.block_roblox,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -401,7 +363,6 @@ SWITCHES = (
         REDACTED_VALUE"block_signal",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:chat-outline",
         state=lambda data: data.block_signal,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -409,7 +370,6 @@ SWITCHES = (
         REDACTED_VALUE"block_skype",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:skype",
         state=lambda data: data.block_skype,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -417,7 +377,6 @@ SWITCHES = (
         REDACTED_VALUE"block_snapchat",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:snapchat",
         state=lambda data: data.block_snapchat,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -425,7 +384,6 @@ SWITCHES = (
         REDACTED_VALUE"block_spotify",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:spotify",
         state=lambda data: data.block_spotify,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -433,7 +391,6 @@ SWITCHES = (
         REDACTED_VALUE"block_steam",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:steam",
         state=lambda data: data.block_steam,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -441,7 +398,6 @@ SWITCHES = (
         REDACTED_VALUE"block_telegram",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:send-outline",
         state=lambda data: data.block_telegram,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -449,7 +405,6 @@ SWITCHES = (
         REDACTED_VALUE"block_tiktok",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:music-note",
         state=lambda data: data.block_tiktok,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -457,7 +412,6 @@ SWITCHES = (
         REDACTED_VALUE"block_tinder",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:fire",
         state=lambda data: data.block_tinder,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -465,7 +419,6 @@ SWITCHES = (
         REDACTED_VALUE"block_tumblr",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:image-outline",
         state=lambda data: data.block_tumblr,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -473,7 +426,6 @@ SWITCHES = (
         REDACTED_VALUE"block_twitch",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:twitch",
         state=lambda data: data.block_twitch,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -481,7 +433,6 @@ SWITCHES = (
         REDACTED_VALUE"block_twitter",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:twitter",
         state=lambda data: data.block_twitter,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -489,7 +440,6 @@ SWITCHES = (
         REDACTED_VALUE"block_vimeo",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:vimeo",
         state=lambda data: data.block_vimeo,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -497,7 +447,6 @@ SWITCHES = (
         REDACTED_VALUE"block_vk",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:power-socket-eu",
         state=lambda data: data.block_vk,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -505,7 +454,6 @@ SWITCHES = (
         REDACTED_VALUE"block_whatsapp",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:whatsapp",
         state=lambda data: data.block_whatsapp,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -513,7 +461,6 @@ SWITCHES = (
         REDACTED_VALUE"block_xboxlive",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:microsoft-xbox",
         state=lambda data: data.block_xboxlive,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -521,7 +468,6 @@ SWITCHES = (
         REDACTED_VALUE"block_youtube",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:youtube",
         state=lambda data: data.block_youtube,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -529,7 +475,6 @@ SWITCHES = (
         REDACTED_VALUE"block_zoom",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:video",
         state=lambda data: data.block_zoom,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -537,7 +482,6 @@ SWITCHES = (
         REDACTED_VALUE"block_dating",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:candelabra",
         state=lambda data: data.block_dating,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -545,7 +489,6 @@ SWITCHES = (
         REDACTED_VALUE"block_gambling",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:slot-machine",
         state=lambda data: data.block_gambling,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -553,7 +496,6 @@ SWITCHES = (
         REDACTED_VALUE"block_online_gaming",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:gamepad-variant",
         state=lambda data: data.block_online_gaming,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -561,7 +503,6 @@ SWITCHES = (
         REDACTED_VALUE"block_piracy",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:pirate",
         state=lambda data: data.block_piracy,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -569,7 +510,6 @@ SWITCHES = (
         REDACTED_VALUE"block_porn",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:movie-off",
         state=lambda data: data.block_porn,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -577,7 +517,6 @@ SWITCHES = (
         REDACTED_VALUE"block_social_networks",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:facebook",
         state=lambda data: data.block_social_networks,
     ),
     NextDnsSwitchEntityDescription[Settings](
@@ -585,7 +524,6 @@ SWITCHES = (
         REDACTED_VALUE"block_video_streaming",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        icon="mdi:video-wireless-outline",
         state=lambda data: data.block_video_streaming,
     ),
 )
@@ -647,7 +585,7 @@ class NextDnsSwitch(CoordinatorEntity[NextDnsSettingsUpdateCoordinator], SwitchE
         except (
             ApiError,
             ClientConnectorError,
-            asyncio.TimeoutError,
+            TimeoutError,
             ClientError,
         ) as err:
             raise HomeAssistantError(

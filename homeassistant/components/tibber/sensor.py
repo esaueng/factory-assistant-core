@@ -1,7 +1,6 @@
 """Support for Tibber sensors."""
 from __future__ import annotations
 
-import asyncio
 import datetime
 from datetime import timedelta
 import logging
@@ -64,129 +63,129 @@ PARALLEL_UPDATES = 0
 RT_SENSORS: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="averagePower",
-        name="average power",
+        REDACTED_VALUE"average_power",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
     ),
     SensorEntityDescription(
         key="power",
-        name="power",
+        REDACTED_VALUE"power",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.WATT,
     ),
     SensorEntityDescription(
         key="powerProduction",
-        name="power production",
+        REDACTED_VALUE"power_production",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.WATT,
     ),
     SensorEntityDescription(
         key="minPower",
-        name="min power",
+        REDACTED_VALUE"min_power",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
     ),
     SensorEntityDescription(
         key="maxPower",
-        name="max power",
+        REDACTED_VALUE"max_power",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
     ),
     SensorEntityDescription(
         key="accumulatedConsumption",
-        name="accumulated consumption",
+        REDACTED_VALUE"accumulated_consumption",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL,
     ),
     SensorEntityDescription(
         key="accumulatedConsumptionLastHour",
-        name="accumulated consumption current hour",
+        REDACTED_VALUE"accumulated_consumption_last_hour",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     SensorEntityDescription(
         key="estimatedHourConsumption",
-        name="Estimated consumption current hour",
+        REDACTED_VALUE"estimated_hour_consumption",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
     ),
     SensorEntityDescription(
         key="accumulatedProduction",
-        name="accumulated production",
+        REDACTED_VALUE"accumulated_production",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL,
     ),
     SensorEntityDescription(
         key="accumulatedProductionLastHour",
-        name="accumulated production current hour",
+        REDACTED_VALUE"accumulated_production_last_hour",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     SensorEntityDescription(
         key="lastMeterConsumption",
-        name="last meter consumption",
+        REDACTED_VALUE"last_meter_consumption",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     SensorEntityDescription(
         key="lastMeterProduction",
-        name="last meter production",
+        REDACTED_VALUE"last_meter_production",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     SensorEntityDescription(
         key="voltagePhase1",
-        name="voltage phase1",
+        REDACTED_VALUE"REDACTED_VALUE",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="voltagePhase2",
-        name="voltage phase2",
+        REDACTED_VALUE"REDACTED_VALUE",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="voltagePhase3",
-        name="voltage phase3",
+        REDACTED_VALUE"REDACTED_VALUE",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="currentL1",
-        name="current L1",
+        REDACTED_VALUE"current_l1",
         device_class=SensorDeviceClass.CURRENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="currentL2",
-        name="current L2",
+        REDACTED_VALUE"current_l2",
         device_class=SensorDeviceClass.CURRENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="currentL3",
-        name="current L3",
+        REDACTED_VALUE"current_l3",
         device_class=SensorDeviceClass.CURRENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="signalStrength",
-        name="signal strength",
+        REDACTED_VALUE"signal_strength",
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -194,19 +193,19 @@ RT_SENSORS: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="accumulatedReward",
-        name="accumulated reward",
+        REDACTED_VALUE"accumulated_reward",
         device_class=SensorDeviceClass.MONETARY,
         state_class=SensorStateClass.TOTAL,
     ),
     SensorEntityDescription(
         key="accumulatedCost",
-        name="accumulated cost",
+        REDACTED_VALUE"accumulated_cost",
         device_class=SensorDeviceClass.MONETARY,
         state_class=SensorStateClass.TOTAL,
     ),
     SensorEntityDescription(
         key="powerFactor",
-        name="power factor",
+        REDACTED_VALUE"power_factor",
         device_class=SensorDeviceClass.POWER_FACTOR,
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -216,23 +215,23 @@ RT_SENSORS: tuple[SensorEntityDescription, ...] = (
 SENSORS: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="month_cost",
-        name="Monthly cost",
+        REDACTED_VALUE"month_cost",
         device_class=SensorDeviceClass.MONETARY,
     ),
     SensorEntityDescription(
         key="peak_hour",
-        name="Monthly peak hour consumption",
+        REDACTED_VALUE"peak_hour",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
     ),
     SensorEntityDescription(
         key="peak_hour_time",
-        name="Time of max hour consumption",
+        REDACTED_VALUE"peak_hour_time",
         device_class=SensorDeviceClass.TIMESTAMP,
     ),
     SensorEntityDescription(
         key="month_cons",
-        name="Monthly net consumption",
+        REDACTED_VALUE"month_cons",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -255,7 +254,7 @@ async def async_setup_entry(
     for home in tibber_connection.get_homes(only_active=False):
         try:
             await home.update_info()
-        except asyncio.TimeoutError as err:
+        except TimeoutError as err:
             _LOGGER.error("Timeout connecting to Tibber home: %s ", err)
             raise PlatformNotReady() from err
         except aiohttp.ClientError as err:
@@ -305,6 +304,8 @@ async def async_setup_entry(
 class TibberSensor(SensorEntity):
     """Representation of a generic Tibber sensor."""
 
+    _attr_has_entity_name = True
+
     def __init__(
         self, *args: Any, tibber_home: tibber.TibberHome, **kwargs: Any
     ) -> None:
@@ -335,6 +336,9 @@ class TibberSensor(SensorEntity):
 class TibberSensorElPrice(TibberSensor):
     """Representation of a Tibber sensor for el price."""
 
+    _attr_state_class = SensorStateClass.MEASUREMENT
+    _attr_translation_key = "electricity_price"
+
     def __init__(self, tibber_home: tibber.TibberHome) -> None:
         """Initialize the sensor."""
         super().__init__(tibber_home=tibber_home)
@@ -355,8 +359,6 @@ class TibberSensorElPrice(TibberSensor):
             "off_peak_2": None,
         }
         self._attr_icon = ICON
-        self._attr_name = f"Electricity price {self._home_name}"
-        self._attr_state_class = SensorStateClass.MEASUREMENT
         self._attr_unique_id = self._tibber_home.home_id
         self._model = "Price Sensor"
 
@@ -396,7 +398,7 @@ class TibberSensorElPrice(TibberSensor):
         _LOGGER.debug("Fetching data")
         try:
             await self._tibber_home.update_info_and_price_info()
-        except (asyncio.TimeoutError, aiohttp.ClientError):
+        except (TimeoutError, aiohttp.ClientError):
             return
         data = self._tibber_home.info["viewer"]["home"]
         self._attr_extra_state_attributes["app_nickname"] = data["appNickname"]
@@ -424,7 +426,6 @@ class TibberDataSensor(TibberSensor, CoordinatorEntity["TibberDataCoordinator"])
         self._attr_unique_id = (
             f"{self._tibber_home.home_id}_{self.entity_description.key}"
         )
-        self._attr_name = f"{entity_description.name} {self._home_name}"
         if entity_description.key == "month_cost":
             self._attr_native_unit_of_measurement = self._tibber_home.currency
 
@@ -452,7 +453,6 @@ class TibberSensorRT(TibberSensor, CoordinatorEntity["TibberRtDataCoordinator"])
         self._model = "Tibber Pulse"
         self._device_name = f"{self._model} {self._home_name}"
 
-        self._attr_name = f"{description.name} {self._home_name}"
         self._attr_native_value = initial_state
         self._attr_unique_id = f"{self._tibber_home.home_id}_rt_{description.name}"
 

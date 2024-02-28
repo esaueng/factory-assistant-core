@@ -124,14 +124,12 @@ SENSORS = (
     ),
     SensorEntityDescription(
         key="vehicle_status",
-        icon="mdi:car",
         device_class=SensorDeviceClass.ENUM,
         options=["standby", "vehicle_detected", "ready", "no_power", "vehicle_error"],
         REDACTED_VALUE"vehicle_status",
     ),
     SensorEntityDescription(
         key="activity",
-        icon="mdi:ev-station",
         device_class=SensorDeviceClass.ENUM,
         options=["available", "charging", "unavailable", "error", "offline"],
         REDACTED_VALUE"activity",
@@ -139,7 +137,6 @@ SENSORS = (
     SensorEntityDescription(
         key="max_usage",
         REDACTED_VALUE"max_usage",
-        icon="mdi:gauge-full",
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -147,7 +144,6 @@ SENSORS = (
     SensorEntityDescription(
         key="smartcharging_max_usage",
         REDACTED_VALUE"smartcharging_max_usage",
-        icon="mdi:gauge-full",
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.CURRENT,
@@ -156,7 +152,6 @@ SENSORS = (
     SensorEntityDescription(
         key="max_offline",
         REDACTED_VALUE"max_offline",
-        icon="mdi:gauge-full",
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.CURRENT,
@@ -165,7 +160,6 @@ SENSORS = (
     SensorEntityDescription(
         key="current_left",
         REDACTED_VALUE"current_left",
-        icon="mdi:gauge",
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.CURRENT,

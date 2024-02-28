@@ -59,7 +59,6 @@ BUTTONS: Final = [
     FritzButtonDescription(
         key="cleanup",
         REDACTED_VALUE"cleanup",
-        icon="mdi:broom",
         entity_category=EntityCategory.CONFIG,
         press_action=lambda avm_wrapper: avm_wrapper.async_trigger_cleanup(),
     ),

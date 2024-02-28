@@ -56,7 +56,6 @@ def _set_anion(device: Device, value: bool) -> None:
 
 GREE_SWITCHES: tuple[GreeSwitchEntityDescription, ...] = (
     GreeSwitchEntityDescription(
-        icon="mdi:lightbulb",
         key="Panel Light",
         REDACTED_VALUE"light",
         get_value_fn=lambda d: d.light,
@@ -81,7 +80,6 @@ GREE_SWITCHES: tuple[GreeSwitchEntityDescription, ...] = (
         set_value_fn=_set_xfan,
     ),
     GreeSwitchEntityDescription(
-        icon="mdi:pine-tree",
         key="Health mode",
         REDACTED_VALUE"health_mode",
         get_value_fn=lambda d: d.anion,
