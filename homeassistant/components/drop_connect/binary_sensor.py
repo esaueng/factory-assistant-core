@@ -31,11 +31,6 @@ from .entity import DROPEntity
 
 _LOGGER = logging.getLogger(__name__)
 
-LEAK_ICON = "mdi:pipe-leak"
-NOTIFICATION_ICON = "mdi:bell-ring"
-PUMP_ICON = "mdi:water-pump"
-SALT_ICON = "mdi:shaker"
-WATER_ICON = "mdi:water"
 
 # Binary sensor type constants
 LEAK_DETECTED = "leak"
@@ -56,32 +51,27 @@ BINARY_SENSORS: list[DROPBinarySensorEntityDescription] = [
     DROPBinarySensorEntityDescription(
         key=LEAK_DETECTED,
         REDACTED_VALUELEAK_DETECTED,
-        icon=LEAK_ICON,
         device_class=BinarySensorDeviceClass.MOISTURE,
         value_fn=lambda device: device.drop_api.leak_detected(),
     ),
     DROPBinarySensorEntityDescription(
         key=PENDING_NOTIFICATION,
         REDACTED_VALUEPENDING_NOTIFICATION,
-        icon=NOTIFICATION_ICON,
         value_fn=lambda device: device.drop_api.notification_pending(),
     ),
     DROPBinarySensorEntityDescription(
         key=SALT_LOW,
         REDACTED_VALUESALT_LOW,
-        icon=SALT_ICON,
         value_fn=lambda device: device.drop_api.salt_low(),
     ),
     DROPBinarySensorEntityDescription(
         key=RESERVE_IN_USE,
         REDACTED_VALUERESERVE_IN_USE,
-        icon=WATER_ICON,
         value_fn=lambda device: device.drop_api.reserve_in_use(),
     ),
     DROPBinarySensorEntityDescription(
         key=PUMP_STATUS,
         REDACTED_VALUEPUMP_STATUS,
-        icon=PUMP_ICON,
         value_fn=lambda device: device.drop_api.pump_status(),
     ),
 ]
