@@ -28,7 +28,6 @@ async def async_setup_entry(
     description = NumberEntityDescription(
         key="flame_control",
         REDACTED_VALUE"flame_control",
-        icon="mdi:arrow-expand-vertical",
     )
 
     async_add_entities(
