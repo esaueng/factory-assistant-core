@@ -62,9 +62,7 @@ class EcovacsMower(
         | LawnMowerEntityFeature.START_MOWING
     )
 
-    entity_description = LawnMowerEntityEntityDescription(
-        key="mower", REDACTED_VALUE"mower", name=None
-    )
+    entity_description = LawnMowerEntityEntityDescription(key="mower", name=None)
 
     def __init__(self, device: Device[MowerCapabilities]) -> None:
         """Initialize the mower."""
