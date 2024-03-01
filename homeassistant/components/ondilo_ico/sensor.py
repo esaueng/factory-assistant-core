@@ -43,20 +43,17 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
         key="orp",
         REDACTED_VALUE"oxydo_reduction_potential",
         native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
-        icon="mdi:pool",
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="ph",
         REDACTED_VALUE"ph",
-        icon="mdi:pool",
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="tds",
         REDACTED_VALUE"tds",
         native_unit_of_measurement=CONCENTRATION_PARTS_PER_MILLION,
-        icon="mdi:pool",
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
@@ -68,7 +65,6 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="rssi",
         REDACTED_VALUE"rssi",
-        icon="mdi:wifi",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
@@ -76,7 +72,6 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
         key="salt",
         REDACTED_VALUE"salt",
         native_unit_of_measurement="mg/L",
-        icon="mdi:pool",
         state_class=SensorStateClass.MEASUREMENT,
     ),
 )
