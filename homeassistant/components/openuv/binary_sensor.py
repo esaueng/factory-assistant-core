@@ -20,7 +20,6 @@ ATTR_PROTECTION_WINDOW_STARTING_UV = "start_uv"
 BINARY_SENSOR_DESCRIPTION_PROTECTION_WINDOW = BinarySensorEntityDescription(
     key=TYPE_PROTECTION_WINDOW,
     REDACTED_VALUE"protection_window",
-    icon="mdi:sunglasses",
 )
 
 
