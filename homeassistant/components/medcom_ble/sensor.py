@@ -29,7 +29,6 @@ SENSORS_MAPPING_TEMPLATE: dict[str, SensorEntityDescription] = {
         REDACTED_VALUE"cpm",
         native_unit_of_measurement=UNIT_CPM,
         state_class=SensorStateClass.MEASUREMENT,
-        icon="mdi:radioactive",
     ),
 }
 
