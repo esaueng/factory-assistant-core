@@ -28,7 +28,6 @@ RESTART_BUTTON_DESCRIPTION = ButtonEntityDescription(
 UNPAIR_REMOTES_DESCRIPTION = ButtonEntityDescription(
     key=_UNPAIR_REMOTES_KEY,
     REDACTED_VALUE"unpair_remotes",
-    icon="mdi:remote-off",
 )
 
 
