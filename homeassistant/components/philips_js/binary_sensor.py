@@ -29,13 +29,11 @@ DESCRIPTIONS = (
     PhilipsTVBinarySensorEntityDescription(
         key="recording_ongoing",
         REDACTED_VALUE"recording_ongoing",
-        icon="mdi:record-rec",
         recording_value="RECORDING_ONGOING",
     ),
     PhilipsTVBinarySensorEntityDescription(
         key="recording_new",
         REDACTED_VALUE"recording_new",
-        icon="mdi:new-box",
         recording_value="RECORDING_NEW",
     ),
 )
