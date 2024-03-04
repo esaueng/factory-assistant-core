@@ -61,20 +61,17 @@ BUTTON_TYPES: tuple[RenaultButtonEntityDescription, ...] = (
     RenaultButtonEntityDescription(
         async_press=lambda x: x.vehicle.set_ac_start(21, None),
         key="start_air_conditioner",
-        icon="mdi:air-conditioner",
         REDACTED_VALUE"start_air_conditioner",
     ),
     RenaultButtonEntityDescription(
         async_press=lambda x: x.vehicle.set_charge_start(),
         key="start_charge",
-        icon="mdi:ev-station",
         requires_electricity=True,
         REDACTED_VALUE"start_charge",
     ),
     RenaultButtonEntityDescription(
         async_press=lambda x: x.vehicle.set_charge_stop(),
         key="stop_charge",
-        icon="mdi:ev-station",
         requires_electricity=True,
         REDACTED_VALUE"stop_charge",
     ),
