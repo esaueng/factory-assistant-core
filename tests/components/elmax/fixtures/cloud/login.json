@@ -1,0 +1,8 @@
+{
+  "token": "JWT REDACTED_VALUE",
+  "user": {
+    "_id": "1b11bb11bbb11111b1b11b1b",
+    "email": "this.is@test.com",
+    "role": "user"
+  }
+}
