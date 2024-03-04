@@ -50,7 +50,6 @@ SELECT_DESCRIPTIONS = (
     FreezeProtectionSelectDescription(
         key=TYPE_FREEZE_PROTECTION_TEMPERATURE,
         REDACTED_VALUETYPE_FREEZE_PROTECTION_TEMPERATURE,
-        icon="mdi:thermometer",
         entity_category=EntityCategory.CONFIG,
         api_category=DATA_RESTRICTIONS_UNIVERSAL,
         data_key="freezeProtectTemp",
