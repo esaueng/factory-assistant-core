@@ -19,7 +19,6 @@ _LOGGER = logging.getLogger(__name__)
 RAIN_DELAY_ENTITY_DESCRIPTION = SensorEntityDescription(
     key="raindelay",
     REDACTED_VALUE"raindelay",
-    icon="mdi:water-off",
 )
 
 
