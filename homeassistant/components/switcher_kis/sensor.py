@@ -40,12 +40,10 @@ TIME_SENSORS: list[SensorEntityDescription] = [
     SensorEntityDescription(
         key="remaining_time",
         REDACTED_VALUE"remaining_time",
-        icon="mdi:av-timer",
     ),
     SensorEntityDescription(
         key="auto_off_set",
         REDACTED_VALUE"auto_shutdown",
-        icon="mdi:progress-clock",
         entity_registry_enabled_default=False,
     ),
 ]
