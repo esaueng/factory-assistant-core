@@ -88,7 +88,6 @@ SENSORS_SMARTMETER: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="energy_tariff_period",
         REDACTED_VALUE"energy_tariff_period",
-        icon="mdi:calendar-clock",
     ),
 )
 
