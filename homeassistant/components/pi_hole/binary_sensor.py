@@ -41,7 +41,6 @@ BINARY_SENSOR_TYPES: tuple[PiHoleBinarySensorEntityDescription, ...] = (
     PiHoleBinarySensorEntityDescription(
         key="status",
         REDACTED_VALUE"status",
-        icon="mdi:pi-hole",
         state_value=lambda api: bool(api.data.get("status") == "enabled"),
     ),
 )
