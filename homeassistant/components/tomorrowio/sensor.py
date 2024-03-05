@@ -117,7 +117,6 @@ SENSOR_TYPES = (
         key="dew_point",
         REDACTED_VALUE"dew_point",
         attribute=TMRW_ATTR_DEW_POINT,
-        icon="mdi:thermometer-water",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -146,7 +145,6 @@ SENSOR_TYPES = (
         key="cloud_base",
         REDACTED_VALUE"cloud_base",
         attribute=TMRW_ATTR_CLOUD_BASE,
-        icon="mdi:cloud-arrow-down",
         unit_imperial=UnitOfLength.MILES,
         unit_metric=UnitOfLength.KILOMETERS,
         device_class=SensorDeviceClass.DISTANCE,
@@ -162,7 +160,6 @@ SENSOR_TYPES = (
         key="cloud_ceiling",
         REDACTED_VALUE"cloud_ceiling",
         attribute=TMRW_ATTR_CLOUD_CEILING,
-        icon="mdi:cloud-arrow-up",
         unit_imperial=UnitOfLength.MILES,
         unit_metric=UnitOfLength.KILOMETERS,
         device_class=SensorDeviceClass.DISTANCE,
@@ -177,7 +174,6 @@ SENSOR_TYPES = (
         key="cloud_cover",
         REDACTED_VALUE"cloud_cover",
         attribute=TMRW_ATTR_CLOUD_COVER,
-        icon="mdi:cloud-percent",
         native_unit_of_measurement=PERCENTAGE,
     ),
     # Data comes in as m/s, convert to mi/h for imperial
@@ -185,7 +181,6 @@ SENSOR_TYPES = (
         key="wind_gust",
         REDACTED_VALUE"wind_gust",
         attribute=TMRW_ATTR_WIND_GUST,
-        icon="mdi:weather-windy",
         unit_imperial=UnitOfSpeed.MILES_PER_HOUR,
         unit_metric=UnitOfSpeed.METERS_PER_SECOND,
         device_class=SensorDeviceClass.SPEED,
@@ -199,7 +194,6 @@ SENSOR_TYPES = (
         REDACTED_VALUE"precipitation_type",
         attribute=TMRW_ATTR_PRECIPITATION_TYPE,
         value_map=PrecipitationType,
-        icon="mdi:weather-snowy-rainy",
     ),
     # Data comes in as ppb, convert to µg/m^3
     # Molecular weight of Ozone is 48
@@ -272,7 +266,6 @@ SENSOR_TYPES = (
         REDACTED_VALUE"health_concern",
         attribute=TMRW_ATTR_EPA_HEALTH_CONCERN,
         value_map=HealthConcernType,
-        icon="mdi:hospital",
     ),
     TomorrowioSensorEntityDescription(
         key="china_mep_air_quality_index",
@@ -291,13 +284,11 @@ SENSOR_TYPES = (
         REDACTED_VALUE"china_mep_health_concern",
         attribute=TMRW_ATTR_CHINA_HEALTH_CONCERN,
         value_map=HealthConcernType,
-        icon="mdi:hospital",
     ),
     TomorrowioSensorEntityDescription(
         key="tree_pollen_index",
         REDACTED_VALUE"pollen_index",
         attribute=TMRW_ATTR_POLLEN_TREE,
-        icon="mdi:tree",
         value_map=PollenIndex,
     ),
     TomorrowioSensorEntityDescription(
@@ -305,34 +296,29 @@ SENSOR_TYPES = (
         REDACTED_VALUE"weed_pollen_index",
         attribute=TMRW_ATTR_POLLEN_WEED,
         value_map=PollenIndex,
-        icon="mdi:flower-pollen",
     ),
     TomorrowioSensorEntityDescription(
         key="grass_pollen_index",
         REDACTED_VALUE"grass_pollen_index",
         attribute=TMRW_ATTR_POLLEN_GRASS,
-        icon="mdi:grass",
         value_map=PollenIndex,
     ),
     TomorrowioSensorEntityDescription(
         key="fire_index",
         REDACTED_VALUE"fire_index",
         attribute=TMRW_ATTR_FIRE_INDEX,
-        icon="mdi:fire",
     ),
     TomorrowioSensorEntityDescription(
         key="uv_index",
         REDACTED_VALUE"uv_index",
         attribute=TMRW_ATTR_UV_INDEX,
         state_class=SensorStateClass.MEASUREMENT,
-        icon="mdi:sun-wireless",
     ),
     TomorrowioSensorEntityDescription(
         key="uv_radiation_health_concern",
         REDACTED_VALUE"uv_radiation_health_concern",
         attribute=TMRW_ATTR_UV_HEALTH_CONCERN,
         value_map=UVDescription,
-        icon="mdi:weather-sunny-alert",
     ),
 )
 
