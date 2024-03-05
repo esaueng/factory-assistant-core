@@ -34,7 +34,6 @@ SURVEILLANCE_SWITCH: tuple[SynologyDSMSwitchEntityDescription, ...] = (
         api_key=SynoSurveillanceStation.HOME_MODE_API_KEY,
         key="home_mode",
         REDACTED_VALUE"home_mode",
-        icon="mdi:home-account",
     ),
 )
 
