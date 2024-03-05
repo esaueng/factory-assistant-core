@@ -25,7 +25,6 @@ SIGNAL_SENSORS = (
     ),
     SensorEntityDescription(
         key="SignalPercent",
-        icon="mdi:signal-cellular-3",
         REDACTED_VALUE"signal_percent",
         native_unit_of_measurement=PERCENTAGE,
         entity_registry_enabled_default=True,
@@ -62,7 +61,6 @@ NETWORK_SENSORS = (
     SensorEntityDescription(
         key="CID",
         REDACTED_VALUE"cid",
-        icon="mdi:radio-tower",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
