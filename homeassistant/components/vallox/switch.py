@@ -77,7 +77,6 @@ SWITCH_ENTITIES: tuple[ValloxSwitchEntityDescription, ...] = (
     ValloxSwitchEntityDescription(
         key="bypass_locked",
         REDACTED_VALUE"bypass_locked",
-        icon="mdi:arrow-horizontal-lock",
         metric_key="A_CYC_BYPASS_LOCKED",
     ),
 )
