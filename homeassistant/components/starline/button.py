@@ -14,7 +14,6 @@ BUTTON_TYPES: tuple[ButtonEntityDescription, ...] = (
     ButtonEntityDescription(
         key="poke",
         REDACTED_VALUE"horn",
-        icon="mdi:bullhorn-outline",
     ),
 )
 
