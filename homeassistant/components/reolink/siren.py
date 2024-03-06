@@ -34,7 +34,6 @@ SIREN_ENTITIES = (
     ReolinkSirenEntityDescription(
         key="siren",
         REDACTED_VALUE"siren",
-        icon="mdi:alarm-light",
         supported=lambda api, ch: api.supported(ch, "siren_play"),
     ),
 )
