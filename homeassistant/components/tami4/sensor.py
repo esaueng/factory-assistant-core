@@ -25,41 +25,34 @@ ENTITY_DESCRIPTIONS = [
     SensorEntityDescription(
         key="uv_last_replacement",
         REDACTED_VALUE"uv_last_replacement",
-        icon="mdi:calendar",
         device_class=SensorDeviceClass.DATE,
     ),
     SensorEntityDescription(
         key="uv_upcoming_replacement",
         REDACTED_VALUE"uv_upcoming_replacement",
-        icon="mdi:calendar",
         device_class=SensorDeviceClass.DATE,
     ),
     SensorEntityDescription(
         key="uv_status",
         REDACTED_VALUE"uv_status",
-        icon="mdi:clipboard-check-multiple",
     ),
     SensorEntityDescription(
         key="filter_last_replacement",
         REDACTED_VALUE"filter_last_replacement",
-        icon="mdi:calendar",
         device_class=SensorDeviceClass.DATE,
     ),
     SensorEntityDescription(
         key="filter_upcoming_replacement",
         REDACTED_VALUE"filter_upcoming_replacement",
-        icon="mdi:calendar",
         device_class=SensorDeviceClass.DATE,
     ),
     SensorEntityDescription(
         key="filter_status",
         REDACTED_VALUE"filter_status",
-        icon="mdi:clipboard-check-multiple",
     ),
     SensorEntityDescription(
         key="filter_litters_passed",
         REDACTED_VALUE"filter_litters_passed",
-        icon="mdi:water",
         state_class=SensorStateClass.TOTAL,
         device_class=SensorDeviceClass.WATER,
         native_unit_of_measurement=UnitOfVolume.LITERS,
