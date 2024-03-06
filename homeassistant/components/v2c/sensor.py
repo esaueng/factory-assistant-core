@@ -50,7 +50,6 @@ TRYDAN_SENSORS = (
     V2CSensorEntityDescription(
         key="charge_energy",
         REDACTED_VALUE"charge_energy",
-        icon="mdi:ev-station",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
         device_class=SensorDeviceClass.ENERGY,
@@ -59,7 +58,6 @@ TRYDAN_SENSORS = (
     V2CSensorEntityDescription(
         key="charge_time",
         REDACTED_VALUE"charge_time",
-        icon="mdi:timer",
         native_unit_of_measurement=UnitOfTime.SECONDS,
         state_class=SensorStateClass.TOTAL_INCREASING,
         device_class=SensorDeviceClass.DURATION,
@@ -68,7 +66,6 @@ TRYDAN_SENSORS = (
     V2CSensorEntityDescription(
         key="house_power",
         REDACTED_VALUE"house_power",
-        icon="mdi:home-lightning-bolt",
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.POWER,
@@ -77,7 +74,6 @@ TRYDAN_SENSORS = (
     V2CSensorEntityDescription(
         key="fv_power",
         REDACTED_VALUE"fv_power",
-        icon="mdi:solar-power-variant",
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.POWER,
