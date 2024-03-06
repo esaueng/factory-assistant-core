@@ -34,7 +34,6 @@ DESCRIPTIONS: tuple[TailwindDoorBinarySensorEntityDescription, ...] = (
         REDACTED_VALUE"operational_problem",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=BinarySensorDeviceClass.PROBLEM,
-        icon="mdi:garage-alert",
         is_on_fn=lambda door: door.locked_out,
     ),
 )
