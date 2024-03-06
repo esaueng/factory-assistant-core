@@ -48,14 +48,12 @@ CIRCUIT_SENSORS: tuple[ViCareBinarySensorEntityDescription, ...] = (
     ViCareBinarySensorEntityDescription(
         key="circulationpump_active",
         REDACTED_VALUE"circulation_pump",
-        icon="mdi:pump",
         device_class=BinarySensorDeviceClass.RUNNING,
         value_getter=lambda api: api.getCirculationPumpActive(),
     ),
     ViCareBinarySensorEntityDescription(
         key="frost_protection_active",
         REDACTED_VALUE"frost_protection",
-        icon="mdi:snowflake",
         value_getter=lambda api: api.getFrostProtectionActive(),
     ),
 )
@@ -64,7 +62,6 @@ BURNER_SENSORS: tuple[ViCareBinarySensorEntityDescription, ...] = (
     ViCareBinarySensorEntityDescription(
         key="burner_active",
         REDACTED_VALUE"burner",
-        icon="mdi:gas-burner",
         device_class=BinarySensorDeviceClass.RUNNING,
         value_getter=lambda api: api.getActive(),
     ),
@@ -83,7 +80,6 @@ GLOBAL_SENSORS: tuple[ViCareBinarySensorEntityDescription, ...] = (
     ViCareBinarySensorEntityDescription(
         key="solar_pump_active",
         REDACTED_VALUE"solar_pump",
-        icon="mdi:pump",
         device_class=BinarySensorDeviceClass.RUNNING,
         value_getter=lambda api: api.getSolarPumpActive(),
     ),
@@ -96,14 +92,12 @@ GLOBAL_SENSORS: tuple[ViCareBinarySensorEntityDescription, ...] = (
     ViCareBinarySensorEntityDescription(
         key="dhw_circulationpump_active",
         REDACTED_VALUE"domestic_hot_water_circulation_pump",
-        icon="mdi:pump",
         device_class=BinarySensorDeviceClass.RUNNING,
         value_getter=lambda api: api.getDomesticHotWaterCirculationPumpActive(),
     ),
     ViCareBinarySensorEntityDescription(
         key="dhw_pump_active",
         REDACTED_VALUE"domestic_hot_water_pump",
-        icon="mdi:pump",
         device_class=BinarySensorDeviceClass.RUNNING,
         value_getter=lambda api: api.getDomesticHotWaterPumpActive(),
     ),
