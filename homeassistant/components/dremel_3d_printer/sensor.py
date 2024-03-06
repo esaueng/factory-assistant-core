@@ -51,7 +51,6 @@ SENSOR_TYPES: tuple[Dremel3DPrinterSensorEntityDescription, ...] = (
     Dremel3DPrinterSensorEntityDescription(
         key="job_phase",
         REDACTED_VALUE"job_phase",
-        icon="mdi:printer-3d",
         value_fn=lambda api, _: api.get_printing_status(),
     ),
     Dremel3DPrinterSensorEntityDescription(
@@ -67,7 +66,6 @@ SENSOR_TYPES: tuple[Dremel3DPrinterSensorEntityDescription, ...] = (
     Dremel3DPrinterSensorEntityDescription(
         key="progress",
         REDACTED_VALUE"progress",
-        icon="mdi:printer-3d-nozzle",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -162,7 +160,6 @@ SENSOR_TYPES: tuple[Dremel3DPrinterSensorEntityDescription, ...] = (
     Dremel3DPrinterSensorEntityDescription(
         key="filament",
         REDACTED_VALUE"filament",
-        icon="mdi:printer-3d-nozzle",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda api, key: api.get_job_status()[key],
@@ -190,7 +187,6 @@ SENSOR_TYPES: tuple[Dremel3DPrinterSensorEntityDescription, ...] = (
     Dremel3DPrinterSensorEntityDescription(
         key="job_status",
         REDACTED_VALUE"job_status",
-        icon="mdi:printer-3d",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda api, key: api.get_job_status()[key],
@@ -198,7 +194,6 @@ SENSOR_TYPES: tuple[Dremel3DPrinterSensorEntityDescription, ...] = (
     Dremel3DPrinterSensorEntityDescription(
         key="job_name",
         REDACTED_VALUE"job_name",
-        icon="mdi:file",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda api, _: api.get_job_name(),
@@ -206,7 +201,6 @@ SENSOR_TYPES: tuple[Dremel3DPrinterSensorEntityDescription, ...] = (
     Dremel3DPrinterSensorEntityDescription(
         key="api_version",
         REDACTED_VALUE"api_version",
-        icon="mdi:api",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda api, key: api.get_printer_info()[key],
@@ -214,7 +208,6 @@ SENSOR_TYPES: tuple[Dremel3DPrinterSensorEntityDescription, ...] = (
     Dremel3DPrinterSensorEntityDescription(
         key="host",
         REDACTED_VALUE"host",
-        icon="mdi:ip-network",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda api, key: api.get_printer_info()[key],
@@ -222,7 +215,6 @@ SENSOR_TYPES: tuple[Dremel3DPrinterSensorEntityDescription, ...] = (
     Dremel3DPrinterSensorEntityDescription(
         key="connection_type",
         REDACTED_VALUE"connection_type",
-        icon="mdi:network",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda api, key: api.get_printer_info()[key],
@@ -239,7 +231,6 @@ SENSOR_TYPES: tuple[Dremel3DPrinterSensorEntityDescription, ...] = (
     Dremel3DPrinterSensorEntityDescription(
         key="hours_used",
         REDACTED_VALUE"hours_used",
-        icon="mdi:clock",
         native_unit_of_measurement=UnitOfTime.HOURS,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,

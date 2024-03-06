@@ -44,24 +44,21 @@ BUTTON_TYPES: tuple[BMWButtonEntityDescription, ...] = (
     BMWButtonEntityDescription(
         key="light_flash",
         REDACTED_VALUE"light_flash",
-        icon="mdi:car-light-alert",
         remote_function=lambda vehicle: vehicle.remote_services.trigger_remote_light_flash(),
     ),
     BMWButtonEntityDescription(
         key="sound_horn",
         REDACTED_VALUE"sound_horn",
-        icon="mdi:bullhorn",
         remote_function=lambda vehicle: vehicle.remote_services.trigger_remote_horn(),
     ),
     BMWButtonEntityDescription(
         key="activate_air_conditioning",
         REDACTED_VALUE"activate_air_conditioning",
-        icon="mdi:hvac",
         remote_function=lambda vehicle: vehicle.remote_services.trigger_remote_air_conditioning(),
     ),
     BMWButtonEntityDescription(
         key="deactivate_air_conditioning",
-        icon="mdi:hvac-off",
+        REDACTED_VALUE"deactivate_air_conditioning",
         name="Deactivate air conditioning",
         remote_function=lambda vehicle: vehicle.remote_services.trigger_remote_air_conditioning_stop(),
         is_available=lambda vehicle: vehicle.is_remote_climate_stop_enabled,
@@ -69,7 +66,6 @@ BUTTON_TYPES: tuple[BMWButtonEntityDescription, ...] = (
     BMWButtonEntityDescription(
         key="find_vehicle",
         REDACTED_VALUE"find_vehicle",
-        icon="mdi:crosshairs-question",
         remote_function=lambda vehicle: vehicle.remote_services.trigger_remote_vehicle_finder(),
     ),
 )

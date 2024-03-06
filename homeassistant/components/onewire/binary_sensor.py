@@ -38,7 +38,8 @@ DEVICE_BINARY_SENSORS: dict[str, tuple[OneWireBinarySensorEntityDescription, ...
             key=f"sensed.{id}",
             entity_registry_enabled_default=False,
             read_mode=READ_MODE_BOOL,
-            REDACTED_VALUEf"sensed_{id.lower()}",
+            REDACTED_VALUE"sensed_id",
+            translation_placeholders={"id": str(id)},
         )
         for id in DEVICE_KEYS_A_B
     ),
@@ -47,7 +48,8 @@ DEVICE_BINARY_SENSORS: dict[str, tuple[OneWireBinarySensorEntityDescription, ...
             key=f"sensed.{id}",
             entity_registry_enabled_default=False,
             read_mode=READ_MODE_BOOL,
-            REDACTED_VALUEf"sensed_{id}",
+            REDACTED_VALUE"sensed_id",
+            translation_placeholders={"id": str(id)},
         )
         for id in DEVICE_KEYS_0_7
     ),
@@ -56,7 +58,8 @@ DEVICE_BINARY_SENSORS: dict[str, tuple[OneWireBinarySensorEntityDescription, ...
             key=f"sensed.{id}",
             entity_registry_enabled_default=False,
             read_mode=READ_MODE_BOOL,
-            REDACTED_VALUEf"sensed_{id.lower()}",
+            REDACTED_VALUE"sensed_id",
+            translation_placeholders={"id": str(id)},
         )
         for id in DEVICE_KEYS_A_B
     ),
@@ -72,7 +75,8 @@ HOBBYBOARD_EF: dict[str, tuple[OneWireBinarySensorEntityDescription, ...]] = {
             read_mode=READ_MODE_BOOL,
             entity_category=EntityCategory.DIAGNOSTIC,
             device_class=BinarySensorDeviceClass.PROBLEM,
-            REDACTED_VALUEf"hub_short_{id}",
+            REDACTED_VALUE"hub_short_id",
+            translation_placeholders={"id": str(id)},
         )
         for id in DEVICE_KEYS_0_3
     ),
