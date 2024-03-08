@@ -1,4 +1,5 @@
 """The Tami4Edge integration."""
+
 from __future__ import annotations
 
 from REDACTED_VALUE import REDACTED_VALUE, exceptions
