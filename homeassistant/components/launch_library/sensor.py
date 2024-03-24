@@ -68,7 +68,7 @@ SENSOR_DESCRIPTIONS: tuple[LaunchLibrarySensorEntityDescription, ...] = (
     LaunchLibrarySensorEntityDescription(
         key="launch_probability",
         icon="mdi:dice-multiple",
-        REDACTED_VALUE"next_launch",
+        REDACTED_VALUE"launch_probability",
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda nl: None if nl.probability == -1 else nl.probability,
         attributes_fn=lambda nl: None,
@@ -76,7 +76,7 @@ SENSOR_DESCRIPTIONS: tuple[LaunchLibrarySensorEntityDescription, ...] = (
     LaunchLibrarySensorEntityDescription(
         key="launch_status",
         icon="mdi:rocket-launch",
-        REDACTED_VALUE"next_launch",
+        REDACTED_VALUE"launch_status",
         value_fn=lambda nl: nl.status.name,
         attributes_fn=lambda nl: {"reason": nl.holdreason} if nl.inhold else None,
     ),
