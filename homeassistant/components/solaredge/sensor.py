@@ -1,4 +1,5 @@
 """Support for SolarEdge Monitoring API."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -33,18 +34,11 @@ from .coordinator import (
 )
 
 
-@dataclass(frozen=True)
-class SolarEdgeSensorEntityRequiredKeyMixin:
-    """Sensor entity description with json_key for SolarEdge."""
+@dataclass(frozen=True, kw_only=True)
+class SolarEdgeSensorEntityDescription(SensorEntityDescription):
+    """Sensor entity description for SolarEdge."""
 
     json_key: str
-
-
-@dataclass(frozen=True)
-class SolarEdgeSensorEntityDescription(
-    SensorEntityDescription, SolarEdgeSensorEntityRequiredKeyMixin
-):
-    """Sensor entity description for SolarEdge."""
 
 
 SENSOR_TYPES = [
@@ -52,7 +46,6 @@ SENSOR_TYPES = [
         key="lifetime_energy",
         json_key="lifeTimeData",
         REDACTED_VALUE"lifetime_energy",
-        icon="mdi:solar-power",
         state_class=SensorStateClass.TOTAL,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -62,7 +55,6 @@ SENSOR_TYPES = [
         json_key="lastYearData",
         REDACTED_VALUE"energy_this_year",
         entity_registry_enabled_default=False,
-        icon="mdi:solar-power",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
     ),
@@ -71,7 +63,6 @@ SENSOR_TYPES = [
         json_key="lastMonthData",
         REDACTED_VALUE"energy_this_month",
         entity_registry_enabled_default=False,
-        icon="mdi:solar-power",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
     ),
@@ -80,7 +71,6 @@ SENSOR_TYPES = [
         json_key="lastDayData",
         REDACTED_VALUE"energy_today",
         entity_registry_enabled_default=False,
-        icon="mdi:solar-power",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
     ),
@@ -88,7 +78,6 @@ SENSOR_TYPES = [
         key="current_power",
         json_key="currentPower",
         REDACTED_VALUE"current_power",
-        icon="mdi:solar-power",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
@@ -134,28 +123,24 @@ SENSOR_TYPES = [
         json_key="LOAD",
         REDACTED_VALUE"power_consumption",
         entity_registry_enabled_default=False,
-        icon="mdi:flash",
     ),
     SolarEdgeSensorEntityDescription(
         key="solar_power",
         json_key="PV",
         REDACTED_VALUE"solar_power",
         entity_registry_enabled_default=False,
-        icon="mdi:solar-power",
     ),
     SolarEdgeSensorEntityDescription(
         key="grid_power",
         json_key="GRID",
         REDACTED_VALUE"grid_power",
         entity_registry_enabled_default=False,
-        icon="mdi:power-plug",
     ),
     SolarEdgeSensorEntityDescription(
         key="storage_power",
         json_key="STORAGE",
         REDACTED_VALUE"storage_power",
         entity_registry_enabled_default=False,
-        icon="mdi:car-battery",
     ),
     SolarEdgeSensorEntityDescription(
         key="purchased_energy",

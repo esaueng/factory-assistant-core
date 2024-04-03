@@ -1,4 +1,5 @@
 """binary sensors for Ukraine Alarm integration."""
+
 from __future__ import annotations
 
 from homeassistant.components.binary_sensor import (
@@ -36,31 +37,26 @@ BINARY_SENSOR_TYPES: tuple[BinarySensorEntityDescription, ...] = (
         key=ALERT_TYPE_AIR,
         REDACTED_VALUE"air",
         device_class=BinarySensorDeviceClass.SAFETY,
-        icon="mdi:cloud",
     ),
     BinarySensorEntityDescription(
         key=ALERT_TYPE_URBAN_FIGHTS,
         REDACTED_VALUE"urban_fights",
         device_class=BinarySensorDeviceClass.SAFETY,
-        icon="mdi:pistol",
     ),
     BinarySensorEntityDescription(
         key=ALERT_TYPE_ARTILLERY,
         REDACTED_VALUE"artillery",
         device_class=BinarySensorDeviceClass.SAFETY,
-        icon="mdi:tank",
     ),
     BinarySensorEntityDescription(
         key=ALERT_TYPE_CHEMICAL,
         REDACTED_VALUE"chemical",
         device_class=BinarySensorDeviceClass.SAFETY,
-        icon="mdi:chemical-weapon",
     ),
     BinarySensorEntityDescription(
         key=ALERT_TYPE_NUCLEAR,
         REDACTED_VALUE"nuclear",
         device_class=BinarySensorDeviceClass.SAFETY,
-        icon="mdi:nuke",
     ),
 )
 

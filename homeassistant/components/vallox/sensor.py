@@ -1,4 +1,5 @@
 """Support for Vallox ventilation unit sensors."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -138,14 +139,12 @@ SENSOR_ENTITIES: tuple[ValloxSensorEntityDescription, ...] = (
     ValloxSensorEntityDescription(
         key="current_profile",
         REDACTED_VALUE"current_profile",
-        icon="mdi:gauge",
         entity_type=ValloxProfileSensor,
     ),
     ValloxSensorEntityDescription(
         key="fan_speed",
         REDACTED_VALUE"fan_speed",
         metric_key="A_CYC_FAN_SPEED",
-        icon="mdi:fan",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
         entity_type=ValloxFanSpeedSensor,
@@ -154,7 +153,6 @@ SENSOR_ENTITIES: tuple[ValloxSensorEntityDescription, ...] = (
         key="extract_fan_speed",
         REDACTED_VALUE"extract_fan_speed",
         metric_key="A_CYC_EXTR_FAN_SPEED",
-        icon="mdi:fan",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=REVOLUTIONS_PER_MINUTE,
         entity_type=ValloxFanSpeedSensor,
@@ -164,7 +162,6 @@ SENSOR_ENTITIES: tuple[ValloxSensorEntityDescription, ...] = (
         key="supply_fan_speed",
         REDACTED_VALUE"supply_fan_speed",
         metric_key="A_CYC_SUPP_FAN_SPEED",
-        icon="mdi:fan",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=REVOLUTIONS_PER_MINUTE,
         entity_type=ValloxFanSpeedSensor,
@@ -179,7 +176,6 @@ SENSOR_ENTITIES: tuple[ValloxSensorEntityDescription, ...] = (
     ValloxSensorEntityDescription(
         key="cell_state",
         REDACTED_VALUE"cell_state",
-        icon="mdi:swap-horizontal-bold",
         metric_key="A_CYC_CELL_STATE",
         entity_type=ValloxCellStateSensor,
     ),
@@ -243,7 +239,6 @@ SENSOR_ENTITIES: tuple[ValloxSensorEntityDescription, ...] = (
         key="efficiency",
         REDACTED_VALUE"efficiency",
         metric_key="A_CYC_EXTRACT_EFFICIENCY",
-        icon="mdi:gauge",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
         entity_registry_enabled_default=False,
@@ -268,8 +263,6 @@ async def async_setup_entry(
     coordinator = hass.data[DOMAIN][entry.entry_id]["coordinator"]
 
     async_add_entities(
-        [
-            description.entity_type(name, coordinator, description)
-            for description in SENSOR_ENTITIES
-        ]
+        description.entity_type(name, coordinator, description)
+        for description in SENSOR_ENTITIES
     )

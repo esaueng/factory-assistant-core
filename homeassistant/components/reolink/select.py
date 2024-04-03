@@ -1,4 +1,5 @@
 """Component providing support for Reolink select entities."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -41,12 +42,16 @@ class ReolinkSelectEntityDescription(
     value: Callable[[Host, int], str] | None = None
 
 
+def _get_quick_reply_id(api: Host, ch: int, mess: str) -> int:
+    """Get the quick reply file id from the message string."""
+    return [k for k, v in api.quick_reply_dict(ch).items() if v == mess][0]
+
+
 SELECT_ENTITIES = (
     ReolinkSelectEntityDescription(
         key="floodlight_mode",
         cmd_key="GetWhiteLed",
         REDACTED_VALUE"floodlight_mode",
-        icon="mdi:spotlight-beam",
         entity_category=EntityCategory.CONFIG,
         get_options=lambda api, ch: api.whiteled_mode_list(ch),
         supported=lambda api, ch: api.supported(ch, "floodLight"),
@@ -57,7 +62,6 @@ SELECT_ENTITIES = (
         key="day_night_mode",
         cmd_key="GetIsp",
         REDACTED_VALUE"day_night_mode",
-        icon="mdi:theme-light-dark",
         entity_category=EntityCategory.CONFIG,
         get_options=[mode.name for mode in DayNightEnum],
         supported=lambda api, ch: api.supported(ch, "dayNight"),
@@ -67,29 +71,35 @@ SELECT_ENTITIES = (
     ReolinkSelectEntityDescription(
         key="ptz_preset",
         REDACTED_VALUE"ptz_preset",
-        icon="mdi:pan",
         get_options=lambda api, ch: list(api.ptz_presets(ch)),
         supported=lambda api, ch: api.supported(ch, "ptz_presets"),
         method=lambda api, ch, name: api.set_ptz_command(ch, preset=name),
     ),
     ReolinkSelectEntityDescription(
+        key="play_quick_reply_message",
+        REDACTED_VALUE"play_quick_reply_message",
+        get_options=lambda api, ch: list(api.quick_reply_dict(ch).values())[1:],
+        supported=lambda api, ch: api.supported(ch, "play_quick_reply"),
+        method=lambda api, ch, mess: (
+            api.play_quick_reply(ch, file_id=_get_quick_reply_id(api, ch, mess))
+        ),
+    ),
+    ReolinkSelectEntityDescription(
         key="auto_quick_reply_message",
         cmd_key="GetAutoReply",
         REDACTED_VALUE"auto_quick_reply_message",
-        icon="mdi:message-reply-text-outline",
         entity_category=EntityCategory.CONFIG,
         get_options=lambda api, ch: list(api.quick_reply_dict(ch).values()),
         supported=lambda api, ch: api.supported(ch, "quick_reply"),
         value=lambda api, ch: api.quick_reply_dict(ch)[api.quick_reply_file(ch)],
-        method=lambda api, ch, mess: api.set_quick_reply(
-            ch, file_id=[k for k, v in api.quick_reply_dict(ch).items() if v == mess][0]
+        method=lambda api, ch, mess: (
+            api.set_quick_reply(ch, file_id=_get_quick_reply_id(api, ch, mess))
         ),
     ),
     ReolinkSelectEntityDescription(
         key="auto_track_method",
         cmd_key="GetAiCfg",
         REDACTED_VALUE"auto_track_method",
-        icon="mdi:target-account",
         entity_category=EntityCategory.CONFIG,
         get_options=[method.name for method in TrackMethodEnum],
         supported=lambda api, ch: api.supported(ch, "auto_track_method"),
@@ -100,7 +110,6 @@ SELECT_ENTITIES = (
         key="status_led",
         cmd_key="GetPowerLed",
         REDACTED_VALUE"status_led",
-        icon="mdi:lightning-bolt-circle",
         entity_category=EntityCategory.CONFIG,
         get_options=[state.name for state in StatusLedEnum],
         supported=lambda api, ch: api.supported(ch, "doorbell_led"),

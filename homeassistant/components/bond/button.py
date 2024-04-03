@@ -1,4 +1,5 @@
 """Support for bond buttons."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -21,29 +22,21 @@ from .utils import BondDevice, BondHub
 STEP_SIZE = 10
 
 
-@dataclass(frozen=True)
-class BondButtonEntityDescriptionMixin:
-    """Mixin to describe a Bond Button entity."""
-
-    mutually_exclusive: Action | None
-    argument: int | None
-
-
-@dataclass(frozen=True)
-class BondButtonEntityDescription(
-    ButtonEntityDescription, BondButtonEntityDescriptionMixin
-):
+@dataclass(frozen=True, kw_only=True)
+class BondButtonEntityDescription(ButtonEntityDescription):
     """Class to describe a Bond Button entity."""
 
     # BondEntity does not support UNDEFINED,
     # restrict the type to str | None
     name: str | None = None
+    mutually_exclusive: Action | None
+    argument: int | None
 
 
 STOP_BUTTON = BondButtonEntityDescription(
     key=Action.STOP,
     name="Stop Actions",
-    icon="mdi:stop-circle-outline",
+    REDACTED_VALUE"stop_actions",
     mutually_exclusive=None,
     argument=None,
 )
@@ -53,175 +46,175 @@ BUTTONS: tuple[BondButtonEntityDescription, ...] = (
     BondButtonEntityDescription(
         key=Action.TOGGLE_POWER,
         name="Toggle Power",
-        icon="mdi:power-cycle",
+        REDACTED_VALUE"toggle_power",
         mutually_exclusive=Action.TURN_ON,
         argument=None,
     ),
     BondButtonEntityDescription(
         key=Action.TOGGLE_LIGHT,
         name="Toggle Light",
-        icon="mdi:lightbulb",
+        REDACTED_VALUE"toggle_light",
         mutually_exclusive=Action.TURN_LIGHT_ON,
         argument=None,
     ),
     BondButtonEntityDescription(
         key=Action.INCREASE_BRIGHTNESS,
         name="Increase Brightness",
-        icon="mdi:brightness-7",
+        REDACTED_VALUE"increase_brightness",
         mutually_exclusive=Action.SET_BRIGHTNESS,
         argument=STEP_SIZE,
     ),
     BondButtonEntityDescription(
         key=Action.DECREASE_BRIGHTNESS,
         name="Decrease Brightness",
-        icon="mdi:brightness-1",
+        REDACTED_VALUE"decrease_brightness",
         mutually_exclusive=Action.SET_BRIGHTNESS,
         argument=STEP_SIZE,
     ),
     BondButtonEntityDescription(
         key=Action.TOGGLE_UP_LIGHT,
         name="Toggle Up Light",
-        icon="mdi:lightbulb",
+        REDACTED_VALUE"toggle_up_light",
         mutually_exclusive=Action.TURN_UP_LIGHT_ON,
         argument=None,
     ),
     BondButtonEntityDescription(
         key=Action.TOGGLE_DOWN_LIGHT,
         name="Toggle Down Light",
-        icon="mdi:lightbulb",
+        REDACTED_VALUE"toggle_down_light",
         mutually_exclusive=Action.TURN_DOWN_LIGHT_ON,
         argument=None,
     ),
     BondButtonEntityDescription(
         key=Action.START_DIMMER,
         name="Start Dimmer",
-        icon="mdi:brightness-percent",
+        REDACTED_VALUE"start_dimmer",
         mutually_exclusive=Action.SET_BRIGHTNESS,
         argument=None,
     ),
     BondButtonEntityDescription(
         key=Action.START_UP_LIGHT_DIMMER,
         name="Start Up Light Dimmer",
-        icon="mdi:brightness-percent",
+        REDACTED_VALUE"start_up_light_dimmer",
         mutually_exclusive=Action.SET_UP_LIGHT_BRIGHTNESS,
         argument=None,
     ),
     BondButtonEntityDescription(
         key=Action.START_DOWN_LIGHT_DIMMER,
         name="Start Down Light Dimmer",
-        icon="mdi:brightness-percent",
+        REDACTED_VALUE"start_down_light_dimmer",
         mutually_exclusive=Action.SET_DOWN_LIGHT_BRIGHTNESS,
         argument=None,
     ),
     BondButtonEntityDescription(
         key=Action.START_INCREASING_BRIGHTNESS,
         name="Start Increasing Brightness",
-        icon="mdi:brightness-percent",
+        REDACTED_VALUE"start_increasing_brightness",
         mutually_exclusive=Action.SET_BRIGHTNESS,
         argument=None,
     ),
     BondButtonEntityDescription(
         key=Action.START_DECREASING_BRIGHTNESS,
         name="Start Decreasing Brightness",
-        icon="mdi:brightness-percent",
+        REDACTED_VALUE"start_decreasing_brightness",
         mutually_exclusive=Action.SET_BRIGHTNESS,
         argument=None,
     ),
     BondButtonEntityDescription(
         key=Action.INCREASE_UP_LIGHT_BRIGHTNESS,
         name="Increase Up Light Brightness",
-        icon="mdi:brightness-percent",
+        REDACTED_VALUE"increase_up_light_brightness",
         mutually_exclusive=Action.SET_UP_LIGHT_BRIGHTNESS,
         argument=STEP_SIZE,
     ),
     BondButtonEntityDescription(
         key=Action.DECREASE_UP_LIGHT_BRIGHTNESS,
         name="Decrease Up Light Brightness",
-        icon="mdi:brightness-percent",
+        REDACTED_VALUE"decrease_up_light_brightness",
         mutually_exclusive=Action.SET_UP_LIGHT_BRIGHTNESS,
         argument=STEP_SIZE,
     ),
     BondButtonEntityDescription(
         key=Action.INCREASE_DOWN_LIGHT_BRIGHTNESS,
         name="Increase Down Light Brightness",
-        icon="mdi:brightness-percent",
+        REDACTED_VALUE"increase_down_light_brightness",
         mutually_exclusive=Action.SET_DOWN_LIGHT_BRIGHTNESS,
         argument=STEP_SIZE,
     ),
     BondButtonEntityDescription(
         key=Action.DECREASE_DOWN_LIGHT_BRIGHTNESS,
         name="Decrease Down Light Brightness",
-        icon="mdi:brightness-percent",
+        REDACTED_VALUE"decrease_down_light_brightness",
         mutually_exclusive=Action.SET_DOWN_LIGHT_BRIGHTNESS,
         argument=STEP_SIZE,
     ),
     BondButtonEntityDescription(
         key=Action.CYCLE_UP_LIGHT_BRIGHTNESS,
         name="Cycle Up Light Brightness",
-        icon="mdi:brightness-percent",
+        REDACTED_VALUE"cycle_up_light_brightness",
         mutually_exclusive=Action.SET_UP_LIGHT_BRIGHTNESS,
         argument=STEP_SIZE,
     ),
     BondButtonEntityDescription(
         key=Action.CYCLE_DOWN_LIGHT_BRIGHTNESS,
         name="Cycle Down Light Brightness",
-        icon="mdi:brightness-percent",
+        REDACTED_VALUE"cycle_down_light_brightness",
         mutually_exclusive=Action.SET_DOWN_LIGHT_BRIGHTNESS,
         argument=STEP_SIZE,
     ),
     BondButtonEntityDescription(
         key=Action.CYCLE_BRIGHTNESS,
         name="Cycle Brightness",
-        icon="mdi:brightness-percent",
+        REDACTED_VALUE"cycle_brightness",
         mutually_exclusive=Action.SET_BRIGHTNESS,
         argument=STEP_SIZE,
     ),
     BondButtonEntityDescription(
         key=Action.INCREASE_SPEED,
         name="Increase Speed",
-        icon="mdi:skew-more",
+        REDACTED_VALUE"increase_speed",
         mutually_exclusive=Action.SET_SPEED,
         argument=1,
     ),
     BondButtonEntityDescription(
         key=Action.DECREASE_SPEED,
         name="Decrease Speed",
-        icon="mdi:skew-less",
+        REDACTED_VALUE"decrease_speed",
         mutually_exclusive=Action.SET_SPEED,
         argument=1,
     ),
     BondButtonEntityDescription(
         key=Action.TOGGLE_DIRECTION,
         name="Toggle Direction",
-        icon="mdi:directions-fork",
+        REDACTED_VALUE"toggle_direction",
         mutually_exclusive=Action.SET_DIRECTION,
         argument=None,
     ),
     BondButtonEntityDescription(
         key=Action.INCREASE_TEMPERATURE,
         name="Increase Temperature",
-        icon="mdi:thermometer-plus",
+        REDACTED_VALUE"increase_temperature",
         mutually_exclusive=None,
         argument=1,
     ),
     BondButtonEntityDescription(
         key=Action.DECREASE_TEMPERATURE,
         name="Decrease Temperature",
-        icon="mdi:thermometer-minus",
+        REDACTED_VALUE"decrease_temperature",
         mutually_exclusive=None,
         argument=1,
     ),
     BondButtonEntityDescription(
         key=Action.INCREASE_FLAME,
         name="Increase Flame",
-        icon="mdi:fire",
+        REDACTED_VALUE"increase_flame",
         mutually_exclusive=None,
         argument=STEP_SIZE,
     ),
     BondButtonEntityDescription(
         key=Action.DECREASE_FLAME,
         name="Decrease Flame",
-        icon="mdi:fire-off",
+        REDACTED_VALUE"decrease_flame",
         mutually_exclusive=None,
         argument=STEP_SIZE,
     ),
@@ -234,14 +227,14 @@ BUTTONS: tuple[BondButtonEntityDescription, ...] = (
     BondButtonEntityDescription(
         key=Action.INCREASE_POSITION,
         name="Increase Position",
-        icon="mdi:plus-box",
+        REDACTED_VALUE"increase_position",
         mutually_exclusive=Action.SET_POSITION,
         argument=STEP_SIZE,
     ),
     BondButtonEntityDescription(
         key=Action.DECREASE_POSITION,
         name="Decrease Position",
-        icon="mdi:minus-box",
+        REDACTED_VALUE"decrease_position",
         mutually_exclusive=Action.SET_POSITION,
         argument=STEP_SIZE,
     ),

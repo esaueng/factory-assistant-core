@@ -1,4 +1,5 @@
 """Component providing support for Reolink siren entities."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -34,7 +35,6 @@ SIREN_ENTITIES = (
     ReolinkSirenEntityDescription(
         key="siren",
         REDACTED_VALUE"siren",
-        icon="mdi:alarm-light",
         supported=lambda api, ch: api.supported(ch, "siren_play"),
     ),
 )

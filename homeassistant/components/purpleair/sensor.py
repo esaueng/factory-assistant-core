@@ -1,4 +1,5 @@
 """Support for PurpleAir sensors."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -52,7 +53,6 @@ SENSOR_DESCRIPTIONS = [
         key="REDACTED_VALUE",
         REDACTED_VALUE"REDACTED_VALUE",
         entity_registry_enabled_default=False,
-        icon="mdi:blur",
         native_unit_of_measurement=CONCENTRATION_PARTICLES_PER_100_MILLILITERS,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda sensor: sensor.pm0_3_um_count,
@@ -61,7 +61,6 @@ SENSOR_DESCRIPTIONS = [
         key="REDACTED_VALUE",
         REDACTED_VALUE"REDACTED_VALUE",
         entity_registry_enabled_default=False,
-        icon="mdi:blur",
         native_unit_of_measurement=CONCENTRATION_PARTICLES_PER_100_MILLILITERS,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda sensor: sensor.pm0_5_um_count,
@@ -70,7 +69,6 @@ SENSOR_DESCRIPTIONS = [
         key="REDACTED_VALUE",
         REDACTED_VALUE"REDACTED_VALUE",
         entity_registry_enabled_default=False,
-        icon="mdi:blur",
         native_unit_of_measurement=CONCENTRATION_PARTICLES_PER_100_MILLILITERS,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda sensor: sensor.pm1_0_um_count,
@@ -86,7 +84,6 @@ SENSOR_DESCRIPTIONS = [
         key="REDACTED_VALUE",
         REDACTED_VALUE"REDACTED_VALUE",
         entity_registry_enabled_default=False,
-        icon="mdi:blur",
         native_unit_of_measurement=CONCENTRATION_PARTICLES_PER_100_MILLILITERS,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda sensor: sensor.pm10_0_um_count,
@@ -102,7 +99,6 @@ SENSOR_DESCRIPTIONS = [
         key="REDACTED_VALUE",
         REDACTED_VALUE"REDACTED_VALUE",
         entity_registry_enabled_default=False,
-        icon="mdi:blur",
         native_unit_of_measurement=CONCENTRATION_PARTICLES_PER_100_MILLILITERS,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda sensor: sensor.pm2_5_um_count,
@@ -118,7 +114,6 @@ SENSOR_DESCRIPTIONS = [
         key="REDACTED_VALUE",
         REDACTED_VALUE"REDACTED_VALUE",
         entity_registry_enabled_default=False,
-        icon="mdi:blur",
         native_unit_of_measurement=CONCENTRATION_PARTICLES_PER_100_MILLILITERS,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda sensor: sensor.pm5_0_um_count,

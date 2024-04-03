@@ -1,4 +1,5 @@
 """Support for UPnP/IGD Sensors."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -50,7 +51,6 @@ SENSOR_DESCRIPTIONS: tuple[UpnpSensorEntityDescription, ...] = (
     UpnpSensorEntityDescription(
         key=BYTES_RECEIVED,
         REDACTED_VALUE"data_received",
-        icon="mdi:server-network",
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
         entity_registry_enabled_default=False,
@@ -60,7 +60,6 @@ SENSOR_DESCRIPTIONS: tuple[UpnpSensorEntityDescription, ...] = (
     UpnpSensorEntityDescription(
         key=BYTES_SENT,
         REDACTED_VALUE"data_sent",
-        icon="mdi:server-network",
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
         entity_registry_enabled_default=False,
@@ -70,7 +69,6 @@ SENSOR_DESCRIPTIONS: tuple[UpnpSensorEntityDescription, ...] = (
     UpnpSensorEntityDescription(
         key=PACKETS_RECEIVED,
         REDACTED_VALUE"packets_received",
-        icon="mdi:server-network",
         native_unit_of_measurement=DATA_PACKETS,
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -79,7 +77,6 @@ SENSOR_DESCRIPTIONS: tuple[UpnpSensorEntityDescription, ...] = (
     UpnpSensorEntityDescription(
         key=PACKETS_SENT,
         REDACTED_VALUE"packets_sent",
-        icon="mdi:server-network",
         native_unit_of_measurement=DATA_PACKETS,
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -88,13 +85,11 @@ SENSOR_DESCRIPTIONS: tuple[UpnpSensorEntityDescription, ...] = (
     UpnpSensorEntityDescription(
         key=ROUTER_IP,
         REDACTED_VALUE"external_ip",
-        icon="mdi:server-network",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     UpnpSensorEntityDescription(
         key=ROUTER_UPTIME,
         REDACTED_VALUE"uptime",
-        icon="mdi:server-network",
         native_unit_of_measurement=UnitOfTime.SECONDS,
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -103,7 +98,6 @@ SENSOR_DESCRIPTIONS: tuple[UpnpSensorEntityDescription, ...] = (
     UpnpSensorEntityDescription(
         key=WAN_STATUS,
         REDACTED_VALUE"wan_status",
-        icon="mdi:server-network",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
@@ -112,7 +106,6 @@ SENSOR_DESCRIPTIONS: tuple[UpnpSensorEntityDescription, ...] = (
         REDACTED_VALUE"download_speed",
         value_key=KIBIBYTES_PER_SEC_RECEIVED,
         unique_id="KiB/sec_received",
-        icon="mdi:server-network",
         device_class=SensorDeviceClass.DATA_RATE,
         native_unit_of_measurement=UnitOfDataRate.KIBIBYTES_PER_SECOND,
         state_class=SensorStateClass.MEASUREMENT,
@@ -123,7 +116,6 @@ SENSOR_DESCRIPTIONS: tuple[UpnpSensorEntityDescription, ...] = (
         REDACTED_VALUE"upload_speed",
         value_key=KIBIBYTES_PER_SEC_SENT,
         unique_id="KiB/sec_sent",
-        icon="mdi:server-network",
         device_class=SensorDeviceClass.DATA_RATE,
         native_unit_of_measurement=UnitOfDataRate.KIBIBYTES_PER_SECOND,
         state_class=SensorStateClass.MEASUREMENT,
@@ -134,7 +126,6 @@ SENSOR_DESCRIPTIONS: tuple[UpnpSensorEntityDescription, ...] = (
         REDACTED_VALUE"packet_download_speed",
         value_key=PACKETS_PER_SEC_RECEIVED,
         unique_id="packets/sec_received",
-        icon="mdi:server-network",
         native_unit_of_measurement=DATA_RATE_PACKETS_PER_SECOND,
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.MEASUREMENT,
@@ -145,7 +136,6 @@ SENSOR_DESCRIPTIONS: tuple[UpnpSensorEntityDescription, ...] = (
         REDACTED_VALUE"packet_upload_speed",
         value_key=PACKETS_PER_SEC_SENT,
         unique_id="packets/sec_sent",
-        icon="mdi:server-network",
         native_unit_of_measurement=DATA_RATE_PACKETS_PER_SECOND,
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.MEASUREMENT,

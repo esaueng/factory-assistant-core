@@ -1,4 +1,5 @@
 """Get WHOIS information for a given host."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -61,7 +62,6 @@ SENSORS: tuple[WhoisSensorEntityDescription, ...] = (
     WhoisSensorEntityDescription(
         key="admin",
         REDACTED_VALUE"admin",
-        icon="mdi:account-star",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda domain: getattr(domain, "admin", None),
@@ -76,7 +76,6 @@ SENSORS: tuple[WhoisSensorEntityDescription, ...] = (
     WhoisSensorEntityDescription(
         key="days_until_expiration",
         REDACTED_VALUE"days_until_expiration",
-        icon="mdi:calendar-clock",
         native_unit_of_measurement=UnitOfTime.DAYS,
         value_fn=_days_until_expiration,
     ),
@@ -97,7 +96,6 @@ SENSORS: tuple[WhoisSensorEntityDescription, ...] = (
     WhoisSensorEntityDescription(
         key="owner",
         REDACTED_VALUE"owner",
-        icon="mdi:account",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda domain: getattr(domain, "owner", None),
@@ -105,7 +103,6 @@ SENSORS: tuple[WhoisSensorEntityDescription, ...] = (
     WhoisSensorEntityDescription(
         key="registrant",
         REDACTED_VALUE"registrant",
-        icon="mdi:account-edit",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda domain: getattr(domain, "registrant", None),
@@ -113,7 +110,6 @@ SENSORS: tuple[WhoisSensorEntityDescription, ...] = (
     WhoisSensorEntityDescription(
         key="registrar",
         REDACTED_VALUE"registrar",
-        icon="mdi:store",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda domain: domain.registrar if domain.registrar else None,
@@ -121,7 +117,6 @@ SENSORS: tuple[WhoisSensorEntityDescription, ...] = (
     WhoisSensorEntityDescription(
         key="reseller",
         REDACTED_VALUE"reseller",
-        icon="mdi:store",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda domain: getattr(domain, "reseller", None),

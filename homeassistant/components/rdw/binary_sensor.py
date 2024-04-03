@@ -1,4 +1,5 @@
 """Support for RDW binary sensors."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -34,7 +35,6 @@ BINARY_SENSORS: tuple[RDWBinarySensorEntityDescription, ...] = (
     RDWBinarySensorEntityDescription(
         key="liability_insured",
         REDACTED_VALUE"liability_insured",
-        icon="mdi:shield-car",
         is_on_fn=lambda vehicle: vehicle.liability_insured,
     ),
     RDWBinarySensorEntityDescription(

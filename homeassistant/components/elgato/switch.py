@@ -1,4 +1,5 @@
 """Support for Elgato switches."""
+
 from __future__ import annotations
 
 from collections.abc import Awaitable, Callable
@@ -32,7 +33,6 @@ SWITCHES = [
     ElgatoSwitchEntityDescription(
         key="bypass",
         REDACTED_VALUE"bypass",
-        icon="mdi:battery-off-outline",
         entity_category=EntityCategory.CONFIG,
         has_fn=lambda x: x.battery is not None,
         is_on_fn=lambda x: x.settings.battery.bypass if x.settings.battery else None,
@@ -41,7 +41,6 @@ SWITCHES = [
     ElgatoSwitchEntityDescription(
         key="energy_saving",
         REDACTED_VALUE"energy_saving",
-        icon="mdi:leaf",
         entity_category=EntityCategory.CONFIG,
         has_fn=lambda x: x.battery is not None,
         is_on_fn=lambda x: (

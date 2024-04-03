@@ -1,4 +1,5 @@
 """Sensor platform for the PoolSense sensor."""
+
 from __future__ import annotations
 
 from homeassistant.components.sensor import (
@@ -25,11 +26,9 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
         key="Chlorine",
         REDACTED_VALUE"chlorine",
         native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
-        icon="mdi:pool",
     ),
     SensorEntityDescription(
         key="pH",
-        icon="mdi:pool",
         device_class=SensorDeviceClass.PH,
     ),
     SensorEntityDescription(
@@ -40,36 +39,31 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="Water Temp",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
-        icon="mdi:coolant-temperature",
+        REDACTED_VALUE"water_temp",
         device_class=SensorDeviceClass.TEMPERATURE,
     ),
     SensorEntityDescription(
         key="Last Seen",
         REDACTED_VALUE"last_seen",
-        icon="mdi:clock",
         device_class=SensorDeviceClass.TIMESTAMP,
     ),
     SensorEntityDescription(
         key="Chlorine High",
         REDACTED_VALUE"chlorine_high",
         native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
-        icon="mdi:pool",
     ),
     SensorEntityDescription(
         key="Chlorine Low",
         REDACTED_VALUE"chlorine_low",
         native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
-        icon="mdi:pool",
     ),
     SensorEntityDescription(
         key="pH High",
         REDACTED_VALUE"ph_high",
-        icon="mdi:pool",
     ),
     SensorEntityDescription(
         key="pH Low",
         REDACTED_VALUE"ph_low",
-        icon="mdi:pool",
     ),
 )
 

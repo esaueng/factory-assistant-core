@@ -1,4 +1,5 @@
 """Support for Litter-Robot binary sensors."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -52,7 +53,6 @@ BINARY_SENSOR_MAP: dict[type[Robot], tuple[RobotBinarySensorEntityDescription, .
         RobotBinarySensorEntityDescription[LitterRobot](
             key="sleeping",
             REDACTED_VALUE"sleeping",
-            icon="mdi:sleep",
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
             is_on_fn=lambda robot: robot.is_sleeping,
@@ -60,7 +60,6 @@ BINARY_SENSOR_MAP: dict[type[Robot], tuple[RobotBinarySensorEntityDescription, .
         RobotBinarySensorEntityDescription[LitterRobot](
             key="sleep_mode",
             REDACTED_VALUE"sleep_mode",
-            icon="mdi:sleep",
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
             is_on_fn=lambda robot: robot.sleep_mode_enabled,

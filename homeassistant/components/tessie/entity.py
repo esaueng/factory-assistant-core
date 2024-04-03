@@ -69,7 +69,6 @@ class TessieEntity(CoordinatorEntity[TessieStateUpdateCoordinator]):
             name: str = getattr(self, "name", self.entity_id)
             reason: str = response.get("reason", "unknown")
             raise HomeAssistantError(
-                reason.replace("_", " "),
                 translation_domain=DOMAIN,
                 REDACTED_VALUEreason.replace(" ", "_"),
                 translation_placeholders={"name": name},
