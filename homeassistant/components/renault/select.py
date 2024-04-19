@@ -71,6 +71,6 @@ SENSOR_TYPES: tuple[RenaultSelectEntityDescription, ...] = (
         coordinator="charge_mode",
         data_key="chargeMode",
         REDACTED_VALUE"charge_mode",
-        options=["always", "always_charging", "schedule_mode"],
+        options=["always", "always_charging", "schedule_mode", "scheduled"],
     ),
 )
