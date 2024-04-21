@@ -2589,7 +2589,7 @@ class ServiceRegistry:
             if handler.supports_response is SupportsResponse.NONE:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"service_does_not_supports_reponse",
+                    REDACTED_VALUE"service_does_not_support_response",
                     translation_placeholders={
                         "return_response": "return_response=True"
                     },
