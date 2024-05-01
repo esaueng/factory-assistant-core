@@ -75,7 +75,8 @@ class BlinkSwitch(CoordinatorEntity[BlinkUpdateCoordinator], SwitchEntity):
 
         except TimeoutError as er:
             raise HomeAssistantError(
-                "Blink failed to arm camera motion detection"
+                translation_domain=DOMAIN,
+                REDACTED_VALUE"failed_arm_motion",
             ) from er
 
         await self.coordinator.async_refresh()
@@ -87,7 +88,8 @@ class BlinkSwitch(CoordinatorEntity[BlinkUpdateCoordinator], SwitchEntity):
 
         except TimeoutError as er:
             raise HomeAssistantError(
-                "Blink failed to dis-arm camera motion detection"
+                translation_domain=DOMAIN,
+                REDACTED_VALUE"failed_disarm_motion",
             ) from er
 
         await self.coordinator.async_refresh()
