@@ -4,518 +4,515 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Any, Generic
+from typing import Any
 
 from aiohttp import ClientError
 from aiohttp.client_exceptions import ClientConnectorError
 from nextdns import ApiError, Settings
 
 from homeassistant.components.switch import SwitchEntity, SwitchEntityDescription
-from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import EntityCategory
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .const import ATTR_SETTINGS, DOMAIN
-from .coordinator import CoordinatorDataT, NextDnsSettingsUpdateCoordinator
+from . import NextDnsConfigEntry
+from .coordinator import NextDnsUpdateCoordinator
 
 PARALLEL_UPDATES = 1
 
 
 @dataclass(frozen=True, kw_only=True)
-class NextDnsSwitchEntityDescription(
-    SwitchEntityDescription, Generic[CoordinatorDataT]
-):
+class NextDnsSwitchEntityDescription(SwitchEntityDescription):
     """NextDNS switch entity description."""
 
-    state: Callable[[CoordinatorDataT], bool]
+    state: Callable[[Settings], bool]
 
 
 SWITCHES = (
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_page",
         REDACTED_VALUE"block_page",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.block_page,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="cache_boost",
         REDACTED_VALUE"cache_boost",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.cache_boost,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="cname_flattening",
         REDACTED_VALUE"cname_flattening",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.cname_flattening,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="anonymized_ecs",
         REDACTED_VALUE"anonymized_ecs",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.anonymized_ecs,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="logs",
         REDACTED_VALUE"logs",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.logs,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="web3",
         REDACTED_VALUE"web3",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.web3,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="allow_affiliate",
         REDACTED_VALUE"allow_affiliate",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.allow_affiliate,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_disguised_trackers",
         REDACTED_VALUE"block_disguised_trackers",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.block_disguised_trackers,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="ai_threat_detection",
         REDACTED_VALUE"ai_threat_detection",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.ai_threat_detection,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_csam",
         REDACTED_VALUE"block_csam",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.block_csam,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_ddns",
         REDACTED_VALUE"block_ddns",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.block_ddns,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_nrd",
         REDACTED_VALUE"block_nrd",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.block_nrd,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_parked_domains",
         REDACTED_VALUE"block_parked_domains",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.block_parked_domains,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="cryptojacking_protection",
         REDACTED_VALUE"cryptojacking_protection",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.cryptojacking_protection,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="dga_protection",
         REDACTED_VALUE"dga_protection",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.dga_protection,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="dns_rebinding_protection",
         REDACTED_VALUE"dns_rebinding_protection",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.dns_rebinding_protection,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="google_safe_browsing",
         REDACTED_VALUE"google_safe_browsing",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.google_safe_browsing,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="idn_homograph_attacks_protection",
         REDACTED_VALUE"idn_homograph_attacks_protection",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.idn_homograph_attacks_protection,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="threat_intelligence_feeds",
         REDACTED_VALUE"threat_intelligence_feeds",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.threat_intelligence_feeds,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="typosquatting_protection",
         REDACTED_VALUE"typosquatting_protection",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.typosquatting_protection,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_bypass_methods",
         REDACTED_VALUE"block_bypass_methods",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.block_bypass_methods,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="safesearch",
         REDACTED_VALUE"safesearch",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.safesearch,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="youtube_restricted_mode",
         REDACTED_VALUE"youtube_restricted_mode",
         entity_category=EntityCategory.CONFIG,
         state=lambda data: data.youtube_restricted_mode,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_9gag",
         REDACTED_VALUE"block_9gag",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_9gag,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_amazon",
         REDACTED_VALUE"block_amazon",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_amazon,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_bereal",
         REDACTED_VALUE"block_bereal",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_bereal,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_blizzard",
         REDACTED_VALUE"block_blizzard",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_blizzard,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_chatgpt",
         REDACTED_VALUE"block_chatgpt",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_chatgpt,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_dailymotion",
         REDACTED_VALUE"block_dailymotion",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_dailymotion,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_discord",
         REDACTED_VALUE"block_discord",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_discord,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_disneyplus",
         REDACTED_VALUE"block_disneyplus",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_disneyplus,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_ebay",
         REDACTED_VALUE"block_ebay",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_ebay,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_facebook",
         REDACTED_VALUE"block_facebook",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_facebook,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_fortnite",
         REDACTED_VALUE"block_fortnite",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_fortnite,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_google_chat",
         REDACTED_VALUE"block_google_chat",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_google_chat,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_hbomax",
         REDACTED_VALUE"block_hbomax",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_hbomax,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_hulu",
         name="Block Hulu",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_hulu,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_imgur",
         REDACTED_VALUE"block_imgur",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_imgur,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_instagram",
         REDACTED_VALUE"block_instagram",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_instagram,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_leagueoflegends",
         REDACTED_VALUE"block_leagueoflegends",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_leagueoflegends,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_mastodon",
         REDACTED_VALUE"block_mastodon",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_mastodon,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_messenger",
         REDACTED_VALUE"block_messenger",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_messenger,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_minecraft",
         REDACTED_VALUE"block_minecraft",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_minecraft,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_netflix",
         REDACTED_VALUE"block_netflix",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_netflix,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_pinterest",
         REDACTED_VALUE"block_pinterest",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_pinterest,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_playstation_network",
         REDACTED_VALUE"block_playstation_network",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_playstation_network,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_primevideo",
         REDACTED_VALUE"block_primevideo",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_primevideo,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_reddit",
         REDACTED_VALUE"block_reddit",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_reddit,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_roblox",
         REDACTED_VALUE"block_roblox",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_roblox,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_signal",
         REDACTED_VALUE"block_signal",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_signal,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_skype",
         REDACTED_VALUE"block_skype",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_skype,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_snapchat",
         REDACTED_VALUE"block_snapchat",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_snapchat,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_spotify",
         REDACTED_VALUE"block_spotify",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_spotify,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_steam",
         REDACTED_VALUE"block_steam",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_steam,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_telegram",
         REDACTED_VALUE"block_telegram",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_telegram,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_tiktok",
         REDACTED_VALUE"block_tiktok",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_tiktok,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_tinder",
         REDACTED_VALUE"block_tinder",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_tinder,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_tumblr",
         REDACTED_VALUE"block_tumblr",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_tumblr,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_twitch",
         REDACTED_VALUE"block_twitch",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_twitch,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_twitter",
         REDACTED_VALUE"block_twitter",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_twitter,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_vimeo",
         REDACTED_VALUE"block_vimeo",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_vimeo,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_vk",
         REDACTED_VALUE"block_vk",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_vk,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_whatsapp",
         REDACTED_VALUE"block_whatsapp",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_whatsapp,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_xboxlive",
         REDACTED_VALUE"block_xboxlive",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_xboxlive,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_youtube",
         REDACTED_VALUE"block_youtube",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_youtube,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_zoom",
         REDACTED_VALUE"block_zoom",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_zoom,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_dating",
         REDACTED_VALUE"block_dating",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_dating,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_gambling",
         REDACTED_VALUE"block_gambling",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_gambling,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_online_gaming",
         REDACTED_VALUE"block_online_gaming",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_online_gaming,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_piracy",
         REDACTED_VALUE"block_piracy",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_piracy,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_porn",
         REDACTED_VALUE"block_porn",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_porn,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_social_networks",
         REDACTED_VALUE"block_social_networks",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         state=lambda data: data.block_social_networks,
     ),
-    NextDnsSwitchEntityDescription[Settings](
+    NextDnsSwitchEntityDescription(
         key="block_video_streaming",
         REDACTED_VALUE"block_video_streaming",
         entity_category=EntityCategory.CONFIG,
@@ -526,19 +523,21 @@ SWITCHES = (
 
 
 async def async_setup_entry(
-    hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
+    hass: HomeAssistant,
+    entry: NextDnsConfigEntry,
+    async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Add NextDNS entities from a config_entry."""
-    coordinator: NextDnsSettingsUpdateCoordinator = hass.data[DOMAIN][entry.entry_id][
-        ATTR_SETTINGS
-    ]
+    coordinator = entry.runtime_data.settings
 
     async_add_entities(
         NextDnsSwitch(coordinator, description) for description in SWITCHES
     )
 
 
-class NextDnsSwitch(CoordinatorEntity[NextDnsSettingsUpdateCoordinator], SwitchEntity):
+class NextDnsSwitch(
+    CoordinatorEntity[NextDnsUpdateCoordinator[Settings]], SwitchEntity
+):
     """Define an NextDNS switch."""
 
     _attr_has_entity_name = True
@@ -546,7 +545,7 @@ class NextDnsSwitch(CoordinatorEntity[NextDnsSettingsUpdateCoordinator], SwitchE
 
     def __init__(
         self,
-        coordinator: NextDnsSettingsUpdateCoordinator,
+        coordinator: NextDnsUpdateCoordinator[Settings],
         description: NextDnsSwitchEntityDescription,
     ) -> None:
         """Initialize."""
