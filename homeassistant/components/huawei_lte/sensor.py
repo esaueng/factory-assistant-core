@@ -303,7 +303,7 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
                 key="rsrp",
                 REDACTED_VALUE"rsrp",
                 device_class=SensorDeviceClass.SIGNAL_STRENGTH,
-                # http://www.lte-anbieter.info/technik/rsrp.php
+                # http://www.lte-anbieter.info/technik/rsrp.php  # codespell:ignore technik
                 icon_fn=lambda x: signal_icon((-110, -95, -80), x),
                 state_class=SensorStateClass.MEASUREMENT,
                 entity_category=EntityCategory.DIAGNOSTIC,
@@ -313,7 +313,7 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
                 key="rsrq",
                 REDACTED_VALUE"rsrq",
                 device_class=SensorDeviceClass.SIGNAL_STRENGTH,
-                # http://www.lte-anbieter.info/technik/rsrq.php
+                # http://www.lte-anbieter.info/technik/rsrq.php  # codespell:ignore technik
                 icon_fn=lambda x: signal_icon((-11, -8, -5), x),
                 state_class=SensorStateClass.MEASUREMENT,
                 entity_category=EntityCategory.DIAGNOSTIC,
@@ -333,7 +333,7 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
                 key="sinr",
                 REDACTED_VALUE"sinr",
                 device_class=SensorDeviceClass.SIGNAL_STRENGTH,
-                # http://www.lte-anbieter.info/technik/sinr.php
+                # http://www.lte-anbieter.info/technik/sinr.php  # codespell:ignore technik
                 icon_fn=lambda x: signal_icon((0, 5, 10), x),
                 state_class=SensorStateClass.MEASUREMENT,
                 entity_category=EntityCategory.DIAGNOSTIC,
