@@ -147,6 +147,13 @@ SENSOR_TYPES: tuple[SolarLogSensorEntityDescription, ...] = (
         value=lambda value: round(value / 1000, 3),
     ),
     SolarLogSensorEntityDescription(
+        key="self_consumption_year",
+        REDACTED_VALUE"self_consumption_year",
+        native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
+        device_class=SensorDeviceClass.ENERGY,
+        state_class=SensorStateClass.TOTAL_INCREASING,
+    ),
+    SolarLogSensorEntityDescription(
         key="total_power",
         REDACTED_VALUE"total_power",
         native_unit_of_measurement=UnitOfPower.WATT,
