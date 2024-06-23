@@ -36,9 +36,9 @@ async def test_anna_max_boiler_temp_change(
         blocking=True,
     )
 
-    assert mock_smile_anna.set_number_setpoint.call_count == 1
-    mock_smile_anna.set_number_setpoint.assert_called_with(
-        "maximum_boiler_temperature", "REDACTED_VALUE", 65.0
+    assert mock_smile_anna.set_number.call_count == 1
+    mock_smile_anna.set_number.assert_called_with(
+        "REDACTED_VALUE", "maximum_boiler_temperature", 65.0
     )
 
 
@@ -65,9 +65,9 @@ async def test_adam_dhw_setpoint_change(
         blocking=True,
     )
 
-    assert mock_smile_adam_2.set_number_setpoint.call_count == 1
-    mock_smile_adam_2.set_number_setpoint.assert_called_with(
-        "max_dhw_temperature", "REDACTED_VALUE", 55.0
+    assert mock_smile_adam_2.set_number.call_count == 1
+    mock_smile_adam_2.set_number.assert_called_with(
+        "REDACTED_VALUE", "max_dhw_temperature", 55.0
     )
 
 
@@ -99,5 +99,5 @@ async def test_adam_temperature_offset_change(
 
     assert mock_smile_adam.set_temperature_offset.call_count == 1
     mock_smile_adam.set_temperature_offset.assert_called_with(
-        "temperature_offset", "6a3bf693d05e48e0b460c815a4fdd09d", 1.0
+        "6a3bf693d05e48e0b460c815a4fdd09d", 1.0
     )
