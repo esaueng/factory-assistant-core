@@ -61,7 +61,7 @@ SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
         REDACTED_VALUEPyLoadSensorEntity.SPEED,
         device_class=SensorDeviceClass.DATA_RATE,
         native_unit_of_measurement=UnitOfDataRate.BYTES_PER_SECOND,
-        suggested_unit_of_measurement=UnitOfDataRate.MEGABYTES_PER_SECOND,
+        suggested_unit_of_measurement=UnitOfDataRate.MEGABITS_PER_SECOND,
         suggested_display_precision=1,
     ),
 )
