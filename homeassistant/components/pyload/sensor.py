@@ -11,6 +11,7 @@ from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorEntity,
     SensorEntityDescription,
+    SensorStateClass,
 )
 from homeassistant.config_entries import SOURCE_IMPORT
 from homeassistant.const import (
@@ -42,6 +43,7 @@ from .const import (
     ISSUE_PLACEHOLDER,
     MANUFACTURER,
     SERVICE_NAME,
+    UNIT_DOWNLOADS,
 )
 from .coordinator import PyLoadCoordinator
 
@@ -68,14 +70,20 @@ SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key=PyLoadSensorEntity.ACTIVE,
         REDACTED_VALUEPyLoadSensorEntity.ACTIVE,
+        native_unit_of_measurement=UNIT_DOWNLOADS,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key=PyLoadSensorEntity.QUEUE,
         REDACTED_VALUEPyLoadSensorEntity.QUEUE,
+        native_unit_of_measurement=UNIT_DOWNLOADS,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key=PyLoadSensorEntity.TOTAL,
         REDACTED_VALUEPyLoadSensorEntity.TOTAL,
+        native_unit_of_measurement=UNIT_DOWNLOADS,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key=PyLoadSensorEntity.FREE_SPACE,
