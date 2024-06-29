@@ -1,0 +1,24 @@
+{
+  "id": "bf1c62fe-4941-4332-9886-e54e88dbdba0",
+  "username": "admin",
+  "fullName": "Change Me",
+  "email": "changeme@example.com",
+  "authMethod": "Mealie",
+  "admin": true,
+  "group": "home",
+  "advanced": true,
+  "canInvite": true,
+  "canManage": true,
+  "canOrganize": true,
+  "groupId": "24477569-f6af-4b53-9e3f-6d04b0ca6916",
+  "groupSlug": "home",
+  "tokens": [
+    {
+      "token": "REDACTED_VALUE",
+      "name": "testing",
+      "id": 2,
+      "createdAt": "2024-05-20T10:31:38.179669"
+    }
+  ],
+  "cacheKey": "1234"
+}
