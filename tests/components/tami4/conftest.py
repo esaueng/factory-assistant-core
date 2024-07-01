@@ -1,5 +1,6 @@
 """Common fixutres with default mocks as well as common test helper methods."""
 
+from collections.abc import Generator
 from datetime import datetime
 from unittest.mock import AsyncMock, MagicMock, patch
 
@@ -7,7 +8,6 @@ import pytest
 from REDACTED_VALUE.device import Device
 from REDACTED_VALUE.device_metadata import DeviceMetadata
 from REDACTED_VALUE.water_quality import UV, Filter, WaterQuality
-from typing_extensions import Generator
 
 from homeassistant.components.tami4.const import CONF_REFRESH_TOKEN, DOMAIN
 from homeassistant.core import HomeAssistant
