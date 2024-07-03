@@ -87,7 +87,9 @@ SENSORS: dict[str, SensorEntityDescription] = {
     "cumonbatt": SensorEntityDescription(
         key="cumonbatt",
         REDACTED_VALUE"total_time_on_battery",
+        native_unit_of_measurement=UnitOfTime.SECONDS,
         state_class=SensorStateClass.TOTAL_INCREASING,
+        device_class=SensorDeviceClass.DURATION,
     ),
     "date": SensorEntityDescription(
         key="date",
@@ -340,12 +342,16 @@ SENSORS: dict[str, SensorEntityDescription] = {
     "timeleft": SensorEntityDescription(
         key="timeleft",
         REDACTED_VALUE"time_left",
+        native_unit_of_measurement=UnitOfTime.MINUTES,
         state_class=SensorStateClass.MEASUREMENT,
+        device_class=SensorDeviceClass.DURATION,
     ),
     "tonbatt": SensorEntityDescription(
         key="tonbatt",
         REDACTED_VALUE"time_on_battery",
+        native_unit_of_measurement=UnitOfTime.SECONDS,
         state_class=SensorStateClass.TOTAL_INCREASING,
+        device_class=SensorDeviceClass.DURATION,
     ),
     "upsmode": SensorEntityDescription(
         key="upsmode",

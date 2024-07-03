@@ -70,18 +70,22 @@ DEVICE_TYPES: tuple[YoLinkSwitchEntityDescription, ...] = (
         REDACTED_VALUE"plug_1",
         device_class=SwitchDeviceClass.OUTLET,
         exists_fn=lambda device: device.device_type == ATTR_DEVICE_MULTI_OUTLET,
-        plug_index_fn=lambda device: 1
-        if device.device_model_name.startswith(DEV_MODEL_MULTI_OUTLET_YS6801)
-        else 0,
+        plug_index_fn=lambda device: (
+            1
+            if device.device_model_name.startswith(DEV_MODEL_MULTI_OUTLET_YS6801)
+            else 0
+        ),
     ),
     YoLinkSwitchEntityDescription(
         key="multi_outlet_plug_2",
         REDACTED_VALUE"plug_2",
         device_class=SwitchDeviceClass.OUTLET,
         exists_fn=lambda device: device.device_type == ATTR_DEVICE_MULTI_OUTLET,
-        plug_index_fn=lambda device: 2
-        if device.device_model_name.startswith(DEV_MODEL_MULTI_OUTLET_YS6801)
-        else 1,
+        plug_index_fn=lambda device: (
+            2
+            if device.device_model_name.startswith(DEV_MODEL_MULTI_OUTLET_YS6801)
+            else 1
+        ),
     ),
     YoLinkSwitchEntityDescription(
         key="multi_outlet_plug_3",

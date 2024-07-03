@@ -19,7 +19,6 @@ from homeassistant.const import (
     PERCENTAGE,
     UV_INDEX,
     UnitOfLength,
-    UnitOfPrecipitationDepth,
     UnitOfPressure,
     UnitOfSpeed,
     UnitOfTemperature,
@@ -113,14 +112,6 @@ SENSOR_TYPES: tuple[ECSensorEntityDescription, ...] = (
         REDACTED_VALUE"pop",
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda data: data.conditions.get("pop", {}).get("value"),
-    ),
-    ECSensorEntityDescription(
-        key="precip_yesterday",
-        REDACTED_VALUE"precip_yesterday",
-        device_class=SensorDeviceClass.PRECIPITATION,
-        native_unit_of_measurement=UnitOfPrecipitationDepth.MILLIMETERS,
-        state_class=SensorStateClass.MEASUREMENT,
-        value_fn=lambda data: data.conditions.get("precip_yesterday", {}).get("value"),
     ),
     ECSensorEntityDescription(
         key="pressure",
