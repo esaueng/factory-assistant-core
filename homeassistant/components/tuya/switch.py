@@ -509,6 +509,18 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
             entity_category=EntityCategory.CONFIG,
         ),
     ),
+    # Smart Gardening system
+    # https://developer.tuya.com/en/docs/iot/categorysz?id=Kaiuz4e6h7up0
+    "sz": (
+        SwitchEntityDescription(
+            key=DPCode.SWITCH,
+            REDACTED_VALUE"power",
+        ),
+        SwitchEntityDescription(
+            key=DPCode.PUMP,
+            REDACTED_VALUE"pump",
+        ),
+    ),
     # Fingerbot
     "szjqr": (
         SwitchEntityDescription(
