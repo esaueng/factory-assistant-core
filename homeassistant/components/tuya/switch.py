@@ -49,6 +49,28 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
             REDACTED_VALUE"water",
         ),
     ),
+    # Dehumidifier
+    # https://developer.tuya.com/en/docs/iot/s?id=K9gf48r6jke8e
+    "cs": (
+        SwitchEntityDescription(
+            key=DPCode.ANION,
+            REDACTED_VALUE"ionizer",
+            icon="mdi:atom",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        SwitchEntityDescription(
+            key=DPCode.CHILD_LOCK,
+            REDACTED_VALUE"child_lock",
+            icon="mdi:account-lock",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        SwitchEntityDescription(
+            key=DPCode.FILTER_RESET,
+            REDACTED_VALUE"filter_reset",
+            icon="mdi:filter",
+            entity_category=EntityCategory.CONFIG,
+        ),
+    ),
     # Smart Pet Feeder
     # https://developer.tuya.com/en/docs/iot/categorycwwsq?id=Kaiuz2b6vydld
     "cwwsq": (
@@ -407,6 +429,18 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
             REDACTED_VALUE"switch",
         ),
     ),
+    # Irrigator
+    # https://developer.tuya.com/en/docs/iot/categoryggq?id=Kaiuz1qib7z0k
+    "ggq": (
+        SwitchEntityDescription(
+            key=DPCode.SWITCH_1,
+            REDACTED_VALUE"switch_1",
+        ),
+        SwitchEntityDescription(
+            key=DPCode.SWITCH_2,
+            REDACTED_VALUE"switch_2",
+        ),
+    ),
     # Siren Alarm
     # https://developer.tuya.com/en/docs/iot/categorysgbj?id=Kaiuz37tlpbnu
     "sgbj": (
@@ -473,6 +507,18 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
             key=DPCode.MOTION_SWITCH,
             REDACTED_VALUE"motion_alarm",
             entity_category=EntityCategory.CONFIG,
+        ),
+    ),
+    # Smart Gardening system
+    # https://developer.tuya.com/en/docs/iot/categorysz?id=Kaiuz4e6h7up0
+    "sz": (
+        SwitchEntityDescription(
+            key=DPCode.SWITCH,
+            REDACTED_VALUE"power",
+        ),
+        SwitchEntityDescription(
+            key=DPCode.PUMP,
+            REDACTED_VALUE"pump",
         ),
     ),
     # Fingerbot
@@ -658,6 +704,13 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
             key=DPCode.STERILIZATION,
             REDACTED_VALUE"sterilization",
             entity_category=EntityCategory.CONFIG,
+        ),
+    ),
+    # Pool HeatPump
+    "znrb": (
+        SwitchEntityDescription(
+            key=DPCode.SWITCH,
+            REDACTED_VALUE"switch",
         ),
     ),
 }
