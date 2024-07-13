@@ -13,7 +13,6 @@ from homeassistant.components.sensor import (
     SensorEntity,
     SensorEntityDescription,
 )
-from homeassistant.const import UnitOfTime
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -51,20 +50,14 @@ DEPARTURE_SENSORS: tuple[IsraelRailSensorEntityDescription, ...] = (
 
 SENSORS: tuple[IsraelRailSensorEntityDescription, ...] = (
     IsraelRailSensorEntityDescription(
-        key="duration",
-        device_class=SensorDeviceClass.DURATION,
-        native_unit_of_measurement=UnitOfTime.SECONDS,
-        value_fn=lambda data_connection: data_connection.duration,
-    ),
-    IsraelRailSensorEntityDescription(
         key="platform",
         REDACTED_VALUE"platform",
         value_fn=lambda data_connection: data_connection.platform,
     ),
     IsraelRailSensorEntityDescription(
-        key="transfers",
-        REDACTED_VALUE"transfers",
-        value_fn=lambda data_connection: data_connection.transfers,
+        key="trains",
+        REDACTED_VALUE"trains",
+        value_fn=lambda data_connection: data_connection.trains,
     ),
     IsraelRailSensorEntityDescription(
         key="train_number",
