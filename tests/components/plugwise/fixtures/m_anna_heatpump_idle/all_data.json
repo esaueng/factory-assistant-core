@@ -99,6 +99,7 @@
     "heater_id": "REDACTED_VALUE",
     "item_count": 66,
     "notifications": {},
+    "reboot": true,
     "smile_name": "Smile Anna"
   }
 }
