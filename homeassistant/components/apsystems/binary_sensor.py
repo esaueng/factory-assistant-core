@@ -35,28 +35,28 @@ BINARY_SENSORS: tuple[ApsystemsLocalApiBinarySensorDescription, ...] = (
         REDACTED_VALUE"off_grid_status",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
-        is_on=lambda c: bool(c.og),
+        is_on=lambda c: c.offgrid,
     ),
     ApsystemsLocalApiBinarySensorDescription(
         key="dc_1_short_circuit_error_status",
         REDACTED_VALUE"dc_1_short_circuit_error_status",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
-        is_on=lambda c: bool(c.isce1),
+        is_on=lambda c: c.shortcircuit_1,
     ),
     ApsystemsLocalApiBinarySensorDescription(
         key="dc_2_short_circuit_error_status",
         REDACTED_VALUE"dc_2_short_circuit_error_status",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
-        is_on=lambda c: bool(c.isce2),
+        is_on=lambda c: c.shortcircuit_2,
     ),
     ApsystemsLocalApiBinarySensorDescription(
         key="output_fault_status",
         REDACTED_VALUE"output_fault_status",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
-        is_on=lambda c: bool(c.oe),
+        is_on=lambda c: not c.operating,
     ),
 )
 
