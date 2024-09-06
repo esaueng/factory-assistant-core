@@ -236,7 +236,7 @@ SWITCH_TYPES = (
     XiaomiMiioSwitchDescription(
         key=ATTR_BUZZER,
         feature=FEATURE_SET_BUZZER,
-        name="Buzzer",
+        REDACTED_VALUEATTR_BUZZER,
         icon="mdi:volume-high",
         method_on="async_set_buzzer_on",
         method_off="async_set_buzzer_off",
@@ -245,7 +245,7 @@ SWITCH_TYPES = (
     XiaomiMiioSwitchDescription(
         key=ATTR_CHILD_LOCK,
         feature=FEATURE_SET_CHILD_LOCK,
-        name="Child lock",
+        REDACTED_VALUEATTR_CHILD_LOCK,
         icon="mdi:lock",
         method_on="async_set_child_lock_on",
         method_off="async_set_child_lock_off",
@@ -254,7 +254,7 @@ SWITCH_TYPES = (
     XiaomiMiioSwitchDescription(
         key=ATTR_DISPLAY,
         feature=FEATURE_SET_DISPLAY,
-        name="Display",
+        REDACTED_VALUEATTR_DISPLAY,
         icon="mdi:led-outline",
         method_on="async_set_display_on",
         method_off="async_set_display_off",
@@ -263,7 +263,7 @@ SWITCH_TYPES = (
     XiaomiMiioSwitchDescription(
         key=ATTR_DRY,
         feature=FEATURE_SET_DRY,
-        name="Dry mode",
+        REDACTED_VALUEATTR_DRY,
         icon="mdi:hair-dryer",
         method_on="async_set_dry_on",
         method_off="async_set_dry_off",
@@ -272,7 +272,7 @@ SWITCH_TYPES = (
     XiaomiMiioSwitchDescription(
         key=ATTR_CLEAN,
         feature=FEATURE_SET_CLEAN,
-        name="Clean mode",
+        REDACTED_VALUEATTR_CLEAN,
         icon="mdi:shimmer",
         method_on="async_set_clean_on",
         method_off="async_set_clean_off",
@@ -282,7 +282,7 @@ SWITCH_TYPES = (
     XiaomiMiioSwitchDescription(
         key=ATTR_LED,
         feature=FEATURE_SET_LED,
-        name="LED",
+        REDACTED_VALUEATTR_LED,
         icon="mdi:led-outline",
         method_on="async_set_led_on",
         method_off="async_set_led_off",
@@ -291,7 +291,7 @@ SWITCH_TYPES = (
     XiaomiMiioSwitchDescription(
         key=ATTR_LEARN_MODE,
         feature=FEATURE_SET_LEARN_MODE,
-        name="Learn mode",
+        REDACTED_VALUEATTR_LEARN_MODE,
         icon="mdi:school-outline",
         method_on="async_set_learn_mode_on",
         method_off="async_set_learn_mode_off",
@@ -300,7 +300,7 @@ SWITCH_TYPES = (
     XiaomiMiioSwitchDescription(
         key=ATTR_AUTO_DETECT,
         feature=FEATURE_SET_AUTO_DETECT,
-        name="Auto detect",
+        REDACTED_VALUEATTR_AUTO_DETECT,
         method_on="async_set_auto_detect_on",
         method_off="async_set_auto_detect_off",
         entity_category=EntityCategory.CONFIG,
@@ -308,7 +308,7 @@ SWITCH_TYPES = (
     XiaomiMiioSwitchDescription(
         key=ATTR_IONIZER,
         feature=FEATURE_SET_IONIZER,
-        name="Ionizer",
+        REDACTED_VALUEATTR_IONIZER,
         icon="mdi:shimmer",
         method_on="async_set_ionizer_on",
         method_off="async_set_ionizer_off",
@@ -317,7 +317,7 @@ SWITCH_TYPES = (
     XiaomiMiioSwitchDescription(
         key=ATTR_ANION,
         feature=FEATURE_SET_ANION,
-        name="Ionizer",
+        REDACTED_VALUEATTR_ANION,
         icon="mdi:shimmer",
         method_on="async_set_anion_on",
         method_off="async_set_anion_off",
@@ -326,7 +326,7 @@ SWITCH_TYPES = (
     XiaomiMiioSwitchDescription(
         key=ATTR_PTC,
         feature=FEATURE_SET_PTC,
-        name="Auxiliary heat",
+        REDACTED_VALUEATTR_PTC,
         icon="mdi:radiator",
         method_on="async_set_ptc_on",
         method_off="async_set_ptc_off",
