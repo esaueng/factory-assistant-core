@@ -113,7 +113,7 @@ class HabiticaButton(HabiticaBase, ButtonEntity):
                 REDACTED_VALUE"service_call_exception",
             ) from e
         else:
-            await self.coordinator.async_refresh()
+            await self.coordinator.async_request_refresh()
 
     @property
     def available(self) -> bool:

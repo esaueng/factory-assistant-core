@@ -327,7 +327,7 @@ TLX_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     GrowattSensorEntityDescription(
         key="REDACTED_VALUE",
         REDACTED_VALUE"REDACTED_VALUE",
-        api_key="bdc1DischargePower",
+        api_key="bdc2DischargePower",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
     ),
@@ -376,7 +376,7 @@ TLX_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     GrowattSensorEntityDescription(
         key="REDACTED_VALUE",
         REDACTED_VALUE"REDACTED_VALUE",
-        api_key="bdc1ChargePower",
+        api_key="bdc2ChargePower",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
     ),
