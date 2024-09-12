@@ -42,6 +42,7 @@ class VoIPCallInProgress(VoIPEntity, BinarySensorEntity):
     """Entity to represent voip call is in progress."""
 
     entity_description = BinarySensorEntityDescription(
+        entity_registry_enabled_default=False,
         key="call_in_progress",
         REDACTED_VALUE"call_in_progress",
     )
