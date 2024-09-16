@@ -197,7 +197,13 @@ SENSOR_TYPES: tuple[RenaultSensorEntityDescription[Any], ...] = (
         REDACTED_VALUE"plug_state",
         device_class=SensorDeviceClass.ENUM,
         entity_class=RenaultSensor[KamereonVehicleBatteryStatusData],
-        options=["unplugged", "plugged", "plug_error", "plug_unknown"],
+        options=[
+            "unplugged",
+            "plugged",
+            "plugged_waiting_for_charge",
+            "plug_error",
+            "plug_unknown",
+        ],
         value_lambda=_get_plug_state_formatted,
     ),
     RenaultSensorEntityDescription(
