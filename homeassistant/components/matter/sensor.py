@@ -480,6 +480,7 @@ DISCOVERY_SCHEMAS = [
             state_class=SensorStateClass.MEASUREMENT,
             REDACTED_VALUE"switch_current_position",
             entity_category=EntityCategory.DIAGNOSTIC,
+            entity_registry_enabled_default=False,
         ),
         entity_class=MatterSensor,
         required_attributes=(clusters.Switch.Attributes.CurrentPosition,),
