@@ -87,12 +87,19 @@ NUMBERS: dict[str, tuple[NumberEntityDescription, ...]] = {
         NumberEntityDescription(
             key=DPCode.NEAR_DETECTION,
             REDACTED_VALUE"near_detection",
+            device_class=NumberDeviceClass.DISTANCE,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.FAR_DETECTION,
             REDACTED_VALUE"far_detection",
+            device_class=NumberDeviceClass.DISTANCE,
             entity_category=EntityCategory.CONFIG,
+        ),
+        NumberEntityDescription(
+            key=DPCode.TARGET_DIS_CLOSEST,
+            REDACTED_VALUE"target_dis_closest",
+            device_class=NumberDeviceClass.DISTANCE,
         ),
     ),
     # Coffee maker
