@@ -39,6 +39,13 @@ SENSORS: list[AsekoSensorEntityDescription] = [
         value_fn=lambda unit: unit.air_temperature,
     ),
     AsekoSensorEntityDescription(
+        key="electrolyzer",
+        REDACTED_VALUE"electrolyzer",
+        native_unit_of_measurement="g/h",
+        state_class=SensorStateClass.MEASUREMENT,
+        value_fn=lambda unit: unit.electrolyzer,
+    ),
+    AsekoSensorEntityDescription(
         key="free_chlorine",
         REDACTED_VALUE"free_chlorine",
         native_unit_of_measurement="mg/l",
