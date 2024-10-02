@@ -10,6 +10,7 @@
       "location": "a57efe5f145f498c9be62a9b63626fbf",
       "mac_address": "012345670001",
       "model": "Gateway",
+      "model_id": "smile_thermo",
       "name": "Smile Anna",
       "sensors": {
         "outdoor_temperature": 20.2
@@ -97,7 +98,7 @@
     "cooling_present": true,
     "gateway_id": "REDACTED_VALUE",
     "heater_id": "REDACTED_VALUE",
-    "item_count": 66,
+    "item_count": 67,
     "notifications": {},
     "reboot": true,
     "smile_name": "Smile Anna"
