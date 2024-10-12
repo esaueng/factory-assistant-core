@@ -41,20 +41,19 @@ REFRIGERATION_DOOR_BOOLEAN_MAP = {
 class HomeConnectBinarySensorEntityDescription(BinarySensorEntityDescription):
     """Entity Description class for binary sensors."""
 
-    device_class: BinarySensorDeviceClass | None = BinarySensorDeviceClass.DOOR
     boolean_map: dict[str, bool] | None = None
 
 
 BINARY_SENSORS = (
-    BinarySensorEntityDescription(
+    HomeConnectBinarySensorEntityDescription(
         key=BSH_REMOTE_CONTROL_ACTIVATION_STATE,
         REDACTED_VALUE"remote_control",
     ),
-    BinarySensorEntityDescription(
+    HomeConnectBinarySensorEntityDescription(
         key=BSH_REMOTE_START_ALLOWANCE_STATE,
         REDACTED_VALUE"remote_start",
     ),
-    BinarySensorEntityDescription(
+    HomeConnectBinarySensorEntityDescription(
         key="BSH.Common.Status.LocalControlActive",
         REDACTED_VALUE"local_control",
     ),
@@ -76,15 +75,15 @@ BINARY_SENSORS = (
         },
         REDACTED_VALUE"charging_connection",
     ),
-    BinarySensorEntityDescription(
+    HomeConnectBinarySensorEntityDescription(
         key="ConsumerProducts.CleaningRobot.Status.DustBoxInserted",
         REDACTED_VALUE"dust_box_inserted",
     ),
-    BinarySensorEntityDescription(
+    HomeConnectBinarySensorEntityDescription(
         key="ConsumerProducts.CleaningRobot.Status.Lifted",
         REDACTED_VALUE"lifted",
     ),
-    BinarySensorEntityDescription(
+    HomeConnectBinarySensorEntityDescription(
         key="ConsumerProducts.CleaningRobot.Status.Lost",
         REDACTED_VALUE"lost",
     ),
