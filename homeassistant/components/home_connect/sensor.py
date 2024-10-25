@@ -24,6 +24,7 @@ import homeassistant.util.dt as dt_util
 from .api import ConfigEntryAuth
 from .const import (
     ATTR_VALUE,
+    BSH_DOOR_STATE,
     BSH_OPERATION_STATE,
     BSH_OPERATION_STATE_FINISHED,
     BSH_OPERATION_STATE_PAUSE,
@@ -90,6 +91,16 @@ SENSORS = (
             "aborting",
         ],
         REDACTED_VALUE"operation_state",
+    ),
+    HomeConnectSensorEntityDescription(
+        key=BSH_DOOR_STATE,
+        device_class=SensorDeviceClass.ENUM,
+        options=[
+            "closed",
+            "locked",
+            "open",
+        ],
+        REDACTED_VALUE"door",
     ),
     HomeConnectSensorEntityDescription(
         key="ConsumerProducts.CoffeeMaker.Status.BeverageCounterCoffee",
