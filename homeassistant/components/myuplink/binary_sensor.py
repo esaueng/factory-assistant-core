@@ -16,6 +16,12 @@ from .entity import MyUplinkEntity, MyUplinkSystemEntity
 from .helpers import find_matching_platform
 
 CATEGORY_BASED_DESCRIPTIONS: dict[str, dict[str, BinarySensorEntityDescription]] = {
+    "F730": {
+        "43161": BinarySensorEntityDescription(
+            key="elect_add",
+            REDACTED_VALUE"elect_add",
+        ),
+    },
     "NIBEF": {
         "43161": BinarySensorEntityDescription(
             key="elect_add",
