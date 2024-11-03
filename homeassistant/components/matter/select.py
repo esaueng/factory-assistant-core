@@ -165,20 +165,8 @@ DISCOVERY_SCHEMAS = [
     MatterDiscoverySchema(
         platform=Platform.SELECT,
         entity_description=MatterSelectEntityDescription(
-            key="MatterRvcRunMode",
-            REDACTED_VALUE"mode",
-        ),
-        entity_class=MatterModeSelectEntity,
-        required_attributes=(
-            clusters.RvcRunMode.Attributes.CurrentMode,
-            clusters.RvcRunMode.Attributes.SupportedModes,
-        ),
-    ),
-    MatterDiscoverySchema(
-        platform=Platform.SELECT,
-        entity_description=MatterSelectEntityDescription(
             key="MatterRvcCleanMode",
-            REDACTED_VALUE"mode",
+            REDACTED_VALUE"clean_mode",
         ),
         entity_class=MatterModeSelectEntity,
         required_attributes=(
