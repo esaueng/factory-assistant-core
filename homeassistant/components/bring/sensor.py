@@ -79,7 +79,7 @@ SENSOR_DESCRIPTIONS: tuple[BringSensorEntityDescription, ...] = (
         REDACTED_VALUEBringSensor.LIST_ACCESS,
         value_fn=lambda lst, _: lst["status"].lower(),
         entity_category=EntityCategory.DIAGNOSTIC,
-        options=["registered", "shared"],
+        options=["registered", "shared", "invitation"],
         device_class=SensorDeviceClass.ENUM,
     ),
 )
