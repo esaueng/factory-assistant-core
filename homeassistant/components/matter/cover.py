@@ -201,7 +201,8 @@ DISCOVERY_SCHEMAS = [
     MatterDiscoverySchema(
         platform=Platform.COVER,
         entity_description=CoverEntityDescription(
-            key="MatterCover", REDACTED_VALUE"cover"
+            key="MatterCover",
+            name=None,
         ),
         entity_class=MatterCover,
         required_attributes=(
@@ -216,7 +217,7 @@ DISCOVERY_SCHEMAS = [
     MatterDiscoverySchema(
         platform=Platform.COVER,
         entity_description=CoverEntityDescription(
-            key="MatterCoverPositionAwareLift", REDACTED_VALUE"cover"
+            key="MatterCoverPositionAwareLift", name=None
         ),
         entity_class=MatterCover,
         required_attributes=(
@@ -231,7 +232,7 @@ DISCOVERY_SCHEMAS = [
     MatterDiscoverySchema(
         platform=Platform.COVER,
         entity_description=CoverEntityDescription(
-            key="MatterCoverPositionAwareTilt", REDACTED_VALUE"cover"
+            key="MatterCoverPositionAwareTilt", name=None
         ),
         entity_class=MatterCover,
         required_attributes=(
@@ -246,7 +247,7 @@ DISCOVERY_SCHEMAS = [
     MatterDiscoverySchema(
         platform=Platform.COVER,
         entity_description=CoverEntityDescription(
-            key="MatterCoverPositionAwareLiftAndTilt", REDACTED_VALUE"cover"
+            key="MatterCoverPositionAwareLiftAndTilt", name=None
         ),
         entity_class=MatterCover,
         required_attributes=(
