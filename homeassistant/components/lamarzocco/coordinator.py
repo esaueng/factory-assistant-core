@@ -133,4 +133,6 @@ class LaMarzoccoUpdateCoordinator(DataUpdateCoordinator[None]):
             ) from ex
         except RequestNotSuccessful as ex:
             _LOGGER.debug(ex, exc_info=True)
-            raise UpdateFailed(f"Querying API failed. Error: {ex}") from ex
+            raise UpdateFailed(
+                translation_domain=DOMAIN, REDACTED_VALUE"api_error"
+            ) from ex
