@@ -254,6 +254,31 @@ SENSORS: dict[str, tuple[TuyaSensorEntityDescription, ...]] = {
             entity_registry_enabled_default=False,
         ),
     ),
+    # Single Phase power meter
+    # Note: Undocumented
+    "aqcz": (
+        TuyaSensorEntityDescription(
+            key=DPCode.CUR_CURRENT,
+            REDACTED_VALUE"current",
+            device_class=SensorDeviceClass.CURRENT,
+            state_class=SensorStateClass.MEASUREMENT,
+            entity_registry_enabled_default=False,
+        ),
+        TuyaSensorEntityDescription(
+            key=DPCode.CUR_POWER,
+            REDACTED_VALUE"power",
+            device_class=SensorDeviceClass.POWER,
+            state_class=SensorStateClass.MEASUREMENT,
+            entity_registry_enabled_default=False,
+        ),
+        TuyaSensorEntityDescription(
+            key=DPCode.CUR_VOLTAGE,
+            REDACTED_VALUE"voltage",
+            device_class=SensorDeviceClass.VOLTAGE,
+            state_class=SensorStateClass.MEASUREMENT,
+            entity_registry_enabled_default=False,
+        ),
+    ),
     # CO Detector
     # https://developer.tuya.com/en/docs/iot/categorycobj?id=Kaiuz3u1j6q1v
     "cobj": (
