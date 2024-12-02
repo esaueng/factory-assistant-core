@@ -36,7 +36,6 @@ SENSOR_TYPES: tuple[JellyfinSensorEntityDescription, ...] = (
         key="watching",
         REDACTED_VALUE"watching",
         value_fn=_count_now_playing,
-        native_unit_of_measurement="clients",
     ),
 )
 
