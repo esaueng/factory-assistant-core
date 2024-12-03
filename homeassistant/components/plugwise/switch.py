@@ -48,7 +48,6 @@ SWITCHES: tuple[PlugwiseSwitchEntityDescription, ...] = (
     PlugwiseSwitchEntityDescription(
         key="cooling_ena_switch",
         REDACTED_VALUE"cooling_ena_switch",
-        name="Cooling",
         entity_category=EntityCategory.CONFIG,
     ),
 )

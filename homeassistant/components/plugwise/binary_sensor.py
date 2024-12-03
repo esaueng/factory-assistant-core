@@ -34,7 +34,6 @@ class PlugwiseBinarySensorEntityDescription(BinarySensorEntityDescription):
 BINARY_SENSORS: tuple[PlugwiseBinarySensorEntityDescription, ...] = (
     PlugwiseBinarySensorEntityDescription(
         key="low_battery",
-        REDACTED_VALUE"low_battery",
         device_class=BinarySensorDeviceClass.BATTERY,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
@@ -56,7 +55,6 @@ BINARY_SENSORS: tuple[PlugwiseBinarySensorEntityDescription, ...] = (
     PlugwiseBinarySensorEntityDescription(
         key="flame_state",
         REDACTED_VALUE"flame_state",
-        name="Flame state",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     PlugwiseBinarySensorEntityDescription(
