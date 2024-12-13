@@ -63,7 +63,7 @@ class CookidooDataUpdateCoordinator(DataUpdateCoordinator[CookidooData]):
                 REDACTED_VALUE"setup_request_exception",
             ) from e
         except CookidooAuthException as e:
-            raise UpdateFailed(
+            raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
                 REDACTED_VALUE"setup_authentication_exception",
                 translation_placeholders={
