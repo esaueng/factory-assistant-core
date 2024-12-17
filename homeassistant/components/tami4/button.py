@@ -5,10 +5,12 @@ from dataclasses import dataclass
 import logging
 
 from REDACTED_VALUE import REDACTED_VALUE
+from REDACTED_VALUE.drink import Drink
 
 from homeassistant.components.button import ButtonEntity, ButtonEntityDescription
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers.entity import EntityDescription
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from .const import API, DOMAIN
@@ -24,12 +26,17 @@ class Tami4EdgeButtonEntityDescription(ButtonEntityDescription):
     press_fn: Callable[[REDACTED_VALUE], None]
 
 
-BUTTONS: tuple[Tami4EdgeButtonEntityDescription] = (
-    Tami4EdgeButtonEntityDescription(
-        key="boil_water",
-        REDACTED_VALUE"boil_water",
-        press_fn=lambda api: api.boil_water(),
-    ),
+@dataclass(frozen=True, kw_only=True)
+class Tami4EdgeDrinkButtonEntityDescription(ButtonEntityDescription):
+    """A class that describes Tami4Edge Drink button entities."""
+
+    press_fn: Callable[[REDACTED_VALUE, Drink], None]
+
+
+BOIL_WATER_BUTTON = Tami4EdgeButtonEntityDescription(
+    key="boil_water",
+    REDACTED_VALUE"boil_water",
+    press_fn=lambda api: api.boil_water(),
 )
 
 
@@ -37,11 +44,28 @@ async def async_setup_entry(
     hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
 ) -> None:
     """Perform the setup for Tami4Edge."""
-    api: REDACTED_VALUE = hass.data[DOMAIN][entry.entry_id][API]
 
-    async_add_entities(
-        Tami4EdgeButton(api, entity_description) for entity_description in BUTTONS
+    api: REDACTED_VALUE = hass.data[DOMAIN][entry.entry_id][API]
+    buttons: list[Tami4EdgeBaseEntity] = [Tami4EdgeButton(api, BOIL_WATER_BUTTON)]
+
+    device = await hass.async_add_executor_job(api.get_device)
+    drinks = device.drinks
+
+    buttons.extend(
+        Tami4EdgeDrinkButton(
+            api=api,
+            entity_description=Tami4EdgeDrinkButtonEntityDescription(
+                key=drink.id,
+                REDACTED_VALUE"prepare_drink",
+                translation_placeholders={"drink_name": drink.name},
+                press_fn=lambda api, drink: api.prepare_drink(drink),
+            ),
+            drink=drink,
+        )
+        for drink in drinks
     )
+
+    async_add_entities(buttons)
 
 
 class Tami4EdgeButton(Tami4EdgeBaseEntity, ButtonEntity):
@@ -52,3 +76,20 @@ class Tami4EdgeButton(Tami4EdgeBaseEntity, ButtonEntity):
     def press(self) -> None:
         """Handle the button press."""
         self.entity_description.press_fn(self._api)
+
+
+class Tami4EdgeDrinkButton(Tami4EdgeBaseEntity, ButtonEntity):
+    """Drink Button entity for Tami4Edge."""
+
+    entity_description: Tami4EdgeDrinkButtonEntityDescription
+
+    def __init__(
+        self, api: REDACTED_VALUE, entity_description: EntityDescription, drink: Drink
+    ) -> None:
+        """Initialize the drink button."""
+        super().__init__(api=api, entity_description=entity_description)
+        self.drink = drink
+
+    def press(self) -> None:
+        """Handle the button press."""
+        self.entity_description.press_fn(self._api, self.drink)
