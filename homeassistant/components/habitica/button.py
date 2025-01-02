@@ -45,7 +45,7 @@ class HabiticaButtonEntityDescription(ButtonEntityDescription):
     entity_picture: str | None = None
 
 
-class HabitipyButtonEntity(StrEnum):
+class HabiticaButtonEntity(StrEnum):
     """Habitica button entities."""
 
     RUN_CRON = "run_cron"
@@ -68,14 +68,14 @@ class HabitipyButtonEntity(StrEnum):
 
 BUTTON_DESCRIPTIONS: tuple[HabiticaButtonEntityDescription, ...] = (
     HabiticaButtonEntityDescription(
-        key=HabitipyButtonEntity.RUN_CRON,
-        REDACTED_VALUEHabitipyButtonEntity.RUN_CRON,
+        key=HabiticaButtonEntity.RUN_CRON,
+        REDACTED_VALUEHabiticaButtonEntity.RUN_CRON,
         press_fn=lambda coordinator: coordinator.habitica.run_cron(),
         available_fn=lambda data: data.user.needsCron is True,
     ),
     HabiticaButtonEntityDescription(
-        key=HabitipyButtonEntity.BUY_HEALTH_POTION,
-        REDACTED_VALUEHabitipyButtonEntity.BUY_HEALTH_POTION,
+        key=HabiticaButtonEntity.BUY_HEALTH_POTION,
+        REDACTED_VALUEHabiticaButtonEntity.BUY_HEALTH_POTION,
         press_fn=lambda coordinator: coordinator.habitica.buy_health_potion(),
         available_fn=(
             lambda data: (data.user.stats.gp or 0) >= 25
@@ -84,8 +84,8 @@ BUTTON_DESCRIPTIONS: tuple[HabiticaButtonEntityDescription, ...] = (
         entity_picture="shop_potion.png",
     ),
     HabiticaButtonEntityDescription(
-        key=HabitipyButtonEntity.ALLOCATE_ALL_STAT_POINTS,
-        REDACTED_VALUEHabitipyButtonEntity.ALLOCATE_ALL_STAT_POINTS,
+        key=HabiticaButtonEntity.ALLOCATE_ALL_STAT_POINTS,
+        REDACTED_VALUEHabiticaButtonEntity.ALLOCATE_ALL_STAT_POINTS,
         press_fn=lambda coordinator: coordinator.habitica.allocate_stat_points(),
         available_fn=(
             lambda data: data.user.preferences.automaticAllocation is True
@@ -93,8 +93,8 @@ BUTTON_DESCRIPTIONS: tuple[HabiticaButtonEntityDescription, ...] = (
         ),
     ),
     HabiticaButtonEntityDescription(
-        key=HabitipyButtonEntity.REVIVE,
-        REDACTED_VALUEHabitipyButtonEntity.REVIVE,
+        key=HabiticaButtonEntity.REVIVE,
+        REDACTED_VALUEHabiticaButtonEntity.REVIVE,
         press_fn=lambda coordinator: coordinator.habitica.revive(),
         available_fn=lambda data: data.user.stats.hp == 0,
     ),
@@ -103,8 +103,8 @@ BUTTON_DESCRIPTIONS: tuple[HabiticaButtonEntityDescription, ...] = (
 
 CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
     HabiticaButtonEntityDescription(
-        key=HabitipyButtonEntity.MPHEAL,
-        REDACTED_VALUEHabitipyButtonEntity.MPHEAL,
+        key=HabiticaButtonEntity.MPHEAL,
+        REDACTED_VALUEHabiticaButtonEntity.MPHEAL,
         press_fn=(
             lambda coordinator: coordinator.habitica.cast_skill(Skill.ETHEREAL_SURGE)
         ),
@@ -116,8 +116,8 @@ CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
         entity_picture="shop_mpheal.png",
     ),
     HabiticaButtonEntityDescription(
-        key=HabitipyButtonEntity.EARTH,
-        REDACTED_VALUEHabitipyButtonEntity.EARTH,
+        key=HabiticaButtonEntity.EARTH,
+        REDACTED_VALUEHabiticaButtonEntity.EARTH,
         press_fn=lambda coordinator: coordinator.habitica.cast_skill(Skill.EARTHQUAKE),
         available_fn=(
             lambda data: (data.user.stats.lvl or 0) >= 13
@@ -127,8 +127,8 @@ CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
         entity_picture="shop_earth.png",
     ),
     HabiticaButtonEntityDescription(
-        key=HabitipyButtonEntity.FROST,
-        REDACTED_VALUEHabitipyButtonEntity.FROST,
+        key=HabiticaButtonEntity.FROST,
+        REDACTED_VALUEHabiticaButtonEntity.FROST,
         press_fn=(
             lambda coordinator: coordinator.habitica.cast_skill(Skill.CHILLING_FROST)
         ),
@@ -142,8 +142,8 @@ CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
         entity_picture="shop_frost.png",
     ),
     HabiticaButtonEntityDescription(
-        key=HabitipyButtonEntity.DEFENSIVE_STANCE,
-        REDACTED_VALUEHabitipyButtonEntity.DEFENSIVE_STANCE,
+        key=HabiticaButtonEntity.DEFENSIVE_STANCE,
+        REDACTED_VALUEHabiticaButtonEntity.DEFENSIVE_STANCE,
         press_fn=(
             lambda coordinator: coordinator.habitica.cast_skill(Skill.DEFENSIVE_STANCE)
         ),
@@ -155,8 +155,8 @@ CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
         entity_picture="shop_defensiveStance.png",
     ),
     HabiticaButtonEntityDescription(
-        key=HabitipyButtonEntity.VALOROUS_PRESENCE,
-        REDACTED_VALUEHabitipyButtonEntity.VALOROUS_PRESENCE,
+        key=HabiticaButtonEntity.VALOROUS_PRESENCE,
+        REDACTED_VALUEHabiticaButtonEntity.VALOROUS_PRESENCE,
         press_fn=(
             lambda coordinator: coordinator.habitica.cast_skill(Skill.VALOROUS_PRESENCE)
         ),
@@ -168,8 +168,8 @@ CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
         entity_picture="shop_valorousPresence.png",
     ),
     HabiticaButtonEntityDescription(
-        key=HabitipyButtonEntity.INTIMIDATE,
-        REDACTED_VALUEHabitipyButtonEntity.INTIMIDATE,
+        key=HabiticaButtonEntity.INTIMIDATE,
+        REDACTED_VALUEHabiticaButtonEntity.INTIMIDATE,
         press_fn=(
             lambda coordinator: coordinator.habitica.cast_skill(Skill.INTIMIDATING_GAZE)
         ),
@@ -181,8 +181,8 @@ CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
         entity_picture="shop_intimidate.png",
     ),
     HabiticaButtonEntityDescription(
-        key=HabitipyButtonEntity.TOOLS_OF_TRADE,
-        REDACTED_VALUEHabitipyButtonEntity.TOOLS_OF_TRADE,
+        key=HabiticaButtonEntity.TOOLS_OF_TRADE,
+        REDACTED_VALUEHabiticaButtonEntity.TOOLS_OF_TRADE,
         press_fn=(
             lambda coordinator: coordinator.habitica.cast_skill(
                 Skill.TOOLS_OF_THE_TRADE
@@ -196,8 +196,8 @@ CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
         entity_picture="shop_toolsOfTrade.png",
     ),
     HabiticaButtonEntityDescription(
-        key=HabitipyButtonEntity.STEALTH,
-        REDACTED_VALUEHabitipyButtonEntity.STEALTH,
+        key=HabiticaButtonEntity.STEALTH,
+        REDACTED_VALUEHabiticaButtonEntity.STEALTH,
         press_fn=lambda coordinator: coordinator.habitica.cast_skill(Skill.STEALTH),
         # Stealth buffs stack and it can only be cast if the amount of
         # buffs is smaller than the amount of unfinished dailies
@@ -219,8 +219,8 @@ CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
         entity_picture="shop_stealth.png",
     ),
     HabiticaButtonEntityDescription(
-        key=HabitipyButtonEntity.HEAL,
-        REDACTED_VALUEHabitipyButtonEntity.HEAL,
+        key=HabiticaButtonEntity.HEAL,
+        REDACTED_VALUEHabiticaButtonEntity.HEAL,
         press_fn=(
             lambda coordinator: coordinator.habitica.cast_skill(Skill.HEALING_LIGHT)
         ),
@@ -233,8 +233,8 @@ CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
         entity_picture="shop_heal.png",
     ),
     HabiticaButtonEntityDescription(
-        key=HabitipyButtonEntity.BRIGHTNESS,
-        REDACTED_VALUEHabitipyButtonEntity.BRIGHTNESS,
+        key=HabiticaButtonEntity.BRIGHTNESS,
+        REDACTED_VALUEHabiticaButtonEntity.BRIGHTNESS,
         press_fn=(
             lambda coordinator: coordinator.habitica.cast_skill(
                 Skill.SEARING_BRIGHTNESS
@@ -248,8 +248,8 @@ CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
         entity_picture="shop_brightness.png",
     ),
     HabiticaButtonEntityDescription(
-        key=HabitipyButtonEntity.PROTECT_AURA,
-        REDACTED_VALUEHabitipyButtonEntity.PROTECT_AURA,
+        key=HabiticaButtonEntity.PROTECT_AURA,
+        REDACTED_VALUEHabiticaButtonEntity.PROTECT_AURA,
         press_fn=(
             lambda coordinator: coordinator.habitica.cast_skill(Skill.PROTECTIVE_AURA)
         ),
@@ -261,8 +261,8 @@ CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
         entity_picture="shop_protectAura.png",
     ),
     HabiticaButtonEntityDescription(
-        key=HabitipyButtonEntity.HEAL_ALL,
-        REDACTED_VALUEHabitipyButtonEntity.HEAL_ALL,
+        key=HabiticaButtonEntity.HEAL_ALL,
+        REDACTED_VALUEHabiticaButtonEntity.HEAL_ALL,
         press_fn=lambda coordinator: coordinator.habitica.cast_skill(Skill.BLESSING),
         available_fn=(
             lambda data: (data.user.stats.lvl or 0) >= 14
