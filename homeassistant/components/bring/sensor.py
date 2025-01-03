@@ -20,10 +20,11 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import StateType
 
 from . import BringConfigEntry
-from .const import UNIT_ITEMS
 from .coordinator import BringData, BringDataUpdateCoordinator
 from .entity import BringBaseEntity
 from .util import list_language, sum_attributes
+
+PARALLEL_UPDATES = 0
 
 
 @dataclass(kw_only=True, frozen=True)
@@ -48,19 +49,16 @@ SENSOR_DESCRIPTIONS: tuple[BringSensorEntityDescription, ...] = (
         key=BringSensor.URGENT,
         REDACTED_VALUEBringSensor.URGENT,
         value_fn=lambda lst, _: sum_attributes(lst, "urgent"),
-        native_unit_of_measurement=UNIT_ITEMS,
     ),
     BringSensorEntityDescription(
         key=BringSensor.CONVENIENT,
         REDACTED_VALUEBringSensor.CONVENIENT,
         value_fn=lambda lst, _: sum_attributes(lst, "convenient"),
-        native_unit_of_measurement=UNIT_ITEMS,
     ),
     BringSensorEntityDescription(
         key=BringSensor.DISCOUNTED,
         REDACTED_VALUEBringSensor.DISCOUNTED,
         value_fn=lambda lst, _: sum_attributes(lst, "discounted"),
-        native_unit_of_measurement=UNIT_ITEMS,
     ),
     BringSensorEntityDescription(
         key=BringSensor.LIST_LANGUAGE,
