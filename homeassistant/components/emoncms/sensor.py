@@ -10,16 +10,31 @@ from homeassistant.components.sensor import (
     PLATFORM_SCHEMA as SENSOR_PLATFORM_SCHEMA,
     SensorDeviceClass,
     SensorEntity,
+    SensorEntityDescription,
     SensorStateClass,
 )
 from homeassistant.config_entries import SOURCE_IMPORT, ConfigEntry
 from homeassistant.const import (
+    CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
+    CONCENTRATION_PARTS_PER_MILLION,
     CONF_API_KEY,
     CONF_ID,
     CONF_UNIT_OF_MEASUREMENT,
     CONF_URL,
     CONF_VALUE_TEMPLATE,
+    PERCENTAGE,
+    UnitOfApparentPower,
+    UnitOfElectricCurrent,
+    UnitOfElectricPotential,
+    UnitOfEnergy,
+    UnitOfFrequency,
     UnitOfPower,
+    UnitOfPressure,
+    UnitOfSoundPressure,
+    UnitOfSpeed,
+    UnitOfTemperature,
+    UnitOfVolume,
+    UnitOfVolumeFlowRate,
 )
 from homeassistant.core import DOMAIN as HOMEASSISTANT_DOMAIN, HomeAssistant, callback
 from homeassistant.data_entry_flow import FlowResultType
@@ -40,6 +55,146 @@ from .const import (
     FEED_TAG,
 )
 from .coordinator import EmoncmsCoordinator
+
+SENSORS: dict[str | None, SensorEntityDescription] = {
+    "kWh": SensorEntityDescription(
+        key="energy|kWh",
+        REDACTED_VALUE"energy",
+        device_class=SensorDeviceClass.ENERGY,
+        native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
+        state_class=SensorStateClass.TOTAL_INCREASING,
+    ),
+    "Wh": SensorEntityDescription(
+        key="energy|Wh",
+        REDACTED_VALUE"energy",
+        device_class=SensorDeviceClass.ENERGY,
+        native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
+        state_class=SensorStateClass.TOTAL_INCREASING,
+    ),
+    "kW": SensorEntityDescription(
+        key="power|kW",
+        REDACTED_VALUE"power",
+        device_class=SensorDeviceClass.POWER,
+        native_unit_of_measurement=UnitOfPower.KILO_WATT,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "W": SensorEntityDescription(
+        key="power|W",
+        REDACTED_VALUE"power",
+        device_class=SensorDeviceClass.POWER,
+        native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "V": SensorEntityDescription(
+        key="voltage",
+        REDACTED_VALUE"voltage",
+        device_class=SensorDeviceClass.VOLTAGE,
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "A": SensorEntityDescription(
+        key="current",
+        REDACTED_VALUE"current",
+        device_class=SensorDeviceClass.CURRENT,
+        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "VA": SensorEntityDescription(
+        key="apparent_power",
+        REDACTED_VALUE"apparent_power",
+        device_class=SensorDeviceClass.APPARENT_POWER,
+        native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "°C": SensorEntityDescription(
+        key="temperature|celsius",
+        REDACTED_VALUE"temperature",
+        device_class=SensorDeviceClass.TEMPERATURE,
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "°F": SensorEntityDescription(
+        key="temperature|fahrenheit",
+        REDACTED_VALUE"temperature",
+        device_class=SensorDeviceClass.TEMPERATURE,
+        native_unit_of_measurement=UnitOfTemperature.FAHRENHEIT,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "K": SensorEntityDescription(
+        key="temperature|kelvin",
+        REDACTED_VALUE"temperature",
+        device_class=SensorDeviceClass.TEMPERATURE,
+        native_unit_of_measurement=UnitOfTemperature.KELVIN,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "Hz": SensorEntityDescription(
+        key="frequency",
+        REDACTED_VALUE"frequency",
+        device_class=SensorDeviceClass.FREQUENCY,
+        native_unit_of_measurement=UnitOfFrequency.HERTZ,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "hPa": SensorEntityDescription(
+        key="pressure",
+        REDACTED_VALUE"pressure",
+        device_class=SensorDeviceClass.PRESSURE,
+        native_unit_of_measurement=UnitOfPressure.HPA,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "dB": SensorEntityDescription(
+        key="decibel",
+        REDACTED_VALUE"decibel",
+        device_class=SensorDeviceClass.SIGNAL_STRENGTH,
+        native_unit_of_measurement=UnitOfSoundPressure.DECIBEL,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "m³": SensorEntityDescription(
+        key="volume|cubic_meter",
+        REDACTED_VALUE"volume",
+        device_class=SensorDeviceClass.VOLUME_STORAGE,
+        native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "m³/h": SensorEntityDescription(
+        key="flow|cubic_meters_per_hour",
+        REDACTED_VALUE"flow",
+        device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
+        native_unit_of_measurement=UnitOfVolumeFlowRate.CUBIC_METERS_PER_HOUR,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "l/m": SensorEntityDescription(
+        key="flow|liters_per_minute",
+        REDACTED_VALUE"flow",
+        device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
+        native_unit_of_measurement=UnitOfVolumeFlowRate.LITERS_PER_MINUTE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "m/s": SensorEntityDescription(
+        key="speed|meters_per_second",
+        REDACTED_VALUE"speed",
+        device_class=SensorDeviceClass.SPEED,
+        native_unit_of_measurement=UnitOfSpeed.METERS_PER_SECOND,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "µg/m³": SensorEntityDescription(
+        key="concentration|microgram_per_cubic_meter",
+        REDACTED_VALUE"concentration",
+        native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "ppm": SensorEntityDescription(
+        key="concentration|microgram_parts_per_million",
+        REDACTED_VALUE"concentration",
+        native_unit_of_measurement=CONCENTRATION_PARTS_PER_MILLION,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "%": SensorEntityDescription(
+        key="percent",
+        REDACTED_VALUE"percent",
+        native_unit_of_measurement=PERCENTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+}
 
 ATTR_FEEDID = "FeedId"
 ATTR_FEEDNAME = "FeedName"
@@ -162,7 +317,7 @@ async def async_setup_entry(
             EmonCmsSensor(
                 coordinator,
                 unique_id,
-                elem["unit"],
+                elem.get("unit"),
                 name,
                 idx,
             )
@@ -172,6 +327,8 @@ async def async_setup_entry(
 
 class EmonCmsSensor(CoordinatorEntity[EmoncmsCoordinator], SensorEntity):
     """Implementation of an Emoncms sensor."""
+
+    _attr_has_entity_name = True
 
     def __init__(
         self,
@@ -187,33 +344,16 @@ class EmonCmsSensor(CoordinatorEntity[EmoncmsCoordinator], SensorEntity):
         elem = {}
         if self.coordinator.data:
             elem = self.coordinator.data[self.idx]
-        self._attr_name = f"{name} {elem[FEED_NAME]}"
-        self._attr_native_unit_of_measurement = unit_of_measurement
+        self._attr_translation_placeholders = {
+            "emoncms_details": f"{elem[FEED_TAG]} {elem[FEED_NAME]}",
+        }
         self._attr_unique_id = f"{unique_id}-{elem[FEED_ID]}"
-        if unit_of_measurement in ("kWh", "Wh"):
-            self._attr_device_class = SensorDeviceClass.ENERGY
-            self._attr_state_class = SensorStateClass.TOTAL_INCREASING
-        elif unit_of_measurement == "W":
-            self._attr_device_class = SensorDeviceClass.POWER
-            self._attr_state_class = SensorStateClass.MEASUREMENT
-        elif unit_of_measurement == "V":
-            self._attr_device_class = SensorDeviceClass.VOLTAGE
-            self._attr_state_class = SensorStateClass.MEASUREMENT
-        elif unit_of_measurement == "A":
-            self._attr_device_class = SensorDeviceClass.CURRENT
-            self._attr_state_class = SensorStateClass.MEASUREMENT
-        elif unit_of_measurement == "VA":
-            self._attr_device_class = SensorDeviceClass.APPARENT_POWER
-            self._attr_state_class = SensorStateClass.MEASUREMENT
-        elif unit_of_measurement in ("°C", "°F", "K"):
-            self._attr_device_class = SensorDeviceClass.TEMPERATURE
-            self._attr_state_class = SensorStateClass.MEASUREMENT
-        elif unit_of_measurement == "Hz":
-            self._attr_device_class = SensorDeviceClass.FREQUENCY
-            self._attr_state_class = SensorStateClass.MEASUREMENT
-        elif unit_of_measurement == "hPa":
-            self._attr_device_class = SensorDeviceClass.PRESSURE
-            self._attr_state_class = SensorStateClass.MEASUREMENT
+        description = SENSORS.get(unit_of_measurement)
+        if description is not None:
+            self.entity_description = description
+        else:
+            self._attr_native_unit_of_measurement = unit_of_measurement
+            self._attr_name = f"{name} {elem[FEED_NAME]}"
         self._update_attributes(elem)
 
     def _update_attributes(self, elem: dict[str, Any]) -> None:
