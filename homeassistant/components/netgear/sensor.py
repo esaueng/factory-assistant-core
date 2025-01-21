@@ -47,18 +47,21 @@ SENSOR_TYPES = {
         key="type",
         REDACTED_VALUE"link_type",
         entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
     ),
     "link_rate": SensorEntityDescription(
         key="link_rate",
         REDACTED_VALUE"link_rate",
         native_unit_of_measurement="Mbps",
         entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
     ),
     "signal": SensorEntityDescription(
         key="signal",
         REDACTED_VALUE"signal_strength",
         native_unit_of_measurement=PERCENTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
     ),
     "ssid": SensorEntityDescription(
         key="ssid",
@@ -69,6 +72,7 @@ SENSOR_TYPES = {
         key="conn_ap_mac",
         REDACTED_VALUE"access_point_mac",
         entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
     ),
 }
 
@@ -325,8 +329,6 @@ async def async_setup_entry(
 
 class NetgearSensorEntity(NetgearDeviceEntity, SensorEntity):
     """Representation of a device connected to a Netgear router."""
-
-    _attr_entity_registry_enabled_default = False
 
     def __init__(
         self,
