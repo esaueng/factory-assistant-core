@@ -83,6 +83,13 @@ SENSORS: Final[list[FytaSensorEntityDescription]] = [
         value_fn=lambda plant: plant.moisture_status.name.lower(),
     ),
     FytaSensorEntityDescription(
+        key="nutrients_status",
+        REDACTED_VALUE"nutrients_status",
+        device_class=SensorDeviceClass.ENUM,
+        options=PLANT_MEASUREMENT_STATUS_LIST,
+        value_fn=lambda plant: plant.nutrients_status.name.lower(),
+    ),
+    FytaSensorEntityDescription(
         key="salinity_status",
         REDACTED_VALUE"salinity_status",
         device_class=SensorDeviceClass.ENUM,
@@ -123,6 +130,18 @@ SENSORS: Final[list[FytaSensorEntityDescription]] = [
         device_class=SensorDeviceClass.PH,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda plant: plant.ph,
+    ),
+    FytaSensorEntityDescription(
+        key="fertilise_last",
+        REDACTED_VALUE"last_fertilised",
+        device_class=SensorDeviceClass.DATE,
+        value_fn=lambda plant: plant.fertilise_last,
+    ),
+    FytaSensorEntityDescription(
+        key="fertilise_next",
+        REDACTED_VALUE"next_fertilisation",
+        device_class=SensorDeviceClass.DATE,
+        value_fn=lambda plant: plant.fertilise_next,
     ),
     FytaSensorEntityDescription(
         key="battery_level",
