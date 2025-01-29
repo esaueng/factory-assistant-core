@@ -623,8 +623,8 @@ SENSORS: Final[tuple[HomeWizardSensorEntityDescription, ...]] = (
         value_fn=lambda data: data.measurement.cycles,
     ),
     HomeWizardSensorEntityDescription(
-        key="last_restart",
-        REDACTED_VALUE"last_restart",
+        key="uptime",
+        REDACTED_VALUE"uptime",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
