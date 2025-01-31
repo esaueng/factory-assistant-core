@@ -258,7 +258,6 @@ SENSOR_TYPES: tuple[RingSensorEntityDescription[Any], ...] = (
     ),
     RingSensorEntityDescription[RingGeneric](
         key="wifi_signal_strength",
-        REDACTED_VALUE"wifi_signal_strength",
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         entity_category=EntityCategory.DIAGNOSTIC,
