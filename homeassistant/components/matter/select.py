@@ -308,7 +308,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SELECT,
         entity_description=MatterSelectEntityDescription(
             key="MatterDeviceEnergyManagementMode",
-            REDACTED_VALUE"mode",
+            REDACTED_VALUE"device_energy_management_mode",
         ),
         entity_class=MatterModeSelectEntity,
         required_attributes=(
