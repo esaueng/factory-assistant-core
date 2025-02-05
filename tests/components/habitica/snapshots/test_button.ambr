@@ -27,8 +27,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.ALLOCATE_ALL_STAT_POINTS: 'allocate_all_stat_points'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_allocate_all_stat_points',
+    'translation_key': <HabiticaButtonEntity.ALLOCATE_ALL_STAT_POINTS: 'allocate_all_stat_points'>,
+    'unique_id': 'REDACTED_VALUE_allocate_all_stat_points',
     'unit_of_measurement': None,
   })
 # ---
@@ -73,8 +73,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.HEAL_ALL: 'heal_all'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_heal_all',
+    'translation_key': <HabiticaButtonEntity.HEAL_ALL: 'heal_all'>,
+    'unique_id': 'REDACTED_VALUE_heal_all',
     'unit_of_measurement': None,
   })
 # ---
@@ -120,8 +120,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.BUY_HEALTH_POTION: 'buy_health_potion'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_buy_health_potion',
+    'translation_key': <HabiticaButtonEntity.BUY_HEALTH_POTION: 'buy_health_potion'>,
+    'unique_id': 'REDACTED_VALUE_buy_health_potion',
     'unit_of_measurement': None,
   })
 # ---
@@ -167,8 +167,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.HEAL: 'heal'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_heal',
+    'translation_key': <HabiticaButtonEntity.HEAL: 'heal'>,
+    'unique_id': 'REDACTED_VALUE_heal',
     'unit_of_measurement': None,
   })
 # ---
@@ -214,8 +214,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.PROTECT_AURA: 'protect_aura'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_protect_aura',
+    'translation_key': <HabiticaButtonEntity.PROTECT_AURA: 'protect_aura'>,
+    'unique_id': 'REDACTED_VALUE_protect_aura',
     'unit_of_measurement': None,
   })
 # ---
@@ -261,8 +261,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.REVIVE: 'revive'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_revive',
+    'translation_key': <HabiticaButtonEntity.REVIVE: 'revive'>,
+    'unique_id': 'REDACTED_VALUE_revive',
     'unit_of_measurement': None,
   })
 # ---
@@ -307,8 +307,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.BRIGHTNESS: 'brightness'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_brightness',
+    'translation_key': <HabiticaButtonEntity.BRIGHTNESS: 'brightness'>,
+    'unique_id': 'REDACTED_VALUE_brightness',
     'unit_of_measurement': None,
   })
 # ---
@@ -354,8 +354,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.RUN_CRON: 'run_cron'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_run_cron',
+    'translation_key': <HabiticaButtonEntity.RUN_CRON: 'run_cron'>,
+    'unique_id': 'REDACTED_VALUE_run_cron',
     'unit_of_measurement': None,
   })
 # ---
@@ -400,8 +400,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.ALLOCATE_ALL_STAT_POINTS: 'allocate_all_stat_points'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_allocate_all_stat_points',
+    'translation_key': <HabiticaButtonEntity.ALLOCATE_ALL_STAT_POINTS: 'allocate_all_stat_points'>,
+    'unique_id': 'REDACTED_VALUE_allocate_all_stat_points',
     'unit_of_measurement': None,
   })
 # ---
@@ -446,8 +446,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.BUY_HEALTH_POTION: 'buy_health_potion'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_buy_health_potion',
+    'translation_key': <HabiticaButtonEntity.BUY_HEALTH_POTION: 'buy_health_potion'>,
+    'unique_id': 'REDACTED_VALUE_buy_health_potion',
     'unit_of_measurement': None,
   })
 # ---
@@ -493,8 +493,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.REVIVE: 'revive'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_revive',
+    'translation_key': <HabiticaButtonEntity.REVIVE: 'revive'>,
+    'unique_id': 'REDACTED_VALUE_revive',
     'unit_of_measurement': None,
   })
 # ---
@@ -539,8 +539,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.RUN_CRON: 'run_cron'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_run_cron',
+    'translation_key': <HabiticaButtonEntity.RUN_CRON: 'run_cron'>,
+    'unique_id': 'REDACTED_VALUE_run_cron',
     'unit_of_measurement': None,
   })
 # ---
@@ -585,8 +585,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.STEALTH: 'stealth'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_stealth',
+    'translation_key': <HabiticaButtonEntity.STEALTH: 'stealth'>,
+    'unique_id': 'REDACTED_VALUE_stealth',
     'unit_of_measurement': None,
   })
 # ---
@@ -632,8 +632,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.TOOLS_OF_TRADE: 'tools_of_trade'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_tools_of_trade',
+    'translation_key': <HabiticaButtonEntity.TOOLS_OF_TRADE: 'tools_of_trade'>,
+    'unique_id': 'REDACTED_VALUE_tools_of_trade',
     'unit_of_measurement': None,
   })
 # ---
@@ -679,8 +679,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.ALLOCATE_ALL_STAT_POINTS: 'allocate_all_stat_points'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_allocate_all_stat_points',
+    'translation_key': <HabiticaButtonEntity.ALLOCATE_ALL_STAT_POINTS: 'allocate_all_stat_points'>,
+    'unique_id': 'REDACTED_VALUE_allocate_all_stat_points',
     'unit_of_measurement': None,
   })
 # ---
@@ -725,8 +725,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.BUY_HEALTH_POTION: 'buy_health_potion'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_buy_health_potion',
+    'translation_key': <HabiticaButtonEntity.BUY_HEALTH_POTION: 'buy_health_potion'>,
+    'unique_id': 'REDACTED_VALUE_buy_health_potion',
     'unit_of_measurement': None,
   })
 # ---
@@ -772,8 +772,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.DEFENSIVE_STANCE: 'defensive_stance'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_defensive_stance',
+    'translation_key': <HabiticaButtonEntity.DEFENSIVE_STANCE: 'defensive_stance'>,
+    'unique_id': 'REDACTED_VALUE_defensive_stance',
     'unit_of_measurement': None,
   })
 # ---
@@ -819,8 +819,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.INTIMIDATE: 'intimidate'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_intimidate',
+    'translation_key': <HabiticaButtonEntity.INTIMIDATE: 'intimidate'>,
+    'unique_id': 'REDACTED_VALUE_intimidate',
     'unit_of_measurement': None,
   })
 # ---
@@ -866,8 +866,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.REVIVE: 'revive'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_revive',
+    'translation_key': <HabiticaButtonEntity.REVIVE: 'revive'>,
+    'unique_id': 'REDACTED_VALUE_revive',
     'unit_of_measurement': None,
   })
 # ---
@@ -912,8 +912,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.RUN_CRON: 'run_cron'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_run_cron',
+    'translation_key': <HabiticaButtonEntity.RUN_CRON: 'run_cron'>,
+    'unique_id': 'REDACTED_VALUE_run_cron',
     'unit_of_measurement': None,
   })
 # ---
@@ -958,8 +958,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.VALOROUS_PRESENCE: 'valorous_presence'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_valorous_presence',
+    'translation_key': <HabiticaButtonEntity.VALOROUS_PRESENCE: 'valorous_presence'>,
+    'unique_id': 'REDACTED_VALUE_valorous_presence',
     'unit_of_measurement': None,
   })
 # ---
@@ -1005,8 +1005,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.ALLOCATE_ALL_STAT_POINTS: 'allocate_all_stat_points'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_allocate_all_stat_points',
+    'translation_key': <HabiticaButtonEntity.ALLOCATE_ALL_STAT_POINTS: 'allocate_all_stat_points'>,
+    'unique_id': 'REDACTED_VALUE_allocate_all_stat_points',
     'unit_of_measurement': None,
   })
 # ---
@@ -1051,8 +1051,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.BUY_HEALTH_POTION: 'buy_health_potion'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_buy_health_potion',
+    'translation_key': <HabiticaButtonEntity.BUY_HEALTH_POTION: 'buy_health_potion'>,
+    'unique_id': 'REDACTED_VALUE_buy_health_potion',
     'unit_of_measurement': None,
   })
 # ---
@@ -1098,8 +1098,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.FROST: 'frost'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_frost',
+    'translation_key': <HabiticaButtonEntity.FROST: 'frost'>,
+    'unique_id': 'REDACTED_VALUE_frost',
     'unit_of_measurement': None,
   })
 # ---
@@ -1145,8 +1145,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.EARTH: 'earth'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_earth',
+    'translation_key': <HabiticaButtonEntity.EARTH: 'earth'>,
+    'unique_id': 'REDACTED_VALUE_earth',
     'unit_of_measurement': None,
   })
 # ---
@@ -1192,8 +1192,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.MPHEAL: 'mpheal'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_mpheal',
+    'translation_key': <HabiticaButtonEntity.MPHEAL: 'mpheal'>,
+    'unique_id': 'REDACTED_VALUE_mpheal',
     'unit_of_measurement': None,
   })
 # ---
@@ -1239,8 +1239,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.REVIVE: 'revive'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_revive',
+    'translation_key': <HabiticaButtonEntity.REVIVE: 'revive'>,
+    'unique_id': 'REDACTED_VALUE_revive',
     'unit_of_measurement': None,
   })
 # ---
@@ -1285,8 +1285,8 @@
     'platform': 'habitica',
     'previous_unique_id': None,
     'supported_features': 0,
-    'translation_key': <HabitipyButtonEntity.RUN_CRON: 'run_cron'>,
-    'unique_id': '00000000-0000-0000-0000-000000000000_run_cron',
+    'translation_key': <HabiticaButtonEntity.RUN_CRON: 'run_cron'>,
+    'unique_id': 'REDACTED_VALUE_run_cron',
     'unit_of_measurement': None,
   })
 # ---
