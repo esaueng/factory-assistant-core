@@ -8,7 +8,6 @@ from qbittorrentapi import Client, TorrentDictionary, TorrentInfoList
 
 def setup_client(url: str, username: str, password: str, verify_ssl: bool) -> Client:
     """Create a qBittorrent client."""
-
     client = Client(
         url, username=username, password=password, REDACTED_VALUE
     )

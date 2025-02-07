@@ -6,6 +6,7 @@ from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorEntity,
     SensorEntityDescription,
+    SensorStateClass,
 )
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
@@ -30,47 +31,57 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
         REDACTED_VALUE"battery",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="balance",
         REDACTED_VALUE"balance",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="ctemp",
         REDACTED_VALUE"interior_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="etemp",
         REDACTED_VALUE"engine_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="gsm_lvl",
         REDACTED_VALUE"gsm_signal",
         native_unit_of_measurement=PERCENTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="fuel",
         REDACTED_VALUE"fuel",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="errors",
         REDACTED_VALUE"errors",
+        native_unit_of_measurement="errors",
         entity_category=EntityCategory.DIAGNOSTIC,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="mileage",
         REDACTED_VALUE"mileage",
         native_unit_of_measurement=UnitOfLength.KILOMETERS,
         device_class=SensorDeviceClass.DISTANCE,
+        state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     SensorEntityDescription(
         key="gps_count",
         REDACTED_VALUE"gps_count",
         native_unit_of_measurement="satellites",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
 )
 

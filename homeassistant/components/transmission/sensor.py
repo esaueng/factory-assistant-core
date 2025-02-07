@@ -83,7 +83,6 @@ SENSOR_TYPES: tuple[TransmissionSensorEntityDescription, ...] = (
     TransmissionSensorEntityDescription(
         key="active_torrents",
         REDACTED_VALUE"active_torrents",
-        native_unit_of_measurement="torrents",
         val_func=lambda coordinator: coordinator.data.active_torrent_count,
         extra_state_attr_func=lambda coordinator: _torrents_info_attr(
             coordinator=coordinator, key="active_torrents"
@@ -92,7 +91,6 @@ SENSOR_TYPES: tuple[TransmissionSensorEntityDescription, ...] = (
     TransmissionSensorEntityDescription(
         key="paused_torrents",
         REDACTED_VALUE"paused_torrents",
-        native_unit_of_measurement="torrents",
         val_func=lambda coordinator: coordinator.data.paused_torrent_count,
         extra_state_attr_func=lambda coordinator: _torrents_info_attr(
             coordinator=coordinator, key="paused_torrents"
@@ -101,7 +99,6 @@ SENSOR_TYPES: tuple[TransmissionSensorEntityDescription, ...] = (
     TransmissionSensorEntityDescription(
         key="total_torrents",
         REDACTED_VALUE"total_torrents",
-        native_unit_of_measurement="torrents",
         val_func=lambda coordinator: coordinator.data.torrent_count,
         extra_state_attr_func=lambda coordinator: _torrents_info_attr(
             coordinator=coordinator, key="total_torrents"
@@ -110,7 +107,6 @@ SENSOR_TYPES: tuple[TransmissionSensorEntityDescription, ...] = (
     TransmissionSensorEntityDescription(
         key="completed_torrents",
         REDACTED_VALUE"completed_torrents",
-        native_unit_of_measurement="torrents",
         val_func=lambda coordinator: len(
             _filter_torrents(coordinator.torrents, MODES["completed_torrents"])
         ),
@@ -121,7 +117,6 @@ SENSOR_TYPES: tuple[TransmissionSensorEntityDescription, ...] = (
     TransmissionSensorEntityDescription(
         key="started_torrents",
         REDACTED_VALUE"started_torrents",
-        native_unit_of_measurement="torrents",
         val_func=lambda coordinator: len(
             _filter_torrents(coordinator.torrents, MODES["started_torrents"])
         ),

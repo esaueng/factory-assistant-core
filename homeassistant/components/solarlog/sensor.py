@@ -1,8 +1,12 @@
 """Platform for solarlog sensors."""
 
+from __future__ import annotations
+
 from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime
+
+from solarlog_cli.solarlog_models import InverterData, SolarlogData
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -17,184 +21,254 @@ from homeassistant.const import (
     UnitOfPower,
 )
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from homeassistant.helpers.update_coordinator import CoordinatorEntity
+from homeassistant.helpers.typing import StateType
 
-from . import SolarlogConfigEntry, SolarlogData
-from .const import DOMAIN
-
-
-@dataclass(frozen=True)
-class SolarLogSensorEntityDescription(SensorEntityDescription):
-    """Describes Solarlog sensor entity."""
-
-    value: Callable[[float | int], float] | Callable[[datetime], datetime] | None = None
+from . import SolarlogConfigEntry
+from .entity import SolarLogCoordinatorEntity, SolarLogInverterEntity
 
 
-SENSOR_TYPES: tuple[SolarLogSensorEntityDescription, ...] = (
-    SolarLogSensorEntityDescription(
+@dataclass(frozen=True, kw_only=True)
+class SolarLogCoordinatorSensorEntityDescription(SensorEntityDescription):
+    """Describes Solarlog coordinator sensor entity."""
+
+    value_fn: Callable[[SolarlogData], StateType | datetime | None]
+
+
+@dataclass(frozen=True, kw_only=True)
+class SolarLogInverterSensorEntityDescription(SensorEntityDescription):
+    """Describes Solarlog inverter sensor entity."""
+
+    value_fn: Callable[[InverterData], float | None]
+
+
+SOLARLOG_SENSOR_TYPES: tuple[SolarLogCoordinatorSensorEntityDescription, ...] = (
+    SolarLogCoordinatorSensorEntityDescription(
         key="last_updated",
         REDACTED_VALUE"last_update",
         device_class=SensorDeviceClass.TIMESTAMP,
+        value_fn=lambda data: data.last_updated,
     ),
-    SolarLogSensorEntityDescription(
+    SolarLogCoordinatorSensorEntityDescription(
         key="power_ac",
         REDACTED_VALUE"power_ac",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
+        value_fn=lambda data: data.power_ac,
     ),
-    SolarLogSensorEntityDescription(
+    SolarLogCoordinatorSensorEntityDescription(
         key="power_dc",
         REDACTED_VALUE"power_dc",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
+        value_fn=lambda data: data.power_dc,
     ),
-    SolarLogSensorEntityDescription(
+    SolarLogCoordinatorSensorEntityDescription(
         key="voltage_ac",
         REDACTED_VALUE"voltage_ac",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
+        value_fn=lambda data: data.voltage_ac,
     ),
-    SolarLogSensorEntityDescription(
+    SolarLogCoordinatorSensorEntityDescription(
         key="voltage_dc",
         REDACTED_VALUE"voltage_dc",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
+        value_fn=lambda data: data.voltage_dc,
     ),
-    SolarLogSensorEntityDescription(
+    SolarLogCoordinatorSensorEntityDescription(
         key="yield_day",
         REDACTED_VALUE"yield_day",
-        native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
+        native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
+        suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
-        value=lambda value: round(value / 1000, 3),
+        state_class=SensorStateClass.TOTAL_INCREASING,
+        suggested_display_precision=3,
+        value_fn=lambda data: data.yield_day,
     ),
-    SolarLogSensorEntityDescription(
+    SolarLogCoordinatorSensorEntityDescription(
         key="yield_yesterday",
         REDACTED_VALUE"yield_yesterday",
-        native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
+        native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
+        suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
-        value=lambda value: round(value / 1000, 3),
+        suggested_display_precision=3,
+        value_fn=lambda data: data.yield_yesterday,
     ),
-    SolarLogSensorEntityDescription(
+    SolarLogCoordinatorSensorEntityDescription(
         key="yield_month",
         REDACTED_VALUE"yield_month",
-        native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
+        native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
+        suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
-        value=lambda value: round(value / 1000, 3),
+        state_class=SensorStateClass.TOTAL_INCREASING,
+        suggested_display_precision=3,
+        value_fn=lambda data: data.yield_month,
     ),
-    SolarLogSensorEntityDescription(
+    SolarLogCoordinatorSensorEntityDescription(
         key="yield_year",
         REDACTED_VALUE"yield_year",
-        native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
+        native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
+        suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
-        value=lambda value: round(value / 1000, 3),
+        state_class=SensorStateClass.TOTAL_INCREASING,
+        value_fn=lambda data: data.yield_year,
     ),
-    SolarLogSensorEntityDescription(
+    SolarLogCoordinatorSensorEntityDescription(
         key="yield_total",
         REDACTED_VALUE"yield_total",
-        native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
+        native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
+        suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL,
-        value=lambda value: round(value / 1000, 3),
+        suggested_display_precision=3,
+        value_fn=lambda data: data.yield_total,
     ),
-    SolarLogSensorEntityDescription(
+    SolarLogCoordinatorSensorEntityDescription(
         key="consumption_ac",
         REDACTED_VALUE"consumption_ac",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
+        value_fn=lambda data: data.consumption_ac,
     ),
-    SolarLogSensorEntityDescription(
+    SolarLogCoordinatorSensorEntityDescription(
         key="consumption_day",
         REDACTED_VALUE"consumption_day",
-        native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
+        native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
+        suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
-        value=lambda value: round(value / 1000, 3),
+        state_class=SensorStateClass.TOTAL_INCREASING,
+        suggested_display_precision=3,
+        value_fn=lambda data: data.consumption_day,
     ),
-    SolarLogSensorEntityDescription(
+    SolarLogCoordinatorSensorEntityDescription(
         key="consumption_yesterday",
         REDACTED_VALUE"consumption_yesterday",
-        native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
+        native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
+        suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
-        value=lambda value: round(value / 1000, 3),
+        suggested_display_precision=3,
+        value_fn=lambda data: data.consumption_yesterday,
     ),
-    SolarLogSensorEntityDescription(
+    SolarLogCoordinatorSensorEntityDescription(
         key="consumption_month",
         REDACTED_VALUE"consumption_month",
-        native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
+        native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
+        suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
-        value=lambda value: round(value / 1000, 3),
+        state_class=SensorStateClass.TOTAL_INCREASING,
+        suggested_display_precision=3,
+        value_fn=lambda data: data.consumption_month,
     ),
-    SolarLogSensorEntityDescription(
+    SolarLogCoordinatorSensorEntityDescription(
         key="consumption_year",
         REDACTED_VALUE"consumption_year",
-        native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
+        native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
+        suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
-        value=lambda value: round(value / 1000, 3),
+        state_class=SensorStateClass.TOTAL_INCREASING,
+        suggested_display_precision=3,
+        value_fn=lambda data: data.consumption_year,
     ),
-    SolarLogSensorEntityDescription(
+    SolarLogCoordinatorSensorEntityDescription(
         key="consumption_total",
         REDACTED_VALUE"consumption_total",
-        native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
+        native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
+        suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL,
-        value=lambda value: round(value / 1000, 3),
+        suggested_display_precision=3,
+        value_fn=lambda data: data.consumption_total,
     ),
-    SolarLogSensorEntityDescription(
+    SolarLogCoordinatorSensorEntityDescription(
         key="self_consumption_year",
         REDACTED_VALUE"self_consumption_year",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
+        value_fn=lambda data: data.self_consumption_year,
     ),
-    SolarLogSensorEntityDescription(
+    SolarLogCoordinatorSensorEntityDescription(
         key="total_power",
         REDACTED_VALUE"total_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
+        state_class=SensorStateClass.MEASUREMENT,
+        value_fn=lambda data: data.total_power,
     ),
-    SolarLogSensorEntityDescription(
+    SolarLogCoordinatorSensorEntityDescription(
         key="alternator_loss",
         REDACTED_VALUE"alternator_loss",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
+        value_fn=lambda data: data.alternator_loss,
     ),
-    SolarLogSensorEntityDescription(
+    SolarLogCoordinatorSensorEntityDescription(
         key="capacity",
         REDACTED_VALUE"capacity",
         native_unit_of_measurement=PERCENTAGE,
         device_class=SensorDeviceClass.POWER_FACTOR,
         state_class=SensorStateClass.MEASUREMENT,
-        value=lambda value: round(value * 100, 1),
+        suggested_display_precision=1,
+        value_fn=lambda data: data.capacity,
     ),
-    SolarLogSensorEntityDescription(
+    SolarLogCoordinatorSensorEntityDescription(
         key="efficiency",
         REDACTED_VALUE"efficiency",
         native_unit_of_measurement=PERCENTAGE,
         device_class=SensorDeviceClass.POWER_FACTOR,
         state_class=SensorStateClass.MEASUREMENT,
-        value=lambda value: round(value * 100, 1),
+        suggested_display_precision=1,
+        value_fn=lambda data: data.efficiency,
     ),
-    SolarLogSensorEntityDescription(
+    SolarLogCoordinatorSensorEntityDescription(
         key="power_available",
         REDACTED_VALUE"power_available",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
+        value_fn=lambda data: data.power_available,
     ),
-    SolarLogSensorEntityDescription(
+    SolarLogCoordinatorSensorEntityDescription(
         key="usage",
         REDACTED_VALUE"usage",
         native_unit_of_measurement=PERCENTAGE,
         device_class=SensorDeviceClass.POWER_FACTOR,
         state_class=SensorStateClass.MEASUREMENT,
-        value=lambda value: round(value * 100, 1),
+        suggested_display_precision=1,
+        value_fn=lambda data: data.usage,
+    ),
+)
+
+INVERTER_SENSOR_TYPES: tuple[SolarLogInverterSensorEntityDescription, ...] = (
+    SolarLogInverterSensorEntityDescription(
+        key="current_power",
+        REDACTED_VALUE"current_power",
+        native_unit_of_measurement=UnitOfPower.WATT,
+        device_class=SensorDeviceClass.POWER,
+        state_class=SensorStateClass.MEASUREMENT,
+        value_fn=(
+            lambda inverter: None if inverter is None else inverter.current_power
+        ),
+    ),
+    SolarLogInverterSensorEntityDescription(
+        key="consumption_year",
+        REDACTED_VALUE"consumption_year",
+        native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
+        suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
+        device_class=SensorDeviceClass.ENERGY,
+        state_class=SensorStateClass.TOTAL_INCREASING,
+        suggested_display_precision=3,
+        value_fn=(
+            lambda inverter: None if inverter is None else inverter.consumption_year
+        ),
     ),
 )
 
@@ -206,39 +280,53 @@ async def async_setup_entry(
 ) -> None:
     """Add solarlog entry."""
     coordinator = entry.runtime_data
-    async_add_entities(
-        SolarlogSensor(coordinator, description) for description in SENSOR_TYPES
-    )
 
+    entities: list[SensorEntity] = [
+        SolarLogCoordinatorSensor(coordinator, sensor)
+        for sensor in SOLARLOG_SENSOR_TYPES
+    ]
 
-class SolarlogSensor(CoordinatorEntity[SolarlogData], SensorEntity):
-    """Representation of a Sensor."""
+    device_data = coordinator.data.inverter_data
 
-    _attr_has_entity_name = True
-
-    entity_description: SolarLogSensorEntityDescription
-
-    def __init__(
-        self,
-        coordinator: SolarlogData,
-        description: SolarLogSensorEntityDescription,
-    ) -> None:
-        """Initialize the sensor."""
-        super().__init__(coordinator)
-        self.entity_description = description
-        self._attr_unique_id = f"{coordinator.unique_id}_{description.key}"
-        self._attr_device_info = DeviceInfo(
-            identifiers={(DOMAIN, coordinator.unique_id)},
-            manufacturer="Solar-Log",
-            name=coordinator.name,
-            configuration_url=coordinator.host,
+    if device_data:
+        entities.extend(
+            SolarLogInverterSensor(coordinator, sensor, device_id)
+            for device_id in device_data
+            for sensor in INVERTER_SENSOR_TYPES
         )
 
-    @property
-    def native_value(self):
-        """Return the native sensor value."""
-        raw_attr = self.coordinator.data.get(self.entity_description.key)
+    async_add_entities(entities)
 
-        if self.entity_description.value:
-            return self.entity_description.value(raw_attr)
-        return raw_attr
+    def _async_add_new_device(device_id: int) -> None:
+        async_add_entities(
+            SolarLogInverterSensor(coordinator, sensor, device_id)
+            for sensor in INVERTER_SENSOR_TYPES
+        )
+
+    coordinator.new_device_callbacks.append(_async_add_new_device)
+
+
+class SolarLogCoordinatorSensor(SolarLogCoordinatorEntity, SensorEntity):
+    """Represents a SolarLog sensor."""
+
+    entity_description: SolarLogCoordinatorSensorEntityDescription
+
+    @property
+    def native_value(self) -> StateType | datetime:
+        """Return the state for this sensor."""
+
+        return self.entity_description.value_fn(self.coordinator.data)
+
+
+class SolarLogInverterSensor(SolarLogInverterEntity, SensorEntity):
+    """Represents a SolarLog inverter sensor."""
+
+    entity_description: SolarLogInverterSensorEntityDescription
+
+    @property
+    def native_value(self) -> StateType:
+        """Return the state for this sensor."""
+
+        return self.entity_description.value_fn(
+            self.coordinator.data.inverter_data[self.device_id]
+        )

@@ -37,7 +37,6 @@ SENSOR_DESCRIPTIONS: tuple[GitHubSensorEntityDescription, ...] = (
     GitHubSensorEntityDescription(
         key="discussions_count",
         REDACTED_VALUE"discussions_count",
-        native_unit_of_measurement="Discussions",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data["discussion"]["total"],
@@ -45,7 +44,6 @@ SENSOR_DESCRIPTIONS: tuple[GitHubSensorEntityDescription, ...] = (
     GitHubSensorEntityDescription(
         key="stargazers_count",
         REDACTED_VALUE"stargazers_count",
-        native_unit_of_measurement="Stars",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data["stargazers_count"],
@@ -53,7 +51,6 @@ SENSOR_DESCRIPTIONS: tuple[GitHubSensorEntityDescription, ...] = (
     GitHubSensorEntityDescription(
         key="subscribers_count",
         REDACTED_VALUE"subscribers_count",
-        native_unit_of_measurement="Watchers",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data["watchers"]["total"],
@@ -61,7 +58,6 @@ SENSOR_DESCRIPTIONS: tuple[GitHubSensorEntityDescription, ...] = (
     GitHubSensorEntityDescription(
         key="forks_count",
         REDACTED_VALUE"forks_count",
-        native_unit_of_measurement="Forks",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data["forks_count"],
@@ -69,7 +65,6 @@ SENSOR_DESCRIPTIONS: tuple[GitHubSensorEntityDescription, ...] = (
     GitHubSensorEntityDescription(
         key="issues_count",
         REDACTED_VALUE"issues_count",
-        native_unit_of_measurement="Issues",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data["issue"]["total"],
@@ -77,7 +72,6 @@ SENSOR_DESCRIPTIONS: tuple[GitHubSensorEntityDescription, ...] = (
     GitHubSensorEntityDescription(
         key="pulls_count",
         REDACTED_VALUE"pulls_count",
-        native_unit_of_measurement="Pull Requests",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data["pull_request"]["total"],
