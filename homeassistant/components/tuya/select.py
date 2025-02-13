@@ -128,6 +128,40 @@ SELECTS: dict[str, tuple[SelectEntityDescription, ...]] = {
             REDACTED_VALUE"motion_sensitivity",
         ),
     ),
+    # Smart Camera - Low power consumption camera
+    # Undocumented, see https://github.com/home-assistant/core/issues/132844
+    "dghsxj": (
+        SelectEntityDescription(
+            key=DPCode.IPC_WORK_MODE,
+            entity_category=EntityCategory.CONFIG,
+            REDACTED_VALUE"ipc_work_mode",
+        ),
+        SelectEntityDescription(
+            key=DPCode.DECIBEL_SENSITIVITY,
+            entity_category=EntityCategory.CONFIG,
+            REDACTED_VALUE"decibel_sensitivity",
+        ),
+        SelectEntityDescription(
+            key=DPCode.RECORD_MODE,
+            entity_category=EntityCategory.CONFIG,
+            REDACTED_VALUE"record_mode",
+        ),
+        SelectEntityDescription(
+            key=DPCode.BASIC_NIGHTVISION,
+            entity_category=EntityCategory.CONFIG,
+            REDACTED_VALUE"basic_nightvision",
+        ),
+        SelectEntityDescription(
+            key=DPCode.BASIC_ANTI_FLICKER,
+            entity_category=EntityCategory.CONFIG,
+            REDACTED_VALUE"basic_anti_flicker",
+        ),
+        SelectEntityDescription(
+            key=DPCode.MOTION_SENSITIVITY,
+            entity_category=EntityCategory.CONFIG,
+            REDACTED_VALUE"motion_sensitivity",
+        ),
+    ),
     # IoT Switch?
     # Note: Undocumented
     "tdq": (
