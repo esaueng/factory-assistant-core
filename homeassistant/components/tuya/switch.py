@@ -509,6 +509,65 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
             entity_category=EntityCategory.CONFIG,
         ),
     ),
+    # Smart Camera - Low power consumption camera
+    # Undocumented, see https://github.com/home-assistant/core/issues/132844
+    "dghsxj": (
+        SwitchEntityDescription(
+            key=DPCode.WIRELESS_BATTERYLOCK,
+            REDACTED_VALUE"battery_lock",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        SwitchEntityDescription(
+            key=DPCode.CRY_DETECTION_SWITCH,
+            REDACTED_VALUE"cry_detection",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        SwitchEntityDescription(
+            key=DPCode.DECIBEL_SWITCH,
+            REDACTED_VALUE"sound_detection",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        SwitchEntityDescription(
+            key=DPCode.RECORD_SWITCH,
+            REDACTED_VALUE"video_recording",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        SwitchEntityDescription(
+            key=DPCode.MOTION_RECORD,
+            REDACTED_VALUE"motion_recording",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        SwitchEntityDescription(
+            key=DPCode.BASIC_PRIVATE,
+            REDACTED_VALUE"privacy_mode",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        SwitchEntityDescription(
+            key=DPCode.BASIC_FLIP,
+            REDACTED_VALUE"flip",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        SwitchEntityDescription(
+            key=DPCode.BASIC_OSD,
+            REDACTED_VALUE"time_watermark",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        SwitchEntityDescription(
+            key=DPCode.BASIC_WDR,
+            REDACTED_VALUE"wide_dynamic_range",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        SwitchEntityDescription(
+            key=DPCode.MOTION_TRACKING,
+            REDACTED_VALUE"motion_tracking",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        SwitchEntityDescription(
+            key=DPCode.MOTION_SWITCH,
+            REDACTED_VALUE"motion_alarm",
+            entity_category=EntityCategory.CONFIG,
+        ),
+    ),
     # Smart Gardening system
     # https://developer.tuya.com/en/docs/iot/categorysz?id=Kaiuz4e6h7up0
     "sz": (
