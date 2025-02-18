@@ -76,6 +76,16 @@ NUMBERS = (
         device_class=NumberDeviceClass.TEMPERATURE,
         REDACTED_VALUE"REDACTED_VALUE",
     ),
+    NumberEntityDescription(
+        key=SettingKey.LAUNDRY_CARE_WASHER_I_DOS_1_BASE_LEVEL,
+        device_class=NumberDeviceClass.VOLUME,
+        REDACTED_VALUE"washer_i_dos_1_base_level",
+    ),
+    NumberEntityDescription(
+        key=SettingKey.LAUNDRY_CARE_WASHER_I_DOS_2_BASE_LEVEL,
+        device_class=NumberDeviceClass.VOLUME,
+        REDACTED_VALUE"washer_i_dos_2_base_level",
+    ),
 )
 
 
