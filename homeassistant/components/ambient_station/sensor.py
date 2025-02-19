@@ -608,21 +608,25 @@ SENSOR_DESCRIPTIONS = (
         key=TYPE_WINDDIR,
         REDACTED_VALUE"wind_direction",
         native_unit_of_measurement=DEGREE,
+        device_class=SensorDeviceClass.WIND_DIRECTION,
     ),
     SensorEntityDescription(
         key=TYPE_WINDDIR_AVG10M,
         REDACTED_VALUE"REDACTED_VALUE",
         native_unit_of_measurement=DEGREE,
+        device_class=SensorDeviceClass.WIND_DIRECTION,
     ),
     SensorEntityDescription(
         key=TYPE_WINDDIR_AVG2M,
         REDACTED_VALUE"REDACTED_VALUE",
         native_unit_of_measurement=DEGREE,
+        device_class=SensorDeviceClass.WIND_DIRECTION,
     ),
     SensorEntityDescription(
         key=TYPE_WINDGUSTDIR,
         REDACTED_VALUE"wind_gust_direction",
         native_unit_of_measurement=DEGREE,
+        device_class=SensorDeviceClass.WIND_DIRECTION,
     ),
     SensorEntityDescription(
         key=TYPE_WINDGUSTMPH,

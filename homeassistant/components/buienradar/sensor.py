@@ -169,6 +169,7 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
         REDACTED_VALUE"windazimuth",
         native_unit_of_measurement=DEGREE,
         icon="mdi:compass-outline",
+        device_class=SensorDeviceClass.WIND_DIRECTION,
     ),
     SensorEntityDescription(
         key="pressure",
@@ -530,30 +531,35 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
         REDACTED_VALUE"REDACTED_VALUE",
         native_unit_of_measurement=DEGREE,
         icon="mdi:compass-outline",
+        device_class=SensorDeviceClass.WIND_DIRECTION,
     ),
     SensorEntityDescription(
         key="REDACTED_VALUE",
         REDACTED_VALUE"REDACTED_VALUE",
         native_unit_of_measurement=DEGREE,
         icon="mdi:compass-outline",
+        device_class=SensorDeviceClass.WIND_DIRECTION,
     ),
     SensorEntityDescription(
         key="REDACTED_VALUE",
         REDACTED_VALUE"REDACTED_VALUE",
         native_unit_of_measurement=DEGREE,
         icon="mdi:compass-outline",
+        device_class=SensorDeviceClass.WIND_DIRECTION,
     ),
     SensorEntityDescription(
         key="REDACTED_VALUE",
         REDACTED_VALUE"REDACTED_VALUE",
         native_unit_of_measurement=DEGREE,
         icon="mdi:compass-outline",
+        device_class=SensorDeviceClass.WIND_DIRECTION,
     ),
     SensorEntityDescription(
         key="REDACTED_VALUE",
         REDACTED_VALUE"REDACTED_VALUE",
         native_unit_of_measurement=DEGREE,
         icon="mdi:compass-outline",
+        device_class=SensorDeviceClass.WIND_DIRECTION,
     ),
     SensorEntityDescription(
         key="condition_1d",
