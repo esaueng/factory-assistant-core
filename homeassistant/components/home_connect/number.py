@@ -84,6 +84,11 @@ NUMBERS = (
         REDACTED_VALUE"REDACTED_VALUE",
     ),
     NumberEntityDescription(
+        key=SettingKey.COOKING_HOOD_COLOR_TEMPERATURE_PERCENT,
+        REDACTED_VALUE"color_temperature_percent",
+        native_unit_of_measurement="%",
+    ),
+    NumberEntityDescription(
         key=SettingKey.LAUNDRY_CARE_WASHER_I_DOS_1_BASE_LEVEL,
         device_class=NumberDeviceClass.VOLUME,
         REDACTED_VALUE"washer_i_dos_1_base_level",
