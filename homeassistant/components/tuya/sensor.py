@@ -715,6 +715,47 @@ SENSORS: dict[str, tuple[TuyaSensorEntityDescription, ...]] = {
         ),
         *BATTERY_SENSORS,
     ),
+    # Temperature and Humidity Sensor with External Probe
+    # New undocumented category qxj, see https://github.com/home-assistant/core/issues/136472
+    "qxj": (
+        TuyaSensorEntityDescription(
+            key=DPCode.VA_TEMPERATURE,
+            REDACTED_VALUE"temperature",
+            device_class=SensorDeviceClass.TEMPERATURE,
+            state_class=SensorStateClass.MEASUREMENT,
+        ),
+        TuyaSensorEntityDescription(
+            key=DPCode.TEMP_CURRENT,
+            REDACTED_VALUE"temperature",
+            device_class=SensorDeviceClass.TEMPERATURE,
+            state_class=SensorStateClass.MEASUREMENT,
+        ),
+        TuyaSensorEntityDescription(
+            key=DPCode.TEMP_CURRENT_EXTERNAL,
+            REDACTED_VALUE"temperature_external",
+            device_class=SensorDeviceClass.TEMPERATURE,
+            state_class=SensorStateClass.MEASUREMENT,
+        ),
+        TuyaSensorEntityDescription(
+            key=DPCode.VA_HUMIDITY,
+            REDACTED_VALUE"humidity",
+            device_class=SensorDeviceClass.HUMIDITY,
+            state_class=SensorStateClass.MEASUREMENT,
+        ),
+        TuyaSensorEntityDescription(
+            key=DPCode.HUMIDITY_VALUE,
+            REDACTED_VALUE"humidity",
+            device_class=SensorDeviceClass.HUMIDITY,
+            state_class=SensorStateClass.MEASUREMENT,
+        ),
+        TuyaSensorEntityDescription(
+            key=DPCode.BRIGHT_VALUE,
+            REDACTED_VALUE"illuminance",
+            device_class=SensorDeviceClass.ILLUMINANCE,
+            state_class=SensorStateClass.MEASUREMENT,
+        ),
+        *BATTERY_SENSORS,
+    ),
     # Pressure Sensor
     # https://developer.tuya.com/en/docs/iot/categoryylcg?id=Kaiuz3kc2e4gm
     "ylcg": (
