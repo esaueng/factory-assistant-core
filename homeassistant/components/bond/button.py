@@ -92,6 +92,13 @@ BUTTONS: tuple[BondButtonEntityDescription, ...] = (
         argument=None,
     ),
     BondButtonEntityDescription(
+        key=Action.TOGGLE_LIGHT_TEMP,
+        name="Toggle Light Temperature",
+        REDACTED_VALUE"toggle_light_temp",
+        mutually_exclusive=None,  # No mutually exclusive action
+        argument=None,
+    ),
+    BondButtonEntityDescription(
         key=Action.START_UP_LIGHT_DIMMER,
         name="Start Up Light Dimmer",
         REDACTED_VALUE"start_up_light_dimmer",
