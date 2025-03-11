@@ -55,6 +55,9 @@
   "entity": {
     "sensor": {
       "REDACTED_VALUE": {
+        "name": "BH1750 illuminance"
+      },
+      "REDACTED_VALUE": {
         "name": "BME280 humidity"
       },
       "bme280_pressure": {
