@@ -64,6 +64,10 @@ class NAMDataUpdateCoordinator(DataUpdateCoordinator[NAMSensors]):
         # We do not need to catch AuthFailed exception here because sensor data is
         # always available without authorization.
         except (ApiError, InvalidSensorDataError, RetryError) as error:
-            raise UpdateFailed(error) from error
+            raise UpdateFailed(
+                translation_domain=DOMAIN,
+                REDACTED_VALUE"update_error",
+                translation_placeholders={"device": self.config_entry.title},
+            ) from error
 
         return data
