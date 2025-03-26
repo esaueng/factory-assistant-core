@@ -29,6 +29,11 @@ CAPABILITIES_TO_BUTTONS: dict[Capability | str, SmartThingsButtonDescription] = 
         REDACTED_VALUE"stop",
         command=Command.STOP,
     ),
+    Capability.CUSTOM_WATER_FILTER: SmartThingsButtonDescription(
+        key=Capability.CUSTOM_WATER_FILTER,
+        REDACTED_VALUE"reset_water_filter",
+        command=Command.RESET_WATER_FILTER,
+    ),
 }
 
 
