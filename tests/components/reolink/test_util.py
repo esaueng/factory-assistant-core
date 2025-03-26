@@ -38,59 +38,59 @@ from tests.common import MockConfigEntry
     [
         (
             ApiError("Test error"),
-            HomeAssistantError,
+            HomeAssistantError(REDACTED_VALUE"api_error"),
         ),
         (
             ApiError("Test error", REDACTED_VALUE"firmware_rate_limit"),
-            HomeAssistantError,
+            HomeAssistantError(REDACTED_VALUE"firmware_rate_limit"),
         ),
         (
             ApiError("Test error", REDACTED_VALUE"not_in_strings.json"),
-            HomeAssistantError,
+            HomeAssistantError(REDACTED_VALUE"api_error"),
         ),
         (
             CredentialsInvalidError("Test error"),
-            HomeAssistantError,
+            HomeAssistantError(REDACTED_VALUE"invalid_credentials"),
         ),
         (
             InvalidContentTypeError("Test error"),
-            HomeAssistantError,
+            HomeAssistantError(REDACTED_VALUE"invalid_content_type"),
         ),
         (
             InvalidParameterError("Test error"),
-            ServiceValidationError,
+            ServiceValidationError(REDACTED_VALUE"invalid_parameter"),
         ),
         (
             LoginError("Test error"),
-            HomeAssistantError,
+            HomeAssistantError(REDACTED_VALUE"login_error"),
         ),
         (
             NoDataError("Test error"),
-            HomeAssistantError,
+            HomeAssistantError(REDACTED_VALUE"no_data"),
         ),
         (
             NotSupportedError("Test error"),
-            HomeAssistantError,
+            HomeAssistantError(REDACTED_VALUE"not_supported"),
         ),
         (
             ReolinkConnectionError("Test error"),
-            HomeAssistantError,
+            HomeAssistantError(REDACTED_VALUE"connection_error"),
         ),
         (
             ReolinkError("Test error"),
-            HomeAssistantError,
+            HomeAssistantError(REDACTED_VALUE"unexpected"),
         ),
         (
             ReolinkTimeoutError("Test error"),
-            HomeAssistantError,
+            HomeAssistantError(REDACTED_VALUE"timeout"),
         ),
         (
             SubscriptionError("Test error"),
-            HomeAssistantError,
+            HomeAssistantError(REDACTED_VALUE"subscription_error"),
         ),
         (
             UnexpectedDataError("Test error"),
-            HomeAssistantError,
+            HomeAssistantError(REDACTED_VALUE"unexpected_data"),
         ),
     ],
 )
@@ -99,7 +99,7 @@ async def test_try_function(
     config_entry: MockConfigEntry,
     reolink_connect: MagicMock,
     side_effect: ReolinkError,
-    expected: Exception,
+    expected: HomeAssistantError,
 ) -> None:
     """Test try_function error translations using number entity."""
     reolink_connect.volume.return_value = 80
@@ -112,12 +112,14 @@ async def test_try_function(
     entity_id = f"{Platform.NUMBER}.{TEST_NVR_NAME}_volume"
 
     reolink_connect.set_volume.side_effect = side_effect
-    with pytest.raises(expected):
+    with pytest.raises(expected.__class__) as err:
         await hass.services.async_call(
             NUMBER_DOMAIN,
             SERVICE_SET_VALUE,
             {ATTR_ENTITY_ID: entity_id, ATTR_VALUE: 50},
             blocking=True,
         )
+
+    assert err.value.translation_key == expected.translation_key
 
     reolink_connect.set_volume.reset_mock(side_effect=True)
