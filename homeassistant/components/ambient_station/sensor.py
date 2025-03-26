@@ -609,6 +609,7 @@ SENSOR_DESCRIPTIONS = (
         REDACTED_VALUE"wind_direction",
         native_unit_of_measurement=DEGREE,
         device_class=SensorDeviceClass.WIND_DIRECTION,
+        state_class=SensorStateClass.MEASUREMENT_ANGLE,
     ),
     SensorEntityDescription(
         key=TYPE_WINDDIR_AVG10M,
