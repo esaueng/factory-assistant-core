@@ -106,7 +106,25 @@ BINARY_SENSORS = (
         key=StatusKey.REFRIGERATION_COMMON_DOOR_CHILLER_COMMON,
         boolean_map=REFRIGERATION_DOOR_BOOLEAN_MAP,
         device_class=BinarySensorDeviceClass.DOOR,
+        REDACTED_VALUE"common_chiller_door",
+    ),
+    HomeConnectBinarySensorEntityDescription(
+        key=StatusKey.REFRIGERATION_COMMON_DOOR_CHILLER,
+        boolean_map=REFRIGERATION_DOOR_BOOLEAN_MAP,
+        device_class=BinarySensorDeviceClass.DOOR,
         REDACTED_VALUE"chiller_door",
+    ),
+    HomeConnectBinarySensorEntityDescription(
+        key=StatusKey.REFRIGERATION_COMMON_DOOR_CHILLER_LEFT,
+        boolean_map=REFRIGERATION_DOOR_BOOLEAN_MAP,
+        device_class=BinarySensorDeviceClass.DOOR,
+        REDACTED_VALUE"left_chiller_door",
+    ),
+    HomeConnectBinarySensorEntityDescription(
+        key=StatusKey.REFRIGERATION_COMMON_DOOR_CHILLER_RIGHT,
+        boolean_map=REFRIGERATION_DOOR_BOOLEAN_MAP,
+        device_class=BinarySensorDeviceClass.DOOR,
+        REDACTED_VALUE"right_chiller_door",
     ),
     HomeConnectBinarySensorEntityDescription(
         key=StatusKey.REFRIGERATION_COMMON_DOOR_FLEX_COMPARTMENT,
@@ -226,6 +244,7 @@ class HomeConnectDoorBinarySensor(HomeConnectBinarySensor):
                     BSH_DOOR_STATE_LOCKED: False,
                     BSH_DOOR_STATE_OPEN: True,
                 },
+                entity_registry_enabled_default=False,
             ),
         )
         self._attr_unique_id = f"{appliance.info.ha_id}-Door"
@@ -265,7 +284,8 @@ class HomeConnectDoorBinarySensor(HomeConnectBinarySensor):
             DOMAIN,
             f"deprecated_binary_common_door_sensor_{self.entity_id}",
             breaks_in_ha_version="2025.5.0",
-            is_fixable=False,
+            is_fixable=True,
+            is_persistent=True,
             severity=IssueSeverity.WARNING,
             REDACTED_VALUE"deprecated_binary_common_door_sensor",
             translation_placeholders={
