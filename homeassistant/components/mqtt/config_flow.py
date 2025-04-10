@@ -1672,7 +1672,10 @@ def async_is_pem_data(data: bytes) -> bool:
     """Return True if data is in PEM format."""
     return (
         b"-----BEGIN CERTIFICATE-----" in data
-        or b"REDACTED_VALUE" in data
+        or b"-----BEGIN " b"PRIVATE KEY-----" in data
+        or b"-----BEGIN EC " b"PRIVATE KEY-----" in data
+        or b"-----BEGIN RSA " b"PRIVATE KEY-----" in data
+        or b"-----BEGIN ENCRYPTED " b"PRIVATE KEY-----" in data
     )
 
 
