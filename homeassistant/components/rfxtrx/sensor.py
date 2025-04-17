@@ -161,7 +161,8 @@ SENSOR_TYPES = (
     RfxtrxSensorEntityDescription(
         key="Wind direction",
         REDACTED_VALUE"wind_direction",
-        state_class=SensorStateClass.MEASUREMENT,
+        state_class=SensorStateClass.MEASUREMENT_ANGLE,
+        device_class=SensorDeviceClass.WIND_DIRECTION,
         native_unit_of_measurement=DEGREE,
     ),
     RfxtrxSensorEntityDescription(

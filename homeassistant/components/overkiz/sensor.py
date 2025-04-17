@@ -71,6 +71,15 @@ SENSOR_DESCRIPTIONS: list[OverkizSensorDescription] = [
         REDACTED_VALUE"battery",
     ),
     OverkizSensorDescription(
+        key=OverkizState.CORE_BATTERY_DISCRETE_LEVEL,
+        name="Battery",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        icon="mdi:battery",
+        device_class=SensorDeviceClass.ENUM,
+        options=["good", "medium", "low", "critical"],
+        REDACTED_VALUE"battery",
+    ),
+    OverkizSensorDescription(
         key=OverkizState.CORE_RSSI_LEVEL,
         name="RSSI level",
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS,
