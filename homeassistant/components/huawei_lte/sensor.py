@@ -181,7 +181,7 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
             "cell_id": HuaweiSensorEntityDescription(
                 key="cell_id",
                 REDACTED_VALUE"cell_id",
-                icon="mdi:transmission-tower",
+                icon="mdi:antenna",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "cqi0": HuaweiSensorEntityDescription(
@@ -230,6 +230,7 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
             "enodeb_id": HuaweiSensorEntityDescription(
                 key="enodeb_id",
                 REDACTED_VALUE"enodeb_id",
+                icon="mdi:antenna",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "lac": HuaweiSensorEntityDescription(
@@ -364,7 +365,7 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
             "pci": HuaweiSensorEntityDescription(
                 key="pci",
                 REDACTED_VALUE"pci",
-                icon="mdi:transmission-tower",
+                icon="mdi:antenna",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "plmn": HuaweiSensorEntityDescription(
