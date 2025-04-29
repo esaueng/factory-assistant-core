@@ -233,6 +233,11 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
                 icon="mdi:antenna",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
+            "ims": HuaweiSensorEntityDescription(
+                key="ims",
+                REDACTED_VALUE"ims",
+                entity_category=EntityCategory.DIAGNOSTIC,
+            ),
             "lac": HuaweiSensorEntityDescription(
                 key="lac",
                 REDACTED_VALUE"lac",
@@ -269,6 +274,12 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
                         "4G": "mdi:signal-4g",
                     }.get(str(x), "mdi:signal")
                 ),
+                entity_category=EntityCategory.DIAGNOSTIC,
+            ),
+            "nei_cellid": HuaweiSensorEntityDescription(
+                key="nei_cellid",
+                REDACTED_VALUE"nei_cellid",
+                icon="mdi:antenna",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "nrbler": HuaweiSensorEntityDescription(
@@ -423,6 +434,17 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
                 entity_category=EntityCategory.DIAGNOSTIC,
                 entity_registry_enabled_default=True,
             ),
+            "rxlev": HuaweiSensorEntityDescription(
+                key="rxlev",
+                REDACTED_VALUE"rxlev",
+                state_class=SensorStateClass.MEASUREMENT,
+                entity_category=EntityCategory.DIAGNOSTIC,
+            ),
+            "sc": HuaweiSensorEntityDescription(
+                key="sc",
+                REDACTED_VALUE"sc",
+                entity_category=EntityCategory.DIAGNOSTIC,
+            ),
             "sinr": HuaweiSensorEntityDescription(
                 key="sinr",
                 REDACTED_VALUE"sinr",
@@ -477,6 +499,12 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
             "ulfrequency": HuaweiSensorEntityDescription(
                 key="ulfrequency",
                 REDACTED_VALUE"uplink_frequency",
+                device_class=SensorDeviceClass.FREQUENCY,
+                entity_category=EntityCategory.DIAGNOSTIC,
+            ),
+            "wdlfreq": HuaweiSensorEntityDescription(
+                key="wdlfreq",
+                REDACTED_VALUE"wdlfreq",
                 device_class=SensorDeviceClass.FREQUENCY,
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
