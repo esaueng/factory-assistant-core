@@ -168,6 +168,20 @@ SENSORS: tuple[RehlkoSensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
+    RehlkoSensorEntityDescription(
+        key="status",
+        REDACTED_VALUE"generator_status",
+        use_device_key=True,
+    ),
+    RehlkoSensorEntityDescription(
+        key="engineState",
+        REDACTED_VALUE"engine_state",
+    ),
+    RehlkoSensorEntityDescription(
+        key="powerSource",
+        icon="mdi:home-lightning-bolt",
+        REDACTED_VALUE"power_source",
+    ),
 )
 
 
