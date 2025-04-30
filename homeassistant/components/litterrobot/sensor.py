@@ -57,9 +57,9 @@ ROBOT_SENSOR_MAP: dict[type[Robot], list[RobotSensorEntityDescription]] = {
             REDACTED_VALUE"sleep_mode_start_time",
             device_class=SensorDeviceClass.TIMESTAMP,
             value_fn=(
-                lambda robot: robot.sleep_mode_start_time
-                if robot.sleep_mode_enabled
-                else None
+                lambda robot: (
+                    robot.sleep_mode_start_time if robot.sleep_mode_enabled else None
+                )
             ),
         ),
         RobotSensorEntityDescription[LitterRobot](
@@ -67,9 +67,9 @@ ROBOT_SENSOR_MAP: dict[type[Robot], list[RobotSensorEntityDescription]] = {
             REDACTED_VALUE"sleep_mode_end_time",
             device_class=SensorDeviceClass.TIMESTAMP,
             value_fn=(
-                lambda robot: robot.sleep_mode_end_time
-                if robot.sleep_mode_enabled
-                else None
+                lambda robot: (
+                    robot.sleep_mode_end_time if robot.sleep_mode_enabled else None
+                )
             ),
         ),
         RobotSensorEntityDescription[LitterRobot](
@@ -117,6 +117,24 @@ ROBOT_SENSOR_MAP: dict[type[Robot], list[RobotSensorEntityDescription]] = {
         ),
     ],
     LitterRobot4: [
+        RobotSensorEntityDescription[LitterRobot4](
+            key="hopper_status",
+            REDACTED_VALUE"hopper_status",
+            device_class=SensorDeviceClass.ENUM,
+            options=[
+                "enabled",
+                "disabled",
+                "motor_fault_short",
+                "motor_ot_amps",
+                "motor_disconnected",
+                "empty",
+            ],
+            value_fn=(
+                lambda robot: (
+                    status.name.lower() if (status := robot.hopper_status) else None
+                )
+            ),
+        ),
         RobotSensorEntityDescription[LitterRobot4](
             key="litter_level",
             REDACTED_VALUE"litter_level",
