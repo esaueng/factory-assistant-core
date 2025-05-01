@@ -70,7 +70,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: LaMarzoccoConfigEntry) -
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN, REDACTED_VALUE"authentication_failed"
         ) from ex
-    except RequestNotSuccessful as ex:
+    except (RequestNotSuccessful, TimeoutError) as ex:
         _LOGGER.debug(ex, exc_info=True)
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN, REDACTED_VALUE"api_error"
