@@ -181,7 +181,7 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
             "cell_id": HuaweiSensorEntityDescription(
                 key="cell_id",
                 REDACTED_VALUE"cell_id",
-                icon="mdi:transmission-tower",
+                icon="mdi:antenna",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "cqi0": HuaweiSensorEntityDescription(
@@ -230,6 +230,12 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
             "enodeb_id": HuaweiSensorEntityDescription(
                 key="enodeb_id",
                 REDACTED_VALUE"enodeb_id",
+                icon="mdi:antenna",
+                entity_category=EntityCategory.DIAGNOSTIC,
+            ),
+            "ims": HuaweiSensorEntityDescription(
+                key="ims",
+                REDACTED_VALUE"ims",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "lac": HuaweiSensorEntityDescription(
@@ -268,6 +274,12 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
                         "4G": "mdi:signal-4g",
                     }.get(str(x), "mdi:signal")
                 ),
+                entity_category=EntityCategory.DIAGNOSTIC,
+            ),
+            "nei_cellid": HuaweiSensorEntityDescription(
+                key="nei_cellid",
+                REDACTED_VALUE"nei_cellid",
+                icon="mdi:antenna",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "nrbler": HuaweiSensorEntityDescription(
@@ -364,7 +376,7 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
             "pci": HuaweiSensorEntityDescription(
                 key="pci",
                 REDACTED_VALUE"pci",
-                icon="mdi:transmission-tower",
+                icon="mdi:antenna",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "plmn": HuaweiSensorEntityDescription(
@@ -422,6 +434,17 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
                 entity_category=EntityCategory.DIAGNOSTIC,
                 entity_registry_enabled_default=True,
             ),
+            "rxlev": HuaweiSensorEntityDescription(
+                key="rxlev",
+                REDACTED_VALUE"rxlev",
+                state_class=SensorStateClass.MEASUREMENT,
+                entity_category=EntityCategory.DIAGNOSTIC,
+            ),
+            "sc": HuaweiSensorEntityDescription(
+                key="sc",
+                REDACTED_VALUE"sc",
+                entity_category=EntityCategory.DIAGNOSTIC,
+            ),
             "sinr": HuaweiSensorEntityDescription(
                 key="sinr",
                 REDACTED_VALUE"sinr",
@@ -476,6 +499,12 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
             "ulfrequency": HuaweiSensorEntityDescription(
                 key="ulfrequency",
                 REDACTED_VALUE"uplink_frequency",
+                device_class=SensorDeviceClass.FREQUENCY,
+                entity_category=EntityCategory.DIAGNOSTIC,
+            ),
+            "wdlfreq": HuaweiSensorEntityDescription(
+                key="wdlfreq",
+                REDACTED_VALUE"wdlfreq",
                 device_class=SensorDeviceClass.FREQUENCY,
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
@@ -542,6 +571,7 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
         descriptions={
             "BatteryPercent": HuaweiSensorEntityDescription(
                 key="BatteryPercent",
+                REDACTED_VALUE"battery",
                 device_class=SensorDeviceClass.BATTERY,
                 native_unit_of_measurement=PERCENTAGE,
                 state_class=SensorStateClass.MEASUREMENT,
