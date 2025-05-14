@@ -38,19 +38,19 @@ class JewishCalendarBinarySensorEntityDescription(
 BINARY_SENSORS: tuple[JewishCalendarBinarySensorEntityDescription, ...] = (
     JewishCalendarBinarySensorEntityDescription(
         key="issur_melacha_in_effect",
-        name="Issur Melacha in Effect",
+        REDACTED_VALUE"issur_melacha_in_effect",
         icon="mdi:power-plug-off",
         is_on=lambda state, now: bool(state.issur_melacha_in_effect(now)),
     ),
     JewishCalendarBinarySensorEntityDescription(
         key="erev_shabbat_hag",
-        name="Erev Shabbat/Hag",
+        REDACTED_VALUE"erev_shabbat_hag",
         is_on=lambda state, now: bool(state.erev_shabbat_chag(now)),
         entity_registry_enabled_default=False,
     ),
     JewishCalendarBinarySensorEntityDescription(
         key="motzei_shabbat_hag",
-        name="Motzei Shabbat/Hag",
+        REDACTED_VALUE"motzei_shabbat_hag",
         is_on=lambda state, now: bool(state.motzei_shabbat_chag(now)),
         entity_registry_enabled_default=False,
     ),
