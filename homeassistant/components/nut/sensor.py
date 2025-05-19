@@ -1,10 +1,9 @@
-"""Provides a sensor to track various status aspects of a UPS."""
+"""Provides a sensor to track various status aspects of a NUT device."""
 
 from __future__ import annotations
 
-from dataclasses import asdict
 import logging
-from typing import Final, cast
+from typing import Final
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -13,12 +12,7 @@ from homeassistant.components.sensor import (
     SensorStateClass,
 )
 from homeassistant.const import (
-    ATTR_MANUFACTURER,
-    ATTR_MODEL,
-    ATTR_SERIAL_NUMBER,
-    ATTR_SW_VERSION,
     PERCENTAGE,
-    STATE_UNKNOWN,
     EntityCategory,
     UnitOfApparentPower,
     UnitOfElectricCurrent,
@@ -29,80 +23,806 @@ from homeassistant.const import (
     UnitOfTime,
 )
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
-from homeassistant.helpers.update_coordinator import (
-    CoordinatorEntity,
-    DataUpdateCoordinator,
-)
 
-from . import NutConfigEntry, PyNUTData
-from .const import DOMAIN, KEY_STATUS, KEY_STATUS_DISPLAY, STATE_TYPES
+from . import NutConfigEntry
+from .const import KEY_STATUS, KEY_STATUS_DISPLAY, STATE_TYPES
+from .entity import NUTBaseEntity
 
-NUT_DEV_INFO_TO_DEV_INFO: dict[str, str] = {
-    "manufacturer": ATTR_MANUFACTURER,
-    "model": ATTR_MODEL,
-    "firmware": ATTR_SW_VERSION,
-    "serial": ATTR_SERIAL_NUMBER,
+# Coordinator is used to centralize the data updates
+PARALLEL_UPDATES = 0
+
+AMBIENT_PRESENT = "ambient.present"
+AMBIENT_SENSORS = {
+    "ambient.humidity",
+    "ambient.humidity.status",
+    "ambient.temperature",
+    "ambient.temperature.status",
 }
-
-AMBIENT_THRESHOLD_STATUS_OPTIONS = [
+BATTERY_CHARGER_STATUS_OPTIONS = [
+    "charging",
+    "discharging",
+    "floating",
+    "resting",
+    "unknown",
+    "disabled",
+    "off",
+]
+FREQUENCY_STATUS_OPTIONS = [
+    "good",
+    "out-of-range",
+]
+THRESHOLD_STATUS_OPTIONS = [
     "good",
     "warning-low",
     "critical-low",
     "warning-high",
     "critical-high",
 ]
+UPS_BEEPER_STATUS_OPTIONS = [
+    "enabled",
+    "disabled",
+    "muted",
+]
 
 _LOGGER = logging.getLogger(__name__)
 
 
 SENSOR_TYPES: Final[dict[str, SensorEntityDescription]] = {
-    "ups.status.display": SensorEntityDescription(
-        key="ups.status.display",
-        REDACTED_VALUE"ups_status_display",
+    "ambient.humidity": SensorEntityDescription(
+        key="ambient.humidity",
+        REDACTED_VALUE"ambient_humidity",
+        native_unit_of_measurement=PERCENTAGE,
+        device_class=SensorDeviceClass.HUMIDITY,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
-    "ups.status": SensorEntityDescription(
-        key="ups.status",
-        REDACTED_VALUE"ups_status",
+    "ambient.humidity.status": SensorEntityDescription(
+        key="ambient.humidity.status",
+        REDACTED_VALUE"ambient_humidity_status",
+        device_class=SensorDeviceClass.ENUM,
+        options=THRESHOLD_STATUS_OPTIONS,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
-    "ups.alarm": SensorEntityDescription(
-        key="ups.alarm",
-        REDACTED_VALUE"ups_alarm",
+    "ambient.temperature": SensorEntityDescription(
+        key="ambient.temperature",
+        REDACTED_VALUE"ambient_temperature",
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        device_class=SensorDeviceClass.TEMPERATURE,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
-    "ups.temperature": SensorEntityDescription(
-        key="ups.temperature",
-        REDACTED_VALUE"ups_temperature",
+    "ambient.temperature.status": SensorEntityDescription(
+        key="ambient.temperature.status",
+        REDACTED_VALUE"ambient_temperature_status",
+        device_class=SensorDeviceClass.ENUM,
+        options=THRESHOLD_STATUS_OPTIONS,
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+    "battery.alarm.threshold": SensorEntityDescription(
+        key="battery.alarm.threshold",
+        REDACTED_VALUE"battery_alarm_threshold",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "battery.capacity": SensorEntityDescription(
+        key="battery.capacity",
+        REDACTED_VALUE"battery_capacity",
+        native_unit_of_measurement="Ah",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "battery.charge": SensorEntityDescription(
+        key="battery.charge",
+        REDACTED_VALUE"battery_charge",
+        native_unit_of_measurement=PERCENTAGE,
+        device_class=SensorDeviceClass.BATTERY,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "battery.charge.low": SensorEntityDescription(
+        key="battery.charge.low",
+        REDACTED_VALUE"battery_charge_low",
+        native_unit_of_measurement=PERCENTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "battery.charge.restart": SensorEntityDescription(
+        key="battery.charge.restart",
+        REDACTED_VALUE"battery_charge_restart",
+        native_unit_of_measurement=PERCENTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "battery.charge.warning": SensorEntityDescription(
+        key="battery.charge.warning",
+        REDACTED_VALUE"battery_charge_warning",
+        native_unit_of_measurement=PERCENTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "battery.charger.status": SensorEntityDescription(
+        key="battery.charger.status",
+        REDACTED_VALUE"battery_charger_status",
+        device_class=SensorDeviceClass.ENUM,
+        options=BATTERY_CHARGER_STATUS_OPTIONS,
+    ),
+    "battery.current": SensorEntityDescription(
+        key="battery.current",
+        REDACTED_VALUE"battery_current",
+        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
+        device_class=SensorDeviceClass.CURRENT,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "battery.current.total": SensorEntityDescription(
+        key="battery.current.total",
+        REDACTED_VALUE"battery_current_total",
+        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
+        device_class=SensorDeviceClass.CURRENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "battery.date": SensorEntityDescription(
+        key="battery.date",
+        REDACTED_VALUE"battery_date",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "battery.mfr.date": SensorEntityDescription(
+        key="battery.mfr.date",
+        REDACTED_VALUE"battery_mfr_date",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "battery.packs": SensorEntityDescription(
+        key="battery.packs",
+        REDACTED_VALUE"battery_packs",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "battery.packs.bad": SensorEntityDescription(
+        key="battery.packs.bad",
+        REDACTED_VALUE"battery_packs_bad",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "battery.runtime": SensorEntityDescription(
+        key="battery.runtime",
+        REDACTED_VALUE"battery_runtime",
+        native_unit_of_measurement=UnitOfTime.SECONDS,
+        device_class=SensorDeviceClass.DURATION,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "battery.runtime.low": SensorEntityDescription(
+        key="battery.runtime.low",
+        REDACTED_VALUE"battery_runtime_low",
+        native_unit_of_measurement=UnitOfTime.SECONDS,
+        device_class=SensorDeviceClass.DURATION,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "battery.runtime.restart": SensorEntityDescription(
+        key="battery.runtime.restart",
+        REDACTED_VALUE"battery_runtime_restart",
+        native_unit_of_measurement=UnitOfTime.SECONDS,
+        device_class=SensorDeviceClass.DURATION,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "battery.temperature": SensorEntityDescription(
+        key="battery.temperature",
+        REDACTED_VALUE"battery_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    "ups.load": SensorEntityDescription(
-        key="ups.load",
-        REDACTED_VALUE"ups_load",
+    "battery.type": SensorEntityDescription(
+        key="battery.type",
+        REDACTED_VALUE"battery_type",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "battery.voltage": SensorEntityDescription(
+        key="battery.voltage",
+        REDACTED_VALUE"battery_voltage",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "battery.voltage.high": SensorEntityDescription(
+        key="battery.voltage.high",
+        REDACTED_VALUE"battery_voltage_high",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "battery.voltage.low": SensorEntityDescription(
+        key="battery.voltage.low",
+        REDACTED_VALUE"battery_voltage_low",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "battery.voltage.nominal": SensorEntityDescription(
+        key="battery.voltage.nominal",
+        REDACTED_VALUE"battery_voltage_nominal",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.bypass.current": SensorEntityDescription(
+        key="input.bypass.current",
+        REDACTED_VALUE"input_bypass_current",
+        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
+        device_class=SensorDeviceClass.CURRENT,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.bypass.frequency": SensorEntityDescription(
+        key="input.bypass.frequency",
+        REDACTED_VALUE"input_bypass_frequency",
+        native_unit_of_measurement=UnitOfFrequency.HERTZ,
+        device_class=SensorDeviceClass.FREQUENCY,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.bypass.L1.current": SensorEntityDescription(
+        key="input.bypass.L1.current",
+        REDACTED_VALUE"input_bypass_l1_current",
+        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
+        device_class=SensorDeviceClass.CURRENT,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.bypass.L1-N.voltage": SensorEntityDescription(
+        key="input.bypass.L1-N.voltage",
+        REDACTED_VALUE"input_bypass_l1_n_voltage",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.bypass.L1.realpower": SensorEntityDescription(
+        key="input.bypass.L1.realpower",
+        REDACTED_VALUE"input_bypass_l1_realpower",
+        native_unit_of_measurement=UnitOfPower.WATT,
+        device_class=SensorDeviceClass.POWER,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.bypass.L2.current": SensorEntityDescription(
+        key="input.bypass.L2.current",
+        REDACTED_VALUE"input_bypass_l2_current",
+        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
+        device_class=SensorDeviceClass.CURRENT,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.bypass.L2-N.voltage": SensorEntityDescription(
+        key="input.bypass.L2-N.voltage",
+        REDACTED_VALUE"input_bypass_l2_n_voltage",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.bypass.L2.realpower": SensorEntityDescription(
+        key="input.bypass.L2.realpower",
+        REDACTED_VALUE"input_bypass_l2_realpower",
+        native_unit_of_measurement=UnitOfPower.WATT,
+        device_class=SensorDeviceClass.POWER,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.bypass.L3.current": SensorEntityDescription(
+        key="input.bypass.L3.current",
+        REDACTED_VALUE"input_bypass_l3_current",
+        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
+        device_class=SensorDeviceClass.CURRENT,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.bypass.L3-N.voltage": SensorEntityDescription(
+        key="input.bypass.L3-N.voltage",
+        REDACTED_VALUE"input_bypass_l3_n_voltage",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.bypass.L3.realpower": SensorEntityDescription(
+        key="input.bypass.L3.realpower",
+        REDACTED_VALUE"input_bypass_l3_realpower",
+        native_unit_of_measurement=UnitOfPower.WATT,
+        device_class=SensorDeviceClass.POWER,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.bypass.phases": SensorEntityDescription(
+        key="input.bypass.phases",
+        REDACTED_VALUE"input_bypass_phases",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.bypass.realpower": SensorEntityDescription(
+        key="input.bypass.realpower",
+        REDACTED_VALUE"input_bypass_realpower",
+        native_unit_of_measurement=UnitOfPower.WATT,
+        device_class=SensorDeviceClass.POWER,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.bypass.voltage": SensorEntityDescription(
+        key="input.bypass.voltage",
+        REDACTED_VALUE"input_bypass_voltage",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.current": SensorEntityDescription(
+        key="input.current",
+        REDACTED_VALUE"input_current",
+        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
+        device_class=SensorDeviceClass.CURRENT,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_registry_enabled_default=False,
+    ),
+    "input.current.status": SensorEntityDescription(
+        key="input.current.status",
+        REDACTED_VALUE"input_current_status",
+        device_class=SensorDeviceClass.ENUM,
+        options=THRESHOLD_STATUS_OPTIONS,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.frequency": SensorEntityDescription(
+        key="input.frequency",
+        REDACTED_VALUE"input_frequency",
+        native_unit_of_measurement=UnitOfFrequency.HERTZ,
+        device_class=SensorDeviceClass.FREQUENCY,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.frequency.nominal": SensorEntityDescription(
+        key="input.frequency.nominal",
+        REDACTED_VALUE"input_frequency_nominal",
+        native_unit_of_measurement=UnitOfFrequency.HERTZ,
+        device_class=SensorDeviceClass.FREQUENCY,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.frequency.status": SensorEntityDescription(
+        key="input.frequency.status",
+        REDACTED_VALUE"input_frequency_status",
+        device_class=SensorDeviceClass.ENUM,
+        options=FREQUENCY_STATUS_OPTIONS,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.L1.current": SensorEntityDescription(
+        key="input.L1.current",
+        REDACTED_VALUE"input_l1_current",
+        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
+        device_class=SensorDeviceClass.CURRENT,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.L1.frequency": SensorEntityDescription(
+        key="input.L1.frequency",
+        REDACTED_VALUE"input_l1_frequency",
+        native_unit_of_measurement=UnitOfFrequency.HERTZ,
+        device_class=SensorDeviceClass.FREQUENCY,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.L1-N.voltage": SensorEntityDescription(
+        key="input.L1-N.voltage",
+        REDACTED_VALUE"input_l1_n_voltage",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.L1.realpower": SensorEntityDescription(
+        key="input.L1.realpower",
+        REDACTED_VALUE"input_l1_realpower",
+        native_unit_of_measurement=UnitOfPower.WATT,
+        device_class=SensorDeviceClass.POWER,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.L2.current": SensorEntityDescription(
+        key="input.L2.current",
+        REDACTED_VALUE"input_l2_current",
+        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
+        device_class=SensorDeviceClass.CURRENT,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.L2.frequency": SensorEntityDescription(
+        key="input.L2.frequency",
+        REDACTED_VALUE"input_l2_frequency",
+        native_unit_of_measurement=UnitOfFrequency.HERTZ,
+        device_class=SensorDeviceClass.FREQUENCY,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.L2-N.voltage": SensorEntityDescription(
+        key="input.L2-N.voltage",
+        REDACTED_VALUE"input_l2_n_voltage",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.L2.realpower": SensorEntityDescription(
+        key="input.L2.realpower",
+        REDACTED_VALUE"input_l2_realpower",
+        native_unit_of_measurement=UnitOfPower.WATT,
+        device_class=SensorDeviceClass.POWER,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.L3.current": SensorEntityDescription(
+        key="input.L3.current",
+        REDACTED_VALUE"input_l3_current",
+        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
+        device_class=SensorDeviceClass.CURRENT,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.L3.frequency": SensorEntityDescription(
+        key="input.L3.frequency",
+        REDACTED_VALUE"input_l3_frequency",
+        native_unit_of_measurement=UnitOfFrequency.HERTZ,
+        device_class=SensorDeviceClass.FREQUENCY,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.L3-N.voltage": SensorEntityDescription(
+        key="input.L3-N.voltage",
+        REDACTED_VALUE"input_l3_n_voltage",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.L3.realpower": SensorEntityDescription(
+        key="input.L3.realpower",
+        REDACTED_VALUE"input_l3_realpower",
+        native_unit_of_measurement=UnitOfPower.WATT,
+        device_class=SensorDeviceClass.POWER,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.load": SensorEntityDescription(
+        key="input.load",
+        REDACTED_VALUE"input_load",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
-    "ups.load.high": SensorEntityDescription(
-        key="ups.load.high",
-        REDACTED_VALUE"ups_load_high",
+    "input.phases": SensorEntityDescription(
+        key="input.phases",
+        REDACTED_VALUE"input_phases",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.power": SensorEntityDescription(
+        key="input.power",
+        REDACTED_VALUE"input_power",
+        native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
+        device_class=SensorDeviceClass.APPARENT_POWER,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.realpower": SensorEntityDescription(
+        key="input.realpower",
+        REDACTED_VALUE"input_realpower",
+        native_unit_of_measurement=UnitOfPower.WATT,
+        device_class=SensorDeviceClass.POWER,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.sensitivity": SensorEntityDescription(
+        key="input.sensitivity",
+        REDACTED_VALUE"input_sensitivity",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.transfer.high": SensorEntityDescription(
+        key="input.transfer.high",
+        REDACTED_VALUE"input_transfer_high",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.transfer.low": SensorEntityDescription(
+        key="input.transfer.low",
+        REDACTED_VALUE"input_transfer_low",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.transfer.reason": SensorEntityDescription(
+        key="input.transfer.reason",
+        REDACTED_VALUE"input_transfer_reason",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.voltage": SensorEntityDescription(
+        key="input.voltage",
+        REDACTED_VALUE"input_voltage",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "input.voltage.nominal": SensorEntityDescription(
+        key="input.voltage.nominal",
+        REDACTED_VALUE"input_voltage_nominal",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "input.voltage.status": SensorEntityDescription(
+        key="input.voltage.status",
+        REDACTED_VALUE"input_voltage_status",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "outlet.voltage": SensorEntityDescription(
+        key="outlet.voltage",
+        REDACTED_VALUE"outlet_voltage",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "output.current": SensorEntityDescription(
+        key="output.current",
+        REDACTED_VALUE"output_current",
+        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
+        device_class=SensorDeviceClass.CURRENT,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "output.current.nominal": SensorEntityDescription(
+        key="output.current.nominal",
+        REDACTED_VALUE"output_current_nominal",
+        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
+        device_class=SensorDeviceClass.CURRENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "output.frequency": SensorEntityDescription(
+        key="output.frequency",
+        REDACTED_VALUE"output_frequency",
+        native_unit_of_measurement=UnitOfFrequency.HERTZ,
+        device_class=SensorDeviceClass.FREQUENCY,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "output.frequency.nominal": SensorEntityDescription(
+        key="output.frequency.nominal",
+        REDACTED_VALUE"output_frequency_nominal",
+        native_unit_of_measurement=UnitOfFrequency.HERTZ,
+        device_class=SensorDeviceClass.FREQUENCY,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "output.L1.current": SensorEntityDescription(
+        key="output.L1.current",
+        REDACTED_VALUE"output_l1_current",
+        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
+        device_class=SensorDeviceClass.CURRENT,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "output.L1-N.voltage": SensorEntityDescription(
+        key="output.L1-N.voltage",
+        REDACTED_VALUE"output_l1_n_voltage",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "output.L1.power.percent": SensorEntityDescription(
+        key="output.L1.power.percent",
+        REDACTED_VALUE"output_l1_power_percent",
         native_unit_of_measurement=PERCENTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    "ups.id": SensorEntityDescription(
-        key="ups.id",
-        REDACTED_VALUE"ups_id",
+    "output.L1.realpower": SensorEntityDescription(
+        key="output.L1.realpower",
+        REDACTED_VALUE"output_l1_realpower",
+        native_unit_of_measurement=UnitOfPower.WATT,
+        device_class=SensorDeviceClass.POWER,
+        state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    "ups.delay.start": SensorEntityDescription(
-        key="ups.delay.start",
-        REDACTED_VALUE"ups_delay_start",
-        native_unit_of_measurement=UnitOfTime.SECONDS,
-        device_class=SensorDeviceClass.DURATION,
+    "output.L2.current": SensorEntityDescription(
+        key="output.L2.current",
+        REDACTED_VALUE"output_l2_current",
+        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
+        device_class=SensorDeviceClass.CURRENT,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "output.L2-N.voltage": SensorEntityDescription(
+        key="output.L2-N.voltage",
+        REDACTED_VALUE"output_l2_n_voltage",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "output.L2.power.percent": SensorEntityDescription(
+        key="output.L2.power.percent",
+        REDACTED_VALUE"output_l2_power_percent",
+        native_unit_of_measurement=PERCENTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "output.L2.realpower": SensorEntityDescription(
+        key="output.L2.realpower",
+        REDACTED_VALUE"output_l2_realpower",
+        native_unit_of_measurement=UnitOfPower.WATT,
+        device_class=SensorDeviceClass.POWER,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "output.L3.current": SensorEntityDescription(
+        key="output.L3.current",
+        REDACTED_VALUE"output_l3_current",
+        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
+        device_class=SensorDeviceClass.CURRENT,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "output.L3-N.voltage": SensorEntityDescription(
+        key="output.L3-N.voltage",
+        REDACTED_VALUE"output_l3_n_voltage",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "output.L3.power.percent": SensorEntityDescription(
+        key="output.L3.power.percent",
+        REDACTED_VALUE"output_l3_power_percent",
+        native_unit_of_measurement=PERCENTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "output.L3.realpower": SensorEntityDescription(
+        key="output.L3.realpower",
+        REDACTED_VALUE"output_l3_realpower",
+        native_unit_of_measurement=UnitOfPower.WATT,
+        device_class=SensorDeviceClass.POWER,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "output.phases": SensorEntityDescription(
+        key="output.phases",
+        REDACTED_VALUE"output_phases",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "output.power": SensorEntityDescription(
+        key="output.power",
+        REDACTED_VALUE"output_power",
+        native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
+        device_class=SensorDeviceClass.APPARENT_POWER,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "output.power.nominal": SensorEntityDescription(
+        key="output.power.nominal",
+        REDACTED_VALUE"output_power_nominal",
+        native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
+        device_class=SensorDeviceClass.APPARENT_POWER,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "output.realpower": SensorEntityDescription(
+        key="output.realpower",
+        REDACTED_VALUE"output_realpower",
+        native_unit_of_measurement=UnitOfPower.WATT,
+        device_class=SensorDeviceClass.POWER,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "output.realpower.nominal": SensorEntityDescription(
+        key="output.realpower.nominal",
+        REDACTED_VALUE"output_realpower_nominal",
+        native_unit_of_measurement=UnitOfPower.WATT,
+        device_class=SensorDeviceClass.POWER,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "output.voltage": SensorEntityDescription(
+        key="output.voltage",
+        REDACTED_VALUE"output_voltage",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "output.voltage.nominal": SensorEntityDescription(
+        key="output.voltage.nominal",
+        REDACTED_VALUE"output_voltage_nominal",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "ups.alarm": SensorEntityDescription(
+        key="ups.alarm",
+        REDACTED_VALUE"ups_alarm",
+    ),
+    "ups.beeper.status": SensorEntityDescription(
+        key="ups.beeper.status",
+        REDACTED_VALUE"ups_beeper_status",
+        device_class=SensorDeviceClass.ENUM,
+        options=UPS_BEEPER_STATUS_OPTIONS,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "ups.contacts": SensorEntityDescription(
+        key="ups.contacts",
+        REDACTED_VALUE"ups_contacts",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
@@ -122,47 +842,11 @@ SENSOR_TYPES: Final[dict[str, SensorEntityDescription]] = {
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    "ups.timer.start": SensorEntityDescription(
-        key="ups.timer.start",
-        REDACTED_VALUE"ups_timer_start",
+    "ups.delay.start": SensorEntityDescription(
+        key="ups.delay.start",
+        REDACTED_VALUE"ups_delay_start",
         native_unit_of_measurement=UnitOfTime.SECONDS,
         device_class=SensorDeviceClass.DURATION,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "ups.timer.reboot": SensorEntityDescription(
-        key="ups.timer.reboot",
-        REDACTED_VALUE"ups_timer_reboot",
-        native_unit_of_measurement=UnitOfTime.SECONDS,
-        device_class=SensorDeviceClass.DURATION,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "ups.timer.shutdown": SensorEntityDescription(
-        key="ups.timer.shutdown",
-        REDACTED_VALUE"ups_timer_shutdown",
-        native_unit_of_measurement=UnitOfTime.SECONDS,
-        device_class=SensorDeviceClass.DURATION,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "ups.test.interval": SensorEntityDescription(
-        key="ups.test.interval",
-        REDACTED_VALUE"ups_test_interval",
-        native_unit_of_measurement=UnitOfTime.SECONDS,
-        device_class=SensorDeviceClass.DURATION,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "ups.test.result": SensorEntityDescription(
-        key="ups.test.result",
-        REDACTED_VALUE"ups_test_result",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "ups.test.date": SensorEntityDescription(
-        key="ups.test.date",
-        REDACTED_VALUE"ups_test_date",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
@@ -172,17 +856,30 @@ SENSOR_TYPES: Final[dict[str, SensorEntityDescription]] = {
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    "ups.contacts": SensorEntityDescription(
-        key="ups.contacts",
-        REDACTED_VALUE"ups_contacts",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
     "ups.efficiency": SensorEntityDescription(
         key="ups.efficiency",
         REDACTED_VALUE"ups_efficiency",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "ups.id": SensorEntityDescription(
+        key="ups.id",
+        REDACTED_VALUE"ups_id",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "ups.load": SensorEntityDescription(
+        key="ups.load",
+        REDACTED_VALUE"ups_load",
+        native_unit_of_measurement=PERCENTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    "ups.load.high": SensorEntityDescription(
+        key="ups.load.high",
+        REDACTED_VALUE"ups_load_high",
+        native_unit_of_measurement=PERCENTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
@@ -220,21 +917,9 @@ SENSOR_TYPES: Final[dict[str, SensorEntityDescription]] = {
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    "ups.beeper.status": SensorEntityDescription(
-        key="ups.beeper.status",
-        REDACTED_VALUE"ups_beeper_status",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "ups.type": SensorEntityDescription(
-        key="ups.type",
-        REDACTED_VALUE"ups_type",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "ups.watchdog.status": SensorEntityDescription(
-        key="ups.watchdog.status",
-        REDACTED_VALUE"ups_watchdog_status",
+    "ups.shutdown": SensorEntityDescription(
+        key="ups.shutdown",
+        REDACTED_VALUE"ups_shutdown",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
@@ -256,731 +941,80 @@ SENSOR_TYPES: Final[dict[str, SensorEntityDescription]] = {
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    "ups.shutdown": SensorEntityDescription(
-        key="ups.shutdown",
-        REDACTED_VALUE"ups_shutdown",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
+    "ups.status": SensorEntityDescription(
+        key="ups.status",
+        REDACTED_VALUE"ups_status",
     ),
-    "battery.charge": SensorEntityDescription(
-        key="battery.charge",
-        REDACTED_VALUE"battery_charge",
-        native_unit_of_measurement=PERCENTAGE,
-        device_class=SensorDeviceClass.BATTERY,
-        state_class=SensorStateClass.MEASUREMENT,
+    "ups.status.display": SensorEntityDescription(
+        key="ups.status.display",
+        REDACTED_VALUE"ups_status_display",
     ),
-    "battery.charge.low": SensorEntityDescription(
-        key="battery.charge.low",
-        REDACTED_VALUE"battery_charge_low",
-        native_unit_of_measurement=PERCENTAGE,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "battery.charge.restart": SensorEntityDescription(
-        key="battery.charge.restart",
-        REDACTED_VALUE"battery_charge_restart",
-        native_unit_of_measurement=PERCENTAGE,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "battery.charge.warning": SensorEntityDescription(
-        key="battery.charge.warning",
-        REDACTED_VALUE"battery_charge_warning",
-        native_unit_of_measurement=PERCENTAGE,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "battery.charger.status": SensorEntityDescription(
-        key="battery.charger.status",
-        REDACTED_VALUE"battery_charger_status",
-    ),
-    "battery.voltage": SensorEntityDescription(
-        key="battery.voltage",
-        REDACTED_VALUE"battery_voltage",
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "battery.voltage.nominal": SensorEntityDescription(
-        key="battery.voltage.nominal",
-        REDACTED_VALUE"battery_voltage_nominal",
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-        device_class=SensorDeviceClass.VOLTAGE,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "battery.voltage.low": SensorEntityDescription(
-        key="battery.voltage.low",
-        REDACTED_VALUE"battery_voltage_low",
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-        device_class=SensorDeviceClass.VOLTAGE,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "battery.voltage.high": SensorEntityDescription(
-        key="battery.voltage.high",
-        REDACTED_VALUE"battery_voltage_high",
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-        device_class=SensorDeviceClass.VOLTAGE,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "battery.capacity": SensorEntityDescription(
-        key="battery.capacity",
-        REDACTED_VALUE"battery_capacity",
-        native_unit_of_measurement="Ah",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "battery.current": SensorEntityDescription(
-        key="battery.current",
-        REDACTED_VALUE"battery_current",
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-        device_class=SensorDeviceClass.CURRENT,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "battery.current.total": SensorEntityDescription(
-        key="battery.current.total",
-        REDACTED_VALUE"battery_current_total",
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-        device_class=SensorDeviceClass.CURRENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "battery.temperature": SensorEntityDescription(
-        key="battery.temperature",
-        REDACTED_VALUE"battery_temperature",
+    "ups.temperature": SensorEntityDescription(
+        key="ups.temperature",
+        REDACTED_VALUE"ups_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    "battery.runtime": SensorEntityDescription(
-        key="battery.runtime",
-        REDACTED_VALUE"battery_runtime",
+    "ups.test.date": SensorEntityDescription(
+        key="ups.test.date",
+        REDACTED_VALUE"ups_test_date",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "ups.test.interval": SensorEntityDescription(
+        key="ups.test.interval",
+        REDACTED_VALUE"ups_test_interval",
         native_unit_of_measurement=UnitOfTime.SECONDS,
         device_class=SensorDeviceClass.DURATION,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    "battery.runtime.low": SensorEntityDescription(
-        key="battery.runtime.low",
-        REDACTED_VALUE"battery_runtime_low",
+    "ups.test.result": SensorEntityDescription(
+        key="ups.test.result",
+        REDACTED_VALUE"ups_test_result",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    "ups.timer.reboot": SensorEntityDescription(
+        key="ups.timer.reboot",
+        REDACTED_VALUE"ups_timer_reboot",
         native_unit_of_measurement=UnitOfTime.SECONDS,
         device_class=SensorDeviceClass.DURATION,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    "battery.runtime.restart": SensorEntityDescription(
-        key="battery.runtime.restart",
-        REDACTED_VALUE"battery_runtime_restart",
+    "ups.timer.shutdown": SensorEntityDescription(
+        key="ups.timer.shutdown",
+        REDACTED_VALUE"ups_timer_shutdown",
         native_unit_of_measurement=UnitOfTime.SECONDS,
         device_class=SensorDeviceClass.DURATION,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    "battery.alarm.threshold": SensorEntityDescription(
-        key="battery.alarm.threshold",
-        REDACTED_VALUE"battery_alarm_threshold",
+    "ups.timer.start": SensorEntityDescription(
+        key="ups.timer.start",
+        REDACTED_VALUE"ups_timer_start",
+        native_unit_of_measurement=UnitOfTime.SECONDS,
+        device_class=SensorDeviceClass.DURATION,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    "battery.date": SensorEntityDescription(
-        key="battery.date",
-        REDACTED_VALUE"battery_date",
+    "ups.type": SensorEntityDescription(
+        key="ups.type",
+        REDACTED_VALUE"ups_type",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-    "battery.mfr.date": SensorEntityDescription(
-        key="battery.mfr.date",
-        REDACTED_VALUE"battery_mfr_date",
+    "ups.watchdog.status": SensorEntityDescription(
+        key="ups.watchdog.status",
+        REDACTED_VALUE"ups_watchdog_status",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
-    ),
-    "battery.packs": SensorEntityDescription(
-        key="battery.packs",
-        REDACTED_VALUE"battery_packs",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "battery.packs.bad": SensorEntityDescription(
-        key="battery.packs.bad",
-        REDACTED_VALUE"battery_packs_bad",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "battery.type": SensorEntityDescription(
-        key="battery.type",
-        REDACTED_VALUE"battery_type",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.sensitivity": SensorEntityDescription(
-        key="input.sensitivity",
-        REDACTED_VALUE"input_sensitivity",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.transfer.low": SensorEntityDescription(
-        key="input.transfer.low",
-        REDACTED_VALUE"input_transfer_low",
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-        device_class=SensorDeviceClass.VOLTAGE,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.transfer.high": SensorEntityDescription(
-        key="input.transfer.high",
-        REDACTED_VALUE"input_transfer_high",
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-        device_class=SensorDeviceClass.VOLTAGE,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.transfer.reason": SensorEntityDescription(
-        key="input.transfer.reason",
-        REDACTED_VALUE"input_transfer_reason",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.voltage": SensorEntityDescription(
-        key="input.voltage",
-        REDACTED_VALUE"input_voltage",
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-    ),
-    "input.voltage.nominal": SensorEntityDescription(
-        key="input.voltage.nominal",
-        REDACTED_VALUE"input_voltage_nominal",
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-        device_class=SensorDeviceClass.VOLTAGE,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.L1-N.voltage": SensorEntityDescription(
-        key="input.L1-N.voltage",
-        REDACTED_VALUE"input_l1_n_voltage",
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.L2-N.voltage": SensorEntityDescription(
-        key="input.L2-N.voltage",
-        REDACTED_VALUE"input_l2_n_voltage",
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.L3-N.voltage": SensorEntityDescription(
-        key="input.L3-N.voltage",
-        REDACTED_VALUE"input_l3_n_voltage",
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.frequency": SensorEntityDescription(
-        key="input.frequency",
-        REDACTED_VALUE"input_frequency",
-        native_unit_of_measurement=UnitOfFrequency.HERTZ,
-        device_class=SensorDeviceClass.FREQUENCY,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.frequency.nominal": SensorEntityDescription(
-        key="input.frequency.nominal",
-        REDACTED_VALUE"input_frequency_nominal",
-        native_unit_of_measurement=UnitOfFrequency.HERTZ,
-        device_class=SensorDeviceClass.FREQUENCY,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.frequency.status": SensorEntityDescription(
-        key="input.frequency.status",
-        REDACTED_VALUE"input_frequency_status",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.L1.frequency": SensorEntityDescription(
-        key="input.L1.frequency",
-        REDACTED_VALUE"input_l1_frequency",
-        native_unit_of_measurement=UnitOfFrequency.HERTZ,
-        device_class=SensorDeviceClass.FREQUENCY,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.L2.frequency": SensorEntityDescription(
-        key="input.L2.frequency",
-        REDACTED_VALUE"input_l2_frequency",
-        native_unit_of_measurement=UnitOfFrequency.HERTZ,
-        device_class=SensorDeviceClass.FREQUENCY,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.L3.frequency": SensorEntityDescription(
-        key="input.L3.frequency",
-        REDACTED_VALUE"input_l3_frequency",
-        native_unit_of_measurement=UnitOfFrequency.HERTZ,
-        device_class=SensorDeviceClass.FREQUENCY,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.bypass.current": SensorEntityDescription(
-        key="input.bypass.current",
-        REDACTED_VALUE"input_bypass_current",
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-        device_class=SensorDeviceClass.CURRENT,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.bypass.L1.current": SensorEntityDescription(
-        key="input.bypass.L1.current",
-        REDACTED_VALUE"input_bypass_l1_current",
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-        device_class=SensorDeviceClass.CURRENT,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.bypass.L2.current": SensorEntityDescription(
-        key="input.bypass.L2.current",
-        REDACTED_VALUE"input_bypass_l2_current",
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-        device_class=SensorDeviceClass.CURRENT,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.bypass.L3.current": SensorEntityDescription(
-        key="input.bypass.L3.current",
-        REDACTED_VALUE"input_bypass_l3_current",
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-        device_class=SensorDeviceClass.CURRENT,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.bypass.frequency": SensorEntityDescription(
-        key="input.bypass.frequency",
-        REDACTED_VALUE"input_bypass_frequency",
-        native_unit_of_measurement=UnitOfFrequency.HERTZ,
-        device_class=SensorDeviceClass.FREQUENCY,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.bypass.phases": SensorEntityDescription(
-        key="input.bypass.phases",
-        REDACTED_VALUE"input_bypass_phases",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.bypass.realpower": SensorEntityDescription(
-        key="input.bypass.realpower",
-        REDACTED_VALUE"input_bypass_realpower",
-        native_unit_of_measurement=UnitOfPower.WATT,
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.bypass.L1.realpower": SensorEntityDescription(
-        key="input.bypass.L1.realpower",
-        REDACTED_VALUE"input_bypass_l1_realpower",
-        native_unit_of_measurement=UnitOfPower.WATT,
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.bypass.L2.realpower": SensorEntityDescription(
-        key="input.bypass.L2.realpower",
-        REDACTED_VALUE"input_bypass_l2_realpower",
-        native_unit_of_measurement=UnitOfPower.WATT,
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.bypass.L3.realpower": SensorEntityDescription(
-        key="input.bypass.L3.realpower",
-        REDACTED_VALUE"input_bypass_l3_realpower",
-        native_unit_of_measurement=UnitOfPower.WATT,
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.bypass.voltage": SensorEntityDescription(
-        key="input.bypass.voltage",
-        REDACTED_VALUE"input_bypass_voltage",
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.bypass.L1-N.voltage": SensorEntityDescription(
-        key="input.bypass.L1-N.voltage",
-        REDACTED_VALUE"input_bypass_l1_n_voltage",
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.bypass.L2-N.voltage": SensorEntityDescription(
-        key="input.bypass.L2-N.voltage",
-        REDACTED_VALUE"input_bypass_l2_n_voltage",
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.bypass.L3-N.voltage": SensorEntityDescription(
-        key="input.bypass.L3-N.voltage",
-        REDACTED_VALUE"input_bypass_l3_n_voltage",
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.current": SensorEntityDescription(
-        key="input.current",
-        REDACTED_VALUE"input_current",
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-        device_class=SensorDeviceClass.CURRENT,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_registry_enabled_default=False,
-    ),
-    "input.L1.current": SensorEntityDescription(
-        key="input.L1.current",
-        REDACTED_VALUE"input_l1_current",
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-        device_class=SensorDeviceClass.CURRENT,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.L2.current": SensorEntityDescription(
-        key="input.L2.current",
-        REDACTED_VALUE"input_l2_current",
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-        device_class=SensorDeviceClass.CURRENT,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.L3.current": SensorEntityDescription(
-        key="input.L3.current",
-        REDACTED_VALUE"input_l3_current",
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-        device_class=SensorDeviceClass.CURRENT,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.phases": SensorEntityDescription(
-        key="input.phases",
-        REDACTED_VALUE"input_phases",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.realpower": SensorEntityDescription(
-        key="input.realpower",
-        REDACTED_VALUE"input_realpower",
-        native_unit_of_measurement=UnitOfPower.WATT,
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.L1.realpower": SensorEntityDescription(
-        key="input.L1.realpower",
-        REDACTED_VALUE"input_l1_realpower",
-        native_unit_of_measurement=UnitOfPower.WATT,
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.L2.realpower": SensorEntityDescription(
-        key="input.L2.realpower",
-        REDACTED_VALUE"input_l2_realpower",
-        native_unit_of_measurement=UnitOfPower.WATT,
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "input.L3.realpower": SensorEntityDescription(
-        key="input.L3.realpower",
-        REDACTED_VALUE"input_l3_realpower",
-        native_unit_of_measurement=UnitOfPower.WATT,
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "output.power.nominal": SensorEntityDescription(
-        key="output.power.nominal",
-        REDACTED_VALUE"output_power_nominal",
-        native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
-        device_class=SensorDeviceClass.APPARENT_POWER,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "output.L1.power.percent": SensorEntityDescription(
-        key="output.L1.power.percent",
-        REDACTED_VALUE"output_l1_power_percent",
-        native_unit_of_measurement=PERCENTAGE,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "output.L2.power.percent": SensorEntityDescription(
-        key="output.L2.power.percent",
-        REDACTED_VALUE"output_l2_power_percent",
-        native_unit_of_measurement=PERCENTAGE,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "output.L3.power.percent": SensorEntityDescription(
-        key="output.L3.power.percent",
-        REDACTED_VALUE"output_l3_power_percent",
-        native_unit_of_measurement=PERCENTAGE,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "output.current": SensorEntityDescription(
-        key="output.current",
-        REDACTED_VALUE"output_current",
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-        device_class=SensorDeviceClass.CURRENT,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "output.current.nominal": SensorEntityDescription(
-        key="output.current.nominal",
-        REDACTED_VALUE"output_current_nominal",
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-        device_class=SensorDeviceClass.CURRENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "output.L1.current": SensorEntityDescription(
-        key="output.L1.current",
-        REDACTED_VALUE"output_l1_current",
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-        device_class=SensorDeviceClass.CURRENT,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "output.L2.current": SensorEntityDescription(
-        key="output.L2.current",
-        REDACTED_VALUE"output_l2_current",
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-        device_class=SensorDeviceClass.CURRENT,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "output.L3.current": SensorEntityDescription(
-        key="output.L3.current",
-        REDACTED_VALUE"output_l3_current",
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-        device_class=SensorDeviceClass.CURRENT,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "output.voltage": SensorEntityDescription(
-        key="output.voltage",
-        REDACTED_VALUE"output_voltage",
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-    ),
-    "output.voltage.nominal": SensorEntityDescription(
-        key="output.voltage.nominal",
-        REDACTED_VALUE"output_voltage_nominal",
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-        device_class=SensorDeviceClass.VOLTAGE,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "output.L1-N.voltage": SensorEntityDescription(
-        key="output.L1-N.voltage",
-        REDACTED_VALUE"output_l1_n_voltage",
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "output.L2-N.voltage": SensorEntityDescription(
-        key="output.L2-N.voltage",
-        REDACTED_VALUE"output_l2_n_voltage",
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "output.L3-N.voltage": SensorEntityDescription(
-        key="output.L3-N.voltage",
-        REDACTED_VALUE"output_l3_n_voltage",
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "output.frequency": SensorEntityDescription(
-        key="output.frequency",
-        REDACTED_VALUE"output_frequency",
-        native_unit_of_measurement=UnitOfFrequency.HERTZ,
-        device_class=SensorDeviceClass.FREQUENCY,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "output.frequency.nominal": SensorEntityDescription(
-        key="output.frequency.nominal",
-        REDACTED_VALUE"output_frequency_nominal",
-        native_unit_of_measurement=UnitOfFrequency.HERTZ,
-        device_class=SensorDeviceClass.FREQUENCY,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "output.phases": SensorEntityDescription(
-        key="output.phases",
-        REDACTED_VALUE"output_phases",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "output.power": SensorEntityDescription(
-        key="output.power",
-        REDACTED_VALUE"output_power",
-        native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
-        device_class=SensorDeviceClass.APPARENT_POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "output.realpower": SensorEntityDescription(
-        key="output.realpower",
-        REDACTED_VALUE"output_realpower",
-        native_unit_of_measurement=UnitOfPower.WATT,
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "output.realpower.nominal": SensorEntityDescription(
-        key="output.realpower.nominal",
-        REDACTED_VALUE"output_realpower_nominal",
-        native_unit_of_measurement=UnitOfPower.WATT,
-        device_class=SensorDeviceClass.POWER,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "output.L1.realpower": SensorEntityDescription(
-        key="output.L1.realpower",
-        REDACTED_VALUE"output_l1_realpower",
-        native_unit_of_measurement=UnitOfPower.WATT,
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "output.L2.realpower": SensorEntityDescription(
-        key="output.L2.realpower",
-        REDACTED_VALUE"output_l2_realpower",
-        native_unit_of_measurement=UnitOfPower.WATT,
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "output.L3.realpower": SensorEntityDescription(
-        key="output.L3.realpower",
-        REDACTED_VALUE"output_l3_realpower",
-        native_unit_of_measurement=UnitOfPower.WATT,
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    ),
-    "ambient.humidity": SensorEntityDescription(
-        key="ambient.humidity",
-        REDACTED_VALUE"ambient_humidity",
-        native_unit_of_measurement=PERCENTAGE,
-        device_class=SensorDeviceClass.HUMIDITY,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-    ),
-    "ambient.humidity.status": SensorEntityDescription(
-        key="ambient.humidity.status",
-        REDACTED_VALUE"ambient_humidity_status",
-        device_class=SensorDeviceClass.ENUM,
-        options=AMBIENT_THRESHOLD_STATUS_OPTIONS,
-        entity_category=EntityCategory.DIAGNOSTIC,
-    ),
-    "ambient.temperature": SensorEntityDescription(
-        key="ambient.temperature",
-        REDACTED_VALUE"ambient_temperature",
-        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
-        device_class=SensorDeviceClass.TEMPERATURE,
-        state_class=SensorStateClass.MEASUREMENT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-    ),
-    "ambient.temperature.status": SensorEntityDescription(
-        key="ambient.temperature.status",
-        REDACTED_VALUE"ambient_temperature_status",
-        device_class=SensorDeviceClass.ENUM,
-        options=AMBIENT_THRESHOLD_STATUS_OPTIONS,
-        entity_category=EntityCategory.DIAGNOSTIC,
-    ),
-    "watts": SensorEntityDescription(
-        key="watts",
-        REDACTED_VALUE"watts",
-        native_unit_of_measurement=UnitOfPower.WATT,
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
     ),
 }
-
-
-def _get_nut_device_info(data: PyNUTData) -> DeviceInfo:
-    """Return a DeviceInfo object filled with NUT device info."""
-    nut_dev_infos = asdict(data.device_info)
-    nut_infos = {
-        info_key: nut_dev_infos[nut_key]
-        for nut_key, info_key in NUT_DEV_INFO_TO_DEV_INFO.items()
-        if nut_dev_infos[nut_key] is not None
-    }
-
-    return cast(DeviceInfo, nut_infos)
 
 
 async def async_setup_entry(
@@ -989,6 +1023,7 @@ async def async_setup_entry(
     async_add_entities: AddConfigEntryEntitiesCallback,
 ) -> None:
     """Set up the NUT sensors."""
+    valid_sensor_types: dict[str, SensorEntityDescription]
 
     pynut_data = config_entry.runtime_data
     coordinator = pynut_data.coordinator
@@ -996,16 +1031,75 @@ async def async_setup_entry(
     unique_id = pynut_data.unique_id
     status = coordinator.data
 
-    resources = [sensor_id for sensor_id in SENSOR_TYPES if sensor_id in status]
+    # Dynamically add outlet sensors to valid sensors dictionary
+    if (num_outlets := status.get("outlet.count")) is not None:
+        additional_sensor_types: dict[str, SensorEntityDescription] = {}
+        for outlet_num in range(1, int(num_outlets) + 1):
+            outlet_num_str: str = str(outlet_num)
+            outlet_name: str = (
+                status.get(f"outlet.{outlet_num_str}.name") or outlet_num_str
+            )
+            additional_sensor_types |= {
+                f"outlet.{outlet_num_str}.current": SensorEntityDescription(
+                    key=f"outlet.{outlet_num_str}.current",
+                    REDACTED_VALUE"outlet_number_current",
+                    translation_placeholders={"outlet_name": outlet_name},
+                    native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
+                    device_class=SensorDeviceClass.CURRENT,
+                    state_class=SensorStateClass.MEASUREMENT,
+                ),
+                f"outlet.{outlet_num_str}.current_status": SensorEntityDescription(
+                    key=f"outlet.{outlet_num_str}.current_status",
+                    REDACTED_VALUE"outlet_number_current_status",
+                    translation_placeholders={"outlet_name": outlet_name},
+                    entity_category=EntityCategory.DIAGNOSTIC,
+                    entity_registry_enabled_default=False,
+                ),
+                f"outlet.{outlet_num_str}.desc": SensorEntityDescription(
+                    key=f"outlet.{outlet_num_str}.desc",
+                    REDACTED_VALUE"outlet_number_desc",
+                    translation_placeholders={"outlet_name": outlet_name},
+                ),
+                f"outlet.{outlet_num_str}.power": SensorEntityDescription(
+                    key=f"outlet.{outlet_num_str}.power",
+                    REDACTED_VALUE"outlet_number_power",
+                    translation_placeholders={"outlet_name": outlet_name},
+                    native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
+                    device_class=SensorDeviceClass.APPARENT_POWER,
+                    state_class=SensorStateClass.MEASUREMENT,
+                ),
+                f"outlet.{outlet_num_str}.realpower": SensorEntityDescription(
+                    key=f"outlet.{outlet_num_str}.realpower",
+                    REDACTED_VALUE"outlet_number_realpower",
+                    translation_placeholders={"outlet_name": outlet_name},
+                    native_unit_of_measurement=UnitOfPower.WATT,
+                    device_class=SensorDeviceClass.POWER,
+                    state_class=SensorStateClass.MEASUREMENT,
+                ),
+            }
+
+        valid_sensor_types = {**SENSOR_TYPES, **additional_sensor_types}
+    else:
+        valid_sensor_types = SENSOR_TYPES
+
+    # If device reports ambient sensors are not present, then remove
+    has_ambient_sensors: bool = status.get(AMBIENT_PRESENT) != "no"
+    resources = [
+        sensor_id
+        for sensor_id in valid_sensor_types
+        if sensor_id in status
+        and (has_ambient_sensors or sensor_id not in AMBIENT_SENSORS)
+    ]
+
     # Display status is a special case that falls back to the status value
     # of the UPS instead.
-    if KEY_STATUS in resources:
+    if KEY_STATUS in status:
         resources.append(KEY_STATUS_DISPLAY)
 
     async_add_entities(
         NUTSensor(
             coordinator,
-            SENSOR_TYPES[sensor_type],
+            valid_sensor_types[sensor_type],
             data,
             unique_id,
         )
@@ -1013,42 +1107,21 @@ async def async_setup_entry(
     )
 
 
-class NUTSensor(CoordinatorEntity[DataUpdateCoordinator[dict[str, str]]], SensorEntity):
+class NUTSensor(NUTBaseEntity, SensorEntity):
     """Representation of a sensor entity for NUT status values."""
-
-    _attr_has_entity_name = True
-
-    def __init__(
-        self,
-        coordinator: DataUpdateCoordinator[dict[str, str]],
-        sensor_description: SensorEntityDescription,
-        data: PyNUTData,
-        unique_id: str,
-    ) -> None:
-        """Initialize the sensor."""
-        super().__init__(coordinator)
-        self.entity_description = sensor_description
-
-        device_name = data.name.title()
-        self._attr_unique_id = f"{unique_id}_{sensor_description.key}"
-        self._attr_device_info = DeviceInfo(
-            identifiers={(DOMAIN, unique_id)},
-            name=device_name,
-        )
-        self._attr_device_info.update(_get_nut_device_info(data))
 
     @property
     def native_value(self) -> str | None:
-        """Return entity state from ups."""
+        """Return entity state from NUT device."""
         status = self.coordinator.data
         if self.entity_description.key == KEY_STATUS_DISPLAY:
             return _format_display_state(status)
         return status.get(self.entity_description.key)
 
 
-def _format_display_state(status: dict[str, str]) -> str:
+def _format_display_state(status: dict[str, str]) -> str | None:
     """Return UPS display state."""
     try:
-        return " ".join(STATE_TYPES[state] for state in status[KEY_STATUS].split())
+        return ", ".join(STATE_TYPES[state] for state in status[KEY_STATUS].split())
     except KeyError:
-        return STATE_UNKNOWN
+        return None
