@@ -30,30 +30,25 @@ INFO_SENSORS: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="date",
         REDACTED_VALUE"hebrew_date",
-        icon="mdi:star-david",
     ),
     SensorEntityDescription(
         key="weekly_portion",
         REDACTED_VALUE"weekly_portion",
-        icon="mdi:book-open-variant",
         device_class=SensorDeviceClass.ENUM,
     ),
     SensorEntityDescription(
         key="holiday",
         REDACTED_VALUE"holiday",
-        icon="mdi:calendar-star",
         device_class=SensorDeviceClass.ENUM,
     ),
     SensorEntityDescription(
         key="omer_count",
         REDACTED_VALUE"omer_count",
-        icon="mdi:counter",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="daf_yomi",
         REDACTED_VALUE"daf_yomi",
-        icon="mdi:book-open-variant",
         entity_registry_enabled_default=False,
     ),
 )
@@ -62,106 +57,88 @@ TIME_SENSORS: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="alot_hashachar",
         REDACTED_VALUE"alot_hashachar",
-        icon="mdi:weather-sunset-up",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="talit_and_tefillin",
         REDACTED_VALUE"talit_and_tefillin",
-        icon="mdi:calendar-clock",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="netz_hachama",
         REDACTED_VALUE"netz_hachama",
-        icon="mdi:calendar-clock",
     ),
     SensorEntityDescription(
         key="sof_zman_shema_gra",
         REDACTED_VALUE"sof_zman_shema_gra",
-        icon="mdi:calendar-clock",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="sof_zman_shema_mga",
         REDACTED_VALUE"sof_zman_shema_mga",
-        icon="mdi:calendar-clock",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="sof_zman_tfilla_gra",
         REDACTED_VALUE"sof_zman_tfilla_gra",
-        icon="mdi:calendar-clock",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="sof_zman_tfilla_mga",
         REDACTED_VALUE"sof_zman_tfilla_mga",
-        icon="mdi:calendar-clock",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="chatzot_hayom",
         REDACTED_VALUE"chatzot_hayom",
-        icon="mdi:calendar-clock",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="mincha_gedola",
         REDACTED_VALUE"mincha_gedola",
-        icon="mdi:calendar-clock",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="mincha_ketana",
         REDACTED_VALUE"mincha_ketana",
-        icon="mdi:calendar-clock",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="plag_hamincha",
         REDACTED_VALUE"plag_hamincha",
-        icon="mdi:weather-sunset-down",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="shkia",
         REDACTED_VALUE"shkia",
-        icon="mdi:weather-sunset",
     ),
     SensorEntityDescription(
         key="tset_hakohavim_tsom",
         REDACTED_VALUE"tset_hakohavim_tsom",
-        icon="mdi:weather-night",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="tset_hakohavim_shabbat",
         REDACTED_VALUE"tset_hakohavim_shabbat",
-        icon="mdi:weather-night",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="upcoming_shabbat_candle_lighting",
         REDACTED_VALUE"upcoming_shabbat_candle_lighting",
-        icon="mdi:candle",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="upcoming_shabbat_havdalah",
         REDACTED_VALUE"upcoming_shabbat_havdalah",
-        icon="mdi:weather-night",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="upcoming_candle_lighting",
         REDACTED_VALUE"upcoming_candle_lighting",
-        icon="mdi:candle",
     ),
     SensorEntityDescription(
         key="upcoming_havdalah",
         REDACTED_VALUE"upcoming_havdalah",
-        icon="mdi:weather-night",
     ),
 )
 
