@@ -7,17 +7,17 @@ from hole import Hole
 from homeassistant.components.sensor import SensorEntity, SensorEntityDescription
 from homeassistant.const import CONF_NAME, PERCENTAGE
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 from homeassistant.helpers.typing import StateType
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 
-from . import PiHoleConfigEntry, PiHoleEntity
+from . import PiHoleConfigEntry
+from .entity import PiHoleEntity
 
 SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="ads_blocked_today",
         REDACTED_VALUE"ads_blocked_today",
-        native_unit_of_measurement="ads",
     ),
     SensorEntityDescription(
         key="ads_percentage_today",
@@ -27,45 +27,27 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="clients_ever_seen",
         REDACTED_VALUE"clients_ever_seen",
-        native_unit_of_measurement="clients",
     ),
     SensorEntityDescription(
-        key="dns_queries_today",
-        REDACTED_VALUE"dns_queries_today",
-        native_unit_of_measurement="queries",
+        key="dns_queries_today", REDACTED_VALUE"dns_queries_today"
     ),
     SensorEntityDescription(
         key="domains_being_blocked",
         REDACTED_VALUE"domains_being_blocked",
-        native_unit_of_measurement="domains",
     ),
+    SensorEntityDescription(key="queries_cached", REDACTED_VALUE"queries_cached"),
     SensorEntityDescription(
-        key="queries_cached",
-        REDACTED_VALUE"queries_cached",
-        native_unit_of_measurement="queries",
+        key="queries_forwarded", REDACTED_VALUE"queries_forwarded"
     ),
-    SensorEntityDescription(
-        key="queries_forwarded",
-        REDACTED_VALUE"queries_forwarded",
-        native_unit_of_measurement="queries",
-    ),
-    SensorEntityDescription(
-        key="unique_clients",
-        REDACTED_VALUE"unique_clients",
-        native_unit_of_measurement="clients",
-    ),
-    SensorEntityDescription(
-        key="unique_domains",
-        REDACTED_VALUE"unique_domains",
-        native_unit_of_measurement="domains",
-    ),
+    SensorEntityDescription(key="unique_clients", REDACTED_VALUE"unique_clients"),
+    SensorEntityDescription(key="unique_domains", REDACTED_VALUE"unique_domains"),
 )
 
 
 async def async_setup_entry(
     hass: HomeAssistant,
     entry: PiHoleConfigEntry,
-    async_add_entities: AddEntitiesCallback,
+    async_add_entities: AddConfigEntryEntitiesCallback,
 ) -> None:
     """Set up the Pi-hole sensor."""
     name = entry.data[CONF_NAME]
