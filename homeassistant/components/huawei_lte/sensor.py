@@ -138,7 +138,6 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
             "uptime": HuaweiSensorEntityDescription(
                 key="uptime",
                 REDACTED_VALUE"uptime",
-                icon="mdi:timer-outline",
                 native_unit_of_measurement=UnitOfTime.SECONDS,
                 device_class=SensorDeviceClass.DURATION,
                 entity_category=EntityCategory.DIAGNOSTIC,
@@ -146,14 +145,12 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
             "WanIPAddress": HuaweiSensorEntityDescription(
                 key="WanIPAddress",
                 REDACTED_VALUE"wan_ip_address",
-                icon="mdi:ip",
                 entity_category=EntityCategory.DIAGNOSTIC,
                 entity_registry_enabled_default=True,
             ),
             "WanIPv6Address": HuaweiSensorEntityDescription(
                 key="WanIPv6Address",
                 REDACTED_VALUE"wan_ipv6_address",
-                icon="mdi:ip",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
         },
@@ -181,19 +178,16 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
             "cell_id": HuaweiSensorEntityDescription(
                 key="cell_id",
                 REDACTED_VALUE"cell_id",
-                icon="mdi:antenna",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "cqi0": HuaweiSensorEntityDescription(
                 key="cqi0",
                 REDACTED_VALUE"cqi0",
-                icon="mdi:speedometer",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "cqi1": HuaweiSensorEntityDescription(
                 key="cqi1",
                 REDACTED_VALUE"cqi1",
-                icon="mdi:speedometer",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "dl_mcs": HuaweiSensorEntityDescription(
@@ -230,7 +224,6 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
             "enodeb_id": HuaweiSensorEntityDescription(
                 key="enodeb_id",
                 REDACTED_VALUE"enodeb_id",
-                icon="mdi:antenna",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "ims": HuaweiSensorEntityDescription(
@@ -241,7 +234,6 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
             "lac": HuaweiSensorEntityDescription(
                 key="lac",
                 REDACTED_VALUE"lac",
-                icon="mdi:map-marker",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "ltedlfreq": HuaweiSensorEntityDescription(
@@ -279,7 +271,6 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
             "nei_cellid": HuaweiSensorEntityDescription(
                 key="nei_cellid",
                 REDACTED_VALUE"nei_cellid",
-                icon="mdi:antenna",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "nrbler": HuaweiSensorEntityDescription(
@@ -290,13 +281,11 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
             "nrcqi0": HuaweiSensorEntityDescription(
                 key="nrcqi0",
                 REDACTED_VALUE"nrcqi0",
-                icon="mdi:speedometer",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "nrcqi1": HuaweiSensorEntityDescription(
                 key="nrcqi1",
                 REDACTED_VALUE"nrcqi1",
-                icon="mdi:speedometer",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "nrdlbandwidth": HuaweiSensorEntityDescription(
@@ -376,7 +365,6 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
             "pci": HuaweiSensorEntityDescription(
                 key="pci",
                 REDACTED_VALUE"pci",
-                icon="mdi:antenna",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "plmn": HuaweiSensorEntityDescription(
@@ -387,7 +375,6 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
             "rac": HuaweiSensorEntityDescription(
                 key="rac",
                 REDACTED_VALUE"rac",
-                icon="mdi:map-marker",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "rrc_status": HuaweiSensorEntityDescription(
@@ -458,7 +445,6 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
             "tac": HuaweiSensorEntityDescription(
                 key="tac",
                 REDACTED_VALUE"tac",
-                icon="mdi:map-marker",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "tdd": HuaweiSensorEntityDescription(
@@ -522,7 +508,6 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
             "UnreadMessage": HuaweiSensorEntityDescription(
                 key="UnreadMessage",
                 REDACTED_VALUE"sms_unread",
-                icon="mdi:email-arrow-left",
             ),
         },
     ),
@@ -536,7 +521,6 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
                 REDACTED_VALUE"current_day_transfer",
                 native_unit_of_measurement=UnitOfInformation.BYTES,
                 device_class=SensorDeviceClass.DATA_SIZE,
-                icon="mdi:arrow-up-down-bold",
                 state_class=SensorStateClass.TOTAL,
                 last_reset_item="CurrentDayDuration",
                 last_reset_format_fn=format_last_reset_elapsed_seconds,
@@ -546,7 +530,6 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
                 REDACTED_VALUE"current_month_download",
                 native_unit_of_measurement=UnitOfInformation.BYTES,
                 device_class=SensorDeviceClass.DATA_SIZE,
-                icon="mdi:download",
                 state_class=SensorStateClass.TOTAL,
                 last_reset_item="MonthDuration",
                 last_reset_format_fn=format_last_reset_elapsed_seconds,
@@ -556,7 +539,6 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
                 REDACTED_VALUE"current_month_upload",
                 native_unit_of_measurement=UnitOfInformation.BYTES,
                 device_class=SensorDeviceClass.DATA_SIZE,
-                icon="mdi:upload",
                 state_class=SensorStateClass.TOTAL,
                 last_reset_item="MonthDuration",
                 last_reset_format_fn=format_last_reset_elapsed_seconds,
@@ -580,32 +562,27 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
             "CurrentWifiUser": HuaweiSensorEntityDescription(
                 key="CurrentWifiUser",
                 REDACTED_VALUE"wifi_clients_connected",
-                icon="mdi:wifi",
                 state_class=SensorStateClass.MEASUREMENT,
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "PrimaryDns": HuaweiSensorEntityDescription(
                 key="PrimaryDns",
                 REDACTED_VALUE"primary_dns_server",
-                icon="mdi:ip",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "REDACTED_VALUE": HuaweiSensorEntityDescription(
                 key="REDACTED_VALUE",
                 REDACTED_VALUE"primary_ipv6_dns_server",
-                icon="mdi:ip",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "SecondaryDns": HuaweiSensorEntityDescription(
                 key="SecondaryDns",
                 REDACTED_VALUE"secondary_dns_server",
-                icon="mdi:ip",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
             "REDACTED_VALUE": HuaweiSensorEntityDescription(
                 key="REDACTED_VALUE",
                 REDACTED_VALUE"secondary_ipv6_dns_server",
-                icon="mdi:ip",
                 entity_category=EntityCategory.DIAGNOSTIC,
             ),
         },
@@ -618,14 +595,12 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
                 REDACTED_VALUE"current_connection_duration",
                 native_unit_of_measurement=UnitOfTime.SECONDS,
                 device_class=SensorDeviceClass.DURATION,
-                icon="mdi:timer-outline",
             ),
             "CurrentDownload": HuaweiSensorEntityDescription(
                 key="CurrentDownload",
                 REDACTED_VALUE"current_connection_download",
                 native_unit_of_measurement=UnitOfInformation.BYTES,
                 device_class=SensorDeviceClass.DATA_SIZE,
-                icon="mdi:download",
                 state_class=SensorStateClass.TOTAL_INCREASING,
             ),
             "CurrentDownloadRate": HuaweiSensorEntityDescription(
@@ -633,7 +608,6 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
                 REDACTED_VALUE"current_download_rate",
                 native_unit_of_measurement=UnitOfDataRate.BYTES_PER_SECOND,
                 device_class=SensorDeviceClass.DATA_RATE,
-                icon="mdi:download",
                 state_class=SensorStateClass.MEASUREMENT,
             ),
             "CurrentUpload": HuaweiSensorEntityDescription(
@@ -641,7 +615,6 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
                 REDACTED_VALUE"current_connection_upload",
                 native_unit_of_measurement=UnitOfInformation.BYTES,
                 device_class=SensorDeviceClass.DATA_SIZE,
-                icon="mdi:upload",
                 state_class=SensorStateClass.TOTAL_INCREASING,
             ),
             "CurrentUploadRate": HuaweiSensorEntityDescription(
@@ -649,7 +622,6 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
                 REDACTED_VALUE"current_upload_rate",
                 native_unit_of_measurement=UnitOfDataRate.BYTES_PER_SECOND,
                 device_class=SensorDeviceClass.DATA_RATE,
-                icon="mdi:upload",
                 state_class=SensorStateClass.MEASUREMENT,
             ),
             "TotalConnectTime": HuaweiSensorEntityDescription(
@@ -657,7 +629,6 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
                 REDACTED_VALUE"total_connected_duration",
                 native_unit_of_measurement=UnitOfTime.SECONDS,
                 device_class=SensorDeviceClass.DURATION,
-                icon="mdi:timer-outline",
                 state_class=SensorStateClass.TOTAL_INCREASING,
             ),
             "TotalDownload": HuaweiSensorEntityDescription(
@@ -665,7 +636,6 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
                 REDACTED_VALUE"total_download",
                 native_unit_of_measurement=UnitOfInformation.BYTES,
                 device_class=SensorDeviceClass.DATA_SIZE,
-                icon="mdi:download",
                 state_class=SensorStateClass.TOTAL_INCREASING,
             ),
             "TotalUpload": HuaweiSensorEntityDescription(
@@ -673,7 +643,6 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
                 REDACTED_VALUE"total_upload",
                 native_unit_of_measurement=UnitOfInformation.BYTES,
                 device_class=SensorDeviceClass.DATA_SIZE,
-                icon="mdi:upload",
                 state_class=SensorStateClass.TOTAL_INCREASING,
             ),
         },
@@ -719,62 +688,50 @@ SENSOR_META: dict[str, HuaweiSensorGroup] = {
             "LocalDeleted": HuaweiSensorEntityDescription(
                 key="LocalDeleted",
                 REDACTED_VALUE"sms_deleted_device",
-                icon="mdi:email-minus",
             ),
             "LocalDraft": HuaweiSensorEntityDescription(
                 key="LocalDraft",
                 REDACTED_VALUE"sms_drafts_device",
-                icon="mdi:email-arrow-right-outline",
             ),
             "LocalInbox": HuaweiSensorEntityDescription(
                 key="LocalInbox",
                 REDACTED_VALUE"sms_inbox_device",
-                icon="mdi:email",
             ),
             "LocalMax": HuaweiSensorEntityDescription(
                 key="LocalMax",
                 REDACTED_VALUE"sms_capacity_device",
-                icon="mdi:email",
             ),
             "LocalOutbox": HuaweiSensorEntityDescription(
                 key="LocalOutbox",
                 REDACTED_VALUE"sms_outbox_device",
-                icon="mdi:email-arrow-right",
             ),
             "LocalUnread": HuaweiSensorEntityDescription(
                 key="LocalUnread",
                 REDACTED_VALUE"sms_unread_device",
-                icon="mdi:email-arrow-left",
             ),
             "SimDraft": HuaweiSensorEntityDescription(
                 key="SimDraft",
                 REDACTED_VALUE"sms_drafts_sim",
-                icon="mdi:email-arrow-right-outline",
             ),
             "SimInbox": HuaweiSensorEntityDescription(
                 key="SimInbox",
                 REDACTED_VALUE"sms_inbox_sim",
-                icon="mdi:email",
             ),
             "SimMax": HuaweiSensorEntityDescription(
                 key="SimMax",
                 REDACTED_VALUE"sms_capacity_sim",
-                icon="mdi:email",
             ),
             "SimOutbox": HuaweiSensorEntityDescription(
                 key="SimOutbox",
                 REDACTED_VALUE"sms_outbox_sim",
-                icon="mdi:email-arrow-right",
             ),
             "SimUnread": HuaweiSensorEntityDescription(
                 key="SimUnread",
                 REDACTED_VALUE"sms_unread_sim",
-                icon="mdi:email-arrow-left",
             ),
             "SimUsed": HuaweiSensorEntityDescription(
                 key="SimUsed",
                 REDACTED_VALUE"sms_messages_sim",
-                icon="mdi:email-arrow-left",
             ),
         },
     ),
@@ -870,7 +827,7 @@ class HuaweiLteSensor(HuaweiLteBaseEntityWithDevice, SensorEntity):
         """Return icon for sensor."""
         if self.entity_description.icon_fn:
             return self.entity_description.icon_fn(self.state)
-        return self.entity_description.icon
+        return super().icon
 
     @property
     def device_class(self) -> SensorDeviceClass | None:

@@ -52,14 +52,13 @@ ALL_DEVICE_BUTTONS: tuple[ProtectButtonEntityDescription, ...] = (
         key="reboot",
         entity_registry_enabled_default=False,
         device_class=ButtonDeviceClass.RESTART,
-        name="Reboot device",
         ufp_press="reboot",
         ufp_perm=PermRequired.WRITE,
     ),
     ProtectButtonEntityDescription(
         key="unadopt",
+        REDACTED_VALUE"unadopt_device",
         entity_registry_enabled_default=False,
-        name="Unadopt device",
         icon="mdi:delete",
         ufp_press="unadopt",
         ufp_perm=PermRequired.DELETE,
@@ -68,7 +67,7 @@ ALL_DEVICE_BUTTONS: tuple[ProtectButtonEntityDescription, ...] = (
 
 ADOPT_BUTTON = ProtectButtonEntityDescription[ProtectAdoptableDeviceModel](
     key="adopt",
-    name="Adopt device",
+    REDACTED_VALUE"adopt_device",
     icon="mdi:plus-circle",
     ufp_press="adopt",
 )
@@ -76,7 +75,7 @@ ADOPT_BUTTON = ProtectButtonEntityDescription[ProtectAdoptableDeviceModel](
 SENSOR_BUTTONS: tuple[ProtectButtonEntityDescription, ...] = (
     ProtectButtonEntityDescription(
         key="clear_tamper",
-        name="Clear tamper",
+        REDACTED_VALUE"clear_tamper",
         icon="mdi:notification-clear-all",
         ufp_press="clear_tamper",
         ufp_perm=PermRequired.WRITE,
@@ -86,14 +85,14 @@ SENSOR_BUTTONS: tuple[ProtectButtonEntityDescription, ...] = (
 CHIME_BUTTONS: tuple[ProtectButtonEntityDescription, ...] = (
     ProtectButtonEntityDescription(
         key="play",
-        name="Play chime",
+        REDACTED_VALUE"play_chime",
         device_class=DEVICE_CLASS_CHIME_BUTTON,
         icon="mdi:play",
         ufp_press="play",
     ),
     ProtectButtonEntityDescription(
         key="play_buzzer",
-        name="Play buzzer",
+        REDACTED_VALUE"play_buzzer",
         icon="mdi:play",
         ufp_press="play_buzzer",
     ),
