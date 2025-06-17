@@ -37,23 +37,27 @@ CAMERA_ENTITIES = (
         key="sub",
         stream="sub",
         REDACTED_VALUE"sub",
+        supported=lambda api, ch: api.supported(ch, "stream"),
     ),
     ReolinkCameraEntityDescription(
         key="main",
         stream="main",
         REDACTED_VALUE"main",
+        supported=lambda api, ch: api.supported(ch, "stream"),
         entity_registry_enabled_default=False,
     ),
     ReolinkCameraEntityDescription(
         key="snapshots_sub",
         stream="snapshots_sub",
         REDACTED_VALUE"snapshots_sub",
+        supported=lambda api, ch: api.supported(ch, "snapshot"),
         entity_registry_enabled_default=False,
     ),
     ReolinkCameraEntityDescription(
         key="snapshots",
         stream="snapshots_main",
         REDACTED_VALUE"snapshots_main",
+        supported=lambda api, ch: api.supported(ch, "snapshot"),
         entity_registry_enabled_default=False,
     ),
     ReolinkCameraEntityDescription(
