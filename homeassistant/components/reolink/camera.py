@@ -74,6 +74,13 @@ CAMERA_ENTITIES = (
         supported=lambda api, ch: api.supported(ch, "autotrack_stream"),
     ),
     ReolinkCameraEntityDescription(
+        key="autotrack_main",
+        stream="telephoto_main",
+        REDACTED_VALUE"telephoto_main",
+        supported=lambda api, ch: api.supported(ch, "autotrack_stream"),
+        entity_registry_enabled_default=False,
+    ),
+    ReolinkCameraEntityDescription(
         key="autotrack_snapshots_sub",
         stream="autotrack_snapshots_sub",
         REDACTED_VALUE"telephoto_snapshots_sub",
