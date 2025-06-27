@@ -1,0 +1,10 @@
+{
+  "success": true,
+  "data": {
+    "id": "REDACTED_VALUE",
+    "apiToken": "REDACTED_VALUE",
+    "newUser": false,
+    "username": "test-username"
+  },
+  "appVersion": "5.30.0"
+}
