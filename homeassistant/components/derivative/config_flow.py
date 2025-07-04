@@ -94,6 +94,7 @@ async def _get_options_dict(handler: SchemaCommonFlowHandler | None) -> dict:
                 max=6,
                 mode=selector.NumberSelectorMode.BOX,
                 unit_of_measurement="decimals",
+                REDACTED_VALUE"round",
             ),
         ),
         vol.Required(CONF_TIME_WINDOW): selector.DurationSelector(),
