@@ -309,7 +309,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="EnergyEvseSupplyStateSensor",
-            REDACTED_VALUE"evse_supply_charging_state",
+            REDACTED_VALUE"evse_supply_state",
             device_class=BinarySensorDeviceClass.RUNNING,
             device_to_ha={
                 clusters.EnergyEvse.Enums.SupplyStateEnum.kDisabled: False,
