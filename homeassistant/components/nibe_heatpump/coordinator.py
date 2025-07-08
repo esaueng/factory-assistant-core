@@ -143,15 +143,12 @@ class CoilCoordinator(ContextCoordinator[dict[int, CoilData], int]):
         data = CoilData(coil, value)
         try:
             await self.connection.write_coil(data)
-        except WriteDeniedException as e:
-            raise HomeAssistantError(
-                translation_domain=DOMAIN,
-                REDACTED_VALUE"write_denied",
-                translation_placeholders={
-                    "address": str(coil.address),
-                    "value": str(value),
-                },
-            ) from e
+        except WriteDeniedException:
+            LOGGER.debug(
+                "Denied write on address %d with value %s. This is likely already the value the pump has internally",
+                coil.address,
+                value,
+            )
         except WriteTimeoutException as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
