@@ -108,7 +108,9 @@ def _validate(wallbox: Wallbox) -> None:
         wallbox.authenticate()
     except requests.exceptions.HTTPError as wallbox_connection_error:
         if wallbox_connection_error.response.status_code == 403:
-            raise InvalidAuth from wallbox_connection_error
+            raise InvalidAuth(
+                translation_domain=DOMAIN, REDACTED_VALUE"invalid_auth"
+            ) from wallbox_connection_error
         raise ConnectionError from wallbox_connection_error
 
 
