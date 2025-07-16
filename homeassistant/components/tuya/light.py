@@ -242,6 +242,15 @@ LIGHTS: dict[str, tuple[TuyaLightEntityDescription, ...]] = {
             entity_category=EntityCategory.CONFIG,
         ),
     ),
+    # Undocumented tower fan
+    # https://github.com/orgs/home-assistant/discussions/329
+    "ks": (
+        TuyaLightEntityDescription(
+            key=DPCode.LIGHT,
+            REDACTED_VALUE"backlight",
+            entity_category=EntityCategory.CONFIG,
+        ),
+    ),
     # Unknown light product
     # Found as VECINO RGBW as provided by diagnostics
     # Not documented
