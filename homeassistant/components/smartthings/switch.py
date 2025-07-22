@@ -95,6 +95,7 @@ CAPABILITY_TO_SWITCHES: dict[Capability | str, SmartThingsSwitchEntityDescriptio
         status_attribute=Attribute.SWITCH,
         component_REDACTED_VALUE{
             "icemaker": "ice_maker",
+            "icemaker-02": "ice_maker_2",
         },
     ),
     Capability.SAMSUNG_CE_SABBATH_MODE: SmartThingsSwitchEntityDescription(
