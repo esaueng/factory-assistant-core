@@ -320,17 +320,20 @@ SELECTS: dict[str, tuple[SelectEntityDescription, ...]] = {
         SelectEntityDescription(
             key=DPCode.LED_TYPE_1,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"led_type",
+            REDACTED_VALUE"indexed_led_type",
+            translation_placeholders={"index": "1"},
         ),
         SelectEntityDescription(
             key=DPCode.LED_TYPE_2,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"led_type_2",
+            REDACTED_VALUE"indexed_led_type",
+            translation_placeholders={"index": "2"},
         ),
         SelectEntityDescription(
             key=DPCode.LED_TYPE_3,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"led_type_3",
+            REDACTED_VALUE"indexed_led_type",
+            translation_placeholders={"index": "3"},
         ),
     ),
     # Dimmer
@@ -339,12 +342,14 @@ SELECTS: dict[str, tuple[SelectEntityDescription, ...]] = {
         SelectEntityDescription(
             key=DPCode.LED_TYPE_1,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"led_type",
+            REDACTED_VALUE"indexed_led_type",
+            translation_placeholders={"index": "1"},
         ),
         SelectEntityDescription(
             key=DPCode.LED_TYPE_2,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"led_type_2",
+            REDACTED_VALUE"indexed_led_type",
+            translation_placeholders={"index": "2"},
         ),
     ),
 }
