@@ -131,19 +131,31 @@ class TankerkoenigDataUpdateCoordinator(DataUpdateCoordinator[dict[str, PriceInf
                     stations,
                     err,
                 )
-                raise ConfigEntryAuthFailed(err) from err
+                raise ConfigEntryAuthFailed(
+                    translation_domain=DOMAIN,
+                    REDACTED_VALUE"invalid_api_key",
+                ) from err
             except TankerkoenigRateLimitError as err:
                 _LOGGER.warning(
                     "API rate limit reached, consider to increase polling interval"
                 )
-                raise UpdateFailed(err) from err
+                raise UpdateFailed(
+                    translation_domain=DOMAIN,
+                    REDACTED_VALUE"rate_limit_reached",
+                ) from err
             except (TankerkoenigError, TankerkoenigConnectionError) as err:
                 _LOGGER.debug(
                     "error occur during update of stations %s %s",
                     stations,
                     err,
                 )
-                raise UpdateFailed(err) from err
+                raise UpdateFailed(
+                    translation_domain=DOMAIN,
+                    REDACTED_VALUE"station_update_failed",
+                    translation_placeholders={
+                        "station_ids": ", ".join(stations),
+                    },
+                ) from err
 
             prices.update(data)
 
