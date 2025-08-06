@@ -759,6 +759,18 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
+            key=DPCode.SWITCH_5,
+            REDACTED_VALUE"indexed_switch",
+            translation_placeholders={"index": "5"},
+            device_class=SwitchDeviceClass.OUTLET,
+        ),
+        SwitchEntityDescription(
+            key=DPCode.SWITCH_6,
+            REDACTED_VALUE"indexed_switch",
+            translation_placeholders={"index": "6"},
+            device_class=SwitchDeviceClass.OUTLET,
+        ),
+        SwitchEntityDescription(
             key=DPCode.CHILD_LOCK,
             REDACTED_VALUE"child_lock",
             entity_category=EntityCategory.CONFIG,
