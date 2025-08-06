@@ -915,6 +915,13 @@ SENSORS: dict[str, tuple[TuyaSensorEntityDescription, ...]] = {
             REDACTED_VALUE"rolling_brush_life",
             state_class=SensorStateClass.MEASUREMENT,
         ),
+        TuyaSensorEntityDescription(
+            key=DPCode.ELECTRICITY_LEFT,
+            REDACTED_VALUE"battery",
+            device_class=SensorDeviceClass.BATTERY,
+            entity_category=EntityCategory.DIAGNOSTIC,
+            state_class=SensorStateClass.MEASUREMENT,
+        ),
     ),
     # Smart Water Timer
     "sfkzq": (
