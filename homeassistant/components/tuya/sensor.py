@@ -1301,6 +1301,25 @@ SENSORS: dict[str, tuple[TuyaSensorEntityDescription, ...]] = {
         ),
         *BATTERY_SENSORS,
     ),
+    # Tank Level Sensor
+    # Note: Undocumented
+    "ywcgq": (
+        TuyaSensorEntityDescription(
+            key=DPCode.LIQUID_STATE,
+            REDACTED_VALUE"liquid_state",
+        ),
+        TuyaSensorEntityDescription(
+            key=DPCode.LIQUID_DEPTH,
+            REDACTED_VALUE"depth",
+            device_class=SensorDeviceClass.DISTANCE,
+            state_class=SensorStateClass.MEASUREMENT,
+        ),
+        TuyaSensorEntityDescription(
+            key=DPCode.LIQUID_LEVEL_PERCENT,
+            REDACTED_VALUE"liquid_level",
+            state_class=SensorStateClass.MEASUREMENT,
+        ),
+    ),
     # Vibration Sensor
     # https://developer.tuya.com/en/docs/iot/categoryzd?id=Kaiuz3a5vrzno
     "zd": BATTERY_SENSORS,
