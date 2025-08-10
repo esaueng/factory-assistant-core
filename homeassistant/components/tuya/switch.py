@@ -802,6 +802,11 @@ SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
             REDACTED_VALUE"child_lock",
             entity_category=EntityCategory.CONFIG,
         ),
+        SwitchEntityDescription(
+            key=DPCode.FROST,
+            REDACTED_VALUE"frost_protection",
+            entity_category=EntityCategory.CONFIG,
+        ),
     ),
     # Two-way temperature and humidity switch
     # "MOES Temperature and Humidity Smart Switch Module MS-103"
