@@ -1,0 +1,36 @@
+{
+  "data": [
+    {
+      "command": "LOCK_REDUCED_GUARD",
+      "href": "/v2/vehicles/YV1REDACTED_VALUE/commands/lock-reduced-guard"
+    },
+    {
+      "command": "LOCK",
+      "href": "/v2/vehicles/YV1REDACTED_VALUE/commands/lock"
+    },
+    {
+      "command": "UNLOCK",
+      "href": "/v2/vehicles/YV1REDACTED_VALUE/commands/unlock"
+    },
+    {
+      "command": "HONK",
+      "href": "/v2/vehicles/YV1REDACTED_VALUE/commands/honk"
+    },
+    {
+      "command": "HONK_AND_FLASH",
+      "href": "/v2/vehicles/YV1REDACTED_VALUE/commands/honk-flash"
+    },
+    {
+      "command": "FLASH",
+      "href": "/v2/vehicles/YV1REDACTED_VALUE/commands/flash"
+    },
+    {
+      "command": "CLIMATIZATION_START",
+      "href": "/v2/vehicles/YV1REDACTED_VALUE/commands/climatization-start"
+    },
+    {
+      "command": "CLIMATIZATION_STOP",
+      "href": "/v2/vehicles/YV1REDACTED_VALUE/commands/climatization-stop"
+    }
+  ]
+}

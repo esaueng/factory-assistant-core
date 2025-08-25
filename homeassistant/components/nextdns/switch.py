@@ -57,6 +57,12 @@ SWITCHES = (
         state=lambda data: data.anonymized_ecs,
     ),
     NextDnsSwitchEntityDescription(
+        key="bav",
+        REDACTED_VALUE"bypass_age_verification",
+        entity_category=EntityCategory.CONFIG,
+        state=lambda data: data.bav,
+    ),
+    NextDnsSwitchEntityDescription(
         key="logs",
         REDACTED_VALUE"logs",
         entity_category=EntityCategory.CONFIG,

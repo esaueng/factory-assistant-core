@@ -96,7 +96,7 @@ async def _get_paperless_api(
             REDACTED_VALUE"forbidden",
         ) from err
     except InitializationError as err:
-        raise ConfigEntryError(
+        raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
             REDACTED_VALUE"cannot_connect",
         ) from err
