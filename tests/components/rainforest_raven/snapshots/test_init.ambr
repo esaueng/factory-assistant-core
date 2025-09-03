@@ -22,7 +22,6 @@
           'REDACTED_VALUE',
         ),
       }),
-      'is_new': False,
       'labels': set({
       }),
       'manufacturer': 'Rainforest Automation, Inc.',

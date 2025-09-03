@@ -224,6 +224,66 @@ NUMBERS: dict[str, tuple[NumberEntityDescription, ...]] = {
             entity_category=EntityCategory.CONFIG,
         ),
     ),
+    # Smart Water Timer
+    "sfkzq": (
+        # Controls the irrigation duration for the water valve
+        NumberEntityDescription(
+            key=DPCode.COUNTDOWN_1,
+            REDACTED_VALUE"indexed_irrigation_duration",
+            translation_placeholders={"index": "1"},
+            device_class=NumberDeviceClass.DURATION,
+            entity_category=EntityCategory.CONFIG,
+        ),
+        NumberEntityDescription(
+            key=DPCode.COUNTDOWN_2,
+            REDACTED_VALUE"indexed_irrigation_duration",
+            translation_placeholders={"index": "2"},
+            device_class=NumberDeviceClass.DURATION,
+            entity_category=EntityCategory.CONFIG,
+        ),
+        NumberEntityDescription(
+            key=DPCode.COUNTDOWN_3,
+            REDACTED_VALUE"indexed_irrigation_duration",
+            translation_placeholders={"index": "3"},
+            device_class=NumberDeviceClass.DURATION,
+            entity_category=EntityCategory.CONFIG,
+        ),
+        NumberEntityDescription(
+            key=DPCode.COUNTDOWN_4,
+            REDACTED_VALUE"indexed_irrigation_duration",
+            translation_placeholders={"index": "4"},
+            device_class=NumberDeviceClass.DURATION,
+            entity_category=EntityCategory.CONFIG,
+        ),
+        NumberEntityDescription(
+            key=DPCode.COUNTDOWN_5,
+            REDACTED_VALUE"indexed_irrigation_duration",
+            translation_placeholders={"index": "5"},
+            device_class=NumberDeviceClass.DURATION,
+            entity_category=EntityCategory.CONFIG,
+        ),
+        NumberEntityDescription(
+            key=DPCode.COUNTDOWN_6,
+            REDACTED_VALUE"indexed_irrigation_duration",
+            translation_placeholders={"index": "6"},
+            device_class=NumberDeviceClass.DURATION,
+            entity_category=EntityCategory.CONFIG,
+        ),
+        NumberEntityDescription(
+            key=DPCode.COUNTDOWN_7,
+            REDACTED_VALUE"indexed_irrigation_duration",
+            translation_placeholders={"index": "7"},
+            device_class=NumberDeviceClass.DURATION,
+            entity_category=EntityCategory.CONFIG,
+        ),
+        NumberEntityDescription(
+            key=DPCode.COUNTDOWN_8,
+            REDACTED_VALUE"indexed_irrigation_duration",
+            translation_placeholders={"index": "8"},
+            device_class=NumberDeviceClass.DURATION,
+            entity_category=EntityCategory.CONFIG,
+        ),
+    ),
     # Siren Alarm
     # https://developer.tuya.com/en/docs/iot/categorysgbj?id=Kaiuz37tlpbnu
     "sgbj": (
@@ -336,6 +396,32 @@ NUMBERS: dict[str, tuple[NumberEntityDescription, ...]] = {
         NumberEntityDescription(
             key=DPCode.TEMP_CORRECTION,
             REDACTED_VALUE"temp_correction",
+            entity_category=EntityCategory.CONFIG,
+        ),
+    ),
+    # Tank Level Sensor
+    # Note: Undocumented
+    "ywcgq": (
+        NumberEntityDescription(
+            key=DPCode.MAX_SET,
+            REDACTED_VALUE"alarm_maximum",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        NumberEntityDescription(
+            key=DPCode.MINI_SET,
+            REDACTED_VALUE"alarm_minimum",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        NumberEntityDescription(
+            key=DPCode.INSTALLATION_HEIGHT,
+            REDACTED_VALUE"installation_height",
+            device_class=NumberDeviceClass.DISTANCE,
+            entity_category=EntityCategory.CONFIG,
+        ),
+        NumberEntityDescription(
+            key=DPCode.LIQUID_DEPTH_MAX,
+            REDACTED_VALUE"maximum_liquid_depth",
+            device_class=NumberDeviceClass.DISTANCE,
             entity_category=EntityCategory.CONFIG,
         ),
     ),

@@ -56,24 +56,28 @@ SENSOR_STATISTICS: tuple[PaperlessEntityDescription[Statistic], ...] = (
         REDACTED_VALUE"characters_count",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data.character_count,
+        entity_registry_enabled_default=False,
     ),
     PaperlessEntityDescription[Statistic](
         key="tag_count",
         REDACTED_VALUE"tag_count",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data.tag_count,
+        entity_registry_enabled_default=False,
     ),
     PaperlessEntityDescription[Statistic](
         key="correspondent_count",
         REDACTED_VALUE"correspondent_count",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data.correspondent_count,
+        entity_registry_enabled_default=False,
     ),
     PaperlessEntityDescription[Statistic](
         key="document_type_count",
         REDACTED_VALUE"document_type_count",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data.document_type_count,
+        entity_registry_enabled_default=False,
     ),
 )
 
@@ -141,6 +145,7 @@ SENSOR_STATUS: tuple[PaperlessEntityDescription[Status], ...] = (
         REDACTED_VALUE"index_status",
         device_class=SensorDeviceClass.ENUM,
         entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
         options=[
             item.value.lower() for item in StatusType if item != StatusType.UNKNOWN
         ],
@@ -159,6 +164,7 @@ SENSOR_STATUS: tuple[PaperlessEntityDescription[Status], ...] = (
         REDACTED_VALUE"classifier_status",
         device_class=SensorDeviceClass.ENUM,
         entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
         options=[
             item.value.lower() for item in StatusType if item != StatusType.UNKNOWN
         ],
@@ -177,6 +183,7 @@ SENSOR_STATUS: tuple[PaperlessEntityDescription[Status], ...] = (
         REDACTED_VALUE"celery_status",
         device_class=SensorDeviceClass.ENUM,
         entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
         options=[
             item.value.lower() for item in StatusType if item != StatusType.UNKNOWN
         ],
