@@ -382,10 +382,6 @@ SENSORS: dict[tuple[str, str], BlockSensorDescription] = {
         REDACTED_VALUE"lamp_life",
         value=get_shelly_air_lamp_life,
         suggested_display_precision=1,
-        # Deprecated, remove in 2025.10
-        extra_state_attributes=lambda block: {
-            "Operational hours": round(cast(int, block.totalWorkTime) / 3600, 1)
-        },
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     ("adc", "adc"): BlockSensorDescription(
@@ -403,8 +399,6 @@ SENSORS: dict[tuple[str, str], BlockSensorDescription] = {
         options=["warmup", "normal", "fault"],
         REDACTED_VALUE"operation",
         value=lambda value: None if value == "unknown" else value,
-        # Deprecated, remove in 2025.10
-        extra_state_attributes=lambda block: {"self_test": block.selfTest},
     ),
     ("valve", "valve"): BlockSensorDescription(
         key="valve|valve",
