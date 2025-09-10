@@ -634,8 +634,8 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="NitrogenDioxideSensor",
+            REDACTED_VALUE"nitrogen_dioxide",
             native_unit_of_measurement=CONCENTRATION_PARTS_PER_MILLION,
-            device_class=SensorDeviceClass.NITROGEN_DIOXIDE,
             state_class=SensorStateClass.MEASUREMENT,
         ),
         entity_class=MatterSensor,
