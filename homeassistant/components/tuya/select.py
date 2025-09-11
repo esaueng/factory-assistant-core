@@ -78,21 +78,20 @@ SELECTS: dict[str, tuple[SelectEntityDescription, ...]] = {
     "dr": (
         SelectEntityDescription(
             key=DPCode.LEVEL,
-            name="Level",
             icon="mdi:thermometer-lines",
             REDACTED_VALUE"blanket_level",
         ),
         SelectEntityDescription(
             key=DPCode.LEVEL_1,
-            name="Side A Level",
             icon="mdi:thermometer-lines",
-            REDACTED_VALUE"blanket_level",
+            REDACTED_VALUE"indexed_blanket_level",
+            translation_placeholders={"index": "1"},
         ),
         SelectEntityDescription(
             key=DPCode.LEVEL_2,
-            name="Side B Level",
             icon="mdi:thermometer-lines",
-            REDACTED_VALUE"blanket_level",
+            REDACTED_VALUE"indexed_blanket_level",
+            translation_placeholders={"index": "2"},
         ),
     ),
     # Fan
