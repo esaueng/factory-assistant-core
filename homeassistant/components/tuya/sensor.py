@@ -1161,6 +1161,21 @@ SENSORS: dict[str, tuple[TuyaSensorEntityDescription, ...]] = {
             state_class=SensorStateClass.MEASUREMENT,
         ),
     ),
+    # Water tester
+    "szjcy": (
+        TuyaSensorEntityDescription(
+            key=DPCode.TDS_IN,
+            REDACTED_VALUE"total_dissolved_solids",
+            state_class=SensorStateClass.MEASUREMENT,
+        ),
+        TuyaSensorEntityDescription(
+            key=DPCode.TEMP_CURRENT,
+            REDACTED_VALUE"temperature",
+            device_class=SensorDeviceClass.TEMPERATURE,
+            state_class=SensorStateClass.MEASUREMENT,
+        ),
+        *BATTERY_SENSORS,
+    ),
     # Fingerbot
     "szjqr": BATTERY_SENSORS,
     # IoT Switch
