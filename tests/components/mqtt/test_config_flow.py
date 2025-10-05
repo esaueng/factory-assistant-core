@@ -4716,6 +4716,7 @@ async def test_subentry_reconfigure_update_device_properties(
             "advanced_settings": {"sw_version": "1.1"},
             "model": "Beer bottle XL",
             "model_id": "bn003",
+            "manufacturer": "Beer Masters",
             "configuration_url": "https://example.com",
             "mqtt_settings": {"qos": 1},
         },
@@ -4738,6 +4739,7 @@ async def test_subentry_reconfigure_update_device_properties(
     assert device["model"] == "Beer bottle XL"
     assert device["model_id"] == "bn003"
     assert device["sw_version"] == "1.1"
+    assert device["manufacturer"] == "Beer Masters"
     assert device["mqtt_settings"]["qos"] == 1
     assert "qos" not in device
 
