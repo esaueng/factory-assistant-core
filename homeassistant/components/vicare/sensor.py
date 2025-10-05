@@ -721,6 +721,13 @@ GLOBAL_SENSORS: tuple[ViCareSensorEntityDescription, ...] = (
         value_getter=lambda api: api.getElectricalEnergySystemOperationState(),
     ),
     ViCareSensorEntityDescription(
+        key="ess_charge_total",
+        REDACTED_VALUE"ess_charge_total",
+        state_class=SensorStateClass.TOTAL_INCREASING,
+        value_getter=lambda api: api.getElectricalEnergySystemTransferChargeCumulatedLifeCycle(),
+        unit_getter=lambda api: api.getElectricalEnergySystemTransferChargeCumulatedUnit(),
+    ),
+    ViCareSensorEntityDescription(
         key="ess_discharge_today",
         REDACTED_VALUE"ess_discharge_today",
         state_class=SensorStateClass.TOTAL_INCREASING,
