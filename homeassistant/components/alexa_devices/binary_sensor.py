@@ -18,7 +18,9 @@ from homeassistant.components.binary_sensor import (
 from homeassistant.const import EntityCategory
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
+import homeassistant.helpers.entity_registry as er
 
+from .const import _LOGGER, DOMAIN
 from .coordinator import AmazonConfigEntry
 from .entity import AmazonEntity
 from .utils import async_update_unique_id
@@ -58,6 +60,40 @@ BINARY_SENSORS: Final = (
     ),
 )
 
+DEPRECATED_BINARY_SENSORS: Final = (
+    AmazonBinarySensorEntityDescription(
+        key="bluetooth",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        REDACTED_VALUE"bluetooth",
+        is_on_fn=lambda device, key: False,
+    ),
+    AmazonBinarySensorEntityDescription(
+        key="babyCryDetectionState",
+        REDACTED_VALUE"baby_cry_detection",
+        is_on_fn=lambda device, key: False,
+    ),
+    AmazonBinarySensorEntityDescription(
+        key="beepingApplianceDetectionState",
+        REDACTED_VALUE"beeping_appliance_detection",
+        is_on_fn=lambda device, key: False,
+    ),
+    AmazonBinarySensorEntityDescription(
+        key="coughDetectionState",
+        REDACTED_VALUE"cough_detection",
+        is_on_fn=lambda device, key: False,
+    ),
+    AmazonBinarySensorEntityDescription(
+        key="dogBarkDetectionState",
+        REDACTED_VALUE"dog_bark_detection",
+        is_on_fn=lambda device, key: False,
+    ),
+    AmazonBinarySensorEntityDescription(
+        key="waterSoundsDetectionState",
+        REDACTED_VALUE"water_sounds_detection",
+        is_on_fn=lambda device, key: False,
+    ),
+)
+
 
 async def async_setup_entry(
     hass: HomeAssistant,
@@ -68,6 +104,8 @@ async def async_setup_entry(
 
     coordinator = entry.runtime_data
 
+    entity_registry = er.async_get(hass)
+
     # Replace unique id for "detectionState" binary sensor
     await async_update_unique_id(
         hass,
@@ -76,6 +114,16 @@ async def async_setup_entry(
         "humanPresenceDetectionState",
         "detectionState",
     )
+
+    # Clean up deprecated sensors
+    for sensor_desc in DEPRECATED_BINARY_SENSORS:
+        for serial_num in coordinator.data:
+            unique_id = f"{serial_num}-{sensor_desc.key}"
+            if entity_id := entity_registry.async_get_entity_id(
+                BINARY_SENSOR_DOMAIN, DOMAIN, unique_id
+            ):
+                _LOGGER.debug("Removing deprecated entity %s", entity_id)
+                entity_registry.async_remove(entity_id)
 
     known_devices: set[str] = set()
 
