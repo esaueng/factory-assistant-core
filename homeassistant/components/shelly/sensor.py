@@ -1658,6 +1658,50 @@ RPC_SENSORS: Final = {
         state_class=SensorStateClass.MEASUREMENT,
         role="phase_info",
     ),
+    "cury_left_level": RpcSensorDescription(
+        key="cury",
+        sub_key="slots",
+        name="Left slot level",
+        REDACTED_VALUE"vial_level",
+        value=lambda status, _: status["left"]["vial"]["level"],
+        state_class=SensorStateClass.MEASUREMENT,
+        native_unit_of_measurement=PERCENTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        available=lambda status: (left := status["left"]) is not None
+        and left.get("vial", {}).get("level", -1) != -1,
+    ),
+    "cury_left_vial": RpcSensorDescription(
+        key="cury",
+        sub_key="slots",
+        name="Left slot vial",
+        REDACTED_VALUE"vial_name",
+        value=lambda status, _: status["left"]["vial"]["name"],
+        entity_category=EntityCategory.DIAGNOSTIC,
+        available=lambda status: (left := status["left"]) is not None
+        and left.get("vial", {}).get("level", -1) != -1,
+    ),
+    "cury_right_level": RpcSensorDescription(
+        key="cury",
+        sub_key="slots",
+        name="Right slot level",
+        REDACTED_VALUE"vial_level",
+        value=lambda status, _: status["right"]["vial"]["level"],
+        state_class=SensorStateClass.MEASUREMENT,
+        native_unit_of_measurement=PERCENTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        available=lambda status: (right := status["right"]) is not None
+        and right.get("vial", {}).get("level", -1) != -1,
+    ),
+    "cury_right_vial": RpcSensorDescription(
+        key="cury",
+        sub_key="slots",
+        name="Right slot vial",
+        REDACTED_VALUE"vial_name",
+        value=lambda status, _: status["right"]["vial"]["name"],
+        entity_category=EntityCategory.DIAGNOSTIC,
+        available=lambda status: (right := status["right"]) is not None
+        and right.get("vial", {}).get("level", -1) != -1,
+    ),
 }
 
 
