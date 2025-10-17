@@ -944,6 +944,23 @@ GLOBAL_SENSORS: tuple[ViCareSensorEntityDescription, ...] = (
         value_getter=lambda api: api.getBatteryLevel(),
     ),
     ViCareSensorEntityDescription(
+        key="zigbee_signal_strength",
+        REDACTED_VALUE"zigbee_signal_strength",
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        native_unit_of_measurement=PERCENTAGE,
+        value_getter=lambda api: api.getZigbeeSignalStrength(),
+        entity_registry_enabled_default=False,
+    ),
+    ViCareSensorEntityDescription(
+        key="valve_position",
+        REDACTED_VALUE"valve_position",
+        state_class=SensorStateClass.MEASUREMENT,
+        native_unit_of_measurement=PERCENTAGE,
+        value_getter=lambda api: api.getValvePosition(),
+        entity_registry_enabled_default=False,
+    ),
+    ViCareSensorEntityDescription(
         key="fuel_need",
         REDACTED_VALUE"fuel_need",
         state_class=SensorStateClass.MEASUREMENT,
