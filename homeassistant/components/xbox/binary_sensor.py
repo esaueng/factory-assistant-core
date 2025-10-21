@@ -27,6 +27,7 @@ class XboxBinarySensor(StrEnum):
     IN_PARTY = "in_party"
     IN_GAME = "in_game"
     IN_MULTIPLAYER = "in_multiplayer"
+    HAS_GAME_PASS = "has_game_pass"
 
 
 @dataclass(kw_only=True, frozen=True)
@@ -78,6 +79,11 @@ SENSOR_DESCRIPTIONS: tuple[XboxBinarySensorEntityDescription, ...] = (
         REDACTED_VALUEXboxBinarySensor.IN_MULTIPLAYER,
         is_on_fn=lambda x: x.in_multiplayer,
         entity_registry_enabled_default=False,
+    ),
+    XboxBinarySensorEntityDescription(
+        key=XboxBinarySensor.HAS_GAME_PASS,
+        REDACTED_VALUEXboxBinarySensor.HAS_GAME_PASS,
+        is_on_fn=lambda x: x.has_game_pass,
     ),
 )
 
