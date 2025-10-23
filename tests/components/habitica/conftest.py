@@ -30,6 +30,7 @@ from habiticalib import (
 import pytest
 
 from homeassistant.components.habitica.const import CONF_API_USER, DEFAULT_URL, DOMAIN
+from homeassistant.config_entries import ConfigSubentryData
 from homeassistant.const import CONF_API_KEY, CONF_URL
 from homeassistant.core import HomeAssistant
 
@@ -56,6 +57,30 @@ def mock_config_entry() -> MockConfigEntry:
             CONF_API_KEY: "REDACTED_VALUE",
         },
         unique_id="REDACTED_VALUE",
+    )
+
+
+@pytest.fixture(name="config_entry_with_subentry")
+def mock_config_entry_with_subentry() -> MockConfigEntry:
+    """Mock Habitica configuration entry."""
+    return MockConfigEntry(
+        domain=DOMAIN,
+        title="test-user",
+        data={
+            CONF_URL: DEFAULT_URL,
+            CONF_API_USER: "REDACTED_VALUE",
+            CONF_API_KEY: "REDACTED_VALUE",
+        },
+        unique_id="REDACTED_VALUE",
+        subentries_data=[
+            ConfigSubentryData(
+                data={},
+                subentry_id="ABCDEF",
+                subentry_type="party_member",
+                title="test-partymember-displayname",
+                unique_id="ffce870c-3ff3-4fa4-bad1-87612e52b8e7",
+            )
+        ],
     )
 
 
