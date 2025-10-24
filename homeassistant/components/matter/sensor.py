@@ -1148,6 +1148,19 @@ DISCOVERY_SCHEMAS = [
     MatterDiscoverySchema(
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
+            key="ThermostatPIHeatingDemand",
+            REDACTED_VALUE"pi_heating_demand",
+            native_unit_of_measurement=PERCENTAGE,
+            entity_category=EntityCategory.DIAGNOSTIC,
+        ),
+        entity_class=MatterSensor,
+        required_attributes=(clusters.Thermostat.Attributes.PIHeatingDemand,),
+        device_type=(device_types.Thermostat,),
+        featuremap_contains=clusters.Thermostat.Bitmaps.Feature.kHeating,
+    ),
+    MatterDiscoverySchema(
+        platform=Platform.SENSOR,
+        entity_description=MatterSensorEntityDescription(
             key="ThermostatOutdoorTemperature",
             REDACTED_VALUE"outdoor_temperature",
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
