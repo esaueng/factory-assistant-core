@@ -147,7 +147,7 @@ SENSORS: tuple[StarlinkSensorEntityDescription, ...] = (
     ),
     StarlinkSensorEntityDescription(
         key="last_boot_time",
-        REDACTED_VALUE"last_boot_time",
+        REDACTED_VALUE"last_restart",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: (
