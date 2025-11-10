@@ -240,6 +240,13 @@ LIGHTS: dict[DeviceCategory, tuple[TuyaLightEntityDescription, ...]] = {
             color_data=DPCode.COLOUR_DATA,
         ),
     ),
+    DeviceCategory.MSP: (
+        TuyaLightEntityDescription(
+            key=DPCode.LIGHT,
+            REDACTED_VALUE"light",
+            entity_category=EntityCategory.CONFIG,
+        ),
+    ),
     DeviceCategory.QJDCZ: (
         TuyaLightEntityDescription(
             key=DPCode.SWITCH_LED,
