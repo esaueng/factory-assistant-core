@@ -189,7 +189,7 @@ class BryantEvolutionClimate(ClimateEntity):
                     return HVACAction.HEATING
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"failed_to_parse_hvac_mode",
+            REDACTED_VALUE"failed_to_parse_hvac_action",
             translation_placeholders={
                 "mode_and_active": mode_and_active,
                 "current_temperature": str(self.current_temperature),
