@@ -208,6 +208,11 @@ SELECTS: dict[DeviceCategory, tuple[SelectEntityDescription, ...]] = {
     ),
     DeviceCategory.SGBJ: (
         SelectEntityDescription(
+            key=DPCode.ALARM_STATE,
+            REDACTED_VALUE"siren_mode",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        SelectEntityDescription(
             key=DPCode.ALARM_VOLUME,
             REDACTED_VALUE"volume",
             entity_category=EntityCategory.CONFIG,
