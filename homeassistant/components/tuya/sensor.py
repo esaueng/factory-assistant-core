@@ -851,10 +851,15 @@ SENSORS: dict[DeviceCategory, tuple[TuyaSensorEntityDescription, ...]] = {
             key=DPCode.EXCRETION_TIME_DAY,
             REDACTED_VALUE"excretion_time_day",
             device_class=SensorDeviceClass.DURATION,
+            state_class=SensorStateClass.MEASUREMENT,
         ),
         TuyaSensorEntityDescription(
             key=DPCode.EXCRETION_TIMES_DAY,
             REDACTED_VALUE"excretion_times_day",
+        ),
+        TuyaSensorEntityDescription(
+            key=DPCode.STATUS,
+            REDACTED_VALUE"cat_litter_box_status",
         ),
     ),
     DeviceCategory.MZJ: (
