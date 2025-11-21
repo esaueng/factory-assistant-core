@@ -129,6 +129,9 @@ CAPABILITY_TO_SENSORS: dict[
             key=Attribute.REMOTE_CONTROL_ENABLED,
             REDACTED_VALUE"remote_control",
             is_on_key="true",
+            component_REDACTED_VALUE{
+                "sub": "sub_remote_control",
+            },
         )
     },
     Capability.SOUND_SENSOR: {
