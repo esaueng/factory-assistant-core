@@ -54,3 +54,6 @@ def get_bluetooth_service_info(model: ModelName, serial: str) -> BluetoothServic
         service_uuids=[],
         source="local",
     )
+
+
+MOCK_INSTALLATION_KEY = '{"secret": "REDACTED_VALUE", "private_key": "REDACTED_VALUE", "installation_id": "4e966f3f-2abc-49c4-a362-3cd3346f1a87"}'

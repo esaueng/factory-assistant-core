@@ -24,6 +24,7 @@ from homeassistant.components.binary_sensor import (
     BinarySensorEntity,
     BinarySensorEntityDescription,
 )
+from homeassistant.const import EntityCategory
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 
@@ -116,6 +117,37 @@ GLOBAL_SENSORS: tuple[ViCareBinarySensorEntityDescription, ...] = (
         key="device_error",
         device_class=BinarySensorDeviceClass.PROBLEM,
         value_getter=lambda api: len(api.getDeviceErrors()) > 0,
+    ),
+    ViCareBinarySensorEntityDescription(
+        key="identification_mode",
+        REDACTED_VALUE"identification_mode",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        value_getter=lambda api: api.getIdentification(),
+        entity_registry_enabled_default=False,
+    ),
+    ViCareBinarySensorEntityDescription(
+        key="mounting_mode",
+        REDACTED_VALUE"mounting_mode",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        value_getter=lambda api: api.getMountingMode(),
+        entity_registry_enabled_default=False,
+    ),
+    ViCareBinarySensorEntityDescription(
+        key="child_safety_lock_mode",
+        REDACTED_VALUE"child_safety_lock_mode",
+        value_getter=lambda api: api.getChildLock() == "active",
+        entity_registry_enabled_default=False,
+    ),
+    ViCareBinarySensorEntityDescription(
+        key="valve",
+        REDACTED_VALUE"valve",
+        device_class=BinarySensorDeviceClass.DOOR,
+        value_getter=lambda api: api.isValveOpen(),
+    ),
+    ViCareBinarySensorEntityDescription(
+        key="ventilation_frost_protection",
+        REDACTED_VALUE"ventilation_frost_protection",
+        value_getter=lambda api: api.getHeatExchangerFrostProtectionActive(),
     ),
 )
 
