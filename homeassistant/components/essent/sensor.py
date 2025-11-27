@@ -102,6 +102,7 @@ SENSORS: tuple[EssentSensorEntityDescription, ...] = (
         key="average_today",
         REDACTED_VALUE"average_today",
         value_fn=lambda energy_data: energy_data.avg_price,
+        energy_types=(EnergyType.ELECTRICITY,),
     ),
     EssentSensorEntityDescription(
         key="lowest_price_today",
