@@ -532,6 +532,39 @@
       "oven_setpoint": {
         "name": "Setpoint"
       },
+      "REDACTED_VALUE": {
+        "name": "PM10 health concern",
+        "state": {
+          "good": "[%key:component::smartthings::entity::sensor::REDACTED_VALUE::state::good%]",
+          "hazardous": "[%key:component::smartthings::entity::sensor::REDACTED_VALUE::state::hazardous%]",
+          "moderate": "[%key:component::smartthings::entity::sensor::REDACTED_VALUE::state::moderate%]",
+          "slightly_unhealthy": "[%key:component::smartthings::entity::sensor::REDACTED_VALUE::state::slightly_unhealthy%]",
+          "unhealthy": "[%key:component::smartthings::entity::sensor::REDACTED_VALUE::state::unhealthy%]",
+          "very_unhealthy": "[%key:component::smartthings::entity::sensor::REDACTED_VALUE::state::very_unhealthy%]"
+        }
+      },
+      "REDACTED_VALUE": {
+        "name": "PM1 health concern",
+        "state": {
+          "good": "[%key:component::smartthings::entity::sensor::REDACTED_VALUE::state::good%]",
+          "hazardous": "[%key:component::smartthings::entity::sensor::REDACTED_VALUE::state::hazardous%]",
+          "moderate": "[%key:component::smartthings::entity::sensor::REDACTED_VALUE::state::moderate%]",
+          "slightly_unhealthy": "[%key:component::smartthings::entity::sensor::REDACTED_VALUE::state::slightly_unhealthy%]",
+          "unhealthy": "[%key:component::smartthings::entity::sensor::REDACTED_VALUE::state::unhealthy%]",
+          "very_unhealthy": "[%key:component::smartthings::entity::sensor::REDACTED_VALUE::state::very_unhealthy%]"
+        }
+      },
+      "REDACTED_VALUE": {
+        "name": "PM2.5 health concern",
+        "state": {
+          "good": "Good",
+          "hazardous": "Hazardous",
+          "moderate": "Moderate",
+          "slightly_unhealthy": "Slightly unhealthy",
+          "unhealthy": "Unhealthy",
+          "very_unhealthy": "Very unhealthy"
+        }
+      },
       "power_energy": {
         "name": "Power energy"
       },
