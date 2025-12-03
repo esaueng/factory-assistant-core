@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 import logging
 from typing import TYPE_CHECKING
 
@@ -10,36 +11,61 @@ from homeassistant.components.sensor import (
     SensorEntity,
     SensorEntityDescription,
 )
-from homeassistant.const import EntityCategory, UnitOfElectricPotential, UnitOfTime
+from homeassistant.const import (
+    CONCENTRATION_PARTS_PER_MILLION,
+    EntityCategory,
+    UnitOfElectricPotential,
+    UnitOfTime,
+)
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 
 from . import PooldoseConfigEntry
+from .const import UNIT_MAPPING
 from .entity import PooldoseEntity
 
 _LOGGER = logging.getLogger(__name__)
 
-SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
-    SensorEntityDescription(
+
+@dataclass(frozen=True, kw_only=True)
+class PooldoseSensorEntityDescription(SensorEntityDescription):
+    """Describes PoolDose sensor entity."""
+
+    use_dynamic_unit: bool = False
+
+
+SENSOR_DESCRIPTIONS: tuple[PooldoseSensorEntityDescription, ...] = (
+    PooldoseSensorEntityDescription(
         key="temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
-        # Unit dynamically determined via API
+        use_dynamic_unit=True,
     ),
-    SensorEntityDescription(key="ph", device_class=SensorDeviceClass.PH),
-    SensorEntityDescription(
+    PooldoseSensorEntityDescription(key="ph", device_class=SensorDeviceClass.PH),
+    PooldoseSensorEntityDescription(
         key="orp",
         REDACTED_VALUE"orp",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
     ),
-    SensorEntityDescription(
+    PooldoseSensorEntityDescription(
+        key="cl",
+        REDACTED_VALUE"cl",
+        native_unit_of_measurement=CONCENTRATION_PARTS_PER_MILLION,
+    ),
+    PooldoseSensorEntityDescription(
+        key="flow_rate",
+        REDACTED_VALUE"flow_rate",
+        device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
+        use_dynamic_unit=True,
+    ),
+    PooldoseSensorEntityDescription(
         key="ph_type_dosing",
         REDACTED_VALUE"ph_type_dosing",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.ENUM,
         options=["alcalyne", "acid"],
     ),
-    SensorEntityDescription(
+    PooldoseSensorEntityDescription(
         key="peristaltic_ph_dosing",
         REDACTED_VALUE"peristaltic_ph_dosing",
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -47,15 +73,15 @@ SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
         device_class=SensorDeviceClass.ENUM,
         options=["proportional", "on_off", "timed"],
     ),
-    SensorEntityDescription(
-        key="ofa_ph_value",
-        REDACTED_VALUE"ofa_ph_value",
+    PooldoseSensorEntityDescription(
+        key="ofa_ph_time",
+        REDACTED_VALUE"ofa_ph_time",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.DURATION,
         entity_registry_enabled_default=False,
         native_unit_of_measurement=UnitOfTime.MINUTES,
     ),
-    SensorEntityDescription(
+    PooldoseSensorEntityDescription(
         key="orp_type_dosing",
         REDACTED_VALUE"orp_type_dosing",
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -63,7 +89,7 @@ SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
         device_class=SensorDeviceClass.ENUM,
         options=["low", "high"],
     ),
-    SensorEntityDescription(
+    PooldoseSensorEntityDescription(
         key="peristaltic_orp_dosing",
         REDACTED_VALUE"peristaltic_orp_dosing",
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -71,15 +97,31 @@ SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
         device_class=SensorDeviceClass.ENUM,
         options=["off", "proportional", "on_off", "timed"],
     ),
-    SensorEntityDescription(
-        key="ofa_orp_value",
-        REDACTED_VALUE"ofa_orp_value",
+    PooldoseSensorEntityDescription(
+        key="cl_type_dosing",
+        REDACTED_VALUE"cl_type_dosing",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+        device_class=SensorDeviceClass.ENUM,
+        options=["low", "high"],
+    ),
+    PooldoseSensorEntityDescription(
+        key="peristaltic_cl_dosing",
+        REDACTED_VALUE"peristaltic_cl_dosing",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+        device_class=SensorDeviceClass.ENUM,
+        options=["off", "proportional", "on_off", "timed"],
+    ),
+    PooldoseSensorEntityDescription(
+        key="ofa_orp_time",
+        REDACTED_VALUE"ofa_orp_time",
         device_class=SensorDeviceClass.DURATION,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         native_unit_of_measurement=UnitOfTime.MINUTES,
     ),
-    SensorEntityDescription(
+    PooldoseSensorEntityDescription(
         key="ph_calibration_type",
         REDACTED_VALUE"ph_calibration_type",
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -87,7 +129,7 @@ SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
         device_class=SensorDeviceClass.ENUM,
         options=["off", "reference", "1_point", "2_points"],
     ),
-    SensorEntityDescription(
+    PooldoseSensorEntityDescription(
         key="ph_calibration_offset",
         REDACTED_VALUE"ph_calibration_offset",
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -96,7 +138,7 @@ SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
         entity_registry_enabled_default=False,
         native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
     ),
-    SensorEntityDescription(
+    PooldoseSensorEntityDescription(
         key="ph_calibration_slope",
         REDACTED_VALUE"ph_calibration_slope",
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -105,7 +147,7 @@ SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
         entity_registry_enabled_default=False,
         native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
     ),
-    SensorEntityDescription(
+    PooldoseSensorEntityDescription(
         key="orp_calibration_type",
         REDACTED_VALUE"orp_calibration_type",
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -113,7 +155,7 @@ SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
         device_class=SensorDeviceClass.ENUM,
         options=["off", "reference", "1_point"],
     ),
-    SensorEntityDescription(
+    PooldoseSensorEntityDescription(
         key="orp_calibration_offset",
         REDACTED_VALUE"orp_calibration_offset",
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -122,7 +164,7 @@ SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
         entity_registry_enabled_default=False,
         native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
     ),
-    SensorEntityDescription(
+    PooldoseSensorEntityDescription(
         key="orp_calibration_slope",
         REDACTED_VALUE"orp_calibration_slope",
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -163,6 +205,8 @@ async def async_setup_entry(
 class PooldoseSensor(PooldoseEntity, SensorEntity):
     """Sensor entity for the Seko PoolDose Python API."""
 
+    entity_description: PooldoseSensorEntityDescription
+
     @property
     def native_value(self) -> float | int | str | None:
         """Return the current value of the sensor."""
@@ -175,9 +219,12 @@ class PooldoseSensor(PooldoseEntity, SensorEntity):
     def native_unit_of_measurement(self) -> str | None:
         """Return the unit of measurement."""
         if (
-            self.entity_description.key == "temperature"
+            self.entity_description.use_dynamic_unit
             and (data := self.get_data()) is not None
+            and (device_unit := data.get("unit"))
         ):
-            return data["unit"]  # °C or °F
+            # Map device unit to Home Assistant unit, return None if unknown
+            return UNIT_MAPPING.get(device_unit)
 
+        # Fall back to static unit from entity description
         return super().native_unit_of_measurement
