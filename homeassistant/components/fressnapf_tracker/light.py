@@ -17,6 +17,8 @@ from . import FressnapfTrackerConfigEntry
 from .const import DOMAIN
 from .entity import FressnapfTrackerEntity
 
+PARALLEL_UPDATES = 1
+
 LIGHT_ENTITY_DESCRIPTION = LightEntityDescription(
     REDACTED_VALUE"led",
     entity_category=EntityCategory.CONFIG,
