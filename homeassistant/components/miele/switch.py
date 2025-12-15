@@ -58,7 +58,7 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
         description=MieleSwitchDescription(
             key="supercooling",
             value_fn=lambda value: value.state_status,
-            on_value=StateStatus.SUPERCOOLING,
+            on_value=StateStatus.supercooling,
             REDACTED_VALUE"supercooling",
             on_cmd_data={PROCESS_ACTION: MieleActions.START_SUPERCOOL},
             off_cmd_data={PROCESS_ACTION: MieleActions.STOP_SUPERCOOL},
@@ -73,7 +73,7 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
         description=MieleSwitchDescription(
             key="superfreezing",
             value_fn=lambda value: value.state_status,
-            on_value=StateStatus.SUPERFREEZING,
+            on_value=StateStatus.superfreezing,
             REDACTED_VALUE"superfreezing",
             on_cmd_data={PROCESS_ACTION: MieleActions.START_SUPERFREEZE},
             off_cmd_data={PROCESS_ACTION: MieleActions.STOP_SUPERFREEZE},
