@@ -638,7 +638,6 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SELECT,
         entity_description=MatterMapSelectEntityDescription(
             key="DoorLockOperatingMode",
-            entity_category=EntityCategory.CONFIG,
             REDACTED_VALUE"door_lock_operating_mode",
             list_attribute=clusters.DoorLock.Attributes.SupportedOperatingModes,
             device_to_ha=DOOR_LOCK_OPERATING_MODE_MAP.get,
