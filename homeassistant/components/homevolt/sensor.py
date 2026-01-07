@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import logging
+from homevolt.models import SensorType
+
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -35,388 +37,69 @@ PARALLEL_UPDATES = 0  # Coordinator-based updates
 
 SENSORS: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
-        key="l1_voltage",
-        REDACTED_VALUE"l1_voltage",
-        device_class=SensorDeviceClass.VOLTAGE,
+        key=SensorType.COUNT,
         state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        native_unit_of_measurement="N",
     ),
     SensorEntityDescription(
-        key="l2_voltage",
-        REDACTED_VALUE"l2_voltage",
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        key=SensorType.ENERGY_TOTAL,
+        device_class=SensorDeviceClass.ENERGY,
+        state_class=SensorStateClass.TOTAL,
+        native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
     ),
     SensorEntityDescription(
-        key="l3_voltage",
-        REDACTED_VALUE"l3_voltage",
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-    ),
-    SensorEntityDescription(
-        key="l1_l2_voltage",
-        REDACTED_VALUE"l1_l2_voltage",
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-    ),
-    SensorEntityDescription(
-        key="l2_l3_voltage",
-        REDACTED_VALUE"l2_l3_voltage",
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-    ),
-    SensorEntityDescription(
-        key="l3_l1_voltage",
-        REDACTED_VALUE"l3_l1_voltage",
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-    ),
-    SensorEntityDescription(
-        key="l1_current",
-        REDACTED_VALUE"l1_current",
-        device_class=SensorDeviceClass.CURRENT,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-    ),
-    SensorEntityDescription(
-        key="l2_current",
-        REDACTED_VALUE"l2_current",
-        device_class=SensorDeviceClass.CURRENT,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-    ),
-    SensorEntityDescription(
-        key="l3_current",
-        REDACTED_VALUE"l3_current",
-        device_class=SensorDeviceClass.CURRENT,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-    ),
-    SensorEntityDescription(
-        key="system_temperature",
-        REDACTED_VALUE"system_temperature",
-        device_class=SensorDeviceClass.TEMPERATURE,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
-    ),
-    SensorEntityDescription(
-        key="tmin",
-        REDACTED_VALUE"tmin",
-        device_class=SensorDeviceClass.TEMPERATURE,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
-    ),
-    SensorEntityDescription(
-        key="tmax",
-        REDACTED_VALUE"tmax",
-        device_class=SensorDeviceClass.TEMPERATURE,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
-    ),
-    SensorEntityDescription(
-        key="imported_energy",
-        REDACTED_VALUE"imported_energy",
+        key=SensorType.ENERGY_INCREASING,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
-        native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
+        native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
     ),
     SensorEntityDescription(
-        key="exported_energy",
-        REDACTED_VALUE"exported_energy",
-        device_class=SensorDeviceClass.ENERGY,
-        state_class=SensorStateClass.TOTAL_INCREASING,
-        native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
-    ),
-    SensorEntityDescription(
-        key="available_charging_energy",
-        REDACTED_VALUE"available_charging_energy",
-        device_class=SensorDeviceClass.ENERGY,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
-    ),
-    SensorEntityDescription(
-        key="available_discharge_energy",
-        REDACTED_VALUE"available_discharge_energy",
-        device_class=SensorDeviceClass.ENERGY,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
-    ),
-    SensorEntityDescription(
-        key="power",
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfPower.WATT,
-    ),
-    SensorEntityDescription(
-        key="available_charging_power",
-        REDACTED_VALUE"available_charging_power",
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfPower.WATT,
-    ),
-    SensorEntityDescription(
-        key="available_discharge_power",
-        REDACTED_VALUE"available_discharge_power",
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfPower.WATT,
-    ),
-    SensorEntityDescription(
-        key="frequency",
-        REDACTED_VALUE"frequency",
+        key=SensorType.FREQUENCY,
         device_class=SensorDeviceClass.FREQUENCY,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfFrequency.HERTZ,
     ),
     SensorEntityDescription(
-        key="battery_state_of_charge",
-        REDACTED_VALUE"battery_state_of_charge",
+        key=SensorType.PERCENTAGE,
         device_class=SensorDeviceClass.BATTERY,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
     ),
     SensorEntityDescription(
-        key="charge_cycles",
-        REDACTED_VALUE"charge_cycles",
-        device_class=None,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=None,
-    ),
-    SensorEntityDescription(
-        key="power_grid",
-        REDACTED_VALUE"power_grid",
+        key=SensorType.POWER,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.WATT,
     ),
     SensorEntityDescription(
-        key="energy_imported_grid",
-        REDACTED_VALUE"energy_imported_grid",
-        device_class=SensorDeviceClass.ENERGY,
-        state_class=SensorStateClass.TOTAL_INCREASING,
-        native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
+        key=SensorType.SCHEDULE_TYPE,
     ),
     SensorEntityDescription(
-        key="energy_exported_grid",
-        REDACTED_VALUE"energy_exported_grid",
-        device_class=SensorDeviceClass.ENERGY,
-        state_class=SensorStateClass.TOTAL_INCREASING,
-        native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
-    ),
-    SensorEntityDescription(
-        key="rssi_grid",
-        REDACTED_VALUE"rssi_grid",
+        key=SensorType.SIGNAL_STRENGTH,
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS,
     ),
     SensorEntityDescription(
-        key="average_rssi_grid",
-        REDACTED_VALUE"average_rssi_grid",
-        device_class=SensorDeviceClass.SIGNAL_STRENGTH,
+        key=SensorType.TEMPERATURE,
+        device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS,
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
     ),
     SensorEntityDescription(
-        key="l1_voltage_grid",
-        REDACTED_VALUE"l1_voltage_grid",
+        key=SensorType.TEXT,
+    ),
+    SensorEntityDescription(
+        key=SensorType.VOLTAGE,
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
     ),
     SensorEntityDescription(
-        key="l1_current_grid",
-        REDACTED_VALUE"l1_current_grid",
+        key=SensorType.CURRENT,
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-    ),
-    SensorEntityDescription(
-        key="l1_power_grid",
-        REDACTED_VALUE"l1_power_grid",
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfPower.WATT,
-    ),
-    SensorEntityDescription(
-        key="l2_voltage_grid",
-        REDACTED_VALUE"l2_voltage_grid",
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-    ),
-    SensorEntityDescription(
-        key="l2_current_grid",
-        REDACTED_VALUE"l2_current_grid",
-        device_class=SensorDeviceClass.CURRENT,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-    ),
-    SensorEntityDescription(
-        key="l2_power_grid",
-        REDACTED_VALUE"l2_power_grid",
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfPower.WATT,
-    ),
-    SensorEntityDescription(
-        key="l3_voltage_grid",
-        REDACTED_VALUE"l3_voltage_grid",
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-    ),
-    SensorEntityDescription(
-        key="l3_current_grid",
-        REDACTED_VALUE"l3_current_grid",
-        device_class=SensorDeviceClass.CURRENT,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-    ),
-    SensorEntityDescription(
-        key="l3_power_grid",
-        REDACTED_VALUE"l3_power_grid",
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfPower.WATT,
-    ),
-    SensorEntityDescription(
-        key="power_load",
-        REDACTED_VALUE"power_load",
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfPower.WATT,
-    ),
-    SensorEntityDescription(
-        key="energy_imported_load",
-        REDACTED_VALUE"energy_imported_load",
-        device_class=SensorDeviceClass.ENERGY,
-        state_class=SensorStateClass.TOTAL_INCREASING,
-        native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
-    ),
-    SensorEntityDescription(
-        key="energy_exported_load",
-        REDACTED_VALUE"energy_exported_load",
-        device_class=SensorDeviceClass.ENERGY,
-        state_class=SensorStateClass.TOTAL_INCREASING,
-        native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
-    ),
-    SensorEntityDescription(
-        key="rssi_load",
-        REDACTED_VALUE"rssi_load",
-        device_class=SensorDeviceClass.SIGNAL_STRENGTH,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS,
-    ),
-    SensorEntityDescription(
-        key="average_rssi_load",
-        REDACTED_VALUE"average_rssi_load",
-        device_class=SensorDeviceClass.SIGNAL_STRENGTH,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS,
-    ),
-    SensorEntityDescription(
-        key="l1_voltage_load",
-        REDACTED_VALUE"l1_voltage_load",
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-    ),
-    SensorEntityDescription(
-        key="l1_current_load",
-        REDACTED_VALUE"l1_current_load",
-        device_class=SensorDeviceClass.CURRENT,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-    ),
-    SensorEntityDescription(
-        key="l1_power_load",
-        REDACTED_VALUE"l1_power_load",
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfPower.WATT,
-    ),
-    SensorEntityDescription(
-        key="l2_voltage_load",
-        REDACTED_VALUE"l2_voltage_load",
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-    ),
-    SensorEntityDescription(
-        key="l2_current_load",
-        REDACTED_VALUE"l2_current_load",
-        device_class=SensorDeviceClass.CURRENT,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-    ),
-    SensorEntityDescription(
-        key="l2_power_load",
-        REDACTED_VALUE"l2_power_load",
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfPower.WATT,
-    ),
-    SensorEntityDescription(
-        key="l3_voltage_load",
-        REDACTED_VALUE"l3_voltage_load",
-        device_class=SensorDeviceClass.VOLTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
-    ),
-    SensorEntityDescription(
-        key="l3_current_load",
-        REDACTED_VALUE"l3_current_load",
-        device_class=SensorDeviceClass.CURRENT,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
-    ),
-    SensorEntityDescription(
-        key="l3_power_load",
-        REDACTED_VALUE"l3_power_load",
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfPower.WATT,
-    ),
-    SensorEntityDescription(
-        key="schedule_id",
-        REDACTED_VALUE"schedule_id",
-        device_class=None,
-        state_class=None,
-        native_unit_of_measurement=None,
-    ),
-    SensorEntityDescription(
-        key="schedule_type",
-        REDACTED_VALUE"schedule_type",
-        device_class=None,
-        state_class=None,
-        native_unit_of_measurement=None,
-    ),
-    SensorEntityDescription(
-        key="schedule_power_setpoint",
-        REDACTED_VALUE"schedule_power_setpoint",
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfPower.WATT,
-    ),
-    SensorEntityDescription(
-        key="schedule_max_power",
-        REDACTED_VALUE"schedule_max_power",
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfPower.WATT,
-    ),
-    SensorEntityDescription(
-        key="schedule_max_discharge",
-        REDACTED_VALUE"schedule_max_discharge",
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=UnitOfPower.WATT,
     ),
 )
 
@@ -430,14 +113,16 @@ async def async_setup_entry(
     coordinator = entry.runtime_data
     entities = []
     sensors_by_key = {sensor.key: sensor for sensor in SENSORS}
-    for sensor_name in coordinator.data.sensors:
-        if sensor_name not in sensors_by_key:
+    for sensor_key, sensor in coordinator.data.sensors.items():
+        if (description := sensors_by_key.get(sensor.type)) is None:
+            _LOGGER.error("Sensor %s not found", sensor.type.name)
             continue
-        description = sensors_by_key[sensor_name]
         entities.append(
             HomevoltSensor(
                 description,
                 coordinator,
+                sensor_key,
+
             )
         )
     async_add_entities(entities)
@@ -452,13 +137,15 @@ class HomevoltSensor(CoordinatorEntity[HomevoltDataUpdateCoordinator], SensorEnt
         self,
         description: SensorEntityDescription,
         coordinator: HomevoltDataUpdateCoordinator,
+        sensor_key: str,
     ) -> None:
         """Initialize the sensor."""
         super().__init__(coordinator)
         self.entity_description = description
         device_id = coordinator.data.device_id
-        self._attr_unique_id = f"{device_id}_{description.key}"
-        sensor_data = coordinator.data.sensors[description.key]
+        self._attr_unique_id = f"{device_id}_{sensor_key}"
+        sensor_data = coordinator.data.sensors[sensor_key]
+        self._sensor_key = sensor_key
         device_metadata = coordinator.data.device_metadata.get(
             sensor_data.device_identifier
         )
@@ -473,7 +160,7 @@ class HomevoltSensor(CoordinatorEntity[HomevoltDataUpdateCoordinator], SensorEnt
     @property
     def native_value(self) -> StateType:
         """Return the native value of the sensor."""
-        sensor_data = self.coordinator.data.sensors[self.entity_description.key]
+        sensor_data = self.coordinator.data.sensors[self._sensor_key]
         if sensor_data is None:
             return None
         return sensor_data.value
