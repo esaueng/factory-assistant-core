@@ -55,7 +55,7 @@ SENSOR_TYPES: dict[str, OSOEnergySensorEntityDescription] = {
         key="optimization_mode",
         REDACTED_VALUE"optimization_mode",
         device_class=SensorDeviceClass.ENUM,
-        options=["off", "oso", "gridcompany", "smartcompany", "advanced"],
+        options=["off", "oso", "gridcompany", "smartcompany", "advanced", "nettleie"],
         value_fn=lambda entity_data: entity_data.state.lower(),
     ),
     "power_load": OSOEnergySensorEntityDescription(
