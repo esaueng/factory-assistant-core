@@ -764,7 +764,7 @@ ENCHARGE_AGGREGATE_SENSORS = (
         REDACTED_VALUE"available_energy",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         state_class=SensorStateClass.MEASUREMENT,
-        device_class=SensorDeviceClass.ENERGY,
+        device_class=SensorDeviceClass.ENERGY_STORAGE,
         value_fn=attrgetter("available_energy"),
     ),
     EnvoyEnchargeAggregateSensorEntityDescription(
@@ -772,14 +772,14 @@ ENCHARGE_AGGREGATE_SENSORS = (
         REDACTED_VALUE"reserve_energy",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         state_class=SensorStateClass.MEASUREMENT,
-        device_class=SensorDeviceClass.ENERGY,
+        device_class=SensorDeviceClass.ENERGY_STORAGE,
         value_fn=attrgetter("backup_reserve"),
     ),
     EnvoyEnchargeAggregateSensorEntityDescription(
         key="max_capacity",
         REDACTED_VALUE"max_capacity",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
-        device_class=SensorDeviceClass.ENERGY,
+        device_class=SensorDeviceClass.ENERGY_STORAGE,
         value_fn=attrgetter("max_available_capacity"),
     ),
 )
