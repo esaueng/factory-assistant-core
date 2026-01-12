@@ -66,6 +66,11 @@ BINARY_SENSORS = (
         REDACTED_VALUE"charging_connection",
     ),
     HomeConnectBinarySensorEntityDescription(
+        key=StatusKey.BSH_COMMON_INTERIOR_ILLUMINATION_ACTIVE,
+        REDACTED_VALUE"interior_illumination_active",
+        device_class=BinarySensorDeviceClass.LIGHT,
+    ),
+    HomeConnectBinarySensorEntityDescription(
         key=StatusKey.CONSUMER_PRODUCTS_CLEANING_ROBOT_DUST_BOX_INSERTED,
         REDACTED_VALUE"dust_box_inserted",
     ),

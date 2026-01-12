@@ -37,7 +37,6 @@ SELECT_TYPES = (
     PlugwiseSelectEntityDescription(
         key=SELECT_SCHEDULE,
         REDACTED_VALUESELECT_SCHEDULE,
-        entity_category=EntityCategory.CONFIG,
         options_key="available_schedules",
     ),
     PlugwiseSelectEntityDescription(
