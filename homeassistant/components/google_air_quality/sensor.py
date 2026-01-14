@@ -100,17 +100,51 @@ AIR_QUALITY_SENSOR_TYPES: tuple[AirQualitySensorEntityDescription, ...] = (
         },
     ),
     AirQualitySensorEntityDescription(
+        key="c6h6",
+        REDACTED_VALUE"benzene",
+        state_class=SensorStateClass.MEASUREMENT,
+        native_unit_of_measurement_fn=lambda x: x.pollutants.c6h6.concentration.units,
+        value_fn=lambda x: x.pollutants.c6h6.concentration.value,
+        exists_fn=lambda x: "c6h6" in {p.code for p in x.pollutants},
+    ),
+    AirQualitySensorEntityDescription(
         key="co",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.CO,
         native_unit_of_measurement_fn=lambda x: x.pollutants.co.concentration.units,
+        exists_fn=lambda x: "co" in {p.code for p in x.pollutants},
         value_fn=lambda x: x.pollutants.co.concentration.value,
+    ),
+    AirQualitySensorEntityDescription(
+        key="nh3",
+        REDACTED_VALUE"ammonia",
+        state_class=SensorStateClass.MEASUREMENT,
+        native_unit_of_measurement_fn=lambda x: x.pollutants.nh3.concentration.units,
+        value_fn=lambda x: x.pollutants.nh3.concentration.value,
+        exists_fn=lambda x: "nh3" in {p.code for p in x.pollutants},
+    ),
+    AirQualitySensorEntityDescription(
+        key="nmhc",
+        REDACTED_VALUE"non_methane_hydrocarbons",
+        state_class=SensorStateClass.MEASUREMENT,
+        native_unit_of_measurement_fn=lambda x: x.pollutants.nmhc.concentration.units,
+        value_fn=lambda x: x.pollutants.nmhc.concentration.value,
+        exists_fn=lambda x: "nmhc" in {p.code for p in x.pollutants},
+    ),
+    AirQualitySensorEntityDescription(
+        key="no",
+        REDACTED_VALUE"nitrogen_monoxide",
+        state_class=SensorStateClass.MEASUREMENT,
+        native_unit_of_measurement_fn=lambda x: x.pollutants.no.concentration.units,
+        value_fn=lambda x: x.pollutants.no.concentration.value,
+        exists_fn=lambda x: "no" in {p.code for p in x.pollutants},
     ),
     AirQualitySensorEntityDescription(
         key="no2",
         REDACTED_VALUE"nitrogen_dioxide",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement_fn=lambda x: x.pollutants.no2.concentration.units,
+        exists_fn=lambda x: "no2" in {p.code for p in x.pollutants},
         value_fn=lambda x: x.pollutants.no2.concentration.value,
     ),
     AirQualitySensorEntityDescription(
@@ -118,6 +152,7 @@ AIR_QUALITY_SENSOR_TYPES: tuple[AirQualitySensorEntityDescription, ...] = (
         REDACTED_VALUE"ozone",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement_fn=lambda x: x.pollutants.o3.concentration.units,
+        exists_fn=lambda x: "o3" in {p.code for p in x.pollutants},
         value_fn=lambda x: x.pollutants.o3.concentration.value,
     ),
     AirQualitySensorEntityDescription(
@@ -125,6 +160,7 @@ AIR_QUALITY_SENSOR_TYPES: tuple[AirQualitySensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.PM10,
         native_unit_of_measurement_fn=lambda x: x.pollutants.pm10.concentration.units,
+        exists_fn=lambda x: "pm10" in {p.code for p in x.pollutants},
         value_fn=lambda x: x.pollutants.pm10.concentration.value,
     ),
     AirQualitySensorEntityDescription(
@@ -132,6 +168,7 @@ AIR_QUALITY_SENSOR_TYPES: tuple[AirQualitySensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.PM25,
         native_unit_of_measurement_fn=lambda x: x.pollutants.pm25.concentration.units,
+        exists_fn=lambda x: "pm25" in {p.code for p in x.pollutants},
         value_fn=lambda x: x.pollutants.pm25.concentration.value,
     ),
     AirQualitySensorEntityDescription(
@@ -139,6 +176,7 @@ AIR_QUALITY_SENSOR_TYPES: tuple[AirQualitySensorEntityDescription, ...] = (
         REDACTED_VALUE"sulphur_dioxide",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement_fn=lambda x: x.pollutants.so2.concentration.units,
+        exists_fn=lambda x: "so2" in {p.code for p in x.pollutants},
         value_fn=lambda x: x.pollutants.so2.concentration.value,
     ),
 )
