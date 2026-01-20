@@ -9,7 +9,15 @@ from homeassistant.const import STATE_ON, EntityCategory
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 
-from .const import SelectOptionsType, SelectType
+from .const import (
+    SELECT_DHW_MODE,
+    SELECT_GATEWAY_MODE,
+    SELECT_REGULATION_MODE,
+    SELECT_SCHEDULE,
+    SELECT_ZONE_PROFILE,
+    SelectOptionsType,
+    SelectType,
+)
 from .coordinator import PlugwiseConfigEntry, PlugwiseDataUpdateCoordinator
 from .entity import PlugwiseEntity
 from .util import plugwise_command
@@ -27,27 +35,33 @@ class PlugwiseSelectEntityDescription(SelectEntityDescription):
 
 SELECT_TYPES = (
     PlugwiseSelectEntityDescription(
-        key="select_schedule",
-        REDACTED_VALUE"select_schedule",
+        key=SELECT_SCHEDULE,
+        REDACTED_VALUESELECT_SCHEDULE,
         options_key="available_schedules",
     ),
     PlugwiseSelectEntityDescription(
-        key="select_regulation_mode",
-        REDACTED_VALUE"regulation_mode",
+        key=SELECT_REGULATION_MODE,
+        REDACTED_VALUESELECT_REGULATION_MODE,
         entity_category=EntityCategory.CONFIG,
         options_key="regulation_modes",
     ),
     PlugwiseSelectEntityDescription(
-        key="select_dhw_mode",
-        REDACTED_VALUE"dhw_mode",
+        key=SELECT_DHW_MODE,
+        REDACTED_VALUESELECT_DHW_MODE,
         entity_category=EntityCategory.CONFIG,
         options_key="dhw_modes",
     ),
     PlugwiseSelectEntityDescription(
-        key="select_gateway_mode",
-        REDACTED_VALUE"gateway_mode",
+        key=SELECT_GATEWAY_MODE,
+        REDACTED_VALUESELECT_GATEWAY_MODE,
         entity_category=EntityCategory.CONFIG,
         options_key="gateway_modes",
+    ),
+    PlugwiseSelectEntityDescription(
+        key=SELECT_ZONE_PROFILE,
+        REDACTED_VALUESELECT_ZONE_PROFILE,
+        entity_category=EntityCategory.CONFIG,
+        options_key="zone_profiles",
     ),
 )
 
