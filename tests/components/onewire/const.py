@@ -260,4 +260,12 @@ MOCK_OWPROXY_DEVICES = {
             "/EDS0066/pressure": [b"  1012.21"],
         },
     },
+    "7E.333333333333": {
+        ATTR_INJECT_READS: {
+            "/type": [b"EDS"],
+            "/device_type": [b"EDS0065"],
+            "/REDACTED_VALUE": [b"    13.9375"],
+            "/REDACTED_VALUE": [b"   41.375"],
+        },
+    },
 }
