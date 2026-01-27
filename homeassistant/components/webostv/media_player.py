@@ -435,7 +435,7 @@ class LgWebOSMediaPlayerEntity(RestoreEntity, MediaPlayerEntity):
                 REDACTED_VALUE"source_not_found",
                 translation_placeholders={
                     "source": source,
-                    "name": str(self._friendly_name_internal()),
+                    "name": self.entity_id,
                 },
             )
         if source_dict.get("title"):

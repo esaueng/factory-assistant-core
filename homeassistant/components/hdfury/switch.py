@@ -34,6 +34,30 @@ SWITCHES: tuple[HDFurySwitchEntityDescription, ...] = (
         set_value_fn=lambda client, value: client.set_auto_switch_inputs(value),
     ),
     HDFurySwitchEntityDescription(
+        key="cec0en",
+        REDACTED_VALUE"cec0en",
+        entity_category=EntityCategory.CONFIG,
+        set_value_fn=lambda client, value: client.set_cec_rx0(value),
+    ),
+    HDFurySwitchEntityDescription(
+        key="cec1en",
+        REDACTED_VALUE"cec1en",
+        entity_category=EntityCategory.CONFIG,
+        set_value_fn=lambda client, value: client.set_cec_rx1(value),
+    ),
+    HDFurySwitchEntityDescription(
+        key="cec2en",
+        REDACTED_VALUE"cec2en",
+        entity_category=EntityCategory.CONFIG,
+        set_value_fn=lambda client, value: client.set_cec_rx2(value),
+    ),
+    HDFurySwitchEntityDescription(
+        key="cec3en",
+        REDACTED_VALUE"cec3en",
+        entity_category=EntityCategory.CONFIG,
+        set_value_fn=lambda client, value: client.set_cec_rx3(value),
+    ),
+    HDFurySwitchEntityDescription(
         key="htpcmode0",
         REDACTED_VALUE"htpcmode0",
         entity_category=EntityCategory.CONFIG,
