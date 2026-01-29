@@ -151,6 +151,12 @@ SENSOR_DESCRIPTIONS = {
         REDACTED_VALUE"nox_index",
         state_class=SensorStateClass.MEASUREMENT,
     ),
+    "iaqs": SensorEntityDescription(
+        key="iaqs",
+        REDACTED_VALUE"iaqs",
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_registry_enabled_default=False,
+    ),
 }
 
 
