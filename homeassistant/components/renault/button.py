@@ -79,4 +79,20 @@ BUTTON_TYPES: tuple[RenaultButtonEntityDescription, ...] = (
         ),
         REDACTED_VALUE"stop_charge",
     ),
+    RenaultButtonEntityDescription(
+        async_press=lambda x: x.vehicle.sound_horn(),
+        key="sound_horn",
+        is_supported=lambda vehicle: (
+            vehicle.details.supports_endpoint("actions/horn-start")
+        ),
+        REDACTED_VALUE"sound_horn",
+    ),
+    RenaultButtonEntityDescription(
+        async_press=lambda x: x.vehicle.flash_lights(),
+        key="flash_lights",
+        is_supported=lambda vehicle: (
+            vehicle.details.supports_endpoint("actions/lights-start")
+        ),
+        REDACTED_VALUE"flash_lights",
+    ),
 )
