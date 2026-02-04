@@ -18,89 +18,93 @@ from homeassistant.util import slugify
 from . import UPDATE_TOPIC, WaterFurnaceConfigEntry, WaterFurnaceData
 
 SENSORS = [
-    SensorEntityDescription(name="Furnace Mode", key="mode", icon="mdi:gauge"),
     SensorEntityDescription(
-        name="Total Power",
+        key="mode",
+        REDACTED_VALUE"mode",
+    ),
+    SensorEntityDescription(
         key="totalunitpower",
+        REDACTED_VALUE"total_unit_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
-        name="Active Setpoint",
         key="tstatactivesetpoint",
+        REDACTED_VALUE"tstat_active_setpoint",
         native_unit_of_measurement=UnitOfTemperature.FAHRENHEIT,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
-        name="Leaving Air",
         key="leavingairtemp",
+        REDACTED_VALUE"leaving_air_temp",
         native_unit_of_measurement=UnitOfTemperature.FAHRENHEIT,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
-        name="Room Temp",
         key="tstatroomtemp",
+        REDACTED_VALUE"room_temp",
         native_unit_of_measurement=UnitOfTemperature.FAHRENHEIT,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
-        name="Loop Temp",
         key="enteringwatertemp",
+        REDACTED_VALUE"entering_water_temp",
         native_unit_of_measurement=UnitOfTemperature.FAHRENHEIT,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
-        name="Humidity Set Point",
         key="tstathumidsetpoint",
-        icon="mdi:water-percent",
+        REDACTED_VALUE"tstat_humid_setpoint",
         native_unit_of_measurement=PERCENTAGE,
+        device_class=SensorDeviceClass.HUMIDITY,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
-        name="Humidity",
         key="tstatrelativehumidity",
-        icon="mdi:water-percent",
         native_unit_of_measurement=PERCENTAGE,
+        device_class=SensorDeviceClass.HUMIDITY,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
-        name="Compressor Power",
         key="compressorpower",
+        REDACTED_VALUE"compressor_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
-        name="Fan Power",
         key="fanpower",
+        REDACTED_VALUE"fan_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
-        name="Aux Power",
         key="auxpower",
+        REDACTED_VALUE"aux_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
-        name="Loop Pump Power",
         key="looppumppower",
+        REDACTED_VALUE"loop_pump_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
-        name="Compressor Speed", key="actualcompressorspeed", icon="mdi:speedometer"
+        key="actualcompressorspeed",
+        REDACTED_VALUE"actual_compressor_speed",
     ),
     SensorEntityDescription(
-        name="Fan Speed", key="airflowcurrentspeed", icon="mdi:fan"
+        key="airflowcurrentspeed",
+        REDACTED_VALUE"airflow_current_speed",
     ),
 ]
 
@@ -124,6 +128,7 @@ class WaterFurnaceSensor(SensorEntity):
     """Implementing the Waterfurnace sensor."""
 
     _attr_should_poll = False
+    _attr_has_entity_name = True
 
     def __init__(
         self, client: WaterFurnaceData, description: SensorEntityDescription
