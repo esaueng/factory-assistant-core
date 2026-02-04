@@ -1283,6 +1283,7 @@ RPC_SENSORS: Final = {
         key="voltmeter",
         sub_key="xvoltage",
         REDACTED_VALUE"voltmeter_value",
+        state_class=SensorStateClass.MEASUREMENT,
         removal_condition=lambda _, status, key: (status[key].get("xvoltage") is None),
         unit=lambda config: config["xvoltage"]["unit"] or None,
     ),
@@ -1300,6 +1301,7 @@ RPC_SENSORS: Final = {
         key="input",
         sub_key="xpercent",
         REDACTED_VALUE"analog_value",
+        state_class=SensorStateClass.MEASUREMENT,
         removal_condition=lambda config, status, key: (
             config[key]["type"] != "analog"
             or config[key]["enable"] is False
@@ -1344,6 +1346,7 @@ RPC_SENSORS: Final = {
         key="input",
         sub_key="xfreq",
         REDACTED_VALUE"pulse_counter_frequency_value",
+        state_class=SensorStateClass.MEASUREMENT,
         removal_condition=lambda config, status, key: (
             config[key]["type"] != "count"
             or config[key]["enable"] is False
