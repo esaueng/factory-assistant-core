@@ -74,36 +74,42 @@ SENSOR_DESCRIPTIONS: tuple[PlaystationNetworkSensorEntityDescription, ...] = (
         key=PlaystationNetworkSensor.EARNED_TROPHIES_PLATINUM,
         REDACTED_VALUEPlaystationNetworkSensor.EARNED_TROPHIES_PLATINUM,
         value_fn=(
-            lambda psn: psn.trophy_summary.earned_trophies.platinum
-            if psn.trophy_summary
-            else None
+            lambda psn: (
+                psn.trophy_summary.earned_trophies.platinum
+                if psn.trophy_summary
+                else None
+            )
         ),
     ),
     PlaystationNetworkSensorEntityDescription(
         key=PlaystationNetworkSensor.EARNED_TROPHIES_GOLD,
         REDACTED_VALUEPlaystationNetworkSensor.EARNED_TROPHIES_GOLD,
         value_fn=(
-            lambda psn: psn.trophy_summary.earned_trophies.gold
-            if psn.trophy_summary
-            else None
+            lambda psn: (
+                psn.trophy_summary.earned_trophies.gold if psn.trophy_summary else None
+            )
         ),
     ),
     PlaystationNetworkSensorEntityDescription(
         key=PlaystationNetworkSensor.EARNED_TROPHIES_SILVER,
         REDACTED_VALUEPlaystationNetworkSensor.EARNED_TROPHIES_SILVER,
         value_fn=(
-            lambda psn: psn.trophy_summary.earned_trophies.silver
-            if psn.trophy_summary
-            else None
+            lambda psn: (
+                psn.trophy_summary.earned_trophies.silver
+                if psn.trophy_summary
+                else None
+            )
         ),
     ),
     PlaystationNetworkSensorEntityDescription(
         key=PlaystationNetworkSensor.EARNED_TROPHIES_BRONZE,
         REDACTED_VALUEPlaystationNetworkSensor.EARNED_TROPHIES_BRONZE,
         value_fn=(
-            lambda psn: psn.trophy_summary.earned_trophies.bronze
-            if psn.trophy_summary
-            else None
+            lambda psn: (
+                psn.trophy_summary.earned_trophies.bronze
+                if psn.trophy_summary
+                else None
+            )
         ),
     ),
     PlaystationNetworkSensorEntityDescription(
@@ -126,9 +132,11 @@ SENSOR_DESCRIPTIONS: tuple[PlaystationNetworkSensorEntityDescription, ...] = (
         key=PlaystationNetworkSensor.ONLINE_STATUS,
         REDACTED_VALUEPlaystationNetworkSensor.ONLINE_STATUS,
         value_fn=(
-            lambda psn: psn.presence["basicPresence"]["availability"]
-            .lower()
-            .replace("unavailable", "offline")
+            lambda psn: (
+                psn.presence["basicPresence"]["availability"]
+                .lower()
+                .replace("unavailable", "offline")
+            )
         ),
         device_class=SensorDeviceClass.ENUM,
         options=["offline", "availabletoplay", "availabletocommunicate", "busy"],

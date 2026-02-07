@@ -456,8 +456,10 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterListSelectEntityDescription(
             key="TemperatureControlSelectedTemperatureLevel",
             REDACTED_VALUE"temperature_level",
-            command=lambda selected_index: clusters.TemperatureControl.Commands.SetTemperature(
-                targetTemperatureLevel=selected_index
+            command=lambda selected_index: (
+                clusters.TemperatureControl.Commands.SetTemperature(
+                    targetTemperatureLevel=selected_index
+                )
             ),
             list_attribute=clusters.TemperatureControl.Attributes.SupportedTemperatureLevels,
         ),
@@ -506,8 +508,10 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterListSelectEntityDescription(
             key="MicrowaveOvenControlSelectedWattIndex",
             REDACTED_VALUE"power_level",
-            command=lambda selected_index: clusters.MicrowaveOvenControl.Commands.SetCookingParameters(
-                wattSettingIndex=selected_index
+            command=lambda selected_index: (
+                clusters.MicrowaveOvenControl.Commands.SetCookingParameters(
+                    wattSettingIndex=selected_index
+                )
             ),
             list_attribute=clusters.MicrowaveOvenControl.Attributes.SupportedWatts,
         ),

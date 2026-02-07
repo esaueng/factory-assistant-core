@@ -29,30 +29,42 @@ SWITCHES: tuple[ActronAirSwitchEntityDescription, ...] = (
         key="away_mode",
         REDACTED_VALUE"away_mode",
         is_on_fn=lambda coordinator: coordinator.data.user_aircon_settings.away_mode,
-        set_fn=lambda coordinator,
-        enabled: coordinator.data.user_aircon_settings.set_away_mode(enabled),
+        set_fn=lambda coordinator, enabled: (
+            coordinator.data.user_aircon_settings.set_away_mode(enabled)
+        ),
     ),
     ActronAirSwitchEntityDescription(
         key="continuous_fan",
         REDACTED_VALUE"continuous_fan",
-        is_on_fn=lambda coordinator: coordinator.data.user_aircon_settings.continuous_fan_enabled,
-        set_fn=lambda coordinator,
-        enabled: coordinator.data.user_aircon_settings.set_continuous_mode(enabled),
+        is_on_fn=lambda coordinator: (
+            coordinator.data.user_aircon_settings.continuous_fan_enabled
+        ),
+        set_fn=lambda coordinator, enabled: (
+            coordinator.data.user_aircon_settings.set_continuous_mode(enabled)
+        ),
     ),
     ActronAirSwitchEntityDescription(
         key="quiet_mode",
         REDACTED_VALUE"quiet_mode",
-        is_on_fn=lambda coordinator: coordinator.data.user_aircon_settings.quiet_mode_enabled,
-        set_fn=lambda coordinator,
-        enabled: coordinator.data.user_aircon_settings.set_quiet_mode(enabled),
+        is_on_fn=lambda coordinator: (
+            coordinator.data.user_aircon_settings.quiet_mode_enabled
+        ),
+        set_fn=lambda coordinator, enabled: (
+            coordinator.data.user_aircon_settings.set_quiet_mode(enabled)
+        ),
     ),
     ActronAirSwitchEntityDescription(
         key="turbo_mode",
         REDACTED_VALUE"turbo_mode",
-        is_on_fn=lambda coordinator: coordinator.data.user_aircon_settings.turbo_enabled,
-        set_fn=lambda coordinator,
-        enabled: coordinator.data.user_aircon_settings.set_turbo_mode(enabled),
-        is_supported_fn=lambda coordinator: coordinator.data.user_aircon_settings.turbo_supported,
+        is_on_fn=lambda coordinator: (
+            coordinator.data.user_aircon_settings.turbo_enabled
+        ),
+        set_fn=lambda coordinator, enabled: (
+            coordinator.data.user_aircon_settings.set_turbo_mode(enabled)
+        ),
+        is_supported_fn=lambda coordinator: (
+            coordinator.data.user_aircon_settings.turbo_supported
+        ),
     ),
 )
 
