@@ -4,6 +4,10 @@ from __future__ import annotations
 
 import logging
 
+import dateutil
+
+from homeassistant.components.automation import automations_with_entity
+from homeassistant.components.script import scripts_with_entity
 from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorEntity,
@@ -12,6 +16,7 @@ from homeassistant.components.sensor import (
 )
 from homeassistant.const import (
     PERCENTAGE,
+    EntityCategory,
     UnitOfApparentPower,
     UnitOfElectricCurrent,
     UnitOfElectricPotential,
@@ -21,12 +26,13 @@ from homeassistant.const import (
     UnitOfTime,
 )
 from homeassistant.core import HomeAssistant, callback
-from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from homeassistant.helpers.update_coordinator import CoordinatorEntity
+from homeassistant.helpers import entity_registry as er
+from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
+import homeassistant.helpers.issue_registry as ir
 
-from . import APCUPSdConfigEntry
-from .const import LAST_S_TEST
-from .coordinator import APCUPSdCoordinator
+from .const import AVAILABLE_VIA_DEVICE_ATTR, DEPRECATED_SENSORS, DOMAIN, LAST_S_TEST
+from .coordinator import APCUPSdConfigEntry, APCUPSdCoordinator
+from .entity import APCUPSdEntity
 
 PARALLEL_UPDATES = 0
 
@@ -36,6 +42,7 @@ SENSORS: dict[str, SensorEntityDescription] = {
     "alarmdel": SensorEntityDescription(
         key="alarmdel",
         REDACTED_VALUE"alarm_delay",
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "ambtemp": SensorEntityDescription(
         key="ambtemp",
@@ -48,15 +55,18 @@ SENSORS: dict[str, SensorEntityDescription] = {
         key="apc",
         REDACTED_VALUE"apc_status",
         entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "apcmodel": SensorEntityDescription(
         key="apcmodel",
         REDACTED_VALUE"apc_model",
         entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "badbatts": SensorEntityDescription(
         key="badbatts",
         REDACTED_VALUE"bad_batteries",
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "battdate": SensorEntityDescription(
         key="battdate",
@@ -83,6 +93,7 @@ SENSORS: dict[str, SensorEntityDescription] = {
         key="cable",
         REDACTED_VALUE"cable_type",
         entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "cumonbatt": SensorEntityDescription(
         key="cumonbatt",
@@ -95,52 +106,63 @@ SENSORS: dict[str, SensorEntityDescription] = {
         key="date",
         REDACTED_VALUE"date",
         entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "dipsw": SensorEntityDescription(
         key="dipsw",
         REDACTED_VALUE"dip_switch_settings",
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "dlowbatt": SensorEntityDescription(
         key="dlowbatt",
         REDACTED_VALUE"low_battery_signal",
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "driver": SensorEntityDescription(
         key="driver",
         REDACTED_VALUE"driver",
         entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "dshutd": SensorEntityDescription(
         key="dshutd",
         REDACTED_VALUE"shutdown_delay",
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "dwake": SensorEntityDescription(
         key="dwake",
         REDACTED_VALUE"wake_delay",
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "end apc": SensorEntityDescription(
         key="end apc",
         REDACTED_VALUE"date_and_time",
         entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "extbatts": SensorEntityDescription(
         key="extbatts",
         REDACTED_VALUE"external_batteries",
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "firmware": SensorEntityDescription(
         key="firmware",
         REDACTED_VALUE"firmware_version",
         entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "hitrans": SensorEntityDescription(
         key="hitrans",
         REDACTED_VALUE"transfer_high",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "hostname": SensorEntityDescription(
         key="hostname",
         REDACTED_VALUE"hostname",
         entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "humidity": SensorEntityDescription(
         key="humidity",
@@ -159,15 +181,18 @@ SENSORS: dict[str, SensorEntityDescription] = {
     LAST_S_TEST: SensorEntityDescription(
         key=LAST_S_TEST,
         REDACTED_VALUE"last_self_test",
+        device_class=SensorDeviceClass.TIMESTAMP,
     ),
     "lastxfer": SensorEntityDescription(
         key="lastxfer",
         REDACTED_VALUE"last_transfer",
         entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "linefail": SensorEntityDescription(
         key="linefail",
         REDACTED_VALUE"line_failure",
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "linefreq": SensorEntityDescription(
         key="linefreq",
@@ -199,15 +224,19 @@ SENSORS: dict[str, SensorEntityDescription] = {
         REDACTED_VALUE"transfer_low",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "mandate": SensorEntityDescription(
         key="mandate",
         REDACTED_VALUE"manufacture_date",
         entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "masterupd": SensorEntityDescription(
         key="masterupd",
         REDACTED_VALUE"master_update",
+        device_class=SensorDeviceClass.TIMESTAMP,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "maxlinev": SensorEntityDescription(
         key="maxlinev",
@@ -218,11 +247,13 @@ SENSORS: dict[str, SensorEntityDescription] = {
     "maxtime": SensorEntityDescription(
         key="maxtime",
         REDACTED_VALUE"max_time",
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "mbattchg": SensorEntityDescription(
         key="mbattchg",
         REDACTED_VALUE"max_battery_charge",
         native_unit_of_measurement=PERCENTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "minlinev": SensorEntityDescription(
         key="minlinev",
@@ -233,41 +264,48 @@ SENSORS: dict[str, SensorEntityDescription] = {
     "mintimel": SensorEntityDescription(
         key="mintimel",
         REDACTED_VALUE"min_time",
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "model": SensorEntityDescription(
         key="model",
         REDACTED_VALUE"model",
         entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "nombattv": SensorEntityDescription(
         key="nombattv",
         REDACTED_VALUE"battery_nominal_voltage",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "nominv": SensorEntityDescription(
         key="nominv",
         REDACTED_VALUE"nominal_input_voltage",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "nomoutv": SensorEntityDescription(
         key="nomoutv",
         REDACTED_VALUE"nominal_output_voltage",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "nompower": SensorEntityDescription(
         key="nompower",
         REDACTED_VALUE"nominal_output_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "nomapnt": SensorEntityDescription(
         key="nomapnt",
         REDACTED_VALUE"nominal_apparent_power",
         native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
         device_class=SensorDeviceClass.APPARENT_POWER,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "numxfers": SensorEntityDescription(
         key="numxfers",
@@ -292,21 +330,25 @@ SENSORS: dict[str, SensorEntityDescription] = {
         key="reg1",
         REDACTED_VALUE"register_1_fault",
         entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "reg2": SensorEntityDescription(
         key="reg2",
         REDACTED_VALUE"register_2_fault",
         entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "reg3": SensorEntityDescription(
         key="reg3",
         REDACTED_VALUE"register_3_fault",
         entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "retpct": SensorEntityDescription(
         key="retpct",
         REDACTED_VALUE"restore_capacity",
         native_unit_of_measurement=PERCENTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "selftest": SensorEntityDescription(
         key="selftest",
@@ -316,20 +358,25 @@ SENSORS: dict[str, SensorEntityDescription] = {
         key="sense",
         REDACTED_VALUE"sensitivity",
         entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "serialno": SensorEntityDescription(
         key="serialno",
         REDACTED_VALUE"serial_number",
         entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "starttime": SensorEntityDescription(
         key="starttime",
         REDACTED_VALUE"startup_time",
+        device_class=SensorDeviceClass.TIMESTAMP,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "statflag": SensorEntityDescription(
         key="statflag",
         REDACTED_VALUE"online_status",
         entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "status": SensorEntityDescription(
         key="status",
@@ -338,6 +385,7 @@ SENSORS: dict[str, SensorEntityDescription] = {
     "stesti": SensorEntityDescription(
         key="stesti",
         REDACTED_VALUE"self_test_interval",
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "timeleft": SensorEntityDescription(
         key="timeleft",
@@ -356,28 +404,37 @@ SENSORS: dict[str, SensorEntityDescription] = {
     "upsmode": SensorEntityDescription(
         key="upsmode",
         REDACTED_VALUE"ups_mode",
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "upsname": SensorEntityDescription(
         key="upsname",
         REDACTED_VALUE"ups_name",
         entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "version": SensorEntityDescription(
         key="version",
         REDACTED_VALUE"version",
         entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "xoffbat": SensorEntityDescription(
         key="xoffbat",
         REDACTED_VALUE"transfer_from_battery",
+        device_class=SensorDeviceClass.TIMESTAMP,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "xoffbatt": SensorEntityDescription(
         key="xoffbatt",
         REDACTED_VALUE"transfer_from_battery",
+        device_class=SensorDeviceClass.TIMESTAMP,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "xonbatt": SensorEntityDescription(
         key="xonbatt",
         REDACTED_VALUE"transfer_to_battery",
+        device_class=SensorDeviceClass.TIMESTAMP,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
 }
 
@@ -407,7 +464,7 @@ INFERRED_UNITS = {
 async def async_setup_entry(
     hass: HomeAssistant,
     config_entry: APCUPSdConfigEntry,
-    async_add_entities: AddEntitiesCallback,
+    async_add_entities: AddConfigEntryEntitiesCallback,
 ) -> None:
     """Set up the APCUPSd sensors from config entries."""
     coordinator = config_entry.runtime_data
@@ -422,7 +479,10 @@ async def async_setup_entry(
     # periodical (or manual) self test since last daemon restart. It might not be available
     # when we set up the integration, and we do not know if it would ever be available. Here we
     # add it anyway and mark it as unknown initially.
-    for resource in available_resources | {LAST_S_TEST}:
+    #
+    # We also sort the resources to ensure the order of entities created is deterministic since
+    # "APCMODEL" and "MODEL" resources map to the same "Model" name.
+    for resource in sorted(available_resources | {LAST_S_TEST}):
         if resource not in SENSORS:
             _LOGGER.warning("Invalid resource from APCUPSd: %s", resource.upper())
             continue
@@ -446,10 +506,8 @@ def infer_unit(value: str) -> tuple[str, str | None]:
     return value, None
 
 
-class APCUPSdSensor(CoordinatorEntity[APCUPSdCoordinator], SensorEntity):
+class APCUPSdSensor(APCUPSdEntity, SensorEntity):
     """Representation of a sensor entity for APCUPSd status values."""
-
-    _attr_has_entity_name = True
 
     def __init__(
         self,
@@ -457,14 +515,7 @@ class APCUPSdSensor(CoordinatorEntity[APCUPSdCoordinator], SensorEntity):
         description: SensorEntityDescription,
     ) -> None:
         """Initialize the sensor."""
-        super().__init__(coordinator=coordinator, context=description.key.upper())
-
-        # Set up unique id and device info if serial number is available.
-        if (serial_no := coordinator.data.serial_no) is not None:
-            self._attr_unique_id = f"{serial_no}_{description.key}"
-
-        self.entity_description = description
-        self._attr_device_info = coordinator.device_info
+        super().__init__(coordinator, description)
 
         # Initial update of attributes.
         self._update_attrs()
@@ -486,6 +537,81 @@ class APCUPSdSensor(CoordinatorEntity[APCUPSdCoordinator], SensorEntity):
             self._attr_native_value = None
             return
 
-        self._attr_native_value, inferred_unit = infer_unit(self.coordinator.data[key])
+        data = self.coordinator.data[key]
+
+        if self.entity_description.device_class == SensorDeviceClass.TIMESTAMP:
+            # The date could be "N/A" for certain fields (e.g., XOFFBATT), indicating there is no value yet.
+            if data == "N/A":
+                self._attr_native_value = None
+                return
+
+            try:
+                self._attr_native_value = dateutil.parser.parse(data)
+            except dateutil.parser.ParserError, OverflowError:
+                # If parsing fails we should mark it as unknown, with a log for further debugging.
+                _LOGGER.warning('Failed to parse date for %s: "%s"', key, data)
+                self._attr_native_value = None
+            return
+
+        self._attr_native_value, inferred_unit = infer_unit(data)
         if not self.native_unit_of_measurement:
             self._attr_native_unit_of_measurement = inferred_unit
+
+    async def async_added_to_hass(self) -> None:
+        """Handle when entity is added to Home Assistant.
+
+        If this is a deprecated sensor entity, create a repair issue to guide
+        the user to disable it.
+        """
+        await super().async_added_to_hass()
+
+        if not self.enabled:
+            return
+
+        reason = DEPRECATED_SENSORS.get(self.entity_description.key)
+        if not reason:
+            return
+
+        automations = automations_with_entity(self.hass, self.entity_id)
+        scripts = scripts_with_entity(self.hass, self.entity_id)
+        if not automations and not scripts:
+            return
+
+        entity_registry = er.async_get(self.hass)
+        items = [
+            f"- [{entry.name or entry.original_name or entity_id}]"
+            f"(/config/{integration}/edit/{entry.unique_id or entity_id.split('.', 1)[-1]})"
+            for integration, entities in (
+                ("automation", automations),
+                ("script", scripts),
+            )
+            for entity_id in entities
+            if (entry := entity_registry.async_get(entity_id))
+        ]
+        placeholders = {
+            "entity_name": str(self.name or self.entity_id),
+            "entity_id": self.entity_id,
+            "items": "\n".join(items),
+        }
+        if via_attr := AVAILABLE_VIA_DEVICE_ATTR.get(self.entity_description.key):
+            placeholders["available_via_device_attr"] = via_attr
+        if device_entry := self.device_entry:
+            placeholders["device_id"] = device_entry.id
+
+        ir.async_create_issue(
+            self.hass,
+            DOMAIN,
+            f"{reason}_{self.entity_id}",
+            breaks_in_ha_version="2026.6.0",
+            is_fixable=False,
+            severity=ir.IssueSeverity.WARNING,
+            REDACTED_VALUEreason,
+            translation_placeholders=placeholders,
+        )
+
+    async def async_will_remove_from_hass(self) -> None:
+        """Handle when entity will be removed from Home Assistant."""
+        await super().async_will_remove_from_hass()
+
+        if issue_key := DEPRECATED_SENSORS.get(self.entity_description.key):
+            ir.async_delete_issue(self.hass, DOMAIN, f"{issue_key}_{self.entity_id}")
