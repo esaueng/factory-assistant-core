@@ -111,7 +111,6 @@ SENSORS: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="frequency",
-        REDACTED_VALUE"frequency",
         device_class=SensorDeviceClass.FREQUENCY,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfFrequency.HERTZ,
