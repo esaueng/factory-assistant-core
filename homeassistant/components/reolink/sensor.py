@@ -61,6 +61,7 @@ class ReolinkHostSensorEntityDescription(
 SENSORS = (
     ReolinkSensorEntityDescription(
         key="ptz_pan_position",
+        cmd_id=433,
         cmd_key="GetPtzCurPos",
         REDACTED_VALUE"ptz_pan_position",
         state_class=SensorStateClass.MEASUREMENT,
@@ -70,6 +71,7 @@ SENSORS = (
     ),
     ReolinkSensorEntityDescription(
         key="ptz_tilt_position",
+        cmd_id=433,
         cmd_key="GetPtzCurPos",
         REDACTED_VALUE"ptz_tilt_position",
         state_class=SensorStateClass.MEASUREMENT,
