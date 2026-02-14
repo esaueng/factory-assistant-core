@@ -158,7 +158,8 @@ class LiebherrNumber(LiebherrZoneEntity, NumberEntity):
         except (LiebherrConnectionError, LiebherrTimeoutError) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_temperature_failed",
+                REDACTED_VALUE"communication_error",
+                translation_placeholders={"error": str(err)},
             ) from err
 
         await self.coordinator.async_request_refresh()
