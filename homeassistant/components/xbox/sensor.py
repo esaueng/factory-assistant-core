@@ -160,6 +160,7 @@ SENSOR_DESCRIPTIONS: tuple[XboxSensorEntityDescription, ...] = (
         key=XboxSensor.GAMER_SCORE,
         REDACTED_VALUEXboxSensor.GAMER_SCORE,
         value_fn=lambda x, _: x.gamer_score,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     XboxSensorEntityDescription(
         key=XboxSensor.ACCOUNT_TIER,
@@ -187,11 +188,13 @@ SENSOR_DESCRIPTIONS: tuple[XboxSensorEntityDescription, ...] = (
         key=XboxSensor.FOLLOWING,
         REDACTED_VALUEXboxSensor.FOLLOWING,
         value_fn=lambda x, _: x.detail.following_count if x.detail else None,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     XboxSensorEntityDescription(
         key=XboxSensor.FOLLOWER,
         REDACTED_VALUEXboxSensor.FOLLOWER,
         value_fn=lambda x, _: x.detail.follower_count if x.detail else None,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     XboxSensorEntityDescription(
         key=XboxSensor.NOW_PLAYING,
@@ -204,6 +207,7 @@ SENSOR_DESCRIPTIONS: tuple[XboxSensorEntityDescription, ...] = (
         key=XboxSensor.FRIENDS,
         REDACTED_VALUEXboxSensor.FRIENDS,
         value_fn=lambda x, _: x.detail.friend_count if x.detail else None,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     XboxSensorEntityDescription(
         key=XboxSensor.IN_PARTY,
