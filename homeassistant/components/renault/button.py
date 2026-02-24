@@ -56,8 +56,8 @@ BUTTON_TYPES: tuple[RenaultButtonEntityDescription, ...] = (
     RenaultButtonEntityDescription(
         async_press=lambda x: x.vehicle.set_ac_start(21, None),
         key="start_air_conditioner",
-        is_supported=lambda vehicle: (
-            vehicle.details.supports_endpoint("actions/hvac-start")
+        is_supported=lambda vehicle: vehicle.details.supports_endpoint(
+            "actions/hvac-start"
         ),
         REDACTED_VALUE"start_air_conditioner",
     ),
@@ -82,16 +82,16 @@ BUTTON_TYPES: tuple[RenaultButtonEntityDescription, ...] = (
     RenaultButtonEntityDescription(
         async_press=lambda x: x.vehicle.sound_horn(),
         key="sound_horn",
-        is_supported=lambda vehicle: (
-            vehicle.details.supports_endpoint("actions/horn-start")
+        is_supported=lambda vehicle: vehicle.details.supports_endpoint(
+            "actions/horn-start"
         ),
         REDACTED_VALUE"sound_horn",
     ),
     RenaultButtonEntityDescription(
         async_press=lambda x: x.vehicle.flash_lights(),
         key="flash_lights",
-        is_supported=lambda vehicle: (
-            vehicle.details.supports_endpoint("actions/lights-start")
+        is_supported=lambda vehicle: vehicle.details.supports_endpoint(
+            "actions/lights-start"
         ),
         REDACTED_VALUE"flash_lights",
     ),

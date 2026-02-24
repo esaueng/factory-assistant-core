@@ -39,6 +39,12 @@
       "battery_level": {
         "name": "Battery level"
       },
+      "REDACTED_VALUE": {
+        "name": "Consumption Tariff T1"
+      },
+      "REDACTED_VALUE": {
+        "name": "Consumption Tariff T2"
+      },
       "core_bridge_rssi": {
         "name": "Signal strength Core/Bridge"
       },
