@@ -46,7 +46,7 @@ SENSOR_TYPES = [
         key="lifetime_energy",
         json_key="lifeTimeData",
         REDACTED_VALUE"lifetime_energy",
-        state_class=SensorStateClass.TOTAL,
+        state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
     ),
@@ -55,6 +55,7 @@ SENSOR_TYPES = [
         json_key="lastYearData",
         REDACTED_VALUE"energy_this_year",
         entity_registry_enabled_default=False,
+        state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
     ),
@@ -63,6 +64,7 @@ SENSOR_TYPES = [
         json_key="lastMonthData",
         REDACTED_VALUE"energy_this_month",
         entity_registry_enabled_default=False,
+        state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
     ),
@@ -71,6 +73,7 @@ SENSOR_TYPES = [
         json_key="lastDayData",
         REDACTED_VALUE"energy_today",
         entity_registry_enabled_default=False,
+        state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
     ),
@@ -123,24 +126,32 @@ SENSOR_TYPES = [
         json_key="LOAD",
         REDACTED_VALUE"power_consumption",
         entity_registry_enabled_default=False,
+        state_class=SensorStateClass.MEASUREMENT,
+        device_class=SensorDeviceClass.POWER,
     ),
     SolarEdgeSensorEntityDescription(
         key="solar_power",
         json_key="PV",
         REDACTED_VALUE"solar_power",
         entity_registry_enabled_default=False,
+        state_class=SensorStateClass.MEASUREMENT,
+        device_class=SensorDeviceClass.POWER,
     ),
     SolarEdgeSensorEntityDescription(
         key="grid_power",
         json_key="GRID",
         REDACTED_VALUE"grid_power",
         entity_registry_enabled_default=False,
+        state_class=SensorStateClass.MEASUREMENT,
+        device_class=SensorDeviceClass.POWER,
     ),
     SolarEdgeSensorEntityDescription(
         key="storage_power",
         json_key="STORAGE",
         REDACTED_VALUE"storage_power",
         entity_registry_enabled_default=False,
+        state_class=SensorStateClass.MEASUREMENT,
+        device_class=SensorDeviceClass.POWER,
     ),
     SolarEdgeSensorEntityDescription(
         key="purchased_energy",
@@ -194,6 +205,7 @@ SENSOR_TYPES = [
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
+        device_class=SensorDeviceClass.BATTERY,
     ),
 ]
 
@@ -204,7 +216,10 @@ async def async_setup_entry(
     async_add_entities: AddConfigEntryEntitiesCallback,
 ) -> None:
     """Add an solarEdge entry."""
-    # Add the needed sensors to hass
+    # Add sensor entities only if API key is configured
+    if DATA_API_CLIENT not in entry.runtime_data:
+        return
+
     api = entry.runtime_data[DATA_API_CLIENT]
     sensor_factory = SolarEdgeSensorFactory(hass, entry, entry.data[CONF_SITE_ID], api)
     for service in sensor_factory.all_services:
