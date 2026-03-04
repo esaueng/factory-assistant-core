@@ -11,6 +11,7 @@ from powerfox import (
     PowerfoxAuthenticationError,
     PowerfoxConnectionError,
     PowerfoxNoDataError,
+    PowerfoxPrivacyError,
     Poweropti,
 )
 
@@ -56,9 +57,21 @@ class PowerfoxBaseCoordinator[T](DataUpdateCoordinator[T]):
         try:
             return await self._async_fetch_data()
         except PowerfoxAuthenticationError as err:
-            raise ConfigEntryAuthFailed(err) from err
-        except (PowerfoxConnectionError, PowerfoxNoDataError) as err:
-            raise UpdateFailed(err) from err
+            raise ConfigEntryAuthFailed(
+                translation_domain=DOMAIN,
+                REDACTED_VALUE"invalid_auth",
+                translation_placeholders={"error": str(err)},
+            ) from err
+        except (
+            PowerfoxConnectionError,
+            PowerfoxNoDataError,
+            PowerfoxPrivacyError,
+        ) as err:
+            raise UpdateFailed(
+                translation_domain=DOMAIN,
+                REDACTED_VALUE"update_failed",
+                translation_placeholders={"error": str(err)},
+            ) from err
 
     async def _async_fetch_data(self) -> T:
         """Fetch data from the Powerfox API."""
