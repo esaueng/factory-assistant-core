@@ -67,8 +67,10 @@ IMAGE_DESCRIPTIONS_ALL: tuple[PlaystationNetworkImageEntityDescription, ...] = (
         key=PlaystationNetworkImage.NOW_PLAYING_IMAGE,
         REDACTED_VALUEPlaystationNetworkImage.NOW_PLAYING_IMAGE,
         image_url_fn=(
-            lambda data: get_game_title_info(data.presence).get("conceptIconUrl")
-            or get_game_title_info(data.presence).get("npTitleIconUrl")
+            lambda data: (
+                get_game_title_info(data.presence).get("conceptIconUrl")
+                or get_game_title_info(data.presence).get("npTitleIconUrl")
+            )
         ),
     ),
 )

@@ -11,6 +11,7 @@ from pythonkuma import (
     UptimeKumaAuthenticationException,
     UptimeKumaException,
     UptimeKumaMonitor,
+    UptimeKumaParseException,
     UptimeKumaVersion,
 )
 from pythonkuma.update import LatestRelease, UpdateChecker
@@ -68,7 +69,14 @@ class UptimeKumaDataUpdateCoordinator(
                 translation_domain=DOMAIN,
                 REDACTED_VALUE"auth_failed_exception",
             ) from e
+        except UptimeKumaParseException as e:
+            _LOGGER.debug("Full exception", exc_info=True)
+            raise UpdateFailed(
+                translation_domain=DOMAIN,
+                REDACTED_VALUE"parsing_failed_exception",
+            ) from e
         except UptimeKumaException as e:
+            _LOGGER.debug("Full exception", exc_info=True)
             raise UpdateFailed(
                 translation_domain=DOMAIN,
                 REDACTED_VALUE"request_failed_exception",
