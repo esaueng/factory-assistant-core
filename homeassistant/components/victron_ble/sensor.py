@@ -398,7 +398,7 @@ SENSOR_DESCRIPTIONS = {
     Keys.WARNING: VictronBLESensorEntityDescription(
         key=Keys.WARNING,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUE"alarm",
+        REDACTED_VALUE"warning",
         options=ALARM_OPTIONS,
     ),
     Keys.YIELD_TODAY: VictronBLESensorEntityDescription(
