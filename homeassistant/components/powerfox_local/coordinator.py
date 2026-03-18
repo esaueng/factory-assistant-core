@@ -49,12 +49,12 @@ class PowerfoxLocalDataUpdateCoordinator(DataUpdateCoordinator[LocalResponse]):
         except PowerfoxAuthenticationError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_auth",
-                translation_placeholders={"error": str(err)},
+                REDACTED_VALUE"auth_failed",
+                translation_placeholders={"host": self.config_entry.data[CONF_HOST]},
             ) from err
         except PowerfoxConnectionError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
-                translation_placeholders={"error": str(err)},
+                REDACTED_VALUE"connection_error",
+                translation_placeholders={"host": self.config_entry.data[CONF_HOST]},
             ) from err
