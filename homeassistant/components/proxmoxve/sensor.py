@@ -14,12 +14,14 @@ from homeassistant.components.sensor import (
     SensorStateClass,
     StateType,
 )
-from homeassistant.const import PERCENTAGE, UnitOfInformation
+from homeassistant.const import PERCENTAGE, UnitOfInformation, UnitOfTime
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 
 from .coordinator import ProxmoxConfigEntry, ProxmoxNodeData
 from .entity import ProxmoxContainerEntity, ProxmoxNodeEntity, ProxmoxVMEntity
+
+PARALLEL_UPDATES = 0
 
 
 @dataclass(frozen=True, kw_only=True)
@@ -103,6 +105,25 @@ NODE_SENSORS: tuple[ProxmoxNodeSensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
     ),
     ProxmoxNodeSensorEntityDescription(
+        key="node_memory_percentage",
+        REDACTED_VALUE"node_memory_percentage",
+        value_fn=lambda data: int(data.node["mem"]) / int(data.node["maxmem"]) * 100,
+        native_unit_of_measurement=PERCENTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        suggested_display_precision=2,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    ProxmoxNodeSensorEntityDescription(
+        key="node_uptime",
+        REDACTED_VALUE"node_uptime",
+        value_fn=lambda data: data.node["uptime"],
+        device_class=SensorDeviceClass.DURATION,
+        native_unit_of_measurement=UnitOfTime.SECONDS,
+        suggested_unit_of_measurement=UnitOfTime.HOURS,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    ProxmoxNodeSensorEntityDescription(
         key="node_status",
         REDACTED_VALUE"node_status",
         value_fn=lambda data: data.node["status"],
@@ -149,6 +170,25 @@ VM_SENSORS: tuple[ProxmoxVMSensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
     ),
     ProxmoxVMSensorEntityDescription(
+        key="vm_memory_percentage",
+        REDACTED_VALUE"vm_memory_percentage",
+        value_fn=lambda data: int(data["mem"]) / int(data["maxmem"]) * 100,
+        native_unit_of_measurement=PERCENTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        suggested_display_precision=2,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    ProxmoxVMSensorEntityDescription(
+        key="vm_uptime",
+        REDACTED_VALUE"vm_uptime",
+        value_fn=lambda data: data["uptime"],
+        device_class=SensorDeviceClass.DURATION,
+        native_unit_of_measurement=UnitOfTime.SECONDS,
+        suggested_unit_of_measurement=UnitOfTime.HOURS,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    ProxmoxVMSensorEntityDescription(
         key="vm_disk",
         REDACTED_VALUE"vm_disk",
         value_fn=lambda data: data["disk"],
@@ -176,6 +216,28 @@ VM_SENSORS: tuple[ProxmoxVMSensorEntityDescription, ...] = (
         value_fn=lambda data: data["status"],
         device_class=SensorDeviceClass.ENUM,
         options=["running", "stopped", "suspended"],
+    ),
+    ProxmoxVMSensorEntityDescription(
+        key="vm_netin",
+        REDACTED_VALUE"vm_netin",
+        value_fn=lambda data: data["netin"],
+        device_class=SensorDeviceClass.DATA_SIZE,
+        native_unit_of_measurement=UnitOfInformation.BYTES,
+        suggested_unit_of_measurement=UnitOfInformation.GIBIBYTES,
+        suggested_display_precision=1,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        state_class=SensorStateClass.TOTAL_INCREASING,
+    ),
+    ProxmoxVMSensorEntityDescription(
+        key="vm_netout",
+        REDACTED_VALUE"vm_netout",
+        value_fn=lambda data: data["netout"],
+        device_class=SensorDeviceClass.DATA_SIZE,
+        native_unit_of_measurement=UnitOfInformation.BYTES,
+        suggested_unit_of_measurement=UnitOfInformation.GIBIBYTES,
+        suggested_display_precision=1,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        state_class=SensorStateClass.TOTAL_INCREASING,
     ),
 )
 
@@ -217,6 +279,25 @@ CONTAINER_SENSORS: tuple[ProxmoxContainerSensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
     ),
     ProxmoxContainerSensorEntityDescription(
+        key="container_memory_percentage",
+        REDACTED_VALUE"container_memory_percentage",
+        value_fn=lambda data: int(data["mem"]) / int(data["maxmem"]) * 100,
+        native_unit_of_measurement=PERCENTAGE,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        suggested_display_precision=2,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    ProxmoxContainerSensorEntityDescription(
+        key="container_uptime",
+        REDACTED_VALUE"container_uptime",
+        value_fn=lambda data: data["uptime"],
+        device_class=SensorDeviceClass.DURATION,
+        native_unit_of_measurement=UnitOfTime.SECONDS,
+        suggested_unit_of_measurement=UnitOfTime.HOURS,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    ProxmoxContainerSensorEntityDescription(
         key="container_disk",
         REDACTED_VALUE"container_disk",
         value_fn=lambda data: data["disk"],
@@ -244,6 +325,28 @@ CONTAINER_SENSORS: tuple[ProxmoxContainerSensorEntityDescription, ...] = (
         value_fn=lambda data: data["status"],
         device_class=SensorDeviceClass.ENUM,
         options=["running", "stopped", "suspended"],
+    ),
+    ProxmoxContainerSensorEntityDescription(
+        key="container_netin",
+        REDACTED_VALUE"container_netin",
+        value_fn=lambda data: data["netin"],
+        device_class=SensorDeviceClass.DATA_SIZE,
+        native_unit_of_measurement=UnitOfInformation.BYTES,
+        suggested_unit_of_measurement=UnitOfInformation.GIBIBYTES,
+        suggested_display_precision=1,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        state_class=SensorStateClass.TOTAL_INCREASING,
+    ),
+    ProxmoxContainerSensorEntityDescription(
+        key="container_netout",
+        REDACTED_VALUE"container_netout",
+        value_fn=lambda data: data["netout"],
+        device_class=SensorDeviceClass.DATA_SIZE,
+        native_unit_of_measurement=UnitOfInformation.BYTES,
+        suggested_unit_of_measurement=UnitOfInformation.GIBIBYTES,
+        suggested_display_precision=1,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        state_class=SensorStateClass.TOTAL_INCREASING,
     ),
 )
 

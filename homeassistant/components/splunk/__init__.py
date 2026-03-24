@@ -178,31 +178,24 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             connectivity=False, token=True, busy=False
         )
     except ClientConnectionError as err:
+        _LOGGER.debug("Connection error during setup at %s:%s: %s", host, port, err)
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"connection_error",
-            translation_placeholders={
-                "host": host,
-                "port": str(port),
-                "error": str(err),
-            },
+            REDACTED_VALUE"cannot_connect",
+            translation_placeholders={"host": host, "port": str(port)},
         ) from err
     except TimeoutError as err:
+        _LOGGER.debug("Timeout during setup at %s:%s: %s", host, port, err)
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
             REDACTED_VALUE"timeout_connect",
             translation_placeholders={"host": host, "port": str(port)},
         ) from err
     except Exception as err:
-        _LOGGER.exception("Unexpected error setting up Splunk")
+        _LOGGER.exception("Unexpected setup error at %s:%s", host, port)
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unexpected_error",
-            translation_placeholders={
-                "host": host,
-                "port": str(port),
-                "error": str(err),
-            },
+            REDACTED_VALUE"unexpected_connect_error",
         ) from err
 
     if not connectivity_ok:
