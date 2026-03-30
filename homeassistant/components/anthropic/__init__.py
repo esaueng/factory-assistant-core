@@ -45,9 +45,21 @@ async def async_setup_entry(hass: HomeAssistant, entry: AnthropicConfigEntry) ->
     try:
         await client.models.list(timeout=10.0)
     except anthropic.AuthenticationError as err:
-        raise ConfigEntryAuthFailed(err) from err
+        raise ConfigEntryAuthFailed(
+            translation_domain=DOMAIN,
+            REDACTED_VALUE"api_authentication_error",
+            translation_placeholders={"message": err.message},
+        ) from err
     except anthropic.AnthropicError as err:
-        raise ConfigEntryNotReady(err) from err
+        raise ConfigEntryNotReady(
+            translation_domain=DOMAIN,
+            REDACTED_VALUE"api_error",
+            translation_placeholders={
+                "message": err.message
+                if isinstance(err, anthropic.APIError)
+                else str(err)
+            },
+        ) from err
 
     entry.runtime_data = client
 
