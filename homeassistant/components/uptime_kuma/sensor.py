@@ -117,13 +117,6 @@ SENSOR_DESCRIPTIONS: tuple[UptimeKumaSensorEntityDescription, ...] = (
         create_entity=lambda t: t in HAS_PORT,
     ),
     UptimeKumaSensorEntityDescription(
-        key=UptimeKumaSensor.PORT,
-        REDACTED_VALUEUptimeKumaSensor.PORT,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        value_fn=lambda m: m.monitor_port,
-        create_entity=lambda t: t in HAS_PORT,
-    ),
-    UptimeKumaSensorEntityDescription(
         key=UptimeKumaSensor.UPTIME_RATIO_1D,
         REDACTED_VALUEUptimeKumaSensor.UPTIME_RATIO_1D,
         value_fn=lambda m: (

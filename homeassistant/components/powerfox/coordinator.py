@@ -59,18 +59,24 @@ class PowerfoxBaseCoordinator[T](DataUpdateCoordinator[T]):
         except PowerfoxAuthenticationError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_auth",
-                translation_placeholders={"error": str(err)},
+                REDACTED_VALUE"auth_failed",
             ) from err
-        except (
-            PowerfoxConnectionError,
-            PowerfoxNoDataError,
-            PowerfoxPrivacyError,
-        ) as err:
+        except PowerfoxConnectionError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
-                translation_placeholders={"error": str(err)},
+                REDACTED_VALUE"connection_error",
+            ) from err
+        except PowerfoxNoDataError as err:
+            raise UpdateFailed(
+                translation_domain=DOMAIN,
+                REDACTED_VALUE"no_data_error",
+                translation_placeholders={"device_name": self.device.name},
+            ) from err
+        except PowerfoxPrivacyError as err:
+            raise UpdateFailed(
+                translation_domain=DOMAIN,
+                REDACTED_VALUE"privacy_error",
+                translation_placeholders={"device_name": self.device.name},
             ) from err
 
     async def _async_fetch_data(self) -> T:
