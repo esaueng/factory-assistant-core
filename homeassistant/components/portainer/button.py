@@ -102,6 +102,16 @@ CONTAINER_BUTTONS: tuple[PortainerButtonDescription, ...] = (
             )
         ),
     ),
+    PortainerButtonDescription(
+        key="kill",
+        REDACTED_VALUE"kill_container",
+        entity_category=EntityCategory.CONFIG,
+        press_action=(
+            lambda portainer, endpoint_id, container_id: portainer.kill_container(
+                endpoint_id, container_id
+            )
+        ),
+    ),
 )
 
 
