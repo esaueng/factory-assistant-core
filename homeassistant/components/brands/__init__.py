@@ -52,7 +52,9 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         """Rotate the access token."""
         access_tokens.append(hex(_RND.getrandbits(256))[2:])
 
-    async_track_time_interval(hass, _rotate_token, TOKEN_CHANGE_INTERVAL)
+    async_track_time_interval(
+        hass, _rotate_token, TOKEN_CHANGE_INTERVAL, REDACTED_VALUE
+    )
 
     hass.http.register_view(BrandsIntegrationView(hass))
     hass.http.register_view(BrandsHardwareView(hass))

@@ -74,6 +74,12 @@ async def async_setup_entry(hass: HomeAssistant, entry: BackblazeConfigEntry) ->
             translation_domain=DOMAIN,
             REDACTED_VALUE"invalid_bucket_name",
         ) from err
+    except exception.BadRequest as err:
+        raise ConfigEntryNotReady(
+            translation_domain=DOMAIN,
+            REDACTED_VALUE"bad_request",
+            translation_placeholders={"error_message": str(err)},
+        ) from err
     except (
         exception.B2ConnectionError,
         exception.B2RequestTimeout,
