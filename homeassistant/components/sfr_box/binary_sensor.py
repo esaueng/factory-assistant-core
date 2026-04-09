@@ -6,7 +6,7 @@ from collections.abc import Callable
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
-from sfrbox_api.models import DslInfo, FtthInfo, WanInfo
+from sfrbox_api.models import DslInfo, FtthInfo, VoipInfo, WanInfo
 
 from homeassistant.components.binary_sensor import (
     BinarySensorDeviceClass,
@@ -49,6 +49,26 @@ FTTH_SENSOR_TYPES: tuple[SFRBoxBinarySensorEntityDescription[FtthInfo], ...] = (
         REDACTED_VALUE"ftth_status",
     ),
 )
+VOIP_SENSOR_TYPES: tuple[SFRBoxBinarySensorEntityDescription[VoipInfo], ...] = (
+    SFRBoxBinarySensorEntityDescription[VoipInfo](
+        key="status",
+        device_class=BinarySensorDeviceClass.CONNECTIVITY,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        value_fn=lambda x: x.status == "up",
+        REDACTED_VALUE"voip_status",
+    ),
+    SFRBoxBinarySensorEntityDescription[VoipInfo](
+        key="callhistory_active",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        value_fn=lambda x: x.callhistory_active == "on",
+        REDACTED_VALUE"voip_callhistory_active",
+    ),
+    SFRBoxBinarySensorEntityDescription[VoipInfo](
+        key="hook_status",
+        value_fn=lambda x: x.hook_status == "offhook",
+        REDACTED_VALUE"voip_hook_status",
+    ),
+)
 WAN_SENSOR_TYPES: tuple[SFRBoxBinarySensorEntityDescription[WanInfo], ...] = (
     SFRBoxBinarySensorEntityDescription[WanInfo](
         key="status",
@@ -75,6 +95,11 @@ async def async_setup_entry(
         SFRBoxBinarySensor(data.wan, description, system_info)
         for description in WAN_SENSOR_TYPES
     ]
+    if data.voip is not None:
+        entities.extend(
+            SFRBoxBinarySensor(data.voip, description, system_info)
+            for description in VOIP_SENSOR_TYPES
+        )
     if (net_infra := system_info.net_infra) == "adsl":
         entities.extend(
             SFRBoxBinarySensor(data.dsl, description, system_info)
