@@ -68,7 +68,6 @@ class TailwindButtonEntity(TailwindEntity, ButtonEntity):
             await self.entity_description.press_fn(self.coordinator.tailwind)
         except TailwindError as exc:
             raise HomeAssistantError(
-                str(exc),
                 translation_domain=DOMAIN,
                 REDACTED_VALUE"communication_error",
             ) from exc
