@@ -467,7 +467,6 @@ REST_SENSORS: Final = {
     ),
     "uptime": RestSensorDescription(
         key="uptime",
-        REDACTED_VALUE"last_restart",
         value=lambda status, _: utcnow() - timedelta(seconds=status["uptime"]),
         device_class=SensorDeviceClass.UPTIME,
         entity_registry_enabled_default=False,
@@ -1243,7 +1242,6 @@ RPC_SENSORS: Final = {
     "uptime": RpcSensorDescription(
         key="sys",
         sub_key="uptime",
-        REDACTED_VALUE"last_restart",
         device_class=SensorDeviceClass.UPTIME,
         value=lambda status, _: utcnow() - timedelta(seconds=status),
         entity_registry_enabled_default=False,
