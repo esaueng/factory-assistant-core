@@ -18,7 +18,12 @@ from aiocomelit.const import (
     SCENARIO,
     VEDO,
 )
-from aiocomelit.exceptions import CannotAuthenticate, CannotConnect, CannotRetrieveData
+from aiocomelit.exceptions import (
+    CannotAuthenticate,
+    CannotConnect,
+    CannotRetrieveData,
+    DeviceStorageFailureError,
+)
 from aiohttp import ClientSession
 
 from homeassistant.config_entries import ConfigEntry
@@ -111,6 +116,11 @@ class ComelitBaseCoordinator(DataUpdateCoordinator[T]):
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
                 REDACTED_VALUE"cannot_authenticate",
+            ) from err
+        except DeviceStorageFailureError as err:
+            raise UpdateFailed(
+                translation_domain=DOMAIN,
+                REDACTED_VALUE"device_storage_failure",
             ) from err
 
     @abstractmethod
