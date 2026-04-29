@@ -294,7 +294,6 @@ CONNECTION_SENSOR_TYPES: tuple[FritzConnectionSensorEntityDescription, ...] = (
 DEVICE_SENSOR_TYPES: tuple[FritzDeviceSensorEntityDescription, ...] = (
     FritzDeviceSensorEntityDescription(
         key="device_uptime",
-        REDACTED_VALUE"device_uptime",
         device_class=SensorDeviceClass.UPTIME,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=_retrieve_device_uptime_state,
