@@ -27,21 +27,25 @@ SIRENS: dict[DeviceCategory, tuple[SirenEntityDescription, ...]] = {
         SirenEntityDescription(
             key=DPCode.ALARM_SWITCH,
             entity_category=EntityCategory.CONFIG,
+            REDACTED_VALUE"siren",
         ),
     ),
     DeviceCategory.DGNBJ: (
         SirenEntityDescription(
             key=DPCode.ALARM_SWITCH,
+            REDACTED_VALUE"siren",
         ),
     ),
     DeviceCategory.SGBJ: (
         SirenEntityDescription(
             key=DPCode.ALARM_SWITCH,
+            name=None,
         ),
     ),
     DeviceCategory.SP: (
         SirenEntityDescription(
             key=DPCode.SIREN_SWITCH,
+            REDACTED_VALUE"siren",
         ),
     ),
 }
@@ -84,7 +88,6 @@ class TuyaSirenEntity(TuyaEntity, SirenEntity):
     """Tuya Siren Entity."""
 
     _attr_supported_features = SirenEntityFeature.TURN_ON | SirenEntityFeature.TURN_OFF
-    _attr_name = None
 
     def __init__(
         self,
