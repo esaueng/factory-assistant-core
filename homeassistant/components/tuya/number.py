@@ -228,7 +228,14 @@ NUMBERS: dict[DeviceCategory, tuple[NumberEntityDescription, ...]] = {
         ),
     ),
     DeviceCategory.SFKZQ: (
-        # Controls the irrigation duration for the water valve
+        # Controls the irrigation duration for indexed water valves
+        NumberEntityDescription(
+            key=DPCode.COUNTDOWN,
+            REDACTED_VALUE"irrigation_duration",
+            device_class=NumberDeviceClass.DURATION,
+            entity_category=EntityCategory.CONFIG,
+        ),
+        # Controls the irrigation duration for indexed water valves
         NumberEntityDescription(
             key=DPCode.COUNTDOWN_1,
             REDACTED_VALUE"indexed_irrigation_duration",
@@ -297,6 +304,21 @@ NUMBERS: dict[DeviceCategory, tuple[NumberEntityDescription, ...]] = {
         NumberEntityDescription(
             key=DPCode.BASIC_DEVICE_VOLUME,
             REDACTED_VALUE"volume",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        NumberEntityDescription(
+            key=DPCode.IPC_BRIGHT,
+            REDACTED_VALUE"video_brightness",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        NumberEntityDescription(
+            key=DPCode.IPC_CONTRAST,
+            REDACTED_VALUE"video_contrast",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        NumberEntityDescription(
+            key=DPCode.IPC_SHARP,
+            REDACTED_VALUE"video_sharpness",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
