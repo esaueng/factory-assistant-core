@@ -1,7 +1,5 @@
 """Binary sensors for the Seko PoolDose integration."""
 
-from __future__ import annotations
-
 import logging
 from typing import TYPE_CHECKING, cast
 
@@ -89,6 +87,90 @@ BINARY_SENSOR_DESCRIPTIONS: tuple[BinarySensorEntityDescription, ...] = (
         key="relay_aux3",
         REDACTED_VALUE"relay_aux3",
         device_class=BinarySensorDeviceClass.POWER,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    BinarySensorEntityDescription(
+        key="alarm_ofa2_ph",
+        REDACTED_VALUE"alarm_ofa_ph_alternative",
+        device_class=BinarySensorDeviceClass.PROBLEM,
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+    BinarySensorEntityDescription(
+        key="alarm_ofa2_orp",
+        REDACTED_VALUE"alarm_ofa_orp_alternative",
+        device_class=BinarySensorDeviceClass.PROBLEM,
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+    BinarySensorEntityDescription(
+        key="alarm_ofa2_cl",
+        REDACTED_VALUE"alarm_ofa_cl_alternative",
+        device_class=BinarySensorDeviceClass.PROBLEM,
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+    BinarySensorEntityDescription(
+        key="alarm_water_too_cold",
+        REDACTED_VALUE"alarm_water_too_cold",
+        device_class=BinarySensorDeviceClass.PROBLEM,
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+    BinarySensorEntityDescription(
+        key="alarm_water_too_hot",
+        REDACTED_VALUE"alarm_water_too_hot",
+        device_class=BinarySensorDeviceClass.PROBLEM,
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+    BinarySensorEntityDescription(
+        key="alarm_ph_too_low",
+        REDACTED_VALUE"alarm_ph_too_low",
+        device_class=BinarySensorDeviceClass.PROBLEM,
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+    BinarySensorEntityDescription(
+        key="alarm_ph_too_high",
+        REDACTED_VALUE"alarm_ph_too_high",
+        device_class=BinarySensorDeviceClass.PROBLEM,
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+    BinarySensorEntityDescription(
+        key="alarm_cl_too_low_orp",
+        REDACTED_VALUE"alarm_cl_too_low_orp",
+        device_class=BinarySensorDeviceClass.PROBLEM,
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+    BinarySensorEntityDescription(
+        key="alarm_cl_too_high_orp",
+        REDACTED_VALUE"alarm_cl_too_high_orp",
+        device_class=BinarySensorDeviceClass.PROBLEM,
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+    BinarySensorEntityDescription(
+        key="alarm_cl_too_high",
+        REDACTED_VALUE"alarm_cl_too_high",
+        device_class=BinarySensorDeviceClass.PROBLEM,
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+    BinarySensorEntityDescription(
+        key="alarm_system_standby",
+        REDACTED_VALUE"alarm_system_standby",
+        device_class=BinarySensorDeviceClass.PROBLEM,
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+    BinarySensorEntityDescription(
+        key="circulation_pump_status",
+        REDACTED_VALUE"circulation_pump_status",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    BinarySensorEntityDescription(
+        key="power_on_delay_status",
+        REDACTED_VALUE"power_on_delay_status",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
+    BinarySensorEntityDescription(
+        key="flow_delay_status",
+        REDACTED_VALUE"flow_delay_status",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
