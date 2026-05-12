@@ -65,6 +65,7 @@ async def get_options_schema(handler: SchemaCommonFlowHandler) -> vol.Schema:
                                 description_field="compensated_value",
                                 multiple=True,
                                 REDACTED_VALUECONF_DATAPOINTS,
+                                overview_labels=False,
                                 fields={
                                     CONF_UNCOMPENSATED_VALUE: ObjectSelectorField(
                                         required=True,
