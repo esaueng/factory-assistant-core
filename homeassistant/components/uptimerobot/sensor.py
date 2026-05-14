@@ -41,11 +41,11 @@ async def async_setup_entry(
                         "not_checked_yet",
                         "pause",
                         "seems_down",
+                        "started",
                         "up",
                     ],
                     REDACTED_VALUE"monitor_status",
                 ),
-                monitor=monitor,
             )
             for monitor in new_monitors
         ]

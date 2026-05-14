@@ -1077,6 +1077,17 @@ SENSORS: dict[DeviceCategory, tuple[TuyaSensorEntityDescription, ...]] = {
             state_class=SensorStateClass.TOTAL_INCREASING,
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
+        TuyaSensorEntityDescription(
+            key=DPCode.USE_TIME_ONE,
+            REDACTED_VALUE"last_watering_time",
+            device_class=SensorDeviceClass.DURATION,
+            entity_category=EntityCategory.DIAGNOSTIC,
+        ),
+        TuyaSensorEntityDescription(
+            key=DPCode.WORK_STATE,
+            REDACTED_VALUE"irrigation_status",
+            entity_category=EntityCategory.DIAGNOSTIC,
+        ),
         *BATTERY_SENSORS,
     ),
     DeviceCategory.SGBJ: BATTERY_SENSORS,
@@ -1603,8 +1614,37 @@ SENSORS: dict[DeviceCategory, tuple[TuyaSensorEntityDescription, ...]] = {
     ),
     DeviceCategory.ZNRB: (
         TuyaSensorEntityDescription(
+            key=DPCode.COMPRESSOR_STRENGTH,
+            REDACTED_VALUE"compressor_strength",
+            state_class=SensorStateClass.MEASUREMENT,
+        ),
+        TuyaSensorEntityDescription(
+            key=DPCode.TEMP_AROUND,
+            REDACTED_VALUE"outside_temperature",
+            device_class=SensorDeviceClass.TEMPERATURE,
+            state_class=SensorStateClass.MEASUREMENT,
+        ),
+        TuyaSensorEntityDescription(
+            key=DPCode.TEMP_COILER,
+            REDACTED_VALUE"coil_temperature",
+            device_class=SensorDeviceClass.TEMPERATURE,
+            state_class=SensorStateClass.MEASUREMENT,
+        ),
+        TuyaSensorEntityDescription(
             key=DPCode.TEMP_CURRENT,
             REDACTED_VALUE"temperature",
+            device_class=SensorDeviceClass.TEMPERATURE,
+            state_class=SensorStateClass.MEASUREMENT,
+        ),
+        TuyaSensorEntityDescription(
+            key=DPCode.TEMP_EFFLUENT,
+            REDACTED_VALUE"flow_temperature",
+            device_class=SensorDeviceClass.TEMPERATURE,
+            state_class=SensorStateClass.MEASUREMENT,
+        ),
+        TuyaSensorEntityDescription(
+            key=DPCode.TEMP_VENTING,
+            REDACTED_VALUE"heat_exchanger_temperature",
             device_class=SensorDeviceClass.TEMPERATURE,
             state_class=SensorStateClass.MEASUREMENT,
         ),
