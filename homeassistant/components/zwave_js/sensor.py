@@ -558,7 +558,6 @@ ENTITY_DESCRIPTION_NODE_STATISTICS_LIST = [
         key="last_seen",
         REDACTED_VALUE"last_seen",
         device_class=SensorDeviceClass.TIMESTAMP,
-        entity_registry_enabled_default=False,
     ),
 ]
 
