@@ -42,11 +42,14 @@ from tests.common import (
 from tests.test_util.aiohttp import AiohttpClientMocker
 from tests.typing import ClientSessionGenerator
 
+DUMMY_PRIVATE_KEY = (
+    "REDACTED_VALUE\n"
+)
 DUMMY_CONFIG = GOOGLE_ASSISTANT_SCHEMA(
     {
         "project_id": "1234",
         "service_account": {
-            "private_key": "REDACTED_VALUE\n",
+            "private_key": DUMMY_PRIVATE_KEY,
             "client_email": "dummy@dummy.iam.gserviceaccount.com",
         },
     }
@@ -63,7 +66,17 @@ MOCK_HEADER = {
 async def test_get_jwt(hass: HomeAssistant) -> None:
     """Test signing of key."""
 
-    jwt = "REDACTED_VALUE"
+    jwt = (
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9."
+        "eyJpc3MiOiJkdW1teUBkdW1teS5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSI"
+        "sInNjb3BlIjoiaHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vYXV0aC9ob21"
+        "lZ3JhcGgiLCJhdWQiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20vby9"
+        "vYXV0aDIvdG9rZW4iLCJpYXQiOjE1NzEwMTEyMDAsImV4cCI6MTU3MTAxND"
+        "gwMH0."
+        "akHbMhOflXdIDHVvUVwO0AoJONVOPUdCghN6hAdVz4gxjarrQeGYc_Qn2r8"
+        "4bEvCU7t6EvimKKr0fyupyzBAzfvKULs5mTHO3h2CwSgvOBMv8LnILboJmb"
+        "O4JcgdnRV7d9G3ktQs7wWSCXJsI5i5jUr1Wfi9zWwxn2ebaAAgrp8"
+    )
     res = _get_homegraph_jwt(
         datetime(2019, 10, 14, tzinfo=UTC),
         DUMMY_CONFIG["service_account"]["client_email"],
@@ -286,7 +299,7 @@ async def test_secure_device_pin_config(hass: HomeAssistant) -> None:
         {
             "project_id": "1234",
             "service_account": {
-                "private_key": "REDACTED_VALUE\n",
+                "private_key": DUMMY_PRIVATE_KEY,
                 "client_email": "dummy@dummy.iam.gserviceaccount.com",
             },
             "secure_devices_pin": secure_pin,
@@ -483,8 +496,8 @@ async def test_async_enable_local_sdk(
     )
     assert resp.status == HTTPStatus.OK
     assert (
-        "Cannot process request for webhook **REDACTED** as no linked agent user is found:"
-        in caplog.text
+        "Cannot process request for webhook **REDACTED**"
+        " as no linked agent user is found:" in caplog.text
     )
 
 
