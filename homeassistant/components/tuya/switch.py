@@ -717,6 +717,16 @@ SWITCHES: dict[DeviceCategory, tuple[SwitchEntityDescription, ...]] = {
             REDACTED_VALUE"motion_alarm",
             entity_category=EntityCategory.CONFIG,
         ),
+        SwitchEntityDescription(
+            key=DPCode.MOTION_AREA_SWITCH,
+            REDACTED_VALUE"motion_detection_zone",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        SwitchEntityDescription(
+            key=DPCode.IPC_AUTO_SIREN,
+            REDACTED_VALUE"auto_siren",
+            entity_category=EntityCategory.CONFIG,
+        ),
     ),
     DeviceCategory.SZ: (
         SwitchEntityDescription(
@@ -891,6 +901,12 @@ SWITCHES: dict[DeviceCategory, tuple[SwitchEntityDescription, ...]] = {
         ),
     ),
     DeviceCategory.ZNRB: (
+        SwitchEntityDescription(
+            key=DPCode.CHILD_LOCK,
+            REDACTED_VALUE"child_lock",
+            icon="mdi:account-lock",
+            entity_category=EntityCategory.CONFIG,
+        ),
         SwitchEntityDescription(
             key=DPCode.SWITCH,
             REDACTED_VALUE"switch",
