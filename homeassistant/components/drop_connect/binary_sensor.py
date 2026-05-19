@@ -81,7 +81,6 @@ BINARY_SENSORS: list[DROPBinarySensorEntityDescription] = [
     ),
     DROPBinarySensorEntityDescription(
         key=POWER,
-        REDACTED_VALUENone,  # Use name provided by binary sensor device class
         device_class=BinarySensorDeviceClass.POWER,
         value_fn=lambda device: device.drop_api.power(),
     ),

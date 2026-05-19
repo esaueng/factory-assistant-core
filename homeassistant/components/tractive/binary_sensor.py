@@ -57,7 +57,6 @@ class TractiveBinarySensorEntityDescription(BinarySensorEntityDescription):
 SENSOR_TYPES = [
     TractiveBinarySensorEntityDescription(
         key=ATTR_BATTERY_CHARGING,
-        REDACTED_VALUE"tracker_battery_charging",
         device_class=BinarySensorDeviceClass.BATTERY_CHARGING,
         entity_category=EntityCategory.DIAGNOSTIC,
         supported=lambda details: details.get("charging_state") is not None,

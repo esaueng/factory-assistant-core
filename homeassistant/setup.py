@@ -384,7 +384,9 @@ async def _async_setup_component(
             REDACTED_VALUE"config_entry_only",
             translation_placeholders={
                 "domain": domain,
-                "add_integration": f"/config/integrations/dashboard/add?domain={domain}",
+                "add_integration": (
+                    f"/config/integrations/dashboard/add?domain={domain}"
+                ),
             },
         )
 
