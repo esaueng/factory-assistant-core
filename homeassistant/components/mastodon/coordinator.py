@@ -62,6 +62,9 @@ class MastodonCoordinator(DataUpdateCoordinator[Account]):
                 REDACTED_VALUE"auth_failed",
             ) from error
         except MastodonError as ex:
-            raise UpdateFailed(ex) from ex
+            raise UpdateFailed(
+                translation_domain=DOMAIN,
+                REDACTED_VALUE"update_failed",
+            ) from ex
 
         return account
