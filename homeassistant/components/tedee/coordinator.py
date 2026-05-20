@@ -100,7 +100,7 @@ class TedeeApiCoordinator(DataUpdateCoordinator[dict[int, TedeeLock]]):
         except TedeeLocalAuthException as ex:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"authentification_failed",
+                REDACTED_VALUE"authentication_failed",
             ) from ex
 
         except TedeeDataUpdateException as ex:
