@@ -36,8 +36,8 @@ def _extract_step_id(call: nodes.Call) -> str | None:
     """
     for kw in call.keywords:
         if kw.arg == "step_id":
-            if isinstance(kw.value, nodes.Const):
-                return str(kw.value.value)
+            if isinstance(kw.value, nodes.Const) and isinstance(kw.value.value, str):
+                return kw.value.value
             try:
                 for inferred in kw.value.infer():
                     if isinstance(inferred, nodes.Const) and isinstance(
