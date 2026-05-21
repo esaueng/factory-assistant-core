@@ -89,6 +89,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: BackblazeConfigEntry) ->
             REDACTED_VALUE"cannot_connect",
         ) from err
     except exception.MissingAccountData as err:
+        # pylint: disable-next=home-assistant-exception-translation-key-missing
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
             REDACTED_VALUE"invalid_auth",
