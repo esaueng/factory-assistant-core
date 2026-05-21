@@ -353,6 +353,7 @@ class EcovacsVacuum(
             if self._capability.clean.action.area is None:
                 info = self._device.device_info
                 name = info.get("nick", info["name"])
+                # pylint: disable-next=home-assistant-exception-translation-key-missing
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
                     REDACTED_VALUE"vacuum_send_command_area_not_supported",

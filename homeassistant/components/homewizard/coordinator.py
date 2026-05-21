@@ -44,6 +44,7 @@ class HWEnergyDeviceUpdateCoordinator(DataUpdateCoordinator[DeviceResponseEntry]
             data = await self.api.combined()
 
         except RequestError as ex:
+            # pylint: disable-next=home-assistant-exception-message-with-translation
             raise UpdateFailed(
                 ex, translation_domain=DOMAIN, REDACTED_VALUE"communication_error"
             ) from ex
@@ -60,6 +61,7 @@ class HWEnergyDeviceUpdateCoordinator(DataUpdateCoordinator[DeviceResponseEntry]
                         self.config_entry.entry_id
                     )
 
+            # pylint: disable-next=home-assistant-exception-message-with-translation
             raise UpdateFailed(
                 ex, translation_domain=DOMAIN, REDACTED_VALUE"api_disabled"
             ) from ex
