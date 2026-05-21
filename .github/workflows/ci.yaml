@@ -90,6 +90,7 @@ jobs:
       postgresql_groups: ${{ steps.info.outputs.postgresql_groups }}
       python_versions: ${{ steps.info.outputs.python_versions }}
       default_python: ${{ steps.info.outputs.default_python }}
+      uv_version: ${{ steps.info.outputs.uv_version }}
       test_full_suite: ${{ steps.info.outputs.test_full_suite }}
       test_group_count: ${{ steps.info.outputs.test_group_count }}
       test_groups: ${{ steps.info.outputs.test_groups }}
@@ -238,6 +239,9 @@ jobs:
           echo "python_versions=${all_python_versions}" >> $GITHUB_OUTPUT
           echo "default_python: ${default_python}"
           echo "default_python=${default_python}" >> $GITHUB_OUTPUT
+          uv_version=$(grep '^uv==' requirements.txt | cut -d'=' -f3)
+          echo "uv_version: ${uv_version}"
+          echo "uv_version=${uv_version}" >> $GITHUB_OUTPUT
           echo "test_full_suite: ${test_full_suite}"
           echo "test_full_suite=${test_full_suite}" >> $GITHUB_OUTPUT
           echo "integrations_glob: ${integrations_glob}"
@@ -347,16 +351,15 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
-      - name: Read uv version from requirements.txt
-        id: read-uv-version
-        run: |
-          echo "version=$(grep '^uv==' requirements.txt | cut -d'=' -f3)" >> "$GITHUB_OUTPUT"
       - name: Set up uv and Python ${{ matrix.python-version }}
         id: python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
-          version: ${{ steps.read-uv-version.outputs.version }}
+          # Pin uv version so setup-uv does not fetch the manifest
+          # from raw.githubusercontent.com on every cache miss.
+          version: ${{ needs.info.outputs.uv_version }}
           python-version: ${{ matrix.python-version }}
+          ignore-nothing-to-cache: true
       - name: Restore base Python virtual environment
         id: cache-venv
         uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
@@ -481,7 +484,9 @@ jobs:
         id: python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
+          version: ${{ needs.info.outputs.uv_version }}
           python-version: ${{ needs.info.outputs.default_python }}
+          ignore-nothing-to-cache: true
       - name: Restore full Python virtual environment
         id: cache-venv
         uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
@@ -517,7 +522,9 @@ jobs:
         id: python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
+          version: ${{ needs.info.outputs.uv_version }}
           python-version: ${{ needs.info.outputs.default_python }}
+          ignore-nothing-to-cache: true
       - name: Restore full Python virtual environment
         id: cache-venv
         uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
@@ -552,7 +559,9 @@ jobs:
         id: python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
+          version: ${{ needs.info.outputs.uv_version }}
           python-version: ${{ needs.info.outputs.default_python }}
+          ignore-nothing-to-cache: true
       - name: Run gen_copilot_instructions.py
         run: |
           python -m script.gen_copilot_instructions validate
@@ -606,7 +615,9 @@ jobs:
         id: python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
+          version: ${{ needs.info.outputs.uv_version }}
           python-version: ${{ matrix.python-version }}
+          ignore-nothing-to-cache: true
       - name: Restore full Python ${{ matrix.python-version }} virtual environment
         id: cache-venv
         uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
@@ -656,7 +667,9 @@ jobs:
         id: python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
+          version: ${{ needs.info.outputs.uv_version }}
           python-version: ${{ needs.info.outputs.default_python }}
+          ignore-nothing-to-cache: true
       - name: Restore full Python virtual environment
         id: cache-venv
         uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
@@ -708,7 +721,9 @@ jobs:
         id: python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
+          version: ${{ needs.info.outputs.uv_version }}
           python-version: ${{ needs.info.outputs.default_python }}
+          ignore-nothing-to-cache: true
       - name: Restore full Python virtual environment
         id: cache-venv
         uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
@@ -758,7 +773,9 @@ jobs:
         id: python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
+          version: ${{ needs.info.outputs.uv_version }}
           python-version: ${{ needs.info.outputs.default_python }}
+          ignore-nothing-to-cache: true
       - name: Generate partial mypy restore key
         id: generate-mypy-key
         run: |
@@ -834,7 +851,9 @@ jobs:
         id: python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
+          version: ${{ needs.info.outputs.uv_version }}
           python-version: ${{ needs.info.outputs.default_python }}
+          ignore-nothing-to-cache: true
       - name: Restore full Python virtual environment
         id: cache-venv
         uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
@@ -898,7 +917,9 @@ jobs:
         id: python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
+          version: ${{ needs.info.outputs.uv_version }}
           python-version: ${{ matrix.python-version }}
+          ignore-nothing-to-cache: true
       - name: Restore full Python ${{ matrix.python-version }} virtual environment
         id: cache-venv
         uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
@@ -1039,7 +1060,9 @@ jobs:
         id: python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
+          version: ${{ needs.info.outputs.uv_version }}
           python-version: ${{ matrix.python-version }}
+          ignore-nothing-to-cache: true
       - name: Restore full Python ${{ matrix.python-version }} virtual environment
         id: cache-venv
         uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
@@ -1194,7 +1217,9 @@ jobs:
         id: python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
+          version: ${{ needs.info.outputs.uv_version }}
           python-version: ${{ matrix.python-version }}
+          ignore-nothing-to-cache: true
       - name: Restore full Python ${{ matrix.python-version }} virtual environment
         id: cache-venv
         uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
@@ -1361,7 +1386,9 @@ jobs:
         id: python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
+          version: ${{ needs.info.outputs.uv_version }}
           python-version: ${{ matrix.python-version }}
+          ignore-nothing-to-cache: true
       - name: Restore full Python ${{ matrix.python-version }} virtual environment
         id: cache-venv
         uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
