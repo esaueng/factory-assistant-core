@@ -497,6 +497,56 @@ class MyConfigFlow(ConfigFlow, domain=DOMAIN):
     assert "missing_field" in messages[0].args[0]
 
 
+def test_section_attribute_form_ok(
+    linter: UnittestLinter,
+    flow_translations_checker: ConfigFlowTranslationsChecker,
+    tmp_path: Path,
+) -> None:
+    """Test that data_entry_flow.section(...) is recognized as a section."""
+    integration_dir = _make_integration(
+        tmp_path,
+        {
+            "config": {
+                "step": {
+                    "user": {
+                        "data": {"host": "Host"},
+                        "sections": {
+                            "advanced": {
+                                "data": {"ssl": "Use SSL"},
+                            }
+                        },
+                    }
+                }
+            }
+        },
+    )
+
+    root_node = astroid.parse(
+        """
+class MyConfigFlow(ConfigFlow, domain=DOMAIN):
+    async def async_step_user(self, user_input=None):
+        return self.async_show_form(
+            step_id="user",
+            data_schema=vol.Schema({
+                vol.Required("host"): str,
+                vol.Required("advanced"): data_entry_flow.section(
+                    vol.Schema({vol.Required("ssl"): bool}),
+                    {"collapsed": True},
+                ),
+            }),
+        )
+""",
+        "homeassistant.components.test_int.config_flow",
+    )
+    root_node.file = str(integration_dir / "config_flow.py")
+
+    walker = ASTWalker(linter)
+    walker.add_checker(flow_translations_checker)
+
+    with assert_no_messages(linter):
+        walker.walk(root_node)
+
+
 def test_constant_field_names_resolved(
     linter: UnittestLinter,
     flow_translations_checker: ConfigFlowTranslationsChecker,

@@ -148,9 +148,14 @@ def _extract_section_fields(node: nodes.NodeNG) -> list[str] | None:
     """
     if not isinstance(node, nodes.Call):
         return None
-    if not isinstance(node.func, nodes.Name):
-        return None
-    if node.func.name != "section":
+    # Match section(...) or data_entry_flow.section(...)
+    if isinstance(node.func, nodes.Name):
+        if node.func.name != "section":
+            return None
+    elif isinstance(node.func, nodes.Attribute):
+        if node.func.attrname != "section":
+            return None
+    else:
         return None
     if not node.args:
         return None
