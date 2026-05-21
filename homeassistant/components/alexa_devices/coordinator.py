@@ -91,6 +91,7 @@ class AmazonDevicesCoordinator(DataUpdateCoordinator[dict[str, AmazonDevice]]):
                 translation_placeholders={"error": repr(err)},
             ) from err
         except CannotAuthenticate as err:
+            # pylint: disable-next=home-assistant-exception-translation-key-missing
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
                 REDACTED_VALUE"invalid_auth",
