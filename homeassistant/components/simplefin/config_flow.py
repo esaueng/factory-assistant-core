@@ -64,6 +64,7 @@ class SimpleFinConfigFlow(ConfigFlow, domain=DOMAIN):
                     data={CONF_ACCESS_URL: user_input[CONF_ACCESS_URL]},
                 )
 
+        # pylint: disable-next=home-assistant-config-flow-field-not-translated
         return self.async_show_form(
             step_id="user",
             data_schema=vol.Schema(

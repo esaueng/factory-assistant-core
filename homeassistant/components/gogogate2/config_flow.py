@@ -125,6 +125,7 @@ class Gogogate2FlowHandler(ConfigFlow, domain=DOMAIN):
                 CONF_DEVICE: DEVICE_NAMES[self._device_type],
                 CONF_IP_ADDRESS: self._ip_address,
             }
+        # pylint: disable-next=home-assistant-config-flow-field-not-translated
         return self.async_show_form(
             step_id="user",
             data_schema=vol.Schema(

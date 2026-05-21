@@ -140,6 +140,7 @@ class HueFlowHandler(ConfigFlow, domain=DOMAIN):
         if not self.discovered_bridges:
             return await self.async_step_manual()
 
+        # pylint: disable-next=home-assistant-config-flow-field-not-translated
         return self.async_show_form(
             step_id="init",
             data_schema=vol.Schema(

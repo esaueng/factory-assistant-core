@@ -173,6 +173,7 @@ class BlinkConfigFlow(ConfigFlow, domain=DOMAIN):
                 errors["base"] = "unknown"
 
         config_entry = self._get_reconfigure_entry()
+        # pylint: disable-next=home-assistant-config-flow-field-not-translated
         return self.async_show_form(
             step_id="reconfigure",
             data_schema=vol.Schema(

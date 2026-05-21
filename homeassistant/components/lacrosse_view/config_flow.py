@@ -100,6 +100,7 @@ class LaCrosseViewConfigFlow(ConfigFlow, domain=DOMAIN):
 
         if not user_input:
             _LOGGER.debug("Showing initial location selection")
+            # pylint: disable-next=home-assistant-config-flow-field-not-translated
             return self.async_show_form(
                 step_id="location",
                 data_schema=vol.Schema(

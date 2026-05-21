@@ -75,6 +75,7 @@ class IslamicPrayerFlowHandler(ConfigFlow, domain=DOMAIN):
             CONF_LATITUDE: self.hass.config.latitude,
             CONF_LONGITUDE: self.hass.config.longitude,
         }
+        # pylint: disable-next=home-assistant-config-flow-field-not-translated
         return self.async_show_form(
             step_id="user",
             data_schema=vol.Schema(

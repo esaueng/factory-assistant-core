@@ -75,6 +75,7 @@ class TuyaConfigFlow(ConfigFlow, domain=DOMAIN):
     ) -> ConfigFlowResult:
         """Step scan."""
         if user_input is None:
+            # pylint: disable-next=home-assistant-config-flow-field-not-translated
             return self.async_show_form(
                 step_id="scan",
                 data_schema=vol.Schema(
@@ -99,6 +100,7 @@ class TuyaConfigFlow(ConfigFlow, domain=DOMAIN):
         if not ret:
             # Try to get a new QR code on failure
             await self.__async_get_qr_code(self.__user_code)
+            # pylint: disable-next=home-assistant-config-flow-field-not-translated
             return self.async_show_form(
                 step_id="scan",
                 errors={"base": "login_error"},

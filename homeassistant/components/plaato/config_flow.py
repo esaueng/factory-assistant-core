@@ -206,6 +206,7 @@ class PlaatoOptionsFlowHandler(OptionsFlow):
         if user_input is not None:
             return self.async_create_entry(title="", data=user_input)
 
+        # pylint: disable-next=home-assistant-options-flow-field-not-translated
         return self.async_show_form(
             step_id="user",
             data_schema=vol.Schema(

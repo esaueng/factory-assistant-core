@@ -98,6 +98,7 @@ class MelnorConfigFlow(ConfigFlow, domain=DOMAIN):
         if not addresses:
             return self.async_abort(reason="no_devices_found")
 
+        # pylint: disable-next=home-assistant-config-flow-field-not-translated
         return self.async_show_form(
             step_id="pick_device",
             data_schema=vol.Schema({vol.Required(CONF_ADDRESS): vol.In(addresses)}),
