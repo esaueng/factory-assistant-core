@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from asyncarve import ArveSensProData
 
@@ -102,6 +103,7 @@ class ArveDevice(ArveDeviceEntity, SensorEntity):
 
     entity_description: ArveDeviceEntityDescription
 
+    @override
     @property
     def native_value(self) -> int | float:
         """State of the sensor."""

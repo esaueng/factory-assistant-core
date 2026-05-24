@@ -1,6 +1,7 @@
 """Support for Alexa Devices."""
 
 from datetime import timedelta
+from typing import override
 
 from aioamazondevices.api import AmazonEchoApi
 from aioamazondevices.exceptions import (
@@ -73,6 +74,7 @@ class AmazonDevicesCoordinator(DataUpdateCoordinator[dict[str, AmazonDevice]]):
             if routine.domain == Platform.BUTTON
         }
 
+    @override
     async def _async_update_data(self) -> dict[str, AmazonDevice]:
         """Update device data."""
         try:

@@ -2,7 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
 from boschshcpy.device import SHCDevice
 
@@ -214,11 +214,13 @@ class SHCSensor(SHCEntity, SensorEntity):
         self.entity_description = entity_description
         self._attr_unique_id = f"{device.serial}_{entity_description.key}"
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the state of the sensor."""
         return self.entity_description.value_fn(self._device)
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return the state attributes."""

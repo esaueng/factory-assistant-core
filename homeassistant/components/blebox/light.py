@@ -3,7 +3,7 @@
 from datetime import timedelta
 import logging
 import math
-from typing import Any
+from typing import Any, override
 
 import blebox_uniapi.light
 from blebox_uniapi.light import BleboxColorMode
@@ -67,11 +67,13 @@ class BleBoxLightEntity(BleBoxEntity[blebox_uniapi.light.Light], LightEntity):
         if feature.effect_list:
             self._attr_supported_features = LightEntityFeature.EFFECT
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return if light is on."""
         return self._feature.is_on
 
+    @override
     @property
     def brightness(self) -> int | None:
         """Return the name."""
@@ -112,11 +114,13 @@ class BleBoxLightEntity(BleBoxEntity[blebox_uniapi.light.Light], LightEntity):
         )
         return int(bounded)
 
+    @override
     @property
     def color_temp_kelvin(self) -> int:
         """Return the color temperature value in Kelvin."""
         return self._color_temp_from_native_scale(self._feature.color_temp)
 
+    @override
     @property
     def color_mode(self) -> ColorMode:
         """Return the color mode.
@@ -125,21 +129,25 @@ class BleBoxLightEntity(BleBoxEntity[blebox_uniapi.light.Light], LightEntity):
         """
         return COLOR_MODE_MAP.get(self._feature.color_mode, ColorMode.ONOFF)
 
+    @override
     @property
     def supported_color_modes(self) -> set[ColorMode]:
         """Return supported color modes."""
         return {self.color_mode}
 
+    @override
     @property
     def effect_list(self) -> list[str]:
         """Return the list of supported effects."""
         return self._feature.effect_list
 
+    @override
     @property
     def effect(self) -> str | None:
         """Return the current effect."""
         return self._feature.effect
 
+    @override
     @property
     def rgb_color(self) -> tuple[int, int, int] | None:
         """Return value for rgb."""
@@ -151,6 +159,7 @@ class BleBoxLightEntity(BleBoxEntity[blebox_uniapi.light.Light], LightEntity):
             )
         )
 
+    @override
     @property
     def rgbw_color(self) -> tuple[int, int, int, int] | None:
         """Return the hue and saturation."""
@@ -158,6 +167,7 @@ class BleBoxLightEntity(BleBoxEntity[blebox_uniapi.light.Light], LightEntity):
             return None
         return tuple(blebox_uniapi.light.Light.rgb_hex_to_rgb_list(rgbw_hex)[0:4])
 
+    @override
     @property
     def rgbww_color(self) -> tuple[int, int, int, int, int] | None:
         """Return value for rgbww."""
@@ -165,6 +175,7 @@ class BleBoxLightEntity(BleBoxEntity[blebox_uniapi.light.Light], LightEntity):
             return None
         return tuple(blebox_uniapi.light.Light.rgb_hex_to_rgb_list(rgbww_hex))
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the light on."""
 
@@ -224,6 +235,7 @@ class BleBoxLightEntity(BleBoxEntity[blebox_uniapi.light.Light], LightEntity):
                     " effect list."
                 ) from exc
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the light off."""
         await self._feature.async_off()

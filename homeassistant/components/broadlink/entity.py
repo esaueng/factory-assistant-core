@@ -1,5 +1,7 @@
 """Broadlink entities."""
 
+from typing import override
+
 from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity import Entity
@@ -17,6 +19,7 @@ class BroadlinkEntity(Entity):
         self._device = device
         self._coordinator = device.update_manager.coordinator
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Call when the entity is added to hass."""
         self.async_on_remove(self._coordinator.async_add_listener(self._recv_data))
@@ -48,11 +51,13 @@ class BroadlinkEntity(Entity):
         internalize state and attributes received from the coordinator.
         """
 
+    @override
     @property
     def available(self) -> bool:
         """Return True if the entity is available."""
         return self._device.available
 
+    @override
     @property
     def device_info(self) -> DeviceInfo:
         """Return device info."""

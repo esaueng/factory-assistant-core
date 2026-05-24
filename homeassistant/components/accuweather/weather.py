@@ -1,6 +1,6 @@
 """Support for the AccuWeather service."""
 
-from typing import cast
+from typing import cast, override
 
 from homeassistant.components.weather import (
     ATTR_FORECAST_CLOUD_COVERAGE,
@@ -95,16 +95,19 @@ class AccuWeatherEntity(
         self.daily_coordinator = accuweather_data.coordinator_daily_forecast
         self.hourly_coordinator = accuweather_data.coordinator_hourly_forecast
 
+    @override
     @property
     def condition(self) -> str | None:
         """Return the current condition."""
         return CONDITION_MAP.get(self.observation_coordinator.data["WeatherIcon"])
 
+    @override
     @property
     def cloud_coverage(self) -> float:
         """Return the Cloud coverage in %."""
         return cast(float, self.observation_coordinator.data["CloudCover"])
 
+    @override
     @property
     def native_apparent_temperature(self) -> float:
         """Return the apparent temperature."""
@@ -115,6 +118,7 @@ class AccuWeatherEntity(
             ],
         )
 
+    @override
     @property
     def native_temperature(self) -> float:
         """Return the temperature."""
@@ -123,6 +127,7 @@ class AccuWeatherEntity(
             self.observation_coordinator.data["Temperature"][API_METRIC][ATTR_VALUE],
         )
 
+    @override
     @property
     def native_pressure(self) -> float:
         """Return the pressure."""
@@ -130,6 +135,7 @@ class AccuWeatherEntity(
             float, self.observation_coordinator.data["Pressure"][API_METRIC][ATTR_VALUE]
         )
 
+    @override
     @property
     def native_dew_point(self) -> float:
         """Return the dew point."""
@@ -137,11 +143,13 @@ class AccuWeatherEntity(
             float, self.observation_coordinator.data["DewPoint"][API_METRIC][ATTR_VALUE]
         )
 
+    @override
     @property
     def humidity(self) -> int:
         """Return the humidity."""
         return cast(int, self.observation_coordinator.data["RelativeHumidity"])
 
+    @override
     @property
     def native_wind_gust_speed(self) -> float:
         """Return the wind gust speed."""
@@ -152,6 +160,7 @@ class AccuWeatherEntity(
             ],
         )
 
+    @override
     @property
     def native_wind_speed(self) -> float:
         """Return the wind speed."""
@@ -162,6 +171,7 @@ class AccuWeatherEntity(
             ],
         )
 
+    @override
     @property
     def wind_bearing(self) -> int:
         """Return the wind bearing."""
@@ -169,6 +179,7 @@ class AccuWeatherEntity(
             int, self.observation_coordinator.data["Wind"][ATTR_DIRECTION]["Degrees"]
         )
 
+    @override
     @property
     def native_visibility(self) -> float:
         """Return the visibility."""
@@ -177,11 +188,13 @@ class AccuWeatherEntity(
             self.observation_coordinator.data["Visibility"][API_METRIC][ATTR_VALUE],
         )
 
+    @override
     @property
     def uv_index(self) -> float:
         """Return the UV index."""
         return cast(float, self.observation_coordinator.data["UVIndex"])
 
+    @override
     @callback
     def _async_forecast_daily(self) -> list[Forecast] | None:
         """Return the daily forecast in native units."""
@@ -212,6 +225,7 @@ class AccuWeatherEntity(
             for item in self.daily_coordinator.data
         ]
 
+    @override
     @callback
     def _async_forecast_hourly(self) -> list[Forecast] | None:
         """Return the hourly forecast in native units."""

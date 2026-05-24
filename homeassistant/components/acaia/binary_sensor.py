@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from aioacaia.acaiascale import AcaiaScale
 
@@ -55,6 +56,7 @@ class AcaiaBinarySensor(AcaiaEntity, BinarySensorEntity):
 
     entity_description: AcaiaBinarySensorEntityDescription
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return true if the binary sensor is on."""

@@ -3,6 +3,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime
+from typing import override
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -73,6 +74,7 @@ class BackupManagerSensor(BackupManagerEntity, SensorEntity):
 
     entity_description: BackupSensorEntityDescription
 
+    @override
     @property
     def native_value(self) -> str | datetime | None:
         """Return native value of entity."""

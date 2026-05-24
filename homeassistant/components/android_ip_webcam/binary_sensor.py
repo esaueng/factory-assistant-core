@@ -1,5 +1,7 @@
 """Support for Android IP Webcam binary sensors."""
 
+from typing import override
+
 from homeassistant.components.binary_sensor import (
     BinarySensorDeviceClass,
     BinarySensorEntity,
@@ -43,11 +45,13 @@ class IPWebcamBinarySensor(AndroidIPCamBaseEntity, BinarySensorEntity):
         )
         super().__init__(coordinator)
 
+    @override
     @property
     def available(self) -> bool:
         """Return availability if setting is enabled."""
         return MOTION_ACTIVE in self.cam.enabled_sensors and super().available
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return if motion is detected."""

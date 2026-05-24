@@ -4,7 +4,7 @@ from collections.abc import Callable, Mapping
 from dataclasses import dataclass
 from datetime import datetime
 import logging
-from typing import Any
+from typing import Any, override
 
 from aioazuredevops.helper import WorkItemState, WorkItemTypeAndState
 from aioazuredevops.models.build import Build
@@ -205,11 +205,13 @@ class AzureDevOpsBuildSensor(AzureDevOpsEntity, SensorEntity):
         """Return the build."""
         return self.coordinator.data.builds[self.item_key]
 
+    @override
     @property
     def native_value(self) -> datetime | StateType:
         """Return the state."""
         return self.entity_description.value_fn(self.build)
 
+    @override
     @property
     def extra_state_attributes(self) -> Mapping[str, Any] | None:
         """Return the state attributes of the entity."""
@@ -255,6 +257,7 @@ class AzureDevOpsWorkItemSensor(AzureDevOpsEntity, SensorEntity):
         """Return the work item state."""
         return self.work_item_type.state_items[self.state_key]
 
+    @override
     @property
     def native_value(self) -> datetime | StateType:
         """Return the state."""

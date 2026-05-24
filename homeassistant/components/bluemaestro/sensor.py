@@ -1,5 +1,7 @@
 """Support for BlueMaestro sensors."""
 
+from typing import override
+
 from bluemaestro_ble import (
     SensorDeviceClass as BlueMaestroSensorDeviceClass,
     SensorUpdate,
@@ -135,6 +137,7 @@ class BlueMaestroBluetoothSensorEntity(
 ):
     """Representation of a BlueMaestro sensor."""
 
+    @override
     @property
     def native_value(self) -> int | float | None:
         """Return the native value."""

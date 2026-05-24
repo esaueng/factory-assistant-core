@@ -2,7 +2,7 @@
 
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
 from airgradient import AirGradientClient, Config
 from airgradient.models import ConfigurationControl
@@ -96,17 +96,20 @@ class AirGradientSwitch(AirGradientEntity, SwitchEntity):
         self.entity_description = description
         self._attr_unique_id = f"{coordinator.serial_number}-{description.key}"
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return the state of the switch."""
         return self.entity_description.value_fn(self.coordinator.data.config)
 
+    @override
     @exception_handler
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the switch on."""
         await self.entity_description.set_value_fn(self.coordinator.client, True)
         await self.coordinator.async_request_refresh()
 
+    @override
     @exception_handler
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the switch off."""

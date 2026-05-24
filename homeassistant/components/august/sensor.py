@@ -2,7 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Any, cast
+from typing import Any, cast, override
 
 from yalexs.activity import ActivityType, LockOperationActivity
 from yalexs.doorbell import Doorbell
@@ -121,6 +121,7 @@ class AugustOperatorSensor(AugustEntity, RestoreSensor):
     _operated_tag: bool | None = None
     _operated_autorelock: bool | None = None
 
+    @override
     @callback
     def _update_from_data(self) -> None:
         """Get the latest state of the sensor and update activity."""
@@ -135,6 +136,7 @@ class AugustOperatorSensor(AugustEntity, RestoreSensor):
             self._operated_autorelock = lock_activity.operated_autorelock
             self._attr_entity_picture = lock_activity.operator_thumbnail_url
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return the device specific state attributes."""
@@ -166,6 +168,7 @@ class AugustOperatorSensor(AugustEntity, RestoreSensor):
 
         return attributes
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Restore ATTR_CHANGED_BY on startup.
 
@@ -207,6 +210,7 @@ class AugustBatterySensor[T: LockDetail | KeypadDetail](
     _attr_device_class = SensorDeviceClass.BATTERY
     _attr_native_unit_of_measurement = PERCENTAGE
 
+    @override
     @callback
     def _update_from_data(self) -> None:
         """Get the latest state of the sensor."""

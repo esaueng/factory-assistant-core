@@ -1,7 +1,7 @@
 """The Aprilaire sensor component."""
 
 from dataclasses import dataclass
-from typing import cast
+from typing import cast, override
 
 from pyaprilaire.const import Attribute
 
@@ -239,6 +239,7 @@ class BaseAprilaireSensor(BaseAprilaireEntity, SensorEntity):
             in self.status_sensor_exists_values
         )
 
+    @override
     @property
     def available(self) -> bool:
         """Return True if the sensor is available."""
@@ -257,6 +258,7 @@ class BaseAprilaireSensor(BaseAprilaireEntity, SensorEntity):
             == self.status_sensor_available_value
         )
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the value reported by the sensor."""
@@ -280,6 +282,7 @@ class AprilaireTemperatureSensor(BaseAprilaireSensor):
     status_sensor_available_value = 0
     status_sensor_exists_values = [0, 1, 2]
 
+    @override
     @property
     def suggested_display_precision(self) -> int | None:
         """Return the suggested number of decimal digits for display."""
@@ -295,6 +298,7 @@ class AprilaireStatusSensor(BaseAprilaireSensor):
     status_sensor_exists_values = [1, 2]
     entity_description: AprilaireStatusSensorDescription
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the value reported by the sensor mapped to the status option."""

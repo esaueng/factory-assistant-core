@@ -1,6 +1,6 @@
 """Amber Electric Binary Sensor definitions."""
 
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.binary_sensor import (
     BinarySensorEntity,
@@ -38,6 +38,7 @@ class AmberPriceGridSensor(
         self.entity_description = description
         self._attr_unique_id = f"{coordinator.site_id}-{description.key}"
 
+    @override
     @property
     def is_on(self) -> bool | None:
         """Return true if the binary sensor is on."""
@@ -47,17 +48,20 @@ class AmberPriceGridSensor(
 class AmberPriceSpikeBinarySensor(AmberPriceGridSensor):
     """Sensor to show single grid binary values."""
 
+    @override
     @property
     def icon(self) -> str:
         """Return the sensor icon."""
         status = self.coordinator.data["grid"]["price_spike"]
         return PRICE_SPIKE_ICONS[status]
 
+    @override
     @property
     def is_on(self) -> bool | None:
         """Return true if the binary sensor is on."""
         return self.coordinator.data["grid"]["price_spike"] == "spike"  # type: ignore[no-any-return]
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return additional pieces of information about the price spike."""
@@ -71,6 +75,7 @@ class AmberPriceSpikeBinarySensor(AmberPriceGridSensor):
 class AmberDemandWindowBinarySensor(AmberPriceGridSensor):
     """Sensor to show whether demand window is active."""
 
+    @override
     @property
     def is_on(self) -> bool | None:
         """Return true if the binary sensor is on."""

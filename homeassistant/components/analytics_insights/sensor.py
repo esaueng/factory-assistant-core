@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from homeassistant.components.sensor import (
     SensorEntity,
@@ -152,6 +153,7 @@ class HomeassistantAnalyticsSensor(
             entry_type=DeviceEntryType.SERVICE,
         )
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the state of the sensor."""

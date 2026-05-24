@@ -1,6 +1,6 @@
 """Cover platform for Advantage Air integration."""
 
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.cover import (
     ATTR_POSITION,
@@ -65,11 +65,13 @@ class AdvantageAirZoneVent(AdvantageAirZoneEntity, CoverEntity):
         super().__init__(coordinator, ac_key, zone_key)
         self._attr_name = self._zone["name"]
 
+    @override
     @property
     def is_closed(self) -> bool:
         """Return if vent is fully closed."""
         return self._zone["state"] == ADVANTAGE_AIR_STATE_CLOSE
 
+    @override
     @property
     def current_cover_position(self) -> int:
         """Return vents current position as a percentage."""
@@ -77,16 +79,19 @@ class AdvantageAirZoneVent(AdvantageAirZoneEntity, CoverEntity):
             return self._zone["value"]
         return 0
 
+    @override
     async def async_open_cover(self, **kwargs: Any) -> None:
         """Fully open zone vent."""
         await self.async_update_zone(
             {"state": ADVANTAGE_AIR_STATE_OPEN, "value": 100},
         )
 
+    @override
     async def async_close_cover(self, **kwargs: Any) -> None:
         """Fully close zone vent."""
         await self.async_update_zone({"state": ADVANTAGE_AIR_STATE_CLOSE})
 
+    @override
     async def async_set_cover_position(self, **kwargs: Any) -> None:
         """Change vent position."""
         position = round(kwargs[ATTR_POSITION] / 5) * 5
@@ -116,15 +121,18 @@ class AdvantageAirThingCover(AdvantageAirThingEntity, CoverEntity):
         super().__init__(coordinator, thing)
         self._attr_device_class = device_class
 
+    @override
     @property
     def is_closed(self) -> bool:
         """Return if cover is fully closed."""
         return self._data["value"] == 0
 
+    @override
     async def async_open_cover(self, **kwargs: Any) -> None:
         """Fully open zone vent."""
         return await self.async_turn_on()
 
+    @override
     async def async_close_cover(self, **kwargs: Any) -> None:
         """Fully close zone vent."""
         return await self.async_turn_off()

@@ -3,7 +3,7 @@
 from datetime import timedelta
 from enum import StrEnum
 import logging
-from typing import final
+from typing import final, override
 
 from propcache.api import cached_property
 import voluptuous as vol
@@ -91,6 +91,7 @@ class ButtonEntity(RestoreEntity, cached_properties=CACHED_PROPERTIES_WITH_ATTR_
     _attr_state: None = None
     __last_pressed_isoformat: str | None = None
 
+    @override
     def _default_to_device_class_name(self) -> bool:
         """Return True if an unnamed entity should be named by its device class.
 
@@ -98,6 +99,7 @@ class ButtonEntity(RestoreEntity, cached_properties=CACHED_PROPERTIES_WITH_ATTR_
         """
         return self.device_class is not None
 
+    @override
     @cached_property
     def device_class(self) -> ButtonDeviceClass | None:
         """Return the class of this entity."""
@@ -107,6 +109,7 @@ class ButtonEntity(RestoreEntity, cached_properties=CACHED_PROPERTIES_WITH_ATTR_
             return self.entity_description.device_class
         return None
 
+    @override
     @cached_property
     @final
     def state(self) -> str | None:
@@ -129,6 +132,7 @@ class ButtonEntity(RestoreEntity, cached_properties=CACHED_PROPERTIES_WITH_ATTR_
         self.async_write_ha_state()
         await self.async_press()
 
+    @override
     async def async_internal_added_to_hass(self) -> None:
         """Call when the button is added to hass."""
         await super().async_internal_added_to_hass()

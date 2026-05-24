@@ -7,7 +7,7 @@ import json
 import logging
 import mimetypes
 from time import time
-from typing import Any
+from typing import Any, override
 
 from b2sdk.v2 import FileVersion
 from b2sdk.v2.exception import B2Error
@@ -200,6 +200,7 @@ class BackblazeBackupAgent(BackupAgent):
             raise BackupNotFound(f"Backup {backup_id} not found")
         return file
 
+    @override
     @handle_b2_errors
     async def async_download_backup(
         self, backup_id: str, **kwargs: Any
@@ -227,6 +228,7 @@ class BackblazeBackupAgent(BackupAgent):
 
         return stream_response()
 
+    @override
     @handle_b2_errors
     async def async_upload_backup(
         self,
@@ -369,6 +371,7 @@ class BackblazeBackupAgent(BackupAgent):
 
         _LOGGER.debug("Successfully uploaded %s (ID: %s)", filename, file_version.id_)
 
+    @override
     @handle_b2_errors
     async def async_delete_backup(self, backup_id: str, **kwargs: Any) -> None:
         """Delete a backup and its associated metadata file from Backblaze B2."""
@@ -401,6 +404,7 @@ class BackblazeBackupAgent(BackupAgent):
             remove_files=True,
         )
 
+    @override
     @handle_b2_errors
     async def async_list_backups(self, **kwargs: Any) -> list[AgentBackup]:
         """List all backups by finding metadata files in B2."""
@@ -449,6 +453,7 @@ class BackblazeBackupAgent(BackupAgent):
 
             return list(backups.values())
 
+    @override
     @handle_b2_errors
     async def async_get_backup(self, backup_id: str, **kwargs: Any) -> AgentBackup:
         """Get a specific backup by its ID from Backblaze B2."""

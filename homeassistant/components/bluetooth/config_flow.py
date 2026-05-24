@@ -1,7 +1,7 @@
 """Config flow to configure the Bluetooth integration."""
 
 import platform
-from typing import Any, cast
+from typing import Any, cast, override
 
 from bluetooth_adapters import (
     ADAPTER_ADDRESS,
@@ -103,6 +103,7 @@ class BluetoothConfigFlow(ConfigFlow, domain=DOMAIN):
         self._adapters: dict[str, AdapterDetails] = {}
         self._placeholders: dict[str, str] = {}
 
+    @override
     async def async_step_integration_discovery(
         self, discovery_info: DiscoveryInfoType
     ) -> ConfigFlowResult:
@@ -240,12 +241,14 @@ class BluetoothConfigFlow(ConfigFlow, domain=DOMAIN):
         assert scanner is not None
         return self.async_create_entry(title=scanner.name, data=data)
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
         """Handle a flow initialized by the user."""
         return await self.async_step_multiple_adapters()
 
+    @override
     @staticmethod
     @callback
     def async_get_options_flow(
@@ -262,6 +265,7 @@ class BluetoothConfigFlow(ConfigFlow, domain=DOMAIN):
             return LocalNoPassiveOptionsFlowHandler()
         return SchemaOptionsFlowHandler(config_entry, OPTIONS_FLOW)
 
+    @override
     @classmethod
     @callback
     def async_supports_options_flow(cls, config_entry: ConfigEntry) -> bool:

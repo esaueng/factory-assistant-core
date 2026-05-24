@@ -11,7 +11,7 @@ from pathlib import Path
 from queue import Empty, Queue
 from threading import Thread
 import time
-from typing import TYPE_CHECKING, Any, cast
+from typing import TYPE_CHECKING, Any, cast, override
 import wave
 
 import hass_nabucasa
@@ -624,6 +624,7 @@ class PipelineRun:
                 self.audio_settings.is_vad_enabled,
             )
 
+    @override
     def __eq__(self, other: object) -> bool:
         """Compare pipeline runs by id."""
         if isinstance(other, PipelineRun):
@@ -1918,6 +1919,7 @@ class PipelineStorageCollection(
 
     _preferred_item: str
 
+    @override
     async def _async_load_data(self) -> SerializedPipelineStorageCollection | None:
         """Load the data."""
         if not (data := await super()._async_load_data()):
@@ -1929,33 +1931,40 @@ class PipelineStorageCollection(
 
         return data
 
+    @override
     async def _process_create_data(self, data: dict) -> dict:
         """Validate the config is valid."""
         validated_data: dict = validate_language(data)
         return validated_data
 
+    @override
     @callback
     def _get_suggested_id(self, info: dict) -> str:
         """Suggest an ID based on the config."""
         return ulid_util.ulid_now()
 
+    @override
     async def _update_data(self, item: Pipeline, update_data: dict) -> Pipeline:
         """Return a new updated item."""
         update_data = validate_language(update_data)
         return Pipeline(id=item.id, **update_data)
 
+    @override
     def _create_item(self, item_id: str, data: dict) -> Pipeline:
         """Create an item from validated config."""
         return Pipeline(id=item_id, **data)
 
+    @override
     def _deserialize_item(self, data: dict) -> Pipeline:
         """Create an item from its serialized representation."""
         return Pipeline.from_json(data)
 
+    @override
     def _serialize_item(self, item_id: str, item: Pipeline) -> dict:
         """Return the serialized representation of an item for storing."""
         return item.to_json()
 
+    @override
     async def async_delete_item(self, item_id: str) -> None:
         """Delete item."""
         if self._preferred_item == item_id:
@@ -1975,6 +1984,7 @@ class PipelineStorageCollection(
         self._preferred_item = item_id
         self._async_schedule_save()
 
+    @override
     @callback
     def _data_to_save(self) -> SerializedPipelineStorageCollection:
         """Return JSON-compatible date for storing to file."""
@@ -1990,6 +2000,7 @@ class PipelineStorageCollectionWebsocket(
 ):
     """Class to expose storage collection management over websocket."""
 
+    @override
     @callback
     def async_setup(self, hass: HomeAssistant) -> None:
         """Set up the websocket commands."""
@@ -2021,6 +2032,7 @@ class PipelineStorageCollectionWebsocket(
             ),
         )
 
+    @override
     async def ws_delete_item(
         self, hass: HomeAssistant, connection: websocket_api.ActiveConnection, msg: dict
     ) -> None:
@@ -2055,6 +2067,7 @@ class PipelineStorageCollectionWebsocket(
 
         connection.send_result(msg["id"], self.storage_collection.data[item_id])
 
+    @override
     @callback
     def ws_list_item(
         self, hass: HomeAssistant, connection: websocket_api.ActiveConnection, msg: dict
@@ -2166,6 +2179,7 @@ class PipelineRunDebug:
 class PipelineStore(Store[SerializedPipelineStorageCollection]):
     """Store pipeline data."""
 
+    @override
     async def _async_migrate_func(
         self,
         old_major_version: int,

@@ -1,5 +1,7 @@
 """Advantage Air Update platform."""
 
+from typing import override
+
 from homeassistant.components.update import UpdateEntity
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.device_registry import DeviceInfo
@@ -39,11 +41,13 @@ class AdvantageAirApp(AdvantageAirEntity, UpdateEntity):
             sw_version=self.coordinator.data["system"]["myAppRev"],
         )
 
+    @override
     @property
     def installed_version(self) -> str:
         """Return the current app version."""
         return self.coordinator.data["system"]["myAppRev"]
 
+    @override
     @property
     def latest_version(self) -> str:
         """Return if there is an update."""

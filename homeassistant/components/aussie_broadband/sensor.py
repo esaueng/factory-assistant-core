@@ -3,7 +3,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 import re
-from typing import cast
+from typing import cast, override
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -161,6 +161,7 @@ class AussieBroadandSensorEntity(
             model=service["name"],
         )
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the state of the sensor."""

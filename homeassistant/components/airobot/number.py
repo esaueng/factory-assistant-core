@@ -2,6 +2,7 @@
 
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass
+from typing import override
 
 from pyairobotrest.const import HYSTERESIS_BAND_MAX, HYSTERESIS_BAND_MIN
 from pyairobotrest.exceptions import AirobotError
@@ -78,11 +79,13 @@ class AirobotNumber(AirobotEntity, NumberEntity):
         self.entity_description = description
         self._attr_unique_id = f"{coordinator.data.status.device_id}_{description.key}"
 
+    @override
     @property
     def native_value(self) -> float:
         """Return the current value."""
         return self.entity_description.value_fn(self.coordinator)
 
+    @override
     async def async_set_native_value(self, value: float) -> None:
         """Set the value."""
         try:

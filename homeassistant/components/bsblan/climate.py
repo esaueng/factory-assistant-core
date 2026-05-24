@@ -1,6 +1,6 @@
 """BSBLAN platform to control a compatible Climate Device."""
 
-from typing import Any, Final
+from typing import Any, Final, override
 
 from bsblan import BSBLANError, State, get_hvac_action_category
 
@@ -110,6 +110,7 @@ class BSBLANClimate(BSBLanCircuitEntity, ClimateEntity):
         """Return the state for this circuit."""
         return self.coordinator.data.states[self._circuit]
 
+    @override
     @property
     def current_temperature(self) -> float | None:
         """Return the current temperature."""
@@ -117,6 +118,7 @@ class BSBLANClimate(BSBLanCircuitEntity, ClimateEntity):
             return None
         return current_temp.value
 
+    @override
     @property
     def target_temperature(self) -> float | None:
         """Return the temperature we try to reach."""
@@ -131,6 +133,7 @@ class BSBLANClimate(BSBLanCircuitEntity, ClimateEntity):
             return None
         return hvac_mode.value
 
+    @override
     @property
     def hvac_mode(self) -> HVACMode | None:
         """Return hvac operation ie. heat, cool mode."""
@@ -138,6 +141,7 @@ class BSBLANClimate(BSBLanCircuitEntity, ClimateEntity):
             return None
         return BSBLAN_TO_HA_HVAC_MODE.get(hvac_mode_value)
 
+    @override
     @property
     def hvac_action(self) -> HVACAction | None:
         """Return the current running hvac action."""
@@ -146,6 +150,7 @@ class BSBLANClimate(BSBLanCircuitEntity, ClimateEntity):
         category = get_hvac_action_category(action.value)
         return HVACAction(category.name.lower())
 
+    @override
     @property
     def preset_mode(self) -> str | None:
         """Return the current preset mode."""
@@ -154,14 +159,17 @@ class BSBLANClimate(BSBLanCircuitEntity, ClimateEntity):
             return PRESET_ECO
         return PRESET_NONE
 
+    @override
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         """Set hvac mode."""
         await self.async_set_data(hvac_mode=hvac_mode)
 
+    @override
     async def async_set_preset_mode(self, preset_mode: str) -> None:
         """Set preset mode."""
         await self.async_set_data(preset_mode=preset_mode)
 
+    @override
     async def async_set_temperature(self, **kwargs: Any) -> None:
         """Set new target temperatures."""
         await self.async_set_data(**kwargs)

@@ -2,7 +2,7 @@
 
 from collections.abc import AsyncGenerator
 import contextlib
-from typing import final
+from typing import final, override
 
 from propcache.api import cached_property
 
@@ -28,6 +28,7 @@ class AITaskEntity(RestoreEntity):
     _attr_supported_features = AITaskEntityFeature(0)
     __last_activity: str | None = None
 
+    @override
     @property
     @final
     def state(self) -> str | None:
@@ -36,11 +37,13 @@ class AITaskEntity(RestoreEntity):
             return None
         return self.__last_activity
 
+    @override
     @cached_property
     def supported_features(self) -> AITaskEntityFeature:
         """Flag supported features."""
         return self._attr_supported_features
 
+    @override
     async def async_internal_added_to_hass(self) -> None:
         """Call when the entity is added to hass."""
         await super().async_internal_added_to_hass()

@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from pybalboa import SpaClient
 
@@ -74,6 +75,7 @@ class BalboaBinarySensorEntity(BalboaEntity, BinarySensorEntity):
         super().__init__(spa, description.key)
         self.entity_description = description
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return true if the binary sensor is on."""

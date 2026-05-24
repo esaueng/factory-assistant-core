@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from aioaseko import Unit
 
@@ -53,6 +54,7 @@ class AsekoBinarySensorEntity(AsekoEntity, BinarySensorEntity):
 
     entity_description: AsekoBinarySensorEntityDescription
 
+    @override
     @property
     def is_on(self) -> bool | None:
         """Return the state of the sensor."""

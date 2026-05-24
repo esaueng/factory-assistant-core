@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from aioaseko import Unit
 
@@ -102,6 +103,7 @@ class AsekoSensorEntity(AsekoEntity, SensorEntity):
 
     entity_description: AsekoSensorEntityDescription
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the state of the sensor."""

@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from genie_partner_sdk.model import GarageDoor
 
@@ -83,6 +84,7 @@ class AladdinConnectSensor(AladdinConnectEntity, SensorEntity):
         self.entity_description = entity_description
         self._attr_unique_id = f"{door_id}-{entity_description.key}"
 
+    @override
     @property
     def native_value(self) -> float | None:
         """Return the state of the sensor."""

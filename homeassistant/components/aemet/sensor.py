@@ -3,7 +3,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Final
+from typing import Final, override
 
 from aemet_opendata.const import (
     AOD_CONDITION,
@@ -398,6 +398,7 @@ class AemetSensor(AemetEntity, SensorEntity):
         self.entity_description = description
         self._attr_unique_id = f"{unique_id}-{description.key}"
 
+    @override
     @property
     def native_value(self):
         """Return the state of the device."""

@@ -2,6 +2,7 @@
 
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass
+from typing import override
 
 from airgradient import AirGradientClient, Config
 from airgradient.models import ConfigurationControl
@@ -118,11 +119,13 @@ class AirGradientNumber(AirGradientEntity, NumberEntity):
         self.entity_description = description
         self._attr_unique_id = f"{coordinator.serial_number}-{description.key}"
 
+    @override
     @property
     def native_value(self) -> int | None:
         """Return the state of the number."""
         return self.entity_description.value_fn(self.coordinator.data.config)
 
+    @override
     @exception_handler
     async def async_set_native_value(self, value: float) -> None:
         """Set the selected value."""

@@ -2,7 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, override
 
 from yalexs.activity import Activity
 from yalexs.doorbell import DoorbellDetail
@@ -81,6 +81,7 @@ class AugustEventEntity(AugustDescriptionEntity, EventEntity):
     entity_description: AugustEventEntityDescription
     _last_activity: Activity | None = None
 
+    @override
     @callback
     def _update_from_data(self) -> None:
         """Update from data."""

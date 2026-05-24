@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from APsystemsEZ1 import ReturnOutputData
 
@@ -141,6 +142,7 @@ class ApSystemsSensorWithDescription(
         self.entity_description = entity_description
         self._attr_unique_id = f"{data.device_id}_{entity_description.key}"
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return value of sensor."""

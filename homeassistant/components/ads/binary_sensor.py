@@ -1,5 +1,7 @@
 """Support for ADS binary sensors."""
 
+from typing import override
+
 import pyads
 import voluptuous as vol
 
@@ -60,10 +62,12 @@ class AdsBinarySensor(AdsEntity, BinarySensorEntity):
         super().__init__(ads_hub, name, ads_var)
         self._attr_device_class = device_class or BinarySensorDeviceClass.MOVING
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Register device notification."""
         await self.async_initialize_device(self._ads_var, pyads.PLCTYPE_BOOL)
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return True if the entity is on."""

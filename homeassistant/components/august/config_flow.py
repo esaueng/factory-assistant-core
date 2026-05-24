@@ -2,7 +2,7 @@
 
 from collections.abc import Mapping
 import logging
-from typing import Any
+from typing import Any, override
 
 import jwt
 
@@ -22,6 +22,7 @@ class AugustConfigFlow(
     VERSION = 1
     DOMAIN = DOMAIN
 
+    @override
     @property
     def logger(self) -> logging.Logger:
         """Return logger."""
@@ -71,6 +72,7 @@ class AugustConfigFlow(
             reauth_entry, data=data, unique_id=user_id
         )
 
+    @override
     async def async_oauth_create_entry(self, data: dict) -> ConfigFlowResult:
         """Create an entry for the flow."""
         # Decode JWT once

@@ -2,7 +2,7 @@
 
 from collections.abc import Mapping
 import logging
-from typing import Any
+from typing import Any, override
 
 from aurorapy.mapping import Mapping as AuroraMapping
 
@@ -219,6 +219,7 @@ class AuroraSensor(CoordinatorEntity[AuroraAbbDataUpdateCoordinator], SensorEnti
             sw_version=data[ATTR_FIRMWARE],
         )
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Get the value of the sensor from previously collected data."""

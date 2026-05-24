@@ -3,6 +3,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 import logging
+from typing import override
 
 from arcam.fmj import IncomingVideoAspectRatio, IncomingVideoColorspace, IntOrTypeEnum
 from arcam.fmj.state import IncomingAudioConfig, IncomingAudioFormat, State
@@ -169,6 +170,7 @@ class ArcamFmjSensorEntity(ArcamFmjEntity, SensorEntity):
 
     entity_description: ArcamFmjSensorEntityDescription
 
+    @override
     @property
     def native_value(self) -> int | float | str | None:
         """Return the sensor value."""

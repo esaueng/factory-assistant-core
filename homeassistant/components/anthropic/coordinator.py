@@ -2,6 +2,7 @@
 
 import datetime
 import re
+from typing import override
 
 import anthropic
 
@@ -53,6 +54,7 @@ class AnthropicCoordinator(DataUpdateCoordinator[list[anthropic.types.ModelInfo]
             api_key=config_entry.data[CONF_API_KEY], http_client=get_async_client(hass)
         )
 
+    @override
     @callback
     def async_set_updated_data(self, data: list[anthropic.types.ModelInfo]) -> None:
         """Manually update data, notify listeners and update refresh interval."""

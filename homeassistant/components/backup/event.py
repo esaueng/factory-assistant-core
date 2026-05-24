@@ -1,6 +1,6 @@
 """Event platform for Home Assistant Backup integration."""
 
-from typing import Final
+from typing import Final, override
 
 from homeassistant.components.event import EventEntity
 from homeassistant.core import HomeAssistant, callback
@@ -37,6 +37,7 @@ class AutomaticBackupEvent(BackupManagerBaseEntity, EventEntity):
         self._attr_unique_id = "automatic_backup_event"
         self._attr_translation_key = "automatic_backup_event"
 
+    @override
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""

@@ -1,7 +1,7 @@
 """Todo platform for the Bring! integration."""
 
 from itertools import chain
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, override
 import uuid
 
 from bring_api import (
@@ -75,6 +75,7 @@ class BringTodoListEntity(BringBaseEntity, TodoListEntity):
         super().__init__(coordinator, bring_list)
         self._attr_unique_id = f"{coordinator.config_entry.unique_id}_{self._list_uuid}"
 
+    @override
     @property
     def todo_items(self) -> list[TodoItem]:
         """Return the todo items."""
@@ -106,6 +107,7 @@ class BringTodoListEntity(BringBaseEntity, TodoListEntity):
         """Return the bring list."""
         return self.coordinator.data[self._list_uuid]
 
+    @override
     async def async_create_todo_item(self, item: TodoItem) -> None:
         """Add an item to the To-do list."""
         try:
@@ -124,6 +126,7 @@ class BringTodoListEntity(BringBaseEntity, TodoListEntity):
 
         await self.coordinator.async_refresh()
 
+    @override
     async def async_update_todo_item(self, item: TodoItem) -> None:
         """Update an item to the To-do list.
 
@@ -210,6 +213,7 @@ class BringTodoListEntity(BringBaseEntity, TodoListEntity):
 
         await self.coordinator.async_refresh()
 
+    @override
     async def async_delete_todo_items(self, uids: list[str]) -> None:
         """Delete an item from the To-do list."""
 

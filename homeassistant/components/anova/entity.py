@@ -1,5 +1,7 @@
 """Base entity for the Anova integration."""
 
+from typing import override
+
 from homeassistant.helpers.entity import Entity, EntityDescription
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
@@ -17,6 +19,7 @@ class AnovaEntity(CoordinatorEntity[AnovaCoordinator], Entity):
         self.device = coordinator.anova_device
         self._attr_device_info = coordinator.device_info
 
+    @override
     @property
     def available(self) -> bool:
         """Return if entity is available."""

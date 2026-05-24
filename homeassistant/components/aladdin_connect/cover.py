@@ -1,6 +1,6 @@
 """Cover Entity for Genie Garage Door."""
 
-from typing import Any
+from typing import Any, override
 
 import aiohttp
 
@@ -52,6 +52,7 @@ class AladdinCoverEntity(AladdinConnectEntity, CoverEntity):
         super().__init__(coordinator, door_id)
         self._attr_unique_id = door_id
 
+    @override
     async def async_open_cover(self, **kwargs: Any) -> None:
         """Issue open command to cover."""
         try:
@@ -62,6 +63,7 @@ class AladdinCoverEntity(AladdinConnectEntity, CoverEntity):
                 REDACTED_VALUE"open_door_failed",
             ) from err
 
+    @override
     async def async_close_cover(self, **kwargs: Any) -> None:
         """Issue close command to cover."""
         try:
@@ -72,6 +74,7 @@ class AladdinCoverEntity(AladdinConnectEntity, CoverEntity):
                 REDACTED_VALUE"close_door_failed",
             ) from err
 
+    @override
     @property
     def is_closed(self) -> bool | None:
         """Update is closed attribute."""
@@ -79,11 +82,13 @@ class AladdinCoverEntity(AladdinConnectEntity, CoverEntity):
             return None
         return status == "closed"
 
+    @override
     @property
     def is_closing(self) -> bool | None:
         """Update is closing attribute."""
         return self.door.status == "closing"
 
+    @override
     @property
     def is_opening(self) -> bool | None:
         """Update is opening attribute."""

@@ -1,5 +1,7 @@
 """Support for Autoskope device tracking."""
 
+from typing import override
+
 from autoskope_client.constants import MANUFACTURER
 from autoskope_client.models import Vehicle
 
@@ -59,6 +61,7 @@ class AutoskopeDeviceTracker(
         self._vehicle_id = vehicle_id
         self._attr_unique_id = vehicle_id
 
+    @override
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""
@@ -73,6 +76,7 @@ class AutoskopeDeviceTracker(
             )
         super()._handle_coordinator_update()
 
+    @override
     @property
     def device_info(self) -> DeviceInfo:
         """Return device info for the vehicle."""
@@ -85,6 +89,7 @@ class AutoskopeDeviceTracker(
             serial_number=vehicle.imei,
         )
 
+    @override
     @property
     def available(self) -> bool:
         """Return if entity is available."""
@@ -99,6 +104,7 @@ class AutoskopeDeviceTracker(
         """Return the vehicle data for the current entity."""
         return self.coordinator.data[self._vehicle_id]
 
+    @override
     @property
     def latitude(self) -> float | None:
         """Return latitude value of the device."""
@@ -106,6 +112,7 @@ class AutoskopeDeviceTracker(
             return float(vehicle.position.latitude)
         return None
 
+    @override
     @property
     def longitude(self) -> float | None:
         """Return longitude value of the device."""
@@ -113,6 +120,7 @@ class AutoskopeDeviceTracker(
             return float(vehicle.position.longitude)
         return None
 
+    @override
     @property
     def location_accuracy(self) -> float:
         """Return the location accuracy of the device in meters."""
@@ -123,6 +131,7 @@ class AutoskopeDeviceTracker(
                 return float(max(5, int(vehicle.gps_quality * 5.0)))
         return 0.0
 
+    @override
     @property
     def icon(self) -> str:
         """Return the icon based on the vehicle's activity."""

@@ -2,7 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
-from typing import TYPE_CHECKING, Any, Final
+from typing import TYPE_CHECKING, Any, Final, override
 
 from aioamazondevices.structures import AmazonDevice
 
@@ -104,19 +104,23 @@ class AmazonSwitchEntity(AmazonEntity, SwitchEntity):
         ].value = state
         self.async_write_ha_state()
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the switch on."""
         await self._switch_set_state(True)
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the switch off."""
         await self._switch_set_state(False)
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return True if switch is on."""
         return self.entity_description.is_on_fn(self.device)
 
+    @override
     @property
     def available(self) -> bool:
         """Return if entity is available."""

@@ -1,6 +1,6 @@
 """Climate platform for Actron Air integration."""
 
-from typing import Any
+from typing import Any, override
 
 from actron_neo_api import ActronAirStatus, ActronAirZone
 
@@ -93,6 +93,7 @@ class ActronSystemClimate(ActronAirAcEntity, ActronAirClimateEntity):
         super().__init__(coordinator)
         self._attr_unique_id = self._serial_number
 
+    @override
     @property
     def hvac_modes(self) -> list[HVACMode]:
         """Return the list of supported HVAC modes."""
@@ -104,11 +105,13 @@ class ActronSystemClimate(ActronAirAcEntity, ActronAirClimateEntity):
         modes.append(HVACMode.OFF)
         return modes
 
+    @override
     @property
     def min_temp(self) -> float:
         """Return the minimum temperature that can be set."""
         return self._status.min_temp
 
+    @override
     @property
     def max_temp(self) -> float:
         """Return the maximum temperature that can be set."""
@@ -119,6 +122,7 @@ class ActronSystemClimate(ActronAirAcEntity, ActronAirClimateEntity):
         """Get the current status from the coordinator."""
         return self.coordinator.data
 
+    @override
     @property
     def hvac_mode(self) -> HVACMode | None:
         """Return the current HVAC mode."""
@@ -128,39 +132,46 @@ class ActronSystemClimate(ActronAirAcEntity, ActronAirClimateEntity):
         mode = self._status.user_aircon_settings.mode
         return HVAC_MODE_MAPPING_ACTRONAIR_TO_HA.get(mode)
 
+    @override
     @property
     def fan_mode(self) -> str | None:
         """Return the current fan mode."""
         fan_mode = self._status.user_aircon_settings.base_fan_mode
         return FAN_MODE_MAPPING_ACTRONAIR_TO_HA.get(fan_mode)
 
+    @override
     @property
     def current_humidity(self) -> float:
         """Return the current humidity."""
         return self._status.master_info.live_humidity_pc
 
+    @override
     @property
     def current_temperature(self) -> float:
         """Return the current temperature."""
         return self._status.master_info.live_temp_c
 
+    @override
     @property
     def target_temperature(self) -> float:
         """Return the target temperature."""
         return self._status.user_aircon_settings.current_setpoint
 
+    @override
     @actron_air_command
     async def async_set_fan_mode(self, fan_mode: str) -> None:
         """Set a new fan mode."""
         api_fan_mode = FAN_MODE_MAPPING_HA_TO_ACTRONAIR[fan_mode]
         await self._status.user_aircon_settings.set_fan_mode(api_fan_mode)
 
+    @override
     @actron_air_command
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         """Set the HVAC mode."""
         ac_mode = HVAC_MODE_MAPPING_HA_TO_ACTRONAIR[hvac_mode]
         await self._status.ac_system.set_system_mode(ac_mode)
 
+    @override
     @actron_air_command
     async def async_set_temperature(self, **kwargs: Any) -> None:
         """Set the temperature."""
@@ -190,6 +201,7 @@ class ActronZoneClimate(ActronAirZoneEntity, ActronAirClimateEntity):
         super().__init__(coordinator, zone)
         self._attr_unique_id: str = self._zone_identifier
 
+    @override
     @property
     def hvac_modes(self) -> list[HVACMode]:
         """Return the list of supported HVAC modes."""
@@ -202,11 +214,13 @@ class ActronZoneClimate(ActronAirZoneEntity, ActronAirClimateEntity):
         modes.append(HVACMode.OFF)
         return modes
 
+    @override
     @property
     def min_temp(self) -> float:
         """Return the minimum temperature that can be set."""
         return self._zone.min_temp
 
+    @override
     @property
     def max_temp(self) -> float:
         """Return the maximum temperature that can be set."""
@@ -218,6 +232,7 @@ class ActronZoneClimate(ActronAirZoneEntity, ActronAirClimateEntity):
         status = self.coordinator.data
         return status.zones[self._zone_id]
 
+    @override
     @property
     def hvac_mode(self) -> HVACMode | None:
         """Return the current HVAC mode."""
@@ -226,27 +241,32 @@ class ActronZoneClimate(ActronAirZoneEntity, ActronAirClimateEntity):
             return HVAC_MODE_MAPPING_ACTRONAIR_TO_HA.get(mode)
         return HVACMode.OFF
 
+    @override
     @property
     def current_humidity(self) -> float | None:
         """Return the current humidity."""
         return self._zone.humidity
 
+    @override
     @property
     def current_temperature(self) -> float | None:
         """Return the current temperature."""
         return self._zone.live_temp_c
 
+    @override
     @property
     def target_temperature(self) -> float | None:
         """Return the target temperature."""
         return self._zone.current_setpoint
 
+    @override
     @actron_air_command
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         """Set the HVAC mode."""
         is_enabled = hvac_mode != HVACMode.OFF
         await self._zone.enable(is_enabled)
 
+    @override
     @actron_air_command
     async def async_set_temperature(self, **kwargs: Any) -> None:
         """Set the temperature."""

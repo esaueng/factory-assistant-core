@@ -4,7 +4,7 @@
 from collections.abc import Mapping
 from enum import StrEnum
 import logging
-from typing import Any
+from typing import Any, override
 
 import voluptuous as vol
 
@@ -437,6 +437,7 @@ class BayesianConfigFlowHandler(SchemaConfigFlowHandler, domain=DOMAIN):
     config_flow = CONFIG_FLOW
     options_flow = OPTIONS_FLOW
 
+    @override
     @classmethod
     @callback
     def async_get_supported_subentry_types(
@@ -445,11 +446,13 @@ class BayesianConfigFlowHandler(SchemaConfigFlowHandler, domain=DOMAIN):
         """Return subentries supported by this integration."""
         return {"observation": ObservationSubentryFlowHandler}
 
+    @override
     def async_config_entry_title(self, options: Mapping[str, str]) -> str:
         """Return config entry title."""
         name: str = options[CONF_NAME]
         return name
 
+    @override
     async def async_on_create_entry(self, result: ConfigFlowResult) -> ConfigFlowResult:
         """Start subentry flow when config entry has been created."""
         subentry_result = await self.hass.config_entries.subentries.async_init(

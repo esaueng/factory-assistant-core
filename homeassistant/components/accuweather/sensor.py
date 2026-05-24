@@ -2,7 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Any, cast
+from typing import Any, cast, override
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -434,16 +434,19 @@ class AccuWeatherSensor(
         self._attr_unique_id = f"{coordinator.location_key}-{description.key}".lower()
         self._attr_device_info = coordinator.device_info
 
+    @override
     @property
     def native_value(self) -> str | int | float | None:
         """Return the state."""
         return self.entity_description.value_fn(self._sensor_data)
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return the state attributes."""
         return self.entity_description.attr_fn(self.coordinator.data)
 
+    @override
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle data update."""
@@ -493,16 +496,19 @@ class AccuWeatherForecastSensor(
         self._attr_translation_placeholders = {"forecast_day": str(forecast_day)}
         self.forecast_day = forecast_day
 
+    @override
     @property
     def native_value(self) -> str | int | float | None:
         """Return the state."""
         return self.entity_description.value_fn(self._sensor_data)
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return the state attributes."""
         return self.entity_description.attr_fn(self._sensor_data)
 
+    @override
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle data update."""

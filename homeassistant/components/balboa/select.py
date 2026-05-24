@@ -1,5 +1,7 @@
 """Support for Spa Client selects."""
 
+from typing import override
+
 from pybalboa import SpaControl
 from pybalboa.enums import LowHighRange
 
@@ -35,6 +37,7 @@ class BalboaTempRangeSelectEntity(BalboaEntity, SelectEntity):
         super().__init__(control.client, "TempHiLow")
         self._control = control
 
+    @override
     @property
     def current_option(self) -> str | None:
         """Return current select option."""
@@ -42,6 +45,7 @@ class BalboaTempRangeSelectEntity(BalboaEntity, SelectEntity):
             return LowHighRange.HIGH.name.lower()
         return LowHighRange.LOW.name.lower()
 
+    @override
     async def async_select_option(self, option: str) -> None:
         """Select temperature range high/low mode."""
         if option == LowHighRange.HIGH.name.lower():

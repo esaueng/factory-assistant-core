@@ -3,7 +3,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 import logging
-from typing import Literal
+from typing import Literal, override
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -461,6 +461,7 @@ class AirQSensor(CoordinatorEntity, SensorEntity):
         self._attr_unique_id = f"{coordinator.device_id}_{description.key}"
         self._attr_native_value = description.value(coordinator.data)
 
+    @override
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""

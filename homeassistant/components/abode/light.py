@@ -1,7 +1,7 @@
 """Support for Abode Security System lights."""
 
 from math import ceil
-from typing import Any
+from typing import Any, override
 
 from jaraco.abode.devices.light import Light
 
@@ -43,6 +43,7 @@ class AbodeLight(AbodeDevice, LightEntity):
     _attr_max_color_temp_kelvin = DEFAULT_MAX_KELVIN
     _attr_min_color_temp_kelvin = DEFAULT_MIN_KELVIN
 
+    @override
     def turn_on(self, **kwargs: Any) -> None:
         """Turn on the light."""
         if ATTR_COLOR_TEMP_KELVIN in kwargs and self._device.is_color_capable:
@@ -61,15 +62,18 @@ class AbodeLight(AbodeDevice, LightEntity):
 
         self._device.switch_on()
 
+    @override
     def turn_off(self, **kwargs: Any) -> None:
         """Turn off the light."""
         self._device.switch_off()
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return true if device is on."""
         return bool(self._device.is_on)
 
+    @override
     @property
     def brightness(self) -> int | None:
         """Return the brightness of the light."""
@@ -80,6 +84,7 @@ class AbodeLight(AbodeDevice, LightEntity):
             return 255 if brightness == 100 else ceil(brightness * 255 / 99.0)
         return None
 
+    @override
     @property
     def color_temp_kelvin(self) -> int | None:
         """Return the color temp of the light."""
@@ -87,6 +92,7 @@ class AbodeLight(AbodeDevice, LightEntity):
             return int(self._device.color_temp)
         return None
 
+    @override
     @property
     def hs_color(self) -> tuple[float, float] | None:
         """Return the color of the light."""
@@ -95,6 +101,7 @@ class AbodeLight(AbodeDevice, LightEntity):
             _hs = self._device.color
         return _hs
 
+    @override
     @property
     def color_mode(self) -> ColorMode:
         """Return the color mode of the light."""
@@ -106,6 +113,7 @@ class AbodeLight(AbodeDevice, LightEntity):
             return ColorMode.BRIGHTNESS
         return ColorMode.ONOFF
 
+    @override
     @property
     def supported_color_modes(self) -> set[ColorMode]:
         """Flag supported color modes."""

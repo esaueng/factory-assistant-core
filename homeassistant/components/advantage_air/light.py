@@ -1,6 +1,6 @@
 """Light platform for Advantage Air integration."""
 
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.light import ATTR_BRIGHTNESS, ColorMode, LightEntity
 from homeassistant.core import HomeAssistant
@@ -69,15 +69,18 @@ class AdvantageAirLight(AdvantageAirEntity, LightEntity):
         """Return the light object."""
         return self.coordinator.data["myLights"]["lights"][self._id]
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return if the light is on."""
         return self._data["state"] == ADVANTAGE_AIR_STATE_ON
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the light on."""
         await self.async_update_state(True)
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the light off."""
         await self.async_update_state(False)
@@ -98,11 +101,13 @@ class AdvantageAirLightDimmable(AdvantageAirLight):
             coordinator.api.lights.async_update_value, self._id
         )
 
+    @override
     @property
     def brightness(self) -> int:
         """Return the brightness of this light between 0..255."""
         return round(self._data["value"] * 255 / 100)
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the light on and optionally set the brightness."""
         if ATTR_BRIGHTNESS in kwargs:
@@ -123,11 +128,13 @@ class AdvantageAirThingLightDimmable(AdvantageAirThingEntity, LightEntity):
     _attr_color_mode = ColorMode.BRIGHTNESS
     _attr_supported_color_modes = {ColorMode.BRIGHTNESS}
 
+    @override
     @property
     def brightness(self) -> int:
         """Return the brightness of this light between 0..255."""
         return round(self._data["value"] * 255 / 100)
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the light on by setting the brightness."""
         await self.async_update_value(round(kwargs.get(ATTR_BRIGHTNESS, 255) / 2.55))

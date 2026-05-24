@@ -4,6 +4,7 @@ from collections.abc import Callable, Iterable
 from functools import partial
 import itertools
 import logging
+from typing import override
 
 from bleak_retry_connector import BleakSlotManager
 from bluetooth_adapters import (
@@ -131,6 +132,7 @@ class HomeAssistantBluetoothManager(BluetoothManager):
         """
         self._integration_matcher.async_clear_address(address)
 
+    @override
     def _discover_service_info(self, service_info: BluetoothServiceInfoBleak) -> None:
         matched_domains = self._integration_matcher.match_domains(service_info)
         if self._debug:
@@ -165,6 +167,7 @@ class HomeAssistantBluetoothManager(BluetoothManager):
                 discovery_key=discovery_key,
             )
 
+    @override
     def _address_disappeared(self, address: str) -> None:
         """Dismiss all discoveries for the given address."""
         self._integration_matcher.async_clear_address(address)
@@ -174,6 +177,7 @@ class HomeAssistantBluetoothManager(BluetoothManager):
         ):
             self.hass.config_entries.flow.async_abort(flow["flow_id"])
 
+    @override
     async def async_setup(self) -> None:
         """Set up the bluetooth manager."""
         await super().async_setup()
@@ -258,6 +262,7 @@ class HomeAssistantBluetoothManager(BluetoothManager):
 
         return _async_remove_callback
 
+    @override
     @hass_callback
     def async_stop(self, event: Event | None = None) -> None:
         """Stop the Bluetooth integration at shutdown."""
@@ -320,6 +325,7 @@ class HomeAssistantBluetoothManager(BluetoothManager):
             )
         return cancel
 
+    @override
     def async_register_scanner(
         self,
         scanner: BaseHaScanner,
@@ -357,6 +363,7 @@ class HomeAssistantBluetoothManager(BluetoothManager):
             _LOGGER.debug("Rediscover address %s", address)
             self.async_rediscover_address(address)
 
+    @override
     def on_scanner_start(self, scanner: BaseHaScanner) -> None:
         """Handle when a scanner starts.
 

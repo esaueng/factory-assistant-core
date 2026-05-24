@@ -1,6 +1,6 @@
 """Base entity for AirPatrol integration."""
 
-from typing import Any
+from typing import Any, override
 
 from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
@@ -41,6 +41,7 @@ class AirPatrolEntity(CoordinatorEntity[AirPatrolDataUpdateCoordinator]):
         """Return the climate data for this unit."""
         return self.device_data["climate"]
 
+    @override
     @property
     def available(self) -> bool:
         """Return if entity is available."""

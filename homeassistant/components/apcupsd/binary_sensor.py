@@ -1,6 +1,6 @@
 """Support for tracking the online status of a UPS."""
 
-from typing import Final
+from typing import Final, override
 
 from homeassistant.components.binary_sensor import (
     BinarySensorEntity,
@@ -49,6 +49,7 @@ class OnlineStatus(APCUPSdEntity, BinarySensorEntity):
         """Initialize the APCUPSd binary device."""
         super().__init__(coordinator, description)
 
+    @override
     @property
     def is_on(self) -> bool | None:
         """Returns true if the UPS is online."""

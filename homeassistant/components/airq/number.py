@@ -3,6 +3,7 @@
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass
 import logging
+from typing import override
 
 from aioairq.core import AirQ
 
@@ -67,11 +68,13 @@ class AirQLEDBrightness(CoordinatorEntity[AirQCoordinator], NumberEntity):
         self._attr_device_info = coordinator.device_info
         self._attr_unique_id = f"{coordinator.device_id}_{description.key}"
 
+    @override
     @property
     def native_value(self) -> float:
         """Return the brightness of the LEDs in %."""
         return self.entity_description.value(self.coordinator.data)
 
+    @override
     async def async_set_native_value(self, value: float) -> None:
         """Set the brightness of the LEDs to the value in %."""
         _LOGGER.debug(

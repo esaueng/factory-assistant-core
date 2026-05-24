@@ -4,6 +4,7 @@ from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime
 from enum import StrEnum
+from typing import override
 
 from pyanglianwater.meter import SmartMeter
 
@@ -118,6 +119,7 @@ class AnglianWaterSensorEntity(AnglianWaterEntity, SensorEntity):
         super().__init__(coordinator, smart_meter, description.key)
         self.entity_description = description
 
+    @override
     @property
     def native_value(self) -> float | datetime | None:
         """Return the state of the sensor."""

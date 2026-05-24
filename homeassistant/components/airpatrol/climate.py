@@ -1,6 +1,6 @@
 """Climate platform for AirPatrol integration."""
 
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.climate import (
     FAN_AUTO,
@@ -91,6 +91,7 @@ class AirPatrolClimate(AirPatrolEntity, ClimateEntity):
         """Return the current parameters for the climate entity."""
         return self.climate_data.get("ParametersData") or {}
 
+    @override
     @property
     def current_humidity(self) -> float | None:
         """Return the current humidity."""
@@ -98,6 +99,7 @@ class AirPatrolClimate(AirPatrolEntity, ClimateEntity):
             return float(humidity)
         return None
 
+    @override
     @property
     def current_temperature(self) -> float | None:
         """Return the current temperature."""
@@ -105,6 +107,7 @@ class AirPatrolClimate(AirPatrolEntity, ClimateEntity):
             return float(temp)
         return None
 
+    @override
     @property
     def target_temperature(self) -> float | None:
         """Return the target temperature."""
@@ -112,6 +115,7 @@ class AirPatrolClimate(AirPatrolEntity, ClimateEntity):
             return float(temp)
         return None
 
+    @override
     @property
     def hvac_mode(self) -> HVACMode | None:
         """Return the current HVAC mode."""
@@ -122,6 +126,7 @@ class AirPatrolClimate(AirPatrolEntity, ClimateEntity):
             return AP_TO_HA_HVAC_MODES.get(pump_mode)
         return HVACMode.OFF
 
+    @override
     @property
     def fan_mode(self) -> str | None:
         """Return the current fan mode."""
@@ -130,6 +135,7 @@ class AirPatrolClimate(AirPatrolEntity, ClimateEntity):
             return AP_TO_HA_FAN_MODES.get(fan_speed)
         return None
 
+    @override
     @property
     def swing_mode(self) -> str | None:
         """Return the current swing mode."""
@@ -138,6 +144,7 @@ class AirPatrolClimate(AirPatrolEntity, ClimateEntity):
             return AP_TO_HA_SWING_MODES.get(swing)
         return None
 
+    @override
     async def async_set_temperature(self, **kwargs: Any) -> None:
         """Set new target temperature."""
         params = self.params.copy()
@@ -148,6 +155,7 @@ class AirPatrolClimate(AirPatrolEntity, ClimateEntity):
 
         await self._async_set_params(params)
 
+    @override
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         """Set new target hvac mode."""
         params = self.params.copy()
@@ -160,6 +168,7 @@ class AirPatrolClimate(AirPatrolEntity, ClimateEntity):
 
         await self._async_set_params(params)
 
+    @override
     async def async_set_fan_mode(self, fan_mode: str) -> None:
         """Set new target fan mode."""
         params = self.params.copy()
@@ -167,6 +176,7 @@ class AirPatrolClimate(AirPatrolEntity, ClimateEntity):
 
         await self._async_set_params(params)
 
+    @override
     async def async_set_swing_mode(self, swing_mode: str) -> None:
         """Set new target swing mode."""
         params = self.params.copy()
@@ -174,12 +184,14 @@ class AirPatrolClimate(AirPatrolEntity, ClimateEntity):
 
         await self._async_set_params(params)
 
+    @override
     async def async_turn_on(self) -> None:
         """Turn the entity on."""
         params = self.params.copy()
         if mode := AP_TO_HA_HVAC_MODES.get(params["PumpMode"]):
             await self.async_set_hvac_mode(mode)
 
+    @override
     async def async_turn_off(self) -> None:
         """Turn the entity off."""
         await self.async_set_hvac_mode(HVACMode.OFF)

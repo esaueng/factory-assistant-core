@@ -1,5 +1,7 @@
 """The AirVisual Pro integration."""
 
+from typing import override
+
 from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity import EntityDescription
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
@@ -20,6 +22,7 @@ class AirVisualProEntity(CoordinatorEntity[AirVisualProCoordinator]):
         self._attr_unique_id = f"{coordinator.data['serial_number']}_{description.key}"
         self.entity_description = description
 
+    @override
     @property
     def device_info(self) -> DeviceInfo:
         """Return device registry information for this entity."""

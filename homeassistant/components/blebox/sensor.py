@@ -1,6 +1,7 @@
 """BleBox sensor entities."""
 
 from datetime import datetime, timedelta
+from typing import override
 
 import blebox_uniapi.sensor
 
@@ -145,11 +146,13 @@ class BleBoxSensorEntity(BleBoxEntity[blebox_uniapi.sensor.BaseSensor], SensorEn
         super().__init__(feature)
         self.entity_description = description
 
+    @override
     @property
     def native_value(self):
         """Return the state."""
         return self._feature.native_value
 
+    @override
     @property
     def last_reset(self) -> datetime | None:
         """Return the time when the sensor was last reset, if implemented."""

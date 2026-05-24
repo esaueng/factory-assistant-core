@@ -2,7 +2,7 @@
 
 from datetime import time
 import itertools
-from typing import Any
+from typing import Any, override
 
 from pybalboa import SpaClient
 
@@ -43,11 +43,13 @@ class BalboaTimeEntity(BalboaEntity, TimeEntity):
         self._attr_translation_key = f"{FILTER_CYCLE}{period}"
         self._attr_translation_placeholders = {"index": str(index)}
 
+    @override
     @property
     def native_value(self) -> time | None:
         """Return the value reported by the time."""
         return getattr(self._client, f"{FILTER_CYCLE}{self.index}_{self.period}")
 
+    @override
     async def async_set_value(self, value: time) -> None:
         """Change the time."""
         args: dict[str, Any] = {self.period: value}

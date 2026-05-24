@@ -1,6 +1,7 @@
 """Support for Ambient Weather Station sensors."""
 
 from datetime import UTC, datetime
+from typing import override
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -772,6 +773,7 @@ async def async_setup_entry(
 class AmbientWeatherSensor(AmbientWeatherEntity, SensorEntity):
     """Define an Ambient sensor."""
 
+    @override
     @callback
     def update_from_latest_data(self) -> None:
         """Fetch new state data for the sensor."""

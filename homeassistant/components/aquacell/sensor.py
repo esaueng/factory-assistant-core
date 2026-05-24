@@ -3,6 +3,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime
+from typing import override
 
 from aioaquacell import Softener
 
@@ -115,6 +116,7 @@ class SoftenerSensor(AquacellEntity, SensorEntity):
 
         self.entity_description = description
 
+    @override
     @property
     def native_value(self) -> StateType | datetime:
         """Return the state of the sensor."""

@@ -2,7 +2,7 @@
 
 from decimal import Decimal
 import logging
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.climate import (
     ATTR_TARGET_TEMP_HIGH,
@@ -155,12 +155,14 @@ class AdvantageAirAC(AdvantageAirAcEntity, ClimateEntity):
                 SUPPORTED_FEATURES_MYZONE | self._support_preset
             )
 
+    @override
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""
         self._async_configure_preset()
         super()._handle_coordinator_update()
 
+    @override
     @property
     def current_temperature(self) -> float | None:
         """Return the selected zones current temperature."""
@@ -168,6 +170,7 @@ class AdvantageAirAC(AdvantageAirAcEntity, ClimateEntity):
             return self._myzone["measuredTemp"]
         return None
 
+    @override
     @property
     def target_temperature(self) -> float | None:
         """Return the current target temperature."""
@@ -177,6 +180,7 @@ class AdvantageAirAC(AdvantageAirAcEntity, ClimateEntity):
             return self._myzone["setTemp"]
         return self._ac["setTemp"]
 
+    @override
     @property
     def hvac_mode(self) -> HVACMode | None:
         """Return the current HVAC modes."""
@@ -184,6 +188,7 @@ class AdvantageAirAC(AdvantageAirAcEntity, ClimateEntity):
             return ADVANTAGE_AIR_HVAC_MODES.get(self._ac["mode"])
         return HVACMode.OFF
 
+    @override
     @property
     def hvac_action(self) -> HVACAction | None:
         """Return the current running HVAC action."""
@@ -195,25 +200,30 @@ class AdvantageAirAC(AdvantageAirAcEntity, ClimateEntity):
             )
         return HVAC_ACTIONS.get(self._ac["mode"])
 
+    @override
     @property
     def fan_mode(self) -> str | None:
         """Return the current fan modes."""
         return FAN_AUTO if self._ac["fan"] == ADVANTAGE_AIR_MYFAN else self._ac["fan"]
 
+    @override
     @property
     def target_temperature_high(self) -> float | None:
         """Return the temperature cool mode is enabled."""
         return self._ac.get(ADVANTAGE_AIR_COOL_TARGET)
 
+    @override
     @property
     def target_temperature_low(self) -> float | None:
         """Return the temperature heat mode is enabled."""
         return self._ac.get(ADVANTAGE_AIR_HEAT_TARGET)
 
+    @override
     async def async_turn_on(self) -> None:
         """Set the HVAC State to on."""
         await self.async_update_ac({"state": ADVANTAGE_AIR_STATE_ON})
 
+    @override
     async def async_turn_off(self) -> None:
         """Set the HVAC State to off."""
         await self.async_update_ac(
@@ -222,6 +232,7 @@ class AdvantageAirAC(AdvantageAirAcEntity, ClimateEntity):
             }
         )
 
+    @override
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         """Set the HVAC Mode and State."""
         if hvac_mode == HVACMode.OFF:
@@ -236,6 +247,7 @@ class AdvantageAirAC(AdvantageAirAcEntity, ClimateEntity):
             }
         )
 
+    @override
     async def async_set_fan_mode(self, fan_mode: str) -> None:
         """Set the Fan Mode."""
         if fan_mode == FAN_AUTO and self._ac.get(ADVANTAGE_AIR_AUTOFAN_ENABLED):
@@ -244,6 +256,7 @@ class AdvantageAirAC(AdvantageAirAcEntity, ClimateEntity):
             mode = fan_mode
         await self.async_update_ac({"fan": mode})
 
+    @override
     async def async_set_temperature(self, **kwargs: Any) -> None:
         """Set the Temperature."""
         if ATTR_TEMPERATURE in kwargs:
@@ -256,6 +269,7 @@ class AdvantageAirAC(AdvantageAirAcEntity, ClimateEntity):
                 }
             )
 
+    @override
     async def async_set_preset_mode(self, preset_mode: str) -> None:
         """Set the preset mode."""
         change = {}
@@ -288,6 +302,7 @@ class AdvantageAirZone(AdvantageAirZoneEntity, ClimateEntity):
         super().__init__(coordinator, ac_key, zone_key)
         self._attr_name = self._zone["name"]
 
+    @override
     @property
     def hvac_mode(self) -> HVACMode:
         """Return the current state as HVAC mode."""
@@ -295,6 +310,7 @@ class AdvantageAirZone(AdvantageAirZoneEntity, ClimateEntity):
             return HVACMode.HEAT_COOL
         return HVACMode.OFF
 
+    @override
     @property
     def hvac_action(self) -> HVACAction | None:
         """Return the HVAC action.
@@ -315,24 +331,29 @@ class AdvantageAirZone(AdvantageAirZoneEntity, ClimateEntity):
             return master_action
         return HVACAction.OFF
 
+    @override
     @property
     def current_temperature(self) -> float | None:
         """Return the current temperature."""
         return self._zone["measuredTemp"]
 
+    @override
     @property
     def target_temperature(self) -> float:
         """Return the target temperature."""
         return self._zone["setTemp"]
 
+    @override
     async def async_turn_on(self) -> None:
         """Set the HVAC State to on."""
         await self.async_update_zone({"state": ADVANTAGE_AIR_STATE_OPEN})
 
+    @override
     async def async_turn_off(self) -> None:
         """Set the HVAC State to off."""
         await self.async_update_zone({"state": ADVANTAGE_AIR_STATE_CLOSE})
 
+    @override
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         """Set the HVAC Mode and State."""
         if hvac_mode == HVACMode.OFF:
@@ -340,6 +361,7 @@ class AdvantageAirZone(AdvantageAirZoneEntity, ClimateEntity):
         else:
             await self.async_turn_on()
 
+    @override
     async def async_set_temperature(self, **kwargs: Any) -> None:
         """Set the Temperature."""
         temp = kwargs.get(ATTR_TEMPERATURE)

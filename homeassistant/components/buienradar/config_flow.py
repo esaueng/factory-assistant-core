@@ -1,7 +1,7 @@
 """Config flow for buienradar integration."""
 
 import copy
-from typing import Any, cast
+from typing import Any, cast, override
 
 import voluptuous as vol
 
@@ -74,6 +74,7 @@ class BuienradarFlowHandler(ConfigFlow, domain=DOMAIN):
 
     VERSION = 1
 
+    @override
     @staticmethod
     @callback
     def async_get_options_flow(
@@ -82,6 +83,7 @@ class BuienradarFlowHandler(ConfigFlow, domain=DOMAIN):
         """Get the options flow for this handler."""
         return SchemaOptionsFlowHandler(config_entry, OPTIONS_FLOW)
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:

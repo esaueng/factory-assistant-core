@@ -6,7 +6,7 @@ from collections.abc import Awaitable, Callable, Mapping
 from ipaddress import ip_address
 import logging
 from random import randrange
-from typing import Any, Self
+from typing import Any, Self, override
 
 from pyatv import exceptions, pair, scan
 from pyatv.const import DeviceModel, PairingRequirement, Protocol
@@ -106,6 +106,7 @@ class AppleTVConfigFlow(ConfigFlow, domain=DOMAIN):
     pairing: PairingHandler | None = None
     protocols_to_pair: deque[Protocol] | None = None
 
+    @override
     @staticmethod
     @callback
     def async_get_options_flow(
@@ -173,6 +174,7 @@ class AppleTVConfigFlow(ConfigFlow, domain=DOMAIN):
 
         return self.async_show_form(step_id="restore_device")
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, str] | None = None
     ) -> ConfigFlowResult:
@@ -203,6 +205,7 @@ class AppleTVConfigFlow(ConfigFlow, domain=DOMAIN):
             errors=errors,
         )
 
+    @override
     async def async_step_zeroconf(
         self, discovery_info: ZeroconfServiceInfo
     ) -> ConfigFlowResult:
@@ -287,6 +290,7 @@ class AppleTVConfigFlow(ConfigFlow, domain=DOMAIN):
         if self.hass.config_entries.flow.async_has_matching_flow(self):
             raise AbortFlow("already_in_progress")
 
+    @override
     def is_matching(self, other_flow: Self) -> bool:
         """Return True if other_flow is matching this flow."""
         if (

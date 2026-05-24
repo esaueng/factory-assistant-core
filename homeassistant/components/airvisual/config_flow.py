@@ -2,7 +2,7 @@
 
 import asyncio
 from collections.abc import Mapping
-from typing import Any
+from typing import Any, override
 
 from pyairvisual.cloud_api import (
     CloudAPI,
@@ -168,6 +168,7 @@ class AirVisualFlowHandler(ConfigFlow, domain=DOMAIN):
         await self.async_set_unique_id(unique_id)
         self._abort_if_unique_id_configured()
 
+    @override
     @staticmethod
     @callback
     def async_get_options_flow(config_entry: ConfigEntry) -> SchemaOptionsFlowHandler:
@@ -230,6 +231,7 @@ class AirVisualFlowHandler(ConfigFlow, domain=DOMAIN):
             conf, self._entry_data_for_reauth[CONF_INTEGRATION_TYPE]
         )
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, str] | None = None
     ) -> ConfigFlowResult:

@@ -1,7 +1,7 @@
 """Entity classes for the Airzone integration."""
 
 import logging
-from typing import Any
+from typing import Any, override
 
 from aioairzone.const import (
     API_SYSTEM_ID,
@@ -70,11 +70,13 @@ class AirzoneSystemEntity(AirzoneEntity):
             self._attr_device_info["via_device"] = (DOMAIN, f"{entry.entry_id}_ws")
         self._attr_unique_id = entry.unique_id or entry.entry_id
 
+    @override
     @property
     def available(self) -> bool:
         """Return system availability."""
         return super().available and self.get_airzone_value(AZD_AVAILABLE)
 
+    @override
     def get_airzone_value(self, key: str) -> Any:
         """Return system value by key."""
         value = None
@@ -121,6 +123,7 @@ class AirzoneHotWaterEntity(AirzoneEntity):
             self._attr_device_info["via_device"] = (DOMAIN, f"{entry.entry_id}_ws")
         self._attr_unique_id = entry.unique_id or entry.entry_id
 
+    @override
     def get_airzone_value(self, key: str) -> Any:
         """Return DHW value by key."""
         return self.coordinator.data[AZD_HOT_WATER].get(key)
@@ -163,6 +166,7 @@ class AirzoneWebServerEntity(AirzoneEntity):
         )
         self._attr_unique_id = entry.unique_id or entry.entry_id
 
+    @override
     def get_airzone_value(self, key: str) -> Any:
         """Return system value by key."""
         return self.coordinator.data[AZD_WEBSERVER].get(key)
@@ -195,11 +199,13 @@ class AirzoneZoneEntity(AirzoneEntity):
         )
         self._attr_unique_id = entry.unique_id or entry.entry_id
 
+    @override
     @property
     def available(self) -> bool:
         """Return zone availability."""
         return super().available and self.get_airzone_value(AZD_AVAILABLE)
 
+    @override
     def get_airzone_value(self, key: str) -> Any:
         """Return zone value by key."""
         value = None

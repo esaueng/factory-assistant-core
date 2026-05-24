@@ -1,5 +1,7 @@
 """Support for buttons."""
 
+from typing import override
+
 from homeassistant.components.button import ButtonEntity
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import EntityDescription
@@ -50,6 +52,7 @@ class AmazonRoutineButton(AmazonServiceEntity, ButtonEntity):
             EntityDescription(key=slugify(routine), name=routine),
         )
 
+    @override
     async def async_press(self) -> None:
         """Handle button press action."""
         await self._coordinator.api.call_routine(self._routine)

@@ -2,6 +2,7 @@
 
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass
+from typing import override
 
 from airgradient import AirGradientClient, Config
 from airgradient.models import ConfigurationControl, LedBarMode, TemperatureUnit
@@ -214,11 +215,13 @@ class AirGradientSelect(AirGradientEntity, SelectEntity):
         self.entity_description = description
         self._attr_unique_id = f"{coordinator.serial_number}-{description.key}"
 
+    @override
     @property
     def current_option(self) -> str | None:
         """Return the state of the select."""
         return self.entity_description.value_fn(self.coordinator.data.config)
 
+    @override
     @exception_handler
     async def async_select_option(self, option: str) -> None:
         """Change the selected option."""

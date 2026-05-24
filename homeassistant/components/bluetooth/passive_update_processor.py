@@ -4,7 +4,7 @@ import dataclasses
 from datetime import timedelta
 from functools import cache
 import logging
-from typing import TYPE_CHECKING, Any, Self, TypedDict, cast
+from typing import TYPE_CHECKING, Any, Self, TypedDict, cast, override
 
 from habluetooth import BluetoothScanningMode
 
@@ -356,6 +356,7 @@ class PassiveBluetoothProcessorCoordinator[_DataT](BasePassiveBluetoothCoordinat
         self._processors.append(processor)
         return remove_processor
 
+    @override
     @callback
     def _async_handle_unavailable(
         self, service_info: BluetoothServiceInfoBleak
@@ -365,6 +366,7 @@ class PassiveBluetoothProcessorCoordinator[_DataT](BasePassiveBluetoothCoordinat
         for processor in self._processors:
             processor.async_handle_unavailable()
 
+    @override
     @callback
     def _async_handle_bluetooth_event(
         self,
@@ -674,11 +676,13 @@ class PassiveBluetoothProcessorEntity[
         if (name := processor.entity_names.get(entity_key)) is not None:
             self._attr_name = name
 
+    @override
     @property
     def available(self) -> bool:
         """Return if entity is available."""
         return self.processor.available
 
+    @override
     async def async_added_to_hass(self) -> None:
         """When entity is added to hass."""
         await super().async_added_to_hass()

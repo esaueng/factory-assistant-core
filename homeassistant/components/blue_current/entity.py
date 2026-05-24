@@ -1,5 +1,7 @@
 """Entity representing a Blue Current charge point."""
 
+from typing import override
+
 from homeassistant.const import ATTR_NAME
 from homeassistant.core import callback
 from homeassistant.helpers.device_registry import DeviceInfo
@@ -22,6 +24,7 @@ class BlueCurrentEntity(Entity):
         self.connector = connector
         self.signal = signal
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Register callbacks."""
 
@@ -35,6 +38,7 @@ class BlueCurrentEntity(Entity):
 
         self.update_from_latest_data()
 
+    @override
     @property
     def available(self) -> bool:
         """Return entity availability."""

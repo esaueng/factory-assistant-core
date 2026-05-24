@@ -1,6 +1,6 @@
 """Support for the Airzone Cloud sensors."""
 
-from typing import Any, Final
+from typing import Any, Final, override
 
 from aioairzone_cloud.const import (
     AZD_AIDOOS,
@@ -269,11 +269,13 @@ async def async_setup_entry(
 class AirzoneSensor(AirzoneEntity, SensorEntity):
     """Define an Airzone Cloud sensor."""
 
+    @override
     @property
     def available(self) -> bool:
         """Return Airzone Cloud sensor availability."""
         return super().available and self.native_value is not None
 
+    @override
     @callback
     def _handle_coordinator_update(self) -> None:
         """Update attributes when the coordinator updates."""

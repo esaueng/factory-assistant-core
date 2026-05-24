@@ -1,5 +1,7 @@
 """The ATAG Integration."""
 
+from typing import override
+
 from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
@@ -18,6 +20,7 @@ class AtagEntity(CoordinatorEntity[AtagDataUpdateCoordinator]):
         self._attr_name = DOMAIN.title()
         self._attr_unique_id = f"{coordinator.atag.id}-{atag_id}"
 
+    @override
     @property
     def device_info(self) -> DeviceInfo:
         """Return info for device registry."""

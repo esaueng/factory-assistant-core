@@ -1,5 +1,7 @@
 """Support for Blue Current sensors."""
 
+from typing import override
+
 from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorEntity,
@@ -249,6 +251,7 @@ class ChargePointSensor(ChargepointEntity, SensorEntity):
         self.entity_description = sensor
         self._attr_unique_id = f"{sensor.key}_{evse_id}"
 
+    @override
     @callback
     def update_from_latest_data(self) -> None:
         """Update the sensor from the latest data."""
@@ -268,6 +271,7 @@ class ChargePointTimestampSensor(ChargePointSensor):
 
     _attr_device_class = SensorDeviceClass.TIMESTAMP
 
+    @override
     @callback
     def update_from_latest_data(self) -> None:
         """Update the sensor from the latest data."""
@@ -296,6 +300,7 @@ class GridSensor(BlueCurrentEntity, SensorEntity):
         self.entity_description = sensor
         self._attr_unique_id = sensor.key
 
+    @override
     @callback
     def update_from_latest_data(self) -> None:
         """Update the grid sensor from the latest data."""

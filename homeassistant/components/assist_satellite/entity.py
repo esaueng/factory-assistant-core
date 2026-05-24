@@ -8,7 +8,7 @@ from dataclasses import dataclass, field
 from enum import StrEnum
 import logging
 import time
-from typing import Any, Literal, final
+from typing import Any, Literal, final, override
 
 from hassil import Intents, recognize
 from hassil.expression import Expression, Group, ListReference
@@ -144,6 +144,7 @@ class AssistSatelliteEntity(entity.Entity):
 
     __assist_satellite_state = AssistSatelliteState.IDLE
 
+    @override
     @final
     @property
     def state(self) -> str | None:

@@ -1,5 +1,7 @@
 """Support for the AEMET OpenData service."""
 
+from typing import override
+
 from aemet_opendata.const import (
     AOD_CONDITION,
     AOD_FORECAST_DAILY,
@@ -73,47 +75,56 @@ class AemetWeather(
         super().__init__(coordinator, name, unique_id)
         self._attr_unique_id = unique_id
 
+    @override
     @property
     def condition(self) -> str | None:
         """Return the current condition."""
         cond = self.get_aemet_value([AOD_WEATHER, AOD_CONDITION])
         return CONDITIONS_MAP.get(cond)
 
+    @override
     @callback
     def _async_forecast_daily(self) -> list[Forecast]:
         """Return the daily forecast in native units."""
         return self.get_aemet_forecast(AOD_FORECAST_DAILY)
 
+    @override
     @callback
     def _async_forecast_hourly(self) -> list[Forecast]:
         """Return the hourly forecast in native units."""
         return self.get_aemet_forecast(AOD_FORECAST_HOURLY)
 
+    @override
     @property
     def humidity(self) -> float | None:
         """Return the humidity."""
         return self.get_aemet_value([AOD_WEATHER, AOD_HUMIDITY])
 
+    @override
     @property
     def native_pressure(self) -> float | None:
         """Return the pressure."""
         return self.get_aemet_value([AOD_WEATHER, AOD_PRESSURE])
 
+    @override
     @property
     def native_temperature(self) -> float | None:
         """Return the temperature."""
         return self.get_aemet_value([AOD_WEATHER, AOD_TEMP])
 
+    @override
     @property
     def wind_bearing(self) -> float | None:
         """Return the wind bearing."""
         return self.get_aemet_value([AOD_WEATHER, AOD_WIND_DIRECTION])
 
+    @override
     @property
     def native_wind_gust_speed(self) -> float | None:
         """Return the wind gust speed in native units."""
         return self.get_aemet_value([AOD_WEATHER, AOD_WIND_SPEED_MAX])
 
+    @override
     @property
     def native_wind_speed(self) -> float | None:
         """Return the wind speed."""

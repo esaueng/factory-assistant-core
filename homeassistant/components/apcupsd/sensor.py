@@ -1,6 +1,7 @@
 """Support for APCUPSd sensors."""
 
 import logging
+from typing import override
 
 import dateutil
 
@@ -521,6 +522,7 @@ class APCUPSdSensor(APCUPSdEntity, SensorEntity):
         # Initial update of attributes.
         self._update_attrs()
 
+    @override
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""
@@ -562,6 +564,7 @@ class APCUPSdSensor(APCUPSdEntity, SensorEntity):
         if not self.native_unit_of_measurement:
             self._attr_native_unit_of_measurement = inferred_unit
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Handle when entity is added to Home Assistant.
 
@@ -615,6 +618,7 @@ class APCUPSdSensor(APCUPSdEntity, SensorEntity):
             translation_placeholders=placeholders,
         )
 
+    @override
     async def async_will_remove_from_hass(self) -> None:
         """Handle when entity will be removed from Home Assistant."""
         await super().async_will_remove_from_hass()

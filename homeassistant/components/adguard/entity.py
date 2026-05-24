@@ -1,5 +1,7 @@
 """AdGuard Home base entity."""
 
+from typing import override
+
 from adguardhome import AdGuardHomeError
 
 from homeassistant.config_entries import SOURCE_HASSIO
@@ -46,6 +48,7 @@ class AdGuardHomeEntity(Entity):
         """Update AdGuard Home entity."""
         raise NotImplementedError
 
+    @override
     @property
     def device_info(self) -> DeviceInfo:
         """Return device information about this AdGuard Home instance."""

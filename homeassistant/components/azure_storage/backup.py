@@ -4,7 +4,7 @@ from collections.abc import AsyncIterator, Callable, Coroutine
 from functools import wraps
 import json
 import logging
-from typing import Any, Concatenate
+from typing import Any, Concatenate, override
 
 from azure.core.exceptions import AzureError, HttpResponseError, ServiceRequestError
 from azure.storage.blob import BlobProperties
@@ -112,6 +112,7 @@ class AzureStorageBackupAgent(BackupAgent):
         self.name = entry.title
         self.unique_id = entry.entry_id
 
+    @override
     @handle_backup_errors
     async def async_download_backup(
         self,
@@ -126,6 +127,7 @@ class AzureStorageBackupAgent(BackupAgent):
         download_stream = await self._client.download_blob(blob.name)
         return download_stream.chunks()
 
+    @override
     @handle_backup_errors
     async def async_upload_backup(
         self,
@@ -150,6 +152,7 @@ class AzureStorageBackupAgent(BackupAgent):
             length=backup.size,
         )
 
+    @override
     @handle_backup_errors
     async def async_delete_backup(
         self,
@@ -163,6 +166,7 @@ class AzureStorageBackupAgent(BackupAgent):
             raise BackupNotFound(f"Backup {backup_id} not found")
         await self._client.delete_blob(blob.name)
 
+    @override
     @handle_backup_errors
     async def async_list_backups(self, **kwargs: Any) -> list[AgentBackup]:
         """List backups."""
@@ -177,6 +181,7 @@ class AzureStorageBackupAgent(BackupAgent):
 
         return backups
 
+    @override
     @handle_backup_errors
     async def async_get_backup(
         self,

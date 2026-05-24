@@ -1,7 +1,7 @@
 """Support for Axis switches."""
 
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
 from axis.models.event import Event, EventTopic
 
@@ -60,16 +60,19 @@ class AxisSwitch(AxisEventEntity, SwitchEntity):
 
         self._attr_is_on = event.is_tripped
 
+    @override
     @callback
     def async_event_callback(self, event: Event) -> None:
         """Update light state."""
         self._attr_is_on = event.is_tripped
         self.async_write_ha_state()
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn on switch."""
         await self.hub.api.vapix.ports.close(self._event_id)
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn off switch."""
         await self.hub.api.vapix.ports.open(self._event_id)

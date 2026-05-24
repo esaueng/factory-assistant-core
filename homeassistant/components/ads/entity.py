@@ -3,7 +3,7 @@
 import asyncio
 from asyncio import timeout
 import logging
-from typing import Any
+from typing import Any, override
 
 from homeassistant.helpers.entity import Entity
 
@@ -64,6 +64,7 @@ class AdsEntity(Entity):
         except TimeoutError:
             _LOGGER.debug("Variable %s: Timeout during first update", ads_var)
 
+    @override
     @property
     def available(self) -> bool:
         """Return False if state has not been updated yet."""

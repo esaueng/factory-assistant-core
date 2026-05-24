@@ -2,7 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -144,6 +144,7 @@ class AirVisualProSensor(AirVisualProEntity, SensorEntity):
 
     entity_description: AirVisualProMeasurementDescription
 
+    @override
     @property
     def native_value(self) -> float | int:
         """Return the sensor value."""

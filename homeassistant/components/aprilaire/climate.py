@@ -1,6 +1,6 @@
 """The Aprilaire climate component."""
 
-from typing import Any
+from typing import Any, override
 
 from pyaprilaire.const import Attribute
 
@@ -86,6 +86,7 @@ class AprilaireClimate(BaseAprilaireEntity, ClimateEntity):
     _attr_temperature_unit = UnitOfTemperature.CELSIUS
     _attr_translation_key = "thermostat"
 
+    @override
     @property
     def precision(self) -> float:
         """Get the precision based on the unit."""
@@ -95,6 +96,7 @@ class AprilaireClimate(BaseAprilaireEntity, ClimateEntity):
             else PRECISION_WHOLE
         )
 
+    @override
     @property
     def supported_features(self) -> ClimateEntityFeature:
         """Get supported features."""
@@ -112,6 +114,7 @@ class AprilaireClimate(BaseAprilaireEntity, ClimateEntity):
 
         return features | ClimateEntityFeature.FAN_MODE
 
+    @override
     @property
     def current_humidity(self) -> int | None:
         """Get current humidity."""
@@ -119,11 +122,13 @@ class AprilaireClimate(BaseAprilaireEntity, ClimateEntity):
             Attribute.INDOOR_HUMIDITY_CONTROLLING_SENSOR_VALUE
         )
 
+    @override
     @property
     def target_humidity(self) -> int | None:
         """Get current target humidity."""
         return self.coordinator.data.get(Attribute.HUMIDIFICATION_SETPOINT)
 
+    @override
     @property
     def hvac_mode(self) -> HVACMode | None:
         """Get HVAC mode."""
@@ -134,6 +139,7 @@ class AprilaireClimate(BaseAprilaireEntity, ClimateEntity):
 
         return None
 
+    @override
     @property
     def hvac_modes(self) -> list[HVACMode]:
         """Get supported HVAC modes."""
@@ -144,6 +150,7 @@ class AprilaireClimate(BaseAprilaireEntity, ClimateEntity):
 
         return []
 
+    @override
     @property
     def hvac_action(self) -> HVACAction | None:
         """Get the current HVAC action."""
@@ -156,6 +163,7 @@ class AprilaireClimate(BaseAprilaireEntity, ClimateEntity):
 
         return HVACAction.IDLE
 
+    @override
     @property
     def current_temperature(self) -> float | None:
         """Get current temperature."""
@@ -163,6 +171,7 @@ class AprilaireClimate(BaseAprilaireEntity, ClimateEntity):
             Attribute.INDOOR_TEMPERATURE_CONTROLLING_SENSOR_VALUE
         )
 
+    @override
     @property
     def target_temperature(self) -> float | None:
         """Get the target temperature."""
@@ -176,6 +185,7 @@ class AprilaireClimate(BaseAprilaireEntity, ClimateEntity):
 
         return None
 
+    @override
     @property
     def target_temperature_step(self) -> float | None:
         """Get the step for the target temperature based on the unit."""
@@ -185,16 +195,19 @@ class AprilaireClimate(BaseAprilaireEntity, ClimateEntity):
             else 1
         )
 
+    @override
     @property
     def target_temperature_high(self) -> float | None:
         """Get cool setpoint."""
         return self.coordinator.data.get(Attribute.COOL_SETPOINT)
 
+    @override
     @property
     def target_temperature_low(self) -> float | None:
         """Get heat setpoint."""
         return self.coordinator.data.get(Attribute.HEAT_SETPOINT)
 
+    @override
     @property
     def preset_mode(self) -> str | None:
         """Get the current preset mode."""
@@ -204,6 +217,7 @@ class AprilaireClimate(BaseAprilaireEntity, ClimateEntity):
 
         return PRESET_NONE
 
+    @override
     @property
     def preset_modes(self) -> list[str] | None:
         """Get the supported preset modes."""
@@ -221,6 +235,7 @@ class AprilaireClimate(BaseAprilaireEntity, ClimateEntity):
 
         return presets
 
+    @override
     @property
     def fan_mode(self) -> str | None:
         """Get fan mode."""
@@ -231,6 +246,7 @@ class AprilaireClimate(BaseAprilaireEntity, ClimateEntity):
 
         return None
 
+    @override
     async def async_set_temperature(self, **kwargs: Any) -> None:
         """Set new target temperature."""
 
@@ -255,11 +271,13 @@ class AprilaireClimate(BaseAprilaireEntity, ClimateEntity):
 
         await self.coordinator.client.read_control()
 
+    @override
     async def async_set_humidity(self, humidity: int) -> None:
         """Set the target humidification setpoint."""
 
         await self.coordinator.client.set_humidification_setpoint(humidity)
 
+    @override
     async def async_set_fan_mode(self, fan_mode: str) -> None:
         """Set the fan mode."""
 
@@ -274,6 +292,7 @@ class AprilaireClimate(BaseAprilaireEntity, ClimateEntity):
 
         await self.coordinator.client.read_control()
 
+    @override
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         """Set the HVAC mode."""
 
@@ -288,6 +307,7 @@ class AprilaireClimate(BaseAprilaireEntity, ClimateEntity):
 
         await self.coordinator.client.read_control()
 
+    @override
     async def async_set_preset_mode(self, preset_mode: str) -> None:
         """Set the preset mode."""
 

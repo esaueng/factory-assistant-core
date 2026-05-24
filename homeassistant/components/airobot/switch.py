@@ -2,7 +2,7 @@
 
 from collections.abc import Callable, Coroutine
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
 from pyairobotrest.exceptions import AirobotError
 
@@ -86,11 +86,13 @@ class AirobotSwitch(AirobotEntity, SwitchEntity):
         self.entity_description = description
         self._attr_unique_id = f"{coordinator.data.status.device_id}_{description.key}"
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return true if the switch is on."""
         return self.entity_description.is_on_fn(self.coordinator)
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the switch on."""
         try:
@@ -103,6 +105,7 @@ class AirobotSwitch(AirobotEntity, SwitchEntity):
             ) from err
         await self.coordinator.async_request_refresh()
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the switch off."""
         try:

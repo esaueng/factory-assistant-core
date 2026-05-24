@@ -4,7 +4,7 @@
 # Current and forecast will create general, controlled load and feed in as required
 # At the moment renewables in the only grid sensor.
 
-from typing import Any
+from typing import Any, override
 
 from amberelectric.models.channel import ChannelType
 from amberelectric.models.current_interval import CurrentInterval
@@ -61,6 +61,7 @@ class AmberSensor(CoordinatorEntity[AmberUpdateCoordinator], SensorEntity):
 class AmberPriceSensor(AmberSensor):
     """Amber Price Sensor."""
 
+    @override
     @property
     def native_value(self) -> float | None:
         """Return the current price in $/kWh."""
@@ -70,6 +71,7 @@ class AmberPriceSensor(AmberSensor):
             return format_cents_to_dollars(interval.per_kwh) * -1
         return format_cents_to_dollars(interval.per_kwh)
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return additional pieces of information about the price."""
@@ -103,6 +105,7 @@ class AmberPriceSensor(AmberSensor):
 class AmberForecastSensor(AmberSensor):
     """Amber Forecast Sensor."""
 
+    @override
     @property
     def native_value(self) -> float | None:
         """Return the first forecast price in $/kWh."""
@@ -117,6 +120,7 @@ class AmberForecastSensor(AmberSensor):
             return format_cents_to_dollars(interval.per_kwh) * -1
         return format_cents_to_dollars(interval.per_kwh)
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return additional pieces of information about the price."""
@@ -159,6 +163,7 @@ class AmberForecastSensor(AmberSensor):
 class AmberPriceDescriptorSensor(AmberSensor):
     """Amber Price Descriptor Sensor."""
 
+    @override
     @property
     def native_value(self) -> str | None:
         """Return the current price descriptor."""
@@ -181,6 +186,7 @@ class AmberGridSensor(CoordinatorEntity[AmberUpdateCoordinator], SensorEntity):
         self.entity_description = description
         self._attr_unique_id = f"{coordinator.site_id}-{description.key}"
 
+    @override
     @property
     def native_value(self) -> str | None:
         """Return the value of the sensor."""

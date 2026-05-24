@@ -2,7 +2,7 @@
 
 import logging
 import math
-from typing import Any
+from typing import Any, override
 
 from aiohttp.client_exceptions import ClientResponseError
 from bond_async import Action, DeviceType, Direction
@@ -67,6 +67,7 @@ class BondFan(BondEntity, FanEntity):
             features |= FanEntityFeature.PRESET_MODE
         self._attr_supported_features = features
 
+    @override
     def _apply_state(self) -> None:
         state = self._device.state
         self._power = state.get("power")
@@ -80,6 +81,7 @@ class BondFan(BondEntity, FanEntity):
         """Return the range of speeds."""
         return (1, self._device.props.get("max_speed", 3))
 
+    @override
     @property
     def percentage(self) -> int:
         """Return the current speed percentage for the fan."""
@@ -89,11 +91,13 @@ class BondFan(BondEntity, FanEntity):
             100, max(0, ranged_value_to_percentage(self._speed_range, self._speed))
         )
 
+    @override
     @property
     def speed_count(self) -> int:
         """Return the number of speeds the fan supports."""
         return int_states_in_range(self._speed_range)
 
+    @override
     @property
     def current_direction(self) -> str | None:
         """Return fan rotation direction."""
@@ -105,6 +109,7 @@ class BondFan(BondEntity, FanEntity):
 
         return direction
 
+    @override
     async def async_set_percentage(self, percentage: int) -> None:
         """Set the desired speed for the fan."""
         _LOGGER.debug("async_set_percentage called with percentage %s", percentage)
@@ -161,6 +166,7 @@ class BondFan(BondEntity, FanEntity):
                 f" {self.entity_id}.  Code: {ex.code}  Message: {ex.message}"
             ) from ex
 
+    @override
     async def async_turn_on(
         self,
         percentage: int | None = None,
@@ -177,16 +183,19 @@ class BondFan(BondEntity, FanEntity):
         else:
             await self._bond.action(self._device_id, Action.turn_on())
 
+    @override
     async def async_set_preset_mode(self, preset_mode: str) -> None:
         """Set the preset mode of the fan."""
         await self._bond.action(self._device_id, Action(Action.BREEZE_ON))
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the fan off."""
         if self.preset_mode == PRESET_MODE_BREEZE:
             await self._bond.action(self._device_id, Action(Action.BREEZE_OFF))
         await self._bond.action(self._device_id, Action.turn_off())
 
+    @override
     async def async_set_direction(self, direction: str) -> None:
         """Set fan rotation direction."""
         bond_direction = (

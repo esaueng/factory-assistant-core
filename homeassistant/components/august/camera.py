@@ -1,6 +1,7 @@
 """Support for August doorbell camera."""
 
 import logging
+from typing import override
 
 from aiohttp import ClientSession
 from yalexs.activity import ActivityType
@@ -54,6 +55,7 @@ class AugustCamera(AugustEntity, Camera):
         self._session = session
         self._attr_model = self._detail.model
 
+    @override
     @property
     def is_recording(self) -> bool:
         """Return true if the device is recording."""
@@ -65,6 +67,7 @@ class AugustCamera(AugustEntity, Camera):
         await self._data.refresh_camera_by_id(self._device_id)
         self._update_from_data()
 
+    @override
     @callback
     def _update_from_data(self) -> None:
         """Get the latest state of the sensor."""
@@ -73,6 +76,7 @@ class AugustCamera(AugustEntity, Camera):
         ):
             update_doorbell_image_from_activity(self._detail, doorbell_activity)
 
+    @override
     async def async_camera_image(
         self, width: int | None = None, height: int | None = None
     ) -> bytes | None:

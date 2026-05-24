@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from autarco import Battery, Inverter, Solar
 
@@ -240,6 +241,7 @@ class AutarcoBatterySensorEntity(AutarcoSensorBase):
             name="Battery",
         )
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the state of the sensor."""
@@ -270,6 +272,7 @@ class AutarcoSolarSensorEntity(AutarcoSensorBase):
             name="Solar",
         )
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the state of the sensor."""
@@ -300,6 +303,7 @@ class AutarcoInverterSensorEntity(AutarcoSensorBase):
             serial_number=serial_number,
         )
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the state of the sensor."""

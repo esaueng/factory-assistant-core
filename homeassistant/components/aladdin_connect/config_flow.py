@@ -2,7 +2,7 @@
 
 from collections.abc import Mapping
 import logging
-from typing import Any
+from typing import Any, override
 
 from genie_partner_sdk.client import AladdinConnectClient
 import jwt
@@ -24,6 +24,7 @@ class OAuth2FlowHandler(
     VERSION = CONFIG_FLOW_VERSION
     MINOR_VERSION = CONFIG_FLOW_MINOR_VERSION
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
@@ -52,6 +53,7 @@ class OAuth2FlowHandler(
             )
         return await self.async_step_user()
 
+    @override
     async def async_oauth_create_entry(self, data: dict) -> ConfigFlowResult:
         """Create an oauth config entry or update existing entry for reauth."""
         try:
@@ -84,6 +86,7 @@ class OAuth2FlowHandler(
         self._abort_if_unique_id_configured()
         return self.async_create_entry(title="Aladdin Connect", data=data)
 
+    @override
     @property
     def logger(self) -> logging.Logger:
         """Return logger."""

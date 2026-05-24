@@ -1,6 +1,6 @@
 """BSBLAN platform to control a compatible Water Heater Device."""
 
-from typing import Any
+from typing import Any, override
 
 from bsblan import BSBLANError, HotWaterState, SetHotWaterParam
 
@@ -117,6 +117,7 @@ class BSBLANWaterHeater(BSBLanWaterHeaterDeviceEntity, WaterHeaterEntity):
         assert dhw is not None
         return dhw
 
+    @override
     @property
     def current_operation(self) -> str | None:
         """Return current operation."""
@@ -126,6 +127,7 @@ class BSBLANWaterHeater(BSBLanWaterHeaterDeviceEntity, WaterHeaterEntity):
             return None
         return BSBLAN_TO_HA_OPERATION_MODE.get(operating_mode.value)
 
+    @override
     @property
     def current_temperature(self) -> float | None:
         """Return the current temperature."""
@@ -133,6 +135,7 @@ class BSBLANWaterHeater(BSBLanWaterHeaterDeviceEntity, WaterHeaterEntity):
             return None
         return current_temp.value
 
+    @override
     @property
     def target_temperature(self) -> float | None:
         """Return the temperature we try to reach."""
@@ -140,6 +143,7 @@ class BSBLANWaterHeater(BSBLanWaterHeaterDeviceEntity, WaterHeaterEntity):
             return None
         return target_temp.value
 
+    @override
     async def async_set_temperature(self, **kwargs: Any) -> None:
         """Set new target temperature."""
         temperature = kwargs.get(ATTR_TEMPERATURE)
@@ -155,6 +159,7 @@ class BSBLANWaterHeater(BSBLanWaterHeaterDeviceEntity, WaterHeaterEntity):
 
         await self.coordinator.async_request_refresh()
 
+    @override
     async def async_set_operation_mode(self, operation_mode: str) -> None:
         """Set new operation mode."""
         # Base class validates operation_mode is in operation_list before calling
@@ -172,10 +177,12 @@ class BSBLANWaterHeater(BSBLanWaterHeaterDeviceEntity, WaterHeaterEntity):
 
         await self.coordinator.async_request_refresh()
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the water heater on."""
         await self.async_set_operation_mode(STATE_PERFORMANCE)
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the water heater off."""
         await self.async_set_operation_mode(STATE_OFF)

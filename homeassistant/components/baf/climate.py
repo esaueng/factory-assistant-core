@@ -1,6 +1,6 @@
 """Support for Big Ass Fans auto comfort."""
 
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.climate import (
     ClimateEntity,
@@ -39,6 +39,7 @@ class BAFAutoComfort(BAFEntity, ClimateEntity):
     _attr_hvac_modes = [HVACMode.OFF, HVACMode.FAN_ONLY]
     _attr_translation_key = "auto_comfort"
 
+    @override
     @callback
     def _async_update_attrs(self) -> None:
         """Update attrs from device."""
@@ -49,10 +50,12 @@ class BAFAutoComfort(BAFEntity, ClimateEntity):
         self._attr_target_temperature = device.comfort_ideal_temperature
         self._attr_current_temperature = device.temperature
 
+    @override
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         """Set the HVAC mode."""
         self._device.auto_comfort_enable = hvac_mode == HVACMode.FAN_ONLY
 
+    @override
     async def async_set_temperature(self, **kwargs: Any) -> None:
         """Set the target temperature."""
         if not self._device.auto_comfort_enable:

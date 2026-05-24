@@ -1,5 +1,7 @@
 """Support for BTHome binary sensors."""
 
+from typing import override
+
 from bthome_ble import (
     BinarySensorDeviceClass as BTHomeBinarySensorDeviceClass,
     SensorUpdate,
@@ -190,11 +192,13 @@ class BTHomeBluetoothBinarySensorEntity(
 ):
     """Representation of a BTHome binary sensor."""
 
+    @override
     @property
     def is_on(self) -> bool | None:
         """Return the native value."""
         return self.processor.entity_data.get(self.entity_key)
 
+    @override
     @property
     def available(self) -> bool:
         """Return True if entity is available."""

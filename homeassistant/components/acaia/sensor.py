@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from aioacaia.acaiascale import AcaiaDeviceState, AcaiaScale
 from aioacaia.const import UnitMass as AcaiaUnitOfMass
@@ -97,6 +98,7 @@ class AcaiaSensor(AcaiaEntity, SensorEntity):
 
     entity_description: AcaiaDynamicUnitSensorEntityDescription
 
+    @override
     @property
     def native_unit_of_measurement(self) -> str | None:
         """Return the unit of measurement of this entity."""
@@ -107,6 +109,7 @@ class AcaiaSensor(AcaiaEntity, SensorEntity):
             return self.entity_description.unit_fn(self._scale.device_state)
         return self.entity_description.native_unit_of_measurement
 
+    @override
     @property
     def native_value(self) -> int | float | None:
         """Return the state of the entity."""
@@ -119,6 +122,7 @@ class AcaiaRestoreSensor(AcaiaEntity, RestoreSensor):
     entity_description: AcaiaSensorEntityDescription
     _restored_data: SensorExtraStoredData | None = None
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Handle entity which will be added."""
         await super().async_added_to_hass()
@@ -133,6 +137,7 @@ class AcaiaRestoreSensor(AcaiaEntity, RestoreSensor):
         if self._scale.device_state is not None:
             self._attr_native_value = self.entity_description.value_fn(self._scale)
 
+    @override
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""
@@ -140,6 +145,7 @@ class AcaiaRestoreSensor(AcaiaEntity, RestoreSensor):
             self._attr_native_value = self.entity_description.value_fn(self._scale)
         self._async_write_ha_state()
 
+    @override
     @property
     def available(self) -> bool:
         """Return True if entity is available."""

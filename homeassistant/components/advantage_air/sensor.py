@@ -1,7 +1,7 @@
 """Sensor platform for Advantage Air integration."""
 
 from decimal import Decimal
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -66,11 +66,13 @@ class AdvantageAirTimeTo(AdvantageAirAcEntity, SensorEntity):
         self._attr_name = f"Time to {action}"
         self._attr_unique_id += f"-timeto{action}"
 
+    @override
     @property
     def native_value(self) -> Decimal:
         """Return the current value."""
         return self._ac[self._time_key]
 
+    @override
     @property
     def icon(self) -> str:
         """Return a representative icon of the timer."""
@@ -99,6 +101,7 @@ class AdvantageAirZoneVent(AdvantageAirZoneEntity, SensorEntity):
         self._attr_name = f"{self._zone['name']} vent"
         self._attr_unique_id += "-vent"
 
+    @override
     @property
     def native_value(self) -> Decimal:
         """Return the current value of the air vent."""
@@ -106,6 +109,7 @@ class AdvantageAirZoneVent(AdvantageAirZoneEntity, SensorEntity):
             return self._zone["value"]
         return Decimal(0)
 
+    @override
     @property
     def icon(self) -> str:
         """Return a representative icon."""
@@ -129,11 +133,13 @@ class AdvantageAirZoneSignal(AdvantageAirZoneEntity, SensorEntity):
         self._attr_name = f"{self._zone['name']} signal"
         self._attr_unique_id += "-signal"
 
+    @override
     @property
     def native_value(self) -> Decimal:
         """Return the current value of the wireless signal."""
         return self._zone["rssi"]
 
+    @override
     @property
     def icon(self) -> str:
         """Return a representative icon."""
@@ -165,6 +171,7 @@ class AdvantageAirZoneTemp(AdvantageAirZoneEntity, SensorEntity):
         self._attr_name = f"{self._zone['name']} temperature"
         self._attr_unique_id += "-temp"
 
+    @override
     @property
     def native_value(self) -> Decimal:
         """Return the current value of the measured temperature."""

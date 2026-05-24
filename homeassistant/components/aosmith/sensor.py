@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from py_aosmith.models import Device as AOSmithDevice
 
@@ -76,6 +77,7 @@ class AOSmithStatusSensorEntity(AOSmithStatusEntity, SensorEntity):
         self.entity_description = description
         self._attr_unique_id = f"{description.key}_{junction_id}"
 
+    @override
     @property
     def native_value(self) -> str | int | None:
         """Return the state of the sensor."""
@@ -100,6 +102,7 @@ class AOSmithEnergySensorEntity(AOSmithEnergyEntity, SensorEntity):
         super().__init__(coordinator, junction_id)
         self._attr_unique_id = f"energy_usage_{junction_id}"
 
+    @override
     @property
     def native_value(self) -> float | None:
         """Return the state of the sensor."""

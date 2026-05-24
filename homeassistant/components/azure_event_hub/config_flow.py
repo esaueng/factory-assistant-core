@@ -2,7 +2,7 @@
 
 from copy import deepcopy
 import logging
-from typing import Any
+from typing import Any, override
 
 from azure.eventhub.exceptions import EventHubError
 import voluptuous as vol
@@ -88,6 +88,7 @@ class AEHConfigFlow(ConfigFlow, domain=DOMAIN):
         self._options: dict[str, Any] = deepcopy(DEFAULT_OPTIONS)
         self._conn_string: bool | None = None
 
+    @override
     @staticmethod
     @callback
     def async_get_options_flow(
@@ -96,6 +97,7 @@ class AEHConfigFlow(ConfigFlow, domain=DOMAIN):
         """Get the options flow for this handler."""
         return SchemaOptionsFlowHandler(config_entry, OPTIONS_FLOW)
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:

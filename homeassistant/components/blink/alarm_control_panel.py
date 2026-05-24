@@ -1,6 +1,7 @@
 """Support for Blink Alarm Control Panel."""
 
 import logging
+from typing import override
 
 from blinkpy.auth import UnauthorizedError
 from blinkpy.blinkpy import Blink, BlinkSyncModule
@@ -64,6 +65,7 @@ class BlinkSyncModuleHA(
         )
         self._update_attr()
 
+    @override
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle coordinator update."""
@@ -83,6 +85,7 @@ class BlinkSyncModuleHA(
             else AlarmControlPanelState.DISARMED
         )
 
+    @override
     async def async_alarm_disarm(self, code: str | None = None) -> None:
         """Send disarm command."""
         try:
@@ -96,6 +99,7 @@ class BlinkSyncModuleHA(
 
         await self.coordinator.async_refresh()
 
+    @override
     async def async_alarm_arm_away(self, code: str | None = None) -> None:
         """Send arm command."""
         try:

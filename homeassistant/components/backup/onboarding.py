@@ -3,7 +3,7 @@
 from collections.abc import Callable, Coroutine
 from functools import wraps
 from http import HTTPStatus
-from typing import TYPE_CHECKING, Any, Concatenate
+from typing import TYPE_CHECKING, Any, Concatenate, override
 
 from aiohttp import web
 from aiohttp.web_exceptions import HTTPUnauthorized
@@ -133,6 +133,7 @@ class UploadBackupView(NoAuthBaseOnboardingView, backup_http.UploadBackupView):
     url = "/api/onboarding/backup/upload"
     name = "api:onboarding:backup:upload"
 
+    @override
     @with_backup_manager
     async def post(self, manager: BackupManager, request: web.Request) -> web.Response:
         """Upload a backup file."""

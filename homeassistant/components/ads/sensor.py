@@ -1,5 +1,7 @@
 """Support for ADS sensors."""
 
+from typing import override
+
 import voluptuous as vol
 
 from homeassistant.components.sensor import (
@@ -108,6 +110,7 @@ class AdsSensor(AdsEntity, SensorEntity):
         self._attr_state_class = state_class
         self._attr_native_unit_of_measurement = unit_of_measurement
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Register device notification."""
         await self.async_initialize_device(
@@ -117,6 +120,7 @@ class AdsSensor(AdsEntity, SensorEntity):
             self._factor,
         )
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the state of the device."""

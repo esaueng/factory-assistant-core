@@ -2,6 +2,7 @@
 
 from datetime import timedelta
 import logging
+from typing import override
 
 from agent import AgentError
 
@@ -94,6 +95,7 @@ class AgentCamera(MjpegCamera):
             "alerts_enabled": self.device.alerts_active,
         }
 
+    @override
     @property
     def is_recording(self) -> bool:
         """Return whether the monitor is recording."""
@@ -114,11 +116,13 @@ class AgentCamera(MjpegCamera):
         """Return True if entity is connected."""
         return self.device.connected
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return true if on."""
         return self.device.online
 
+    @override
     @property
     def motion_detection_enabled(self) -> bool:
         """Return the camera motion detection status."""
@@ -132,10 +136,12 @@ class AgentCamera(MjpegCamera):
         """Disable alerts."""
         await self.device.alerts_off()
 
+    @override
     async def async_enable_motion_detection(self) -> None:
         """Enable motion detection."""
         await self.device.detector_on()
 
+    @override
     async def async_disable_motion_detection(self) -> None:
         """Disable motion detection."""
         await self.device.detector_off()
@@ -148,6 +154,7 @@ class AgentCamera(MjpegCamera):
         """Stop recording."""
         await self.device.record_stop()
 
+    @override
     async def async_turn_on(self) -> None:
         """Enable the camera."""
         await self.device.enable()
@@ -156,6 +163,7 @@ class AgentCamera(MjpegCamera):
         """Take a snapshot."""
         await self.device.snapshot()
 
+    @override
     async def async_turn_off(self) -> None:
         """Disable the camera."""
         await self.device.disable()

@@ -2,7 +2,7 @@
 
 from datetime import timedelta
 import logging
-from typing import Final, final
+from typing import Final, final, override
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONCENTRATION_MICROGRAMS_PER_CUBIC_METER
@@ -129,6 +129,7 @@ class AirQualityEntity(Entity):
         """Return the NO2 (nitrogen dioxide) level."""
         return None
 
+    @override
     @final
     @property
     def state_attributes(self) -> dict[str, str | int | float]:
@@ -141,11 +142,13 @@ class AirQualityEntity(Entity):
 
         return data
 
+    @override
     @property
     def state(self) -> StateType:
         """Return the current state."""
         return self.particulate_matter_2_5
 
+    @override
     @property
     def unit_of_measurement(self) -> str:
         """Return the unit of measurement of this entity."""

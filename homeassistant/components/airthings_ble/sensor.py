@@ -2,6 +2,7 @@
 
 import dataclasses
 import logging
+from typing import override
 
 from airthings_ble import AirthingsConnectivityMode, AirthingsDevice
 
@@ -257,6 +258,7 @@ class AirthingsSensor(
             model=airthings_device.model.product_name,
         )
 
+    @override
     @property
     def available(self) -> bool:
         """Check if device and sensor is available in data."""
@@ -265,6 +267,7 @@ class AirthingsSensor(
             and self.entity_description.key in self.coordinator.data.sensors
         )
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the value reported by the sensor."""

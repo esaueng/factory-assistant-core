@@ -2,7 +2,7 @@
 
 from datetime import timedelta
 import logging
-from typing import Any, Final, final
+from typing import Any, Final, final, override
 
 from propcache.api import cached_property
 import voluptuous as vol
@@ -144,6 +144,7 @@ class AlarmControlPanelEntity(Entity, cached_properties=CACHED_PROPERTIES_WITH_A
     )
     _alarm_control_panel_option_default_code: str | None = None
 
+    @override
     @final
     @property
     def state(self) -> str | None:
@@ -290,11 +291,13 @@ class AlarmControlPanelEntity(Entity, cached_properties=CACHED_PROPERTIES_WITH_A
         """Send arm custom bypass command."""
         await self.hass.async_add_executor_job(self.alarm_arm_custom_bypass, code)
 
+    @override
     @cached_property
     def supported_features(self) -> AlarmControlPanelEntityFeature:
         """Return the list of supported features."""
         return self._attr_supported_features
 
+    @override
     @final
     @property
     def state_attributes(self) -> dict[str, Any] | None:
@@ -305,6 +308,7 @@ class AlarmControlPanelEntity(Entity, cached_properties=CACHED_PROPERTIES_WITH_A
             ATTR_CODE_ARM_REQUIRED: self.code_arm_required,
         }
 
+    @override
     async def async_internal_added_to_hass(self) -> None:
         """Call when the alarm control panel entity is added to hass."""
         await super().async_internal_added_to_hass()
@@ -312,6 +316,7 @@ class AlarmControlPanelEntity(Entity, cached_properties=CACHED_PROPERTIES_WITH_A
             return
         self._async_read_entity_options()
 
+    @override
     @callback
     def async_registry_entry_updated(self) -> None:
         """Run when the entity registry entry has been updated."""

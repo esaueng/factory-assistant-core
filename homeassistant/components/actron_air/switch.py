@@ -2,7 +2,7 @@
 
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.switch import SwitchEntity, SwitchEntityDescription
 from homeassistant.const import EntityCategory
@@ -100,16 +100,19 @@ class ActronAirSwitch(ActronAirAcEntity, SwitchEntity):
         self.entity_description = description
         self._attr_unique_id = f"{coordinator.serial_number}_{description.key}"
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return true if the switch is on."""
         return self.entity_description.is_on_fn(self.coordinator)
 
+    @override
     @actron_air_command
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the switch on."""
         await self.entity_description.set_fn(self.coordinator, True)
 
+    @override
     @actron_air_command
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the switch off."""

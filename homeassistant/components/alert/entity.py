@@ -5,7 +5,7 @@ DEVELOPMENT OF THE ALERT INTEGRATION IS FROZEN.
 
 from collections.abc import Callable
 from datetime import timedelta
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.notify import (
     ATTR_DATA,
@@ -78,6 +78,7 @@ class AlertEntity(Entity):
             hass, [watched_entity_id], self.watched_entity_change
         )
 
+    @override
     @property
     def state(self) -> str:
         """Return the alert status."""

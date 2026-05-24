@@ -1,5 +1,7 @@
 """The base entity for the A. O. Smith integration."""
 
+from typing import override
+
 from py_aosmith import AOSmithAPIClient
 from py_aosmith.models import Device as AOSmithDevice
 
@@ -39,6 +41,7 @@ class AOSmithStatusEntity(AOSmithEntity[AOSmithStatusCoordinator]):
         """Shortcut to get the device from the coordinator data."""
         return self.coordinator.data[self.junction_id]
 
+    @override
     @property
     def available(self) -> bool:
         """Return True if entity is available."""

@@ -1,5 +1,7 @@
 """Defines a base Alexa Devices entity."""
 
+from typing import override
+
 from aioamazondevices.structures import AmazonDevice
 
 from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
@@ -43,6 +45,7 @@ class AmazonEntity(CoordinatorEntity[AmazonDevicesCoordinator]):
         """Return the device."""
         return self.coordinator.data[self._serial_num]
 
+    @override
     @property
     def available(self) -> bool:
         """Return True if entity is available."""

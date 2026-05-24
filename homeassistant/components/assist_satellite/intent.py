@@ -1,6 +1,6 @@
 """Assist Satellite intents."""
 
-from typing import Final
+from typing import Final, override
 
 import voluptuous as vol
 
@@ -23,11 +23,13 @@ class BroadcastIntentHandler(intent.IntentHandler):
     intent_type = intent.INTENT_BROADCAST
     description = "Broadcast a message through the home"
 
+    @override
     @property
     def slot_schema(self) -> dict | None:
         """Return a slot schema."""
         return {vol.Required("message"): str}
 
+    @override
     async def async_handle(self, intent_obj: intent.Intent) -> intent.IntentResponse:
         """Broadcast a message."""
         hass = intent_obj.hass

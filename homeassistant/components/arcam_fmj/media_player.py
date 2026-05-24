@@ -1,7 +1,7 @@
 """Arcam media player."""
 
 import logging
-from typing import Any
+from typing import Any, override
 
 from arcam.fmj import SourceCodes
 
@@ -63,6 +63,7 @@ class ArcamFmj(ArcamFmjEntity, MediaPlayerEntity):
         if self._state.zn == 1:
             self._attr_supported_features |= MediaPlayerEntityFeature.SELECT_SOUND_MODE
 
+    @override
     @property
     def state(self) -> MediaPlayerState | None:
         """Return the state of the device.
@@ -76,12 +77,14 @@ class ArcamFmj(ArcamFmjEntity, MediaPlayerEntity):
             return None
         return MediaPlayerState.ON if power else MediaPlayerState.OFF
 
+    @override
     @convert_exception
     async def async_mute_volume(self, mute: bool) -> None:
         """Send mute command."""
         await self._state.set_mute(mute)
         self.async_write_ha_state()
 
+    @override
     @convert_exception
     async def async_select_source(self, source: str) -> None:
         """Select a specific source."""
@@ -97,6 +100,7 @@ class ArcamFmj(ArcamFmjEntity, MediaPlayerEntity):
         await self._state.set_source(value)
         self.async_write_ha_state()
 
+    @override
     @convert_exception
     async def async_select_sound_mode(self, sound_mode: str) -> None:
         """Select a specific source."""
@@ -111,24 +115,28 @@ class ArcamFmj(ArcamFmjEntity, MediaPlayerEntity):
 
         self.async_write_ha_state()
 
+    @override
     @convert_exception
     async def async_set_volume_level(self, volume: float) -> None:
         """Set volume level, range 0..1."""
         await self._state.set_volume(round(volume * 99.0))
         self.async_write_ha_state()
 
+    @override
     @convert_exception
     async def async_volume_up(self) -> None:
         """Turn volume up for media player."""
         await self._state.inc_volume()
         self.async_write_ha_state()
 
+    @override
     @convert_exception
     async def async_volume_down(self) -> None:
         """Turn volume up for media player."""
         await self._state.dec_volume()
         self.async_write_ha_state()
 
+    @override
     @convert_exception
     async def async_turn_on(self) -> None:
         """Turn the media player on."""
@@ -139,11 +147,13 @@ class ArcamFmj(ArcamFmjEntity, MediaPlayerEntity):
             _LOGGER.debug("Firing event to turn on device")
             self.hass.bus.async_fire(EVENT_TURN_ON, {ATTR_ENTITY_ID: self.entity_id})
 
+    @override
     @convert_exception
     async def async_turn_off(self) -> None:
         """Turn the media player off."""
         await self._state.set_power(False)
 
+    @override
     async def async_browse_media(
         self,
         media_content_type: MediaType | str | None = None,
@@ -179,6 +189,7 @@ class ArcamFmj(ArcamFmjEntity, MediaPlayerEntity):
             children=radio,
         )
 
+    @override
     @convert_exception
     async def async_play_media(
         self, media_type: MediaType | str, media_id: str, **kwargs: Any
@@ -195,6 +206,7 @@ class ArcamFmj(ArcamFmjEntity, MediaPlayerEntity):
                 translation_placeholders={"media": media_id},
             )
 
+    @override
     @property
     def source(self) -> str | None:
         """Return the current input source."""
@@ -202,11 +214,13 @@ class ArcamFmj(ArcamFmjEntity, MediaPlayerEntity):
             return None
         return value.name
 
+    @override
     @property
     def source_list(self) -> list[str]:
         """List of available input sources."""
         return [x.name for x in self._state.get_source_list()]
 
+    @override
     @property
     def sound_mode(self) -> str | None:
         """Name of the current sound mode."""
@@ -214,6 +228,7 @@ class ArcamFmj(ArcamFmjEntity, MediaPlayerEntity):
             return None
         return value.name
 
+    @override
     @property
     def sound_mode_list(self) -> list[str] | None:
         """List of available sound modes."""
@@ -221,6 +236,7 @@ class ArcamFmj(ArcamFmjEntity, MediaPlayerEntity):
             return None
         return [x.name for x in values]
 
+    @override
     @property
     def is_volume_muted(self) -> bool | None:
         """Boolean if volume is currently muted."""
@@ -228,6 +244,7 @@ class ArcamFmj(ArcamFmjEntity, MediaPlayerEntity):
             return None
         return value
 
+    @override
     @property
     def volume_level(self) -> float | None:
         """Volume level of device."""
@@ -235,6 +252,7 @@ class ArcamFmj(ArcamFmjEntity, MediaPlayerEntity):
             return None
         return value / 99.0
 
+    @override
     @property
     def media_content_type(self) -> MediaType | None:
         """Content type of current playing media."""
@@ -245,6 +263,7 @@ class ArcamFmj(ArcamFmjEntity, MediaPlayerEntity):
             value = None
         return value
 
+    @override
     @property
     def media_content_id(self) -> str | None:
         """Content type of current playing media."""
@@ -259,6 +278,7 @@ class ArcamFmj(ArcamFmjEntity, MediaPlayerEntity):
 
         return value
 
+    @override
     @property
     def media_channel(self) -> str | None:
         """Channel currently playing."""
@@ -271,6 +291,7 @@ class ArcamFmj(ArcamFmjEntity, MediaPlayerEntity):
             value = None
         return value
 
+    @override
     @property
     def media_artist(self) -> str | None:
         """Artist of current playing media, music track only."""
@@ -280,6 +301,7 @@ class ArcamFmj(ArcamFmjEntity, MediaPlayerEntity):
             value = None
         return value
 
+    @override
     @property
     def media_title(self) -> str | None:
         """Title of current playing media."""

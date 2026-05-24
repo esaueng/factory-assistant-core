@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from airgradient import Config
 from airgradient.models import (
@@ -294,6 +295,7 @@ class AirGradientMeasurementSensor(AirGradientSensor):
 
     entity_description: AirGradientMeasurementSensorEntityDescription
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the state of the sensor."""
@@ -317,6 +319,7 @@ class AirGradientConfigSensor(AirGradientSensor):
             is not ConfigurationControl.LOCAL
         )
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the state of the sensor."""

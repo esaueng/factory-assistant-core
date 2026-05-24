@@ -4,6 +4,7 @@ from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime
 import logging
+from typing import override
 
 from brother import BrotherSensors
 
@@ -345,6 +346,7 @@ class BrotherPrinterSensor(BrotherPrinterEntity, SensorEntity):
         self._attr_unique_id = f"{coordinator.brother.serial.lower()}_{description.key}"
         self.entity_description = description
 
+    @override
     @property
     def native_value(self) -> StateType | datetime:
         """Return the native value of the sensor."""

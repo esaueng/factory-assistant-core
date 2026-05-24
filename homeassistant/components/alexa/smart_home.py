@@ -1,7 +1,7 @@
 """Support for alexa Smart Home Skill API."""
 
 import logging
-from typing import Any
+from typing import Any, override
 
 from aiohttp import web
 from yarl import URL
@@ -53,36 +53,43 @@ class AlexaConfig(AbstractConfig):
         else:
             self._auth = None
 
+    @override
     @property
     def supports_auth(self) -> bool:
         """Return if config supports auth."""
         return self._auth is not None
 
+    @override
     @property
     def should_report_state(self) -> bool:
         """Return if we should proactively report states."""
         return self._auth is not None and self.authorized
 
+    @override
     @property
     def endpoint(self) -> str | URL | None:
         """Endpoint for report state."""
         return self._config.get(CONF_ENDPOINT)
 
+    @override
     @property
     def entity_config(self) -> dict[str, Any]:
         """Return entity config."""
         return self._config.get(CONF_ENTITY_CONFIG) or {}
 
+    @override
     @property
     def locale(self) -> str | None:
         """Return config locale."""
         return self._config.get(CONF_LOCALE)
 
+    @override
     @core.callback
     def user_identifier(self) -> str:
         """Return an identifier for the user that represents this config."""
         return ""
 
+    @override
     @core.callback
     def should_expose(self, entity_id: str) -> bool:
         """If an entity should be exposed."""
@@ -99,17 +106,20 @@ class AlexaConfig(AbstractConfig):
             auxiliary_entity = False
         return not auxiliary_entity
 
+    @override
     @core.callback
     def async_invalidate_access_token(self) -> None:
         """Invalidate access token."""
         assert self._auth is not None
         self._auth.async_invalidate_access_token()
 
+    @override
     async def async_get_access_token(self) -> str | None:
         """Get an access token."""
         assert self._auth is not None
         return await self._auth.async_get_access_token()
 
+    @override
     async def async_accept_grant(self, code: str) -> str | None:
         """Accept a grant."""
         assert self._auth is not None

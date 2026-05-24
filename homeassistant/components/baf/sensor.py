@@ -2,7 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
-from typing import cast
+from typing import cast, override
 
 from aiobafi6 import Device
 
@@ -114,6 +114,7 @@ class BAFSensor(BAFDescriptionEntity, SensorEntity):
 
     entity_description: BAFSensorDescription
 
+    @override
     @callback
     def _async_update_attrs(self) -> None:
         """Update attrs from device."""

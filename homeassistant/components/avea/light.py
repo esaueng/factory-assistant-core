@@ -2,7 +2,7 @@
 
 from contextlib import suppress
 import logging
-from typing import Any
+from typing import Any, override
 
 import avea
 from bleak.exc import BleakError
@@ -189,6 +189,7 @@ class AveaLight(LightEntity):
         self._attr_brightness = light.brightness
         self._last_brightness = 255
 
+    @override
     def turn_on(self, **kwargs: Any) -> None:
         """Instruct the light to turn on."""
         if not kwargs:
@@ -203,6 +204,7 @@ class AveaLight(LightEntity):
                 rgb = color_util.color_hs_to_RGB(*kwargs[ATTR_HS_COLOR])
                 self._light.set_rgb(rgb[0], rgb[1], rgb[2])
 
+    @override
     def turn_off(self, **kwargs: Any) -> None:
         """Instruct the light to turn off."""
         self._light.set_brightness(0)

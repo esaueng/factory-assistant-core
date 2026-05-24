@@ -2,7 +2,7 @@
 
 from collections.abc import Callable, Coroutine
 import functools
-from typing import Any
+from typing import Any, override
 
 from arcam.fmj import ConnectionFailed
 
@@ -50,6 +50,7 @@ class ArcamFmjEntity(CoordinatorEntity[ArcamFmjCoordinator]):
             self._attr_unique_id = f"{self._attr_unique_id}-{description.key}"
             self.entity_description = description
 
+    @override
     @property
     def available(self) -> bool:
         """Return if entity is available."""

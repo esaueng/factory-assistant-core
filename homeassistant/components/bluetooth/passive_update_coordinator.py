@@ -1,6 +1,6 @@
 """Passive update coordinator for the Bluetooth integration."""
 
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, override
 
 from homeassistant.core import CALLBACK_TYPE, HomeAssistant, callback
 from homeassistant.helpers.update_coordinator import (
@@ -49,6 +49,7 @@ class PassiveBluetoothDataUpdateCoordinator(
         for update_callback, _ in list(self._listeners.values()):
             update_callback()
 
+    @override
     @callback
     def _async_handle_unavailable(
         self, service_info: BluetoothServiceInfoBleak
@@ -57,6 +58,7 @@ class PassiveBluetoothDataUpdateCoordinator(
         super()._async_handle_unavailable(service_info)
         self.async_update_listeners()
 
+    @override
     @callback
     def async_add_listener(
         self, update_callback: CALLBACK_TYPE, context: Any = None
@@ -77,6 +79,7 @@ class PassiveBluetoothDataUpdateCoordinator(
             context for _, context in self._listeners.values() if context is not None
         )
 
+    @override
     @callback
     def _async_handle_bluetooth_event(
         self,
@@ -95,9 +98,11 @@ class PassiveBluetoothCoordinatorEntity[  # pylint: disable=home-assistant-enfor
 ](BaseCoordinatorEntity[_PassiveBluetoothDataUpdateCoordinatorT]):
     """A class for entities using DataUpdateCoordinator."""
 
+    @override
     async def async_update(self) -> None:
         """All updates are passive."""
 
+    @override
     @property
     def available(self) -> bool:
         """Return if entity is available."""

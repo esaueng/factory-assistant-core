@@ -3,6 +3,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime, timedelta
+from typing import override
 
 from axis.interfaces.applications.fence_guard import FenceGuardHandler
 from axis.interfaces.applications.loitering_guard import LoiteringGuardHandler
@@ -198,6 +199,7 @@ class AxisBinarySensor(AxisEventEntity, BinarySensorEntity):
         self._attr_is_on = event.is_tripped
         self.cancel_scheduled_update: Callable[[], None] | None = None
 
+    @override
     @callback
     def async_event_callback(self, event: Event) -> None:
         """Update the sensor's state, if needed."""

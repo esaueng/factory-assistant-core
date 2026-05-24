@@ -1,7 +1,7 @@
 """Support for Aranet sensors."""
 
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
 from aranet4.client import Aranet4Advertisement, Color
 from bleak.backends.device import BLEDevice
@@ -204,6 +204,7 @@ class Aranet4BluetoothSensorEntity(
 ):
     """Representation of an Aranet sensor."""
 
+    @override
     @property
     def available(self) -> bool:
         """Return whether the entity was available in the last update."""
@@ -217,6 +218,7 @@ class Aranet4BluetoothSensorEntity(
             and self.processor.entity_data.get(self.entity_key) is not None
         )
 
+    @override
     @property
     def native_value(self) -> int | float | None:
         """Return the native value."""

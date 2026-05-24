@@ -1,7 +1,7 @@
 """Support for Balboa Spa Wifi adaptor."""
 
 from enum import IntEnum
-from typing import Any
+from typing import Any, override
 
 from pybalboa import SpaClient, SpaControl
 from pybalboa.enums import HeatMode, HeatState, TemperatureUnit
@@ -76,16 +76,19 @@ class BalboaClimateEntity(BalboaEntity, ClimateEntity):
             self._fan_mode_map = {opt.name.lower(): opt for opt in blower.options}
             self._attr_fan_modes = list(self._fan_mode_map)
 
+    @override
     @property
     def hvac_mode(self) -> HVACMode | None:
         """Return the current HVAC mode."""
         return HEAT_HVAC_MODE_MAP.get(self._client.heat_mode.state)
 
+    @override
     @property
     def hvac_action(self) -> HVACAction:
         """Return the current operation mode."""
         return HEAT_STATE_HVAC_ACTION_MAP[self._client.heat_state]
 
+    @override
     @property
     def fan_mode(self) -> str | None:
         """Return the fan setting."""
@@ -93,6 +96,7 @@ class BalboaClimateEntity(BalboaEntity, ClimateEntity):
             return blower.state.name.lower()
         return None
 
+    @override
     @property
     def precision(self) -> float:
         """Return the precision of the system."""
@@ -100,49 +104,59 @@ class BalboaClimateEntity(BalboaEntity, ClimateEntity):
             return PRECISION_HALVES
         return PRECISION_WHOLE
 
+    @override
     @property
     def temperature_unit(self) -> str:
         """Return the unit of measurement used by the platform."""
         return TEMPERATURE_UNIT_MAP[self._client.temperature_unit]
 
+    @override
     @property
     def current_temperature(self) -> float | None:
         """Return the current temperature."""
         return self._client.temperature
 
+    @override
     @property
     def target_temperature(self) -> float:
         """Return the target temperature we try to reach."""
         return self._client.target_temperature
 
+    @override
     @property
     def min_temp(self) -> float:
         """Return the minimum temperature supported by the spa."""
         return self._client.temperature_minimum
 
+    @override
     @property
     def max_temp(self) -> float:
         """Return the minimum temperature supported by the spa."""
         return self._client.temperature_maximum
 
+    @override
     @property
     def preset_mode(self) -> str:
         """Return current preset mode."""
         return self._client.heat_mode.state.name.lower()
 
+    @override
     async def async_set_temperature(self, **kwargs: Any) -> None:
         """Set a new target temperature."""
         await self._client.set_temperature(kwargs[ATTR_TEMPERATURE])
 
+    @override
     async def async_set_preset_mode(self, preset_mode: str) -> None:
         """Set new preset mode."""
         await self._client.heat_mode.set_state(HeatMode[preset_mode.upper()])
 
+    @override
     async def async_set_fan_mode(self, fan_mode: str) -> None:
         """Set new fan mode."""
         if (blower := self._blower) is not None:
             await blower.set_state(self._fan_mode_map[fan_mode])
 
+    @override
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         """Set new target hvac mode."""
         await self._client.heat_mode.set_state(HVAC_HEAT_MODE_MAP[hvac_mode])

@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from anova_wifi import AnovaMode, AnovaState, APCUpdateSensor
 
@@ -134,6 +135,7 @@ class AnovaSensor(AnovaDescriptionEntity, SensorEntity):
 
     entity_description: AnovaSensorEntityDescription
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the state."""

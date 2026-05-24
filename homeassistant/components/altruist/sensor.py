@@ -3,6 +3,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 import logging
+from typing import override
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -260,6 +261,7 @@ class AltruistSensor(CoordinatorEntity[AltruistDataUpdateCoordinator], SensorEnt
             serial_number=self._device.id,
         )
 
+    @override
     @property
     def available(self) -> bool:
         """Return True if entity is available."""
@@ -267,6 +269,7 @@ class AltruistSensor(CoordinatorEntity[AltruistDataUpdateCoordinator], SensorEnt
             super().available and self.entity_description.key in self.coordinator.data
         )
 
+    @override
     @property
     def native_value(self) -> float | int:
         """Return the native value of the sensor."""

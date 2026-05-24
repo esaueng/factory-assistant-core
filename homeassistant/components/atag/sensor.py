@@ -1,5 +1,7 @@
 """Initialization of ATAG One sensor platform."""
 
+from typing import override
+
 from homeassistant.components.sensor import SensorDeviceClass, SensorEntity
 from homeassistant.const import (
     PERCENTAGE,
@@ -58,11 +60,13 @@ class AtagSensor(AtagEntity, SensorEntity):
                 self._id
             ].measure
 
+    @override
     @property
     def native_value(self):
         """Return the state of the sensor."""
         return self.coordinator.atag.report[self._id].state
 
+    @override
     @property
     def icon(self) -> str:
         """Return icon."""

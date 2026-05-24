@@ -1,6 +1,7 @@
 """Asuswrt status sensors."""
 
 from dataclasses import dataclass
+from typing import override
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -284,6 +285,7 @@ class AsusWrtSensor(CoordinatorEntity, SensorEntity):
         self._attr_device_info = router.device_info
         self._attr_extra_state_attributes = {"hostname": router.host}
 
+    @override
     @property
     def native_value(self) -> float | int | str | None:
         """Return current state."""

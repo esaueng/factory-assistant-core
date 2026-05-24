@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -109,6 +110,7 @@ class BSBLanSensor(BSBLanEntity, SensorEntity):
         self._attr_unique_id = f"{data.device.MAC}-{description.key}"
         self._attr_temperature_unit = data.fast_coordinator.client.get_temperature_unit
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the state of the sensor."""

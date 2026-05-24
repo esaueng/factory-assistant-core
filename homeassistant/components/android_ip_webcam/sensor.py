@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from pydroid_ipcam import PyDroidIPCam
 
@@ -152,11 +153,13 @@ class IPWebcamSensor(AndroidIPCamBaseEntity, SensorEntity):
         self.entity_description = description
         super().__init__(coordinator)
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return native value of sensor."""
         return self.entity_description.value_fn(self.cam)
 
+    @override
     @property
     def native_unit_of_measurement(self) -> str | None:
         """Return native unit of measurement of sensor."""

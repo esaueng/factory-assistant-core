@@ -1,5 +1,7 @@
 """BleBox button entities implementation."""
 
+from typing import override
+
 import blebox_uniapi.button
 
 from homeassistant.components.button import ButtonEntity
@@ -45,6 +47,7 @@ class BleBoxButtonEntity(BleBoxEntity[blebox_uniapi.button.Button], ButtonEntity
             return "mdi:arrow-down-circle"
         return None
 
+    @override
     async def async_press(self) -> None:
         """Handle the button press."""
         await self._feature.set()

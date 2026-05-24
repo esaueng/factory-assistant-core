@@ -2,6 +2,7 @@
 
 from datetime import timedelta
 import logging
+from typing import override
 
 from airgradient import AirGradientConnectionError
 from propcache.api import cached_property
@@ -41,21 +42,25 @@ class AirGradientUpdate(AirGradientEntity, UpdateEntity):
         super().__init__(coordinator)
         self._attr_unique_id = f"{coordinator.serial_number}-update"
 
+    @override
     @cached_property
     def should_poll(self) -> bool:
         """Return True because we need to poll the latest version."""
         return True
 
+    @override
     @property
     def installed_version(self) -> str:
         """Return the installed version of the entity."""
         return self.coordinator.data.measures.firmware_version
 
+    @override
     @property
     def available(self) -> bool:
         """Return if entity is available."""
         return super().available and self._attr_available
 
+    @override
     async def async_update(self) -> None:
         """Update the entity."""
         try:

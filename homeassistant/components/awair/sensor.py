@@ -1,7 +1,7 @@
 """Support for Awair sensors."""
 
 from dataclasses import dataclass
-from typing import Any, cast
+from typing import Any, cast, override
 
 from python_awair.air_data import AirData
 from python_awair.devices import AwairBaseDevice, AwairLocalDevice
@@ -204,6 +204,7 @@ class AwairSensor(CoordinatorEntity[AwairDataUpdateCoordinator], SensorEntity):
         self.entity_description = description
         self._device = device
 
+    @override
     @property
     def unique_id(self) -> str:
         """Return the uuid as the unique_id."""
@@ -222,6 +223,7 @@ class AwairSensor(CoordinatorEntity[AwairDataUpdateCoordinator], SensorEntity):
 
         return f"{self._device.uuid}_{unique_id_tag}"
 
+    @override
     @property
     def available(self) -> bool:
         """Determine if the sensor is available based on API results."""
@@ -245,6 +247,7 @@ class AwairSensor(CoordinatorEntity[AwairDataUpdateCoordinator], SensorEntity):
         # Otherwise, we are not.
         return False
 
+    @override
     @property
     def native_value(self) -> float | None:
         """Return the state, rounding off to reasonable values."""
@@ -270,6 +273,7 @@ class AwairSensor(CoordinatorEntity[AwairDataUpdateCoordinator], SensorEntity):
 
         return round(state, 2)
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return the Awair Index alongside state attributes.
@@ -303,6 +307,7 @@ class AwairSensor(CoordinatorEntity[AwairDataUpdateCoordinator], SensorEntity):
 
         return attrs
 
+    @override
     @property
     def device_info(self) -> DeviceInfo:
         """Device information."""

@@ -1,5 +1,7 @@
 """Aseko entity."""
 
+from typing import override
+
 from aioaseko import Unit
 
 from homeassistant.helpers.device_registry import DeviceInfo
@@ -48,6 +50,7 @@ class AsekoEntity(CoordinatorEntity[AsekoDataUpdateCoordinator]):
         """Return the aseko unit."""
         return self.coordinator.data[self._unit.serial_number]
 
+    @override
     @property
     def available(self) -> bool:
         """Return True if entity is available."""

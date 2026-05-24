@@ -1,7 +1,7 @@
 """Config flow for BleBox devices integration."""
 
 import logging
-from typing import Any
+from typing import Any, override
 
 from blebox_uniapi.box import Box
 from blebox_uniapi.error import (
@@ -81,6 +81,7 @@ class BleBoxConfigFlow(ConfigFlow, domain=DOMAIN):
             description_placeholders={"address": f"{host}:{port}"},
         )
 
+    @override
     async def async_step_zeroconf(
         self, discovery_info: ZeroconfServiceInfo
     ) -> ConfigFlowResult:
@@ -140,6 +141,7 @@ class BleBoxConfigFlow(ConfigFlow, domain=DOMAIN):
             },
         )
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:

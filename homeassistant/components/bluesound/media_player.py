@@ -3,7 +3,7 @@
 from asyncio import Task
 from datetime import datetime, timedelta
 import logging
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, override
 
 from pyblu import Input, Player, Preset, Status, SyncStatus
 
@@ -134,6 +134,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
                 via_device=(DOMAIN, format_mac(sync_status.mac)),
             )
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Start the polling task."""
         await super().async_added_to_hass()
@@ -154,10 +155,12 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
             )
         )
 
+    @override
     async def async_will_remove_from_hass(self) -> None:
         """Stop the polling task."""
         await super().async_will_remove_from_hass()
 
+    @override
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""
@@ -173,6 +176,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
 
         self.async_write_ha_state()
 
+    @override
     @property
     def state(self) -> MediaPlayerState:
         """Return the state of the device."""
@@ -190,6 +194,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
             case _:
                 return MediaPlayerState.IDLE
 
+    @override
     @property
     def media_title(self) -> str | None:
         """Title of current playing media."""
@@ -198,6 +203,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
 
         return self._status.name
 
+    @override
     @property
     def media_artist(self) -> str | None:
         """Artist of current playing media (Music track only)."""
@@ -209,6 +215,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
 
         return self._status.artist
 
+    @override
     @property
     def media_album_name(self) -> str | None:
         """Artist of current playing media (Music track only)."""
@@ -217,6 +224,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
 
         return self._status.album
 
+    @override
     @property
     def media_image_url(self) -> str | None:
         """Image url of current playing media."""
@@ -232,6 +240,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
 
         return url
 
+    @override
     @property
     def media_position(self) -> int | None:
         """Position of current playing media in seconds."""
@@ -251,6 +260,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
 
         return int(position)
 
+    @override
     @property
     def media_duration(self) -> int | None:
         """Duration of current playing media in seconds."""
@@ -263,11 +273,13 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
 
         return int(duration)
 
+    @override
     @property
     def media_position_updated_at(self) -> datetime | None:
         """Last time status was updated."""
         return self._last_status_update
 
+    @override
     @property
     def volume_level(self) -> float | None:
         """Volume level of the media player (0..1)."""
@@ -278,6 +290,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
 
         return volume / 100
 
+    @override
     @property
     def is_volume_muted(self) -> bool:
         """Boolean if volume is currently muted."""
@@ -305,6 +318,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
         """Return the sync status."""
         return self._sync_status
 
+    @override
     @property
     def source_list(self) -> list[str] | None:
         """List of available input sources."""
@@ -322,6 +336,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
 
         return sources
 
+    @override
     @property
     def source(self) -> str | None:
         """Name of the current input source."""
@@ -345,6 +360,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
 
         return self._status.service
 
+    @override
     @property
     def supported_features(self) -> MediaPlayerEntityFeature:
         """Flag of media commands that are supported."""
@@ -405,6 +421,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
             or self._sync_status.leader is not None
         )
 
+    @override
     @property
     def shuffle(self) -> bool:
         """Return true if shuffle is active."""
@@ -414,11 +431,13 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
 
         return shuffle
 
+    @override
     @property
     def group_members(self) -> list[str] | None:
         """Get list of group members. Leader is always first."""
         return self._group_members
 
+    @override
     async def async_join_players(self, group_members: list[str]) -> None:
         """Join `group_members` as a player group with the current player."""
         if self.entity_id in group_members:
@@ -438,6 +457,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
         if paired_players:
             await self._player.add_followers(paired_players)
 
+    @override
     async def async_unjoin_player(self) -> None:
         """Remove this player from any group."""
         if self._sync_status.leader is not None:
@@ -491,6 +511,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
 
         await self.async_unjoin_player()
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
         """List members in group."""
@@ -601,10 +622,12 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
         """Remove follower to leader."""
         await self._player.remove_follower(host, port)
 
+    @override
     async def async_set_shuffle(self, shuffle: bool) -> None:
         """Enable or disable shuffle mode."""
         await self._player.shuffle(shuffle)
 
+    @override
     async def async_select_source(self, source: str) -> None:
         """Select input source."""
         if self.is_grouped and not self.is_leader:
@@ -622,6 +645,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
 
         raise ServiceValidationError(f"Source {source} not found")
 
+    @override
     async def async_clear_playlist(self) -> None:
         """Clear players playlist."""
         if self.is_grouped and not self.is_leader:
@@ -629,6 +653,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
 
         await self._player.clear()
 
+    @override
     async def async_media_next_track(self) -> None:
         """Send media_next command to media player."""
         if self.is_grouped and not self.is_leader:
@@ -636,6 +661,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
 
         await self._player.skip()
 
+    @override
     async def async_media_previous_track(self) -> None:
         """Send media_previous command to media player."""
         if self.is_grouped and not self.is_leader:
@@ -643,6 +669,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
 
         await self._player.back()
 
+    @override
     async def async_media_play(self) -> None:
         """Send media_play command to media player."""
         if self.is_grouped and not self.is_leader:
@@ -650,6 +677,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
 
         await self._player.play()
 
+    @override
     async def async_media_pause(self) -> None:
         """Send media_pause command to media player."""
         if self.is_grouped and not self.is_leader:
@@ -657,6 +685,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
 
         await self._player.pause()
 
+    @override
     async def async_media_stop(self) -> None:
         """Send stop command."""
         if self.is_grouped and not self.is_leader:
@@ -664,6 +693,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
 
         await self._player.stop()
 
+    @override
     async def async_media_seek(self, position: float) -> None:
         """Send media_seek command to media player."""
         if self.is_grouped and not self.is_leader:
@@ -671,6 +701,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
 
         await self._player.play(seek=int(position))
 
+    @override
     async def async_play_media(
         self, media_type: MediaType | str, media_id: str, **kwargs: Any
     ) -> None:
@@ -688,6 +719,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
 
         await self._player.play_url(url)
 
+    @override
     async def async_set_volume_level(self, volume: float) -> None:
         """Send volume_up command to media player."""
         volume = round(volume * 100)
@@ -696,10 +728,12 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
 
         await self._player.volume(level=volume)
 
+    @override
     async def async_mute_volume(self, mute: bool) -> None:
         """Send mute command to media player."""
         await self._player.volume(mute=mute)
 
+    @override
     async def async_browse_media(
         self,
         media_content_type: MediaType | str | None = None,

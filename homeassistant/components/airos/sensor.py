@@ -3,6 +3,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 import logging
+from typing import override
 
 from airos.data import (
     AirOSDataBaseClass,
@@ -205,6 +206,7 @@ class AirOSSensor(AirOSEntity, SensorEntity):
         self.entity_description = description
         self._attr_unique_id = f"{coordinator.data.derived.mac}_{description.key}"
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the state of the sensor."""

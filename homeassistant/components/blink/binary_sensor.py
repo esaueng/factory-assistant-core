@@ -1,6 +1,7 @@
 """Support for Blink system camera control."""
 
 import logging
+from typing import override
 
 from homeassistant.components.binary_sensor import (
     BinarySensorDeviceClass,
@@ -86,6 +87,7 @@ class BlinkBinarySensor(CoordinatorEntity[BlinkUpdateCoordinator], BinarySensorE
         )
         self._update_attrs()
 
+    @override
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle update from data coordinator."""

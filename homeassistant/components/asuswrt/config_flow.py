@@ -3,7 +3,7 @@
 import logging
 import os
 import socket
-from typing import Any, cast
+from typing import Any, cast, override
 
 from asusrouter import AsusRouterError
 import voluptuous as vol
@@ -222,6 +222,7 @@ class AsusWrtFlowHandler(ConfigFlow, domain=DOMAIN):
 
         return RESULT_SUCCESS, unique_id
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
@@ -293,6 +294,7 @@ class AsusWrtFlowHandler(ConfigFlow, domain=DOMAIN):
             data=self._config_data,
         )
 
+    @override
     @staticmethod
     @callback
     def async_get_options_flow(

@@ -1,6 +1,7 @@
 """Sensors for AirPatrol integration."""
 
 from dataclasses import dataclass
+from typing import override
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -79,6 +80,7 @@ class AirPatrolSensor(AirPatrolEntity, SensorEntity):
             f"{coordinator.config_entry.unique_id}-{unit_id}-{description.key}"
         )
 
+    @override
     @property
     def native_value(self) -> float | None:
         """Return the state of the sensor."""

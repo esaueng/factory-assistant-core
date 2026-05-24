@@ -1,7 +1,7 @@
 """Support for Adax energy sensors."""
 
 from dataclasses import dataclass
-from typing import cast
+from typing import cast, override
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -94,6 +94,7 @@ class AdaxSensor(CoordinatorEntity[AdaxCloudCoordinator], SensorEntity):
             manufacturer="Adax",
         )
 
+    @override
     @property
     def available(self) -> bool:
         """Return True if entity is available."""
@@ -103,6 +104,7 @@ class AdaxSensor(CoordinatorEntity[AdaxCloudCoordinator], SensorEntity):
             in self.coordinator.data[self._device_id]
         )
 
+    @override
     @property
     def native_value(self) -> int | float | None:
         """Return the native value of the sensor."""

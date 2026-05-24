@@ -1,6 +1,6 @@
 """Platform for cover integration."""
 
-from typing import Any
+from typing import Any, override
 
 from boschshcpy import SHCShutterControl
 
@@ -47,20 +47,24 @@ class ShutterControlCover(SHCEntity, CoverEntity):
         | CoverEntityFeature.SET_POSITION
     )
 
+    @override
     @property
     def current_cover_position(self) -> int:
         """Return the current cover position."""
         return round(self._device.level * 100.0)
 
+    @override
     def stop_cover(self, **kwargs: Any) -> None:
         """Stop the cover."""
         self._device.stop()
 
+    @override
     @property
     def is_closed(self) -> bool:
         """Return if the cover is closed or not."""
         return self.current_cover_position == 0
 
+    @override
     @property
     def is_opening(self) -> bool:
         """Return if the cover is opening or not."""
@@ -69,6 +73,7 @@ class ShutterControlCover(SHCEntity, CoverEntity):
             == SHCShutterControl.ShutterControlService.State.OPENING
         )
 
+    @override
     @property
     def is_closing(self) -> bool:
         """Return if the cover is closing or not."""
@@ -77,14 +82,17 @@ class ShutterControlCover(SHCEntity, CoverEntity):
             == SHCShutterControl.ShutterControlService.State.CLOSING
         )
 
+    @override
     def open_cover(self, **kwargs: Any) -> None:
         """Open the cover."""
         self._device.level = 1.0
 
+    @override
     def close_cover(self, **kwargs: Any) -> None:
         """Close cover."""
         self._device.level = 0.0
 
+    @override
     def set_cover_position(self, **kwargs: Any) -> None:
         """Move the cover to a specific position."""
         position = kwargs[ATTR_POSITION]

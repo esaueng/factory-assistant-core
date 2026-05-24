@@ -2,7 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Final
+from typing import Final, override
 
 from aioamazondevices.const.metadata import SENSOR_STATE_OFF
 from aioamazondevices.structures import AmazonDevice
@@ -148,6 +148,7 @@ class AmazonBinarySensorEntity(AmazonEntity, BinarySensorEntity):
 
     entity_description: AmazonBinarySensorEntityDescription
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return True if the binary sensor is on."""
@@ -155,6 +156,7 @@ class AmazonBinarySensorEntity(AmazonEntity, BinarySensorEntity):
             self.device, self.entity_description.key
         )
 
+    @override
     @property
     def available(self) -> bool:
         """Return if entity is available."""
