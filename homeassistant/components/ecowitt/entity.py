@@ -1,6 +1,7 @@
 """The Ecowitt Weather Station Entity."""
 
 import time
+from typing import override
 
 from aioecowitt import EcoWittSensor
 
@@ -29,6 +30,7 @@ class EcowittEntity(Entity):
             sw_version=sensor.station.version,
         )
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Install listener for updates later."""
 
@@ -39,6 +41,7 @@ class EcowittEntity(Entity):
         self.ecowitt.update_cb.append(_update_state)
         self.async_on_remove(lambda: self.ecowitt.update_cb.remove(_update_state))
 
+    @override
     @property
     def available(self) -> bool:
         """Return whether the state is based on actual reading from device."""

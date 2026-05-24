@@ -1,6 +1,6 @@
 """Platform for retrieving meteorological data from Environment Canada."""
 
-from typing import Any
+from typing import Any, override
 
 from env_canada import ECWeather
 
@@ -120,6 +120,7 @@ class ECWeatherEntity(
         )
         self._attr_device_info = coordinator.device_info
 
+    @override
     @property
     def native_temperature(self) -> float | None:
         """Return the temperature."""
@@ -135,6 +136,7 @@ class ECWeatherEntity(
             return float(temperature)
         return None
 
+    @override
     @property
     def humidity(self) -> float | None:
         """Return the humidity."""
@@ -142,6 +144,7 @@ class ECWeatherEntity(
             return float(self.ec_data.conditions["humidity"]["value"])
         return None
 
+    @override
     @property
     def native_wind_speed(self) -> float | None:
         """Return the wind speed."""
@@ -149,6 +152,7 @@ class ECWeatherEntity(
             return float(self.ec_data.conditions["wind_speed"]["value"])
         return None
 
+    @override
     @property
     def wind_bearing(self) -> float | None:
         """Return the wind bearing."""
@@ -156,6 +160,7 @@ class ECWeatherEntity(
             return float(self.ec_data.conditions["wind_bearing"]["value"])
         return None
 
+    @override
     @property
     def native_pressure(self) -> float | None:
         """Return the pressure."""
@@ -163,6 +168,7 @@ class ECWeatherEntity(
             return float(self.ec_data.conditions["pressure"]["value"])
         return None
 
+    @override
     @property
     def native_visibility(self) -> float | None:
         """Return the visibility."""
@@ -170,6 +176,7 @@ class ECWeatherEntity(
             return float(self.ec_data.conditions["visibility"]["value"])
         return None
 
+    @override
     @property
     def condition(self) -> str | None:
         """Return the weather condition."""
@@ -186,11 +193,13 @@ class ECWeatherEntity(
             return icon_code_to_condition(int(icon_code))
         return None
 
+    @override
     @callback
     def _async_forecast_daily(self) -> list[Forecast] | None:
         """Return the daily forecast in native units."""
         return get_forecast(self.ec_data, False)
 
+    @override
     @callback
     def _async_forecast_hourly(self) -> list[Forecast] | None:
         """Return the hourly forecast in native units."""

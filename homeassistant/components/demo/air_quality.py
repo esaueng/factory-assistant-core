@@ -1,5 +1,7 @@
 """Demo platform that offers fake air quality data."""
 
+from typing import override
+
 from homeassistant.components.air_quality import AirQualityEntity
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
@@ -30,16 +32,19 @@ class DemoAirQuality(AirQualityEntity):
         self._pm_10 = pm_10
         self._n2o = n2o
 
+    @override
     @property
     def particulate_matter_2_5(self) -> int:
         """Return the particulate matter 2.5 level."""
         return self._pm_2_5
 
+    @override
     @property
     def particulate_matter_10(self) -> int:
         """Return the particulate matter 10 level."""
         return self._pm_10
 
+    @override
     @property
     def nitrogen_oxide(self) -> int | None:
         """Return the nitrogen oxide (N2O) level."""

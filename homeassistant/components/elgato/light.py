@@ -1,6 +1,6 @@
 """Support for Elgato lights."""
 
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.light import (
     ATTR_BRIGHTNESS,
@@ -57,11 +57,13 @@ class ElgatoLight(ElgatoEntity, LightEntity):
             self._attr_min_color_temp_kelvin = 3500  # 285 Mireds
             self._attr_max_color_temp_kelvin = 6500  # 153 Mireds
 
+    @override
     @property
     def brightness(self) -> int | None:
         """Return the brightness of this light between 1..255."""
         return round((self.coordinator.data.state.brightness * 255) / 100)
 
+    @override
     @property
     def color_temp_kelvin(self) -> int | None:
         """Return the color temperature value in Kelvin."""
@@ -69,6 +71,7 @@ class ElgatoLight(ElgatoEntity, LightEntity):
             return None
         return color_util.color_temperature_mired_to_kelvin(mired_temperature)
 
+    @override
     @property
     def color_mode(self) -> ColorMode:
         """Return the color mode of the light."""
@@ -77,6 +80,7 @@ class ElgatoLight(ElgatoEntity, LightEntity):
 
         return ColorMode.COLOR_TEMP
 
+    @override
     @property
     def hs_color(self) -> tuple[float, float] | None:
         """Return the hue and saturation color value [float, float]."""
@@ -85,17 +89,20 @@ class ElgatoLight(ElgatoEntity, LightEntity):
             self.coordinator.data.state.saturation or 0,
         )
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return the state of the light."""
         return self.coordinator.data.state.on
 
+    @override
     @elgato_exception_handler
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn off the light."""
         await self.coordinator.client.light(on=False)
         await self.coordinator.async_request_refresh()
 
+    @override
     @elgato_exception_handler
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn on the light."""

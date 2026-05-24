@@ -1,6 +1,7 @@
 """Fan platform for the Duco integration."""
 
 import logging
+from typing import override
 
 from duco_connectivity.exceptions import DucoError, DucoRateLimitError
 from duco_connectivity.models import Node, NodeType, VentilationState
@@ -85,6 +86,7 @@ class DucoVentilationFanEntity(DucoEntity, FanEntity):
         super().__init__(coordinator, node)
         self._attr_unique_id = f"{coordinator.config_entry.unique_id}_{node.node_id}"
 
+    @override
     @property
     def percentage(self) -> int | None:
         """Return the current speed as a percentage, or None when in AUTO mode."""
@@ -93,6 +95,7 @@ class DucoVentilationFanEntity(DucoEntity, FanEntity):
             return None
         return _STATE_TO_PERCENTAGE.get(node.ventilation.state)
 
+    @override
     @property
     def preset_mode(self) -> str | None:
         """Return the current preset mode (auto when Duco controls, else None)."""
@@ -103,11 +106,13 @@ class DucoVentilationFanEntity(DucoEntity, FanEntity):
             return PRESET_AUTO
         return None
 
+    @override
     async def async_set_preset_mode(self, preset_mode: str) -> None:
         """Set preset mode: 'auto' hands control back to Duco."""
         self._valid_preset_mode_or_raise(preset_mode)
         await self._async_set_state(VentilationState.AUTO)
 
+    @override
     async def async_set_percentage(self, percentage: int) -> None:
         """Set the fan speed as a percentage (maps to low/medium/high)."""
         if percentage == 0:

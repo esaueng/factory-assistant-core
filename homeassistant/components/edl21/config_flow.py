@@ -1,5 +1,7 @@
 """Config flow for EDL21 integration."""
 
+from typing import override
+
 import voluptuous as vol
 
 from homeassistant.config_entries import ConfigFlow, ConfigFlowResult
@@ -18,6 +20,7 @@ class EDL21ConfigFlow(ConfigFlow, domain=DOMAIN):
 
     VERSION = 1
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, str] | None = None
     ) -> ConfigFlowResult:

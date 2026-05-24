@@ -2,7 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, override
 
 from chess_com_api import PlayerStats
 
@@ -121,6 +121,7 @@ class ChessPlayerSensor(ChessEntity, SensorEntity):
         self.entity_description = description
         self._attr_unique_id = f"{coordinator.config_entry.unique_id}.{description.key}"
 
+    @override
     @property
     def native_value(self) -> float:
         """Return the state of the sensor."""
@@ -148,6 +149,7 @@ class ChessGameModeSensor(ChessEntity, SensorEntity):
         )
         self._attr_translation_key = f"{game_mode}_{description.translation_key}"
 
+    @override
     @property
     def native_value(self) -> float:
         """Return the state of the sensor."""

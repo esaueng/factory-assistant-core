@@ -3,6 +3,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime, timedelta
+from typing import override
 
 from homeassistant.components.sensor import (
     DOMAIN as SENSOR_DOMAIN,
@@ -261,6 +262,7 @@ class EasyEnergySensorEntity(
             name=SERVICE_TYPE_DEVICE_NAMES[self.entity_description.service_type],
         )
 
+    @override
     @property
     def native_value(self) -> float | datetime | None:
         """Return the state of the sensor."""

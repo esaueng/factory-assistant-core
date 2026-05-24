@@ -1,7 +1,7 @@
 """CoolMasterNet platform to control of CoolMasterNet Climate Devices."""
 
 import logging
-from typing import Any
+from typing import Any, override
 
 from pycoolmasternet_async import SWING_MODES
 
@@ -84,6 +84,7 @@ class CoolmasterClimate(CoolmasterEntity, ClimateEntity):
         self._attr_hvac_modes = supported_modes
         self._attr_unique_id = unit_id
 
+    @override
     @property
     def supported_features(self) -> ClimateEntityFeature:
         """Return the list of supported features."""
@@ -97,6 +98,7 @@ class CoolmasterClimate(CoolmasterEntity, ClimateEntity):
             supported_features |= ClimateEntityFeature.SWING_MODE
         return supported_features
 
+    @override
     @property
     def temperature_unit(self) -> str:
         """Return the unit of measurement."""
@@ -105,16 +107,19 @@ class CoolmasterClimate(CoolmasterEntity, ClimateEntity):
 
         return UnitOfTemperature.FAHRENHEIT
 
+    @override
     @property
     def current_temperature(self) -> float:
         """Return the current temperature."""
         return self._unit.temperature
 
+    @override
     @property
     def target_temperature(self) -> float:
         """Return the temperature we are trying to reach."""
         return self._unit.thermostat
 
+    @override
     @property
     def hvac_mode(self) -> HVACMode:
         """Return hvac target hvac state."""
@@ -124,6 +129,7 @@ class CoolmasterClimate(CoolmasterEntity, ClimateEntity):
 
         return CM_TO_HA_STATE[mode]
 
+    @override
     @property
     def fan_mode(self) -> str:
         """Return the fan setting."""
@@ -143,21 +149,25 @@ class CoolmasterClimate(CoolmasterEntity, ClimateEntity):
 
         return CM_TO_HA_FAN[fan_speed_lower]
 
+    @override
     @property
     def fan_modes(self) -> list[str]:
         """Return the list of available fan modes."""
         return FAN_MODES
 
+    @override
     @property
     def swing_mode(self) -> str | None:
         """Return the swing mode setting."""
         return self._unit.swing
 
+    @override
     @property
     def swing_modes(self) -> list[str] | None:
         """Return swing modes if supported."""
         return SWING_MODES if self.swing_mode is not None else None
 
+    @override
     async def async_set_temperature(self, **kwargs: Any) -> None:
         """Set new target temperatures."""
         if (temp := kwargs.get(ATTR_TEMPERATURE)) is not None:
@@ -165,12 +175,14 @@ class CoolmasterClimate(CoolmasterEntity, ClimateEntity):
             self._unit = await self._unit.set_thermostat(temp)
             self.async_write_ha_state()
 
+    @override
     async def async_set_fan_mode(self, fan_mode: str) -> None:
         """Set new fan mode."""
         _LOGGER.debug("Setting fan mode of %s to %s", self.unique_id, fan_mode)
         self._unit = await self._unit.set_fan_speed(HA_FAN_TO_CM[fan_mode])
         self.async_write_ha_state()
 
+    @override
     async def async_set_swing_mode(self, swing_mode: str) -> None:
         """Set new swing mode."""
         _LOGGER.debug("Setting swing mode of %s to %s", self.unique_id, swing_mode)
@@ -180,6 +192,7 @@ class CoolmasterClimate(CoolmasterEntity, ClimateEntity):
             raise HomeAssistantError(error) from error
         self.async_write_ha_state()
 
+    @override
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         """Set new operation mode."""
         _LOGGER.debug("Setting operation mode of %s to %s", self.unique_id, hvac_mode)
@@ -190,12 +203,14 @@ class CoolmasterClimate(CoolmasterEntity, ClimateEntity):
             self._unit = await self._unit.set_mode(HA_STATE_TO_CM[hvac_mode])
             await self.async_turn_on()
 
+    @override
     async def async_turn_on(self) -> None:
         """Turn on."""
         _LOGGER.debug("Turning %s on", self.unique_id)
         self._unit = await self._unit.turn_on()
         self.async_write_ha_state()
 
+    @override
     async def async_turn_off(self) -> None:
         """Turn off."""
         _LOGGER.debug("Turning %s off", self.unique_id)

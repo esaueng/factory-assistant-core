@@ -2,7 +2,7 @@
 
 from collections.abc import Callable, Coroutine
 from dataclasses import dataclass
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, override
 
 from eq3btsmart import Thermostat
 from eq3btsmart.const import EQ3_MAX_OFFSET, EQ3_MAX_TEMP, EQ3_MIN_OFFSET, EQ3_MIN_TEMP
@@ -133,6 +133,7 @@ class Eq3NumberEntity(Eq3Entity, NumberEntity):
         super().__init__(entry, entity_description.key)
         self.entity_description = entity_description
 
+    @override
     @property
     def native_value(self) -> float:
         """Return the state of the entity."""
@@ -142,11 +143,13 @@ class Eq3NumberEntity(Eq3Entity, NumberEntity):
 
         return self.entity_description.value_func(self._thermostat.status.presets)
 
+    @override
     async def async_set_native_value(self, value: float) -> None:
         """Set the state of the entity."""
 
         await self.entity_description.value_set_func(self._thermostat)(value)
 
+    @override
     @property
     def available(self) -> bool:
         """Return whether the entity is available."""

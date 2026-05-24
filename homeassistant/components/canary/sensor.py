@@ -1,6 +1,6 @@
 """Support for Canary sensors."""
 
-from typing import Final
+from typing import Final, override
 
 from canary.model import Device, Location, SensorType
 
@@ -143,11 +143,13 @@ class CanarySensor(CoordinatorEntity[CanaryDataUpdateCoordinator], SensorEntity)
 
         return None
 
+    @override
     @property
     def native_value(self) -> float | None:
         """Return the state of the sensor."""
         return self.reading
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, str] | None:
         """Return the state attributes."""

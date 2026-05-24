@@ -3,7 +3,7 @@
 from datetime import timedelta
 import logging
 import random
-from typing import Any
+from typing import Any, override
 
 import discogs_client
 import voluptuous as vol
@@ -116,6 +116,7 @@ class DiscogsSensor(SensorEntity):
 
         self._attr_name = f"{name} {description.name}"
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return the device state attributes of the sensor."""

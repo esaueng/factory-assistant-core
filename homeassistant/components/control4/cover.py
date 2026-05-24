@@ -2,7 +2,7 @@
 
 from datetime import timedelta
 import logging
-from typing import Any
+from typing import Any, override
 
 from pyControl4.blind import C4Blind
 from pyControl4.error_handling import C4Exception
@@ -131,6 +131,7 @@ class Control4Cover(Control4Entity, CoverEntity):
         | CoverEntityFeature.SET_POSITION
     )
 
+    @override
     @property
     def available(self) -> bool:
         """Return if entity is available."""
@@ -149,6 +150,7 @@ class Control4Cover(Control4Entity, CoverEntity):
         """Return the cover data from the coordinator."""
         return self.coordinator.data.get(self._idx)
 
+    @override
     @property
     def current_cover_position(self) -> int | None:
         """Return current position of cover (0 closed, 100 open)."""
@@ -160,6 +162,7 @@ class Control4Cover(Control4Entity, CoverEntity):
             return None
         return int(level)
 
+    @override
     @property
     def is_closed(self) -> bool | None:
         """Return if the cover is closed."""
@@ -173,6 +176,7 @@ class Control4Cover(Control4Entity, CoverEntity):
             return None
         return position == 0
 
+    @override
     @property
     def is_opening(self) -> bool | None:
         """Return if the cover is opening."""
@@ -184,6 +188,7 @@ class Control4Cover(Control4Entity, CoverEntity):
             return None
         return bool(opening)
 
+    @override
     @property
     def is_closing(self) -> bool | None:
         """Return if the cover is closing."""
@@ -195,24 +200,28 @@ class Control4Cover(Control4Entity, CoverEntity):
             return None
         return bool(closing)
 
+    @override
     async def async_open_cover(self, **kwargs: Any) -> None:
         """Open the cover."""
         c4_blind = self._create_api_object()
         await c4_blind.open()
         await self.coordinator.async_request_refresh()
 
+    @override
     async def async_close_cover(self, **kwargs: Any) -> None:
         """Close the cover."""
         c4_blind = self._create_api_object()
         await c4_blind.close()
         await self.coordinator.async_request_refresh()
 
+    @override
     async def async_stop_cover(self, **kwargs: Any) -> None:
         """Stop the cover."""
         c4_blind = self._create_api_object()
         await c4_blind.stop()
         await self.coordinator.async_request_refresh()
 
+    @override
     async def async_set_cover_position(self, **kwargs: Any) -> None:
         """Move the cover to a specific position."""
         c4_blind = self._create_api_object()

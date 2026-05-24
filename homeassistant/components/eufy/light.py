@@ -1,6 +1,6 @@
 """Support for EufyHome lights."""
 
-from typing import Any
+from typing import Any, override
 
 import lakeside
 
@@ -72,11 +72,13 @@ class EufyHomeLight(LightEntity):
                 self._colormode = False
         self._attr_is_on = self._bulb.power
 
+    @override
     @property
     def brightness(self) -> int:
         """Return the brightness of this light between 0..255."""
         return int(self._brightness * 255 / 100)
 
+    @override
     @property
     def color_temp_kelvin(self) -> int:
         """Return the color temperature value in Kelvin."""
@@ -85,11 +87,13 @@ class EufyHomeLight(LightEntity):
             + (self._temp * (EUFYHOME_MAX_KELVIN - EUFYHOME_MIN_KELVIN) / 100)
         )
 
+    @override
     @property
     def hs_color(self) -> tuple[float, float] | None:
         """Return the color of this light."""
         return self._hs
 
+    @override
     @property
     def color_mode(self) -> ColorMode:
         """Return the color mode of the light."""
@@ -102,6 +106,7 @@ class EufyHomeLight(LightEntity):
             return ColorMode.COLOR_TEMP
         return ColorMode.HS
 
+    @override
     def turn_on(self, **kwargs: Any) -> None:
         """Turn the specified light on."""
         brightness = kwargs.get(ATTR_BRIGHTNESS)
@@ -144,6 +149,7 @@ class EufyHomeLight(LightEntity):
                 power=True, brightness=brightness, temperature=temp, colors=rgb
             )
 
+    @override
     def turn_off(self, **kwargs: Any) -> None:
         """Turn the specified light off."""
         try:

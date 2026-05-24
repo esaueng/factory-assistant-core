@@ -5,7 +5,7 @@ from dataclasses import dataclass, replace
 import datetime
 import logging
 from operator import attrgetter
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, override
 
 from pyenphase import (
     EnvoyACBPower,
@@ -1054,6 +1054,7 @@ class EnvoyProductionEntity(EnvoySystemSensorEntity):
 
     entity_description: EnvoyProductionSensorEntityDescription
 
+    @override
     @property
     def native_value(self) -> int | None:
         """Return the state of the sensor."""
@@ -1067,6 +1068,7 @@ class EnvoyConsumptionEntity(EnvoySystemSensorEntity):
 
     entity_description: EnvoyConsumptionSensorEntityDescription
 
+    @override
     @property
     def native_value(self) -> int | None:
         """Return the state of the sensor."""
@@ -1080,6 +1082,7 @@ class EnvoyNetConsumptionEntity(EnvoySystemSensorEntity):
 
     entity_description: EnvoyConsumptionSensorEntityDescription
 
+    @override
     @property
     def native_value(self) -> int | None:
         """Return the state of the sensor."""
@@ -1093,6 +1096,7 @@ class EnvoyProductionPhaseEntity(EnvoySystemSensorEntity):
 
     entity_description: EnvoyProductionSensorEntityDescription
 
+    @override
     @property
     def native_value(self) -> int | None:
         """Return the state of the sensor."""
@@ -1114,6 +1118,7 @@ class EnvoyConsumptionPhaseEntity(EnvoySystemSensorEntity):
 
     entity_description: EnvoyConsumptionSensorEntityDescription
 
+    @override
     @property
     def native_value(self) -> int | None:
         """Return the state of the sensor."""
@@ -1135,6 +1140,7 @@ class EnvoyNetConsumptionPhaseEntity(EnvoySystemSensorEntity):
 
     entity_description: EnvoyConsumptionSensorEntityDescription
 
+    @override
     @property
     def native_value(self) -> int | None:
         """Return the state of the sensor."""
@@ -1156,6 +1162,7 @@ class EnvoyCTEntity(EnvoySystemSensorEntity):
 
     entity_description: EnvoyCTSensorEntityDescription
 
+    @override
     @property
     def native_value(
         self,
@@ -1171,6 +1178,7 @@ class EnvoyCTPhaseEntity(EnvoySystemSensorEntity):
 
     entity_description: EnvoyCTSensorEntityDescription
 
+    @override
     @property
     def native_value(
         self,
@@ -1221,6 +1229,7 @@ class EnvoyInverterEntity(EnvoySensorBaseEntity):
             serial_number=serial_number,
         )
 
+    @override
     @property
     def native_value(self) -> datetime.datetime | float | None:
         """Return the state of the sensor."""
@@ -1271,6 +1280,7 @@ class EnvoyEnchargeInventoryEntity(EnvoyEnchargeEntity):
 
     entity_description: EnvoyEnchargeSensorEntityDescription
 
+    @override
     @property
     def native_value(self) -> int | float | datetime.datetime | None:
         """Return the state of the inventory sensors."""
@@ -1284,6 +1294,7 @@ class EnvoyEnchargePowerEntity(EnvoyEnchargeEntity):
 
     entity_description: EnvoyEnchargePowerSensorEntityDescription
 
+    @override
     @property
     def native_value(self) -> int | float | None:
         """Return the state of the power sensors."""
@@ -1297,6 +1308,7 @@ class EnvoyEnchargeAggregateEntity(EnvoySystemSensorEntity):
 
     entity_description: EnvoyEnchargeAggregateSensorEntityDescription
 
+    @override
     @property
     def native_value(self) -> int:
         """Return the state of the aggregate sensors."""
@@ -1330,6 +1342,7 @@ class EnvoyEnpowerEntity(EnvoySensorBaseEntity):
             serial_number=enpower_data.serial_number,
         )
 
+    @override
     @property
     def native_value(self) -> datetime.datetime | int | float | None:
         """Return the state of the power sensors."""
@@ -1361,6 +1374,7 @@ class EnvoyAcbBatteryPowerEntity(EnvoySensorBaseEntity):
             via_device=(DOMAIN, self.envoy_serial_num),
         )
 
+    @override
     @property
     def native_value(self) -> int | str | None:
         """Return the state of the ACB Battery power sensors."""
@@ -1374,6 +1388,7 @@ class EnvoyAcbBatteryEnergyEntity(EnvoySystemSensorEntity):
 
     entity_description: EnvoyAcbBatterySensorEntityDescription
 
+    @override
     @property
     def native_value(self) -> int | str:
         """Return the state of the aggregate energy sensors."""
@@ -1387,6 +1402,7 @@ class AggregateBatteryEntity(EnvoySystemSensorEntity):
 
     entity_description: EnvoyAggregateBatterySensorEntityDescription
 
+    @override
     @property
     def native_value(self) -> int:
         """Return the state of the aggregate sensors."""
@@ -1421,6 +1437,7 @@ class EnvoyCollarEntity(EnvoySensorBaseEntity):
             serial_number=collar_data.serial_number,
         )
 
+    @override
     @property
     def native_value(self) -> datetime.datetime | int | float | str:
         """Return the state of the collar sensors."""
@@ -1454,6 +1471,7 @@ class EnvoyC6CCEntity(EnvoySensorBaseEntity):
             serial_number=c6cc_data.serial_number,
         )
 
+    @override
     @property
     def native_value(self) -> datetime.datetime:
         """Return the state of the c6cc inventory sensors."""

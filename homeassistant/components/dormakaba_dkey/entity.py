@@ -1,6 +1,7 @@
 """Dormakaba dKey integration base entity."""
 
 import abc
+from typing import override
 
 from py_dormakaba_dkey.commands import Notifications
 
@@ -34,6 +35,7 @@ class DormakabaDkeyEntity(CoordinatorEntity[DormakabaDkeyCoordinator]):
     def _async_update_attrs(self) -> None:
         """Handle updating _attr values."""
 
+    @override
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle data update."""
@@ -45,6 +47,7 @@ class DormakabaDkeyEntity(CoordinatorEntity[DormakabaDkeyCoordinator]):
         """Handle data update."""
         self.coordinator.async_set_updated_data(None)
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Register callbacks."""
         self.async_on_remove(

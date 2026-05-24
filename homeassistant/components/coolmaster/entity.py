@@ -1,5 +1,7 @@
 """Base entity for Coolmaster integration."""
 
+from typing import override
+
 from homeassistant.core import callback
 from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
@@ -32,6 +34,7 @@ class CoolmasterEntity(CoordinatorEntity[CoolmasterDataUpdateCoordinator]):
         if hasattr(self, "entity_description"):
             self._attr_unique_id: str = f"{unit_id}-{self.entity_description.key}"
 
+    @override
     @callback
     def _handle_coordinator_update(self) -> None:
         self._unit = self.coordinator.data[self._unit_id]

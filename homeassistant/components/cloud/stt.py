@@ -2,6 +2,7 @@
 
 from collections.abc import AsyncIterable
 import logging
+from typing import override
 
 from hass_nabucasa import Cloud
 from hass_nabucasa.voice import STT_LANGUAGES, VoiceError
@@ -52,36 +53,43 @@ class CloudProviderEntity(SpeechToTextEntity):
         """Initialize cloud Speech to text entity."""
         self.cloud = cloud
 
+    @override
     @property
     def supported_languages(self) -> list[str]:
         """Return a list of supported languages."""
         return STT_LANGUAGES
 
+    @override
     @property
     def supported_formats(self) -> list[AudioFormats]:
         """Return a list of supported formats."""
         return [AudioFormats.WAV, AudioFormats.OGG]
 
+    @override
     @property
     def supported_codecs(self) -> list[AudioCodecs]:
         """Return a list of supported codecs."""
         return [AudioCodecs.PCM, AudioCodecs.OPUS]
 
+    @override
     @property
     def supported_bit_rates(self) -> list[AudioBitRates]:
         """Return a list of supported bitrates."""
         return [AudioBitRates.BITRATE_16]
 
+    @override
     @property
     def supported_sample_rates(self) -> list[AudioSampleRates]:
         """Return a list of supported samplerates."""
         return [AudioSampleRates.SAMPLERATE_16000]
 
+    @override
     @property
     def supported_channels(self) -> list[AudioChannels]:
         """Return a list of supported channels."""
         return [AudioChannels.CHANNEL_MONO]
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Run when entity is about to be added to hass."""
 
@@ -97,6 +105,7 @@ class CloudProviderEntity(SpeechToTextEntity):
 
         async_when_setup(self.hass, "assist_pipeline", pipeline_setup)
 
+    @override
     async def async_process_audio_stream(
         self, metadata: SpeechMetadata, stream: AsyncIterable[bytes]
     ) -> SpeechResult:

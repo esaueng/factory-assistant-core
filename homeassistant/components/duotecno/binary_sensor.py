@@ -1,5 +1,7 @@
 """Support for Duotecno binary sensors."""
 
+from typing import override
+
 from duotecno.unit import ControlUnit, VirtualUnit
 
 from homeassistant.components.binary_sensor import BinarySensorEntity
@@ -27,6 +29,7 @@ class DuotecnoBinarySensor(DuotecnoEntity, BinarySensorEntity):
 
     _unit: ControlUnit | VirtualUnit
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return true if the binary sensor is on."""

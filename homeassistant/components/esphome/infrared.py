@@ -2,6 +2,7 @@
 
 from functools import partial
 import logging
+from typing import override
 
 from aioesphomeapi import EntityState, InfraredCapability, InfraredInfo
 
@@ -24,6 +25,7 @@ class EsphomeInfraredEntity(
 ):
     """ESPHome infrared emitter entity using native API."""
 
+    @override
     @callback
     def _on_device_update(self) -> None:
         """Call when device updates or entry data changes."""
@@ -32,6 +34,7 @@ class EsphomeInfraredEntity(
             # Infrared entities should go available as soon as the device comes online
             self.async_write_ha_state()
 
+    @override
     @convert_api_error_ha_error
     async def async_send_command(self, command: InfraredCommand) -> None:
         """Send an IR command."""

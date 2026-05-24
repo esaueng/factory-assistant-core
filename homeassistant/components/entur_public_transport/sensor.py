@@ -2,6 +2,7 @@
 
 from datetime import datetime, timedelta
 from random import randint
+from typing import override
 
 from enturclient import EnturPublicTransportData
 import voluptuous as vol
@@ -157,27 +158,32 @@ class EnturPublicTransportSensor(SensorEntity):
         self._icon = ICONS[DEFAULT_ICON_KEY]
         self._attributes: dict[str, str] = {}
 
+    @override
     @property
     def name(self) -> str:
         """Return the name of the sensor."""
         return self._name
 
+    @override
     @property
     def native_value(self) -> int | None:
         """Return the state of the sensor."""
         return self._state
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, str]:
         """Return the state attributes."""
         self._attributes[ATTR_STOP_ID] = self._stop
         return self._attributes
 
+    @override
     @property
     def native_unit_of_measurement(self) -> str:
         """Return the unit this state is expressed in."""
         return UnitOfTime.MINUTES
 
+    @override
     @property
     def icon(self) -> str:
         """Icon to use in the frontend."""

@@ -1,6 +1,7 @@
 """Support ezviz camera devices."""
 
 import logging
+from typing import override
 
 from pyezvizapi.exceptions import HTTPError, InvalidHost, PyEzvizError
 
@@ -139,21 +140,25 @@ class EzvizCamera(EzvizEntity, Camera):
         if camera_password:
             self._attr_supported_features = CameraEntityFeature.STREAM
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return true if on."""
         return bool(self.data["status"])
 
+    @override
     @property
     def is_recording(self) -> bool:
         """Return true if the device is recording."""
         return self.data["alarm_notify"]
 
+    @override
     @property
     def motion_detection_enabled(self) -> bool:
         """Camera Motion Detection Status."""
         return self.data["alarm_notify"]
 
+    @override
     def enable_motion_detection(self) -> None:
         """Enable motion detection in camera."""
         try:
@@ -162,6 +167,7 @@ class EzvizCamera(EzvizEntity, Camera):
         except InvalidHost as err:
             raise InvalidHost("Error enabling motion detection") from err
 
+    @override
     def disable_motion_detection(self) -> None:
         """Disable motion detection."""
         try:
@@ -170,6 +176,7 @@ class EzvizCamera(EzvizEntity, Camera):
         except InvalidHost as err:
             raise InvalidHost("Error disabling motion detection") from err
 
+    @override
     async def async_camera_image(
         self, width: int | None = None, height: int | None = None
     ) -> bytes | None:
@@ -180,6 +187,7 @@ class EzvizCamera(EzvizEntity, Camera):
             self.hass, self._rtsp_stream, width=width, height=height
         )
 
+    @override
     async def stream_source(self) -> str | None:
         """Return the stream source."""
         if self._password is None:

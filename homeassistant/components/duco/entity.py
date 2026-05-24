@@ -1,5 +1,7 @@
 """Base entity for the Duco integration."""
 
+from typing import override
+
 from duco_connectivity.models import Node
 
 from homeassistant.const import ATTR_VIA_DEVICE
@@ -39,6 +41,7 @@ class DucoEntity(CoordinatorEntity[DucoCoordinator]):
         )
         self._attr_device_info = device_info
 
+    @override
     @property
     def available(self) -> bool:
         """Return True if entity is available."""

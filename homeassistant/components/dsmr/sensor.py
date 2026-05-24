@@ -8,6 +8,7 @@ from dataclasses import dataclass
 from datetime import timedelta
 from enum import IntEnum
 from functools import partial
+from typing import override
 
 from dsmr_parser.clients.protocol import create_dsmr_reader, create_tcp_dsmr_reader
 from dsmr_parser.clients.rfxtrx_protocol import (
@@ -975,11 +976,13 @@ class DSMREntity(SensorEntity):
         attr: str | None = getattr(dsmr_object, attribute)
         return attr
 
+    @override
     @property
     def available(self) -> bool:
         """Entity is only available if there is a telegram."""
         return self.telegram is not None
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the state of sensor, if available, translate if needed."""

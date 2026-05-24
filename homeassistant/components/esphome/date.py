@@ -2,6 +2,7 @@
 
 from datetime import date
 from functools import partial
+from typing import override
 
 from aioesphomeapi import DateInfo, DateState
 
@@ -15,6 +16,7 @@ PARALLEL_UPDATES = 0
 class EsphomeDate(EsphomeEntity[DateInfo, DateState], DateEntity):
     """A date implementation for esphome."""
 
+    @override
     @property
     @esphome_state_property
     def native_value(self) -> date | None:
@@ -24,6 +26,7 @@ class EsphomeDate(EsphomeEntity[DateInfo, DateState], DateEntity):
             return None
         return date(state.year, state.month, state.day)
 
+    @override
     async def async_set_value(self, value: date) -> None:
         """Update the current date."""
         self._client.date_command(

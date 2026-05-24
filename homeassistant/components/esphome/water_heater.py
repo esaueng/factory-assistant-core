@@ -1,7 +1,7 @@
 """Support for ESPHome water heaters."""
 
 from functools import partial
-from typing import Any
+from typing import Any, override
 
 from aioesphomeapi import (
     EntityInfo,
@@ -52,6 +52,7 @@ class EsphomeWaterHeater(
     _attr_temperature_unit = UnitOfTemperature.CELSIUS
     _attr_precision = PRECISION_TENTHS
 
+    @override
     @callback
     def _on_static_info_update(self, static_info: EntityInfo) -> None:
         """Set attrs from static info."""
@@ -75,30 +76,35 @@ class EsphomeWaterHeater(
             features |= WaterHeaterEntityFeature.AWAY_MODE
         self._attr_supported_features = features
 
+    @override
     @property
     @esphome_float_state_property
     def current_temperature(self) -> float | None:
         """Return the current temperature."""
         return self._state.current_temperature
 
+    @override
     @property
     @esphome_float_state_property
     def target_temperature(self) -> float | None:
         """Return the temperature we try to reach."""
         return self._state.target_temperature
 
+    @override
     @property
     @esphome_state_property
     def current_operation(self) -> str | None:
         """Return current operation mode."""
         return _WATER_HEATER_MODES.from_esphome(self._state.mode)
 
+    @override
     @property
     @esphome_state_property
     def is_away_mode_on(self) -> bool | None:
         """Return true if away mode is on."""
         return bool(self._state.state & WaterHeaterStateFlag.AWAY)
 
+    @override
     @convert_api_error_ha_error
     async def async_set_temperature(self, **kwargs: Any) -> None:
         """Set new target temperature."""
@@ -108,6 +114,7 @@ class EsphomeWaterHeater(
             device_id=self._static_info.device_id,
         )
 
+    @override
     @convert_api_error_ha_error
     async def async_set_operation_mode(self, operation_mode: str) -> None:
         """Set new operation mode."""
@@ -117,6 +124,7 @@ class EsphomeWaterHeater(
             device_id=self._static_info.device_id,
         )
 
+    @override
     @convert_api_error_ha_error
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the water heater on."""
@@ -126,6 +134,7 @@ class EsphomeWaterHeater(
             device_id=self._static_info.device_id,
         )
 
+    @override
     @convert_api_error_ha_error
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the water heater off."""
@@ -135,6 +144,7 @@ class EsphomeWaterHeater(
             device_id=self._static_info.device_id,
         )
 
+    @override
     @convert_api_error_ha_error
     async def async_turn_away_mode_on(self) -> None:
         """Turn away mode on."""
@@ -144,6 +154,7 @@ class EsphomeWaterHeater(
             device_id=self._static_info.device_id,
         )
 
+    @override
     @convert_api_error_ha_error
     async def async_turn_away_mode_off(self) -> None:
         """Turn away mode off."""

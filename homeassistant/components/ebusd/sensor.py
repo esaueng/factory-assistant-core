@@ -2,7 +2,7 @@
 
 import datetime
 import logging
-from typing import Any, cast
+from typing import Any, cast, override
 
 from homeassistant.components.sensor import SensorDeviceClass, SensorEntity
 from homeassistant.core import HomeAssistant
@@ -61,11 +61,13 @@ class EbusdSensor(SensorEntity):
         ) = sensor
         self.data = data
 
+    @override
     @property
     def name(self) -> str:
         """Return the name of the sensor."""
         return f"{self._client_name} {self._name}"
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return the device state attributes."""
@@ -89,16 +91,19 @@ class EbusdSensor(SensorEntity):
             return schedule
         return None
 
+    @override
     @property
     def device_class(self) -> SensorDeviceClass | None:
         """Return the class of this device, from component DEVICE_CLASSES."""
         return self._device_class
 
+    @override
     @property
     def icon(self) -> str | None:
         """Icon to use in the frontend, if any."""
         return self._icon
 
+    @override
     @property
     def native_unit_of_measurement(self) -> str | None:
         """Return the unit of measurement."""

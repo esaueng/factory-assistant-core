@@ -1,5 +1,7 @@
 """Support for Rheem EcoNet thermostats with variable fan speeds and fan modes."""
 
+from typing import override
+
 from pyeconet.equipment import EquipmentType
 from pyeconet.equipment.thermostat import Thermostat, ThermostatFanMode
 
@@ -36,16 +38,19 @@ class EconetFanModeSelect(EcoNetEntity[Thermostat], SelectEntity):
             f"{thermostat.device_id}_{thermostat.device_name}_fan_mode"
         )
 
+    @override
     @property
     def options(self) -> list[str]:
         """Return available select options."""
         return [e.value for e in self._econet.fan_modes]
 
+    @override
     @property
     def current_option(self) -> str:
         """Return current select option."""
         return self._econet.fan_mode.value
 
+    @override
     def select_option(self, option: str) -> None:
         """Set the selected option."""
         self._econet.set_fan_mode(ThermostatFanMode.by_string(option))

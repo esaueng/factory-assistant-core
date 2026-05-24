@@ -1,6 +1,6 @@
 """An abstract class common to all EZVIZ entities."""
 
-from typing import Any
+from typing import Any, override
 
 from homeassistant.helpers.device_registry import CONNECTION_NETWORK_MAC, DeviceInfo
 from homeassistant.helpers.entity import Entity
@@ -43,6 +43,7 @@ class EzvizEntity(CoordinatorEntity[EzvizDataUpdateCoordinator], Entity):
         """Return coordinator data for this entity."""
         return self.coordinator.data[self._serial]
 
+    @override
     @property
     def available(self) -> bool:
         """Return True if entity is available."""
@@ -82,6 +83,7 @@ class EzvizBaseEntity(Entity):
         """Return coordinator data for this entity."""
         return self.coordinator.data[self._serial]
 
+    @override
     @property
     def available(self) -> bool:
         """Return True if entity is available."""

@@ -1,7 +1,7 @@
 """Config flow for Enigma2."""
 
 import logging
-from typing import Any, cast
+from typing import Any, cast, override
 
 from aiohttp.client_exceptions import ClientError
 from openwebif.api import OpenWebIfDevice
@@ -143,6 +143,7 @@ class Enigma2ConfigFlowHandler(ConfigFlow, domain=DOMAIN):
 
         return errors
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
@@ -156,6 +157,7 @@ class Enigma2ConfigFlowHandler(ConfigFlow, domain=DOMAIN):
             )
         return self.async_create_entry(data=user_input, title=user_input[CONF_HOST])
 
+    @override
     @staticmethod
     @callback
     def async_get_options_flow(config_entry: ConfigEntry) -> SchemaOptionsFlowHandler:

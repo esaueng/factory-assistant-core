@@ -2,7 +2,7 @@
 
 from functools import partial
 import math
-from typing import Any
+from typing import Any, override
 
 from aioesphomeapi import EntityInfo, FanDirection, FanInfo, FanSpeed, FanState
 
@@ -46,6 +46,7 @@ class EsphomeFan(EsphomeEntity[FanInfo, FanState], FanEntity):
 
     _supports_speed_levels: bool = True
 
+    @override
     async def async_set_percentage(self, percentage: int) -> None:
         """Set the speed percentage of the fan."""
         await self._async_set_percentage(percentage)
@@ -71,6 +72,7 @@ class EsphomeFan(EsphomeEntity[FanInfo, FanState], FanEntity):
                 data["speed"] = named_speed
         self._client.fan_command(**data, device_id=self._static_info.device_id)
 
+    @override
     async def async_turn_on(
         self,
         percentage: int | None = None,
@@ -80,6 +82,7 @@ class EsphomeFan(EsphomeEntity[FanInfo, FanState], FanEntity):
         """Turn on the fan."""
         await self._async_set_percentage(percentage)
 
+    @override
     @convert_api_error_ha_error
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn off the fan."""
@@ -87,6 +90,7 @@ class EsphomeFan(EsphomeEntity[FanInfo, FanState], FanEntity):
             key=self._key, state=False, device_id=self._static_info.device_id
         )
 
+    @override
     @convert_api_error_ha_error
     async def async_oscillate(self, oscillating: bool) -> None:
         """Oscillate the fan."""
@@ -96,6 +100,7 @@ class EsphomeFan(EsphomeEntity[FanInfo, FanState], FanEntity):
             device_id=self._static_info.device_id,
         )
 
+    @override
     @convert_api_error_ha_error
     async def async_set_direction(self, direction: str) -> None:
         """Set direction of the fan."""
@@ -105,6 +110,7 @@ class EsphomeFan(EsphomeEntity[FanInfo, FanState], FanEntity):
             device_id=self._static_info.device_id,
         )
 
+    @override
     @convert_api_error_ha_error
     async def async_set_preset_mode(self, preset_mode: str) -> None:
         """Set the preset mode of the fan."""
@@ -114,12 +120,14 @@ class EsphomeFan(EsphomeEntity[FanInfo, FanState], FanEntity):
             device_id=self._static_info.device_id,
         )
 
+    @override
     @property
     @esphome_state_property
     def is_on(self) -> bool:
         """Return true if the entity is on."""
         return self._state.state
 
+    @override
     @property
     @esphome_state_property
     def percentage(self) -> int | None:
@@ -134,24 +142,28 @@ class EsphomeFan(EsphomeEntity[FanInfo, FanState], FanEntity):
             (1, self._static_info.supported_speed_count), self._state.speed_level
         )
 
+    @override
     @property
     @esphome_state_property
     def oscillating(self) -> bool:
         """Return the oscillation state."""
         return self._state.oscillating
 
+    @override
     @property
     @esphome_state_property
     def current_direction(self) -> str | None:
         """Return the current fan direction."""
         return _FAN_DIRECTIONS.from_esphome(self._state.direction)
 
+    @override
     @property
     @esphome_state_property
     def preset_mode(self) -> str:
         """Return the current fan preset mode."""
         return self._state.preset_mode
 
+    @override
     @callback
     def _on_static_info_update(self, static_info: EntityInfo) -> None:
         """Set attrs from static info."""

@@ -1,6 +1,6 @@
 """Support for Daikin AirBase zones."""
 
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.switch import SwitchEntity
 from homeassistant.core import HomeAssistant
@@ -49,21 +49,25 @@ class DaikinZoneSwitch(DaikinEntity, SwitchEntity):
         self._zone_id = zone_id
         self._attr_unique_id = f"{self.device.mac}-zone{zone_id}"
 
+    @override
     @property
     def name(self) -> str:
         """Return the name of the sensor."""
         return self.device.zones[self._zone_id][0]
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return the state of the sensor."""
         return self.device.zones[self._zone_id][1] == "1"
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the zone on."""
         await self.device.set_zone(self._zone_id, "zone_onoff", "1")
         await self.coordinator.async_refresh()
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the zone off."""
         await self.device.set_zone(self._zone_id, "zone_onoff", "0")
@@ -81,16 +85,19 @@ class DaikinStreamerSwitch(DaikinEntity, SwitchEntity):
         super().__init__(coordinator)
         self._attr_unique_id = f"{self.device.mac}-streamer"
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return the state of the sensor."""
         return DAIKIN_ATTR_STREAMER in self.device.represent(DAIKIN_ATTR_ADVANCED)[1]
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the zone on."""
         await self.device.set_streamer("on")
         await self.coordinator.async_refresh()
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the zone off."""
         await self.device.set_streamer("off")
@@ -107,16 +114,19 @@ class DaikinToggleSwitch(DaikinEntity, SwitchEntity):
         super().__init__(coordinator)
         self._attr_unique_id = f"{self.device.mac}-toggle"
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return the state of the sensor."""
         return "off" not in self.device.represent(DAIKIN_ATTR_MODE)
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the zone on."""
         await self.device.set({})
         await self.coordinator.async_refresh()
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the zone off."""
         await self.device.set({DAIKIN_ATTR_MODE: "off"})

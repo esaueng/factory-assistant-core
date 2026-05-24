@@ -1,5 +1,7 @@
 """Setup for a generic entity type for the Cync integration."""
 
+from typing import override
+
 from pycync.devices import CyncDevice
 
 from homeassistant.helpers.device_registry import DeviceInfo
@@ -33,6 +35,7 @@ class CyncBaseEntity(CoordinatorEntity[CyncCoordinator]):
             suggested_area=room_name,
         )
 
+    @override
     @property
     def available(self) -> bool:
         """Determines whether this device is currently available."""

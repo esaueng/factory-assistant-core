@@ -2,7 +2,7 @@
 
 from datetime import timedelta
 import logging
-from typing import Any
+from typing import Any, override
 
 import evohomeasync2 as evo
 from evohomeasync2.const import SZ_STATE_STATUS, SZ_TEMPERATURE_STATUS
@@ -116,6 +116,7 @@ class EvoDHW(EvoChild, WaterHeaterEntity):
                 self._evo_device.set_off(until=until)
             )
 
+    @override
     @property
     def current_operation(self) -> str | None:
         """Return the current operating mode (Auto, On, or Off)."""
@@ -123,6 +124,7 @@ class EvoDHW(EvoChild, WaterHeaterEntity):
             return STATE_AUTO
         return EVO_STATE_TO_HA[self._evo_device.state]
 
+    @override
     @property
     def is_away_mode_on(self) -> bool | None:
         """Return True if away mode is on."""
@@ -130,6 +132,7 @@ class EvoDHW(EvoChild, WaterHeaterEntity):
         is_permanent = self._evo_device.mode == EvoZoneMode.PERMANENT_OVERRIDE
         return is_off and is_permanent
 
+    @override
     async def async_set_operation_mode(self, operation_mode: str) -> None:
         """Set new operation mode for a DHW controller.
 
@@ -151,18 +154,22 @@ class EvoDHW(EvoChild, WaterHeaterEntity):
                     self._evo_device.set_off(until=until)
                 )
 
+    @override
     async def async_turn_away_mode_on(self) -> None:
         """Turn away mode on."""
         await self.coordinator.call_client_api(self._evo_device.set_off())
 
+    @override
     async def async_turn_away_mode_off(self) -> None:
         """Turn away mode off."""
         await self.coordinator.call_client_api(self._evo_device.reset())
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn on."""
         await self.coordinator.call_client_api(self._evo_device.set_on())
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn off."""
         await self.coordinator.call_client_api(self._evo_device.set_off())

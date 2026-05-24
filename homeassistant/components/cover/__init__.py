@@ -4,7 +4,7 @@ from collections.abc import Callable
 from datetime import timedelta
 import functools as ft
 import logging
-from typing import Any, final
+from typing import Any, final, override
 
 from propcache.api import cached_property
 import voluptuous as vol
@@ -226,6 +226,7 @@ class CoverEntity(Entity, cached_properties=CACHED_PROPERTIES_WITH_ATTR_):
         """
         return self._attr_current_cover_tilt_position
 
+    @override
     @cached_property
     def device_class(self) -> CoverDeviceClass | None:
         """Return the class of this entity."""
@@ -235,6 +236,7 @@ class CoverEntity(Entity, cached_properties=CACHED_PROPERTIES_WITH_ATTR_):
             return self.entity_description.device_class
         return None
 
+    @override
     @property
     @final
     def state(self) -> str | None:
@@ -251,6 +253,7 @@ class CoverEntity(Entity, cached_properties=CACHED_PROPERTIES_WITH_ATTR_):
 
         return CoverState.CLOSED if closed else CoverState.OPEN
 
+    @override
     @final
     @property
     def state_attributes(self) -> dict[str, Any]:
@@ -267,6 +270,7 @@ class CoverEntity(Entity, cached_properties=CACHED_PROPERTIES_WITH_ATTR_):
 
         return data
 
+    @override
     @property
     def supported_features(self) -> CoverEntityFeature:
         """Flag supported features."""

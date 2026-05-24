@@ -3,7 +3,7 @@
 from collections.abc import Iterable
 from enum import Enum
 import logging
-from typing import Any
+from typing import Any, override
 
 from elkm1_lib.elements import Element
 from elkm1_lib.elk import Elk
@@ -80,11 +80,13 @@ class ElkEntity(Entity):
         self._unique_id = generate_unique_id(self._prefix, element)
         self._attr_name = element.name
 
+    @override
     @property
     def unique_id(self) -> str:
         """Return unique id of the element."""
         return self._unique_id
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return the default attributes of the element."""
@@ -93,6 +95,7 @@ class ElkEntity(Entity):
             dict_as_str[key] = val.value if isinstance(val, Enum) else val
         return {**dict_as_str, **self.initial_attrs()}
 
+    @override
     @property
     def available(self) -> bool:
         """Is the entity available to be updated."""
@@ -115,11 +118,13 @@ class ElkEntity(Entity):
         self._element_changed(element, changeset)
         self.async_write_ha_state()
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Register callback for ElkM1 changes and update entity state."""
         self._element.add_callback(self._element_callback)
         self._element_changed(self._element, {})
 
+    @override
     @property
     def device_info(self) -> DeviceInfo:
         """Device info connecting via the ElkM1 system."""
@@ -133,6 +138,7 @@ class ElkEntity(Entity):
 class ElkAttachedEntity(ElkEntity):
     """An elk entity that is attached to the elk system."""
 
+    @override
     @property
     def device_info(self) -> DeviceInfo:
         """Device info for the underlying ElkM1 system."""

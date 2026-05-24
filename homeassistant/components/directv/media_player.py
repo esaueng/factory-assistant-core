@@ -1,7 +1,7 @@
 """Support for the DirecTV receivers."""
 
 import logging
-from typing import Any
+from typing import Any, override
 
 from directv import DIRECTV
 
@@ -114,6 +114,7 @@ class DIRECTVMediaPlayer(DIRECTVEntity, MediaPlayerEntity):
                 self._last_update = dt_util.utcnow()
             self._attr_assumed_state = self._is_recorded
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return device specific state attributes."""
@@ -127,6 +128,7 @@ class DIRECTVMediaPlayer(DIRECTVEntity, MediaPlayerEntity):
         }
 
     # MediaPlayerEntity properties and methods
+    @override
     @property
     def state(self) -> MediaPlayerState:
         """Return the state of the device."""
@@ -141,6 +143,7 @@ class DIRECTVMediaPlayer(DIRECTVEntity, MediaPlayerEntity):
 
         return MediaPlayerState.PLAYING
 
+    @override
     @property
     def media_content_id(self):
         """Return the content ID of current playing media."""
@@ -149,6 +152,7 @@ class DIRECTVMediaPlayer(DIRECTVEntity, MediaPlayerEntity):
 
         return self._program.program_id
 
+    @override
     @property
     def media_content_type(self) -> MediaType | None:
         """Return the content type of current playing media."""
@@ -160,6 +164,7 @@ class DIRECTVMediaPlayer(DIRECTVEntity, MediaPlayerEntity):
 
         return MediaType.MOVIE
 
+    @override
     @property
     def media_duration(self):
         """Return the duration of current playing media in seconds."""
@@ -168,6 +173,7 @@ class DIRECTVMediaPlayer(DIRECTVEntity, MediaPlayerEntity):
 
         return self._program.duration
 
+    @override
     @property
     def media_position(self):
         """Position of current playing media in seconds."""
@@ -176,6 +182,7 @@ class DIRECTVMediaPlayer(DIRECTVEntity, MediaPlayerEntity):
 
         return self._last_position
 
+    @override
     @property
     def media_position_updated_at(self):
         """When was the position of the current playing media valid."""
@@ -184,6 +191,7 @@ class DIRECTVMediaPlayer(DIRECTVEntity, MediaPlayerEntity):
 
         return self._last_update
 
+    @override
     @property
     def media_title(self):
         """Return the title of current playing media."""
@@ -195,6 +203,7 @@ class DIRECTVMediaPlayer(DIRECTVEntity, MediaPlayerEntity):
 
         return self._program.title
 
+    @override
     @property
     def media_artist(self):
         """Artist of current playing media, music track only."""
@@ -203,6 +212,7 @@ class DIRECTVMediaPlayer(DIRECTVEntity, MediaPlayerEntity):
 
         return self._program.music_artist
 
+    @override
     @property
     def media_album_name(self):
         """Album name of current playing media, music track only."""
@@ -211,6 +221,7 @@ class DIRECTVMediaPlayer(DIRECTVEntity, MediaPlayerEntity):
 
         return self._program.music_album
 
+    @override
     @property
     def media_series_title(self):
         """Return the title of current episode of TV show."""
@@ -219,6 +230,7 @@ class DIRECTVMediaPlayer(DIRECTVEntity, MediaPlayerEntity):
 
         return self._program.episode_title
 
+    @override
     @property
     def media_channel(self):
         """Return the channel current playing media."""
@@ -227,6 +239,7 @@ class DIRECTVMediaPlayer(DIRECTVEntity, MediaPlayerEntity):
 
         return f"{self._program.channel_name} ({self._program.channel})"
 
+    @override
     @property
     def source(self):
         """Name of the current input source."""
@@ -235,6 +248,7 @@ class DIRECTVMediaPlayer(DIRECTVEntity, MediaPlayerEntity):
 
         return self._program.channel
 
+    @override
     @property
     def supported_features(self) -> MediaPlayerEntityFeature:
         """Flag media player features that are supported."""
@@ -272,6 +286,7 @@ class DIRECTVMediaPlayer(DIRECTVEntity, MediaPlayerEntity):
 
         return dt_util.as_local(self._program.start_time)
 
+    @override
     async def async_turn_on(self) -> None:
         """Turn on the receiver."""
         if self._is_client:
@@ -280,6 +295,7 @@ class DIRECTVMediaPlayer(DIRECTVEntity, MediaPlayerEntity):
         _LOGGER.debug("Turn on %s", self.name)
         await self.dtv.remote("poweron", self._address)
 
+    @override
     async def async_turn_off(self) -> None:
         """Turn off the receiver."""
         if self._is_client:
@@ -288,31 +304,37 @@ class DIRECTVMediaPlayer(DIRECTVEntity, MediaPlayerEntity):
         _LOGGER.debug("Turn off %s", self.name)
         await self.dtv.remote("poweroff", self._address)
 
+    @override
     async def async_media_play(self) -> None:
         """Send play command."""
         _LOGGER.debug("Play on %s", self.name)
         await self.dtv.remote("play", self._address)
 
+    @override
     async def async_media_pause(self) -> None:
         """Send pause command."""
         _LOGGER.debug("Pause on %s", self.name)
         await self.dtv.remote("pause", self._address)
 
+    @override
     async def async_media_stop(self) -> None:
         """Send stop command."""
         _LOGGER.debug("Stop on %s", self.name)
         await self.dtv.remote("stop", self._address)
 
+    @override
     async def async_media_previous_track(self) -> None:
         """Send rewind command."""
         _LOGGER.debug("Rewind on %s", self.name)
         await self.dtv.remote("rew", self._address)
 
+    @override
     async def async_media_next_track(self) -> None:
         """Send fast forward command."""
         _LOGGER.debug("Fast forward on %s", self.name)
         await self.dtv.remote("ffwd", self._address)
 
+    @override
     async def async_play_media(
         self, media_type: MediaType | str, media_id: str, **kwargs: Any
     ) -> None:

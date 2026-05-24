@@ -3,6 +3,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime
+from typing import override
 
 from eq3btsmart.models import Status
 
@@ -71,6 +72,7 @@ class Eq3SensorEntity(Eq3Entity, SensorEntity):
         super().__init__(entry, entity_description.key)
         self.entity_description = entity_description
 
+    @override
     @property
     def native_value(self) -> int | datetime | None:
         """Return the value reported by the sensor."""

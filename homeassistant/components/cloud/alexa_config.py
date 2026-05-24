@@ -5,7 +5,7 @@ from collections.abc import Callable
 from contextlib import suppress
 from datetime import datetime, timedelta
 import logging
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, override
 
 import aiohttp
 from hass_nabucasa import AlexaApiError, Cloud
@@ -162,11 +162,13 @@ class CloudAlexaConfig(alexa_config.AbstractConfig):
             and self._prefs.alexa_enabled
         )
 
+    @override
     @property
     def supports_auth(self) -> bool:
         """Return if config supports auth."""
         return True
 
+    @override
     @property
     def should_report_state(self) -> bool:
         """Return if states should be proactively reported."""
@@ -176,6 +178,7 @@ class CloudAlexaConfig(alexa_config.AbstractConfig):
             and self.authorized
         )
 
+    @override
     @property
     def endpoint(self) -> str | URL | None:
         """Endpoint for report state."""
@@ -184,17 +187,20 @@ class CloudAlexaConfig(alexa_config.AbstractConfig):
 
         return self._endpoint
 
+    @override
     @property
     def locale(self) -> str:
         """Return config locale."""
         # Not clear how to determine locale atm.
         return "en-US"
 
+    @override
     @property
     def entity_config(self) -> dict[str, Any]:
         """Return entity config."""
         return self._config.get(CONF_ENTITY_CONFIG) or {}
 
+    @override
     @callback
     def user_identifier(self) -> str:
         """Return an identifier for the user that represents this config."""
@@ -217,6 +223,7 @@ class CloudAlexaConfig(alexa_config.AbstractConfig):
                 self._should_expose_legacy(entity_id),
             )
 
+    @override
     async def async_initialize(self) -> None:
         """Initialize the Alexa config."""
         await super().async_initialize()
@@ -299,6 +306,7 @@ class CloudAlexaConfig(alexa_config.AbstractConfig):
             and entity_supported(self.hass, entity_id)
         )
 
+    @override
     @callback
     def should_expose(self, entity_id: str) -> bool:
         """If an entity should be exposed."""
@@ -308,11 +316,13 @@ class CloudAlexaConfig(alexa_config.AbstractConfig):
 
         return async_should_expose(self.hass, CLOUD_ALEXA, entity_id)
 
+    @override
     @callback
     def async_invalidate_access_token(self) -> None:
         """Invalidate access token."""
         self._token_valid = None
 
+    @override
     async def async_get_access_token(self) -> str | None:
         """Get an access token."""
         details: AlexaAccessTokenDetails | None

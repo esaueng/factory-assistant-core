@@ -2,6 +2,7 @@
 
 from functools import partial
 import logging
+from typing import override
 
 from aioesphomeapi import (
     EntityState,
@@ -34,11 +35,13 @@ class EsphomeRadioFrequencyEntity(
 ):
     """ESPHome radio frequency entity using native API."""
 
+    @override
     @property
     def supported_frequency_ranges(self) -> list[tuple[int, int]]:
         """Return supported frequency ranges from device info."""
         return [(self._static_info.frequency_min, self._static_info.frequency_max)]
 
+    @override
     @callback
     def _on_device_update(self) -> None:
         """Call when device updates or entry data changes."""
@@ -46,6 +49,7 @@ class EsphomeRadioFrequencyEntity(
         if self._entry_data.available:
             self.async_write_ha_state()
 
+    @override
     @convert_api_error_ha_error
     async def async_send_command(self, command: RadioFrequencyCommand) -> None:
         """Send an RF command."""

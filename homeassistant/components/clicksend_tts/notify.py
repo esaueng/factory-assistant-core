@@ -3,7 +3,7 @@
 from http import HTTPStatus
 import json
 import logging
-from typing import Any
+from typing import Any, override
 
 import requests
 import voluptuous as vol
@@ -81,6 +81,7 @@ class ClicksendNotificationService(BaseNotificationService):
         self.language = config[CONF_LANGUAGE]
         self.voice = config[CONF_VOICE]
 
+    @override
     def send_message(self, message: str = "", **kwargs: Any) -> None:
         """Send a voice call to a user."""
         data = {

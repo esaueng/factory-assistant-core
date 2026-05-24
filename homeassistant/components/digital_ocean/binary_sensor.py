@@ -1,7 +1,7 @@
 """Support for monitoring the state of Digital Ocean droplets."""
 
 import logging
-from typing import Any
+from typing import Any, override
 
 import voluptuous as vol
 
@@ -73,16 +73,19 @@ class DigitalOceanBinarySensor(BinarySensorEntity):
         self._state = None
         self.data = None
 
+    @override
     @property
     def name(self):
         """Return the name of the sensor."""
         return self.data.name
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return true if the binary sensor is on."""
         return self.data.status == "active"
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return the state attributes of the Digital Ocean droplet."""

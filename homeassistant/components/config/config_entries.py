@@ -3,7 +3,7 @@
 from collections.abc import Callable
 from http import HTTPStatus
 import logging
-from typing import Any, NoReturn
+from typing import Any, NoReturn, override
 
 from aiohttp import web
 import aiohttp.web_exceptions
@@ -181,10 +181,12 @@ class ConfigManagerFlowIndexView(
             extra=vol.ALLOW_EXTRA,
         )
     )
+    @override
     async def post(self, request: web.Request, data: dict[str, Any]) -> web.Response:
         """Initialize a POST request for a config entry flow."""
         return await self._post_impl(request, data)
 
+    @override
     async def _post_impl(
         self, request: web.Request, data: dict[str, Any]
     ) -> web.Response:
@@ -197,6 +199,7 @@ class ConfigManagerFlowIndexView(
                 status=HTTPStatus.BAD_REQUEST,
             )
 
+    @override
     def get_context(self, data: dict[str, Any]) -> dict[str, Any]:
         """Return context."""
         context = super().get_context(data)
@@ -206,6 +209,7 @@ class ConfigManagerFlowIndexView(
             context["entry_id"] = entry_id
         return context
 
+    @override
     def _prepare_result_json(
         self, result: data_entry_flow.FlowResult
     ) -> dict[str, Any]:
@@ -221,16 +225,19 @@ class ConfigManagerFlowResourceView(
     url = "/api/config/config_entries/flow/{flow_id}"
     name = "api:config:config_entries:flow:resource"
 
+    @override
     @require_admin(perm_category=CAT_CONFIG_ENTRIES, permission="add")
     async def get(self, request: web.Request, /, flow_id: str) -> web.Response:
         """Get the current state of a data_entry_flow."""
         return await super().get(request, flow_id)
 
+    @override
     @require_admin(perm_category=CAT_CONFIG_ENTRIES, permission="add")
     async def post(self, request: web.Request, flow_id: str) -> web.Response:
         """Handle a POST request."""
         return await super().post(request, flow_id)
 
+    @override
     def _prepare_result_json(
         self, result: data_entry_flow.FlowResult
     ) -> dict[str, Any]:
@@ -261,6 +268,7 @@ class OptionManagerFlowIndexView(
     url = "/api/config/config_entries/options/flow"
     name = "api:config:config_entries:option:flow"
 
+    @override
     @require_admin(perm_category=CAT_CONFIG_ENTRIES, permission=POLICY_EDIT)
     async def post(self, request: web.Request) -> web.Response:
         """Handle a POST request.
@@ -278,11 +286,13 @@ class OptionManagerFlowResourceView(
     url = "/api/config/config_entries/options/flow/{flow_id}"
     name = "api:config:config_entries:options:flow:resource"
 
+    @override
     @require_admin(perm_category=CAT_CONFIG_ENTRIES, permission=POLICY_EDIT)
     async def get(self, request: web.Request, /, flow_id: str) -> web.Response:
         """Get the current state of a data_entry_flow."""
         return await super().get(request, flow_id)
 
+    @override
     @require_admin(perm_category=CAT_CONFIG_ENTRIES, permission=POLICY_EDIT)
     async def post(self, request: web.Request, flow_id: str) -> web.Response:
         """Handle a POST request."""
@@ -307,6 +317,7 @@ class SubentryManagerFlowIndexView(
             extra=vol.ALLOW_EXTRA,
         )
     )
+    @override
     async def post(self, request: web.Request, data: dict[str, Any]) -> web.Response:
         """Handle a POST request.
 
@@ -314,6 +325,7 @@ class SubentryManagerFlowIndexView(
         """
         return await super()._post_impl(request, data)
 
+    @override
     def get_context(self, data: dict[str, Any]) -> dict[str, Any]:
         """Return context."""
         context = super().get_context(data)
@@ -332,11 +344,13 @@ class SubentryManagerFlowResourceView(
     url = "/api/config/config_entries/subentries/flow/{flow_id}"
     name = "api:config:config_entries:subentries:flow:resource"
 
+    @override
     @require_admin(perm_category=CAT_CONFIG_ENTRIES, permission=POLICY_EDIT)
     async def get(self, request: web.Request, /, flow_id: str) -> web.Response:
         """Get the current state of a data_entry_flow."""
         return await super().get(request, flow_id)
 
+    @override
     @require_admin(perm_category=CAT_CONFIG_ENTRIES, permission=POLICY_EDIT)
     async def post(self, request: web.Request, flow_id: str) -> web.Response:
         """Handle a POST request."""

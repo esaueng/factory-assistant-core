@@ -2,7 +2,7 @@
 
 import asyncio
 import contextlib
-from typing import Any, Literal
+from typing import Any, Literal, override
 
 import aiodns
 from aiodns.error import DNSError
@@ -97,6 +97,7 @@ class DnsIPConfigFlow(ConfigFlow, domain=DOMAIN):
     VERSION = 1
     MINOR_VERSION = 3
 
+    @override
     @staticmethod
     @callback
     def async_get_options_flow(
@@ -105,6 +106,7 @@ class DnsIPConfigFlow(ConfigFlow, domain=DOMAIN):
         """Return Option handler."""
         return DnsIPOptionsFlowHandler()
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:

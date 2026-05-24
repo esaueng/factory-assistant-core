@@ -3,7 +3,7 @@
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass
 from operator import attrgetter
-from typing import Any
+from typing import Any, override
 
 from pyenphase import Envoy, EnvoyDryContactSettings
 from pyenphase.const import SupportedFeatures
@@ -123,6 +123,7 @@ class EnvoyRelayNumberEntity(EnvoyBaseEntity, NumberEntity):
             via_device=(DOMAIN, serial_number),
         )
 
+    @override
     @property
     def native_value(self) -> float:
         """Return the state of the relay entity."""
@@ -130,6 +131,7 @@ class EnvoyRelayNumberEntity(EnvoyBaseEntity, NumberEntity):
             self.data.dry_contact_settings[self._relay_id]
         )
 
+    @override
     @exception_handler
     async def async_set_native_value(self, value: float) -> None:
         """Update the relay."""
@@ -178,6 +180,7 @@ class EnvoyStorageSettingsNumberEntity(EnvoyBaseEntity, NumberEntity):
                 serial_number=self.envoy_serial_num,
             )
 
+    @override
     @property
     def native_value(self) -> float:
         """Return the state of the storage setting entity."""
@@ -185,6 +188,7 @@ class EnvoyStorageSettingsNumberEntity(EnvoyBaseEntity, NumberEntity):
         assert self.data.tariff.storage_settings is not None
         return self.entity_description.value_fn(self.data.tariff.storage_settings)
 
+    @override
     @exception_handler
     async def async_set_native_value(self, value: float) -> None:
         """Update the storage setting."""

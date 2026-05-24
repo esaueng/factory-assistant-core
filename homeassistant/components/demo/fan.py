@@ -1,6 +1,6 @@
 """Demo fan platform that has a fake fan."""
 
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.fan import FanEntity, FanEntityFeature
 from homeassistant.config_entries import ConfigEntry
@@ -122,16 +122,19 @@ class BaseDemoFan(FanEntity):
         if supported_features & FanEntityFeature.DIRECTION:
             self._direction = "forward"
 
+    @override
     @property
     def unique_id(self) -> str:
         """Return the unique id."""
         return self._unique_id
 
+    @override
     @property
     def current_direction(self) -> str | None:
         """Fan direction."""
         return self._direction
 
+    @override
     @property
     def oscillating(self) -> bool | None:
         """Oscillating."""
@@ -141,38 +144,45 @@ class BaseDemoFan(FanEntity):
 class DemoPercentageFan(BaseDemoFan, FanEntity):
     """A demonstration fan component that uses percentages."""
 
+    @override
     @property
     def percentage(self) -> int | None:
         """Return the current speed."""
         return self._percentage
 
+    @override
     @property
     def speed_count(self) -> int:
         """Return the number of speeds the fan supports."""
         return 3
 
+    @override
     def set_percentage(self, percentage: int) -> None:
         """Set the speed of the fan, as a percentage."""
         self._percentage = percentage
         self._preset_mode = None
         self.schedule_update_ha_state()
 
+    @override
     @property
     def preset_mode(self) -> str | None:
         """Return the current preset mode, e.g., auto, smart, interval, favorite."""
         return self._preset_mode
 
+    @override
     @property
     def preset_modes(self) -> list[str] | None:
         """Return a list of available preset modes."""
         return self._preset_modes
 
+    @override
     def set_preset_mode(self, preset_mode: str) -> None:
         """Set new preset mode."""
         self._preset_mode = preset_mode
         self._percentage = None
         self.schedule_update_ha_state()
 
+    @override
     def turn_on(
         self,
         percentage: int | None = None,
@@ -189,15 +199,18 @@ class DemoPercentageFan(BaseDemoFan, FanEntity):
 
         self.set_percentage(percentage)
 
+    @override
     def turn_off(self, **kwargs: Any) -> None:
         """Turn off the entity."""
         self.set_percentage(0)
 
+    @override
     def set_direction(self, direction: str) -> None:
         """Set the direction of the fan."""
         self._direction = direction
         self.schedule_update_ha_state()
 
+    @override
     def oscillate(self, oscillating: bool) -> None:
         """Set oscillation."""
         self._oscillating = oscillating
@@ -207,38 +220,45 @@ class DemoPercentageFan(BaseDemoFan, FanEntity):
 class AsyncDemoPercentageFan(BaseDemoFan, FanEntity):
     """An async demonstration fan component that uses percentages."""
 
+    @override
     @property
     def percentage(self) -> int | None:
         """Return the current speed."""
         return self._percentage
 
+    @override
     @property
     def speed_count(self) -> int:
         """Return the number of speeds the fan supports."""
         return 3
 
+    @override
     async def async_set_percentage(self, percentage: int) -> None:
         """Set the speed of the fan, as a percentage."""
         self._percentage = percentage
         self._preset_mode = None
         self.async_write_ha_state()
 
+    @override
     @property
     def preset_mode(self) -> str | None:
         """Return the current preset mode, e.g., auto, smart, interval, favorite."""
         return self._preset_mode
 
+    @override
     @property
     def preset_modes(self) -> list[str] | None:
         """Return a list of available preset modes."""
         return self._preset_modes
 
+    @override
     async def async_set_preset_mode(self, preset_mode: str) -> None:
         """Set new preset mode."""
         self._preset_mode = preset_mode
         self._percentage = None
         self.async_write_ha_state()
 
+    @override
     async def async_turn_on(
         self,
         percentage: int | None = None,
@@ -255,16 +275,19 @@ class AsyncDemoPercentageFan(BaseDemoFan, FanEntity):
 
         await self.async_set_percentage(percentage)
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn off the entity."""
         await self.async_oscillate(False)
         await self.async_set_percentage(0)
 
+    @override
     async def async_set_direction(self, direction: str) -> None:
         """Set the direction of the fan."""
         self._direction = direction
         self.async_write_ha_state()
 
+    @override
     async def async_oscillate(self, oscillating: bool) -> None:
         """Set oscillation."""
         self._oscillating = oscillating

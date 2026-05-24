@@ -2,7 +2,7 @@
 
 from datetime import timedelta
 import logging
-from typing import Any
+from typing import Any, override
 
 from eq3btsmart.const import (
     EQ3_DEFAULT_AWAY_TEMP,
@@ -78,6 +78,7 @@ class Eq3Climate(Eq3Entity, ClimateEntity):
     _attr_preset_mode: str | None = None
     _target_temperature: float | None = None
 
+    @override
     @callback
     def _async_on_status_updated(self, data: Any) -> None:
         """Handle updated status from the thermostat."""
@@ -90,6 +91,7 @@ class Eq3Climate(Eq3Entity, ClimateEntity):
         self._attr_hvac_action = self._get_current_hvac_action()
         super()._async_on_status_updated(data)
 
+    @override
     @callback
     def _async_on_device_updated(self, data: Any) -> None:
         """Handle updated device data from the thermostat."""
@@ -168,6 +170,7 @@ class Eq3Climate(Eq3Entity, ClimateEntity):
             return HVACAction.IDLE
         return HVACAction.HEATING
 
+    @override
     async def async_set_temperature(self, **kwargs: Any) -> None:
         """Set new target temperature."""
 
@@ -206,6 +209,7 @@ class Eq3Climate(Eq3Entity, ClimateEntity):
         except ValueError as ex:
             raise ServiceValidationError("Invalid temperature") from ex
 
+    @override
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         """Set new target hvac mode."""
 
@@ -218,6 +222,7 @@ class Eq3Climate(Eq3Entity, ClimateEntity):
         except Eq3Exception:
             _LOGGER.error("[%s] Failed setting HVAC mode", self._eq3_config.mac_address)
 
+    @override
     async def async_set_preset_mode(self, preset_mode: str) -> None:
         """Set new preset mode."""
 

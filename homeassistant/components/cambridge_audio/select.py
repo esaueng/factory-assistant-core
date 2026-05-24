@@ -2,6 +2,7 @@
 
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass, field
+from typing import override
 
 from aiostreammagic import StreamMagicClient
 from aiostreammagic.models import ControlBusMode, DisplayBrightness
@@ -127,11 +128,13 @@ class CambridgeAudioSelect(CambridgeAudioEntity, SelectEntity):
         if options_fn:
             self._attr_options = options_fn
 
+    @override
     @property
     def current_option(self) -> str | None:
         """Return the state of the select."""
         return self.entity_description.value_fn(self.client)
 
+    @override
     @command
     async def async_select_option(self, option: str) -> None:
         """Change the selected option."""

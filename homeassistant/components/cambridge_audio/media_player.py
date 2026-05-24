@@ -1,7 +1,7 @@
 """Support for Cambridge Audio AV Receiver."""
 
 from datetime import datetime
-from typing import Any
+from typing import Any, override
 
 from aiostreammagic import (
     RepeatMode as CambridgeRepeatMode,
@@ -83,6 +83,7 @@ class CambridgeAudioDevice(CambridgeAudioEntity, MediaPlayerEntity):
         super().__init__(client)
         self._attr_unique_id = client.info.unit_id
 
+    @override
     @property
     def supported_features(self) -> MediaPlayerEntityFeature:
         """Supported features for the media player."""
@@ -100,6 +101,7 @@ class CambridgeAudioDevice(CambridgeAudioEntity, MediaPlayerEntity):
                 features |= feature
         return features
 
+    @override
     @property
     def state(self) -> MediaPlayerState:
         """Return the state of the device."""
@@ -118,11 +120,13 @@ class CambridgeAudioDevice(CambridgeAudioEntity, MediaPlayerEntity):
             return MediaPlayerState.ON
         return MediaPlayerState.OFF
 
+    @override
     @property
     def source_list(self) -> list[str]:
         """Return a list of available input sources."""
         return [item.name for item in self.client.sources]
 
+    @override
     @property
     def source(self) -> str | None:
         """Return the current input source."""
@@ -135,11 +139,13 @@ class CambridgeAudioDevice(CambridgeAudioEntity, MediaPlayerEntity):
             None,
         )
 
+    @override
     @property
     def media_title(self) -> str | None:
         """Title of current playing media."""
         return self.client.play_state.metadata.title
 
+    @override
     @property
     def media_artist(self) -> str | None:
         """Artist of current playing media, music track only."""
@@ -151,52 +157,62 @@ class CambridgeAudioDevice(CambridgeAudioEntity, MediaPlayerEntity):
             return self.client.play_state.metadata.station
         return self.client.play_state.metadata.artist
 
+    @override
     @property
     def media_album_name(self) -> str | None:
         """Album name of current playing media, music track only."""
         return self.client.play_state.metadata.album
 
+    @override
     @property
     def media_image_url(self) -> str | None:
         """Image url of current playing media."""
         return self.client.play_state.metadata.art_url
 
+    @override
     @property
     def media_duration(self) -> int | None:
         """Duration of the current media."""
         return self.client.play_state.metadata.duration
 
+    @override
     @property
     def media_position(self) -> int | None:
         """Position of the current media."""
         return self.client.play_state.position
 
+    @override
     @property
     def media_position_updated_at(self) -> datetime:
         """Last time the media position was updated."""
         return self.client.position_last_updated
 
+    @override
     @property
     def media_channel(self) -> str | None:
         """Channel currently playing."""
         return self.client.play_state.metadata.station
 
+    @override
     @property
     def is_volume_muted(self) -> bool | None:
         """Volume mute status."""
         return self.client.state.mute
 
+    @override
     @property
     def volume_level(self) -> float | None:
         """Current pre-amp volume level."""
         volume = self.client.state.volume_percent or 0
         return volume / 100
 
+    @override
     @property
     def shuffle(self) -> bool:
         """Current shuffle configuration."""
         return self.client.play_state.mode_shuffle != ShuffleMode.OFF
 
+    @override
     @property
     def repeat(self) -> RepeatMode | None:
         """Current repeat configuration."""
@@ -205,11 +221,13 @@ class CambridgeAudioDevice(CambridgeAudioEntity, MediaPlayerEntity):
             mode_repeat = RepeatMode.ALL
         return mode_repeat
 
+    @override
     @command
     async def async_media_play_pause(self) -> None:
         """Toggle play/pause the current media."""
         await self.client.play_pause()
 
+    @override
     @command
     async def async_media_pause(self) -> None:
         """Pause the current media."""
@@ -222,11 +240,13 @@ class CambridgeAudioDevice(CambridgeAudioEntity, MediaPlayerEntity):
         else:
             await self.client.pause()
 
+    @override
     @command
     async def async_media_stop(self) -> None:
         """Stop the current media."""
         await self.client.stop()
 
+    @override
     @command
     async def async_media_play(self) -> None:
         """Play the current media."""
@@ -239,16 +259,19 @@ class CambridgeAudioDevice(CambridgeAudioEntity, MediaPlayerEntity):
         else:
             await self.client.play()
 
+    @override
     @command
     async def async_media_next_track(self) -> None:
         """Skip to the next track."""
         await self.client.next_track()
 
+    @override
     @command
     async def async_media_previous_track(self) -> None:
         """Skip to the previous track."""
         await self.client.previous_track()
 
+    @override
     @command
     async def async_select_source(self, source: str) -> None:
         """Select the source."""
@@ -257,41 +280,49 @@ class CambridgeAudioDevice(CambridgeAudioEntity, MediaPlayerEntity):
                 await self.client.set_source_by_id(src.id)
                 break
 
+    @override
     @command
     async def async_turn_on(self) -> None:
         """Power on the device."""
         await self.client.power_on()
 
+    @override
     @command
     async def async_turn_off(self) -> None:
         """Power off the device."""
         await self.client.power_off()
 
+    @override
     @command
     async def async_volume_up(self) -> None:
         """Step the volume up."""
         await self.client.volume_up()
 
+    @override
     @command
     async def async_volume_down(self) -> None:
         """Step the volume down."""
         await self.client.volume_down()
 
+    @override
     @command
     async def async_set_volume_level(self, volume: float) -> None:
         """Set the volume level."""
         await self.client.set_volume(int(volume * 100))
 
+    @override
     @command
     async def async_mute_volume(self, mute: bool) -> None:
         """Set the mute state."""
         await self.client.set_mute(mute)
 
+    @override
     @command
     async def async_media_seek(self, position: float) -> None:
         """Seek to a position in the current media."""
         await self.client.media_seek(int(position))
 
+    @override
     @command
     async def async_set_shuffle(self, shuffle: bool) -> None:
         """Set the shuffle mode for the current queue."""
@@ -300,6 +331,7 @@ class CambridgeAudioDevice(CambridgeAudioEntity, MediaPlayerEntity):
             shuffle_mode = ShuffleMode.ALL
         await self.client.set_shuffle(shuffle_mode)
 
+    @override
     @command
     async def async_set_repeat(self, repeat: RepeatMode) -> None:
         """Set the repeat mode for the current queue."""
@@ -308,6 +340,7 @@ class CambridgeAudioDevice(CambridgeAudioEntity, MediaPlayerEntity):
             repeat_mode = CambridgeRepeatMode.ALL
         await self.client.set_repeat(repeat_mode)
 
+    @override
     @command
     async def async_play_media(
         self, media_type: MediaType | str, media_id: str, **kwargs: Any
@@ -353,6 +386,7 @@ class CambridgeAudioDevice(CambridgeAudioEntity, MediaPlayerEntity):
         if media_type == CAMBRIDGE_MEDIA_TYPE_INTERNET_RADIO:
             await self.client.play_radio_url("Radio", media_id)
 
+    @override
     async def async_browse_media(
         self,
         media_content_type: MediaType | str | None = None,

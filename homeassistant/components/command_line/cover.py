@@ -2,7 +2,7 @@
 
 import asyncio
 from datetime import datetime, timedelta
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, override
 
 from homeassistant.components.cover import DOMAIN as COVER_DOMAIN, CoverEntity
 from homeassistant.const import (
@@ -101,6 +101,7 @@ class CommandCover(ManualTriggerEntity, CoverEntity):
         self._scan_interval = scan_interval
         self._process_updates: asyncio.Lock | None = None
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Call when entity about to be added to hass."""
         await super().async_added_to_hass()
@@ -129,6 +130,7 @@ class CommandCover(ManualTriggerEntity, CoverEntity):
 
         return success
 
+    @override
     @property
     def is_closed(self) -> bool | None:
         """Return if the cover is closed."""
@@ -136,6 +138,7 @@ class CommandCover(ManualTriggerEntity, CoverEntity):
             return self.current_cover_position == 0
         return None
 
+    @override
     @property
     def current_cover_position(self) -> int | None:
         """Return current position of cover.
@@ -194,16 +197,19 @@ class CommandCover(ManualTriggerEntity, CoverEntity):
         """
         await self._update_entity_state(dt_util.now())
 
+    @override
     async def async_open_cover(self, **kwargs: Any) -> None:
         """Open the cover."""
         await self._async_move_cover(self._command_open)
         await self._update_entity_state()
 
+    @override
     async def async_close_cover(self, **kwargs: Any) -> None:
         """Close the cover."""
         await self._async_move_cover(self._command_close)
         await self._update_entity_state()
 
+    @override
     async def async_stop_cover(self, **kwargs: Any) -> None:
         """Stop the cover."""
         await self._async_move_cover(self._command_stop)

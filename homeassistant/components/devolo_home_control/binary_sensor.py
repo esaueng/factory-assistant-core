@@ -1,5 +1,7 @@
 """Platform for binary sensor integration."""
 
+from typing import override
+
 from devolo_home_control_api.devices.zwave import Zwave
 from devolo_home_control_api.homecontrol import HomeControl
 
@@ -92,6 +94,7 @@ class DevoloBinaryDeviceEntity(DevoloDeviceEntity, BinarySensorEntity):
             self._attr_entity_category = EntityCategory.DIAGNOSTIC
             self._attr_entity_registry_enabled_default = False
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return the state."""
@@ -124,6 +127,7 @@ class DevoloRemoteControl(DevoloDeviceEntity, BinarySensorEntity):
         self._attr_translation_key = "button"
         self._attr_translation_placeholders = {"key": str(key)}
 
+    @override
     def sync_callback(self, message: tuple) -> None:
         """Update the binary sensor state."""
         if (

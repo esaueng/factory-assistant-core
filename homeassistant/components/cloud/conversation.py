@@ -1,6 +1,6 @@
 """Conversation support for Home Assistant Cloud."""
 
-from typing import Literal
+from typing import Literal, override
 
 from homeassistant.components import conversation
 from homeassistant.config_entries import ConfigEntry
@@ -35,16 +35,19 @@ class CloudConversationEntity(
     _attr_unique_id = CONVERSATION_ENTITY_UNIQUE_ID
     _attr_supported_features = conversation.ConversationEntityFeature.CONTROL
 
+    @override
     @property
     def available(self) -> bool:
         """Return if the entity is available."""
         return self._cloud.is_logged_in and self._cloud.valid_subscription
 
+    @override
     @property
     def supported_languages(self) -> list[str] | Literal["*"]:
         """Return a list of supported languages."""
         return MATCH_ALL
 
+    @override
     async def _async_handle_message(
         self,
         user_input: conversation.ConversationInput,

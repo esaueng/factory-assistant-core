@@ -1,6 +1,6 @@
 """Support for Cync light entities."""
 
-from typing import Any
+from typing import Any, override
 
 from pycync import CyncLight
 from pycync.devices.capabilities import CyncCapability
@@ -85,16 +85,19 @@ class CyncLightEntity(CyncBaseEntity, LightEntity):
             supported_color_modes
         )
 
+    @override
     @property
     def is_on(self) -> bool | None:
         """Return True if the light is on."""
         return self._device.is_on
 
+    @override
     @property
     def brightness(self) -> int:
         """Provide the light's current brightness."""
         return value_to_brightness(self.BRIGHTNESS_SCALE, self._device.brightness)
 
+    @override
     @property
     def color_temp_kelvin(self) -> int:
         """Return color temperature in kelvin."""
@@ -104,11 +107,13 @@ class CyncLightEntity(CyncBaseEntity, LightEntity):
             self._device.color_temp,
         )
 
+    @override
     @property
     def rgb_color(self) -> tuple[int, int, int]:
         """Provide the light's current color in RGB format."""
         return self._device.rgb
 
+    @override
     @property
     def color_mode(self) -> ColorMode:
         """Return the active color mode."""
@@ -129,6 +134,7 @@ class CyncLightEntity(CyncBaseEntity, LightEntity):
 
         return ColorMode.ONOFF
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Process an action on the light."""
         converted_brightness: int | None = None
@@ -155,6 +161,7 @@ class CyncLightEntity(CyncBaseEntity, LightEntity):
             True, converted_brightness, converted_color_temp, rgb
         )
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn off the light."""
         await self._device.turn_off()

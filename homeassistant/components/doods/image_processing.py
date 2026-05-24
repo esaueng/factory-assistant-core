@@ -4,7 +4,7 @@ import io
 import logging
 import os
 import time
-from typing import Any
+from typing import Any, override
 
 from PIL import Image, ImageDraw, UnidentifiedImageError
 from pydoods import PyDOODS
@@ -216,11 +216,13 @@ class Doods(ImageProcessingEntity):
         self._last_image = None
         self._process_time = 0.0
 
+    @override
     @property
     def state(self) -> int:
         """Return the state of the entity."""
         return self._total_matches
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return device specific state attributes."""
@@ -275,6 +277,7 @@ class Doods(ImageProcessingEntity):
             os.makedirs(os.path.dirname(path), exist_ok=True)
             img.save(path)
 
+    @override
     def process_image(self, image: bytes) -> None:
         """Process the image."""
         try:

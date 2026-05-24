@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from py_dormakaba_dkey.commands import DoorPosition, Notifications, UnlockStatus
 
@@ -71,6 +72,7 @@ class DormakabaDkeyBinarySensor(DormakabaDkeyEntity, BinarySensorEntity):
         self._attr_unique_id = f"{coordinator.lock.address}_{description.key}"
         super().__init__(coordinator)
 
+    @override
     @callback
     def _async_update_attrs(self) -> None:
         """Handle updating _attr values."""

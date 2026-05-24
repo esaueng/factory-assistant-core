@@ -1,5 +1,7 @@
 """Sensor platform for the EARN-E P1 Meter integration."""
 
+from typing import override
+
 from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorEntity,
@@ -148,11 +150,13 @@ class EarnEP1Sensor(EarnEP1Entity, SensorEntity):
         self.entity_description = description
         self._attr_unique_id = f"{coordinator.identifier}_{description.key}"
 
+    @override
     @property
     def available(self) -> bool:
         """Return True if the sensor value is available."""
         return super().available and self.coordinator.data is not None
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the sensor value."""

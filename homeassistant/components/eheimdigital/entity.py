@@ -2,7 +2,7 @@
 
 from abc import ABC, abstractmethod
 from collections.abc import Callable, Coroutine
-from typing import TYPE_CHECKING, Any, Concatenate
+from typing import TYPE_CHECKING, Any, Concatenate, override
 
 from eheimdigital.device import EheimDigitalDevice
 from eheimdigital.types import EheimDigitalClientError
@@ -50,6 +50,7 @@ class EheimDigitalEntity[_DeviceT: EheimDigitalDevice](
     @abstractmethod
     def _async_update_attrs(self) -> None: ...
 
+    @override
     @callback
     def _handle_coordinator_update(self) -> None:
         """Update attributes when the coordinator updates."""

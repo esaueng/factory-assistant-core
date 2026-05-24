@@ -1,7 +1,7 @@
 """Update platform for ESPHome."""
 
 import asyncio
-from typing import Any
+from typing import Any, override
 
 from aioesphomeapi import (
     DeviceInfo as ESPHomeDeviceInfo,
@@ -144,6 +144,7 @@ class ESPHomeDashboardUpdateEntity(
         assert device is not None
         self._attr_latest_version = device["current_version"]
 
+    @override
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""
@@ -156,6 +157,7 @@ class ESPHomeDashboardUpdateEntity(
         assert self._entry_data.device_info is not None
         return self._entry_data.device_info
 
+    @override
     @property
     def available(self) -> bool:
         """Return if update is available.
@@ -184,6 +186,7 @@ class ESPHomeDashboardUpdateEntity(
         self._update_attrs()
         self.async_write_ha_state()
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Handle entity added to Home Assistant."""
         await super().async_added_to_hass()
@@ -195,6 +198,7 @@ class ESPHomeDashboardUpdateEntity(
             entry_data.async_subscribe_device_updated(self._handle_device_update)
         )
 
+    @override
     async def async_will_remove_from_hass(self) -> None:
         """Handle entity about to be removed from Home Assistant."""
         if self._available_future and not self._available_future.done():
@@ -213,6 +217,7 @@ class ESPHomeDashboardUpdateEntity(
         finally:
             self._available_future = None
 
+    @override
     async def async_install(
         self, version: str | None, backup: bool, **kwargs: Any
     ) -> None:
@@ -275,6 +280,7 @@ class ESPHomeUpdateEntity(EsphomeEntity[UpdateInfo, UpdateState], UpdateEntity):
         | UpdateEntityFeature.RELEASE_NOTES
     )
 
+    @override
     @callback
     def _on_static_info_update(self, static_info: EntityInfo) -> None:
         """Set attrs from static info."""
@@ -284,24 +290,28 @@ class ESPHomeUpdateEntity(EsphomeEntity[UpdateInfo, UpdateState], UpdateEntity):
             UpdateDeviceClass, static_info.device_class
         )
 
+    @override
     @property
     @esphome_state_property
     def installed_version(self) -> str:
         """Return the installed version."""
         return self._state.current_version
 
+    @override
     @property
     @esphome_state_property
     def in_progress(self) -> bool:
         """Return if the update is in progress."""
         return self._state.in_progress
 
+    @override
     @property
     @esphome_state_property
     def latest_version(self) -> str | None:
         """Return the latest version."""
         return self._state.latest_version
 
+    @override
     @async_esphome_state_property
     async def async_release_notes(self) -> str | None:
         """Return the release notes."""
@@ -309,18 +319,21 @@ class ESPHomeUpdateEntity(EsphomeEntity[UpdateInfo, UpdateState], UpdateEntity):
             return self._state.release_summary
         return None
 
+    @override
     @property
     @esphome_state_property
     def release_url(self) -> str:
         """Return the release URL."""
         return self._state.release_url
 
+    @override
     @property
     @esphome_state_property
     def title(self) -> str:
         """Return the title of the update."""
         return self._state.title
 
+    @override
     @property
     @esphome_state_property
     def update_percentage(self) -> int | None:
@@ -339,6 +352,7 @@ class ESPHomeUpdateEntity(EsphomeEntity[UpdateInfo, UpdateState], UpdateEntity):
                 device_id=self._static_info.device_id,
             )
 
+    @override
     @convert_api_error_ha_error
     async def async_install(
         self, version: str | None, backup: bool, **kwargs: Any

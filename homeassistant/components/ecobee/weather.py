@@ -1,6 +1,7 @@
 """Support for displaying weather info from Ecobee API."""
 
 from datetime import timedelta
+from typing import override
 
 from pyecobee.const import ECOBEE_STATE_UNKNOWN
 
@@ -78,6 +79,7 @@ class EcobeeWeather(WeatherEntity):
         except (IndexError, KeyError) as err:
             raise ValueError from err
 
+    @override
     @property
     def device_info(self) -> DeviceInfo:
         """Return device information for the ecobee weather platform."""
@@ -96,6 +98,7 @@ class EcobeeWeather(WeatherEntity):
             name=self._name,
         )
 
+    @override
     @property
     def condition(self) -> str | None:
         """Return the current condition."""
@@ -104,6 +107,7 @@ class EcobeeWeather(WeatherEntity):
         except ValueError:
             return None
 
+    @override
     @property
     def native_temperature(self) -> float | None:
         """Return the temperature."""
@@ -112,6 +116,7 @@ class EcobeeWeather(WeatherEntity):
         except ValueError:
             return None
 
+    @override
     @property
     def native_pressure(self) -> float | None:
         """Return the pressure."""
@@ -121,6 +126,7 @@ class EcobeeWeather(WeatherEntity):
         except ValueError:
             return None
 
+    @override
     @property
     def humidity(self) -> float | None:
         """Return the humidity."""
@@ -129,6 +135,7 @@ class EcobeeWeather(WeatherEntity):
         except ValueError:
             return None
 
+    @override
     @property
     def native_visibility(self) -> float | None:
         """Return the visibility."""
@@ -137,6 +144,7 @@ class EcobeeWeather(WeatherEntity):
         except ValueError:
             return None
 
+    @override
     @property
     def native_wind_speed(self) -> float | None:
         """Return the wind speed."""
@@ -145,6 +153,7 @@ class EcobeeWeather(WeatherEntity):
         except ValueError:
             return None
 
+    @override
     @property
     def wind_bearing(self) -> float | None:
         """Return the wind direction."""
@@ -153,6 +162,7 @@ class EcobeeWeather(WeatherEntity):
         except ValueError:
             return None
 
+    @override
     @property
     def attribution(self) -> str | None:
         """Return the attribution."""
@@ -182,6 +192,7 @@ class EcobeeWeather(WeatherEntity):
             return forecasts
         return None
 
+    @override
     async def async_forecast_daily(self) -> list[Forecast] | None:
         """Return the daily forecast in native units."""
         return self._forecast()

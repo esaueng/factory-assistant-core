@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -135,6 +136,7 @@ class ElgatoSensorEntity(ElgatoEntity, SensorEntity):
             f"{coordinator.data.info.serial_number}_{description.key}"
         )
 
+    @override
     @property
     def native_value(self) -> float | int | None:
         """Return the sensor value."""

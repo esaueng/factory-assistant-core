@@ -3,7 +3,7 @@
 import dataclasses
 from datetime import datetime
 import logging
-from typing import Final
+from typing import Final, override
 
 from aioecowitt import EcoWittSensor, EcoWittSensorTypes
 
@@ -355,6 +355,7 @@ class EcowittSensorEntity(EcowittEntity, SensorEntity):
         super().__init__(sensor)
         self.entity_description = description
 
+    @override
     @property
     def native_value(self) -> StateType | datetime:
         """Return the state of the sensor."""

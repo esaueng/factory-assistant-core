@@ -1,6 +1,7 @@
 """Support for esphome selects."""
 
 from dataclasses import replace
+from typing import override
 
 from aioesphomeapi import EntityInfo, SelectInfo, SelectState
 
@@ -62,12 +63,14 @@ async def async_setup_entry(
 class EsphomeSelect(EsphomeEntity[SelectInfo, SelectState], SelectEntity):
     """A select implementation for esphome."""
 
+    @override
     @callback
     def _on_static_info_update(self, static_info: EntityInfo) -> None:
         """Set attrs from static info."""
         super()._on_static_info_update(static_info)
         self._attr_options = self._static_info.options
 
+    @override
     @property
     @esphome_state_property
     def current_option(self) -> str | None:
@@ -75,6 +78,7 @@ class EsphomeSelect(EsphomeEntity[SelectInfo, SelectState], SelectEntity):
         state = self._state
         return None if state.missing_state else state.state
 
+    @override
     @convert_api_error_ha_error
     async def async_select_option(self, option: str) -> None:
         """Change the selected option."""
@@ -138,11 +142,13 @@ class EsphomeAssistSatelliteWakeWordSelect(
         self._wake_words: dict[str, str] = {}
         self._wake_word_index = index
 
+    @override
     @property
     def available(self) -> bool:
         """Return if entity is available."""
         return len(self._attr_options) > 1  # more than just NO_WAKE_WORD
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Run when entity about to be added to hass."""
         await super().async_added_to_hass()
@@ -157,6 +163,7 @@ class EsphomeAssistSatelliteWakeWordSelect(
             )
         )
 
+    @override
     async def async_select_option(self, option: str) -> None:
         """Select an option."""
         self._attr_current_option = option

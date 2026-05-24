@@ -2,7 +2,7 @@
 
 from collections.abc import Mapping
 from datetime import timedelta
-from typing import Any
+from typing import Any, override
 
 from sml import SmlGetListResponse
 from sml.asyncio import SmlProtocol
@@ -401,6 +401,7 @@ class EDL21Entity(SensorEntity):
             name=DEFAULT_DEVICE_NAME,
         )
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Run when entity about to be added to hass."""
 
@@ -426,16 +427,19 @@ class EDL21Entity(SensorEntity):
             self.hass, SIGNAL_EDL21_TELEGRAM, handle_telegram
         )
 
+    @override
     async def async_will_remove_from_hass(self) -> None:
         """Run when entity will be removed from hass."""
         if self._async_remove_dispatcher:
             self._async_remove_dispatcher()
 
+    @override
     @property
     def native_value(self) -> str:
         """Return the value of the last received telegram."""
         return self._telegram.get("value")
 
+    @override
     @property
     def native_unit_of_measurement(self) -> str | None:
         """Return the unit of measurement."""

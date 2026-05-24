@@ -1,6 +1,6 @@
 """Support for gauges from flood monitoring API."""
 
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.sensor import SensorEntity, SensorStateClass
 from homeassistant.const import UnitOfLength
@@ -93,6 +93,7 @@ class Measurement(CoordinatorEntity, SensorEntity):
         """Return the parameter name for the station."""
         return self.coordinator.data["measures"][self.key]["parameterName"]
 
+    @override
     @property
     def device_info(self) -> DeviceInfo:
         """Return the device info."""
@@ -104,6 +105,7 @@ class Measurement(CoordinatorEntity, SensorEntity):
             name=f"{self.station_name} {self.parameter_name} {self.qualifier}",
         )
 
+    @override
     @property
     def available(self) -> bool:
         """Return True if entity is available."""
@@ -124,6 +126,7 @@ class Measurement(CoordinatorEntity, SensorEntity):
 
         return True
 
+    @override
     @property
     def native_unit_of_measurement(self):
         """Return units for the sensor."""
@@ -132,6 +135,7 @@ class Measurement(CoordinatorEntity, SensorEntity):
             return None
         return UNIT_MAPPING.get(measure["unit"], measure["unitName"])
 
+    @override
     @property
     def native_value(self):
         """Return the current sensor value."""

@@ -2,7 +2,7 @@
 
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, override
 
 from aiostreammagic import StreamMagicClient
 
@@ -90,16 +90,19 @@ class CambridgeAudioNumber(CambridgeAudioEntity, NumberEntity):
         self.entity_description = description
         self._attr_unique_id = f"{client.info.unit_id}-{description.key}"
 
+    @override
     @property
     def native_value(self) -> int | None:
         """Return the state of the number."""
         return self.entity_description.value_fn(self.client)
 
+    @override
     @command
     async def async_set_native_value(self, value: float) -> None:
         """Set the selected value."""
         await self.entity_description.set_value_fn(self.client, int(value))
 
+    @override
     @property
     def available(self) -> bool:
         """Return True if entity is available."""

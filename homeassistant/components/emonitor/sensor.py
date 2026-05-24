@@ -1,5 +1,7 @@
 """Support for a Emonitor channel sensor."""
 
+from typing import override
+
 from aioemonitor.monitor import EmonitorChannel, EmonitorStatus
 
 from homeassistant.components.sensor import (
@@ -115,6 +117,7 @@ class EmonitorPowerSensor(CoordinatorEntity[EmonitorStatus], SensorEntity):
             attr_val += getattr(self.channels[paired_channel], attr_name)
         return attr_val
 
+    @override
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""

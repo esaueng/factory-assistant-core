@@ -2,6 +2,7 @@
 
 from datetime import date, datetime, timedelta
 import logging
+from typing import override
 
 from cookidoo_api import CookidooAuthException, CookidooException
 from cookidoo_api.types import CookidooCalendarDayRecipe
@@ -53,6 +54,7 @@ class CookidooCalendarEntity(CookidooBaseEntity, CalendarEntity):
         assert coordinator.config_entry.unique_id
         self._attr_unique_id = coordinator.config_entry.unique_id
 
+    @override
     @property
     def event(self) -> CalendarEvent | None:
         """Return the next upcoming event."""
@@ -84,6 +86,7 @@ class CookidooCalendarEntity(CookidooBaseEntity, CalendarEntity):
                 REDACTED_VALUE"calendar_fetch_failed",
             ) from e
 
+    @override
     async def async_get_events(
         self, hass: HomeAssistant, start_date: datetime, end_date: datetime
     ) -> list[CalendarEvent]:

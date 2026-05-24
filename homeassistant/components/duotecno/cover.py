@@ -1,6 +1,6 @@
 """Support for Velbus covers."""
 
-from typing import Any
+from typing import Any, override
 
 from duotecno.unit import DuoswitchUnit
 
@@ -32,31 +32,37 @@ class DuotecnoCover(DuotecnoEntity, CoverEntity):
         CoverEntityFeature.OPEN | CoverEntityFeature.CLOSE | CoverEntityFeature.STOP
     )
 
+    @override
     @property
     def is_closed(self) -> bool | None:
         """Return if the cover is closed."""
         return self._unit.is_closed()
 
+    @override
     @property
     def is_opening(self) -> bool:
         """Return if the cover is opening."""
         return self._unit.is_opening()
 
+    @override
     @property
     def is_closing(self) -> bool:
         """Return if the cover is closing."""
         return self._unit.is_closing()
 
+    @override
     @api_call
     async def async_open_cover(self, **kwargs: Any) -> None:
         """Open the cover."""
         await self._unit.open()
 
+    @override
     @api_call
     async def async_close_cover(self, **kwargs: Any) -> None:
         """Close the cover."""
         await self._unit.close()
 
+    @override
     @api_call
     async def async_stop_cover(self, **kwargs: Any) -> None:
         """Stop the cover."""

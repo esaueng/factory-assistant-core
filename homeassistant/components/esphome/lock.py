@@ -1,7 +1,7 @@
 """Support for ESPHome locks."""
 
 from functools import partial
-from typing import Any
+from typing import Any, override
 
 from aioesphomeapi import EntityInfo, LockCommand, LockEntityState, LockInfo, LockState
 
@@ -22,6 +22,7 @@ PARALLEL_UPDATES = 0
 class EsphomeLock(EsphomeEntity[LockInfo, LockEntityState], LockEntity):
     """A lock implementation for ESPHome."""
 
+    @override
     @callback
     def _on_static_info_update(self, static_info: EntityInfo) -> None:
         """Set attrs from static info."""
@@ -36,6 +37,7 @@ class EsphomeLock(EsphomeEntity[LockInfo, LockEntityState], LockEntity):
         else:
             self._attr_code_format = None
 
+    @override
     @property
     @esphome_state_property
     def is_locked(self) -> bool | None:
@@ -44,24 +46,28 @@ class EsphomeLock(EsphomeEntity[LockInfo, LockEntityState], LockEntity):
             return None
         return self._state.state is LockState.LOCKED
 
+    @override
     @property
     @esphome_state_property
     def is_locking(self) -> bool:
         """Return true if the lock is locking."""
         return self._state.state is LockState.LOCKING
 
+    @override
     @property
     @esphome_state_property
     def is_unlocking(self) -> bool:
         """Return true if the lock is unlocking."""
         return self._state.state is LockState.UNLOCKING
 
+    @override
     @property
     @esphome_state_property
     def is_jammed(self) -> bool:
         """Return true if the lock is jammed (incomplete locking)."""
         return self._state.state is LockState.JAMMED
 
+    @override
     @convert_api_error_ha_error
     async def async_lock(self, **kwargs: Any) -> None:
         """Lock the lock."""
@@ -69,6 +75,7 @@ class EsphomeLock(EsphomeEntity[LockInfo, LockEntityState], LockEntity):
             self._key, LockCommand.LOCK, device_id=self._static_info.device_id
         )
 
+    @override
     @convert_api_error_ha_error
     async def async_unlock(self, **kwargs: Any) -> None:
         """Unlock the lock."""
@@ -77,6 +84,7 @@ class EsphomeLock(EsphomeEntity[LockInfo, LockEntityState], LockEntity):
             self._key, LockCommand.UNLOCK, code, device_id=self._static_info.device_id
         )
 
+    @override
     @convert_api_error_ha_error
     async def async_open(self, **kwargs: Any) -> None:
         """Open the door latch."""

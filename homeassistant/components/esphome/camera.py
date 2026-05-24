@@ -3,7 +3,7 @@
 import asyncio
 from collections.abc import Callable
 from functools import partial
-from typing import Any
+from typing import Any, override
 
 from aioesphomeapi import CameraInfo, CameraState
 from aiohttp import web
@@ -35,6 +35,7 @@ class EsphomeCamera(Camera, EsphomeEntity[CameraInfo, CameraState]):
                 future.set_result(result)
         self._image_futures.clear()
 
+    @override
     @callback
     def _on_device_update(self) -> None:
         """Handle device going available or unavailable."""
@@ -42,12 +43,14 @@ class EsphomeCamera(Camera, EsphomeEntity[CameraInfo, CameraState]):
         if not self.available:
             self._set_futures(False)
 
+    @override
     @callback
     def _on_state_update(self) -> None:
         """Notify listeners of new image when update arrives."""
         super()._on_state_update()
         self._set_futures(True)
 
+    @override
     async def async_camera_image(
         self, width: int | None = None, height: int | None = None
     ) -> bytes | None:
@@ -67,6 +70,7 @@ class EsphomeCamera(Camera, EsphomeEntity[CameraInfo, CameraState]):
             return None
         return self._state.data
 
+    @override
     async def handle_async_mjpeg_stream(
         self, request: web.Request
     ) -> web.StreamResponse:

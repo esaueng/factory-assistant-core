@@ -1,7 +1,7 @@
 """Climate device for CCM15 coordinator."""
 
 import logging
-from typing import Any
+from typing import Any, override
 
 from ccm15 import CCM15DeviceState, CCM15SlaveDevice
 
@@ -93,6 +93,7 @@ class CCM15Climate(CoordinatorEntity[CCM15Coordinator], ClimateEntity):
         """Return device data."""
         return self.coordinator.get_ac_data(self._ac_index)
 
+    @override
     @property
     def current_temperature(self) -> int | None:
         """Return current temperature."""
@@ -100,6 +101,7 @@ class CCM15Climate(CoordinatorEntity[CCM15Coordinator], ClimateEntity):
             return data.temperature
         return None
 
+    @override
     @property
     def target_temperature(self) -> int | None:
         """Return target temperature."""
@@ -107,6 +109,7 @@ class CCM15Climate(CoordinatorEntity[CCM15Coordinator], ClimateEntity):
             return data.temperature_setpoint
         return None
 
+    @override
     @property
     def hvac_mode(self) -> HVACMode | None:
         """Return hvac mode."""
@@ -115,6 +118,7 @@ class CCM15Climate(CoordinatorEntity[CCM15Coordinator], ClimateEntity):
             return CONST_CMD_STATE_MAP[mode]
         return None
 
+    @override
     @property
     def fan_mode(self) -> str | None:
         """Return fan mode."""
@@ -123,6 +127,7 @@ class CCM15Climate(CoordinatorEntity[CCM15Coordinator], ClimateEntity):
             return CONST_CMD_FAN_MAP[mode]
         return None
 
+    @override
     @property
     def swing_mode(self) -> str | None:
         """Return swing mode."""
@@ -130,11 +135,13 @@ class CCM15Climate(CoordinatorEntity[CCM15Coordinator], ClimateEntity):
             return SWING_ON if data.is_swing_on else SWING_OFF
         return None
 
+    @override
     @property
     def available(self) -> bool:
         """Return the availability of the entity."""
         return self.data is not None
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return the optional state attributes."""
@@ -142,6 +149,7 @@ class CCM15Climate(CoordinatorEntity[CCM15Coordinator], ClimateEntity):
             return {"error_code": data.error_code}
         return {}
 
+    @override
     async def async_set_temperature(self, **kwargs: Any) -> None:
         """Set the target temperature."""
         if (temperature := kwargs.get(ATTR_TEMPERATURE)) is not None:
@@ -149,18 +157,22 @@ class CCM15Climate(CoordinatorEntity[CCM15Coordinator], ClimateEntity):
                 self._ac_index, self.data, temperature, kwargs.get(ATTR_HVAC_MODE)
             )
 
+    @override
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         """Set the hvac mode."""
         await self.coordinator.async_set_hvac_mode(self._ac_index, self.data, hvac_mode)
 
+    @override
     async def async_set_fan_mode(self, fan_mode: str) -> None:
         """Set the fan mode."""
         await self.coordinator.async_set_fan_mode(self._ac_index, self.data, fan_mode)
 
+    @override
     async def async_turn_off(self) -> None:
         """Turn off."""
         await self.async_set_hvac_mode(HVACMode.OFF)
 
+    @override
     async def async_turn_on(self) -> None:
         """Turn on."""
         await self.async_set_hvac_mode(HVACMode.AUTO)

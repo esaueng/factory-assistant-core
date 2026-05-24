@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from aioelectricitymaps import HomeAssistantCarbonIntensityResponse
 
@@ -90,11 +91,13 @@ class CO2Sensor(CoordinatorEntity[CO2SignalCoordinator], SensorEntity):
             f"{coordinator.entry_id}_{description.unique_id or description.key}"
         )
 
+    @override
     @property
     def native_value(self) -> float | None:
         """Return sensor state."""
         return self.entity_description.value_fn(self.coordinator.data)
 
+    @override
     @property
     def native_unit_of_measurement(self) -> str | None:
         """Return the unit of measurement."""

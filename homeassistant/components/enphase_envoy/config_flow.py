@@ -2,7 +2,7 @@
 
 from collections.abc import Mapping
 import logging
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, override
 
 from awesomeversion import AwesomeVersion
 from pyenphase import AUTH_TOKEN_MIN_VERSION, Envoy, EnvoyError
@@ -89,6 +89,7 @@ class EnphaseConfigFlow(ConfigFlow, domain=DOMAIN):
         self.username = None
         self.protovers: str | None = None
 
+    @override
     @staticmethod
     @callback
     def async_get_options_flow(
@@ -133,6 +134,7 @@ class EnphaseConfigFlow(ConfigFlow, domain=DOMAIN):
             if CONF_HOST in entry.data
         }
 
+    @override
     async def async_step_zeroconf(
         self, discovery_info: ZeroconfServiceInfo
     ) -> ConfigFlowResult:
@@ -228,6 +230,7 @@ class EnphaseConfigFlow(ConfigFlow, domain=DOMAIN):
         """Return the name of the envoy."""
         return f"{ENVOY} {self.unique_id}" if self.unique_id else ENVOY
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:

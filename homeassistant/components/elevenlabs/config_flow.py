@@ -1,7 +1,7 @@
 """Config flow for ElevenLabs text-to-speech integration."""
 
 import logging
-from typing import Any
+from typing import Any, override
 
 from elevenlabs import AsyncElevenLabs
 from elevenlabs.core import ApiError
@@ -72,6 +72,7 @@ class ElevenLabsConfigFlow(ConfigFlow, domain=DOMAIN):
     VERSION = 1
     MINOR_VERSION = 2
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
@@ -102,6 +103,7 @@ class ElevenLabsConfigFlow(ConfigFlow, domain=DOMAIN):
             step_id="user", data_schema=USER_STEP_SCHEMA, errors=errors
         )
 
+    @override
     @staticmethod
     def async_get_options_flow(
         config_entry: ElevenLabsConfigEntry,

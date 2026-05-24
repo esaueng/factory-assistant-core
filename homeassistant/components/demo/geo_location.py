@@ -4,6 +4,7 @@ from datetime import timedelta
 import logging
 from math import cos, pi, radians, sin
 import random
+from typing import override
 
 from homeassistant.components.geo_location import GeolocationEvent
 from homeassistant.const import UnitOfLength
@@ -131,26 +132,31 @@ class DemoGeolocationEvent(GeolocationEvent):
         self._longitude = longitude
         self._unit_of_measurement = unit_of_measurement
 
+    @override
     @property
     def source(self) -> str:
         """Return source value of this external event."""
         return SOURCE
 
+    @override
     @property
     def distance(self) -> float | None:
         """Return distance value of this external event."""
         return self._distance
 
+    @override
     @property
     def latitude(self) -> float | None:
         """Return latitude value of this external event."""
         return self._latitude
 
+    @override
     @property
     def longitude(self) -> float | None:
         """Return longitude value of this external event."""
         return self._longitude
 
+    @override
     @property
     def unit_of_measurement(self) -> str:
         """Return the unit of measurement."""

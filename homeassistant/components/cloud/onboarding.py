@@ -2,7 +2,7 @@
 
 from collections.abc import Callable, Coroutine
 from functools import wraps
-from typing import TYPE_CHECKING, Any, Concatenate
+from typing import TYPE_CHECKING, Any, Concatenate, override
 
 from aiohttp import web
 from aiohttp.web_exceptions import HTTPUnauthorized
@@ -64,6 +64,7 @@ class CloudForgotPasswordView(
     url = "/api/onboarding/cloud/forgot_password"
     name = "api:onboarding:cloud:forgot_password"
 
+    @override
     @ensure_not_done
     async def post(self, request: web.Request) -> web.Response:
         """Handle forgot password request."""
@@ -76,6 +77,7 @@ class CloudLoginView(NoAuthBaseOnboardingView, cloud_http.CloudLoginView):
     url = "/api/onboarding/cloud/login"
     name = "api:onboarding:cloud:login"
 
+    @override
     @ensure_not_done
     async def post(self, request: web.Request) -> web.Response:
         """Handle login request."""
@@ -88,6 +90,7 @@ class CloudLogoutView(NoAuthBaseOnboardingView, cloud_http.CloudLogoutView):
     url = "/api/onboarding/cloud/logout"
     name = "api:onboarding:cloud:logout"
 
+    @override
     @ensure_not_done
     async def post(self, request: web.Request) -> web.Response:
         """Handle logout request."""

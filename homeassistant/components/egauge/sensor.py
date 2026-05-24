@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from egauge_async.json.models import RegisterInfo, RegisterType
 
@@ -108,6 +109,7 @@ class EgaugeSensor(EgaugeEntity, SensorEntity):
             f"{coordinator.serial_number}_{register_name}_{description.key}"
         )
 
+    @override
     @property
     def native_value(self) -> float:
         """Return the sensor value using the description's value function."""
@@ -115,6 +117,7 @@ class EgaugeSensor(EgaugeEntity, SensorEntity):
             self.coordinator.data, self._register_name
         )
 
+    @override
     @property
     def available(self) -> bool:
         """Return true if the corresponding register is available."""

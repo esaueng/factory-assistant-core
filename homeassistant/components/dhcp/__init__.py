@@ -9,7 +9,7 @@ from ipaddress import IPv4Address
 import itertools
 import logging
 import re
-from typing import Any, Final
+from typing import Any, Final, override
 
 import aiodhcpwatcher
 from aiodiscover import DiscoverHosts
@@ -297,6 +297,7 @@ class NetworkWatcher(WatcherBase):
         self._discover_hosts: DiscoverHosts | None = None
         self._discover_task: asyncio.Task | None = None
 
+    @override
     @callback
     def async_stop(self) -> None:
         """Stop scanning for new devices on the network."""

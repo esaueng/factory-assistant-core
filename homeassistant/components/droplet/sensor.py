@@ -3,6 +3,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime
+from typing import override
 
 from pydroplet.droplet import Droplet
 
@@ -113,16 +114,19 @@ class DropletSensor(CoordinatorEntity[DropletDataCoordinator], SensorEntity):
             serial_number=self.coordinator.droplet.get_sn(),
         )
 
+    @override
     @property
     def available(self) -> bool:
         """Get Droplet's availability."""
         return self.coordinator.get_availability()
 
+    @override
     @property
     def native_value(self) -> float | str | None:
         """Return the value reported by the sensor."""
         return self.entity_description.value_fn(self.coordinator.droplet)
 
+    @override
     @property
     def last_reset(self) -> datetime | None:
         """Return the last reset of the sensor, if applicable."""

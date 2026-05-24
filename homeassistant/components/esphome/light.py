@@ -2,7 +2,7 @@
 
 from functools import lru_cache, partial
 from operator import methodcaller
-from typing import TYPE_CHECKING, Any, cast
+from typing import TYPE_CHECKING, Any, cast, override
 
 from aioesphomeapi import (
     APIVersion,
@@ -175,12 +175,14 @@ class EsphomeLight(EsphomeEntity[LightInfo, LightState], LightEntity):
         max_frac = max(cw_frac, ww_frac)
         return cw_frac / max_frac, ww_frac / max_frac
 
+    @override
     @property
     @esphome_state_property
     def is_on(self) -> bool:
         """Return true if the light is on."""
         return self._state.state
 
+    @override
     @convert_api_error_ha_error
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the entity on."""
@@ -307,6 +309,7 @@ class EsphomeLight(EsphomeEntity[LightInfo, LightState], LightEntity):
 
         self._client.light_command(**data, device_id=self._static_info.device_id)
 
+    @override
     @convert_api_error_ha_error
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the entity off."""
@@ -317,12 +320,14 @@ class EsphomeLight(EsphomeEntity[LightInfo, LightState], LightEntity):
             data["transition_length"] = kwargs[ATTR_TRANSITION]
         self._client.light_command(**data, device_id=self._static_info.device_id)
 
+    @override
     @property
     @esphome_state_property
     def brightness(self) -> int:
         """Return the brightness of this light between 0..255."""
         return round(self._state.brightness * 255)
 
+    @override
     @property
     def color_mode(self) -> ColorMode:
         """Return the color mode of the light."""
@@ -334,6 +339,7 @@ class EsphomeLight(EsphomeEntity[LightInfo, LightState], LightEntity):
 
         return _color_mode_to_ha(self._state.color_mode)
 
+    @override
     @property
     @esphome_state_property
     def rgb_color(self) -> tuple[int, int, int]:
@@ -352,6 +358,7 @@ class EsphomeLight(EsphomeEntity[LightInfo, LightState], LightEntity):
             round(state.blue * state.color_brightness * 255),
         )
 
+    @override
     @property
     @esphome_state_property
     def rgbw_color(self) -> tuple[int, int, int, int]:
@@ -360,6 +367,7 @@ class EsphomeLight(EsphomeEntity[LightInfo, LightState], LightEntity):
         rgb = cast("tuple[int, int, int]", self.rgb_color)
         return (*rgb, white)
 
+    @override
     @property
     @esphome_state_property
     def rgbww_color(self) -> tuple[int, int, int, int, int]:
@@ -384,18 +392,21 @@ class EsphomeLight(EsphomeEntity[LightInfo, LightState], LightEntity):
             round(state.warm_white * 255),
         )
 
+    @override
     @property
     @esphome_state_property
     def color_temp_kelvin(self) -> int:
         """Return the CT color value in Kelvin."""
         return _mired_to_kelvin(self._state.color_temperature)
 
+    @override
     @property
     @esphome_state_property
     def effect(self) -> str:
         """Return the current effect."""
         return self._state.effect
 
+    @override
     @callback
     def _on_static_info_update(self, static_info: EntityInfo) -> None:
         """Set attrs from static info."""

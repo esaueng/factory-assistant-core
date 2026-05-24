@@ -4,7 +4,7 @@ from collections.abc import AsyncIterator, Callable, Coroutine
 from functools import wraps
 import json
 import logging
-from typing import Any, Concatenate
+from typing import Any, Concatenate, override
 
 from python_dropbox_api import (
     DropboxAPIClient,
@@ -151,6 +151,7 @@ class DropboxBackupAgent(BackupAgent):
 
         return backups
 
+    @override
     @handle_backup_errors
     async def async_upload_backup(
         self,
@@ -178,11 +179,13 @@ class DropboxBackupAgent(BackupAgent):
             await self._api.delete_file(backup_path)
             raise
 
+    @override
     @handle_backup_errors
     async def async_list_backups(self, **kwargs: Any) -> list[AgentBackup]:
         """List backups."""
         return [backup for backup, _ in await self._async_get_backups()]
 
+    @override
     @handle_backup_errors
     async def async_download_backup(
         self,
@@ -197,6 +200,7 @@ class DropboxBackupAgent(BackupAgent):
 
         raise BackupNotFound(f"Backup {backup_id} not found")
 
+    @override
     @handle_backup_errors
     async def async_get_backup(
         self,
@@ -212,6 +216,7 @@ class DropboxBackupAgent(BackupAgent):
 
         raise BackupNotFound(f"Backup {backup_id} not found")
 
+    @override
     @handle_backup_errors
     async def async_delete_backup(
         self,

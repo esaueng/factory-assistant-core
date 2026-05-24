@@ -1,5 +1,7 @@
 """Support for EZVIZ binary sensors."""
 
+from typing import override
+
 from homeassistant.components.binary_sensor import (
     BinarySensorDeviceClass,
     BinarySensorEntity,
@@ -63,6 +65,7 @@ class EzvizBinarySensor(EzvizEntity, BinarySensorEntity):
         self._attr_unique_id = f"{serial}_{self._camera_name}.{binary_sensor}"
         self.entity_description = BINARY_SENSOR_TYPES[binary_sensor]
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return the state of the sensor."""

@@ -1,6 +1,6 @@
 """Dune HD implementation of the media player."""
 
-from typing import Any, Final
+from typing import Any, Final, override
 
 from pdunehd import DuneHDPlayer
 
@@ -70,6 +70,7 @@ class DuneHDPlayerEntity(MediaPlayerEntity):
         self._state = self._player.update_state()
         self.__update_title()
 
+    @override
     @property
     def state(self) -> MediaPlayerState:
         """Return player state."""
@@ -84,21 +85,25 @@ class DuneHDPlayerEntity(MediaPlayerEntity):
             state = MediaPlayerState.ON
         return state
 
+    @override
     @property
     def available(self) -> bool:
         """Return True if entity is available."""
         return len(self._state) > 0
 
+    @override
     @property
     def volume_level(self) -> float:
         """Return the volume level of the media player (0..1)."""
         return int(self._state.get("playback_volume", 0)) / 100
 
+    @override
     @property
     def is_volume_muted(self) -> bool:
         """Return a boolean if volume is currently muted."""
         return int(self._state.get("playback_mute", 0)) == 1
 
+    @override
     @property
     def supported_features(self) -> MediaPlayerEntityFeature:
         """Flag media player features that are supported."""
@@ -112,27 +117,33 @@ class DuneHDPlayerEntity(MediaPlayerEntity):
         """Volume down media player."""
         self._state = self._player.volume_down()
 
+    @override
     def mute_volume(self, mute: bool) -> None:
         """Mute/unmute player volume."""
         self._state = self._player.mute(mute)
 
+    @override
     def turn_off(self) -> None:
         """Turn off media player."""
         self._media_title = None
         self._state = self._player.turn_off()
 
+    @override
     def turn_on(self) -> None:
         """Turn on media player."""
         self._state = self._player.turn_on()
 
+    @override
     def media_play(self) -> None:
         """Play media player."""
         self._state = self._player.play()
 
+    @override
     def media_pause(self) -> None:
         """Pause media player."""
         self._state = self._player.pause()
 
+    @override
     async def async_play_media(
         self, media_type: MediaType | str, media_id: str, **kwargs: Any
     ) -> None:
@@ -151,6 +162,7 @@ class DuneHDPlayerEntity(MediaPlayerEntity):
             self._player.launch_media_url, media_id
         )
 
+    @override
     async def async_browse_media(
         self,
         media_content_type: MediaType | str | None = None,
@@ -159,6 +171,7 @@ class DuneHDPlayerEntity(MediaPlayerEntity):
         """Implement the websocket media browsing helper."""
         return await media_source.async_browse_media(self.hass, media_content_id)
 
+    @override
     @property
     def media_title(self) -> str | None:
         """Return the current media source."""
@@ -177,10 +190,12 @@ class DuneHDPlayerEntity(MediaPlayerEntity):
         else:
             self._media_title = None
 
+    @override
     def media_previous_track(self) -> None:
         """Send previous track command."""
         self._state = self._player.previous_track()
 
+    @override
     def media_next_track(self) -> None:
         """Send next track command."""
         self._state = self._player.next_track()

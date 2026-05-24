@@ -3,6 +3,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 import logging
+from typing import override
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -272,6 +273,7 @@ class DROPSensor(DROPEntity, SensorEntity):
         super().__init__(entity_description.key, coordinator)
         self.entity_description = entity_description
 
+    @override
     @property
     def native_value(self) -> float | int | None:
         """Return the value reported by the sensor."""

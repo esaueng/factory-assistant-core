@@ -5,7 +5,7 @@ from collections.abc import Awaitable, Callable
 from dataclasses import dataclass
 import datetime
 import logging
-from typing import TYPE_CHECKING, Any, cast
+from typing import TYPE_CHECKING, Any, cast, override
 
 import voluptuous as vol
 
@@ -113,6 +113,7 @@ class Timespan:
         """
         return Timespan(self.end, max(self.end, now) + interval)
 
+    @override
     def __str__(self) -> str:
         """Return a string representing the half open interval time span."""
         return f"[{self.start}, {self.end})"
@@ -325,6 +326,7 @@ class TargetCalendarEventListener(TargetEntityChangeTracker):
         self._pending_listener_task: asyncio.Task[None] | None = None
         self._calendar_event_listener: CalendarEventListener | None = None
 
+    @override
     @callback
     def _handle_entities_update(self, tracked_entities: set[str]) -> None:
         """Restart listeners when tracked target entities update."""
@@ -351,6 +353,7 @@ class TargetCalendarEventListener(TargetEntityChangeTracker):
         )
         await self._calendar_event_listener.async_attach()
 
+    @override
     def _unsubscribe(self) -> None:
         """Unsubscribe from all events."""
         super()._unsubscribe()
@@ -367,6 +370,7 @@ class SingleEntityEventTrigger(Trigger):
 
     _options: dict[str, Any]
 
+    @override
     @classmethod
     async def async_validate_complete_config(
         cls, hass: HomeAssistant, complete_config: ConfigType
@@ -377,6 +381,7 @@ class SingleEntityEventTrigger(Trigger):
         )
         return await super().async_validate_complete_config(hass, complete_config)
 
+    @override
     @classmethod
     async def async_validate_config(
         cls, hass: HomeAssistant, config: ConfigType
@@ -392,6 +397,7 @@ class SingleEntityEventTrigger(Trigger):
             assert config.options is not None
         self._options = config.options
 
+    @override
     async def async_attach_runner(
         self, run_action: TriggerActionRunner
     ) -> CALLBACK_TYPE:
@@ -426,6 +432,7 @@ class EventTrigger(Trigger):
     _options: dict[str, Any]
     _event_type: str
 
+    @override
     @classmethod
     async def async_validate_config(
         cls, hass: HomeAssistant, config: ConfigType
@@ -443,6 +450,7 @@ class EventTrigger(Trigger):
         self._target = config.target
         self._options = config.options
 
+    @override
     async def async_attach_runner(
         self, run_action: TriggerActionRunner
     ) -> CALLBACK_TYPE:

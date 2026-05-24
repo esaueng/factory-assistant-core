@@ -10,7 +10,7 @@ Wetterwarnungen (Stufe 1)
 """
 
 from datetime import UTC, datetime
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.sensor import SensorEntity, SensorEntityDescription
 from homeassistant.core import HomeAssistant
@@ -103,6 +103,7 @@ class DwdWeatherWarningsSensor(
         now = datetime.now(UTC)
         return [warning for warning in warnings if warning[API_ATTR_WARNING_END] > now]
 
+    @override
     @property
     def native_value(self) -> int | None:
         """Return the state of the sensor."""
@@ -114,6 +115,7 @@ class DwdWeatherWarningsSensor(
         warnings = self._filter_expired_warnings(warnings)
         return max((w.get(API_ATTR_WARNING_LEVEL, 0) for w in warnings), default=0)
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return the state attributes of the sensor."""
@@ -151,6 +153,7 @@ class DwdWeatherWarningsSensor(
 
         return data
 
+    @override
     @property
     def available(self) -> bool:
         """Could the device be accessed during the last update call."""

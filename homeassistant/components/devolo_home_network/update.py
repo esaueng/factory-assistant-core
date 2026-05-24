@@ -2,7 +2,7 @@
 
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
 from devolo_plc_api.device import Device
 from devolo_plc_api.device_api import UpdateFirmwareCheck
@@ -84,11 +84,13 @@ class DevoloUpdateEntity(DevoloCoordinatorEntity, UpdateEntity):
         super().__init__(entry, coordinator)
         self._in_progress_old_version: str | None = None
 
+    @override
     @property
     def installed_version(self) -> str:
         """Version currently in use."""
         return self.device.firmware_version
 
+    @override
     @property
     def latest_version(self) -> str:
         """Latest version available for install."""
@@ -98,11 +100,13 @@ class DevoloUpdateEntity(DevoloCoordinatorEntity, UpdateEntity):
             return latest_version
         return self.device.firmware_version
 
+    @override
     @property
     def in_progress(self) -> bool:
         """Update installation in progress."""
         return self._in_progress_old_version == self.installed_version
 
+    @override
     async def async_install(
         self, version: str | None, backup: bool, **kwargs: Any
     ) -> None:

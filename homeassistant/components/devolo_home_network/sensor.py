@@ -4,7 +4,7 @@ from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 from enum import StrEnum
-from typing import Any
+from typing import Any, override
 
 from devolo_plc_api.device_api import ConnectedStationInfo, NeighborAPInfo
 from devolo_plc_api.plcnet_api import REMOTE, DataRate, LogicalNetwork
@@ -220,6 +220,7 @@ class DevoloSensorEntity[
 
     entity_description: DevoloSensorEntityDescription[_CoordinatorDataT, _SensorDataT]
 
+    @override
     @property
     def native_value(self) -> int | float | datetime:
         """State of the sensor."""
@@ -253,6 +254,7 @@ class DevoloPlcDataRateSensorEntity(
         self._attr_name = f"{description.name} ({peer_device.user_device_name})"
         self._attr_entity_registry_enabled_default = peer_device.attached_to_router
 
+    @override
     @property
     def native_value(self) -> float:
         """State of the sensor."""

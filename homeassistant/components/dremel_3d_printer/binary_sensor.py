@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from dremel3dpy import Dremel3DPrinter
 
@@ -55,6 +56,7 @@ class Dremel3DPrinterBinarySensor(Dremel3DPrinterEntity, BinarySensorEntity):
 
     entity_description: Dremel3DPrinterBinarySensorEntityDescription
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return True if door is open."""

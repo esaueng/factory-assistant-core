@@ -1,6 +1,7 @@
 """Support for esphome numbers."""
 
 from functools import partial
+from typing import override
 
 from aioesphomeapi import (
     EntityInfo,
@@ -35,6 +36,7 @@ NUMBER_MODES: EsphomeEnumMapper[EsphomeNumberMode, NumberMode] = EsphomeEnumMapp
 class EsphomeNumber(EsphomeEntity[NumberInfo, NumberState], NumberEntity):
     """A number implementation for esphome."""
 
+    @override
     @callback
     def _on_static_info_update(self, static_info: EntityInfo) -> None:
         """Set attrs from static info."""
@@ -55,6 +57,7 @@ class EsphomeNumber(EsphomeEntity[NumberInfo, NumberState], NumberEntity):
         else:
             self._attr_mode = NumberMode.AUTO
 
+    @override
     @property
     @esphome_float_state_property
     def native_value(self) -> float | None:
@@ -62,6 +65,7 @@ class EsphomeNumber(EsphomeEntity[NumberInfo, NumberState], NumberEntity):
         state = self._state
         return None if state.missing_state else state.state
 
+    @override
     @convert_api_error_ha_error
     async def async_set_native_value(self, value: float) -> None:
         """Update the current value."""

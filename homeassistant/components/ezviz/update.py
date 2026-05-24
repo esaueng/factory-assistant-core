@@ -1,6 +1,6 @@
 """Support for EZVIZ sensors."""
 
-from typing import Any
+from typing import Any, override
 
 from pyezvizapi import HTTPError, PyEzvizError
 
@@ -63,16 +63,19 @@ class EzvizUpdateEntity(EzvizEntity, UpdateEntity):
         self._attr_unique_id = f"{serial}_{sensor}"
         self.entity_description = description
 
+    @override
     @property
     def installed_version(self) -> str | None:
         """Version installed and in use."""
         return self.data["version"]
 
+    @override
     @property
     def in_progress(self) -> bool:
         """Update installation progress."""
         return bool(self.data["upgrade_in_progress"])
 
+    @override
     @property
     def latest_version(self) -> str | None:
         """Latest version available for install."""
@@ -81,12 +84,14 @@ class EzvizUpdateEntity(EzvizEntity, UpdateEntity):
 
         return self.installed_version
 
+    @override
     def release_notes(self) -> str | None:
         """Return full release notes."""
         if self.data["latest_firmware_info"]:
             return self.data["latest_firmware_info"].get("desc")
         return None
 
+    @override
     @property
     def update_percentage(self) -> int | None:
         """Update installation progress."""
@@ -94,6 +99,7 @@ class EzvizUpdateEntity(EzvizEntity, UpdateEntity):
             return self.data["upgrade_percent"]
         return None
 
+    @override
     async def async_install(
         self, version: str | None, backup: bool, **kwargs: Any
     ) -> None:

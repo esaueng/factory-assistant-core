@@ -1,6 +1,6 @@
 """Support for deCONZ climate devices."""
 
-from typing import Any
+from typing import Any, override
 
 from pydeconz.models.event import EventType
 from pydeconz.models.sensor.thermostat import (
@@ -134,6 +134,7 @@ class DeconzThermostat(DeconzDevice[Thermostat], ClimateEntity):
 
     # Fan control
 
+    @override
     @property
     def fan_mode(self) -> str:
         """Return fan operation."""
@@ -141,6 +142,7 @@ class DeconzThermostat(DeconzDevice[Thermostat], ClimateEntity):
             return DECONZ_TO_FAN_MODE[self._device.fan_mode]
         return FAN_ON if self._device.state_on else FAN_OFF
 
+    @override
     async def async_set_fan_mode(self, fan_mode: str) -> None:
         """Set new target fan mode."""
         if fan_mode not in FAN_MODE_TO_DECONZ:
@@ -153,6 +155,7 @@ class DeconzThermostat(DeconzDevice[Thermostat], ClimateEntity):
 
     # HVAC control
 
+    @override
     @property
     def hvac_mode(self) -> HVACMode:
         """Return hvac operation ie. heat, cool mode."""
@@ -160,6 +163,7 @@ class DeconzThermostat(DeconzDevice[Thermostat], ClimateEntity):
             return self._deconz_to_hvac_mode[self._device.mode]
         return HVACMode.HEAT if self._device.state_on else HVACMode.OFF
 
+    @override
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         """Set new target hvac mode."""
 
@@ -174,6 +178,7 @@ class DeconzThermostat(DeconzDevice[Thermostat], ClimateEntity):
                 mode=HVAC_MODE_TO_DECONZ[hvac_mode],
             )
 
+    @override
     @property
     def hvac_action(self) -> HVACAction:
         """Return current hvac operation ie. heat, cool.
@@ -191,6 +196,7 @@ class DeconzThermostat(DeconzDevice[Thermostat], ClimateEntity):
 
     # Preset control
 
+    @override
     @property
     def preset_mode(self) -> str | None:
         """Return preset mode."""
@@ -198,6 +204,7 @@ class DeconzThermostat(DeconzDevice[Thermostat], ClimateEntity):
             return DECONZ_TO_PRESET_MODE[self._device.preset]
         return None
 
+    @override
     async def async_set_preset_mode(self, preset_mode: str) -> None:
         """Set new preset mode."""
         if preset_mode not in PRESET_MODE_TO_DECONZ:
@@ -210,11 +217,13 @@ class DeconzThermostat(DeconzDevice[Thermostat], ClimateEntity):
 
     # Temperature control
 
+    @override
     @property
     def current_temperature(self) -> float:
         """Return the current temperature."""
         return self._device.scaled_temperature
 
+    @override
     @property
     def target_temperature(self) -> float | None:
         """Return the target temperature."""
@@ -226,6 +235,7 @@ class DeconzThermostat(DeconzDevice[Thermostat], ClimateEntity):
 
         return None
 
+    @override
     async def async_set_temperature(self, **kwargs: Any) -> None:
         """Set new target temperature."""
         if ATTR_TEMPERATURE not in kwargs:
@@ -242,6 +252,7 @@ class DeconzThermostat(DeconzDevice[Thermostat], ClimateEntity):
                 heating_setpoint=kwargs[ATTR_TEMPERATURE] * 100,
             )
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, bool | int]:
         """Return the state attributes of the thermostat."""

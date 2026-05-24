@@ -3,7 +3,7 @@
 from datetime import timedelta
 import logging
 import time
-from typing import Any
+from typing import Any, override
 
 from electrasmart.api import STATUS_SUCCESS, Attributes, ElectraAPI, ElectraApiError
 from electrasmart.device import ElectraAirConditioner, OperationMode
@@ -161,6 +161,7 @@ class ElectraClimateEntity(ClimateEntity):
 
         _LOGGER.debug("Added %s Electra AC device", self._attr_name)
 
+    @override
     @property
     def available(self) -> bool:
         """Return True if the AC is available."""
@@ -236,12 +237,14 @@ class ElectraClimateEntity(ClimateEntity):
         self._consecutive_failures = 0
         self._update_device_attrs()
 
+    @override
     async def async_set_fan_mode(self, fan_mode: str) -> None:
         """Set AC fan mode."""
         mode = FAN_HASS_TO_ELECTRA[fan_mode]
         self._electra_ac_device.set_fan_speed(mode)
         await self._async_operate_electra_ac()
 
+    @override
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         """Set hvac mode."""
 
@@ -253,6 +256,7 @@ class ElectraClimateEntity(ClimateEntity):
 
         await self._async_operate_electra_ac()
 
+    @override
     async def async_set_temperature(self, **kwargs: Any) -> None:
         """Set new target temperature."""
 
@@ -293,6 +297,7 @@ class ElectraClimateEntity(ClimateEntity):
             PRESET_SHABAT if self._electra_ac_device.get_shabat_mode() else PRESET_NONE
         )
 
+    @override
     async def async_set_swing_mode(self, swing_mode: str) -> None:
         """Set AC swing mdde."""
         if swing_mode == SWING_BOTH:
@@ -312,6 +317,7 @@ class ElectraClimateEntity(ClimateEntity):
 
         await self._async_operate_electra_ac()
 
+    @override
     async def async_set_preset_mode(self, preset_mode: str) -> None:
         """Set Preset mode."""
         if preset_mode == PRESET_SHABAT:

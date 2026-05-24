@@ -3,7 +3,7 @@
 from collections.abc import AsyncIterable
 from io import BytesIO
 import logging
-from typing import Any
+from typing import Any, override
 
 from elevenlabs import AsyncElevenLabs
 from elevenlabs.core import ApiError
@@ -89,31 +89,37 @@ class ElevenLabsSTTEntity(SpeechToTextEntity):
             entry_type=DeviceEntryType.SERVICE,
         )
 
+    @override
     @property
     def supported_languages(self) -> list[str]:
         """Return a list of supported languages."""
         return STT_LANGUAGES
 
+    @override
     @property
     def supported_formats(self) -> list[AudioFormats]:
         """Return a list of supported formats."""
         return [AudioFormats.WAV, AudioFormats.OGG]
 
+    @override
     @property
     def supported_codecs(self) -> list[AudioCodecs]:
         """Return a list of supported codecs."""
         return [AudioCodecs.PCM, AudioCodecs.OPUS]
 
+    @override
     @property
     def supported_bit_rates(self) -> list[AudioBitRates]:
         """Return a list of supported bit rates."""
         return [AudioBitRates.BITRATE_16]
 
+    @override
     @property
     def supported_sample_rates(self) -> list[AudioSampleRates]:
         """Return a list of supported sample rates."""
         return [AudioSampleRates.SAMPLERATE_16000]
 
+    @override
     @property
     def supported_channels(self) -> list[AudioChannels]:
         """Return a list of supported channels."""
@@ -122,6 +128,7 @@ class ElevenLabsSTTEntity(SpeechToTextEntity):
             AudioChannels.CHANNEL_STEREO,
         ]
 
+    @override
     async def async_process_audio_stream(
         self, metadata: SpeechMetadata, stream: AsyncIterable[bytes]
     ) -> stt.SpeechResult:

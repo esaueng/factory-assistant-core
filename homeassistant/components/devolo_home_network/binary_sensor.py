@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from devolo_plc_api.plcnet_api import LogicalNetwork
 
@@ -82,6 +83,7 @@ class DevoloBinarySensorEntity(
         self.entity_description: DevoloBinarySensorEntityDescription = description
         super().__init__(entry, coordinator)
 
+    @override
     @property
     def is_on(self) -> bool:
         """State of the binary sensor."""

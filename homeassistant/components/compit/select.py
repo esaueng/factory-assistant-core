@@ -1,6 +1,7 @@
 """Select platform for Compit integration."""
 
 from dataclasses import dataclass
+from typing import override
 
 from compit_inext_api.consts import CompitParameter
 
@@ -409,6 +410,7 @@ class CompitSelect(CoordinatorEntity[CompitDataUpdateCoordinator], SelectEntity)
         )
         self.parameter_code = parameter_code
 
+    @override
     @property
     def available(self) -> bool:
         """Return if entity is available."""
@@ -417,6 +419,7 @@ class CompitSelect(CoordinatorEntity[CompitDataUpdateCoordinator], SelectEntity)
             and self.coordinator.connector.get_device(self.device_id) is not None
         )
 
+    @override
     @property
     def current_option(self) -> str | None:
         """Return the current option."""
@@ -424,6 +427,7 @@ class CompitSelect(CoordinatorEntity[CompitDataUpdateCoordinator], SelectEntity)
             self.device_id, self.parameter_code
         )
 
+    @override
     async def async_select_option(self, option: str) -> None:
         """Change the selected option."""
         await self.coordinator.connector.select_device_option(

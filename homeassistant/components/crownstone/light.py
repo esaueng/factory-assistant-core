@@ -1,7 +1,7 @@
 """Support for Crownstone devices."""
 
 from functools import partial
-from typing import Any
+from typing import Any, override
 
 from crownstone_cloud.cloud_models.crownstones import Crownstone
 from crownstone_cloud.const import DIMMING_ABILITY
@@ -77,16 +77,19 @@ class CrownstoneLightEntity(CrownstoneEntity, LightEntity):
         # Entity class attributes
         self._attr_unique_id = f"{self.cloud_id}-{CROWNSTONE_SUFFIX}"
 
+    @override
     @property
     def brightness(self) -> int | None:
         """Return the brightness if dimming enabled."""
         return crownstone_state_to_hass(self.device.state)
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return if the device is on."""
         return crownstone_state_to_hass(self.device.state) > 0
 
+    @override
     @property
     def color_mode(self) -> ColorMode:
         """Return the color mode of the light."""
@@ -94,11 +97,13 @@ class CrownstoneLightEntity(CrownstoneEntity, LightEntity):
             return ColorMode.BRIGHTNESS
         return ColorMode.ONOFF
 
+    @override
     @property
     def supported_color_modes(self) -> set[ColorMode]:
         """Flag supported color modes."""
         return {self.color_mode}
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Set up a listener when this entity is added to HA."""
         # new state received
@@ -114,6 +119,7 @@ class CrownstoneLightEntity(CrownstoneEntity, LightEntity):
             )
         )
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn on this light via dongle or cloud."""
         if ATTR_BRIGHTNESS in kwargs:
@@ -149,6 +155,7 @@ class CrownstoneLightEntity(CrownstoneEntity, LightEntity):
             self.device.state = 100
             self.async_write_ha_state()
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn off this device via dongle or cloud."""
         if self.usb is not None and self.usb.is_ready():

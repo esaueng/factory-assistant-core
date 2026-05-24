@@ -1,6 +1,6 @@
 """Support for deCONZ fans."""
 
-from typing import Any
+from typing import Any, override
 
 from pydeconz.models.event import EventType
 from pydeconz.models.light.light import Light, LightFanSpeed
@@ -70,11 +70,13 @@ class DeconzFan(DeconzDevice[Light], FanEntity):
         if device.fan_speed in ORDERED_NAMED_FAN_SPEEDS:
             self._default_on_speed = device.fan_speed
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return true if fan is on."""
         return self._device.fan_speed != LightFanSpeed.OFF
 
+    @override
     @property
     def percentage(self) -> int | None:
         """Return the current speed percentage."""
@@ -86,6 +88,7 @@ class DeconzFan(DeconzDevice[Light], FanEntity):
             ORDERED_NAMED_FAN_SPEEDS, self._device.fan_speed
         )
 
+    @override
     @callback
     def async_update_callback(self) -> None:
         """Store latest configured speed from the device."""
@@ -93,6 +96,7 @@ class DeconzFan(DeconzDevice[Light], FanEntity):
             self._default_on_speed = self._device.fan_speed
         super().async_update_callback()
 
+    @override
     async def async_set_percentage(self, percentage: int) -> None:
         """Set the speed percentage of the fan."""
         if percentage == 0:
@@ -105,6 +109,7 @@ class DeconzFan(DeconzDevice[Light], FanEntity):
             ),
         )
 
+    @override
     async def async_turn_on(
         self,
         percentage: int | None = None,
@@ -120,6 +125,7 @@ class DeconzFan(DeconzDevice[Light], FanEntity):
             fan_speed=self._default_on_speed,
         )
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn off fan."""
         await self.hub.api.lights.lights.set_state(

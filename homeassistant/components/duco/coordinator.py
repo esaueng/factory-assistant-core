@@ -2,6 +2,7 @@
 
 from dataclasses import dataclass
 import logging
+from typing import override
 
 from duco_connectivity import DucoClient
 from duco_connectivity.exceptions import DucoConnectionError, DucoError
@@ -49,6 +50,7 @@ class DucoCoordinator(DataUpdateCoordinator[DucoData]):
         )
         self.client = client
 
+    @override
     async def _async_setup(self) -> None:
         """Fetch board info once during initial setup."""
         try:
@@ -66,6 +68,7 @@ class DucoCoordinator(DataUpdateCoordinator[DucoData]):
                 translation_placeholders={"error": repr(err)},
             ) from err
 
+    @override
     async def _async_update_data(self) -> DucoData:
         """Fetch node data from the Duco box."""
         try:

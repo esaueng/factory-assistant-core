@@ -1,6 +1,7 @@
 """Support for ESPHome buttons."""
 
 from functools import partial
+from typing import override
 
 from aioesphomeapi import ButtonInfo, EntityInfo, EntityState
 
@@ -20,6 +21,7 @@ PARALLEL_UPDATES = 0
 class EsphomeButton(EsphomeEntity[ButtonInfo, EntityState], ButtonEntity):
     """A button implementation for ESPHome."""
 
+    @override
     @callback
     def _on_static_info_update(self, static_info: EntityInfo) -> None:
         """Set attrs from static info."""
@@ -28,6 +30,7 @@ class EsphomeButton(EsphomeEntity[ButtonInfo, EntityState], ButtonEntity):
             ButtonDeviceClass, self._static_info.device_class
         )
 
+    @override
     @callback
     def _on_device_update(self) -> None:
         """Call when device updates or entry data changes.
@@ -43,6 +46,7 @@ class EsphomeButton(EsphomeEntity[ButtonInfo, EntityState], ButtonEntity):
         self._on_entry_data_changed()
         self.async_write_ha_state()
 
+    @override
     @convert_api_error_ha_error
     async def async_press(self) -> None:
         """Press the button."""

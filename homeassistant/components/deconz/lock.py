@@ -1,6 +1,6 @@
 """Support for deCONZ locks."""
 
-from typing import Any
+from typing import Any, override
 
 from pydeconz.models.event import EventType
 from pydeconz.models.light.lock import Lock
@@ -52,11 +52,13 @@ class DeconzLock(DeconzDevice[DoorLock | Lock], LockEntity):
 
     TYPE = LOCK_DOMAIN
 
+    @override
     @property
     def is_locked(self) -> bool:
         """Return true if lock is on."""
         return self._device.is_locked
 
+    @override
     async def async_lock(self, **kwargs: Any) -> None:
         """Lock the lock."""
         if isinstance(self._device, DoorLock):
@@ -70,6 +72,7 @@ class DeconzLock(DeconzDevice[DoorLock | Lock], LockEntity):
                 lock=True,
             )
 
+    @override
     async def async_unlock(self, **kwargs: Any) -> None:
         """Unlock the lock."""
         if isinstance(self._device, DoorLock):

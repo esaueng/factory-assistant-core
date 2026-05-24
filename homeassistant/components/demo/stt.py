@@ -1,6 +1,7 @@
 """Support for the demo for speech-to-text service."""
 
 from collections.abc import AsyncIterable
+from typing import override
 
 from homeassistant.components.stt import (
     AudioBitRates,
@@ -34,36 +35,43 @@ class DemoProviderEntity(SpeechToTextEntity):
 
     _attr_name = "Demo STT"
 
+    @override
     @property
     def supported_languages(self) -> list[str]:
         """Return a list of supported languages."""
         return SUPPORT_LANGUAGES
 
+    @override
     @property
     def supported_formats(self) -> list[AudioFormats]:
         """Return a list of supported formats."""
         return [AudioFormats.WAV]
 
+    @override
     @property
     def supported_codecs(self) -> list[AudioCodecs]:
         """Return a list of supported codecs."""
         return [AudioCodecs.PCM]
 
+    @override
     @property
     def supported_bit_rates(self) -> list[AudioBitRates]:
         """Return a list of supported bit rates."""
         return [AudioBitRates.BITRATE_16]
 
+    @override
     @property
     def supported_sample_rates(self) -> list[AudioSampleRates]:
         """Return a list of supported sample rates."""
         return [AudioSampleRates.SAMPLERATE_16000, AudioSampleRates.SAMPLERATE_44100]
 
+    @override
     @property
     def supported_channels(self) -> list[AudioChannels]:
         """Return a list of supported channels."""
         return [AudioChannels.CHANNEL_STEREO]
 
+    @override
     async def async_process_audio_stream(
         self, metadata: SpeechMetadata, stream: AsyncIterable[bytes]
     ) -> SpeechResult:

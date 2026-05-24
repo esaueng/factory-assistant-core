@@ -1,7 +1,7 @@
 """Config flow to configure Denon AVR receivers using their HTTP interface."""
 
 import logging
-from typing import Any
+from typing import Any, override
 from urllib.parse import urlparse
 
 import denonavr
@@ -113,6 +113,7 @@ class DenonAvrFlowHandler(ConfigFlow, domain=DOMAIN):
         self.zone3 = DEFAULT_ZONE3
         self.d_receivers: list[dict[str, Any]] = []
 
+    @override
     @staticmethod
     @callback
     def async_get_options_flow(
@@ -121,6 +122,7 @@ class DenonAvrFlowHandler(ConfigFlow, domain=DOMAIN):
         """Get the options flow."""
         return OptionsFlowHandler()
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
@@ -235,6 +237,7 @@ class DenonAvrFlowHandler(ConfigFlow, domain=DOMAIN):
             options={CONF_USE_TELNET: DEFAULT_USE_TELNET_NEW_INSTALL},
         )
 
+    @override
     async def async_step_ssdp(
         self, discovery_info: SsdpServiceInfo
     ) -> ConfigFlowResult:

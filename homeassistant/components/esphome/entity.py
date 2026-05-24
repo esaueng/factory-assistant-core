@@ -4,7 +4,7 @@ from collections.abc import Awaitable, Callable, Coroutine
 import functools
 import logging
 import math
-from typing import TYPE_CHECKING, Any, Concatenate, Generic, TypeVar, cast
+from typing import TYPE_CHECKING, Any, Concatenate, Generic, TypeVar, cast, override
 
 from aioesphomeapi import (
     APIConnectionError,
@@ -371,6 +371,7 @@ class EsphomeEntity(EsphomeBaseEntity, Generic[_InfoT, _StateT]):  # noqa: UP046
                 connections={(dr.CONNECTION_NETWORK_MAC, device_info.mac_address)}
             )
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Register callbacks."""
         entry_data = self._entry_data
@@ -508,6 +509,7 @@ class EsphomeAssistEntity(EsphomeBaseEntity):
             connections={(dr.CONNECTION_NETWORK_MAC, device_info.mac_address)}
         )
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Register update callback."""
         await super().async_added_to_hass()

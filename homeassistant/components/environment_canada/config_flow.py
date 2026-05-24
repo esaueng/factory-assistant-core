@@ -1,7 +1,7 @@
 """Config flow for Environment Canada integration."""
 
 import logging
-from typing import Any
+from typing import Any, override
 import xml.etree.ElementTree as ET
 
 import aiohttp
@@ -63,6 +63,7 @@ class EnvironmentCanadaConfigFlow(ConfigFlow, domain=DOMAIN):
             self._station_codes = await get_ec_sites_list()
         return self._station_codes
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:

@@ -1,6 +1,7 @@
 """Demo platform that has two fake calendars."""
 
 import datetime
+from typing import override
 
 from homeassistant.components.calendar import CalendarEntity, CalendarEvent
 from homeassistant.config_entries import ConfigEntry
@@ -53,11 +54,13 @@ class DemoCalendar(CalendarEntity):
         self._event = event
         self._attr_name = name
 
+    @override
     @property
     def event(self) -> CalendarEvent:
         """Return the next upcoming event."""
         return self._event
 
+    @override
     async def async_get_events(
         self,
         hass: HomeAssistant,

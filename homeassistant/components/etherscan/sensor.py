@@ -1,6 +1,7 @@
 """Support for Etherscan sensors."""
 
 from datetime import timedelta
+from typing import override
 
 from pyetherscan import get_balance
 import voluptuous as vol
@@ -65,16 +66,19 @@ class EtherscanSensor(SensorEntity):
         self._state = None
         self._unit_of_measurement = self._token or "ETH"
 
+    @override
     @property
     def name(self):
         """Return the name of the sensor."""
         return self._name
 
+    @override
     @property
     def native_value(self):
         """Return the state of the sensor."""
         return self._state
 
+    @override
     @property
     def native_unit_of_measurement(self):
         """Return the unit of measurement this sensor expresses itself in."""

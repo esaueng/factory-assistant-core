@@ -3,7 +3,7 @@
 import asyncio
 from datetime import timedelta
 import logging
-from typing import Any
+from typing import Any, override
 
 from pyControl4.error_handling import C4Exception
 from pyControl4.light import C4Light
@@ -187,6 +187,7 @@ class Control4Light(Control4Entity, LightEntity):
         """
         return C4Light(self.runtime_data.director, self._idx)
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return whether this light is on or off."""
@@ -197,6 +198,7 @@ class Control4Light(Control4Entity, LightEntity):
             raise RuntimeError("Dimmer Variable Not Found")
         return self.coordinator.data[self._idx][CONTROL4_NON_DIMMER_VAR] > 0
 
+    @override
     @property
     def brightness(self) -> int | None:
         """Return the brightness of this light between 0..255."""
@@ -206,6 +208,7 @@ class Control4Light(Control4Entity, LightEntity):
                     return round(self.coordinator.data[self._idx][var] * 2.55)
         return None
 
+    @override
     @property
     def supported_features(self) -> LightEntityFeature:
         """Flag supported features."""
@@ -213,6 +216,7 @@ class Control4Light(Control4Entity, LightEntity):
             return LightEntityFeature.TRANSITION
         return LightEntityFeature(0)
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the entity on."""
         c4_light = self._create_api_object()
@@ -236,6 +240,7 @@ class Control4Light(Control4Entity, LightEntity):
         await asyncio.sleep(delay_time)
         await self.coordinator.async_request_refresh()
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the entity off."""
         c4_light = self._create_api_object()

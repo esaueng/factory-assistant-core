@@ -3,7 +3,7 @@
 from dataclasses import dataclass
 from datetime import timedelta
 import re
-from typing import Any
+from typing import Any, override
 
 import voluptuous as vol
 
@@ -136,6 +136,7 @@ class DovadoSensor(SensorEntity):
         self._data.update()
         self._attr_native_value = self._compute_state()
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return the state attributes."""

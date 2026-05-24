@@ -7,7 +7,7 @@ from http import HTTPStatus
 from itertools import groupby
 import logging
 import re
-from typing import Any, Final, cast, final
+from typing import Any, Final, cast, final, override
 
 from aiohttp import web
 from dateutil.rrule import rrulestr
@@ -546,6 +546,7 @@ class CalendarEntity(Entity):
             return self.entity_description.initial_color
         return None
 
+    @override
     def get_initial_entity_options(self) -> er.EntityOptionsType | None:
         """Return initial entity options."""
         if self.initial_color is None:
@@ -564,6 +565,7 @@ class CalendarEntity(Entity):
         """Return the next upcoming event."""
         raise NotImplementedError
 
+    @override
     @final
     @property
     def state_attributes(self) -> dict[str, Any] | None:
@@ -580,6 +582,7 @@ class CalendarEntity(Entity):
             "description": event.description or "",
         }
 
+    @override
     @final
     @property
     def state(self) -> str:
@@ -594,6 +597,7 @@ class CalendarEntity(Entity):
 
         return STATE_OFF
 
+    @override
     @callback
     def _async_write_ha_state(self) -> None:
         """Write the state to the state machine.
@@ -653,6 +657,7 @@ class CalendarEntity(Entity):
             self._event_listener_debouncer.async_cancel()
             self._event_listener_debouncer = None
 
+    @override
     async def async_will_remove_from_hass(self) -> None:
         """Run when entity will be removed from hass.
 

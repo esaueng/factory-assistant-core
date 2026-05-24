@@ -1,6 +1,6 @@
 """Support for control of ElkM1 outputs (relays)."""
 
-from typing import Any
+from typing import Any, override
 
 from elkm1_lib.const import ThermostatMode, ThermostatSetting
 from elkm1_lib.elements import Element
@@ -38,15 +38,18 @@ class ElkOutput(ElkAttachedEntity, SwitchEntity):
 
     _element: Output
 
+    @override
     @property
     def is_on(self) -> bool:
         """Get the current output status."""
         return self._element.output_on
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn on the output."""
         self._element.turn_on(0)
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn off the output."""
         self._element.turn_off()
@@ -63,6 +66,7 @@ class ElkThermostatEMHeat(ElkEntity, SwitchEntity):
         self._unique_id = f"{self._unique_id}emheat"
         self._attr_name = f"{element.name} emergency heat"
 
+    @override
     @property
     def is_on(self) -> bool:
         """Get the current emergency heat status."""
@@ -72,10 +76,12 @@ class ElkThermostatEMHeat(ElkEntity, SwitchEntity):
         """Set the thermostat mode."""
         self._element.set(ThermostatSetting.MODE, mode)
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn on the output."""
         self._elk_set(ThermostatMode.EMERGENCY_HEAT)
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn off the output."""
         self._elk_set(ThermostatMode.EMERGENCY_HEAT)

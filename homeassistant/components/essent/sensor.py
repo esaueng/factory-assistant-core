@@ -3,7 +3,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 import logging
-from typing import Any
+from typing import Any, override
 
 from essent_dynamic_pricing.models import EnergyData, Tariff
 
@@ -203,11 +203,13 @@ class EssentSensor(EssentEntity, SensorEntity):
         self._attr_unique_id = f"{energy_type}-{description.key}"
         self._attr_translation_key = f"{energy_type}_{description.translation_key}"
 
+    @override
     @property
     def native_value(self) -> float | None:
         """Return the current value."""
         return self.entity_description.value_fn(self.energy_data)
 
+    @override
     @property
     def native_unit_of_measurement(self) -> str:
         """Return the unit of measurement."""

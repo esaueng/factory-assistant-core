@@ -2,7 +2,7 @@
 
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, override
 
 from aiostreammagic import StreamMagicClient
 
@@ -103,16 +103,19 @@ class CambridgeAudioSwitch(CambridgeAudioEntity, SwitchEntity):
         self.entity_description = description
         self._attr_unique_id = f"{client.info.unit_id}-{description.key}"
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return the state of the switch."""
         return self.entity_description.value_fn(self.client)
 
+    @override
     @command
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the switch on."""
         await self.entity_description.set_value_fn(self.client, True)
 
+    @override
     @command
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the switch off."""

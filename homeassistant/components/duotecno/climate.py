@@ -1,6 +1,6 @@
 """Support for Duotecno climate devices."""
 
-from typing import Any, Final
+from typing import Any, Final, override
 
 from duotecno.unit import SensUnit
 
@@ -54,26 +54,31 @@ class DuotecnoClimate(DuotecnoEntity, ClimateEntity):
     _attr_preset_modes = list(PRESETMODES)
     _attr_translation_key = "duotecno"
 
+    @override
     @property
     def current_temperature(self) -> float | None:
         """Get the current temperature."""
         return self._unit.get_cur_temp()
 
+    @override
     @property
     def target_temperature(self) -> float | None:
         """Get the target temperature."""
         return self._unit.get_target_temp()
 
+    @override
     @property
     def hvac_mode(self) -> HVACMode:
         """Get the current hvac_mode."""
         return HVACMODE[self._unit.get_state()]
 
+    @override
     @property
     def preset_mode(self) -> str:
         """Get the preset mode."""
         return PRESETMODES_REVERSE[self._unit.get_preset()]
 
+    @override
     @api_call
     async def async_set_temperature(self, **kwargs: Any) -> None:
         """Set new target temperatures."""
@@ -81,11 +86,13 @@ class DuotecnoClimate(DuotecnoEntity, ClimateEntity):
             return
         await self._unit.set_temp(temp)
 
+    @override
     @api_call
     async def async_set_preset_mode(self, preset_mode: str) -> None:
         """Set the preset mode."""
         await self._unit.set_preset(PRESETMODES[preset_mode])
 
+    @override
     @api_call
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         """Duotecno does not support setting this, we can only display it."""

@@ -1,7 +1,7 @@
 """Support for Ecobee Thermostats."""
 
 import collections
-from typing import Any
+from typing import Any, override
 
 import voluptuous as vol
 
@@ -402,11 +402,13 @@ class Thermostat(ClimateEntity):
         if self.hvac_mode != HVACMode.OFF:
             self._last_active_hvac_mode = self.hvac_mode
 
+    @override
     @property
     def available(self) -> bool:
         """Return if device is available."""
         return self.thermostat["runtime"]["connected"]
 
+    @override
     @property
     def supported_features(self) -> ClimateEntityFeature:
         """Return the list of supported features."""
@@ -419,6 +421,7 @@ class Thermostat(ClimateEntity):
             )
         return supported
 
+    @override
     @property
     def device_info(self) -> DeviceInfo:
         """Return device information for this ecobee thermostat."""
@@ -436,11 +439,13 @@ class Thermostat(ClimateEntity):
             name=self.thermostat["name"],
         )
 
+    @override
     @property
     def current_temperature(self) -> float:
         """Return the current temperature."""
         return self.thermostat["runtime"]["actualTemperature"] / 10.0
 
+    @override
     @property
     def target_temperature_low(self) -> float | None:
         """Return the lower bound temperature we try to reach."""
@@ -448,6 +453,7 @@ class Thermostat(ClimateEntity):
             return self.thermostat["runtime"]["desiredHeat"] / 10.0
         return None
 
+    @override
     @property
     def target_temperature_high(self) -> float | None:
         """Return the upper bound temperature we try to reach."""
@@ -455,6 +461,7 @@ class Thermostat(ClimateEntity):
             return self.thermostat["runtime"]["desiredCool"] / 10.0
         return None
 
+    @override
     @property
     def target_temperature_step(self) -> float:
         """Set target temperature step to halves."""
@@ -473,6 +480,7 @@ class Thermostat(ClimateEntity):
             and self.settings.get("humidifierMode") == HUMIDIFIER_MANUAL_MODE
         )
 
+    @override
     @property
     def target_humidity(self) -> int | None:
         """Return the desired humidity set point."""
@@ -480,6 +488,7 @@ class Thermostat(ClimateEntity):
             return self.thermostat["runtime"]["desiredHumidity"]
         return None
 
+    @override
     @property
     def target_temperature(self) -> float | None:
         """Return the temperature we try to reach."""
@@ -498,11 +507,13 @@ class Thermostat(ClimateEntity):
             return STATE_ON
         return STATE_OFF
 
+    @override
     @property
     def fan_mode(self) -> str:
         """Return the fan setting."""
         return self.thermostat["runtime"]["desiredFanMode"]
 
+    @override
     @property
     def preset_mode(self) -> str | None:
         """Return current preset mode."""
@@ -536,11 +547,13 @@ class Thermostat(ClimateEntity):
 
         return None
 
+    @override
     @property
     def hvac_mode(self) -> HVACMode:
         """Return current operation."""
         return ECOBEE_HVAC_TO_HASS[self.settings["hvacMode"]]
 
+    @override
     @property
     def current_humidity(self) -> int | None:
         """Return the current humidity."""
@@ -549,6 +562,7 @@ class Thermostat(ClimateEntity):
         except KeyError:
             return None
 
+    @override
     @property
     def hvac_action(self) -> HVACAction:
         """Return current HVAC action.
@@ -581,6 +595,7 @@ class Thermostat(ClimateEntity):
 
     _unrecorded_attributes = frozenset({ATTR_AVAILABLE_SENSORS, ATTR_ACTIVE_SENSORS})
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return device specific state attributes."""
@@ -646,6 +661,7 @@ class Thermostat(ClimateEntity):
         mode = self._preset_modes.get(self.preset_mode, "Home")
         return self._sensor_devices_in_preset_mode(mode)
 
+    @override
     def set_preset_mode(self, preset_mode: str) -> None:
         """Activate a preset."""
         preset_mode = HASS_TO_ECOBEE_PRESET.get(preset_mode, preset_mode)
@@ -693,6 +709,7 @@ class Thermostat(ClimateEntity):
                 self.hold_hours(),
             )
 
+    @override
     @property
     def preset_modes(self) -> list[str] | None:
         """Return available preset modes."""
@@ -740,6 +757,7 @@ class Thermostat(ClimateEntity):
 
         self.update_without_throttle = True
 
+    @override
     def set_fan_mode(self, fan_mode: str) -> None:
         """Set the fan mode.  Valid values are "on" or "auto"."""
         if fan_mode.lower() not in (FAN_ON, FAN_AUTO):
@@ -776,6 +794,7 @@ class Thermostat(ClimateEntity):
             cool_temp = temp + delta
         self.set_auto_temp_hold(heat_temp, cool_temp)
 
+    @override
     def set_temperature(self, **kwargs: Any) -> None:
         """Set new target temperature."""
         low_temp = kwargs.get(ATTR_TARGET_TEMP_LOW)
@@ -791,6 +810,7 @@ class Thermostat(ClimateEntity):
         else:
             _LOGGER.error("Missing valid arguments for set_temperature in %s", kwargs)
 
+    @override
     def set_humidity(self, humidity: int) -> None:
         """Set the humidity level."""
         if not (0 <= humidity <= 100):
@@ -801,6 +821,7 @@ class Thermostat(ClimateEntity):
         self.data.ecobee.set_humidity(self.thermostat_index, int(humidity))
         self.update_without_throttle = True
 
+    @override
     def set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         """Set HVAC mode (auto, auxHeatOnly, cool, heat, off)."""
         ecobee_value = HASS_TO_ECOBEE_HVAC.get(hvac_mode)
@@ -1018,6 +1039,7 @@ class Thermostat(ClimateEntity):
         )
         self.data.ecobee.delete_vacation(self.thermostat_index, vacation_name)
 
+    @override
     def turn_on(self) -> None:
         """Set the thermostat to the last active HVAC mode."""
         _LOGGER.debug(

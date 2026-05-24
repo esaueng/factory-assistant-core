@@ -2,7 +2,7 @@
 
 from datetime import timedelta
 import logging
-from typing import Any
+from typing import Any, override
 
 import voluptuous as vol
 
@@ -105,6 +105,7 @@ class DecoraWifiLight(LightEntity):
         self._switch = switch
         self._attr_unique_id = switch.serial
 
+    @override
     @property
     def color_mode(self) -> ColorMode:
         """Return the color mode of the light."""
@@ -112,11 +113,13 @@ class DecoraWifiLight(LightEntity):
             return ColorMode.BRIGHTNESS
         return ColorMode.ONOFF
 
+    @override
     @property
     def supported_color_modes(self) -> set[ColorMode]:
         """Flag supported color modes."""
         return {self.color_mode}
 
+    @override
     @property
     def supported_features(self) -> LightEntityFeature:
         """Return supported features."""
@@ -124,26 +127,31 @@ class DecoraWifiLight(LightEntity):
             return LightEntityFeature.TRANSITION
         return LightEntityFeature(0)
 
+    @override
     @property
     def name(self):
         """Return the display name of this switch."""
         return self._switch.name
 
+    @override
     @property
     def unique_id(self):
         """Return the ID of this light."""
         return self._switch.serial
 
+    @override
     @property
     def brightness(self) -> int:
         """Return the brightness of the dimmer switch."""
         return int(self._switch.brightness * 255 / 100)
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return true if switch is on."""
         return self._switch.power == "ON"
 
+    @override
     def turn_on(self, **kwargs: Any) -> None:
         """Instruct the switch to turn on & adjust brightness."""
         attribs: dict[str, Any] = {"power": "ON"}
@@ -165,6 +173,7 @@ class DecoraWifiLight(LightEntity):
         except ValueError:
             _LOGGER.error("Failed to turn on myLeviton switch")
 
+    @override
     def turn_off(self, **kwargs: Any) -> None:
         """Instruct the switch to turn off."""
         attribs = {"power": "OFF"}

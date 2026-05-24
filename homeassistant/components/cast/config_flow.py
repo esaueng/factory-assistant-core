@@ -1,6 +1,6 @@
 """Config flow for Cast."""
 
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, override
 
 import voluptuous as vol
 
@@ -47,6 +47,7 @@ class FlowHandler(ConfigFlow, domain=DOMAIN):
 
     VERSION = 1
 
+    @override
     @staticmethod
     @callback
     def async_get_options_flow(
@@ -55,12 +56,14 @@ class FlowHandler(ConfigFlow, domain=DOMAIN):
         """Get the options flow for this handler."""
         return CastOptionsFlowHandler()
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
         """Handle a flow initialized by the user."""
         return await self.async_step_config()
 
+    @override
     async def async_step_zeroconf(
         self, discovery_info: ZeroconfServiceInfo
     ) -> ConfigFlowResult:

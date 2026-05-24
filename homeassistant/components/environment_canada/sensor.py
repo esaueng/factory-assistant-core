@@ -2,7 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
 from env_canada import ECWeather
 
@@ -291,6 +291,7 @@ class ECBaseSensorEntity[DataT: ECDataType](
         self._attr_unique_id = f"{coordinator.config_entry.title}-{description.key}"
         self._attr_device_info = coordinator.device_info
 
+    @override
     @property
     def native_value(self):
         """Return the native value of the sensor."""
@@ -319,6 +320,7 @@ class ECSensorEntity[DataT: ECDataType](ECBaseSensorEntity[DataT]):
 class ECAlertSensorEntity(ECBaseSensorEntity[ECWeather]):
     """Environment Canada sensor for alerts."""
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return the extra state attributes."""

@@ -1,6 +1,6 @@
 """EHEIM Digital climate."""
 
-from typing import Any
+from typing import Any, override
 
 from eheimdigital.device import EheimDigitalDevice
 from eheimdigital.heater import EheimDigitalHeater
@@ -82,6 +82,7 @@ class EheimDigitalHeaterClimate(EheimDigitalEntity[EheimDigitalHeater], ClimateE
         self._attr_unique_id = self._device_address
         self._async_update_attrs()
 
+    @override
     @exception_handler
     async def async_set_preset_mode(self, preset_mode: str) -> None:
         """Set the preset mode."""
@@ -90,12 +91,14 @@ class EheimDigitalHeaterClimate(EheimDigitalEntity[EheimDigitalHeater], ClimateE
                 HEATER_PRESET_TO_HEATER_MODE[preset_mode]
             )
 
+    @override
     @exception_handler
     async def async_set_temperature(self, **kwargs: Any) -> None:
         """Set a new temperature."""
         if ATTR_TEMPERATURE in kwargs:
             await self._device.set_target_temperature(kwargs[ATTR_TEMPERATURE])
 
+    @override
     @exception_handler
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         """Set the heating mode."""
@@ -105,6 +108,7 @@ class EheimDigitalHeaterClimate(EheimDigitalEntity[EheimDigitalHeater], ClimateE
             case HVACMode.AUTO:
                 await self._device.set_active(active=True)
 
+    @override
     def _async_update_attrs(self) -> None:
         if self._device.temperature_unit == HeaterUnit.CELSIUS:
             self._attr_min_temp = 18

@@ -3,6 +3,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime, timedelta
+from typing import override
 
 from electrickiwi_api.model import AccountSummary, Hop
 
@@ -176,6 +177,7 @@ class ElectricKiwiAccountEntity(
         )
         self.entity_description = description
 
+    @override
     @property
     def native_value(self) -> float | datetime:
         """Return the state of the sensor."""
@@ -205,6 +207,7 @@ class ElectricKiwiHOPEntity(
         )
         self.entity_description = description
 
+    @override
     @property
     def native_value(self) -> datetime:
         """Return the state of the sensor."""

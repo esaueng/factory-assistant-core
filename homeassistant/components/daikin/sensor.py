@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from pydaikin.daikin_base import Appliance
 
@@ -172,6 +173,7 @@ class DaikinSensor(DaikinEntity, SensorEntity):
         self.entity_description = description
         self._attr_unique_id = f"{self.device.mac}-{description.key}"
 
+    @override
     @property
     def native_value(self) -> float | None:
         """Return the state of the sensor."""

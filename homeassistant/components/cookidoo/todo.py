@@ -1,6 +1,6 @@
 """Todo platform for the Cookidoo integration."""
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, override
 
 from cookidoo_api import (
     CookidooAdditionalItem,
@@ -53,6 +53,7 @@ class CookidooIngredientsTodoListEntity(CookidooBaseEntity, TodoListEntity):
         assert coordinator.config_entry.unique_id
         self._attr_unique_id = f"{coordinator.config_entry.unique_id}_ingredients"
 
+    @override
     @property
     def todo_items(self) -> list[TodoItem]:
         """Return the todo ingredients."""
@@ -70,6 +71,7 @@ class CookidooIngredientsTodoListEntity(CookidooBaseEntity, TodoListEntity):
             for item in self.coordinator.data.ingredient_items
         ]
 
+    @override
     async def async_update_todo_item(self, item: TodoItem) -> None:
         """Update an ingredient to the To-do list.
 
@@ -117,6 +119,7 @@ class CookidooAdditionalItemTodoListEntity(CookidooBaseEntity, TodoListEntity):
         assert coordinator.config_entry.unique_id
         self._attr_unique_id = f"{coordinator.config_entry.unique_id}_additional_items"
 
+    @override
     @property
     def todo_items(self) -> list[TodoItem]:
         """Return the todo items."""
@@ -134,6 +137,7 @@ class CookidooAdditionalItemTodoListEntity(CookidooBaseEntity, TodoListEntity):
             for item in self.coordinator.data.additional_items
         ]
 
+    @override
     async def async_create_todo_item(self, item: TodoItem) -> None:
         """Add an item to the To-do list."""
 
@@ -150,6 +154,7 @@ class CookidooAdditionalItemTodoListEntity(CookidooBaseEntity, TodoListEntity):
 
         await self.coordinator.async_refresh()
 
+    @override
     async def async_update_todo_item(self, item: TodoItem) -> None:
         """Update an item to the To-do list."""
 
@@ -173,6 +178,7 @@ class CookidooAdditionalItemTodoListEntity(CookidooBaseEntity, TodoListEntity):
 
         await self.coordinator.async_refresh()
 
+    @override
     async def async_delete_todo_items(self, uids: list[str]) -> None:
         """Delete an item from the To-do list."""
 

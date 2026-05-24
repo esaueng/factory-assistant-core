@@ -7,7 +7,7 @@ https://data.gov.ie/dataset/real-time-passenger-information-rtpi-for-dublin-bus-
 from contextlib import suppress
 from datetime import datetime, timedelta
 from http import HTTPStatus
-from typing import Any
+from typing import Any, override
 
 import requests
 import voluptuous as vol
@@ -90,16 +90,19 @@ class DublinPublicTransportSensor(SensorEntity):
         self._route = route
         self._times = self._state = None
 
+    @override
     @property
     def name(self):
         """Return the name of the sensor."""
         return self._name
 
+    @override
     @property
     def native_value(self):
         """Return the state of the sensor."""
         return self._state
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return the state attributes."""
@@ -118,6 +121,7 @@ class DublinPublicTransportSensor(SensorEntity):
             }
         return None
 
+    @override
     @property
     def native_unit_of_measurement(self):
         """Return the unit this state is expressed in."""

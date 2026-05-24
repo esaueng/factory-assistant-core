@@ -113,11 +113,13 @@ class EheimDigitalSwitch[_DeviceT: EheimDigitalDevice](
         self.entity_description = description
         self._attr_unique_id = f"{self._device_address}_{description.key}"
 
+    @override
     @exception_handler
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn on the switch."""
         return await self.entity_description.set_fn(self._device, True)
 
+    @override
     @exception_handler
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn off the switch."""

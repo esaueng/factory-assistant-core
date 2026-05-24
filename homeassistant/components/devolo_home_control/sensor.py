@@ -1,6 +1,6 @@
 """Platform for sensor integration."""
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, override
 
 from devolo_home_control_api.devices.zwave import Zwave
 from devolo_home_control_api.homecontrol import HomeControl
@@ -83,6 +83,7 @@ async def async_setup_entry(
 class DevoloMultiLevelDeviceEntity(DevoloDeviceEntity, SensorEntity):
     """Abstract representation of a multi level sensor within devolo Home Control."""
 
+    @override
     @property
     def native_value(self) -> float:
         """Return the state of the sensor."""
@@ -176,6 +177,7 @@ class DevoloConsumptionEntity(DevoloMultiLevelDeviceEntity):
             device_instance.consumption_property[element_uid], consumption
         )
 
+    @override
     @property
     def unique_id(self) -> str:
         """Return the unique ID of the entity.
@@ -185,6 +187,7 @@ class DevoloConsumptionEntity(DevoloMultiLevelDeviceEntity):
         """
         return f"{self._attr_unique_id}_{self._sensor_type}"
 
+    @override
     def sync_callback(self, message: tuple) -> None:
         """Update the consumption sensor state."""
         if message[0] == self._attr_unique_id:

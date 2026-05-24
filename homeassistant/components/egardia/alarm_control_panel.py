@@ -1,6 +1,7 @@
 """Interfaces with Egardia/Woonveilig alarm control panel."""
 
 import logging
+from typing import override
 
 from pythonegardia.egardiadevice import EgardiaDevice
 import requests
@@ -81,12 +82,14 @@ class EgardiaAlarm(AlarmControlPanelEntity):
         self._rs_codes = rs_codes
         self._rs_port = rs_port
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Add Egardiaserver callback if enabled."""
         if self._rs_enabled:
             _LOGGER.debug("Registering callback to Egardiaserver")
             self.hass.data[EGARDIA_SERVER].register_callback(self.handle_status_event)
 
+    @override
     @property
     def should_poll(self) -> bool:
         """Poll if no report server is enabled."""
@@ -128,6 +131,7 @@ class EgardiaAlarm(AlarmControlPanelEntity):
         status = self._egardiasystem.getstate()
         self.parsestatus(status)
 
+    @override
     def alarm_disarm(self, code: str | None = None) -> None:
         """Send disarm command."""
         try:
@@ -139,6 +143,7 @@ class EgardiaAlarm(AlarmControlPanelEntity):
                 err,
             )
 
+    @override
     def alarm_arm_home(self, code: str | None = None) -> None:
         """Send arm home command."""
         try:
@@ -150,6 +155,7 @@ class EgardiaAlarm(AlarmControlPanelEntity):
                 err,
             )
 
+    @override
     def alarm_arm_away(self, code: str | None = None) -> None:
         """Send arm away command."""
         try:

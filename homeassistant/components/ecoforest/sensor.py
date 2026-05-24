@@ -3,6 +3,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 import logging
+from typing import override
 
 from pyecoforest.models.device import Alarm, Device, State
 
@@ -158,6 +159,7 @@ class EcoforestSensor(SensorEntity, EcoforestEntity):
 
     entity_description: EcoforestSensorEntityDescription
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the state of the sensor."""

@@ -1,6 +1,7 @@
 """Support for esphome texts."""
 
 from functools import partial
+from typing import override
 
 from aioesphomeapi import EntityInfo, TextInfo, TextMode as EsphomeTextMode, TextState
 
@@ -28,6 +29,7 @@ TEXT_MODES: EsphomeEnumMapper[EsphomeTextMode, TextMode] = EsphomeEnumMapper(
 class EsphomeText(EsphomeEntity[TextInfo, TextState], TextEntity):
     """A text implementation for esphome."""
 
+    @override
     @callback
     def _on_static_info_update(self, static_info: EntityInfo) -> None:
         """Set attrs from static info."""
@@ -38,6 +40,7 @@ class EsphomeText(EsphomeEntity[TextInfo, TextState], TextEntity):
         self._attr_pattern = static_info.pattern
         self._attr_mode = TEXT_MODES.from_esphome(static_info.mode) or TextMode.TEXT
 
+    @override
     @property
     @esphome_state_property
     def native_value(self) -> str | None:
@@ -45,6 +48,7 @@ class EsphomeText(EsphomeEntity[TextInfo, TextState], TextEntity):
         state = self._state
         return None if state.missing_state else state.state
 
+    @override
     @convert_api_error_ha_error
     async def async_set_value(self, value: str) -> None:
         """Update the current value."""

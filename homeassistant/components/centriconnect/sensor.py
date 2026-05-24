@@ -4,6 +4,7 @@ from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime
 from enum import StrEnum
+from typing import override
 
 from homeassistant.components.sensor import (
     EntityCategory,
@@ -236,6 +237,7 @@ class CentriConnectSensor(CentriConnectBaseEntity, SensorEntity):
 
     entity_description: CentriConnectSensorEntityDescription
 
+    @override
     @property
     def native_value(self) -> StateType | datetime | None:
         """Return the state of the sensor."""

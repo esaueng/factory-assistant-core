@@ -2,7 +2,7 @@
 
 from datetime import date, timedelta
 import logging
-from typing import final
+from typing import final, override
 
 from propcache.api import cached_property
 import voluptuous as vol
@@ -74,18 +74,21 @@ class DateEntity(Entity, cached_properties=CACHED_PROPERTIES_WITH_ATTR_):
     _attr_native_value: date | None
     _attr_state: None = None
 
+    @override
     @cached_property
     @final
     def device_class(self) -> None:
         """Return the device class for the entity."""
         return None
 
+    @override
     @cached_property
     @final
     def state_attributes(self) -> None:
         """Return the state attributes."""
         return None
 
+    @override
     @property
     @final
     def state(self) -> str | None:

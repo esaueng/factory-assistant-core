@@ -2,7 +2,7 @@
 
 from collections.abc import Awaitable, Callable, Coroutine
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
 from pyenphase import Envoy, EnvoyDryContactSettings
 from pyenphase.const import SupportedFeatures
@@ -185,11 +185,13 @@ class EnvoyRelaySelectEntity(EnvoyBaseEntity, SelectEntity):
         """Return the relay object."""
         return self.data.dry_contact_settings[self._relay_id]
 
+    @override
     @property
     def current_option(self) -> str:
         """Return the state of the Enpower switch."""
         return self.entity_description.value_fn(self.relay)
 
+    @override
     @exception_handler
     async def async_select_option(self, option: str) -> None:
         """Update the relay."""
@@ -236,6 +238,7 @@ class EnvoyStorageSettingsSelectEntity(EnvoyBaseEntity, SelectEntity):
                 serial_number=self.envoy_serial_num,
             )
 
+    @override
     @property
     def current_option(self) -> str | None:
         """Return the state of the select entity."""
@@ -243,6 +246,7 @@ class EnvoyStorageSettingsSelectEntity(EnvoyBaseEntity, SelectEntity):
         assert self.data.tariff.storage_settings is not None
         return self.entity_description.value_fn(self.data.tariff.storage_settings)
 
+    @override
     @exception_handler
     async def async_select_option(self, option: str) -> None:
         """Update the relay."""

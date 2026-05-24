@@ -1,5 +1,7 @@
 """Demo platform that has two fake binary sensors."""
 
+from typing import override
+
 from homeassistant.components.binary_sensor import (
     BinarySensorDeviceClass,
     BinarySensorEntity,
@@ -59,11 +61,13 @@ class DemoBinarySensor(BinarySensorEntity):
             name=device_name,
         )
 
+    @override
     @property
     def unique_id(self) -> str:
         """Return the unique id."""
         return self._unique_id
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return true if the binary sensor is on."""

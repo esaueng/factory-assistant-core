@@ -1,5 +1,7 @@
 """Dormakaba dKey integration sensor platform."""
 
+from typing import override
+
 from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorEntity,
@@ -51,6 +53,7 @@ class DormakabaDkeySensor(DormakabaDkeyEntity, SensorEntity):
         self._attr_unique_id = f"{coordinator.lock.address}_{description.key}"
         super().__init__(coordinator)
 
+    @override
     @callback
     def _async_update_attrs(self) -> None:
         """Handle updating _attr values."""

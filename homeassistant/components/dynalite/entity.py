@@ -2,7 +2,7 @@
 
 from abc import ABC, abstractmethod
 from collections.abc import Callable
-from typing import Any
+from typing import Any, override
 
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.device_registry import DeviceInfo
@@ -46,16 +46,19 @@ class DynaliteBase(RestoreEntity, ABC):
         self._bridge = bridge
         self._unsub_dispatchers: list[Callable[[], None]] = []
 
+    @override
     @property
     def unique_id(self) -> str:
         """Return the unique ID of the entity."""
         return self._device.unique_id
 
+    @override
     @property
     def available(self) -> bool:
         """Return if entity is available."""
         return self._device.available
 
+    @override
     @property
     def device_info(self) -> DeviceInfo:
         """Device info for this entity."""
@@ -65,6 +68,7 @@ class DynaliteBase(RestoreEntity, ABC):
             name=self._device.name,
         )
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Handle addition to hass: restore state and register to dispatch."""
         # register for device specific update
@@ -96,6 +100,7 @@ class DynaliteBase(RestoreEntity, ABC):
     def initialize_state(self, state):
         """Initialize the state from cache."""
 
+    @override
     async def async_will_remove_from_hass(self) -> None:
         """Unregister signal dispatch listeners when being removed."""
         for unsub in self._unsub_dispatchers:

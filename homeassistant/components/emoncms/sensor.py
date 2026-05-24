@@ -1,6 +1,6 @@
 """Support for monitoring emoncms feeds."""
 
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -274,6 +274,7 @@ class EmonCmsSensor(CoordinatorEntity[EmoncmsCoordinator], SensorEntity):
         if elem["value"] is not None:
             self._attr_native_value = round(float(elem["value"]), DECIMALS)
 
+    @override
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""

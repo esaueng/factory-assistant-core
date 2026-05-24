@@ -1,6 +1,6 @@
 """The Control4 integration."""
 
-from typing import Any
+from typing import Any, override
 
 from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.update_coordinator import (
@@ -38,6 +38,7 @@ class Control4Entity(CoordinatorEntity[Any]):
         self._device_model = device_model
         self._device_id = device_id
 
+    @override
     @property
     def device_info(self) -> DeviceInfo:
         """Return info of parent Control4 device of entity."""

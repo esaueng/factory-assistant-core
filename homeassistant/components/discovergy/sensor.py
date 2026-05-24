@@ -3,6 +3,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass, field
 from datetime import datetime
+from typing import override
 
 from pydiscovergy.models import Reading
 
@@ -224,6 +225,7 @@ class DiscovergySensor(CoordinatorEntity[DiscovergyUpdateCoordinator], SensorEnt
             serial_number=meter.full_serial_number,
         )
 
+    @override
     @property
     def native_value(self) -> datetime | float | None:
         """Return the sensor state."""

@@ -2,6 +2,7 @@
 
 from datetime import time
 from functools import partial
+from typing import override
 
 from aioesphomeapi import TimeInfo, TimeState
 
@@ -15,6 +16,7 @@ PARALLEL_UPDATES = 0
 class EsphomeTime(EsphomeEntity[TimeInfo, TimeState], TimeEntity):
     """A time implementation for esphome."""
 
+    @override
     @property
     @esphome_state_property
     def native_value(self) -> time | None:
@@ -24,6 +26,7 @@ class EsphomeTime(EsphomeEntity[TimeInfo, TimeState], TimeEntity):
             return None
         return time(state.hour, state.minute, state.second)
 
+    @override
     async def async_set_value(self, value: time) -> None:
         """Update the current time."""
         self._client.time_command(

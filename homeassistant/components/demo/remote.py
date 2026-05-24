@@ -1,7 +1,7 @@
 """Demo platform that has two fake remotes."""
 
 from collections.abc import Iterable
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.remote import RemoteEntity
 from homeassistant.config_entries import ConfigEntry
@@ -35,6 +35,7 @@ class DemoRemote(RemoteEntity):
         self._attr_is_on = state
         self._last_command_sent: str | None = None
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return device state attributes."""
@@ -42,16 +43,19 @@ class DemoRemote(RemoteEntity):
             return {"last_command_sent": self._last_command_sent}
         return None
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the remote on."""
         self._attr_is_on = True
         self.async_write_ha_state()
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the remote off."""
         self._attr_is_on = False
         self.async_write_ha_state()
 
+    @override
     async def async_send_command(self, command: Iterable[str], **kwargs: Any) -> None:
         """Send a command to a device."""
         for com in command:

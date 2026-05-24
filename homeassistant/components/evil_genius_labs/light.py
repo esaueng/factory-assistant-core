@@ -1,7 +1,7 @@
 """Light platform for Evil Genius Light."""
 
 import asyncio
-from typing import Any, cast
+from typing import Any, cast, override
 
 from homeassistant.components import light
 from homeassistant.components.light import ColorMode, LightEntity, LightEntityFeature
@@ -44,16 +44,19 @@ class EvilGeniusLight(EvilGeniusEntity, LightEntity):
         ]
         self._attr_effect_list.insert(0, HA_NO_EFFECT)
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return if light is on."""
         return cast(int, self.coordinator.data["power"]["value"]) == 1
 
+    @override
     @property
     def brightness(self) -> int:
         """Return brightness."""
         return cast(int, self.coordinator.data["brightness"]["value"])
 
+    @override
     @property
     def rgb_color(self) -> tuple[int, int, int]:
         """Return the rgb color value [int, int, int]."""
@@ -65,6 +68,7 @@ class EvilGeniusLight(EvilGeniusEntity, LightEntity):
             ),
         )
 
+    @override
     @property
     def effect(self) -> str:
         """Return current effect."""
@@ -78,6 +82,7 @@ class EvilGeniusLight(EvilGeniusEntity, LightEntity):
             return HA_NO_EFFECT
         return value
 
+    @override
     @update_when_done
     async def async_turn_on(
         self,
@@ -104,6 +109,7 @@ class EvilGeniusLight(EvilGeniusEntity, LightEntity):
         async with asyncio.timeout(5):
             await self.coordinator.client.set_path_value("power", 1)
 
+    @override
     @update_when_done
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn light off."""

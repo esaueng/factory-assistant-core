@@ -2,7 +2,7 @@
 
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
 from elgato import Elgato
 
@@ -78,6 +78,7 @@ class ElgatoButtonEntity(ElgatoEntity, ButtonEntity):
             f"{coordinator.data.info.serial_number}_{description.key}"
         )
 
+    @override
     @elgato_exception_handler
     async def async_press(self) -> None:
         """Trigger button press on the Elgato device."""

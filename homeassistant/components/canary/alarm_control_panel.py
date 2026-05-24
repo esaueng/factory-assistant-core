@@ -1,6 +1,6 @@
 """Support for Canary alarm."""
 
-from typing import Any
+from typing import Any, override
 
 from canary.const import LOCATION_MODE_AWAY, LOCATION_MODE_HOME, LOCATION_MODE_NIGHT
 from canary.model import Location
@@ -58,6 +58,7 @@ class CanaryAlarm(
         """Return information about the location."""
         return self.coordinator.data["locations"][self._location_id]
 
+    @override
     @property
     def alarm_state(self) -> AlarmControlPanelState | None:
         """Return the state of the device."""
@@ -74,25 +75,30 @@ class CanaryAlarm(
 
         return None
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return the state attributes."""
         return {"private": self.location.is_private}
 
+    @override
     def alarm_disarm(self, code: str | None = None) -> None:
         """Send disarm command."""
         self.coordinator.canary.set_location_mode(
             self._location_id, self.location.mode.name, True
         )
 
+    @override
     def alarm_arm_home(self, code: str | None = None) -> None:
         """Send arm home command."""
         self.coordinator.canary.set_location_mode(self._location_id, LOCATION_MODE_HOME)
 
+    @override
     def alarm_arm_away(self, code: str | None = None) -> None:
         """Send arm away command."""
         self.coordinator.canary.set_location_mode(self._location_id, LOCATION_MODE_AWAY)
 
+    @override
     def alarm_arm_night(self, code: str | None = None) -> None:
         """Send arm night command."""
         self.coordinator.canary.set_location_mode(
