@@ -1,6 +1,6 @@
 """Support for the sensors in a GreenEye Monitor."""
 
-from typing import Any
+from typing import Any, override
 
 import greeneye
 
@@ -146,10 +146,12 @@ class GEMSensor(SensorEntity):
             f"{self._monitor_serial_number}-{self._sensor_type}-{self._number}"
         )
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Wait for and connect to the sensor."""
         self._sensor.add_listener(self.async_write_ha_state)
 
+    @override
     async def async_will_remove_from_hass(self) -> None:
         """Remove listener from the sensor."""
         if self._sensor:
@@ -174,11 +176,13 @@ class CurrentSensor(GEMSensor):
         self._sensor: greeneye.monitor.Channel = self._sensor
         self._net_metering = net_metering
 
+    @override
     @property
     def native_value(self) -> float | None:
         """Return the current number of watts being used by the channel."""
         return self._sensor.watts
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return total wattseconds in the state dictionary."""
@@ -213,6 +217,7 @@ class PulseCounter(GEMSensor):
         self._time_unit = time_unit
         self._attr_native_unit_of_measurement = f"{counted_quantity}/{self._time_unit}"
 
+    @override
     @property
     def native_value(self) -> float | None:
         """Return the current rate of change for the given pulse counter."""
@@ -241,6 +246,7 @@ class PulseCounter(GEMSensor):
             f" {UnitOfTime.SECONDS}, {UnitOfTime.MINUTES}, or {UnitOfTime.HOURS}"
         )
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return total pulses in the data dictionary."""
@@ -262,6 +268,7 @@ class TemperatureSensor(GEMSensor):
         self._sensor: greeneye.monitor.TemperatureSensor = self._sensor
         self._attr_native_unit_of_measurement = unit
 
+    @override
     @property
     def native_value(self) -> float | None:
         """Return the current temperature being reported by this sensor."""
@@ -281,6 +288,7 @@ class VoltageSensor(GEMSensor):
         super().__init__(monitor, name, "volts", monitor.voltage_sensor, number)
         self._sensor: greeneye.monitor.VoltageSensor = self._sensor
 
+    @override
     @property
     def native_value(self) -> float | None:
         """Return the current voltage being reported by this sensor."""

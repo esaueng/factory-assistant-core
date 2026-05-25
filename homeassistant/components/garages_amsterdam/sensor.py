@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from odp_amsterdam import Garage
 
@@ -90,6 +91,7 @@ class GaragesAmsterdamSensor(GaragesAmsterdamEntity, SensorEntity):
         self.entity_description = description
         self._attr_unique_id = f"{garage_name}-{description.key}"
 
+    @override
     @property
     def available(self) -> bool:
         """Return if sensor is available."""
@@ -97,6 +99,7 @@ class GaragesAmsterdamSensor(GaragesAmsterdamEntity, SensorEntity):
             self._garage_name in self.coordinator.data
         )
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the state of the sensor."""

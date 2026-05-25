@@ -1,7 +1,7 @@
 """Config flow for Forecast.Solar integration."""
 
 import re
-from typing import Any
+from typing import Any, override
 
 import voluptuous as vol
 
@@ -70,6 +70,7 @@ class ForecastSolarFlowHandler(ConfigFlow, domain=DOMAIN):
 
     VERSION = 3
 
+    @override
     @staticmethod
     @callback
     def async_get_options_flow(
@@ -78,6 +79,7 @@ class ForecastSolarFlowHandler(ConfigFlow, domain=DOMAIN):
         """Get the options flow for this handler."""
         return ForecastSolarOptionFlowHandler()
 
+    @override
     @classmethod
     @callback
     def async_get_supported_subentry_types(
@@ -86,6 +88,7 @@ class ForecastSolarFlowHandler(ConfigFlow, domain=DOMAIN):
         """Return subentries supported by this handler."""
         return {SUBENTRY_TYPE_PLANE: PlaneSubentryFlowHandler}
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:

@@ -3,7 +3,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 import logging
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, override
 
 from google_air_quality_api.model import AirQualityCurrentConditionsData, Index
 
@@ -250,16 +250,19 @@ class AirQualitySensorEntity(
                 description.translation_placeholders_fn(coordinator.data)
             )
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the state of the sensor."""
         return self.entity_description.value_fn(self.coordinator.data)
 
+    @override
     @property
     def options(self) -> list[str] | None:
         """Return the option of the sensor."""
         return self.entity_description.options_fn(self.coordinator.data)
 
+    @override
     @property
     def native_unit_of_measurement(self) -> str | None:
         """Return the native unit of measurement of the sensor."""

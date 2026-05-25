@@ -2,7 +2,7 @@
 
 from datetime import timedelta
 import logging
-from typing import Any, final
+from typing import Any, final, override
 
 from propcache.api import cached_property
 
@@ -67,6 +67,7 @@ class GeolocationEvent(Entity, cached_properties=CACHED_PROPERTIES_WITH_ATTR_):
     _attr_latitude: float | None = None
     _attr_longitude: float | None = None
 
+    @override
     @final
     @property
     def state(self) -> float | None:
@@ -95,6 +96,7 @@ class GeolocationEvent(Entity, cached_properties=CACHED_PROPERTIES_WITH_ATTR_):
         """Return longitude value of this external event."""
         return self._attr_longitude
 
+    @override
     @final
     @property
     def state_attributes(self) -> dict[str, Any]:

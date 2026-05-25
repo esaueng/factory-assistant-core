@@ -2,7 +2,7 @@
 
 import ast
 import logging
-from typing import Any, Final
+from typing import Any, Final, override
 
 from flux_led.const import MultiColorEffects
 from flux_led.protocol import MusicMode
@@ -208,31 +208,37 @@ class FluxLight(
         self._custom_effect_speed_pct = custom_effect_speed_pct
         self._custom_effect_transition = custom_effect_transition
 
+    @override
     @property
     def brightness(self) -> int:
         """Return the brightness of this light between 0..255."""
         return self._device.brightness
 
+    @override
     @property
     def color_temp_kelvin(self) -> int:
         """Return the kelvin value of this light."""
         return self._device.color_temp
 
+    @override
     @property
     def rgb_color(self) -> tuple[int, int, int]:
         """Return the rgb color value."""
         return self._device.rgb_unscaled
 
+    @override
     @property
     def rgbw_color(self) -> tuple[int, int, int, int]:
         """Return the rgbw color value."""
         return self._device.rgbw
 
+    @override
     @property
     def rgbww_color(self) -> tuple[int, int, int, int, int]:
         """Return the rgbww aka rgbcw color value."""
         return self._device.rgbcw
 
+    @override
     @property
     def color_mode(self) -> ColorMode:
         """Return the color mode of the light."""
@@ -240,11 +246,13 @@ class FluxLight(
             self._device.color_mode, self._device.color_modes
         )
 
+    @override
     @property
     def effect(self) -> str | None:
         """Return the current effect."""
         return self._device.effect
 
+    @override
     async def _async_turn_on(self, **kwargs: Any) -> None:
         """Turn the specified or all lights on."""
         if self._device.requires_turn_on or not kwargs:

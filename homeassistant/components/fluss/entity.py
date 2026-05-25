@@ -1,5 +1,7 @@
 """Base entities for the Fluss+ integration."""
 
+from typing import override
+
 from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
@@ -28,6 +30,7 @@ class FlussEntity(CoordinatorEntity[FlussDataUpdateCoordinator]):
             model="Fluss+ Device",
         )
 
+    @override
     @property
     def available(self) -> bool:
         """Return if the device is available."""

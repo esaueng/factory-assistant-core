@@ -1,7 +1,7 @@
 """Switches for AVM Fritz!Box functions."""
 
 import logging
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.network import async_get_source_ip
 from homeassistant.components.switch import SwitchEntity, SwitchEntityDescription
@@ -332,6 +332,7 @@ class FritzBoxBaseCoordinatorSwitch(CoordinatorEntity[AvmWrapper], SwitchEntity)
         self._device_name = device_name
         self._attr_unique_id = f"{avm_wrapper.unique_id}-{description.key}"
 
+    @override
     @property
     def device_info(self) -> DeviceInfo:
         """Return the device information."""
@@ -350,6 +351,7 @@ class FritzBoxBaseCoordinatorSwitch(CoordinatorEntity[AvmWrapper], SwitchEntity)
         """Return entity data from coordinator data."""
         raise NotImplementedError
 
+    @override
     @property
     def available(self) -> bool:
         """Return availability based on data availability."""
@@ -359,10 +361,12 @@ class FritzBoxBaseCoordinatorSwitch(CoordinatorEntity[AvmWrapper], SwitchEntity)
         """Handle switch state change request."""
         raise NotImplementedError
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn on switch."""
         await self._async_handle_turn_on_off(turn_on=True)
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn off switch."""
         await self._async_handle_turn_on_off(turn_on=False)
@@ -398,10 +402,12 @@ class FritzBoxBaseSwitch(FritzBoxBaseEntity, SwitchEntity):
         _LOGGER.debug("Updating '%s' (%s) switch state", self.name, self._type)
         await self._update()
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn on switch."""
         await self._async_handle_turn_on_off(turn_on=True)
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn off switch."""
         await self._async_handle_turn_on_off(turn_on=False)
@@ -496,11 +502,13 @@ class FritzBoxDeflectionSwitch(FritzBoxBaseCoordinatorSwitch):
         )
         super().__init__(avm_wrapper, device_friendly_name, description)
 
+    @override
     @property
     def data(self) -> dict[str, Any]:
         """Return call deflection data."""
         return self.coordinator.data["call_deflections"].get(self.deflection_id, {})
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, str]:
         """Return device attributes."""
@@ -513,11 +521,13 @@ class FritzBoxDeflectionSwitch(FritzBoxBaseCoordinatorSwitch):
             "phonebook_id": self.data["PhonebookID"],
         }
 
+    @override
     @property
     def is_on(self) -> bool | None:
         """Switch status."""
         return self.data.get("Enable") == "1"
 
+    @override
     async def _async_handle_turn_on_off(self, turn_on: bool) -> None:
         """Handle deflection switch."""
         await self.coordinator.async_set_deflection_enable(self.deflection_id, turn_on)
@@ -541,6 +551,7 @@ class FritzBoxProfileSwitch(FritzBoxBaseCoordinatorSwitch):
         super().__init__(avm_wrapper, device.hostname, description)
         self._attr_unique_id = f"{self._mac}_internet_access"
 
+    @override
     @property
     def device_info(self) -> DeviceInfo:
         """Return the device information."""
@@ -553,6 +564,7 @@ class FritzBoxProfileSwitch(FritzBoxBaseCoordinatorSwitch):
         """Return the device for this profile switch."""
         return self.coordinator.devices[self._mac]
 
+    @override
     @property
     def available(self) -> bool:
         """Return availability of the switch."""
@@ -560,11 +572,13 @@ class FritzBoxProfileSwitch(FritzBoxBaseCoordinatorSwitch):
             return False
         return self.coordinator.last_update_success
 
+    @override
     @property
     def is_on(self) -> bool | None:
         """Switch status."""
         return self._device.wan_access
 
+    @override
     async def _async_handle_turn_on_off(self, turn_on: bool) -> None:
         """Handle switch state change request."""
         await self.coordinator.async_set_allow_wan_access(

@@ -2,6 +2,7 @@
 
 import datetime
 import logging
+from typing import override
 
 from homeassistant.components.device_tracker import ScannerEntity
 from homeassistant.core import HomeAssistant, callback
@@ -72,21 +73,25 @@ class FritzBoxTracker(FritzDeviceBase, ScannerEntity):
         self._attr_name: str = device.hostname or DEFAULT_DEVICE_NAME
         self._last_activity: datetime.datetime | None = device.last_activity
 
+    @override
     @property
     def is_connected(self) -> bool:
         """Return device status."""
         return self._avm_wrapper.devices[self._mac].is_connected
 
+    @override
     @property
     def unique_id(self) -> str:
         """Return device unique id."""
         return f"{self._mac}_tracker"
 
+    @override
     @property
     def mac_address(self) -> str:
         """Return mac_address."""
         return self._mac
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, str]:
         """Return the attributes."""

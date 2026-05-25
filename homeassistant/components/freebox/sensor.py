@@ -1,7 +1,7 @@
 """Support for Freebox devices (Freebox v6 and Freebox mini 4K)."""
 
 import logging
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -153,6 +153,7 @@ class FreeboxSensor(SensorEntity):
         self.async_update_state()
         self.async_write_ha_state()
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Register state update callback."""
         self.async_update_state()
@@ -175,6 +176,7 @@ class FreeboxCallSensor(FreeboxSensor):
         super().__init__(router, description)
         self._call_list_for_type: list[dict[str, Any]] = []
 
+    @override
     @callback
     def async_update_state(self) -> None:
         """Update the Freebox call sensor."""
@@ -188,6 +190,7 @@ class FreeboxCallSensor(FreeboxSensor):
 
         self._attr_native_value = len(self._call_list_for_type)
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return device specific state attributes."""
@@ -227,6 +230,7 @@ class FreeboxDiskSensor(FreeboxSensor):
             ),
         )
 
+    @override
     @callback
     def async_update_state(self) -> None:
         """Update the Freebox disk sensor."""
@@ -244,6 +248,7 @@ class FreeboxBatterySensor(FreeboxHomeEntity, SensorEntity):
     _attr_device_class = SensorDeviceClass.BATTERY
     _attr_native_unit_of_measurement = PERCENTAGE
 
+    @override
     @property
     def native_value(self) -> int:
         """Return the current state of the device."""

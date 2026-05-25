@@ -1,7 +1,7 @@
 """Support for Freebox devices (Freebox v6 and Freebox mini 4K)."""
 
 from datetime import datetime
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.device_tracker import ScannerEntity
 from homeassistant.core import HomeAssistant, callback
@@ -85,16 +85,19 @@ class FreeboxDevice(ScannerEntity):
             # router
             self._attr_extra_state_attributes = device["attrs"]
 
+    @override
     @property
     def mac_address(self) -> str:
         """Return a unique ID."""
         return self._mac
 
+    @override
     @property
     def name(self) -> str:
         """Return the name."""
         return self._name
 
+    @override
     @property
     def is_connected(self) -> bool:
         """Return true if the device is connected to the network."""
@@ -106,6 +109,7 @@ class FreeboxDevice(ScannerEntity):
         self.async_update_state()
         self.async_write_ha_state()
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Register state update callback."""
         self.async_update_state()

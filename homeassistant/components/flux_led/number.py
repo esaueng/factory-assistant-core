@@ -3,7 +3,7 @@
 from abc import abstractmethod
 from collections.abc import Coroutine
 import logging
-from typing import Any, cast
+from typing import Any, cast, override
 
 from flux_led.protocol import (
     MUSIC_PIXELS_MAX,
@@ -88,11 +88,13 @@ class FluxSpeedNumber(
     _attr_mode = NumberMode.SLIDER
     _attr_translation_key = "effect_speed"
 
+    @override
     @property
     def native_value(self) -> float:
         """Return the effect speed."""
         return cast(float, self._device.speed)
 
+    @override
     async def async_set_native_value(self, value: float) -> None:
         """Set the flux speed value."""
         current_effect = self._device.effect
@@ -130,6 +132,7 @@ class FluxConfigNumber(
         self._debouncer: Debouncer[Coroutine[Any, Any, None]] | None = None
         self._pending_value: int | None = None
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Set up the debouncer when adding to hass."""
         self._debouncer = Debouncer(
@@ -141,6 +144,7 @@ class FluxConfigNumber(
         )
         await super().async_added_to_hass()
 
+    @override
     async def async_set_native_value(self, value: float) -> None:
         """Set the value."""
         self._pending_value = int(value)
@@ -172,6 +176,7 @@ class FluxPixelsPerSegmentNumber(FluxConfigNumber):
 
     _attr_translation_key = "pixels_per_segment"
 
+    @override
     @property
     def native_max_value(self) -> int:
         """Return the max value."""
@@ -179,12 +184,14 @@ class FluxPixelsPerSegmentNumber(FluxConfigNumber):
             PIXELS_PER_SEGMENT_MAX, int(PIXELS_MAX / (self._device.segments or 1))
         )
 
+    @override
     @property
     def native_value(self) -> int:
         """Return the pixels per segment."""
         assert self._device.pixels_per_segment is not None
         return self._device.pixels_per_segment
 
+    @override
     async def _async_set_native_value(self) -> None:
         """Set the pixels per segment."""
         assert self._pending_value is not None
@@ -198,6 +205,7 @@ class FluxSegmentsNumber(FluxConfigNumber):
 
     _attr_translation_key = "segments"
 
+    @override
     @property
     def native_max_value(self) -> int:
         """Return the max value."""
@@ -206,12 +214,14 @@ class FluxSegmentsNumber(FluxConfigNumber):
             SEGMENTS_MAX, int(PIXELS_MAX / (self._device.pixels_per_segment or 1))
         )
 
+    @override
     @property
     def native_value(self) -> int:
         """Return the segments."""
         assert self._device.segments is not None
         return self._device.segments
 
+    @override
     async def _async_set_native_value(self) -> None:
         """Set the segments."""
         assert self._pending_value is not None
@@ -221,6 +231,7 @@ class FluxSegmentsNumber(FluxConfigNumber):
 class FluxMusicNumber(FluxConfigNumber):
     """A number that is only available if the base pixels do not fit in music mode."""
 
+    @override
     @property
     def available(self) -> bool:
         """Return if music pixels per segment can be set."""
@@ -232,6 +243,7 @@ class FluxMusicPixelsPerSegmentNumber(FluxMusicNumber):
 
     _attr_translation_key = "music_pixels_per_segment"
 
+    @override
     @property
     def native_max_value(self) -> int:
         """Return the max value."""
@@ -241,12 +253,14 @@ class FluxMusicPixelsPerSegmentNumber(FluxMusicNumber):
             int(MUSIC_PIXELS_MAX / (self._device.music_segments or 1)),
         )
 
+    @override
     @property
     def native_value(self) -> int:
         """Return the music pixels per segment."""
         assert self._device.music_pixels_per_segment is not None
         return self._device.music_pixels_per_segment
 
+    @override
     async def _async_set_native_value(self) -> None:
         """Set the music pixels per segment."""
         assert self._pending_value is not None
@@ -260,6 +274,7 @@ class FluxMusicSegmentsNumber(FluxMusicNumber):
 
     _attr_translation_key = "music_segments"
 
+    @override
     @property
     def native_max_value(self) -> int:
         """Return the max value."""
@@ -269,12 +284,14 @@ class FluxMusicSegmentsNumber(FluxMusicNumber):
             int(MUSIC_PIXELS_MAX / (self._device.music_pixels_per_segment or 1)),
         )
 
+    @override
     @property
     def native_value(self) -> int:
         """Return the music segments."""
         assert self._device.music_segments is not None
         return self._device.music_segments
 
+    @override
     async def _async_set_native_value(self) -> None:
         """Set the music segments."""
         assert self._pending_value is not None

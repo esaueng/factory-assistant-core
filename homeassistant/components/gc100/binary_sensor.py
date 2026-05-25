@@ -1,5 +1,7 @@
 """Support for binary sensor using GC100."""
 
+from typing import override
+
 import voluptuous as vol
 
 from homeassistant.components.binary_sensor import (
@@ -51,11 +53,13 @@ class GC100BinarySensor(BinarySensorEntity):
         # Subscribe to be notified about state changes (PUSH)
         self._gc100.subscribe(self._port_addr, self.set_state)
 
+    @override
     @property
     def name(self) -> str:
         """Return the name of the sensor."""
         return self._name
 
+    @override
     @property
     def is_on(self) -> bool | None:
         """Return the state of the entity."""

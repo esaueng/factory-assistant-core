@@ -4,7 +4,7 @@ from datetime import timedelta
 import logging
 import os
 import re
-from typing import Any
+from typing import Any, override
 
 import voluptuous as vol
 
@@ -69,16 +69,19 @@ class BanSensor(SensorEntity):
         )
         _LOGGER.debug("Setting up jail %s", self.jail)
 
+    @override
     @property
     def name(self):
         """Return the name of the sensor."""
         return self._name
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return the state attributes of the fail2ban sensor."""
         return self.ban_dict
 
+    @override
     @property
     def native_value(self):
         """Return the most recently banned IP Address."""

@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from fumis import FumisInfo
 
@@ -68,6 +69,7 @@ class FumisBinarySensorEntity(FumisEntity, BinarySensorEntity):
         self.entity_description = description
         self._attr_unique_id = f"{coordinator.config_entry.unique_id}_{description.key}"
 
+    @override
     @property
     def is_on(self) -> bool | None:
         """Return the state of the binary sensor."""

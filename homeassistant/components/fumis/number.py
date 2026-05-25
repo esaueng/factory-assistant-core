@@ -2,7 +2,7 @@
 
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
 from fumis import Fumis, FumisInfo
 
@@ -83,11 +83,13 @@ class FumisNumberEntity(FumisEntity, NumberEntity):
         self.entity_description = description
         self._attr_unique_id = f"{coordinator.config_entry.unique_id}_{description.key}"
 
+    @override
     @property
     def native_value(self) -> float | None:
         """Return the current value."""
         return self.entity_description.value_fn(self.coordinator.data)
 
+    @override
     @fumis_exception_handler
     async def async_set_native_value(self, value: float) -> None:
         """Set a new value."""

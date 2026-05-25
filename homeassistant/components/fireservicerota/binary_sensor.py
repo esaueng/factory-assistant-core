@@ -1,6 +1,6 @@
 """Binary Sensor platform for FireServiceRota integration."""
 
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.binary_sensor import BinarySensorEntity
 from homeassistant.config_entries import ConfigEntry
@@ -47,11 +47,13 @@ class ResponseBinarySensor(
         self._client = client
         self._attr_unique_id = f"{entry.unique_id}_Duty"
 
+    @override
     @property
     def is_on(self) -> bool | None:
         """Return the state of the binary sensor."""
         return self._client.on_duty
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return available attributes for binary sensor."""

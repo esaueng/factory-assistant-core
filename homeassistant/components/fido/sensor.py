@@ -6,7 +6,7 @@ https://www.fido.ca/pages/#/my-account/wireless
 
 from datetime import timedelta
 import logging
-from typing import Any
+from typing import Any, override
 
 from pyfido import FidoClient
 from pyfido.client import PyFidoError
@@ -224,6 +224,7 @@ class FidoSensor(SensorEntity):
 
         self._attr_name = f"{name} {number} {description.name}"
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return the state attributes of the sensor."""

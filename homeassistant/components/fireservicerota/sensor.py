@@ -1,7 +1,7 @@
 """Sensor platform for FireServiceRota integration."""
 
 import logging
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.sensor import SensorEntity
 from homeassistant.core import HomeAssistant, callback
@@ -40,6 +40,7 @@ class IncidentsSensor(RestoreEntity, SensorEntity):
         self._state: str | None = None
         self._state_attributes: dict[str, Any] = {}
 
+    @override
     @property
     def icon(self) -> str:
         """Return the icon to use in the frontend."""
@@ -51,11 +52,13 @@ class IncidentsSensor(RestoreEntity, SensorEntity):
 
         return "mdi:fire-truck"
 
+    @override
     @property
     def native_value(self) -> str | None:
         """Return the state of the sensor."""
         return self._state
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return available attributes for sensor."""
@@ -92,6 +95,7 @@ class IncidentsSensor(RestoreEntity, SensorEntity):
 
         return attr
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Run when about to be added to hass."""
         await super().async_added_to_hass()

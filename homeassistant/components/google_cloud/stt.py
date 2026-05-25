@@ -2,6 +2,7 @@
 
 from collections.abc import AsyncGenerator, AsyncIterable
 import logging
+from typing import override
 
 from google.api_core.exceptions import GoogleAPIError, Unauthenticated
 from google.api_core.retry import AsyncRetry
@@ -68,6 +69,7 @@ class GoogleCloudSpeechToTextEntity(SpeechToTextEntity):
         self._client = client
         self._model = entry.options.get(CONF_STT_MODEL, DEFAULT_STT_MODEL)
 
+    @override
     @cached_property
     def supported_languages(self) -> list[str]:
         """Return a list of supported languages."""
@@ -77,31 +79,37 @@ class GoogleCloudSpeechToTextEntity(SpeechToTextEntity):
         supported.update(HA_TO_GOOGLE_STT_LANG_MAP.keys())
         return sorted(supported)
 
+    @override
     @property
     def supported_formats(self) -> list[AudioFormats]:
         """Return a list of supported formats."""
         return [AudioFormats.WAV, AudioFormats.OGG]
 
+    @override
     @property
     def supported_codecs(self) -> list[AudioCodecs]:
         """Return a list of supported codecs."""
         return [AudioCodecs.PCM, AudioCodecs.OPUS]
 
+    @override
     @property
     def supported_bit_rates(self) -> list[AudioBitRates]:
         """Return a list of supported bitrates."""
         return [AudioBitRates.BITRATE_16]
 
+    @override
     @property
     def supported_sample_rates(self) -> list[AudioSampleRates]:
         """Return a list of supported samplerates."""
         return [AudioSampleRates.SAMPLERATE_16000]
 
+    @override
     @property
     def supported_channels(self) -> list[AudioChannels]:
         """Return a list of supported channels."""
         return [AudioChannels.CHANNEL_MONO]
 
+    @override
     async def async_process_audio_stream(
         self, metadata: SpeechMetadata, stream: AsyncIterable[bytes]
     ) -> SpeechResult:

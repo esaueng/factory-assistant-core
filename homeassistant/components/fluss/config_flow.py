@@ -1,6 +1,6 @@
 """Config flow for Fluss+ integration."""
 
-from typing import Any
+from typing import Any, override
 
 from fluss_api import (
     FlussApiClient,
@@ -22,6 +22,7 @@ STEP_USER_DATA_SCHEMA = vol.Schema({vol.Required(CONF_API_KEY): cv.string})
 class FlussConfigFlow(ConfigFlow, domain=DOMAIN):
     """Handle a config flow for Fluss+."""
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:

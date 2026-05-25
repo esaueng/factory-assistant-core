@@ -2,6 +2,7 @@
 
 from datetime import timedelta
 import logging
+from typing import override
 
 from gardena_bluetooth.client import Client
 from gardena_bluetooth.exceptions import (
@@ -55,11 +56,13 @@ class GardenaBluetoothCoordinator(DataUpdateCoordinator[dict[str, bytes]]):
         self.characteristics = characteristics
         self.device_info = device_info
 
+    @override
     async def async_shutdown(self) -> None:
         """Shutdown coordinator and any connection."""
         await super().async_shutdown()
         await self.client.disconnect()
 
+    @override
     async def _async_update_data(self) -> dict[str, bytes]:
         """Poll the device."""
         uuids: set[str] = {

@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from fressnapftracker import Tracker
 
@@ -59,6 +60,7 @@ class FressnapfTrackerBinarySensor(FressnapfTrackerEntity, BinarySensorEntity):
 
     entity_description: FressnapfTrackerBinarySensorDescription
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return True if the binary sensor is on."""

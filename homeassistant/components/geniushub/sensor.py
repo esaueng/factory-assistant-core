@@ -1,7 +1,7 @@
 """Support for Genius Hub sensor devices."""
 
 from datetime import timedelta
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.sensor import SensorDeviceClass, SensorEntity
 from homeassistant.const import PERCENTAGE
@@ -54,6 +54,7 @@ class GeniusBattery(GeniusDevice, SensorEntity):
 
         self._attr_name = f"{device.type} {device.id}"
 
+    @override
     @property
     def icon(self) -> str:
         """Return the icon of the sensor."""
@@ -79,6 +80,7 @@ class GeniusBattery(GeniusDevice, SensorEntity):
 
         return icon
 
+    @override
     @property
     def native_value(self) -> int:
         """Return the state of the sensor."""
@@ -100,11 +102,13 @@ class GeniusIssue(GeniusEntity, SensorEntity):
         self._level = level
         self._issues: list = []
 
+    @override
     @property
     def native_value(self) -> int:
         """Return the number of issues."""
         return len(self._issues)
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return the device state attributes."""

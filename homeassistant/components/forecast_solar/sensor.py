@@ -3,7 +3,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime, timedelta
-from typing import Any
+from typing import Any, override
 
 from forecast_solar.models import Estimate
 
@@ -180,6 +180,7 @@ class ForecastSolarSensorEntity(
             configuration_url="https://forecast.solar",
         )
 
+    @override
     @property
     def native_value(self) -> datetime | StateType:
         """Return the state of the sensor."""

@@ -1,6 +1,6 @@
 """Support for Magic Home switches."""
 
-from typing import Any
+from typing import Any, override
 
 from flux_led import DeviceType
 from flux_led.aio import AIOWifiLedBulb
@@ -51,6 +51,7 @@ class FluxSwitch(
 
     _attr_name = None
 
+    @override
     async def _async_turn_on(self, **kwargs: Any) -> None:
         """Turn the device on."""
         if not self.is_on:
@@ -73,6 +74,7 @@ class FluxRemoteAccessSwitch(FluxBaseEntity, SwitchEntity):
         base_unique_id = entry.unique_id or entry.entry_id
         self._attr_unique_id = f"{base_unique_id}_remote_access"
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the remote access on."""
         await self._device.async_enable_remote_access(
@@ -90,11 +92,13 @@ class FluxRemoteAccessSwitch(FluxBaseEntity, SwitchEntity):
         )
         self.async_write_ha_state()
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the remote access off."""
         await self._device.async_disable_remote_access()
         await self._async_update_entry(False)
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return true if remote access is enabled."""
@@ -106,6 +110,7 @@ class FluxMusicSwitch(FluxEntity, SwitchEntity):
 
     _attr_translation_key = "music"
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the microphone on."""
         await self._async_ensure_device_on()
@@ -113,12 +118,14 @@ class FluxMusicSwitch(FluxEntity, SwitchEntity):
         self.async_write_ha_state()
         await self.coordinator.async_request_refresh()
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the microphone off."""
         await self._device.async_set_levels(*self._device.rgb, brightness=255)
         self.async_write_ha_state()
         await self.coordinator.async_request_refresh()
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return true if microphone is is on."""

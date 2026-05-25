@@ -1,5 +1,7 @@
 """Support for Genius Hub binary_sensor devices."""
 
+from typing import override
+
 from homeassistant.components.binary_sensor import BinarySensorEntity
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
@@ -41,6 +43,7 @@ class GeniusBinarySensor(GeniusDevice, BinarySensorEntity):
         else:
             self._attr_name = f"{device.type} {device.id}"
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return the status of the sensor."""

@@ -2,7 +2,7 @@
 
 from io import BytesIO
 import logging
-from typing import Any
+from typing import Any, override
 
 from gtts import gTTS, gTTSError
 import voluptuous as vol
@@ -90,6 +90,7 @@ class GoogleTTSEntity(TextToSpeechEntity):
         )
         self._attr_default_language = self._lang
 
+    @override
     def get_tts_audio(
         self, message: str, language: str, options: dict[str, Any] | None = None
     ) -> TtsAudioType:
@@ -130,21 +131,25 @@ class GoogleProvider(Provider):
             self._tld = tld
         self.name = "Google Translate"
 
+    @override
     @property
     def default_language(self) -> str:
         """Return the default language."""
         return self._lang
 
+    @override
     @property
     def supported_languages(self) -> list[str]:
         """Return list of supported languages."""
         return SUPPORT_LANGUAGES
 
+    @override
     @property
     def supported_options(self) -> list[str]:
         """Return a list of supported options."""
         return SUPPORT_OPTIONS
 
+    @override
     def get_tts_audio(
         self, message: str, language: str, options: dict[str, Any]
     ) -> TtsAudioType:

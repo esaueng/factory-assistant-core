@@ -1,6 +1,6 @@
 """Support for Fumis climate entities."""
 
-from typing import Any
+from typing import Any, override
 
 from fumis import StoveStatus
 
@@ -68,6 +68,7 @@ class FumisClimateEntity(FumisEntity, ClimateEntity):
         super().__init__(coordinator)
         self._attr_unique_id = coordinator.config_entry.unique_id
 
+    @override
     @property
     def hvac_mode(self) -> HVACMode:
         """Return the current HVAC mode."""
@@ -75,6 +76,7 @@ class FumisClimateEntity(FumisEntity, ClimateEntity):
             return HVACMode.HEAT
         return HVACMode.OFF
 
+    @override
     @property
     def hvac_action(self) -> HVACAction | None:
         """Return the current HVAC action."""
@@ -82,6 +84,7 @@ class FumisClimateEntity(FumisEntity, ClimateEntity):
             self.coordinator.data.controller.stove_status
         ]
 
+    @override
     @property
     def current_temperature(self) -> float | None:
         """Return the current temperature."""
@@ -89,6 +92,7 @@ class FumisClimateEntity(FumisEntity, ClimateEntity):
             return None
         return temp.actual
 
+    @override
     @property
     def target_temperature(self) -> float | None:
         """Return the target temperature."""
@@ -96,6 +100,7 @@ class FumisClimateEntity(FumisEntity, ClimateEntity):
             return None
         return temp.setpoint
 
+    @override
     @fumis_exception_handler
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         """Set the HVAC mode."""
@@ -105,6 +110,7 @@ class FumisClimateEntity(FumisEntity, ClimateEntity):
             await self.coordinator.client.turn_off()
         await self.coordinator.async_request_refresh()
 
+    @override
     @fumis_exception_handler
     async def async_set_temperature(self, **kwargs: Any) -> None:
         """Set the target temperature."""
@@ -113,12 +119,14 @@ class FumisClimateEntity(FumisEntity, ClimateEntity):
         await self.coordinator.client.set_target_temperature(temperature)
         await self.coordinator.async_request_refresh()
 
+    @override
     @fumis_exception_handler
     async def async_turn_on(self) -> None:
         """Turn on the stove."""
         await self.coordinator.client.turn_on()
         await self.coordinator.async_request_refresh()
 
+    @override
     @fumis_exception_handler
     async def async_turn_off(self) -> None:
         """Turn off the stove."""

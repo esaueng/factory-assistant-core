@@ -7,7 +7,7 @@ from datetime import datetime
 from errno import EHOSTUNREACH, EIO
 import io
 import logging
-from typing import Any, cast
+from typing import Any, cast, override
 
 from aiohttp import web
 from httpx import HTTPStatusError, RequestError, TimeoutException
@@ -331,6 +331,7 @@ class GenericIPCamConfigFlow(ConfigFlow, domain=DOMAIN):
         self.user_input: dict[str, Any] = {}
         self.title = ""
 
+    @override
     @staticmethod
     def async_get_options_flow(
         config_entry: ConfigEntry,
@@ -338,6 +339,7 @@ class GenericIPCamConfigFlow(ConfigFlow, domain=DOMAIN):
         """Get the options flow for this handler."""
         return GenericOptionsFlowHandler()
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
@@ -407,6 +409,7 @@ class GenericIPCamConfigFlow(ConfigFlow, domain=DOMAIN):
             preview="generic_camera",
         )
 
+    @override
     @staticmethod
     async def async_setup_preview(hass: HomeAssistant) -> None:
         """Set up preview WS API."""
@@ -501,6 +504,7 @@ class GenericOptionsFlowHandler(OptionsFlow):
             preview="generic_camera",
         )
 
+    @override
     @staticmethod
     async def async_setup_preview(hass: HomeAssistant) -> None:
         """Set up preview WS API."""

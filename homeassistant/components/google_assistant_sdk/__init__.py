@@ -1,5 +1,7 @@
 """Support for Google Assistant SDK."""
 
+from typing import override
+
 from aiohttp import ClientError
 from gassist_text import TextAssistant
 from google.oauth2.credentials import Credentials
@@ -102,11 +104,13 @@ class GoogleAssistantConversationAgent(conversation.AbstractConversationAgent):
         self.session: OAuth2Session | None = None
         self.language: str | None = None
 
+    @override
     @property
     def supported_languages(self) -> list[str]:
         """Return a list of supported languages."""
         return SUPPORTED_LANGUAGE_CODES
 
+    @override
     async def async_process(
         self, user_input: conversation.ConversationInput
     ) -> conversation.ConversationResult:

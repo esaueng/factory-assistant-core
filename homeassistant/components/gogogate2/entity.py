@@ -1,6 +1,6 @@
 """Common code for GogoGate2 component."""
 
-from typing import Any
+from typing import Any, override
 
 from ismartgate.common import AbstractDoor, get_door_by_id
 
@@ -44,6 +44,7 @@ class GoGoGate2Entity(CoordinatorEntity[DeviceDataUpdateCoordinator]):
         door_with_statuses = self._api.async_get_door_statuses_from_info(data)
         return door_with_statuses[self._door_id]
 
+    @override
     @property
     def device_info(self) -> DeviceInfo:
         """Device info for the controller."""
@@ -61,6 +62,7 @@ class GoGoGate2Entity(CoordinatorEntity[DeviceDataUpdateCoordinator]):
             sw_version=data.firmwareversion,
         )
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return the state attributes."""

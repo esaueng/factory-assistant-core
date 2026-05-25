@@ -1,5 +1,7 @@
 """Support for Genius Hub climate devices."""
 
+from typing import override
+
 from homeassistant.components.climate import (
     PRESET_ACTIVITY,
     PRESET_BOOST,
@@ -57,21 +59,25 @@ class GeniusClimateZone(GeniusHeatingZone, ClimateEntity):
         self._max_temp = 28.0
         self._min_temp = 4.0
 
+    @override
     @property
     def icon(self) -> str:
         """Return the icon to use in the frontend UI."""
         return "mdi:radiator"
 
+    @override
     @property
     def hvac_mode(self) -> HVACMode:
         """Return hvac operation ie. heat, cool mode."""
         return GH_HVAC_TO_HA.get(self._zone.data["mode"], HVACMode.HEAT)
 
+    @override
     @property
     def hvac_modes(self) -> list[HVACMode]:
         """Return the list of available hvac operation modes."""
         return list(HA_HVAC_TO_GH)
 
+    @override
     @property
     def hvac_action(self) -> HVACAction | None:
         """Return the current running hvac operation if supported."""
@@ -83,11 +89,13 @@ class GeniusClimateZone(GeniusHeatingZone, ClimateEntity):
             return HVACAction.IDLE
         return None
 
+    @override
     @property
     def preset_mode(self) -> str | None:
         """Return the current preset mode, e.g., home, away, temp."""
         return GH_PRESET_TO_HA.get(self._zone.data["mode"])
 
+    @override
     @property
     def preset_modes(self) -> list[str] | None:
         """Return a list of available preset modes."""
@@ -95,10 +103,12 @@ class GeniusClimateZone(GeniusHeatingZone, ClimateEntity):
             return [PRESET_ACTIVITY, PRESET_BOOST]
         return [PRESET_BOOST]
 
+    @override
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         """Set a new hvac mode."""
         await self._zone.set_mode(HA_HVAC_TO_GH.get(hvac_mode))
 
+    @override
     async def async_set_preset_mode(self, preset_mode: str) -> None:
         """Set a new preset mode."""
         await self._zone.set_mode(HA_PRESET_TO_GH.get(preset_mode, "timer"))

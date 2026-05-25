@@ -5,7 +5,7 @@ from enum import IntFlag
 import functools as ft
 import logging
 import math
-from typing import Any, final
+from typing import Any, final, override
 
 from propcache.api import cached_property
 import voluptuous as vol
@@ -288,6 +288,7 @@ class FanEntity(ToggleEntity, cached_properties=CACHED_PROPERTIES_WITH_ATTR_):
         """Set the direction of the fan."""
         await self.hass.async_add_executor_job(self.set_direction, direction)
 
+    @override
     def turn_on(
         self,
         percentage: int | None = None,
@@ -309,6 +310,7 @@ class FanEntity(ToggleEntity, cached_properties=CACHED_PROPERTIES_WITH_ATTR_):
             self._valid_preset_mode_or_raise(preset_mode)
         await self.async_turn_on(percentage, preset_mode, **kwargs)
 
+    @override
     async def async_turn_on(
         self,
         percentage: int | None = None,
@@ -333,6 +335,7 @@ class FanEntity(ToggleEntity, cached_properties=CACHED_PROPERTIES_WITH_ATTR_):
         """Oscillate the fan."""
         await self.hass.async_add_executor_job(self.oscillate, oscillating)
 
+    @override
     @property
     def is_on(self) -> bool | None:
         """Return true if the entity is on."""
@@ -365,6 +368,7 @@ class FanEntity(ToggleEntity, cached_properties=CACHED_PROPERTIES_WITH_ATTR_):
         """Return whether or not the fan is currently oscillating."""
         return self._attr_oscillating
 
+    @override
     @property
     def capability_attributes(self) -> dict[str, list[str] | None]:
         """Return capability attributes."""
@@ -379,6 +383,7 @@ class FanEntity(ToggleEntity, cached_properties=CACHED_PROPERTIES_WITH_ATTR_):
 
         return attrs
 
+    @override
     @final
     @property
     def state_attributes(self) -> dict[str, float | str | None]:
@@ -403,6 +408,7 @@ class FanEntity(ToggleEntity, cached_properties=CACHED_PROPERTIES_WITH_ATTR_):
 
         return data
 
+    @override
     @cached_property
     def supported_features(self) -> FanEntityFeature:
         """Flag supported features."""

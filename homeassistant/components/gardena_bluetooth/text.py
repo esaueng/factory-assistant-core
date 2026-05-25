@@ -1,6 +1,7 @@
 """Support for text entities."""
 
 from dataclasses import dataclass
+from typing import override
 
 from gardena_bluetooth.const import AquaContourContours, AquaContourPosition
 from gardena_bluetooth.parse import CharacteristicNullString
@@ -74,12 +75,14 @@ class GardenaBluetoothTextEntity(GardenaBluetoothDescriptorEntity, TextEntity):
 
     entity_description: GardenaBluetoothTextEntityDescription
 
+    @override
     @property
     def native_value(self) -> str | None:
         """Return the value reported by the text."""
         char = self.entity_description.char
         return self.coordinator.get_cached(char)
 
+    @override
     async def async_set_value(self, value: str) -> None:
         """Change the text."""
         char = self.entity_description.char

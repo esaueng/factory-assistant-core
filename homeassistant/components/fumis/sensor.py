@@ -3,7 +3,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime, timedelta
-from typing import Any
+from typing import Any, override
 
 from fumis import FumisInfo, StoveAlert, StoveError, StoveState, StoveStatus
 
@@ -319,6 +319,7 @@ class FumisSensorEntity(FumisEntity, SensorEntity):
         self.entity_description = description
         self._attr_unique_id = f"{coordinator.config_entry.unique_id}_{description.key}"
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return additional state attributes."""
@@ -326,6 +327,7 @@ class FumisSensorEntity(FumisEntity, SensorEntity):
             return None
         return self.entity_description.attr_fn(self.coordinator.data)
 
+    @override
     @property
     def native_value(self) -> datetime | float | int | str | None:
         """Return the sensor value."""

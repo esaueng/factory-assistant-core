@@ -2,7 +2,7 @@
 
 from collections.abc import Callable, Mapping
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.sensor import (
     SensorEntity,
@@ -185,6 +185,7 @@ class GitHubSensorEntity(CoordinatorEntity[GitHubDataUpdateCoordinator], SensorE
             entry_type=DeviceEntryType.SERVICE,
         )
 
+    @override
     @property
     def available(self) -> bool:
         """Return True if entity is available."""
@@ -194,11 +195,13 @@ class GitHubSensorEntity(CoordinatorEntity[GitHubDataUpdateCoordinator], SensorE
             and self.entity_description.avabl_fn(self.coordinator.data)
         )
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the state of the sensor."""
         return self.entity_description.value_fn(self.coordinator.data)
 
+    @override
     @property
     def extra_state_attributes(self) -> Mapping[str, Any] | None:
         """Return the extra state attributes."""

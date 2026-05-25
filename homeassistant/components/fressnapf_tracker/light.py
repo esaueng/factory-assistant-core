@@ -1,6 +1,6 @@
 """Light platform for fressnapf_tracker."""
 
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, override
 
 from fressnapftracker import FressnapfTrackerError
 
@@ -51,6 +51,7 @@ class FressnapfTrackerLight(FressnapfTrackerEntity, LightEntity):
     _attr_color_mode: ColorMode = ColorMode.BRIGHTNESS
     _attr_supported_color_modes: set[ColorMode] = {ColorMode.BRIGHTNESS}
 
+    @override
     @property
     def brightness(self) -> int:
         """Return the brightness of this light between 0..255."""
@@ -59,6 +60,7 @@ class FressnapfTrackerLight(FressnapfTrackerEntity, LightEntity):
             assert self.coordinator.data.led_brightness_value is not None
         return round((self.coordinator.data.led_brightness_value / 100) * 255)
 
+    @override
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn on the device."""
         self.raise_if_not_activatable()
@@ -70,6 +72,7 @@ class FressnapfTrackerLight(FressnapfTrackerEntity, LightEntity):
             handle_fressnapf_tracker_exception(e)
         await self.coordinator.async_request_refresh()
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn off the device."""
         try:
@@ -96,6 +99,7 @@ class FressnapfTrackerLight(FressnapfTrackerEntity, LightEntity):
                 REDACTED_VALUEerror_type,
             )
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return true if device is on."""

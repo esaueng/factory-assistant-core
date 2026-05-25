@@ -1,7 +1,7 @@
 """Base entity for Geniushub."""
 
 from datetime import datetime, timedelta
-from typing import Any
+from typing import Any, override
 
 from homeassistant.const import ATTR_TEMPERATURE, UnitOfTemperature
 from homeassistant.helpers.dispatcher import async_dispatcher_connect
@@ -31,6 +31,7 @@ class GeniusEntity(Entity):
         """Initialize the entity."""
         self._unique_id: str | None = None
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Set up a listener when this entity is added to HA."""
         self.async_on_remove(async_dispatcher_connect(self.hass, DOMAIN, self._refresh))
@@ -39,6 +40,7 @@ class GeniusEntity(Entity):
         """Process any signals."""
         self.async_schedule_update_ha_state(force_refresh=True)
 
+    @override
     @property
     def unique_id(self) -> str | None:
         """Return a unique ID."""
@@ -57,6 +59,7 @@ class GeniusDevice(GeniusEntity):
         self._last_comms: datetime | None = None
         self._state_attr = None
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return the device state attributes."""
@@ -93,6 +96,7 @@ class GeniusZone(GeniusEntity):
         self._zone = zone
         self._unique_id = f"{broker.hub_uid}_zone_{zone.id}"
 
+    @override
     async def _refresh(self, payload: dict | None = None) -> None:
         """Process any signals."""
         if payload is None:
@@ -118,11 +122,13 @@ class GeniusZone(GeniusEntity):
 
         await self._zone.set_mode(mode)
 
+    @override
     @property
     def name(self) -> str:
         """Return the name of the climate device."""
         return self._zone.name
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return the device state attributes."""

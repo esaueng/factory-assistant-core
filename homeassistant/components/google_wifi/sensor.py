@@ -3,6 +3,7 @@
 from dataclasses import dataclass
 from datetime import timedelta
 import logging
+from typing import override
 
 import requests
 import voluptuous as vol
@@ -138,6 +139,7 @@ class GoogleWifiSensor(SensorEntity):
         self._api = api
         self._attr_name = f"{name}_{description.key}"
 
+    @override
     @property
     def available(self) -> bool:
         """Return availability of Google Wifi API."""

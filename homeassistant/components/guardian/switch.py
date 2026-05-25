@@ -2,7 +2,7 @@
 
 from collections.abc import Awaitable, Callable, Mapping
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
 from aioguardian import Client
 
@@ -136,22 +136,26 @@ class ValveControllerSwitch(ValveControllerEntity, SwitchEntity):
 
         self._client = data.client
 
+    @override
     @property
     def extra_state_attributes(self) -> Mapping[str, Any]:
         """Return entity specific state attributes."""
         return self.entity_description.extra_state_attributes_fn(self.coordinator.data)
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return True if entity is on."""
         return self.entity_description.is_on_fn(self.coordinator.data)
 
+    @override
     @convert_exceptions_to_homeassistant_error
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the switch off."""
         await self.entity_description.off_fn(self._client)
         await self.coordinator.async_request_refresh()
 
+    @override
     @convert_exceptions_to_homeassistant_error
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the switch on."""

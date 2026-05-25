@@ -2,6 +2,7 @@
 
 from datetime import datetime
 import logging
+from typing import override
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -88,6 +89,7 @@ class FilesizeEntity(CoordinatorEntity[FileSizeCoordinator], SensorEntity):
             identifiers={(DOMAIN, entry_id)},
         )
 
+    @override
     @property
     def native_value(self) -> float | int | datetime:
         """Return the value of the sensor."""

@@ -1,5 +1,7 @@
 """Fujitsu FGlair base entity."""
 
+from typing import override
+
 from ayla_iot_unofficial.fujitsu_hvac import FujitsuHVAC
 
 from homeassistant.helpers.device_registry import DeviceInfo
@@ -27,6 +29,7 @@ class FGLairEntity(CoordinatorEntity[FGLairCoordinator]):
             sw_version=device.property_values["mcu_firmware_version"],
         )
 
+    @override
     @property
     def available(self) -> bool:
         """Return if entity is available."""

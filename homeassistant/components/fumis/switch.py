@@ -2,7 +2,7 @@
 
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
 from fumis import Fumis, FumisInfo
 
@@ -80,17 +80,20 @@ class FumisSwitchEntity(FumisEntity, SwitchEntity):
         self.entity_description = description
         self._attr_unique_id = f"{coordinator.config_entry.unique_id}_{description.key}"
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return the state of the switch."""
         return self.entity_description.is_on_fn(self.coordinator.data)
 
+    @override
     @fumis_exception_handler
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn on the switch."""
         await self.entity_description.turn_on_fn(self.coordinator.client)
         await self.coordinator.async_request_refresh()
 
+    @override
     @fumis_exception_handler
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn off the switch."""

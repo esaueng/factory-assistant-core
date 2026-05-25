@@ -1,6 +1,6 @@
 """Support for Fjäråskupan fans."""
 
-from typing import Any
+from typing import Any, override
 
 from fjaraskupan import (
     COMMAND_AFTERCOOKINGTIMERAUTO,
@@ -86,6 +86,7 @@ class Fan(CoordinatorEntity[FjaraskupanCoordinator], FanEntity):
         self._preset_mode = PRESET_MODE_NORMAL
         self._update_from_device_data(coordinator.data)
 
+    @override
     async def async_set_percentage(self, percentage: int) -> None:
         """Set speed."""
 
@@ -101,6 +102,7 @@ class Fan(CoordinatorEntity[FjaraskupanCoordinator], FanEntity):
                 )
                 await device.send_fan_speed(int(new_speed))
 
+    @override
     async def async_turn_on(
         self,
         percentage: int | None = None,
@@ -133,37 +135,44 @@ class Fan(CoordinatorEntity[FjaraskupanCoordinator], FanEntity):
             elif preset_mode == PRESET_MODE_AFTER_COOKING_AUTO:
                 await device.send_after_cooking(0)
 
+    @override
     async def async_set_preset_mode(self, preset_mode: str) -> None:
         """Set new preset mode."""
         command = PRESET_TO_COMMAND[preset_mode]
         async with self.coordinator.async_connect_and_update() as device:
             await device.send_command(command)
 
+    @override
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the entity off."""
         async with self.coordinator.async_connect_and_update() as device:
             await device.send_command(COMMAND_STOP_FAN)
 
+    @override
     @property
     def speed_count(self) -> int:
         """Return the number of speeds the fan supports."""
         return len(ORDERED_NAMED_FAN_SPEEDS)
 
+    @override
     @property
     def percentage(self) -> int | None:
         """Return the current speed."""
         return self._percentage
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return true if fan is on."""
         return self._percentage != 0
 
+    @override
     @property
     def preset_mode(self) -> str | None:
         """Return the current preset mode."""
         return self._preset_mode
 
+    @override
     @property
     def preset_modes(self) -> list[str] | None:
         """Return a list of available preset modes."""
@@ -190,6 +199,7 @@ class Fan(CoordinatorEntity[FjaraskupanCoordinator], FanEntity):
         else:
             self._preset_mode = PRESET_MODE_NORMAL
 
+    @override
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle data update."""

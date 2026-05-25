@@ -2,7 +2,7 @@
 
 from collections.abc import Mapping
 import logging
-from typing import Any
+from typing import Any, override
 
 from google_weather_api import GoogleWeatherApi, GoogleWeatherApiError
 import voluptuous as vol
@@ -113,6 +113,7 @@ class GoogleWeatherConfigFlow(ConfigFlow, domain=DOMAIN):
 
     VERSION = 1
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
@@ -215,6 +216,7 @@ class GoogleWeatherConfigFlow(ConfigFlow, domain=DOMAIN):
         """Handle a reconfiguration flow."""
         return await self.async_step_user(user_input)
 
+    @override
     @classmethod
     @callback
     def async_get_supported_subentry_types(

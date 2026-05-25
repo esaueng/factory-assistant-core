@@ -1,5 +1,7 @@
 """Support for govee-ble binary sensors."""
 
+from typing import override
+
 from govee_ble import (
     BinarySensorDeviceClass as GoveeBLEBinarySensorDeviceClass,
     SensorUpdate,
@@ -101,6 +103,7 @@ class GoveeBluetoothBinarySensorEntity(
 
     processor: GoveeBLEPassiveBluetoothDataProcessor[bool | None]
 
+    @override
     @property
     def available(self) -> bool:
         """Return False if sensor is in error."""
@@ -110,6 +113,7 @@ class GoveeBluetoothBinarySensorEntity(
             or super().available
         )
 
+    @override
     @property
     def is_on(self) -> bool | None:
         """Return the native value."""

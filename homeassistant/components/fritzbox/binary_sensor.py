@@ -2,7 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Final
+from typing import Final, override
 
 from pyfritzhome.fritzhomedevice import FritzhomeDevice
 
@@ -117,6 +117,7 @@ class FritzboxBinarySensor(FritzBoxDeviceEntity, BinarySensorEntity):
 
     entity_description: FritzBinarySensorEntityDescription
 
+    @override
     @property
     def is_on(self) -> bool | None:
         """Return true if sensor is on."""

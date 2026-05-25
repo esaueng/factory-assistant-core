@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -119,6 +120,7 @@ class GoogleDriveSensorEntity(GoogleDriveEntity, SensorEntity):
         self.entity_description = description
         self._attr_unique_id = f"{coordinator.config_entry.unique_id}_{description.key}"
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the state of the sensor."""

@@ -1,5 +1,7 @@
 """Support for sensors."""
 
+from typing import override
+
 from fjaraskupan import Device
 
 from homeassistant.components.sensor import (
@@ -53,6 +55,7 @@ class RssiSensor(CoordinatorEntity[FjaraskupanCoordinator], SensorEntity):
         self._attr_unique_id = f"{device.address}-signal-strength"
         self._attr_device_info = device_info
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the value reported by the sensor."""

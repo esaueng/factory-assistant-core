@@ -1,5 +1,7 @@
 """Support for sensors."""
 
+from typing import override
+
 from homeassistant.components.number import NumberEntity
 from homeassistant.const import EntityCategory, UnitOfTime
 from homeassistant.core import HomeAssistant
@@ -49,6 +51,7 @@ class PeriodicVentingTime(CoordinatorEntity[FjaraskupanCoordinator], NumberEntit
         self._attr_unique_id = f"{coordinator.device.address}-periodic-venting"
         self._attr_device_info = device_info
 
+    @override
     @property
     def native_value(self) -> float | None:
         """Return the entity value to represent the entity state."""
@@ -56,6 +59,7 @@ class PeriodicVentingTime(CoordinatorEntity[FjaraskupanCoordinator], NumberEntit
             return data.periodic_venting
         return None
 
+    @override
     async def async_set_native_value(self, value: float) -> None:
         """Set new value."""
         async with self.coordinator.async_connect_and_update() as device:

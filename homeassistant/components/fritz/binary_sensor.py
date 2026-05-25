@@ -3,6 +3,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 import logging
+from typing import override
 
 from homeassistant.components.binary_sensor import (
     BinarySensorDeviceClass,
@@ -75,6 +76,7 @@ class FritzBoxBinarySensor(FritzBoxBaseCoordinatorEntity, BinarySensorEntity):
 
     entity_description: FritzBinarySensorEntityDescription
 
+    @override
     @property
     def is_on(self) -> bool | None:
         """Return true if the binary sensor is on."""

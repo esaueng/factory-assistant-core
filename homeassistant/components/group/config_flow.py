@@ -2,7 +2,7 @@
 
 from collections.abc import Callable, Coroutine, Mapping
 from functools import partial
-from typing import Any, cast
+from typing import Any, cast, override
 
 import voluptuous as vol
 
@@ -342,6 +342,7 @@ class GroupConfigFlowHandler(SchemaConfigFlowHandler, domain=DOMAIN):
     options_flow = OPTIONS_FLOW
     options_flow_reloads = True
 
+    @override
     @callback
     def async_config_entry_title(self, options: Mapping[str, Any]) -> str:
         """Return config entry title.
@@ -351,6 +352,7 @@ class GroupConfigFlowHandler(SchemaConfigFlowHandler, domain=DOMAIN):
         """
         return cast(str, options["name"]) if "name" in options else ""
 
+    @override
     @callback
     def async_config_flow_finished(self, options: Mapping[str, Any]) -> None:
         """Hide the group members if requested."""
@@ -359,6 +361,7 @@ class GroupConfigFlowHandler(SchemaConfigFlowHandler, domain=DOMAIN):
                 self.hass, options[CONF_ENTITIES], er.RegistryEntryHider.INTEGRATION
             )
 
+    @override
     @callback
     @staticmethod
     def async_options_flow_finished(
@@ -370,6 +373,7 @@ class GroupConfigFlowHandler(SchemaConfigFlowHandler, domain=DOMAIN):
         )
         _async_hide_members(hass, options[CONF_ENTITIES], hidden_by)
 
+    @override
     @staticmethod
     async def async_setup_preview(hass: HomeAssistant) -> None:
         """Set up preview WS API."""

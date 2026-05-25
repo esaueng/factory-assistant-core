@@ -1,6 +1,6 @@
 """Support for switches using GC100."""
 
-from typing import Any
+from typing import Any, override
 
 import voluptuous as vol
 
@@ -48,20 +48,24 @@ class GC100Switch(SwitchEntity):
         self._gc100 = gc100
         self._state: bool | None = None
 
+    @override
     @property
     def name(self) -> str:
         """Return the name of the switch."""
         return self._name
 
+    @override
     @property
     def is_on(self) -> bool | None:
         """Return the state of the entity."""
         return self._state
 
+    @override
     def turn_on(self, **kwargs: Any) -> None:
         """Turn the device on."""
         self._gc100.write_switch(self._port_addr, 1, self.set_state)
 
+    @override
     def turn_off(self, **kwargs: Any) -> None:
         """Turn the device off."""
         self._gc100.write_switch(self._port_addr, 0, self.set_state)

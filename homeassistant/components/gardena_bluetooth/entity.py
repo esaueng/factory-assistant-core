@@ -1,6 +1,6 @@
 """Provides the DataUpdateCoordinator."""
 
-from typing import Any
+from typing import Any, override
 
 from homeassistant.helpers.entity import EntityDescription
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
@@ -20,6 +20,7 @@ class GardenaBluetoothEntity(CoordinatorEntity[GardenaBluetoothCoordinator]):
         super().__init__(coordinator, context)
         self._attr_device_info = coordinator.device_info
 
+    @override
     @property
     def available(self) -> bool:
         """Return if entity is available."""

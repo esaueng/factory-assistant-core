@@ -1,7 +1,7 @@
 """Config flow for the Google Air Quality integration."""
 
 import logging
-from typing import Any
+from typing import Any, override
 
 from google_air_quality_api.api import GoogleAirQualityApi
 from google_air_quality_api.auth import Auth
@@ -178,6 +178,7 @@ class GoogleAirQualityConfigFlow(ConfigFlow, domain=DOMAIN):
 
     VERSION = 1
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
@@ -230,6 +231,7 @@ class GoogleAirQualityConfigFlow(ConfigFlow, domain=DOMAIN):
             description_placeholders=description_placeholders,
         )
 
+    @override
     @classmethod
     @callback
     def async_get_supported_subentry_types(

@@ -2,7 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
 from libpyfoscamcgi import FoscamCamera
 
@@ -77,11 +77,13 @@ class FoscamVolumeNumberEntity(FoscamEntity, NumberEntity):
         self.entity_description = description
         self._attr_unique_id = f"{entry_id}_{description.key}"
 
+    @override
     @property
     def native_value(self) -> float:
         """Return the current value."""
         return self.entity_description.native_value_fn(self.coordinator)
 
+    @override
     async def async_set_native_value(self, value: float) -> None:
         """Set the value."""
         await self.hass.async_add_executor_job(

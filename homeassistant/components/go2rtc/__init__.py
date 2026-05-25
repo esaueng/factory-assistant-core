@@ -5,6 +5,7 @@ import logging
 from secrets import token_hex
 import shutil
 from tempfile import mkdtemp
+from typing import override
 
 from aiohttp import BasicAuth, ClientSession, UnixConnector
 from aiohttp.client_exceptions import ClientConnectionError, ServerConnectionError
@@ -278,6 +279,7 @@ class WebRTCProvider(CameraWebRTCProvider):
         self._sessions: dict[str, Go2RtcWsClient] = {}
         self._supported_schemes: set[str] = set()
 
+    @override
     @property
     def domain(self) -> str:
         """Return the integration domain of the provider."""
@@ -287,11 +289,13 @@ class WebRTCProvider(CameraWebRTCProvider):
         """Initialize the provider."""
         self._supported_schemes = await self._rest_client.schemes.list()
 
+    @override
     @callback
     def async_is_supported(self, stream_source: str) -> bool:
         """Return if this provider is supports the Camera as source."""
         return stream_source.partition(":")[0] in self._supported_schemes
 
+    @override
     async def async_handle_async_webrtc_offer(
         self,
         camera: Camera,
@@ -328,6 +332,7 @@ class WebRTCProvider(CameraWebRTCProvider):
         config = camera.async_get_webrtc_client_configuration()
         await ws_client.send(WebRTCOffer(offer_sdp, config.configuration.ice_servers))
 
+    @override
     async def async_on_webrtc_candidate(
         self, session_id: str, candidate: RTCIceCandidateInit
     ) -> None:
@@ -338,12 +343,14 @@ class WebRTCProvider(CameraWebRTCProvider):
         else:
             _LOGGER.debug("Unknown session %s. Ignoring candidate", session_id)
 
+    @override
     @callback
     def async_close_session(self, session_id: str) -> None:
         """Close the session."""
         ws_client = self._sessions.pop(session_id)
         self._hass.async_create_task(ws_client.close())
 
+    @override
     async def async_get_image(
         self,
         camera: Camera,

@@ -2,7 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -182,6 +182,7 @@ class PairedSensorSensor(PairedSensorEntity, SensorEntity):
 
     entity_description: PairedSensorDescription
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the value reported by the sensor."""
@@ -193,6 +194,7 @@ class ValveControllerSensor(ValveControllerEntity, SensorEntity):
 
     entity_description: ValveControllerSensorDescription
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the value reported by the sensor."""

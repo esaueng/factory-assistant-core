@@ -1,5 +1,7 @@
 """Device tracker platform for fressnapf_tracker."""
 
+from typing import override
+
 from homeassistant.components.device_tracker.config_entry import TrackerEntity
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
@@ -36,16 +38,19 @@ class FressnapfTrackerDeviceTracker(FressnapfTrackerBaseEntity, TrackerEntity):
         super().__init__(coordinator)
         self._attr_unique_id = coordinator.device.serialnumber
 
+    @override
     @property
     def available(self) -> bool:
         """Return if entity is available."""
         return super().available and self.coordinator.data.position is not None
 
+    @override
     @property
     def entity_picture(self) -> str | None:
         """Return the entity picture url."""
         return self.coordinator.data.icon
 
+    @override
     @property
     def latitude(self) -> float | None:
         """Return latitude value of the device."""
@@ -53,6 +58,7 @@ class FressnapfTrackerDeviceTracker(FressnapfTrackerBaseEntity, TrackerEntity):
             return self.coordinator.data.position.lat
         return None
 
+    @override
     @property
     def longitude(self) -> float | None:
         """Return longitude value of the device."""
@@ -60,6 +66,7 @@ class FressnapfTrackerDeviceTracker(FressnapfTrackerBaseEntity, TrackerEntity):
             return self.coordinator.data.position.lng
         return None
 
+    @override
     @property
     def location_accuracy(self) -> float:
         """Return the location accuracy of the device.

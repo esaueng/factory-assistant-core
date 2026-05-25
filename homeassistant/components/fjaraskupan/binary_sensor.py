@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from fjaraskupan import Device
 
@@ -84,6 +85,7 @@ class BinarySensor(CoordinatorEntity[FjaraskupanCoordinator], BinarySensorEntity
         self._attr_unique_id = f"{device.address}-{entity_description.key}"
         self._attr_device_info = device_info
 
+    @override
     @property
     def is_on(self) -> bool | None:
         """Return true if the binary sensor is on."""

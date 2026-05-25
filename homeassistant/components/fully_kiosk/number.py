@@ -1,6 +1,7 @@
 """Fully Kiosk Browser number entity."""
 
 from contextlib import suppress
+from typing import override
 
 from homeassistant.components.number import NumberEntity, NumberEntityDescription
 from homeassistant.const import EntityCategory, UnitOfTime
@@ -77,6 +78,7 @@ class FullyNumberEntity(FullyKioskEntity, NumberEntity):
         self.entity_description = description
         self._attr_unique_id = f"{coordinator.data['deviceID']}-{description.key}"
 
+    @override
     @property
     def native_value(self) -> int | None:
         """Return the state of the number entity."""
@@ -90,6 +92,7 @@ class FullyNumberEntity(FullyKioskEntity, NumberEntity):
 
         return None
 
+    @override
     async def async_set_native_value(self, value: float) -> None:
         """Set the value of the entity."""
         await self.coordinator.fully.setConfigurationString(

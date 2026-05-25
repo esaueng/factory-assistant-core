@@ -2,6 +2,7 @@
 
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass
+from typing import override
 
 from aioguardian import Client
 
@@ -96,6 +97,7 @@ class GuardianButton(ValveControllerEntity, ButtonEntity):
 
         self._client = data.client
 
+    @override
     @convert_exceptions_to_homeassistant_error
     async def async_press(self) -> None:
         """Send out a restart command."""

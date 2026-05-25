@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from pyfreshr.models import DeviceReadings, DeviceType
 
@@ -149,6 +150,7 @@ class FreshrSensor(FreshrEntity, SensorEntity):
         self.entity_description = description
         self._attr_unique_id = f"{coordinator.device_id}_{description.key}"
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the value from coordinator data."""

@@ -1,6 +1,6 @@
 """Provides a binary sensor which is a collection of ffmpeg tools."""
 
-from typing import Any
+from typing import Any, override
 
 from haffmpeg.core import HAFFmpeg
 import haffmpeg.sensor as ffmpeg_sensor
@@ -85,11 +85,13 @@ class FFmpegBinarySensor[_HAFFmpegT: HAFFmpeg](
         self._state = state
         self.async_write_ha_state()
 
+    @override
     @property
     def is_on(self) -> bool | None:
         """Return true if the binary sensor is on."""
         return self._state
 
+    @override
     @property
     def name(self) -> str:
         """Return the name of the entity."""
@@ -106,6 +108,7 @@ class FFmpegMotion(FFmpegBinarySensor[ffmpeg_sensor.SensorMotion]):
         ffmpeg = ffmpeg_sensor.SensorMotion(manager.binary, self._async_callback)
         super().__init__(ffmpeg, config)
 
+    @override
     async def _async_start_ffmpeg(self, entity_ids: list[str] | None) -> None:
         """Start a FFmpeg instance.
 
@@ -128,6 +131,7 @@ class FFmpegMotion(FFmpegBinarySensor[ffmpeg_sensor.SensorMotion]):
             extra_cmd=self._config.get(CONF_EXTRA_ARGUMENTS),
         )
 
+    @override
     @property
     def device_class(self) -> BinarySensorDeviceClass:
         """Return the class of this sensor, from DEVICE_CLASSES."""

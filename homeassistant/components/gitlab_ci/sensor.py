@@ -2,6 +2,7 @@
 
 from datetime import timedelta
 import logging
+from typing import override
 
 from gitlab import Gitlab, GitlabAuthenticationError, GitlabGetError
 import voluptuous as vol
@@ -82,6 +83,7 @@ class GitLabSensor(SensorEntity):
         self._gitlab_data = gitlab_data
         self._attr_name = name
 
+    @override
     @property
     def icon(self) -> str:
         """Return the icon to use in the frontend."""

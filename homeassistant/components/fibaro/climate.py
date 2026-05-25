@@ -2,7 +2,7 @@
 
 from contextlib import suppress
 import logging
-from typing import Any
+from typing import Any, override
 
 from pyfibaro.fibaro_device import DeviceModel
 
@@ -209,6 +209,7 @@ class FibaroThermostat(FibaroEntity, ClimateEntity):
                 ClimateEntityFeature.TURN_OFF | ClimateEntityFeature.TURN_ON
             )
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Call when entity is added to hass."""
         _LOGGER.debug(
@@ -233,6 +234,7 @@ class FibaroThermostat(FibaroEntity, ClimateEntity):
             if device != self.fibaro_device:
                 self.controller.register(device.fibaro_id, self._update_callback)
 
+    @override
     @property
     def fan_mode(self) -> str | None:
         """Return the fan setting."""
@@ -241,6 +243,7 @@ class FibaroThermostat(FibaroEntity, ClimateEntity):
         mode = self._fan_mode_device.mode
         return FANMODES[mode]
 
+    @override
     def set_fan_mode(self, fan_mode: str) -> None:
         """Set new target fan mode."""
         if not self._fan_mode_device:
@@ -261,6 +264,7 @@ class FibaroThermostat(FibaroEntity, ClimateEntity):
             return device.thermostat_mode
         return device.mode
 
+    @override
     @property
     def hvac_mode(self) -> HVACMode | None:
         """Return hvac operation ie. heat, cool, idle."""
@@ -274,6 +278,7 @@ class FibaroThermostat(FibaroEntity, ClimateEntity):
             return OPMODES_HVAC[fibaro_operation_mode]
         return None
 
+    @override
     def set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         """Set new target operation mode."""
         if not self._op_mode_device:
@@ -291,6 +296,7 @@ class FibaroThermostat(FibaroEntity, ClimateEntity):
         elif "setMode" in device.actions:
             device.execute_action("setMode", [HA_OPMODES_HVAC[hvac_mode]])
 
+    @override
     @property
     def hvac_action(self) -> HVACAction | None:
         """Return the current running hvac operation if supported."""
@@ -304,6 +310,7 @@ class FibaroThermostat(FibaroEntity, ClimateEntity):
 
         return None
 
+    @override
     @property
     def preset_mode(self) -> str | None:
         """Return the current preset mode, e.g., home, away, temp.
@@ -327,6 +334,7 @@ class FibaroThermostat(FibaroEntity, ClimateEntity):
             return None
         return OPMODES_PRESET[mode]
 
+    @override
     def set_preset_mode(self, preset_mode: str) -> None:
         """Set new preset mode."""
         if self._op_mode_device is None:
@@ -343,6 +351,7 @@ class FibaroThermostat(FibaroEntity, ClimateEntity):
                 "setMode", [HA_OPMODES_PRESET[preset_mode]]
             )
 
+    @override
     @property
     def current_temperature(self) -> float | None:
         """Return the current temperature."""
@@ -353,6 +362,7 @@ class FibaroThermostat(FibaroEntity, ClimateEntity):
             return device.value.float_value()
         return None
 
+    @override
     @property
     def target_temperature(self) -> float | None:
         """Return the temperature we try to reach."""
@@ -363,6 +373,7 @@ class FibaroThermostat(FibaroEntity, ClimateEntity):
             return device.target_level
         return None
 
+    @override
     def set_temperature(self, **kwargs: Any) -> None:
         """Set new target temperatures."""
         temperature = kwargs.get(ATTR_TEMPERATURE)

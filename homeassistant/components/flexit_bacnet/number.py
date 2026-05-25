@@ -3,6 +3,7 @@
 import asyncio.exceptions
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass
+from typing import override
 
 from flexit_bacnet import FlexitBACnet
 from flexit_bacnet.bacnet import DecodingError
@@ -228,21 +229,25 @@ class FlexitNumber(FlexitEntity, NumberEntity):
             f"{coordinator.device.serial_number}-{entity_description.key}"
         )
 
+    @override
     @property
     def native_value(self) -> float:
         """Return the state of the number."""
         return self.entity_description.native_value_fn(self.coordinator.device)
 
+    @override
     @property
     def native_max_value(self) -> float:
         """Return the native max value of the number."""
         return self.entity_description.native_max_value_fn(self.coordinator.device)
 
+    @override
     @property
     def native_min_value(self) -> float:
         """Return the native min value of the number."""
         return self.entity_description.native_min_value_fn(self.coordinator.device)
 
+    @override
     async def async_set_native_value(self, value: float) -> None:
         """Update the current value."""
         set_native_value_fn = self.entity_description.set_native_value_fn(

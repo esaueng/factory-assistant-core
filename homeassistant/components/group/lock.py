@@ -1,7 +1,7 @@
 """Platform allowing several locks to be grouped into one lock."""
 
 import logging
-from typing import Any
+from typing import Any, override
 
 import voluptuous as vol
 
@@ -120,6 +120,7 @@ class LockGroup(GroupEntity, LockEntity):
         self._attr_extra_state_attributes = {ATTR_ENTITY_ID: entity_ids}
         self._attr_unique_id = unique_id
 
+    @override
     @callback
     def async_update_group_state(self) -> None:
         """Query all members and determine the lock group state."""

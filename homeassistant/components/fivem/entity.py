@@ -3,7 +3,7 @@
 from collections.abc import Mapping
 from dataclasses import dataclass
 import logging
-from typing import Any
+from typing import Any, override
 
 from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity import EntityDescription
@@ -47,6 +47,7 @@ class FiveMEntity(CoordinatorEntity[FiveMDataUpdateCoordinator]):
             sw_version=self.coordinator.version,
         )
 
+    @override
     @property
     def extra_state_attributes(self) -> Mapping[str, Any] | None:
         """Return the extra attributes of the sensor."""

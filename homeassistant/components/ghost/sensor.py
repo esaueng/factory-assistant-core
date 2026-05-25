@@ -2,7 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, override
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -298,6 +298,7 @@ class GhostSensorEntity(CoordinatorEntity[GhostDataUpdateCoordinator], SensorEnt
             configuration_url=coordinator.api.api_url,
         )
 
+    @override
     @property
     def native_value(self) -> str | int | None:
         """Return the state of the sensor."""
@@ -338,6 +339,7 @@ class GhostNewsletterSensorEntity(
         """Get newsletter data by ID."""
         return self.coordinator.data.newsletters.get(self._newsletter_id)
 
+    @override
     @property
     def available(self) -> bool:
         """Return True if the entity is available."""
@@ -346,6 +348,7 @@ class GhostNewsletterSensorEntity(
             and self._newsletter_id in self.coordinator.data.newsletters
         )
 
+    @override
     @property
     def native_value(self) -> int | None:
         """Return the subscriber count for this newsletter."""

@@ -1,6 +1,7 @@
 """The FiveM sensor platform."""
 
 from dataclasses import dataclass
+from typing import override
 
 from homeassistant.components.sensor import SensorEntity, SensorEntityDescription
 from homeassistant.core import HomeAssistant
@@ -66,6 +67,7 @@ class FiveMSensorEntity(FiveMEntity, SensorEntity):
 
     entity_description: FiveMSensorEntityDescription
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the state of the sensor."""

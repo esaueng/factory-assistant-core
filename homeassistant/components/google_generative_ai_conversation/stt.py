@@ -1,6 +1,7 @@
 """Speech to text support for Google Generative AI."""
 
 from collections.abc import AsyncIterable
+from typing import override
 
 from google.genai.errors import APIError, ClientError
 from google.genai.types import Part
@@ -41,6 +42,7 @@ class GoogleGenerativeAISttEntity(
         """Initialize the STT entity."""
         super().__init__(config_entry, subentry, RECOMMENDED_STT_MODEL)
 
+    @override
     @property
     def supported_languages(self) -> list[str]:
         """Return a list of supported languages."""
@@ -187,27 +189,32 @@ class GoogleGenerativeAISttEntity(
             "zu-ZA",
         ]
 
+    @override
     @property
     def supported_formats(self) -> list[stt.AudioFormats]:
         """Return a list of supported formats."""
         # https://ai.google.dev/gemini-api/docs/audio#supported-formats
         return [stt.AudioFormats.WAV, stt.AudioFormats.OGG]
 
+    @override
     @property
     def supported_codecs(self) -> list[stt.AudioCodecs]:
         """Return a list of supported codecs."""
         return [stt.AudioCodecs.PCM, stt.AudioCodecs.OPUS]
 
+    @override
     @property
     def supported_bit_rates(self) -> list[stt.AudioBitRates]:
         """Return a list of supported bit rates."""
         return [stt.AudioBitRates.BITRATE_16]
 
+    @override
     @property
     def supported_sample_rates(self) -> list[stt.AudioSampleRates]:
         """Return a list of supported sample rates."""
         return [stt.AudioSampleRates.SAMPLERATE_16000]
 
+    @override
     @property
     def supported_channels(self) -> list[stt.AudioChannels]:
         """Return a list of supported channels."""
@@ -217,6 +224,7 @@ class GoogleGenerativeAISttEntity(
         # Gemini combines those channels into a single channel.
         return [stt.AudioChannels.CHANNEL_MONO]
 
+    @override
     async def async_process_audio_stream(
         self, metadata: stt.SpeechMetadata, stream: AsyncIterable[bytes]
     ) -> stt.SpeechResult:

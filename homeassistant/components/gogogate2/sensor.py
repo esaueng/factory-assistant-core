@@ -1,7 +1,7 @@
 """Support for Gogogate2 garage Doors."""
 
 from itertools import chain
-from typing import Any
+from typing import Any, override
 
 from ismartgate.common import AbstractDoor, get_configured_doors
 
@@ -47,6 +47,7 @@ async def async_setup_entry(
 class DoorSensorEntity(GoGoGate2Entity, SensorEntity):
     """Base class for door sensor entities."""
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return the state attributes."""
@@ -75,11 +76,13 @@ class DoorSensorBattery(DoorSensorEntity):
         unique_id = sensor_unique_id(config_entry, door, "battery")
         super().__init__(config_entry, data_update_coordinator, door, unique_id)
 
+    @override
     @property
     def name(self):
         """Return the name of the door."""
         return f"{self.door.name} battery"
 
+    @override
     @property
     def native_value(self):
         """Return the state of the entity."""
@@ -103,11 +106,13 @@ class DoorSensorTemperature(DoorSensorEntity):
         unique_id = sensor_unique_id(config_entry, door, "temperature")
         super().__init__(config_entry, data_update_coordinator, door, unique_id)
 
+    @override
     @property
     def name(self):
         """Return the name of the door."""
         return f"{self.door.name} temperature"
 
+    @override
     @property
     def native_value(self):
         """Return the state of the entity."""

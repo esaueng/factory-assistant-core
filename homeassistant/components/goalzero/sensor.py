@@ -1,6 +1,6 @@
 """Support for Goal Zero Yeti Sensors."""
 
-from typing import cast
+from typing import cast, override
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -141,6 +141,7 @@ async def async_setup_entry(
 class GoalZeroSensor(GoalZeroEntity, SensorEntity):
     """Representation of a Goal Zero Yeti sensor."""
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return the state."""

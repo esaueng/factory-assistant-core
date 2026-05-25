@@ -4,7 +4,7 @@ import datetime
 import logging
 import os
 import threading
-from typing import Any
+from typing import Any, override
 
 import pygtfs
 from sqlalchemy.sql import text
@@ -549,26 +549,31 @@ class GTFSDepartureSensor(SensorEntity):
         self.lock = threading.Lock()
         self.update()
 
+    @override
     @property
     def name(self) -> str:
         """Return the name of the sensor."""
         return self._name
 
+    @override
     @property
     def native_value(self) -> datetime.datetime | None:
         """Return the state of the sensor."""
         return self._state
 
+    @override
     @property
     def available(self) -> bool:
         """Return True if entity is available."""
         return self._available
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return the state attributes."""
         return self._attributes
 
+    @override
     @property
     def icon(self) -> str:
         """Icon to use in the frontend, if any."""

@@ -1,6 +1,7 @@
 """Support for AVM FRITZ!SmartHome devices."""
 
 from abc import ABC, abstractmethod
+from typing import override
 
 from pyfritzhome import FritzhomeDevice
 from pyfritzhome.devicetypes.fritzhomeentitybase import FritzhomeEntityBase
@@ -43,16 +44,19 @@ class FritzBoxEntity(CoordinatorEntity[FritzboxDataUpdateCoordinator], ABC):
 class FritzBoxDeviceEntity(FritzBoxEntity):
     """Reflect FritzhomeDevice and construct FritzBoxDeviceEntity."""
 
+    @override
     @property
     def available(self) -> bool:
         """Return if entity is available."""
         return super().available and self.data.present
 
+    @override
     @property
     def data(self) -> FritzhomeDevice:
         """Return device data object from coordinator."""
         return self.coordinator.data.devices[self.ain]
 
+    @override
     @property
     def device_info(self) -> DeviceInfo:
         """Return device specific attributes."""

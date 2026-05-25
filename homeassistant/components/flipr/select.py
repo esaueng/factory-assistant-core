@@ -1,6 +1,7 @@
 """Select platform for the Flipr's Hub."""
 
 import logging
+from typing import override
 
 from homeassistant.components.select import SelectEntity, SelectEntityDescription
 from homeassistant.core import HomeAssistant
@@ -38,12 +39,14 @@ async def async_setup_entry(
 class FliprHubSelect(FliprEntity, SelectEntity):
     """Select representing Hub mode."""
 
+    @override
     @property
     def current_option(self) -> str | None:
         """Return current select option."""
         _LOGGER.debug("coordinator data = %s", self.coordinator.data)
         return self.coordinator.data["mode"]
 
+    @override
     async def async_select_option(self, option: str) -> None:
         """Select new mode for Hub."""
         _LOGGER.debug("Changing mode of %s to %s", self.device_id, option)

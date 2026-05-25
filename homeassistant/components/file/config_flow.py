@@ -1,7 +1,7 @@
 """Config flow for file integration."""
 
 from copy import deepcopy
-from typing import Any
+from typing import Any, override
 
 import voluptuous as vol
 
@@ -69,6 +69,7 @@ class FileConfigFlowHandler(ConfigFlow, domain=DOMAIN):
 
     VERSION = 2
 
+    @override
     @staticmethod
     @callback
     def async_get_options_flow(
@@ -83,6 +84,7 @@ class FileConfigFlowHandler(ConfigFlow, domain=DOMAIN):
             self.hass.config.is_allowed_path, file_path
         )
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:

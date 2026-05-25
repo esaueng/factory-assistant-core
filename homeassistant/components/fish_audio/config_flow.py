@@ -1,7 +1,7 @@
 """Config flow for the Fish Audio integration."""
 
 import logging
-from typing import Any
+from typing import Any, override
 
 from fishaudio import AsyncFishAudio
 from fishaudio.exceptions import AuthenticationError, FishAudioError
@@ -168,6 +168,7 @@ class FishAudioConfigFlow(ConfigFlow, domain=DOMAIN):
         """Initialize the config flow."""
         self.client = None
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
@@ -216,6 +217,7 @@ class FishAudioConfigFlow(ConfigFlow, domain=DOMAIN):
             },
         )
 
+    @override
     @classmethod
     @callback
     def async_get_supported_subentry_types(

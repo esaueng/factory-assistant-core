@@ -2,7 +2,7 @@
 
 from datetime import timedelta
 import logging
-from typing import Any
+from typing import Any, override
 
 import aiohttp
 from foobot_async import FoobotClient
@@ -144,6 +144,7 @@ class FoobotSensor(SensorEntity):
         self._attr_name = f"Foobot {device['name']} {description.name}"
         self._attr_unique_id = f"{device['uuid']}_{description.key}"
 
+    @override
     @property
     def native_value(self) -> float | None:
         """Return the state of the device."""

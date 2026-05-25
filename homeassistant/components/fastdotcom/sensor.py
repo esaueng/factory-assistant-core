@@ -1,5 +1,7 @@
 """Support for Fast.com internet speed testing sensor."""
 
+from typing import override
+
 from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorEntity,
@@ -46,6 +48,7 @@ class SpeedtestSensor(CoordinatorEntity[FastdotcomDataUpdateCoordinator], Sensor
             configuration_url="https://www.fast.com",
         )
 
+    @override
     @property
     def native_value(
         self,

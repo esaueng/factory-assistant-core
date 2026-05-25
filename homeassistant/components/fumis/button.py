@@ -2,7 +2,7 @@
 
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
 from fumis import Fumis
 
@@ -63,6 +63,7 @@ class FumisButtonEntity(FumisEntity, ButtonEntity):
         self.entity_description = description
         self._attr_unique_id = f"{coordinator.config_entry.unique_id}_{description.key}"
 
+    @override
     @fumis_exception_handler
     async def async_press(self) -> None:
         """Handle the button press."""

@@ -1,6 +1,6 @@
 """Support for Flo Water Monitor binary sensors."""
 
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components.binary_sensor import (
     BinarySensorDeviceClass,
@@ -48,11 +48,13 @@ class FloPendingAlertsBinarySensor(FloEntity, BinarySensorEntity):
         """Initialize the pending alerts binary sensor."""
         super().__init__("pending_system_alerts", device)
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return true if the Flo device has pending alerts."""
         return self._device.has_alerts
 
+    @override
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return the state attributes."""
@@ -75,6 +77,7 @@ class FloWaterDetectedBinarySensor(FloEntity, BinarySensorEntity):
         """Initialize the pending alerts binary sensor."""
         super().__init__("water_detected", device)
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return true if the Flo device is detecting water."""

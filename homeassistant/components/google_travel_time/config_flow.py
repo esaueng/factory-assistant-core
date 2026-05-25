@@ -1,6 +1,6 @@
 """Config flow for Google Maps Travel Time integration."""
 
-from typing import Any
+from typing import Any, override
 
 import voluptuous as vol
 
@@ -166,6 +166,7 @@ class GoogleTravelTimeConfigFlow(ConfigFlow, domain=DOMAIN):
 
     VERSION = 2
 
+    @override
     @staticmethod
     @callback
     def async_get_options_flow(
@@ -174,6 +175,7 @@ class GoogleTravelTimeConfigFlow(ConfigFlow, domain=DOMAIN):
         """Get the options flow for this handler."""
         return GoogleOptionsFlow()
 
+    @override
     async def async_step_user(self, user_input=None) -> ConfigFlowResult:
         """Handle the initial step."""
         errors: dict[str, str] | None = None

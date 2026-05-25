@@ -2,7 +2,7 @@
 
 from collections.abc import Callable, Mapping
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
 from faadelays import Airport
 
@@ -121,11 +121,13 @@ class FAABinarySensor(CoordinatorEntity[FAADataUpdateCoordinator], BinarySensorE
             entry_type=DeviceEntryType.SERVICE,
         )
 
+    @override
     @property
     def is_on(self) -> bool | None:
         """Return the status of the sensor."""
         return self.entity_description.is_on_fn(self.coordinator.data)
 
+    @override
     @property
     def extra_state_attributes(self) -> Mapping[str, Any]:
         """Return attributes for sensor."""

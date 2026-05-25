@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from odp_amsterdam import Garage
 
@@ -72,6 +73,7 @@ class GaragesAmsterdamBinarySensor(GaragesAmsterdamEntity, BinarySensorEntity):
         self.entity_description = description
         self._attr_unique_id = f"{garage_name}-{description.key}"
 
+    @override
     @property
     def is_on(self) -> bool:
         """If the binary sensor is currently on or off."""

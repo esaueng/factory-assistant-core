@@ -1,6 +1,6 @@
 """Custom data update coordinator for the GitHub integration."""
 
-from typing import Any
+from typing import Any, override
 
 from aiogithubapi import (
     GitHubAPI,
@@ -133,6 +133,7 @@ class GitHubDataUpdateCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             update_interval=FALLBACK_UPDATE_INTERVAL,
         )
 
+    @override
     async def _async_update_data(self) -> GitHubResponseModel[dict[str, Any]]:
         """Update data."""
         owner, repository = self.repository.split("/")

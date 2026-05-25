@@ -2,7 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
 from fritzconnection.lib.fritzstatus import FritzStatus
 
@@ -95,6 +95,7 @@ class FritzBoxBaseCoordinatorEntity(CoordinatorEntity[AvmWrapper]):
         self._device_name = device_name
         self._attr_unique_id = f"{avm_wrapper.unique_id}-{description.key}"
 
+    @override
     async def async_added_to_hass(self) -> None:
         """When entity is added to hass."""
         await super().async_added_to_hass()
@@ -105,6 +106,7 @@ class FritzBoxBaseCoordinatorEntity(CoordinatorEntity[AvmWrapper]):
                 )
             )
 
+    @override
     @property
     def device_info(self) -> DeviceInfo:
         """Return the device information."""

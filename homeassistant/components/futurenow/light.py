@@ -1,6 +1,6 @@
 """Support for FutureNow Ethernet unit outputs as Lights."""
 
-from typing import Any
+from typing import Any, override
 
 import pyfnip
 import voluptuous as vol
@@ -89,6 +89,7 @@ class FutureNowLight(LightEntity):
                 device["host"], device["port"], self._channel
             )
 
+    @override
     @property
     def color_mode(self) -> ColorMode:
         """Return the color mode of the light."""
@@ -96,11 +97,13 @@ class FutureNowLight(LightEntity):
             return ColorMode.BRIGHTNESS
         return ColorMode.ONOFF
 
+    @override
     @property
     def supported_color_modes(self) -> set[ColorMode]:
         """Flag supported color modes."""
         return {self.color_mode}
 
+    @override
     def turn_on(self, **kwargs: Any) -> None:
         """Turn the light on."""
         if self._dimmable:
@@ -109,6 +112,7 @@ class FutureNowLight(LightEntity):
             level = 255
         self._light.turn_on(to_futurenow_level(level))
 
+    @override
     def turn_off(self, **kwargs: Any) -> None:
         """Turn the light off."""
         self._light.turn_off()

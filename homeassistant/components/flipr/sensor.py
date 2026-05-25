@@ -1,5 +1,7 @@
 """Sensor platform for the Flipr's pool_sensor."""
 
+from typing import override
+
 from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorEntity,
@@ -70,6 +72,7 @@ async def async_setup_entry(
 class FliprSensor(FliprEntity, SensorEntity):
     """Sensor representing FliprSensor data."""
 
+    @override
     @property
     def native_value(self) -> str:
         """State of the sensor."""

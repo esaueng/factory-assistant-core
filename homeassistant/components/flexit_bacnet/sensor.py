@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import override
 
 from flexit_bacnet import FlexitBACnet
 
@@ -188,6 +189,7 @@ class FlexitSensor(FlexitEntity, SensorEntity):
             f"{coordinator.device.serial_number}-{entity_description.key}"
         )
 
+    @override
     @property
     def native_value(self) -> StateType:
         """Return value of sensor."""

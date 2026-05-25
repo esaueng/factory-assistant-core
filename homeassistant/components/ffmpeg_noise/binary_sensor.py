@@ -1,6 +1,6 @@
 """Provides a binary sensor which is a collection of ffmpeg tools."""
 
-from typing import Any
+from typing import Any, override
 
 import haffmpeg.sensor as ffmpeg_sensor
 import voluptuous as vol
@@ -74,6 +74,7 @@ class FFmpegNoise(FFmpegBinarySensor[ffmpeg_sensor.SensorNoise]):
         ffmpeg = ffmpeg_sensor.SensorNoise(manager.binary, self._async_callback)
         super().__init__(ffmpeg, config)
 
+    @override
     async def _async_start_ffmpeg(self, entity_ids: list[str] | None) -> None:
         """Start a FFmpeg instance.
 
@@ -94,6 +95,7 @@ class FFmpegNoise(FFmpegBinarySensor[ffmpeg_sensor.SensorNoise]):
             extra_cmd=self._config.get(CONF_EXTRA_ARGUMENTS),
         )
 
+    @override
     @property
     def device_class(self) -> BinarySensorDeviceClass:
         """Return the class of this sensor, from DEVICE_CLASSES."""

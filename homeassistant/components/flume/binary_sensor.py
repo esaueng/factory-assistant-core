@@ -1,6 +1,7 @@
 """Flume binary sensors."""
 
 from dataclasses import dataclass
+from typing import override
 
 from homeassistant.components.binary_sensor import (
     BinarySensorDeviceClass,
@@ -122,6 +123,7 @@ class FlumeNotificationBinarySensor(
 
     entity_description: FlumeBinarySensorEntityDescription
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return on state."""
@@ -144,6 +146,7 @@ class FlumeConnectionBinarySensor(
     _attr_entity_category = EntityCategory.DIAGNOSTIC
     _attr_device_class = BinarySensorDeviceClass.CONNECTIVITY
 
+    @override
     @property
     def is_on(self) -> bool:
         """Return connection status."""

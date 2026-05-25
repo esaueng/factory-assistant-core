@@ -3,7 +3,7 @@
 from abc import ABC, abstractmethod
 from datetime import datetime, timedelta
 import logging
-from typing import Any
+from typing import Any, override
 
 from homeassistant.components import (
     alarm_control_panel,
@@ -323,6 +323,7 @@ class BrightnessTrait(_Trait):
     name = TRAIT_BRIGHTNESS
     commands = [COMMAND_BRIGHTNESS_ABSOLUTE]
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, attributes):
         """Test if state is supported."""
@@ -332,10 +333,12 @@ class BrightnessTrait(_Trait):
 
         return False
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return brightness attributes for a sync request."""
         return {}
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return brightness query attributes."""
         domain = self.state.domain
@@ -348,6 +351,7 @@ class BrightnessTrait(_Trait):
 
         return response
 
+    @override
     async def execute(self, command, data, params, challenge):
         """Execute a brightness command."""
         if self.state.domain == light.DOMAIN:
@@ -375,6 +379,7 @@ class CameraStreamTrait(_Trait):
 
     stream_info: dict[str, str] | None = None
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, _):
         """Test if state is supported."""
@@ -383,6 +388,7 @@ class CameraStreamTrait(_Trait):
 
         return False
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return stream attributes for a sync request."""
         return {
@@ -391,10 +397,12 @@ class CameraStreamTrait(_Trait):
             "cameraStreamNeedDrmEncryption": False,
         }
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return camera stream attributes."""
         return self.stream_info or {}
 
+    @override
     async def execute(self, command, data, params, challenge):
         """Execute a get camera stream command."""
         url = await camera.async_request_stream(self.hass, self.state.entity_id, "hls")
@@ -414,6 +422,7 @@ class ObjectDetection(_Trait):
     name = TRAIT_OBJECT_DETECTION
     commands = []
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, _) -> bool:
         """Test if state is supported."""
@@ -421,18 +430,22 @@ class ObjectDetection(_Trait):
             domain == event.DOMAIN and device_class == event.EventDeviceClass.DOORBELL
         )
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return ObjectDetection attributes for a sync request."""
         return {}
 
+    @override
     def sync_options(self) -> dict[str, Any]:
         """Add options for the sync request."""
         return {"notificationSupportedByAgent": True}
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return ObjectDetection query attributes."""
         return {}
 
+    @override
     def query_notifications(self) -> dict[str, Any] | None:
         """Return notifications payload."""
 
@@ -458,6 +471,7 @@ class ObjectDetection(_Trait):
             },
         }
 
+    @override
     async def execute(self, command, data, params, challenge):
         """Execute an ObjectDetection command."""
 
@@ -472,6 +486,7 @@ class OnOffTrait(_Trait):
     name = TRAIT_ON_OFF
     commands = [COMMAND_ON_OFF]
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, _):
         """Test if state is supported."""
@@ -493,16 +508,19 @@ class OnOffTrait(_Trait):
             humidifier.DOMAIN,
         )
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return OnOff attributes for a sync request."""
         if self.state.attributes.get(ATTR_ASSUMED_STATE, False):
             return {"commandOnlyOnOff": True}
         return {}
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return OnOff query attributes."""
         return {"on": self.state.state not in (STATE_OFF, STATE_UNKNOWN)}
 
+    @override
     async def execute(self, command, data, params, challenge):
         """Execute an OnOff command."""
         if (domain := self.state.domain) == group.DOMAIN:
@@ -532,6 +550,7 @@ class ColorSettingTrait(_Trait):
     name = TRAIT_COLOR_SETTING
     commands = [COMMAND_COLOR_ABSOLUTE]
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, attributes):
         """Test if state is supported."""
@@ -543,6 +562,7 @@ class ColorSettingTrait(_Trait):
             color_modes
         )
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return color temperature attributes for a sync request."""
         attrs = self.state.attributes
@@ -560,6 +580,7 @@ class ColorSettingTrait(_Trait):
 
         return response
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return color temperature query attributes."""
         color_mode = self.state.attributes.get(light.ATTR_COLOR_MODE)
@@ -595,6 +616,7 @@ class ColorSettingTrait(_Trait):
 
         return response
 
+    @override
     async def execute(self, command, data, params, challenge):
         """Execute a color temperature command."""
         if "temperature" in params["color"]:
@@ -662,6 +684,7 @@ class SceneTrait(_Trait):
     name = TRAIT_SCENE
     commands = [COMMAND_ACTIVATE_SCENE]
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, _):
         """Test if state is supported."""
@@ -672,15 +695,18 @@ class SceneTrait(_Trait):
             script.DOMAIN,
         )
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return scene attributes for a sync request."""
         # None of the supported domains can support sceneReversible
         return {}
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return scene query attributes."""
         return {}
 
+    @override
     async def execute(self, command, data, params, challenge):
         """Execute a scene command."""
         service = SERVICE_TURN_ON
@@ -711,15 +737,18 @@ class DockTrait(_Trait):
     name = TRAIT_DOCK
     commands = [COMMAND_DOCK]
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, _):
         """Test if state is supported."""
         return domain in (vacuum.DOMAIN, lawn_mower.DOMAIN)
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return dock attributes for a sync request."""
         return {}
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return dock query attributes."""
         domain = self.state.domain
@@ -730,6 +759,7 @@ class DockTrait(_Trait):
             return {"isDocked": state == lawn_mower.LawnMowerActivity.DOCKED}
         raise NotImplementedError(f"Unsupported domain {domain}")
 
+    @override
     async def execute(self, command, data, params, challenge):
         """Execute a dock command."""
         domain = self.state.domain
@@ -760,19 +790,23 @@ class LocatorTrait(_Trait):
     name = TRAIT_LOCATOR
     commands = [COMMAND_LOCATE]
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, _):
         """Test if state is supported."""
         return domain == vacuum.DOMAIN and features & VacuumEntityFeature.LOCATE
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return locator attributes for a sync request."""
         return {}
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return locator query attributes."""
         return {}
 
+    @override
     async def execute(self, command, data, params, challenge):
         """Execute a locate command."""
         if params.get("silence", False):
@@ -800,11 +834,13 @@ class EnergyStorageTrait(_Trait):
     name = TRAIT_ENERGY_STORAGE
     commands = [COMMAND_CHARGE]
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, _):
         """Test if state is supported."""
         return domain == vacuum.DOMAIN and features & VacuumEntityFeature.BATTERY
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return EnergyStorage attributes for a sync request."""
         return {
@@ -812,6 +848,7 @@ class EnergyStorageTrait(_Trait):
             "queryOnlyEnergyStorage": True,
         }
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return EnergyStorage query attributes."""
         battery_level = self.state.attributes.get(ATTR_BATTERY_LEVEL)
@@ -837,6 +874,7 @@ class EnergyStorageTrait(_Trait):
             "isPluggedIn": self.state.state == vacuum.VacuumActivity.DOCKED,
         }
 
+    @override
     async def execute(self, command, data, params, challenge):
         """Execute a dock command."""
         raise SmartHomeError(
@@ -855,6 +893,7 @@ class StartStopTrait(_Trait):
     name = TRAIT_START_STOP
     commands = [COMMAND_START_STOP, COMMAND_PAUSE_UNPAUSE]
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, _):
         """Test if state is supported."""
@@ -869,6 +908,7 @@ class StartStopTrait(_Trait):
 
         return False
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return StartStop attributes for a sync request."""
         domain = self.state.domain
@@ -889,6 +929,7 @@ class StartStopTrait(_Trait):
 
         raise NotImplementedError(f"Unsupported domain {domain}")
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return StartStop query attributes."""
         domain = self.state.domain
@@ -925,6 +966,7 @@ class StartStopTrait(_Trait):
 
         raise NotImplementedError(f"Unsupported domain {domain}")
 
+    @override
     async def execute(self, command, data, params, challenge):
         """Execute a StartStop command."""
         domain = self.state.domain
@@ -1049,6 +1091,7 @@ class TemperatureControlTrait(_Trait):
         COMMAND_SET_TEMPERATURE,
     ]
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, _):
         """Test if state is supported."""
@@ -1060,6 +1103,7 @@ class TemperatureControlTrait(_Trait):
             and device_class == sensor.SensorDeviceClass.TEMPERATURE
         )
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return temperature attributes for a sync request."""
         response = {}
@@ -1098,6 +1142,7 @@ class TemperatureControlTrait(_Trait):
 
         return response
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return temperature states."""
         response = {}
@@ -1140,6 +1185,7 @@ class TemperatureControlTrait(_Trait):
 
         return response
 
+    @override
     async def execute(self, command, data, params, challenge):
         """Execute a temperature point or mode command."""
         # All sent in temperatures are always in Celsius
@@ -1212,6 +1258,7 @@ class TemperatureSettingTrait(_Trait):
         climate.HVACAction.IDLE: "none",
     }
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, _):
         """Test if state is supported."""
@@ -1235,6 +1282,7 @@ class TemperatureSettingTrait(_Trait):
 
         return modes
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return temperature point and modes attributes for a sync request."""
         response = {}
@@ -1280,6 +1328,7 @@ class TemperatureSettingTrait(_Trait):
 
         return response
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return temperature point and modes query attributes."""
         response: dict[str, Any] = {}
@@ -1350,6 +1399,7 @@ class TemperatureSettingTrait(_Trait):
 
         return response
 
+    @override
     async def execute(self, command, data, params, challenge):
         """Execute a temperature point or mode command."""
         # All sent in temperatures are always in Celsius
@@ -1489,6 +1539,7 @@ class HumiditySettingTrait(_Trait):
     name = TRAIT_HUMIDITY_SETTING
     commands = [COMMAND_SET_HUMIDITY]
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, _):
         """Test if state is supported."""
@@ -1500,6 +1551,7 @@ class HumiditySettingTrait(_Trait):
             and device_class == sensor.SensorDeviceClass.HUMIDITY
         )
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return humidity attributes for a sync request."""
         response: dict[str, Any] = {}
@@ -1523,6 +1575,7 @@ class HumiditySettingTrait(_Trait):
 
         return response
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return humidity query attributes."""
         response = {}
@@ -1546,6 +1599,7 @@ class HumiditySettingTrait(_Trait):
 
         return response
 
+    @override
     async def execute(self, command, data, params, challenge):
         """Execute a humidity command."""
         if self.state.domain == sensor.DOMAIN:
@@ -1576,20 +1630,24 @@ class LockUnlockTrait(_Trait):
     name = TRAIT_LOCK_UNLOCK
     commands = [COMMAND_LOCK_UNLOCK]
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, _):
         """Test if state is supported."""
         return domain == lock.DOMAIN
 
+    @override
     @staticmethod
     def might_2fa(domain, features, device_class):
         """Return if the trait might ask for 2FA."""
         return True
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return LockUnlock attributes for a sync request."""
         return {}
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return LockUnlock query attributes."""
         if self.state.state == LockState.JAMMED:
@@ -1598,6 +1656,7 @@ class LockUnlockTrait(_Trait):
         # If its unlocking its not yet unlocked so we consider is locked
         return {"isLocked": self.state.state in (LockState.UNLOCKING, LockState.LOCKED)}
 
+    @override
     async def execute(self, command, data, params, challenge):
         """Execute an LockUnlock command."""
         if params["lock"]:
@@ -1644,11 +1703,13 @@ class ArmDisArmTrait(_Trait):
     }
     """The list of states to support in increasing security state."""
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, _):
         """Test if state is supported."""
         return domain == alarm_control_panel.DOMAIN
 
+    @override
     @staticmethod
     def might_2fa(domain, features, device_class):
         """Return if the trait might ask for 2FA."""
@@ -1674,6 +1735,7 @@ class ArmDisArmTrait(_Trait):
 
         return states[0]
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return ArmDisarm attributes for a sync request."""
         response = {}
@@ -1694,6 +1756,7 @@ class ArmDisArmTrait(_Trait):
         response["availableArmLevels"] = {"levels": levels, "ordered": True}
         return response
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return ArmDisarm query attributes."""
         armed_state = self.state.attributes.get("next_state", self.state.state)
@@ -1705,6 +1768,7 @@ class ArmDisArmTrait(_Trait):
             "currentArmLevel": self._default_arm_state(),
         }
 
+    @override
     async def execute(self, command, data, params, challenge):
         """Execute an ArmDisarm command."""
         if params["arm"] and not params.get("cancel"):
@@ -1782,6 +1846,7 @@ class FanSpeedTrait(_Trait):
             else:
                 self._ordered_speed = []
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, _):
         """Test if state is supported."""
@@ -1791,6 +1856,7 @@ class FanSpeedTrait(_Trait):
             return features & ClimateEntityFeature.FAN_MODE
         return False
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return speed point and modes attributes for a sync request."""
         domain = self.state.domain
@@ -1844,6 +1910,7 @@ class FanSpeedTrait(_Trait):
 
         return result
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return speed point and modes query attributes."""
 
@@ -1915,6 +1982,7 @@ class FanSpeedTrait(_Trait):
                 context=data.context,
             )
 
+    @override
     async def execute(self, command, data, params, challenge):
         """Execute a smart home command."""
         if command == COMMAND_SET_FAN_SPEED:
@@ -1939,6 +2007,7 @@ class ModesTrait(_Trait):
         "option": ["option", "setting", "mode", "value"],
     }
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, _):
         """Test if state is supported."""
@@ -1992,6 +2061,7 @@ class ModesTrait(_Trait):
             )
         return mode
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return mode attributes for a sync request."""
         modes = []
@@ -2016,6 +2086,7 @@ class ModesTrait(_Trait):
 
         return {"availableModes": modes}
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return current modes."""
         attrs = self.state.attributes
@@ -2049,6 +2120,7 @@ class ModesTrait(_Trait):
 
         return response
 
+    @override
     async def execute(self, command, data, params, challenge):
         """Execute a SetModes command."""
         settings = params.get("updateModeSettings")
@@ -2170,6 +2242,7 @@ class InputSelectorTrait(_Trait):
 
     SYNONYMS: dict[str, list[str]] = {}
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, _):
         """Test if state is supported."""
@@ -2180,6 +2253,7 @@ class InputSelectorTrait(_Trait):
 
         return False
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return mode attributes for a sync request."""
         attrs = self.state.attributes
@@ -2191,11 +2265,13 @@ class InputSelectorTrait(_Trait):
 
         return {"availableInputs": inputs, "orderedInputs": True}
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return current modes."""
         attrs = self.state.attributes
         return {"currentInput": attrs.get(media_player.ATTR_INPUT_SOURCE, "")}
 
+    @override
     async def execute(self, command, data, params, challenge):
         """Execute an SetInputSource command."""
         sources = self.state.attributes.get(media_player.ATTR_INPUT_SOURCE_LIST) or []
@@ -2242,6 +2318,7 @@ class OpenCloseTrait(_Trait):
     name = TRAIT_OPEN_CLOSE
     commands = [COMMAND_OPEN_CLOSE, COMMAND_OPEN_CLOSE_RELATIVE]
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, _):
         """Test if state is supported."""
@@ -2256,11 +2333,13 @@ class OpenCloseTrait(_Trait):
             binary_sensor.BinarySensorDeviceClass.WINDOW,
         )
 
+    @override
     @staticmethod
     def might_2fa(domain, features, device_class):
         """Return if the trait might ask for 2FA."""
         return domain == cover.DOMAIN and device_class in OpenCloseTrait.COVER_2FA
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return opening direction."""
         response = {}
@@ -2297,6 +2376,7 @@ class OpenCloseTrait(_Trait):
 
         return response
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return state query attributes."""
         domain = self.state.domain
@@ -2332,6 +2412,7 @@ class OpenCloseTrait(_Trait):
 
         return response
 
+    @override
     async def execute(self, command, data, params, challenge):
         """Execute an Open, close, Set position command."""
         domain = self.state.domain
@@ -2395,6 +2476,7 @@ class VolumeTrait(_Trait):
     name = TRAIT_VOLUME
     commands = [COMMAND_SET_VOLUME, COMMAND_VOLUME_RELATIVE, COMMAND_MUTE]
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, _):
         """Test if trait is supported."""
@@ -2406,6 +2488,7 @@ class VolumeTrait(_Trait):
 
         return False
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return volume attributes for a sync request."""
         features = self.state.attributes.get(ATTR_SUPPORTED_FEATURES, 0)
@@ -2423,6 +2506,7 @@ class VolumeTrait(_Trait):
             "levelStepSize": 10,
         }
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return volume query attributes."""
         response = {}
@@ -2508,6 +2592,7 @@ class VolumeTrait(_Trait):
             context=data.context,
         )
 
+    @override
     async def execute(self, command, data, params, challenge):
         """Execute a volume command."""
         if command == COMMAND_SET_VOLUME:
@@ -2576,6 +2661,7 @@ class TransportControlTrait(_Trait):
         COMMAND_MEDIA_STOP,
     ]
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, _):
         """Test if state is supported."""
@@ -2586,6 +2672,7 @@ class TransportControlTrait(_Trait):
 
         return False
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return opening direction."""
         response = {}
@@ -2601,10 +2688,12 @@ class TransportControlTrait(_Trait):
 
         return response
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return the attributes of this trait for this entity."""
         return {}
 
+    @override
     async def execute(self, command, data, params, challenge):
         """Execute a media command."""
         service_attrs = {ATTR_ENTITY_ID: self.state.entity_id}
@@ -2695,15 +2784,18 @@ class MediaStateTrait(_Trait):
         STATE_UNKNOWN: "STOPPED",
     }
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, _):
         """Test if state is supported."""
         return domain == media_player.DOMAIN
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return attributes for a sync request."""
         return {"supportActivityState": True, "supportPlaybackState": True}
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return the attributes of this trait for this entity."""
         return {
@@ -2722,6 +2814,7 @@ class ChannelTrait(_Trait):
     name = TRAIT_CHANNEL
     commands = [COMMAND_SELECT_CHANNEL]
 
+    @override
     @staticmethod
     def supported(domain, features, device_class, _):
         """Test if state is supported."""
@@ -2734,14 +2827,17 @@ class ChannelTrait(_Trait):
 
         return False
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return attributes for a sync request."""
         return {"availableChannels": [], "commandOnlyChannels": True}
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return channel query attributes."""
         return {}
 
+    @override
     async def execute(self, command, data, params, challenge):
         """Execute an setChannel command."""
         if command == COMMAND_SELECT_CHANNEL:
@@ -2821,6 +2917,7 @@ class SensorStateTrait(_Trait):
 
         return "hazardous"
 
+    @override
     @classmethod
     def supported(cls, domain, features, device_class, _):
         """Test if state is supported."""
@@ -2828,6 +2925,7 @@ class SensorStateTrait(_Trait):
             domain == binary_sensor.DOMAIN and device_class in cls.binary_sensor_types
         )
 
+    @override
     def sync_attributes(self) -> dict[str, Any]:
         """Return attributes for a sync request."""
         device_class = self.state.attributes.get(ATTR_DEVICE_CLASS)
@@ -2871,6 +2969,7 @@ class SensorStateTrait(_Trait):
             binary_sensor_data[0], available_states=binary_sensor_data[1]
         )
 
+    @override
     def query_attributes(self) -> dict[str, Any]:
         """Return the attributes of this trait for this entity."""
         device_class = self.state.attributes.get(ATTR_DEVICE_CLASS)

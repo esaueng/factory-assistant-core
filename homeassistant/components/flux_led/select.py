@@ -1,6 +1,7 @@
 """Support for Magic Home select."""
 
 import asyncio
+from typing import override
 
 from flux_led.aio import AIOWifiLedBulb
 from flux_led.base_device import DeviceType
@@ -108,6 +109,7 @@ class FluxPowerStateSelect(FluxConfigAtStartSelect, SelectEntity):
         assert restore_states.channel1 is not None
         self._attr_current_option = _human_readable_option(restore_states.channel1.name)
 
+    @override
     async def async_select_option(self, option: str) -> None:
         """Change the power state."""
         await self._device.async_set_power_restore(
@@ -122,17 +124,20 @@ class FluxICTypeSelect(FluxConfigSelect):
 
     _attr_translation_key = "ic_type"
 
+    @override
     @property
     def options(self) -> list[str]:
         """Return the available ic types."""
         assert self._device.ic_types is not None
         return self._device.ic_types
 
+    @override
     @property
     def current_option(self) -> str | None:
         """Return the current ic type."""
         return self._device.ic_type
 
+    @override
     async def async_select_option(self, option: str) -> None:
         """Change the ic type."""
         await self._device.async_set_device_config(ic_type=option)
@@ -144,17 +149,20 @@ class FluxWiringsSelect(FluxConfigSelect):
 
     _attr_translation_key = "wiring"
 
+    @override
     @property
     def options(self) -> list[str]:
         """Return the available wiring options based on the strip protocol."""
         assert self._device.wirings is not None
         return self._device.wirings
 
+    @override
     @property
     def current_option(self) -> str | None:
         """Return the current wiring."""
         return self._device.wiring
 
+    @override
     async def async_select_option(self, option: str) -> None:
         """Change the wiring."""
         await self._device.async_set_device_config(wiring=option)
@@ -165,17 +173,20 @@ class FluxOperatingModesSelect(FluxConfigSelect):
 
     _attr_translation_key = "operating_mode"
 
+    @override
     @property
     def options(self) -> list[str]:
         """Return the current operating mode."""
         assert self._device.operating_modes is not None
         return self._device.operating_modes
 
+    @override
     @property
     def current_option(self) -> str | None:
         """Return the current operating mode."""
         return self._device.operating_mode
 
+    @override
     async def async_select_option(self, option: str) -> None:
         """Change the ic type."""
         await self._device.async_set_device_config(operating_mode=option)
@@ -201,12 +212,14 @@ class FluxRemoteConfigSelect(FluxConfigSelect):
         }
         self._attr_options = list(self._name_to_state)
 
+    @override
     @property
     def current_option(self) -> str | None:
         """Return the current remote config."""
         assert self._device.remote_config is not None
         return _human_readable_option(self._device.remote_config.name)
 
+    @override
     async def async_select_option(self, option: str) -> None:
         """Change the remote config setting."""
         remote_config: RemoteConfig = self._name_to_state[option]
@@ -230,6 +243,7 @@ class FluxWhiteChannelSelect(FluxConfigAtStartSelect):
         base_unique_id = entry.unique_id or entry.entry_id
         self._attr_unique_id = f"{base_unique_id}_white_channel"
 
+    @override
     @property
     def current_option(self) -> str | None:
         """Return the current white channel type."""
@@ -239,6 +253,7 @@ class FluxWhiteChannelSelect(FluxConfigAtStartSelect):
             )
         )
 
+    @override
     async def async_select_option(self, option: str) -> None:
         """Change the white channel type."""
         self.hass.config_entries.async_update_entry(
