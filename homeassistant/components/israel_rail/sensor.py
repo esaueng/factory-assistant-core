@@ -52,30 +52,46 @@ DEPARTURE_SENSORS: tuple[IsraelRailSensorEntityDescription, ...] = (
 )
 
 SENSORS: tuple[IsraelRailSensorEntityDescription, ...] = (
-    IsraelRailSensorEntityDescription(
-        key="platform",
-        REDACTED_VALUE"platform",
-        value_fn=lambda data_connection: data_connection.platform,
-    ),
-    IsraelRailSensorEntityDescription(
-        key="trains",
-        REDACTED_VALUE"trains",
-        value_fn=lambda data_connection: data_connection.trains,
-    ),
-    IsraelRailSensorEntityDescription(
-        key="train_number",
-        REDACTED_VALUE"train_number",
-        value_fn=lambda data_connection: data_connection.train_number,
-    ),
-    IsraelRailSensorEntityDescription(
-        key="departure_delay",
-        REDACTED_VALUE"departure_delay",
-        device_class=SensorDeviceClass.DURATION,
-        native_unit_of_measurement=UnitOfTime.MINUTES,
-        state_class=SensorStateClass.MEASUREMENT,
-        suggested_display_precision=0,
-        value_fn=lambda data_connection: data_connection.departure_delay,
-    ),
+    *[
+        IsraelRailSensorEntityDescription(
+            key=f"platform{i or ''}",
+            REDACTED_VALUEf"platform{i or ''}",
+            value_fn=lambda data_connection: data_connection.platform,
+            index=i,
+        )
+        for i in range(DEPARTURES_COUNT)
+    ],
+    *[
+        IsraelRailSensorEntityDescription(
+            key=f"trains{i or ''}",
+            REDACTED_VALUEf"trains{i or ''}",
+            value_fn=lambda data_connection: data_connection.trains,
+            index=i,
+        )
+        for i in range(DEPARTURES_COUNT)
+    ],
+    *[
+        IsraelRailSensorEntityDescription(
+            key=f"train_number{i or ''}",
+            REDACTED_VALUEf"train_number{i or ''}",
+            value_fn=lambda data_connection: data_connection.train_number,
+            index=i,
+        )
+        for i in range(DEPARTURES_COUNT)
+    ],
+    *[
+        IsraelRailSensorEntityDescription(
+            key=f"departure_delay{i or ''}",
+            REDACTED_VALUEf"departure_delay{i or ''}",
+            device_class=SensorDeviceClass.DURATION,
+            native_unit_of_measurement=UnitOfTime.MINUTES,
+            state_class=SensorStateClass.MEASUREMENT,
+            suggested_display_precision=0,
+            value_fn=lambda data_connection: data_connection.departure_delay,
+            index=i,
+        )
+        for i in range(DEPARTURES_COUNT)
+    ],
 )
 
 

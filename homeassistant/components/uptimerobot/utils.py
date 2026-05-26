@@ -33,7 +33,7 @@ def uptimerobot_api_call[_T: UptimeRobotEntity, **_P](
         except UptimeRobotException as exception:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_exception",
+                REDACTED_VALUE"api_switch_exception",
                 translation_placeholders={"error": "Generic UptimeRobot exception"},
             ) from exception
 
