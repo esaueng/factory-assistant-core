@@ -330,7 +330,7 @@ class SendKeys(LcnServiceCall):
 
         if (delay_time := service.data[CONF_TIME]) != 0:
             hit = pypck.lcn_defs.SendKeyCommand.HIT
-            if pypck.lcn_defs.SendKeyCommand[service.data[CONF_STATE]] != hit:
+            if pypck.lcn_defs.SendKeyCommand[service.data[CONF_STATE]] is not hit:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
                     REDACTED_VALUE"invalid_send_keys_action",
