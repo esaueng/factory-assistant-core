@@ -1,7 +1,5 @@
 """Support for israel rail."""
 
-from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime
@@ -12,7 +10,9 @@ from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorEntity,
     SensorEntityDescription,
+    SensorStateClass,
 )
+from homeassistant.const import UnitOfTime
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
@@ -52,21 +52,46 @@ DEPARTURE_SENSORS: tuple[IsraelRailSensorEntityDescription, ...] = (
 )
 
 SENSORS: tuple[IsraelRailSensorEntityDescription, ...] = (
-    IsraelRailSensorEntityDescription(
-        key="platform",
-        REDACTED_VALUE"platform",
-        value_fn=lambda data_connection: data_connection.platform,
-    ),
-    IsraelRailSensorEntityDescription(
-        key="trains",
-        REDACTED_VALUE"trains",
-        value_fn=lambda data_connection: data_connection.trains,
-    ),
-    IsraelRailSensorEntityDescription(
-        key="train_number",
-        REDACTED_VALUE"train_number",
-        value_fn=lambda data_connection: data_connection.train_number,
-    ),
+    *[
+        IsraelRailSensorEntityDescription(
+            key=f"platform{i or ''}",
+            REDACTED_VALUEf"platform{i or ''}",
+            value_fn=lambda data_connection: data_connection.platform,
+            index=i,
+        )
+        for i in range(DEPARTURES_COUNT)
+    ],
+    *[
+        IsraelRailSensorEntityDescription(
+            key=f"trains{i or ''}",
+            REDACTED_VALUEf"trains{i or ''}",
+            value_fn=lambda data_connection: data_connection.trains,
+            index=i,
+        )
+        for i in range(DEPARTURES_COUNT)
+    ],
+    *[
+        IsraelRailSensorEntityDescription(
+            key=f"train_number{i or ''}",
+            REDACTED_VALUEf"train_number{i or ''}",
+            value_fn=lambda data_connection: data_connection.train_number,
+            index=i,
+        )
+        for i in range(DEPARTURES_COUNT)
+    ],
+    *[
+        IsraelRailSensorEntityDescription(
+            key=f"departure_delay{i or ''}",
+            REDACTED_VALUEf"departure_delay{i or ''}",
+            device_class=SensorDeviceClass.DURATION,
+            native_unit_of_measurement=UnitOfTime.MINUTES,
+            state_class=SensorStateClass.MEASUREMENT,
+            suggested_display_precision=0,
+            value_fn=lambda data_connection: data_connection.departure_delay,
+            index=i,
+        )
+        for i in range(DEPARTURES_COUNT)
+    ],
 )
 
 
