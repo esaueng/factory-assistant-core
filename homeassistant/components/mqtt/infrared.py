@@ -57,7 +57,8 @@ SIGNAL_SCHEMA = vol.Schema(
     {
         vol.Required("timings"): [int],
         vol.Required("modulation"): int,
-    }
+    },
+    extra=vol.REMOVE_EXTRA,
 )
 
 
