@@ -192,6 +192,12 @@ SENSOR_DESCRIPTIONS = {
         native_unit_of_measurement=LIGHT_LUX,
         state_class=SensorStateClass.MEASUREMENT,
     ),
+    # Light level (-)
+    (BTHomeExtendedSensorDeviceClass.LIGHT_LEVEL, None): SensorEntityDescription(
+        key=str(BTHomeExtendedSensorDeviceClass.LIGHT_LEVEL),
+        state_class=SensorStateClass.MEASUREMENT,
+        REDACTED_VALUE"light_level",
+    ),
     # Mass sensor (kg)
     (BTHomeSensorDeviceClass.MASS, Units.MASS_KILOGRAMS): SensorEntityDescription(
         key=f"{BTHomeSensorDeviceClass.MASS}_{Units.MASS_KILOGRAMS}",
@@ -286,6 +292,12 @@ SENSOR_DESCRIPTIONS = {
         native_unit_of_measurement=REVOLUTIONS_PER_MINUTE,
         state_class=SensorStateClass.MEASUREMENT,
         REDACTED_VALUE"rotational_speed",
+    ),
+    # Settings revision (-)
+    (BTHomeExtendedSensorDeviceClass.SETTINGS_REVISION, None): SensorEntityDescription(
+        key=str(BTHomeExtendedSensorDeviceClass.SETTINGS_REVISION),
+        entity_category=EntityCategory.DIAGNOSTIC,
+        REDACTED_VALUE"settings_revision",
     ),
     # Signal Strength (RSSI) (dB)
     (

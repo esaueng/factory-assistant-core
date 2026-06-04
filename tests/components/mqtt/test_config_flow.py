@@ -17,6 +17,7 @@ import voluptuous as vol
 from homeassistant import config_entries
 from homeassistant.components import mqtt
 from homeassistant.components.hassio import AddonError
+from homeassistant.components.mqtt import DOMAIN
 from homeassistant.components.mqtt.config_flow import (
     PWD_NOT_CHANGED,
     TRANSLATION_DESCRIPTION_PLACEHOLDERS,
@@ -46,6 +47,8 @@ from .common import (
     MOCK_CLIMATE_NO_TARGET_TEMP_SUBENTRY_DATA,
     MOCK_CLIMATE_SUBENTRY_DATA,
     MOCK_COVER_SUBENTRY_DATA,
+    MOCK_DATE_SUBENTRY_DATA,
+    MOCK_DATETIME_SUBENTRY_DATA,
     MOCK_FAN_SUBENTRY_DATA,
     MOCK_IMAGE_SUBENTRY_DATA_IMAGE_DATA,
     MOCK_IMAGE_SUBENTRY_DATA_IMAGE_URL,
@@ -66,6 +69,7 @@ from .common import (
     MOCK_SIREN_SUBENTRY_DATA,
     MOCK_SWITCH_SUBENTRY_DATA,
     MOCK_TEXT_SUBENTRY_DATA,
+    MOCK_TIME_SUBENTRY_DATA,
     MOCK_VALVE_SUBENTRY_DATA_POSITION,
     MOCK_VALVE_SUBENTRY_DATA_STATE,
     MOCK_WATER_HEATER_SUBENTRY_DATA,
@@ -123,6 +127,7 @@ MOCK_ENCRYPTED_CLIENT_KEY_DER = b"## mock DER formatted encrypted key file ##\n"
 
 MOCK_ENTRY_DATA = {
     mqtt.CONF_BROKER: "test-broker",
+    CONF_PROTOCOL: "5",
     CONF_PORT: 1234,
     CONF_USERNAME: "user",
     CONF_PASSWORD: "pass",
@@ -266,7 +271,7 @@ def mock_try_connection_time_out() -> Generator[MagicMock]:
     # Patch prevent waiting 5 sec for a timeout
     with (
         patch("homeassistant.components.mqtt.client.AsyncMQTTClient") as mock_client,
-        patch("homeassistant.components.mqtt.config_flow.MQTT_TIMEOUT", 0),
+        patch("homeassistant.components.mqtt.client.MQTT_TIMEOUT", 0),
     ):
         mock_client().loop_start = lambda *args: 1
         yield mock_client()
@@ -367,7 +372,7 @@ async def test_user_connection_works(
     mock_try_connection.return_value = True
 
     result = await hass.config_entries.flow.async_init(
-        "mqtt", context={"source": config_entries.SOURCE_USER}
+        DOMAIN, context={"source": config_entries.SOURCE_USER}
     )
     assert result["type"] is FlowResultType.FORM
 
@@ -400,7 +405,7 @@ async def test_user_connection_works_with_supervisor(
     mock_try_connection.return_value = True
 
     result = await hass.config_entries.flow.async_init(
-        "mqtt", context={"source": config_entries.SOURCE_USER}
+        DOMAIN, context={"source": config_entries.SOURCE_USER}
     )
     assert result["type"] is FlowResultType.MENU
     assert result["menu_options"] == ["addon", "broker"]
@@ -441,7 +446,7 @@ async def test_user_v5_connection_works(
     mock_try_connection.return_value = True
 
     result = await hass.config_entries.flow.async_init(
-        "mqtt",
+        DOMAIN,
         context={"source": config_entries.SOURCE_USER},
     )
     assert result["type"] is FlowResultType.FORM
@@ -479,7 +484,7 @@ async def test_user_connection_fails(
 ) -> None:
     """Test if connection cannot be made."""
     result = await hass.config_entries.flow.async_init(
-        "mqtt", context={"source": config_entries.SOURCE_USER}
+        DOMAIN, context={"source": config_entries.SOURCE_USER}
     )
     assert result["type"] is FlowResultType.FORM
 
@@ -509,7 +514,7 @@ async def test_manual_config_set(
 
     # Start config flow
     result = await hass.config_entries.flow.async_init(
-        "mqtt", context={"source": config_entries.SOURCE_USER}
+        DOMAIN, context={"source": config_entries.SOURCE_USER}
     )
     assert result["type"] is FlowResultType.FORM
 
@@ -540,13 +545,13 @@ async def test_manual_config_set(
 async def test_user_single_instance(hass: HomeAssistant) -> None:
     """Test we only allow a single config flow."""
     MockConfigEntry(
-        domain="mqtt",
+        domain=DOMAIN,
         version=mqtt.CONFIG_ENTRY_VERSION,
         minor_version=mqtt.CONFIG_ENTRY_MINOR_VERSION,
     ).add_to_hass(hass)
 
     result = await hass.config_entries.flow.async_init(
-        "mqtt", context={"source": config_entries.SOURCE_USER}
+        DOMAIN, context={"source": config_entries.SOURCE_USER}
     )
     assert result["type"] is FlowResultType.ABORT
     assert result["reason"] == "single_instance_allowed"
@@ -555,13 +560,13 @@ async def test_user_single_instance(hass: HomeAssistant) -> None:
 async def test_hassio_already_configured(hass: HomeAssistant) -> None:
     """Test we only allow a single config flow."""
     MockConfigEntry(
-        domain="mqtt",
+        domain=mqtt.DOMAIN,
         version=mqtt.CONFIG_ENTRY_VERSION,
         minor_version=mqtt.CONFIG_ENTRY_MINOR_VERSION,
     ).add_to_hass(hass)
 
     result = await hass.config_entries.flow.async_init(
-        "mqtt", context={"source": config_entries.SOURCE_HASSIO}
+        DOMAIN, context={"source": config_entries.SOURCE_HASSIO}
     )
     assert result["type"] is FlowResultType.ABORT
     assert result["reason"] == "single_instance_allowed"
@@ -603,7 +608,7 @@ async def test_hassio_confirm(
 ) -> None:
     """Test we can finish a config flow."""
     result = await hass.config_entries.flow.async_init(
-        "mqtt",
+        DOMAIN,
         data=HassioServiceInfo(
             config=ADD_ON_DISCOVERY_INFO.copy(),
             name="Mosquitto Mqtt Broker",
@@ -643,7 +648,7 @@ async def test_hassio_cannot_connect(
 ) -> None:
     """Test a config flow is aborted when a connection was not successful."""
     result = await hass.config_entries.flow.async_init(
-        "mqtt",
+        DOMAIN,
         data=HassioServiceInfo(
             config={
                 "addon": "Mock Addon",
@@ -704,7 +709,7 @@ async def test_addon_flow_with_supervisor_addon_running(
     """
     # show menu
     result = await hass.config_entries.flow.async_init(
-        "mqtt", context={"source": config_entries.SOURCE_USER}
+        DOMAIN, context={"source": config_entries.SOURCE_USER}
     )
     assert result["type"] is FlowResultType.MENU
     assert result["menu_options"] == ["addon", "broker"]
@@ -759,7 +764,7 @@ async def test_addon_flow_with_supervisor_addon_installed(
     """
     # show menu
     result = await hass.config_entries.flow.async_init(
-        "mqtt", context={"source": config_entries.SOURCE_USER}
+        DOMAIN, context={"source": config_entries.SOURCE_USER}
     )
     assert result["type"] is FlowResultType.MENU
     assert result["menu_options"] == ["addon", "broker"]
@@ -826,7 +831,7 @@ async def test_addon_flow_with_supervisor_addon_running_connection_fails(
     """
     # show menu
     result = await hass.config_entries.flow.async_init(
-        "mqtt", context={"source": config_entries.SOURCE_USER}
+        DOMAIN, context={"source": config_entries.SOURCE_USER}
     )
     assert result["type"] is FlowResultType.MENU
     assert result["menu_options"] == ["addon", "broker"]
@@ -859,7 +864,7 @@ async def test_addon_not_running_api_error(
     start_addon.side_effect = SupervisorError()
 
     result = await hass.config_entries.flow.async_init(
-        "mqtt", context={"source": config_entries.SOURCE_USER}
+        DOMAIN, context={"source": config_entries.SOURCE_USER}
     )
     assert result["type"] is FlowResultType.MENU
     assert result["menu_options"] == ["addon", "broker"]
@@ -903,7 +908,7 @@ async def test_addon_discovery_info_error(
     get_addon_discovery_info.side_effect = AddonError
 
     result = await hass.config_entries.flow.async_init(
-        "mqtt", context={"source": config_entries.SOURCE_USER}
+        DOMAIN, context={"source": config_entries.SOURCE_USER}
     )
     assert result["type"] is FlowResultType.MENU
     assert result["menu_options"] == ["addon", "broker"]
@@ -946,7 +951,7 @@ async def test_addon_info_error(
     addon_info.side_effect = SupervisorError()
 
     result = await hass.config_entries.flow.async_init(
-        "mqtt", context={"source": config_entries.SOURCE_USER}
+        DOMAIN, context={"source": config_entries.SOURCE_USER}
     )
     assert result["type"] is FlowResultType.MENU
     assert result["menu_options"] == ["addon", "broker"]
@@ -993,7 +998,7 @@ async def test_addon_flow_with_supervisor_addon_not_installed(
     Case: The Mosquitto add-on is not yet installed nor running.
     """
     result = await hass.config_entries.flow.async_init(
-        "mqtt", context={"source": config_entries.SOURCE_USER}
+        DOMAIN, context={"source": config_entries.SOURCE_USER}
     )
     assert result["type"] is FlowResultType.MENU
     assert result["menu_options"] == ["addon", "broker"]
@@ -1058,7 +1063,7 @@ async def test_addon_not_installed_failures(
     install_addon.side_effect = SupervisorError()
 
     result = await hass.config_entries.flow.async_init(
-        "mqtt", context={"source": config_entries.SOURCE_USER}
+        DOMAIN, context={"source": config_entries.SOURCE_USER}
     )
     assert result["type"] is FlowResultType.MENU
     assert result["menu_options"] == ["addon", "broker"]
@@ -1749,6 +1754,7 @@ async def test_step_hassio_reauth(
     mock_try_connection.assert_called_once_with(
         {
             "broker": "core-mosquitto",
+            CONF_PROTOCOL: "5",
             "port": 1883,
             "username": "mock-user",
             "password": "mock-pass",
@@ -3160,6 +3166,65 @@ async def test_migrate_of_incompatible_config_entry(
             id="cover",
         ),
         pytest.param(
+            MOCK_DATE_SUBENTRY_DATA,
+            {"name": "Milk notifier", "mqtt_settings": {"qos": 0}},
+            {"name": "Delivery day"},
+            {},
+            (),
+            {
+                "command_topic": "test-topic",
+                "command_template": "{{ value }}",
+                "state_topic": "test-topic",
+                "value_template": "{{ value_json.value }}",
+                "retain": False,
+            },
+            (
+                (
+                    {"command_topic": "test-topic#invalid"},
+                    {"command_topic": "invalid_publish_topic"},
+                ),
+                (
+                    {
+                        "command_topic": "test-topic",
+                        "state_topic": "test-topic#invalid",
+                    },
+                    {"state_topic": "invalid_subscribe_topic"},
+                ),
+            ),
+            "Milk notifier Delivery day",
+            id="date",
+        ),
+        pytest.param(
+            MOCK_DATETIME_SUBENTRY_DATA,
+            {"name": "Milk notifier", "mqtt_settings": {"qos": 0}},
+            {"name": "Maintenance service"},
+            {},
+            (),
+            {
+                "command_topic": "test-topic",
+                "command_template": "{{ value }}",
+                "state_topic": "test-topic",
+                "value_template": "{{ value_json.value }}",
+                "timezone": "GMT",
+                "retain": False,
+            },
+            (
+                (
+                    {"command_topic": "test-topic#invalid"},
+                    {"command_topic": "invalid_publish_topic"},
+                ),
+                (
+                    {
+                        "command_topic": "test-topic",
+                        "state_topic": "test-topic#invalid",
+                    },
+                    {"state_topic": "invalid_subscribe_topic"},
+                ),
+            ),
+            "Milk notifier Maintenance service",
+            id="datetime",
+        ),
+        pytest.param(
             MOCK_FAN_SUBENTRY_DATA,
             {"name": "Milk notifier", "mqtt_settings": {"qos": 0}},
             {"name": "Breezer"},
@@ -3174,7 +3239,7 @@ async def test_migrate_of_incompatible_config_entry(
                 "command_topic": "test-topic",
                 "command_template": "{{ value }}",
                 "state_topic": "test-topic",
-                "value_template": "{{ value_json.value }}",
+                "state_value_template": "{{ value_json.value }}",
                 "fan_speed_settings": {
                     "percentage_command_template": "{{ value }}",
                     "percentage_command_topic": "test-topic/pct",
@@ -3733,7 +3798,7 @@ async def test_migrate_of_incompatible_config_entry(
                 "command_topic": "test-topic",
                 "command_template": "{{ value }}",
                 "state_topic": "test-topic",
-                "value_template": "{{ value_json.value }}",
+                "state_value_template": "{{ value_json.value }}",
                 "optimistic": True,
                 "available_tones": ["Happy hour", "Cooling alarm"],
                 "support_duration": True,
@@ -3845,6 +3910,35 @@ async def test_migrate_of_incompatible_config_entry(
             ),
             "Milk notifier MOTD",
             id="text",
+        ),
+        pytest.param(
+            MOCK_TIME_SUBENTRY_DATA,
+            {"name": "Milk notifier", "mqtt_settings": {"qos": 0}},
+            {"name": "Happy hour"},
+            {},
+            (),
+            {
+                "command_topic": "test-topic",
+                "command_template": "{{ value }}",
+                "state_topic": "test-topic",
+                "value_template": "{{ value_json.value }}",
+                "retain": False,
+            },
+            (
+                (
+                    {"command_topic": "test-topic#invalid"},
+                    {"command_topic": "invalid_publish_topic"},
+                ),
+                (
+                    {
+                        "command_topic": "test-topic",
+                        "state_topic": "test-topic#invalid",
+                    },
+                    {"state_topic": "invalid_subscribe_topic"},
+                ),
+            ),
+            "Milk notifier Happy hour",
+            id="time",
         ),
         pytest.param(
             MOCK_VALVE_SUBENTRY_DATA_STATE,
