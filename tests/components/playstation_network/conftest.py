@@ -103,7 +103,10 @@ def mock_psnawpapi(mock_user: MagicMock) -> Generator[MagicMock]:
         client.me.return_value.get_account_devices.return_value = [
             {"deviceType": "PSVITA"},
             {
-                "deviceId": "REDACTED_VALUEREDACTED_VALUE1234",
+                "deviceId": (
+                    "REDACTED_VALUE"
+                    "REDACTED_VALUE1234"
+                ),
                 "deviceType": "PS5",
                 "activationType": "PRIMARY",
                 "activationDate": "2021-01-14T18:00:00.000Z",
