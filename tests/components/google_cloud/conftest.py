@@ -19,7 +19,9 @@ VALID_SERVICE_ACCOUNT_INFO = {
     "type": "service_account",
     "project_id": "my project id",
     "private_key_id": "my private key if",
-    "private_key": "REDACTED_VALUE\n",
+    "private_key": (
+        "REDACTED_VALUE\n"
+    ),
     "client_email": "my client email",
     "client_id": "my client id",
     "auth_uri": "https://accounts.google.com/o/oauth2/auth",
