@@ -72,6 +72,11 @@ BUTTONS: tuple[KioskerButtonEntityDescription, ...] = (
         REDACTED_VALUE"screensaver_interact",
         action_fn=lambda api: api.screensaver_interact(),
     ),
+    KioskerButtonEntityDescription(
+        key="blackoutClear",
+        REDACTED_VALUE"blackout_clear",
+        action_fn=lambda api: api.blackout_clear(),
+    ),
 )
 
 
