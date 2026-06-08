@@ -59,7 +59,7 @@ def _check_keyboard_focus(atv: AppleTVInterface) -> None:
             translation_domain=DOMAIN,
             REDACTED_VALUE"keyboard_not_available",
         ) from err
-    if focus_state != KeyboardFocusState.Focused:
+    if focus_state is not KeyboardFocusState.Focused:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
             REDACTED_VALUE"keyboard_not_focused",

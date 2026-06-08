@@ -51,7 +51,6 @@ async def async_setup_entry(hass: HomeAssistant, entry: S3ConfigEntry) -> bool:
                 REDACTED_VALUE"invalid_bucket_name",
             ) from err
     except ValueError as err:
-        # pylint: disable-next=home-assistant-exception-translation-key-missing
         raise ConfigEntryError(
             translation_domain=DOMAIN,
             REDACTED_VALUE"invalid_endpoint_url",
