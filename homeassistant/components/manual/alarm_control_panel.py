@@ -422,9 +422,7 @@ class ManualAlarm(AlarmControlPanelEntity, RestoreEntity):
             },
         )
 
-        # pylint: disable-next=home-assistant-exception-message-with-translation
         raise ServiceValidationError(
-            "Invalid alarm code provided",
             translation_domain=DOMAIN,
             REDACTED_VALUE"invalid_code",
         )
