@@ -12,9 +12,9 @@ The expected translation paths are::
     options.step.{step_id}.sections.{section_key}.data.{field_name}
     config_subentries.{subentry_type}.step.{step_id}.data.{field_name}
 
-- ``W7420``: Missing config flow field translation
-- ``W7421``: Missing options flow field translation
-- ``W7422``: Missing subentry flow field translation
+- ``W7425``: Missing config flow field translation
+- ``W7426``: Missing options flow field translation
+- ``W7427``: Missing subentry flow field translation
 """
 
 import astroid
@@ -262,21 +262,21 @@ class ConfigFlowTranslationsChecker(BaseChecker):
     name = "home_assistant_config_flow_translations"
     priority = -1
     msgs = {
-        "W7420": (
+        "W7425": (
             "Form field '%s' in step '%s' is missing a translation in "
             "strings.json (expected at %s)",
             "home-assistant-config-flow-field-not-translated",
             "Used when a config flow form field does not have a "
             "corresponding translation in strings.json.",
         ),
-        "W7421": (
+        "W7426": (
             "Form field '%s' in step '%s' is missing a translation in "
             "strings.json (expected at %s)",
             "home-assistant-options-flow-field-not-translated",
             "Used when an options flow form field does not have a "
             "corresponding translation in strings.json.",
         ),
-        "W7422": (
+        "W7427": (
             "Form field '%s' in step '%s' is missing a translation in "
             "strings.json (expected at %s)",
             "home-assistant-subentry-flow-field-not-translated",
