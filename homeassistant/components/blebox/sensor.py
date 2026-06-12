@@ -24,6 +24,7 @@ from homeassistant.const import (
     UnitOfEnergy,
     UnitOfFrequency,
     UnitOfPower,
+    UnitOfReactiveEnergy,
     UnitOfReactivePower,
     UnitOfSpeed,
     UnitOfTemperature,
@@ -96,6 +97,20 @@ SENSOR_TYPES: tuple[BleBoxSensorEntityDescription, ...] = (
         device_class=SensorDeviceClass.ILLUMINANCE,
         native_unit_of_measurement=LIGHT_LUX,
         state_class=SensorStateClass.MEASUREMENT,
+    ),
+    BleBoxSensorEntityDescription(
+        key="forwardReactiveEnergy",
+        REDACTED_VALUE"forward_reactive_energy",
+        device_class=SensorDeviceClass.REACTIVE_ENERGY,
+        native_unit_of_measurement=UnitOfReactiveEnergy.KILO_VOLT_AMPERE_REACTIVE_HOUR,
+        state_class=SensorStateClass.TOTAL_INCREASING,
+    ),
+    BleBoxSensorEntityDescription(
+        key="reverseReactiveEnergy",
+        REDACTED_VALUE"reverse_reactive_energy",
+        device_class=SensorDeviceClass.REACTIVE_ENERGY,
+        native_unit_of_measurement=UnitOfReactiveEnergy.KILO_VOLT_AMPERE_REACTIVE_HOUR,
+        state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     BleBoxSensorEntityDescription(
         key="forwardActiveEnergy",
