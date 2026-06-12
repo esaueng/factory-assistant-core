@@ -19,7 +19,7 @@
           "email": "Email address for your MELCloud Home account.",
           "password": "Password for your MELCloud Home account."
         },
-        "description": "Login to MELCloud Home with the email address and password associated with your account."
+        "description": "Log in to MELCloud Home with the email address and password associated with your account."
       }
     }
   },
@@ -71,6 +71,20 @@
             }
           }
         }
+      }
+    },
+    "sensor": {
+      "room_temperature": {
+        "name": "Room temperature"
+      },
+      "room_temperature_zone_1": {
+        "name": "Zone 1 room temperature"
+      },
+      "room_temperature_zone_2": {
+        "name": "Zone 2 room temperature"
+      },
+      "tank_water_temperature": {
+        "name": "Tank water temperature"
       }
     }
   },
