@@ -41,6 +41,12 @@ ROBOT_BUTTON_MAP: dict[tuple[type[Robot], ...], RobotButtonEntityDescription] = 
         entity_category=EntityCategory.CONFIG,
         press_fn=lambda robot: robot.reset(),
     ),
+    (LitterRobot5,): RobotButtonEntityDescription[LitterRobot5](
+        key="change_filter",
+        REDACTED_VALUE"change_filter",
+        entity_category=EntityCategory.CONFIG,
+        press_fn=lambda robot: robot.change_filter(),
+    ),
     (FeederRobot,): RobotButtonEntityDescription[FeederRobot](
         key="give_snack",
         REDACTED_VALUE"give_snack",
