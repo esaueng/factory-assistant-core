@@ -16,6 +16,7 @@ from yoto_api import (
     PlaybackStatus,
     PlayerConfig,
     PlayerInfo,
+    PlayerStatus,
     Track,
     YotoPlayer,
 )
@@ -92,6 +93,11 @@ def _build_player() -> YotoPlayer:
             day_time=dt_time(7, 0),
             night_time=dt_time(19, 0),
         ),
+    )
+    player.status = PlayerStatus(
+        is_charging=True,
+        is_audio_device_connected=False,
+        is_bluetooth_audio_connected=False,
     )
     player.last_event = PlaybackEvent(
         player_id=PLAYER_ID,

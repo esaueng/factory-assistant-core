@@ -37,6 +37,14 @@
     }
   },
   "entity": {
+    "binary_sensor": {
+      "bluetooth_audio": {
+        "name": "Bluetooth audio"
+      },
+      "headphones": {
+        "name": "Headphones"
+      }
+    },
     "time": {
       "day_mode_start": {
         "name": "Day mode start"
