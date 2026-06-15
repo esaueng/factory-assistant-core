@@ -1,33 +1,22 @@
-Home Assistant |Chat Status|
+Factory Assistant Core
 =================================================================================
 
-Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server.
+Factory Assistant Core is the runtime that powers Factory Assistant, an
+embedded, appliance-style system for factory and manufacturing machine
+monitoring that puts local control and privacy first. It provides device and
+sensor monitoring, dashboards, and an integration framework served on the plant
+network with no cloud dependency.
 
-Check out `home-assistant.io <https://home-assistant.io>`__ for `a
-demo <https://demo.home-assistant.io>`__, `installation instructions <https://home-assistant.io/getting-started/>`__,
-`tutorials <https://home-assistant.io/getting-started/automation/>`__ and `documentation <https://home-assistant.io/docs/>`__.
+Factory Assistant is based on Home Assistant.
 
-|screenshot-states|
+The system is built using a modular approach so support for other devices or
+actions can be implemented easily. This fork tracks the upstream Home Assistant
+Core, so the upstream `architecture
+<https://developers.home-assistant.io/docs/architecture_index/>`__ and
+`creating your own components
+<https://developers.home-assistant.io/docs/creating_component_index/>`__
+developer documentation applies to this codebase.
 
-Featured integrations
----------------------
-
-|screenshot-integrations|
-
-The system is built using a modular approach so support for other devices or actions can be implemented easily. See also the `section on architecture <https://developers.home-assistant.io/docs/architecture_index/>`__ and the `section on creating your own
-components <https://developers.home-assistant.io/docs/creating_component_index/>`__.
-
-If you run into issues while using Home Assistant or during development
-of a component, check the `Home Assistant help section <https://home-assistant.io/help/>`__ of our website for further help and information.
-
-|ohf-logo|
-
-.. |Chat Status| image:: https://img.shields.io/discord/330944238910963714.svg
-   :target: https://www.home-assistant.io/join-chat/
-.. |screenshot-states| image:: https://raw.githubusercontent.com/home-assistant/core/dev/.github/assets/screenshot-states.png
-   :target: https://demo.home-assistant.io
-.. |screenshot-integrations| image:: https://raw.githubusercontent.com/home-assistant/core/dev/.github/assets/screenshot-integrations.png
-   :target: https://home-assistant.io/integrations/
-.. |ohf-logo| image:: https://www.openhomefoundation.org/badges/home-assistant.png
-   :alt: Home Assistant - A project from the Open Home Foundation
-   :target: https://www.openhomefoundation.org/
+For the appliance image, update channels, and build instructions, see the
+`Factory Assistant OS <https://github.com/esaueng/FactoryAssistantOS>`__
+repository.
