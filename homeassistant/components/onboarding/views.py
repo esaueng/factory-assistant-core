@@ -1,6 +1,7 @@
 """Onboarding views."""
 
 import asyncio
+from datetime import UTC, datetime
 from http import HTTPStatus
 import logging
 from typing import TYPE_CHECKING, Any, Protocol, cast
@@ -13,6 +14,7 @@ from homeassistant.auth.const import GROUP_ID_ADMIN
 from homeassistant.auth.providers.homeassistant import HassAuthProvider
 from homeassistant.components import person
 from homeassistant.components.auth import indieauth
+from homeassistant.components.frontend.storage import async_system_store
 from homeassistant.components.http import KEY_HASS, KEY_HASS_REFRESH_TOKEN_ID
 from homeassistant.components.http.data_validator import RequestDataValidator
 from homeassistant.components.http.view import HomeAssistantView
@@ -30,12 +32,49 @@ from .const import (
     DOMAIN,
     STEP_ANALYTICS,
     STEP_CORE_CONFIG,
+    STEP_FACTORY_ASSISTANT_INDUSTRIAL,
     STEP_INTEGRATION,
     STEP_USER,
     STEPS,
 )
 
 _LOGGER = logging.getLogger(__name__)
+FACTORY_ASSISTANT_ONBOARDING_STORAGE_KEY = "factory_assistant_onboarding"
+
+
+def _non_empty_string(value: str) -> str:
+    """Validate and normalize a required string."""
+    value = value.strip()
+    if not value:
+        raise vol.Invalid("expected non-empty string")
+    return value
+
+
+def _optional_string(value: str) -> str:
+    """Normalize an optional string."""
+    return value.strip()
+
+
+def _must_be_true(value: bool) -> bool:
+    """Validate a required acknowledgement."""
+    if value is not True:
+        raise vol.Invalid("expected true")
+    return value
+
+
+FACTORY_ASSISTANT_INDUSTRIAL_SETUP_SCHEMA = vol.Schema(
+    {
+        vol.Required("site_name"): vol.All(str, _non_empty_string),
+        vol.Required("line_name"): vol.All(str, _non_empty_string),
+        vol.Required("cell_name"): vol.All(str, _non_empty_string),
+        vol.Optional("ntp_source", default=""): vol.All(str, _optional_string),
+        vol.Optional("static_ip_plan", default=""): vol.All(str, _optional_string),
+        vol.Required("mosquitto_broker"): vol.All(bool, _must_be_true),
+        vol.Required("local_first_confirmed"): vol.All(bool, _must_be_true),
+        vol.Required("dashboard_seed_confirmed"): vol.All(bool, _must_be_true),
+        vol.Required("safety_acknowledged"): vol.All(bool, _must_be_true),
+    }
+)
 
 
 async def async_setup(
@@ -47,6 +86,7 @@ async def async_setup(
     hass.http.register_view(InstallationTypeOnboardingView(data))
     hass.http.register_view(UserOnboardingView(data, store))
     hass.http.register_view(CoreConfigOnboardingView(data, store))
+    hass.http.register_view(FactoryAssistantIndustrialOnboardingView(data, store))
     hass.http.register_view(IntegrationOnboardingView(data, store))
     hass.http.register_view(AnalyticsOnboardingView(data, store))
     hass.http.register_view(WaitIntegrationOnboardingView(data))
@@ -315,6 +355,39 @@ class IntegrationOnboardingView(_BaseOnboardingStepView):
                 hass, data["client_id"], refresh_token.credential
             )
             return self.json({"auth_code": auth_code})
+
+
+class FactoryAssistantIndustrialOnboardingView(_BaseOnboardingStepView):
+    """View to finish Factory Assistant industrial setup onboarding step."""
+
+    url = "/api/onboarding/factory_assistant_industrial"
+    name = "api:onboarding:factory_assistant_industrial"
+    step = STEP_FACTORY_ASSISTANT_INDUSTRIAL
+
+    @RequestDataValidator(FACTORY_ASSISTANT_INDUSTRIAL_SETUP_SCHEMA)
+    async def post(self, request: web.Request, data: dict[str, Any]) -> web.Response:
+        """Handle Factory Assistant industrial setup."""
+        hass = request.app[KEY_HASS]
+
+        async with self._lock:
+            if self._async_is_done():
+                return self.json_message(
+                    "Factory Assistant industrial setup step already done",
+                    HTTPStatus.FORBIDDEN,
+                )
+
+            industrial_setup_data = {
+                **data,
+                "recorded_at": datetime.now(UTC).isoformat(),
+            }
+            system_store = await async_system_store(hass)
+            await system_store.async_set_item(
+                FACTORY_ASSISTANT_ONBOARDING_STORAGE_KEY, industrial_setup_data
+            )
+
+            await self._async_mark_done(hass)
+
+            return self.json({"data": industrial_setup_data})
 
 
 class WaitIntegrationOnboardingView(NoAuthBaseOnboardingView):
