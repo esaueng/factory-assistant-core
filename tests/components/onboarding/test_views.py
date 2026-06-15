@@ -11,6 +11,7 @@ from unittest.mock import AsyncMock, Mock, patch
 import pytest
 
 from homeassistant.components import onboarding
+from homeassistant.components.frontend.storage import async_system_store
 from homeassistant.components.onboarding import DOMAIN, const, views
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import area_registry as ar
@@ -28,6 +29,21 @@ from tests.common import (
     register_auth_provider,
 )
 from tests.typing import ClientSessionGenerator
+
+FACTORY_ASSISTANT_INDUSTRIAL_STEP = "factory_assistant_industrial"
+FACTORY_ASSISTANT_ONBOARDING_KEY = "factory_assistant_onboarding"
+
+FACTORY_ASSISTANT_INDUSTRIAL_PAYLOAD = {
+    "site_name": "Plant 4",
+    "line_name": "Packaging",
+    "cell_name": "Case packer",
+    "ntp_source": "time.plant.example",
+    "static_ip_plan": "VLAN 20 static lease after commissioning",
+    "mosquitto_broker": True,
+    "local_first_confirmed": True,
+    "dashboard_seed_confirmed": True,
+    "safety_acknowledged": True,
+}
 
 
 @pytest.fixture(autouse=True)
@@ -563,6 +579,98 @@ async def test_onboarding_analytics(
     assert resp.status == 403
 
 
+async def test_onboarding_factory_assistant_industrial_setup(
+    hass: HomeAssistant,
+    hass_storage: dict[str, Any],
+    hass_client: ClientSessionGenerator,
+) -> None:
+    """Test finishing the Factory Assistant industrial setup step."""
+    mock_storage(
+        hass_storage,
+        {
+            "done": [
+                const.STEP_USER,
+                const.STEP_CORE_CONFIG,
+                const.STEP_ANALYTICS,
+                const.STEP_INTEGRATION,
+            ]
+        },
+    )
+
+    assert await async_setup_component(hass, DOMAIN, {})
+    await hass.async_block_till_done()
+
+    client = await hass_client()
+    resp = await client.post(
+        "/api/onboarding/factory_assistant_industrial",
+        json=FACTORY_ASSISTANT_INDUSTRIAL_PAYLOAD,
+    )
+
+    assert resp.status == 200
+    data = await resp.json()
+
+    assert FACTORY_ASSISTANT_INDUSTRIAL_STEP in hass_storage[DOMAIN]["data"]["done"]
+
+    store = await async_system_store(hass)
+    saved_data = store.data[FACTORY_ASSISTANT_ONBOARDING_KEY]
+    assert saved_data == data["data"]
+    assert saved_data | {"recorded_at": None} == {
+        **FACTORY_ASSISTANT_INDUSTRIAL_PAYLOAD,
+        "recorded_at": None,
+    }
+    assert isinstance(saved_data["recorded_at"], str)
+
+    resp = await client.post(
+        "/api/onboarding/factory_assistant_industrial",
+        json=FACTORY_ASSISTANT_INDUSTRIAL_PAYLOAD,
+    )
+    assert resp.status == 403
+
+
+@pytest.mark.parametrize(
+    "missing_acknowledgement",
+    [
+        "mosquitto_broker",
+        "local_first_confirmed",
+        "dashboard_seed_confirmed",
+        "safety_acknowledged",
+    ],
+)
+async def test_onboarding_factory_assistant_industrial_setup_requires_acknowledgements(
+    hass: HomeAssistant,
+    hass_storage: dict[str, Any],
+    hass_client: ClientSessionGenerator,
+    missing_acknowledgement: str,
+) -> None:
+    """Test industrial setup requires every explicit acknowledgement."""
+    mock_storage(
+        hass_storage,
+        {
+            "done": [
+                const.STEP_USER,
+                const.STEP_CORE_CONFIG,
+                const.STEP_ANALYTICS,
+                const.STEP_INTEGRATION,
+            ]
+        },
+    )
+
+    assert await async_setup_component(hass, DOMAIN, {})
+    await hass.async_block_till_done()
+
+    client = await hass_client()
+    resp = await client.post(
+        "/api/onboarding/factory_assistant_industrial",
+        json=FACTORY_ASSISTANT_INDUSTRIAL_PAYLOAD | {missing_acknowledgement: False},
+    )
+
+    assert resp.status == 400
+    assert FACTORY_ASSISTANT_INDUSTRIAL_STEP not in hass_storage[DOMAIN]["data"]["done"]
+
+    store = await async_system_store(hass)
+    assert FACTORY_ASSISTANT_ONBOARDING_KEY not in store.data
+
+
 async def test_onboarding_installation_type(
     hass: HomeAssistant,
     hass_storage: dict[str, Any],
@@ -666,6 +774,15 @@ async def test_complete_onboarding(
 
     # Complete the analytics step
     resp = await client.post("/api/onboarding/analytics")
+    assert resp.status == 200
+    assert not onboarding.async_is_onboarded(hass)
+    listener_2.assert_not_called()
+
+    # Complete the Factory Assistant industrial setup step
+    resp = await client.post(
+        "/api/onboarding/factory_assistant_industrial",
+        json=FACTORY_ASSISTANT_INDUSTRIAL_PAYLOAD,
+    )
     assert resp.status == 200
     assert onboarding.async_is_onboarded(hass)
     listener_1.assert_not_called()  # Registered before the integration was setup
