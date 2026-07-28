@@ -7,6 +7,8 @@ permissions:
   contents: read
   actions: read
   pull-requests: read
+runs-on: depot-ubuntu-24.04
+runs-on-slim: depot-ubuntu-24.04
 network:
   allowed:
     - python
@@ -16,15 +18,18 @@ tools:
     toolsets: [repos, pull_requests]
     min-integrity: unapproved
 safe-outputs:
+  runs-on: depot-ubuntu-24.04
   add-comment:
     max: 1
     target: "${{ needs.extract_pr_number.outputs.pr_number }}"
+  threat-detection:
+    runs-on: depot-ubuntu-24.04
   needs:
     - extract_pr_number
 jobs:
   extract_pr_number:
     if: github.event.workflow_run.conclusion == 'success'
-    runs-on: ubuntu-latest
+    runs-on: depot-ubuntu-24.04
     permissions:
       actions: read
     outputs:

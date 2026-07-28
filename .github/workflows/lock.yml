@@ -15,7 +15,7 @@ jobs:
   lock:
     name: Lock inactive threads
     if: github.repository_owner == 'home-assistant'
-    runs-on: ubuntu-latest
+    runs-on: depot-ubuntu-latest
     permissions:
       issues: write # To lock issues
       pull-requests: write # To lock pull requests
