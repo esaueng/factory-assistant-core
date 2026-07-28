@@ -74,7 +74,7 @@ concurrency:
 jobs:
   info:
     name: Collect information & changes data
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04
     permissions:
       contents: read # To check out the repository
       pull-requests: read # For paths-filter to detect changed files
@@ -254,7 +254,7 @@ jobs:
 
   prek:
     name: Run prek checks
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04
     permissions:
       contents: read
     needs: [info]
@@ -281,7 +281,7 @@ jobs:
 
   zizmor:
     name: Check GitHub Actions workflows
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04
     permissions:
       contents: read # To check out the repository
     needs: [info]
@@ -301,7 +301,7 @@ jobs:
 
   lint-hadolint:
     name: Check ${{ matrix.file }}
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04
     permissions:
       contents: read
     needs: [info]
@@ -331,7 +331,7 @@ jobs:
 
   base:
     name: Prepare dependencies
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04
     permissions:
       contents: read
     needs: [info]
@@ -457,7 +457,7 @@ jobs:
 
   hassfest:
     name: Check hassfest
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04
     permissions:
       contents: read
     needs:
@@ -500,7 +500,7 @@ jobs:
 
   gen-requirements-all:
     name: Check all requirements
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04
     permissions:
       contents: read
     needs:
@@ -537,7 +537,7 @@ jobs:
 
   gen-copilot-instructions:
     name: Check copilot instructions
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04
     permissions:
       contents: read
     needs:
@@ -563,7 +563,7 @@ jobs:
 
   dependency-review:
     name: Dependency review
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04
     permissions:
       contents: read
     needs:
@@ -586,7 +586,7 @@ jobs:
 
   audit-licenses:
     name: Audit licenses
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04
     permissions:
       contents: read
     needs:
@@ -641,7 +641,7 @@ jobs:
 
   pylint:
     name: Check pylint
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04
     permissions:
       contents: read
     needs:
@@ -693,7 +693,7 @@ jobs:
 
   pylint-tests:
     name: Check pylint on tests
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04
     permissions:
       contents: read
     needs:
@@ -746,7 +746,7 @@ jobs:
 
   mypy:
     name: Check mypy
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04
     permissions:
       contents: read
     needs:
@@ -814,7 +814,7 @@ jobs:
 
   prepare-pytest-full:
     name: Split tests for full run
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04
     permissions:
       contents: read
     if: |
@@ -868,7 +868,7 @@ jobs:
 
   pytest-full:
     name: Run tests Python ${{ matrix.python-version }} (${{ matrix.group }})
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04
     permissions:
       contents: read
     needs:
@@ -999,7 +999,7 @@ jobs:
 
   pytest-mariadb:
     name: Run ${{ matrix.mariadb-group }} tests Python ${{ matrix.python-version }}
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04
     permissions:
       contents: read
     services:
@@ -1148,7 +1148,7 @@ jobs:
 
   pytest-postgres:
     name: Run ${{ matrix.postgresql-group }} tests Python ${{ matrix.python-version }}
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04
     permissions:
       contents: read
     services:
@@ -1305,7 +1305,7 @@ jobs:
 
   coverage-full:
     name: Upload test coverage to Codecov (full suite)
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04
     permissions:
       contents: read
     needs:
@@ -1334,7 +1334,7 @@ jobs:
 
   pytest-partial:
     name: Run tests Python ${{ matrix.python-version }} (${{ matrix.group }})
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04
     permissions:
       contents: read
     needs:
@@ -1467,7 +1467,7 @@ jobs:
   coverage-partial:
     name: Upload test coverage to Codecov (partial suite)
     if: needs.info.outputs.skip_coverage != 'true'
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04
     permissions:
       contents: read
     timeout-minutes: 10
@@ -1492,7 +1492,7 @@ jobs:
 
   upload-test-results:
     name: Upload test results to Codecov
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04
     needs:
       - info
       - pytest-partial

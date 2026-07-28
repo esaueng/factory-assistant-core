@@ -16,7 +16,7 @@ jobs:
   stale:
     name: Mark stale issues and PRs
     if: github.repository_owner == 'home-assistant'
-    runs-on: ubuntu-latest
+    runs-on: depot-ubuntu-latest
     permissions:
       issues: write # To label and close stale issues
       pull-requests: write # To label and close stale PRs

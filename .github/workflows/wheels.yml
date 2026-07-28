@@ -26,7 +26,7 @@ jobs:
   init:
     name: Initialize wheels builder
     if: github.repository_owner == 'home-assistant'
-    runs-on: ubuntu-latest
+    runs-on: depot-ubuntu-latest
     steps:
       - name: Checkout the repository
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
@@ -111,9 +111,9 @@ jobs:
         arch: ["amd64", "aarch64"]
         include:
           - arch: amd64
-            os: ubuntu-latest
+            os: depot-ubuntu-latest
           - arch: aarch64
-            os: ubuntu-24.04-arm
+            os: depot-ubuntu-24.04-arm
     steps:
       - name: Checkout the repository
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
@@ -162,9 +162,9 @@ jobs:
         arch: ["amd64", "aarch64"]
         include:
           - arch: amd64
-            os: ubuntu-latest
+            os: depot-ubuntu-latest
           - arch: aarch64
-            os: ubuntu-24.04-arm
+            os: depot-ubuntu-24.04-arm
     steps:
       - name: Checkout the repository
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3

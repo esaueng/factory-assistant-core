@@ -27,7 +27,7 @@ jobs:
   init:
     name: Initialize build
     if: github.repository_owner == 'home-assistant'
-    runs-on: ubuntu-latest
+    runs-on: depot-ubuntu-latest
     permissions:
       contents: read # To check out the repository
     outputs:
@@ -97,9 +97,9 @@ jobs:
         arch: ${{ fromJson(needs.init.outputs.architectures) }}
         include:
           - arch: amd64
-            os: ubuntu-24.04
+            os: depot-ubuntu-24.04
           - arch: aarch64
-            os: ubuntu-24.04-arm
+            os: depot-ubuntu-24.04-arm
     steps:
       - name: Checkout the repository
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
@@ -235,14 +235,14 @@ jobs:
         include:
           # Default: aarch64 on native ARM runner
           - arch: aarch64
-            runs-on: ubuntu-24.04-arm
+            runs-on: depot-ubuntu-24.04-arm
           # Overrides for amd64 machines
           - machine: generic-x86-64
             arch: amd64
-            runs-on: ubuntu-24.04
+            runs-on: depot-ubuntu-24.04
           - machine: qemux86-64
             arch: amd64
-            runs-on: ubuntu-24.04
+            runs-on: depot-ubuntu-24.04
     steps:
       - name: Checkout the repository
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
@@ -287,7 +287,7 @@ jobs:
     environment: ${{ needs.init.outputs.channel }}
     if: github.repository_owner == 'home-assistant'
     needs: ["init", "build_machine"]
-    runs-on: ubuntu-latest
+    runs-on: depot-ubuntu-latest
     permissions:
       contents: read
     steps:
@@ -327,7 +327,7 @@ jobs:
     environment: ${{ needs.init.outputs.channel }}
     if: github.repository_owner == 'home-assistant'
     needs: ["init", "build_base"]
-    runs-on: ubuntu-latest
+    runs-on: depot-ubuntu-latest
     permissions:
       contents: read # To check out the repository
       packages: write # To push to GHCR
@@ -464,7 +464,7 @@ jobs:
     name: Build PyPi package
     environment: ${{ needs.init.outputs.channel }}
     needs: ["init", "build_base"]
-    runs-on: ubuntu-latest
+    runs-on: depot-ubuntu-latest
     permissions:
       contents: read # To check out the repository
       id-token: write # For PyPI trusted publishing
@@ -505,7 +505,7 @@ jobs:
 
   hassfest-image:
     name: Build and test hassfest image
-    runs-on: ubuntu-latest
+    runs-on: depot-ubuntu-latest
     permissions:
       contents: read # To check out the repository
       packages: write # To push to GHCR

@@ -33,7 +33,7 @@ concurrency:
 jobs:
   deterministic:
     name: Run deterministic requirement checks
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04
     permissions:
       contents: read
       pull-requests: read # To fetch the PR diff via gh CLI

@@ -13,7 +13,7 @@ concurrency:
 jobs:
   detect-duplicates:
     name: Detect duplicate issues
-    runs-on: ubuntu-latest
+    runs-on: depot-ubuntu-latest
     permissions:
       issues: write # To comment on and label issues
       models: read # For AI-based duplicate detection
