@@ -45,7 +45,7 @@ def _get_tuya_device(
     if device_entry is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_not_found",
+            translation_key="device_not_found",
             translation_placeholders={
                 "device_id": device_id,
             },
@@ -61,7 +61,7 @@ def _get_tuya_device(
     if tuya_device_id is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_not_tuya_device",
+            translation_key="device_not_tuya_device",
             translation_placeholders={
                 "device_id": device_id,
             },
@@ -75,7 +75,7 @@ def _get_tuya_device(
 
     raise ServiceValidationError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"device_not_found",
+        translation_key="device_not_found",
         translation_placeholders={
             "device_id": device_id,
         },
@@ -91,7 +91,7 @@ async def async_get_feeder_meal_plan(
     if not (wrapper := get_feeder_schedule_wrapper(device)):
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_not_support_meal_plan_status",
+            translation_key="device_not_support_meal_plan_status",
             translation_placeholders={
                 "device_id": device.id,
             },
@@ -101,7 +101,7 @@ async def async_get_feeder_meal_plan(
     if meal_plan is None:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_meal_plan_data",
+            translation_key="invalid_meal_plan_data",
         )
 
     return {"meal_plan": meal_plan}
@@ -114,7 +114,7 @@ async def async_set_feeder_meal_plan(call: ServiceCall) -> None:
     if not (wrapper := get_feeder_schedule_wrapper(device)):
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_not_support_meal_plan_function",
+            translation_key="device_not_support_meal_plan_function",
             translation_placeholders={
                 "device_id": device.id,
             },

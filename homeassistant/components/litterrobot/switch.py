@@ -30,7 +30,7 @@ NIGHT_LIGHT_MODE_ENTITY_DESCRIPTION = RobotSwitchEntityDescription[
     LitterRobot | FeederRobot
 ](
     key="night_light_mode_enabled",
-    REDACTED_VALUE"night_light_mode",
+    translation_key="night_light_mode",
     set_fn=lambda robot, value: robot.set_night_light(value),
     value_fn=lambda robot: robot.night_light_mode_enabled,
 )
@@ -39,7 +39,7 @@ SWITCH_MAP: dict[type[Robot], tuple[RobotSwitchEntityDescription, ...]] = {
     FeederRobot: (
         RobotSwitchEntityDescription[FeederRobot](
             key="gravity_mode",
-            REDACTED_VALUE"gravity_mode",
+            translation_key="gravity_mode",
             set_fn=lambda robot, value: robot.set_gravity_mode(value),
             value_fn=lambda robot: robot.gravity_mode_enabled,
         ),
@@ -49,7 +49,7 @@ SWITCH_MAP: dict[type[Robot], tuple[RobotSwitchEntityDescription, ...]] = {
     Robot: (  # type: ignore[type-abstract]  # only used for isinstance check
         RobotSwitchEntityDescription[LitterRobot | FeederRobot](
             key="panel_lock_enabled",
-            REDACTED_VALUE"panel_lockout",
+            translation_key="panel_lockout",
             set_fn=lambda robot, value: robot.set_panel_lockout(value),
             value_fn=lambda robot: robot.panel_lock_enabled,
         ),

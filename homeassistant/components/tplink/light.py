@@ -517,7 +517,7 @@ class TPLinkLightEffectEntity(TPLinkLightEntity):
         except KasaException as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_custom_effect",
+                translation_key="set_custom_effect",
                 translation_placeholders={
                     "effect": str(effect),
                     "exc": str(ex),
@@ -549,7 +549,7 @@ class TPLinkLightEffectEntity(TPLinkLightEntity):
         except KasaException as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_custom_effect",
+                translation_key="set_custom_effect",
                 translation_placeholders={
                     "effect": str(effect),
                     "exc": str(ex),

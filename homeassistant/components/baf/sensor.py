@@ -57,7 +57,7 @@ DEFINED_ONLY_SENSORS = (
 FAN_SENSORS = (
     BAFSensorDescription(
         key="current_rpm",
-        REDACTED_VALUE"current_rpm",
+        translation_key="current_rpm",
         native_unit_of_measurement=REVOLUTIONS_PER_MINUTE,
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -65,7 +65,7 @@ FAN_SENSORS = (
     ),
     BAFSensorDescription(
         key="target_rpm",
-        REDACTED_VALUE"target_rpm",
+        translation_key="target_rpm",
         native_unit_of_measurement=REVOLUTIONS_PER_MINUTE,
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -73,14 +73,14 @@ FAN_SENSORS = (
     ),
     BAFSensorDescription(
         key="wifi_ssid",
-        REDACTED_VALUE"wifi_ssid",
+        translation_key="wifi_ssid",
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda device: cast(int | None, device.wifi_ssid),
     ),
     BAFSensorDescription(
         key="ip_address",
-        REDACTED_VALUE"ip_address",
+        translation_key="ip_address",
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda device: cast(str | None, device.ip_address),

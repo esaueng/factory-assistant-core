@@ -38,7 +38,7 @@ class TechnoVESensorEntityDescription(SensorEntityDescription):
 SENSORS: tuple[TechnoVESensorEntityDescription, ...] = (
     TechnoVESensorEntityDescription(
         key="voltage_in",
-        REDACTED_VALUE"voltage_in",
+        translation_key="voltage_in",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -47,7 +47,7 @@ SENSORS: tuple[TechnoVESensorEntityDescription, ...] = (
     ),
     TechnoVESensorEntityDescription(
         key="voltage_out",
-        REDACTED_VALUE"voltage_out",
+        translation_key="voltage_out",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -56,7 +56,7 @@ SENSORS: tuple[TechnoVESensorEntityDescription, ...] = (
     ),
     TechnoVESensorEntityDescription(
         key="max_station_current",
-        REDACTED_VALUE"max_station_current",
+        translation_key="max_station_current",
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -73,7 +73,7 @@ SENSORS: tuple[TechnoVESensorEntityDescription, ...] = (
     ),
     TechnoVESensorEntityDescription(
         key="energy_total",
-        REDACTED_VALUE"energy_total",
+        translation_key="energy_total",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL,
@@ -82,7 +82,7 @@ SENSORS: tuple[TechnoVESensorEntityDescription, ...] = (
     ),
     TechnoVESensorEntityDescription(
         key="energy_session",
-        REDACTED_VALUE"energy_session",
+        translation_key="energy_session",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -100,14 +100,14 @@ SENSORS: tuple[TechnoVESensorEntityDescription, ...] = (
     ),
     TechnoVESensorEntityDescription(
         key="ssid",
-        REDACTED_VALUE"ssid",
+        translation_key="ssid",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda station: station.info.network_ssid,
     ),
     TechnoVESensorEntityDescription(
         key="status",
-        REDACTED_VALUE"status",
+        translation_key="status",
         device_class=SensorDeviceClass.ENUM,
         options=STATUS_TYPE,
         entity_category=EntityCategory.DIAGNOSTIC,

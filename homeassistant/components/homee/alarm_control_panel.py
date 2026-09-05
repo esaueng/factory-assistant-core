@@ -128,7 +128,7 @@ class HomeeAlarmPanel(HomeeEntity, AlarmControlPanelEntity):
         # Since disarm is always present in the UI, we raise an error.
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"disarm_not_supported",
+            translation_key="disarm_not_supported",
         )
 
     async def async_alarm_arm_home(self, code: str | None = None) -> None:

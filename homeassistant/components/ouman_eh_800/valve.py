@@ -31,13 +31,13 @@ VALVE_DESCRIPTIONS: dict[IntControlOumanEndpoint, OumanEh800ValveEntityDescripti
     L1BaseEndpoints.VALVE_POSITION_SETPOINT: OumanEh800ValveEntityDescription(
         device=OumanDevice.L1,
         key="valve_position_setpoint",
-        REDACTED_VALUE"valve_position_setpoint",
+        translation_key="valve_position_setpoint",
         device_class=ValveDeviceClass.WATER,
     ),
     L2BaseEndpoints.VALVE_POSITION_SETPOINT: OumanEh800ValveEntityDescription(
         device=OumanDevice.L2,
         key="valve_position_setpoint",
-        REDACTED_VALUE"valve_position_setpoint",
+        translation_key="valve_position_setpoint",
         device_class=ValveDeviceClass.WATER,
     ),
 }

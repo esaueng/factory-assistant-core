@@ -1538,7 +1538,7 @@ async def test_entity_info_added_to_entity_registry(
         name="best name",
         object_id_base="best name",
         supported_features=5,
-        REDACTED_VALUE"my_translation_key",
+        translation_key="my_translation_key",
         unique_id="default",
         unit_of_measurement=PERCENTAGE,
     )
@@ -1572,7 +1572,7 @@ async def test_entity_info_added_to_entity_registry(
         options=None,
         suggested_object_id=None,
         supported_features=5,
-        REDACTED_VALUE"my_translation_key",
+        translation_key="my_translation_key",
         unit_of_measurement=PERCENTAGE,
     )
 

@@ -1487,7 +1487,7 @@ async def test_legacy_door_open_state_stale_repair_issue_cleaned_up(
         is_fixable=False,
         is_persistent=False,
         severity=IssueSeverity.WARNING,
-        REDACTED_VALUE"deprecated_legacy_door_open_state",
+        translation_key="deprecated_legacy_door_open_state",
         translation_placeholders={
             "entity_id": entity_id,
             "entity_name": "Window/door is open",

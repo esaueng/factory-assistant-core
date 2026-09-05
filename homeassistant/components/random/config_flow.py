@@ -53,7 +53,7 @@ def _generate_schema(domain: str, flow_type: _FlowType) -> vol.Schema:
                     options=[cls.value for cls in BinarySensorDeviceClass],
                     sort=True,
                     mode=SelectSelectorMode.DROPDOWN,
-                    REDACTED_VALUE"binary_sensor_device_class",
+                    translation_key="binary_sensor_device_class",
                 ),
             )
 
@@ -71,7 +71,7 @@ def _generate_schema(domain: str, flow_type: _FlowType) -> vol.Schema:
                         ],
                         sort=True,
                         mode=SelectSelectorMode.DROPDOWN,
-                        REDACTED_VALUE"sensor_device_class",
+                        translation_key="sensor_device_class",
                     ),
                 ),
                 vol.Optional(CONF_UNIT_OF_MEASUREMENT): SelectSelector(
@@ -84,7 +84,7 @@ def _generate_schema(domain: str, flow_type: _FlowType) -> vol.Schema:
                         ],
                         sort=True,
                         mode=SelectSelectorMode.DROPDOWN,
-                        REDACTED_VALUE"sensor_unit_of_measurement",
+                        translation_key="sensor_unit_of_measurement",
                         custom_value=True,
                     ),
                 ),

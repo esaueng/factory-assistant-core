@@ -44,7 +44,7 @@ STEP_USER_DATA_SCHEMA = vol.Schema(
             SelectSelectorConfig(
                 options=["rest_api", "modbus_tcp"],
                 mode=SelectSelectorMode.LIST,
-                REDACTED_VALUE"protocol",
+                translation_key="protocol",
             ),
         ),
     }

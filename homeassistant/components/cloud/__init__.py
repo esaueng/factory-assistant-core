@@ -390,7 +390,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         hass=hass,
         delay=timedelta(hours=STARTUP_REPAIR_DELAY),
         action=HassJob(
-            async_startup_repairs, "cloud startup repairs", REDACTED_VALUE
+            async_startup_repairs, "cloud startup repairs", cancel_on_shutdown=True
         ),
     )
 

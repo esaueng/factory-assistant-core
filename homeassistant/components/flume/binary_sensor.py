@@ -45,13 +45,13 @@ class FlumeBinarySensorEntityDescription(BinarySensorEntityDescription):
 FLUME_BINARY_NOTIFICATION_SENSORS: tuple[FlumeBinarySensorEntityDescription, ...] = (
     FlumeBinarySensorEntityDescription(
         key="leak",
-        REDACTED_VALUE"leak",
+        translation_key="leak",
         entity_category=EntityCategory.DIAGNOSTIC,
         event_rule=NOTIFICATION_LEAK_DETECTED,
     ),
     FlumeBinarySensorEntityDescription(
         key="flow",
-        REDACTED_VALUE"flow",
+        translation_key="flow",
         entity_category=EntityCategory.DIAGNOSTIC,
         event_rule=NOTIFICATION_HIGH_FLOW,
     ),

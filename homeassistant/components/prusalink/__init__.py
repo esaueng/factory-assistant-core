@@ -100,7 +100,7 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
                     "firmware_5_1_required",
                     is_fixable=False,
                     severity=ir.IssueSeverity.ERROR,
-                    REDACTED_VALUE"firmware_5_1_required",
+                    translation_key="firmware_5_1_required",
                     translation_placeholders={
                         "entry_title": config_entry.title,
                         "prusa_mini_firmware_update": "https://help.prusa3d.com/article/firmware-updating-mini-mini_124784",

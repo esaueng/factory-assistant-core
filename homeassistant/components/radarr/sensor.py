@@ -80,20 +80,20 @@ SENSOR_TYPES: dict[str, RadarrSensorEntityDescription[Any]] = {
     ),
     "movie": RadarrSensorEntityDescription[int](
         key="movies",
-        REDACTED_VALUE"movies",
+        translation_key="movies",
         entity_registry_enabled_default=False,
         value_fn=lambda data, _: data,
     ),
     "queue": RadarrSensorEntityDescription[int](
         key="queue",
-        REDACTED_VALUE"queue",
+        translation_key="queue",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data, _: data,
     ),
     "status": RadarrSensorEntityDescription[SystemStatus](
         key="start_time",
-        REDACTED_VALUE"start_time",
+        translation_key="start_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,

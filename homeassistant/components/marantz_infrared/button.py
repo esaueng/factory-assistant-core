@@ -30,17 +30,17 @@ class MarantzIrButtonEntityDescription(ButtonEntityDescription):
 BUTTON_DESCRIPTIONS: tuple[MarantzIrButtonEntityDescription, ...] = (
     MarantzIrButtonEntityDescription(
         key="speaker_ab",
-        REDACTED_VALUE"speaker_ab",
+        translation_key="speaker_ab",
         command_code=MarantzAudioCode.SPEAKER_AB,
     ),
     MarantzIrButtonEntityDescription(
         key="source_direct",
-        REDACTED_VALUE"source_direct",
+        translation_key="source_direct",
         command_code=MarantzAudioCode.SOURCE_DIRECT,
     ),
     MarantzIrButtonEntityDescription(
         key="loudness",
-        REDACTED_VALUE"loudness",
+        translation_key="loudness",
         command_code=MarantzAudioCode.LOUDNESS,
     ),
 )

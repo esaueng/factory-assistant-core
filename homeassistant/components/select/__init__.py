@@ -171,7 +171,7 @@ class SelectEntity(Entity, cached_properties=CACHED_PROPERTIES_WITH_ATTR_):
             friendly_options: str = ", ".join(options or [])
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"not_valid_option",
+                translation_key="not_valid_option",
                 translation_placeholders={
                     "entity_id": self.entity_id,
                     "option": option,

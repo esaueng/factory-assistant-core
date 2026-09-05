@@ -57,7 +57,7 @@ def catch_braviatv_errors[_BraviaTVCoordinatorT: BraviaTVCoordinator, **_P](
         except BraviaNotFound as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_error_not_found",
+                translation_key="command_error_not_found",
                 translation_placeholders={
                     "device": self.config_entry.title,
                 },
@@ -65,7 +65,7 @@ def catch_braviatv_errors[_BraviaTVCoordinatorT: BraviaTVCoordinator, **_P](
         except (BraviaConnectionError, BraviaConnectionTimeout, BraviaTurnedOff) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_error_offline",
+                translation_key="command_error_offline",
                 translation_placeholders={
                     "device": self.config_entry.title,
                 },
@@ -73,7 +73,7 @@ def catch_braviatv_errors[_BraviaTVCoordinatorT: BraviaTVCoordinator, **_P](
         except BraviaError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_error",
+                translation_key="command_error",
                 translation_placeholders={
                     "device": self.config_entry.title,
                     "error": repr(err),
@@ -196,7 +196,7 @@ class BraviaTVCoordinator(DataUpdateCoordinator[None]):
                 return
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_error_not_found",
+                translation_key="update_error_not_found",
                 translation_placeholders={
                     "device": self.config_entry.title,
                 },
@@ -212,7 +212,7 @@ class BraviaTVCoordinator(DataUpdateCoordinator[None]):
             self.connected = False
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_error",
+                translation_key="update_error",
                 translation_placeholders={
                     "device": self.config_entry.title,
                     "error": repr(err),

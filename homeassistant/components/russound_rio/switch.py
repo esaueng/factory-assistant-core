@@ -28,7 +28,7 @@ class RussoundZoneSwitchEntityDescription(SwitchEntityDescription):
 CONTROL_ENTITIES: tuple[RussoundZoneSwitchEntityDescription, ...] = (
     RussoundZoneSwitchEntityDescription(
         key="loudness",
-        REDACTED_VALUE"loudness",
+        translation_key="loudness",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda zone: zone.loudness,
         set_value_fn=lambda zone, value: zone.set_loudness(value),

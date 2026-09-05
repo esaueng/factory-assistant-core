@@ -341,7 +341,7 @@ class WaterHeaterEntity(Entity, cached_properties=CACHED_PROPERTIES_WITH_ATTR_):
         if self.operation_list is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"operation_list_not_defined",
+                translation_key="operation_list_not_defined",
                 translation_placeholders={
                     "entity_id": self.entity_id,
                     "operation_mode": operation_mode,
@@ -351,7 +351,7 @@ class WaterHeaterEntity(Entity, cached_properties=CACHED_PROPERTIES_WITH_ATTR_):
             operation_list = ", ".join(self.operation_list)
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"not_valid_operation_mode",
+                translation_key="not_valid_operation_mode",
                 translation_placeholders={
                     "entity_id": self.entity_id,
                     "operation_mode": operation_mode,

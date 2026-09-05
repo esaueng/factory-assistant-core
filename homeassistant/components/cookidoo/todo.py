@@ -94,7 +94,7 @@ class CookidooIngredientsTodoListEntity(CookidooBaseEntity, TodoListEntity):
         except CookidooException as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"todo_update_item_failed",
+                translation_key="todo_update_item_failed",
                 translation_placeholders={"name": item.summary or ""},
             ) from e
 
@@ -144,7 +144,7 @@ class CookidooAdditionalItemTodoListEntity(CookidooBaseEntity, TodoListEntity):
         except CookidooException as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"todo_save_item_failed",
+                translation_key="todo_save_item_failed",
                 translation_placeholders={"name": item.summary or ""},
             ) from e
 
@@ -167,7 +167,7 @@ class CookidooAdditionalItemTodoListEntity(CookidooBaseEntity, TodoListEntity):
         except CookidooException as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"todo_update_item_failed",
+                translation_key="todo_update_item_failed",
                 translation_placeholders={"name": item.summary or ""},
             ) from e
 
@@ -181,7 +181,7 @@ class CookidooAdditionalItemTodoListEntity(CookidooBaseEntity, TodoListEntity):
         except CookidooException as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"todo_delete_item_failed",
+                translation_key="todo_delete_item_failed",
                 translation_placeholders={"count": str(len(uids))},
             ) from e
 

@@ -38,7 +38,7 @@ def async_manage_legacy_subscription_issue(
             issue_id="legacy_subscription",
             is_fixable=True,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"legacy_subscription",
+            translation_key="legacy_subscription",
         )
         return
     ir.async_delete_issue(hass=hass, domain=DOMAIN, issue_id="legacy_subscription")

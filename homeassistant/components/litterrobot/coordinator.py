@@ -64,12 +64,12 @@ class LitterRobotDataUpdateCoordinator(DataUpdateCoordinator[None]):
                 await pet.fetch_weight_history()
         except LitterRobotLoginException as ex:
             raise ConfigEntryAuthFailed(
-                translation_domain=DOMAIN, REDACTED_VALUE"invalid_credentials"
+                translation_domain=DOMAIN, translation_key="invalid_credentials"
             ) from ex
         except LitterRobotException as ex:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
                 translation_placeholders={"error": str(ex)},
             ) from ex
 
@@ -101,12 +101,12 @@ class LitterRobotDataUpdateCoordinator(DataUpdateCoordinator[None]):
             )
         except LitterRobotLoginException as ex:
             raise ConfigEntryAuthFailed(
-                translation_domain=DOMAIN, REDACTED_VALUE"invalid_credentials"
+                translation_domain=DOMAIN, translation_key="invalid_credentials"
             ) from ex
         except LitterRobotException as ex:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
                 translation_placeholders={"error": str(ex)},
             ) from ex
 

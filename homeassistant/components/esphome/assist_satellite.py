@@ -148,7 +148,7 @@ class EsphomeAssistSatellite(
     """Satellite running ESPHome."""
 
     entity_description = assist_satellite.AssistSatelliteEntityDescription(
-        key="assist_satellite", REDACTED_VALUE"assist_satellite"
+        key="assist_satellite", translation_key="assist_satellite"
     )
 
     def __init__(self, entry: ESPHomeConfigEntry) -> None:

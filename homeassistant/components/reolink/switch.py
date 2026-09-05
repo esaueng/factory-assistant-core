@@ -74,7 +74,7 @@ SWITCH_ENTITIES = (
     ReolinkSwitchEntityDescription(
         key="ir_lights",
         cmd_key="GetIrLights",
-        REDACTED_VALUE"ir_lights",
+        translation_key="ir_lights",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "ir_lights"),
         value=lambda api, ch: api.ir_enabled(ch),
@@ -83,7 +83,7 @@ SWITCH_ENTITIES = (
     ReolinkSwitchEntityDescription(
         key="record_audio",
         cmd_key="GetEnc",
-        REDACTED_VALUE"record_audio",
+        translation_key="record_audio",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "audio"),
         value=lambda api, ch: api.audio_record(ch),
@@ -92,7 +92,7 @@ SWITCH_ENTITIES = (
     ReolinkSwitchEntityDescription(
         key="siren_on_event",
         cmd_key="GetAudioAlarm",
-        REDACTED_VALUE"siren_on_event",
+        translation_key="siren_on_event",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "siren"),
         value=lambda api, ch: api.audio_alarm_enabled(ch),
@@ -101,7 +101,7 @@ SWITCH_ENTITIES = (
     ReolinkSwitchEntityDescription(
         key="auto_tracking",
         cmd_key="GetAiCfg",
-        REDACTED_VALUE"auto_tracking",
+        translation_key="auto_tracking",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "auto_track"),
         value=lambda api, ch: api.auto_track_enabled(ch),
@@ -110,7 +110,7 @@ SWITCH_ENTITIES = (
     ReolinkSwitchEntityDescription(
         key="auto_focus",
         cmd_key="GetAutoFocus",
-        REDACTED_VALUE"auto_focus",
+        translation_key="auto_focus",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "auto_focus"),
         value=lambda api, ch: api.autofocus_enabled(ch),
@@ -119,7 +119,7 @@ SWITCH_ENTITIES = (
     ReolinkSwitchEntityDescription(
         key="gaurd_return",
         cmd_key="GetPtzGuard",
-        REDACTED_VALUE"guard_return",
+        translation_key="guard_return",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "ptz_guard"),
         value=lambda api, ch: api.ptz_guard_enabled(ch),
@@ -128,7 +128,7 @@ SWITCH_ENTITIES = (
     ReolinkSwitchEntityDescription(
         key="ptz_patrol",
         cmd_key="64",
-        REDACTED_VALUE"ptz_patrol",
+        translation_key="ptz_patrol",
         supported=lambda api, ch: api.supported(ch, "ptz_patrol"),
         value=lambda api, ch: api.baichuan.ptz_patrol_cruising(ch),
         method=lambda api, ch, value: api.ctrl_ptz_patrol(ch, value),
@@ -136,7 +136,7 @@ SWITCH_ENTITIES = (
     ReolinkSwitchEntityDescription(
         key="email",
         cmd_key="GetEmail",
-        REDACTED_VALUE"email",
+        translation_key="email",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "email") and api.is_nvr,
         value=lambda api, ch: api.email_enabled(ch),
@@ -145,7 +145,7 @@ SWITCH_ENTITIES = (
     ReolinkSwitchEntityDescription(
         key="ftp_upload",
         cmd_key="GetFtp",
-        REDACTED_VALUE"ftp_upload",
+        translation_key="ftp_upload",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "ftp") and api.is_nvr,
         value=lambda api, ch: api.ftp_enabled(ch),
@@ -154,7 +154,7 @@ SWITCH_ENTITIES = (
     ReolinkSwitchEntityDescription(
         key="push_notifications",
         cmd_key="GetPush",
-        REDACTED_VALUE"push_notifications",
+        translation_key="push_notifications",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "push") and api.is_nvr,
         value=lambda api, ch: api.push_enabled(ch),
@@ -163,7 +163,7 @@ SWITCH_ENTITIES = (
     ReolinkSwitchEntityDescription(
         key="record",
         cmd_key="GetRec",
-        REDACTED_VALUE"record",
+        translation_key="record",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "rec_enable") and api.is_nvr,
         value=lambda api, ch: api.recording_enabled(ch),
@@ -173,7 +173,7 @@ SWITCH_ENTITIES = (
         key="manual_record",
         cmd_key="GetManualRec",
         cmd_id=588,
-        REDACTED_VALUE"manual_record",
+        translation_key="manual_record",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "manual_record"),
         value=lambda api, ch: api.manual_record_enabled(ch),
@@ -182,7 +182,7 @@ SWITCH_ENTITIES = (
     ReolinkSwitchEntityDescription(
         key="pre_record",
         cmd_key="594",
-        REDACTED_VALUE"pre_record",
+        translation_key="pre_record",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "pre_record"),
         value=lambda api, ch: api.baichuan.pre_record_enabled(ch),
@@ -190,8 +190,8 @@ SWITCH_ENTITIES = (
     ),
     ReolinkSwitchEntityDescription(
         key="buzzer",
-        cmd_key="REDACTED_VALUE",
-        REDACTED_VALUE"hub_ringtone_on_event",
+        cmd_key="GetBuzzerAlarmV20",
+        translation_key="hub_ringtone_on_event",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "buzzer") and api.is_nvr,
         value=lambda api, ch: api.buzzer_enabled(ch),
@@ -200,7 +200,7 @@ SWITCH_ENTITIES = (
     ReolinkSwitchEntityDescription(
         key="doorbell_button_sound",
         cmd_key="GetAudioCfg",
-        REDACTED_VALUE"doorbell_button_sound",
+        translation_key="doorbell_button_sound",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "doorbell_button_sound"),
         value=lambda api, ch: api.doorbell_button_sound(ch),
@@ -209,7 +209,7 @@ SWITCH_ENTITIES = (
     ReolinkSwitchEntityDescription(
         key="pir_enabled",
         cmd_key="GetPirInfo",
-        REDACTED_VALUE"pir_enabled",
+        translation_key="pir_enabled",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         supported=lambda api, ch: api.supported(ch, "PIR"),
@@ -219,7 +219,7 @@ SWITCH_ENTITIES = (
     ReolinkSwitchEntityDescription(
         key="pir_reduce_alarm",
         cmd_key="GetPirInfo",
-        REDACTED_VALUE"pir_reduce_alarm",
+        translation_key="pir_reduce_alarm",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         supported=lambda api, ch: api.supported(ch, "PIR"),
@@ -229,7 +229,7 @@ SWITCH_ENTITIES = (
     ReolinkSwitchEntityDescription(
         key="privacy_mode",
         always_available=True,
-        REDACTED_VALUE"privacy_mode",
+        translation_key="privacy_mode",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "privacy_mode"),
         value=lambda api, ch: api.baichuan.privacy_mode(ch),
@@ -238,7 +238,7 @@ SWITCH_ENTITIES = (
     ReolinkSwitchEntityDescription(
         key="privacy_mask",
         cmd_key="GetMask",
-        REDACTED_VALUE"privacy_mask",
+        translation_key="privacy_mask",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "privacy_mask"),
         value=lambda api, ch: api.privacy_mask_enabled(ch),
@@ -247,7 +247,7 @@ SWITCH_ENTITIES = (
     ReolinkSwitchEntityDescription(
         key="hardwired_chime_enabled",
         cmd_key="483",
-        REDACTED_VALUE"hardwired_chime_enabled",
+        translation_key="hardwired_chime_enabled",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         supported=lambda api, ch: api.supported(ch, "hardwired_chime"),
@@ -260,7 +260,7 @@ HOST_SWITCH_ENTITIES = (
     ReolinkHostSwitchEntityDescription(
         key="email",
         cmd_key="GetEmail",
-        REDACTED_VALUE"email",
+        translation_key="email",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api: api.supported(None, "email") and not api.is_hub,
         value=lambda api: api.email_enabled(),
@@ -269,7 +269,7 @@ HOST_SWITCH_ENTITIES = (
     ReolinkHostSwitchEntityDescription(
         key="ftp_upload",
         cmd_key="GetFtp",
-        REDACTED_VALUE"ftp_upload",
+        translation_key="ftp_upload",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api: api.supported(None, "ftp") and not api.is_hub,
         value=lambda api: api.ftp_enabled(),
@@ -278,7 +278,7 @@ HOST_SWITCH_ENTITIES = (
     ReolinkHostSwitchEntityDescription(
         key="push_notifications",
         cmd_key="GetPush",
-        REDACTED_VALUE"push_notifications",
+        translation_key="push_notifications",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api: api.supported(None, "push") and not api.is_hub,
         value=lambda api: api.push_enabled(),
@@ -287,7 +287,7 @@ HOST_SWITCH_ENTITIES = (
     ReolinkHostSwitchEntityDescription(
         key="record",
         cmd_key="GetRec",
-        REDACTED_VALUE"record",
+        translation_key="record",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api: api.supported(None, "rec_enable") and not api.is_hub,
         value=lambda api: api.recording_enabled(),
@@ -295,8 +295,8 @@ HOST_SWITCH_ENTITIES = (
     ),
     ReolinkHostSwitchEntityDescription(
         key="buzzer",
-        cmd_key="REDACTED_VALUE",
-        REDACTED_VALUE"hub_ringtone_on_event",
+        cmd_key="GetBuzzerAlarmV20",
+        translation_key="hub_ringtone_on_event",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api: api.supported(None, "buzzer") and not api.is_hub,
         value=lambda api: api.buzzer_enabled(),
@@ -308,7 +308,7 @@ CHIME_SWITCH_ENTITIES = (
     ReolinkChimeSwitchEntityDescription(
         key="chime_led",
         cmd_key="DingDongOpt",
-        REDACTED_VALUE"led",
+        translation_key="led",
         entity_category=EntityCategory.CONFIG,
         value=lambda chime: chime.led_state,
         method=lambda chime, value: chime.set_option(led=value),
@@ -318,7 +318,7 @@ CHIME_SWITCH_ENTITIES = (
 RULE_SWITCH_ENTITY = ReolinkSwitchIndexEntityDescription(
     key="rule",
     cmd_key="rules",
-    REDACTED_VALUE"rule",
+    translation_key="rule",
     placeholder=lambda api, ch, idx: api.baichuan.rule_name(ch, idx),
     value=lambda api, ch, idx: api.baichuan.rule_enabled(ch, idx),
     method=lambda api, ch, idx, value: api.baichuan.set_rule_enabled(ch, idx, value),

@@ -34,7 +34,7 @@ SENSORS: dict[str, SensorEntityDescription] = {
     "radonShortTermAvg": SensorEntityDescription(
         key="radonShortTermAvg",
         native_unit_of_measurement="Bq/m³",
-        REDACTED_VALUE"radon",
+        translation_key="radon",
         suggested_display_precision=0,
     ),
     "temp": SensorEntityDescription(
@@ -90,7 +90,7 @@ SENSORS: dict[str, SensorEntityDescription] = {
     "light": SensorEntityDescription(
         key="light",
         native_unit_of_measurement=PERCENTAGE,
-        REDACTED_VALUE"light",
+        translation_key="light",
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=0,
     ),
@@ -103,13 +103,13 @@ SENSORS: dict[str, SensorEntityDescription] = {
     ),
     "virusRisk": SensorEntityDescription(
         key="virusRisk",
-        REDACTED_VALUE"virus_risk",
+        translation_key="virus_risk",
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=0,
     ),
     "mold": SensorEntityDescription(
         key="mold",
-        REDACTED_VALUE"mold",
+        translation_key="mold",
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=0,
     ),

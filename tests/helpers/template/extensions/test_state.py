@@ -299,7 +299,7 @@ async def test_state_translated(
         "hue",
         "5678",
         config_entry=config_entry,
-        REDACTED_VALUE"translation_key",
+        translation_key="translation_key",
     )
     hass.states.async_set("light.hue_5678", "on", attributes={})
 
@@ -471,7 +471,7 @@ async def test_state_attr_translated_translation_lookups(
         "test_platform",
         "5678",
         config_entry=config_entry,
-        REDACTED_VALUE"my_climate",
+        translation_key="my_climate",
     )
     hass.states.async_set(
         "climate.test_platform_5678",

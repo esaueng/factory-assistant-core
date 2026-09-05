@@ -91,7 +91,7 @@ def _get_entry_for_device(call: ServiceCall) -> OpenDisplayConfigEntry:
     if (device := device_registry.async_get(device_id)) is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_device_id",
+            translation_key="invalid_device_id",
             translation_placeholders={"device_id": device_id},
         )
 
@@ -102,7 +102,7 @@ def _get_entry_for_device(call: ServiceCall) -> OpenDisplayConfigEntry:
     if mac_address is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_device_id",
+            translation_key="invalid_device_id",
             translation_placeholders={"device_id": device_id},
         )
 
@@ -112,7 +112,7 @@ def _get_entry_for_device(call: ServiceCall) -> OpenDisplayConfigEntry:
     if entry is None or entry.state is not ConfigEntryState.LOADED:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"config_entry_not_found",
+            translation_key="config_entry_not_found",
             translation_placeholders={"address": mac_address},
         )
 
@@ -147,7 +147,7 @@ async def _async_download_image(hass: HomeAssistant, url: str) -> PILImage.Image
     except aiohttp.ClientError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"media_download_error",
+            translation_key="media_download_error",
             translation_placeholders={"error": str(err)},
         ) from err
 
@@ -174,7 +174,7 @@ async def _async_upload_image(call: ServiceCall) -> None:
     if ble_device is None:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_not_found",
+            translation_key="device_not_found",
             translation_placeholders={
                 "address": address,
                 "reason": async_address_reachability_diagnostics(
@@ -209,14 +209,14 @@ async def _async_upload_image(call: ServiceCall) -> None:
         if raw_key is not None and len(raw_key) != 32:
             entry.async_start_reauth(call.hass)
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"authentication_error"
+                translation_domain=DOMAIN, translation_key="authentication_error"
             )
         try:
             encryption_key = bytes.fromhex(raw_key) if raw_key is not None else None
         except ValueError as err:
             entry.async_start_reauth(call.hass)
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"authentication_error"
+                translation_domain=DOMAIN, translation_key="authentication_error"
             ) from err
 
         async with OpenDisplayDevice(
@@ -238,11 +238,11 @@ async def _async_upload_image(call: ServiceCall) -> None:
     except (AuthenticationFailedError, AuthenticationRequiredError) as err:
         entry.async_start_reauth(call.hass)
         raise HomeAssistantError(
-            translation_domain=DOMAIN, REDACTED_VALUE"authentication_error"
+            translation_domain=DOMAIN, translation_key="authentication_error"
         ) from err
     except OpenDisplayError as err:
         raise HomeAssistantError(
-            translation_domain=DOMAIN, REDACTED_VALUE"upload_error"
+            translation_domain=DOMAIN, translation_key="upload_error"
         ) from err
     finally:
         if entry.runtime_data.upload_task is current:

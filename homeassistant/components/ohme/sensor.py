@@ -38,7 +38,7 @@ class OhmeSensorDescription(OhmeEntityDescription, SensorEntityDescription):
 SENSORS = [
     OhmeSensorDescription(
         key="status",
-        REDACTED_VALUE"status",
+        translation_key="status",
         device_class=SensorDeviceClass.ENUM,
         options=[e.value for e in ChargerStatus],
         value_fn=lambda client: client.status.value,
@@ -77,7 +77,7 @@ SENSORS = [
     ),
     OhmeSensorDescription(
         key="battery",
-        REDACTED_VALUE"vehicle_battery",
+        translation_key="vehicle_battery",
         native_unit_of_measurement=PERCENTAGE,
         device_class=SensorDeviceClass.BATTERY,
         suggested_display_precision=0,
@@ -86,7 +86,7 @@ SENSORS = [
     ),
     OhmeSensorDescription(
         key="slot_list",
-        REDACTED_VALUE"slot_list",
+        translation_key="slot_list",
         value_fn=lambda client: (
             ", ".join(str(x) for x in client.slots) or STATE_UNKNOWN
         ),

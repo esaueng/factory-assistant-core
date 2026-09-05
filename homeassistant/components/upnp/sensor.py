@@ -47,7 +47,7 @@ class UpnpSensorEntityDescription(UpnpEntityDescription, SensorEntityDescription
 SENSOR_DESCRIPTIONS: tuple[UpnpSensorEntityDescription, ...] = (
     UpnpSensorEntityDescription(
         key=BYTES_RECEIVED,
-        REDACTED_VALUE"data_received",
+        translation_key="data_received",
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
         entity_registry_enabled_default=False,
@@ -56,7 +56,7 @@ SENSOR_DESCRIPTIONS: tuple[UpnpSensorEntityDescription, ...] = (
     ),
     UpnpSensorEntityDescription(
         key=BYTES_SENT,
-        REDACTED_VALUE"data_sent",
+        translation_key="data_sent",
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
         entity_registry_enabled_default=False,
@@ -65,7 +65,7 @@ SENSOR_DESCRIPTIONS: tuple[UpnpSensorEntityDescription, ...] = (
     ),
     UpnpSensorEntityDescription(
         key=PACKETS_RECEIVED,
-        REDACTED_VALUE"packets_received",
+        translation_key="packets_received",
         native_unit_of_measurement=DATA_PACKETS,
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -73,7 +73,7 @@ SENSOR_DESCRIPTIONS: tuple[UpnpSensorEntityDescription, ...] = (
     ),
     UpnpSensorEntityDescription(
         key=PACKETS_SENT,
-        REDACTED_VALUE"packets_sent",
+        translation_key="packets_sent",
         native_unit_of_measurement=DATA_PACKETS,
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -81,12 +81,12 @@ SENSOR_DESCRIPTIONS: tuple[UpnpSensorEntityDescription, ...] = (
     ),
     UpnpSensorEntityDescription(
         key=ROUTER_IP,
-        REDACTED_VALUE"external_ip",
+        translation_key="external_ip",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     UpnpSensorEntityDescription(
         key=ROUTER_UPTIME,
-        REDACTED_VALUE"uptime",
+        translation_key="uptime",
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.SECONDS,
         entity_registry_enabled_default=False,
@@ -95,19 +95,19 @@ SENSOR_DESCRIPTIONS: tuple[UpnpSensorEntityDescription, ...] = (
     ),
     UpnpSensorEntityDescription(
         key=WAN_STATUS,
-        REDACTED_VALUE"wan_status",
+        translation_key="wan_status",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
     UpnpSensorEntityDescription(
         key=PORT_MAPPING_NUMBER_OF_ENTRIES_IPV4,
-        REDACTED_VALUE"port_mapping_number_of_entries_ipv4",
+        translation_key="port_mapping_number_of_entries_ipv4",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
     UpnpSensorEntityDescription(
         key=BYTES_RECEIVED,
-        REDACTED_VALUE"download_speed",
+        translation_key="download_speed",
         value_key=KIBIBYTES_PER_SEC_RECEIVED,
         unique_id="KiB/sec_received",
         device_class=SensorDeviceClass.DATA_RATE,
@@ -117,7 +117,7 @@ SENSOR_DESCRIPTIONS: tuple[UpnpSensorEntityDescription, ...] = (
     ),
     UpnpSensorEntityDescription(
         key=BYTES_SENT,
-        REDACTED_VALUE"upload_speed",
+        translation_key="upload_speed",
         value_key=KIBIBYTES_PER_SEC_SENT,
         unique_id="KiB/sec_sent",
         device_class=SensorDeviceClass.DATA_RATE,
@@ -127,7 +127,7 @@ SENSOR_DESCRIPTIONS: tuple[UpnpSensorEntityDescription, ...] = (
     ),
     UpnpSensorEntityDescription(
         key=PACKETS_RECEIVED,
-        REDACTED_VALUE"packet_download_speed",
+        translation_key="packet_download_speed",
         value_key=PACKETS_PER_SEC_RECEIVED,
         unique_id="packets/sec_received",
         native_unit_of_measurement=DATA_RATE_PACKETS_PER_SECOND,
@@ -137,7 +137,7 @@ SENSOR_DESCRIPTIONS: tuple[UpnpSensorEntityDescription, ...] = (
     ),
     UpnpSensorEntityDescription(
         key=PACKETS_SENT,
-        REDACTED_VALUE"packet_upload_speed",
+        translation_key="packet_upload_speed",
         value_key=PACKETS_PER_SEC_SENT,
         unique_id="packets/sec_sent",
         native_unit_of_measurement=DATA_RATE_PACKETS_PER_SECOND,

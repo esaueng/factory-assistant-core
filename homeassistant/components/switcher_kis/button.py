@@ -33,27 +33,27 @@ class SwitcherThermostatButtonEntityDescription(ButtonEntityDescription):
 THERMOSTAT_BUTTONS = [
     SwitcherThermostatButtonEntityDescription(
         key="assume_on",
-        REDACTED_VALUE"assume_on",
+        translation_key="assume_on",
         entity_category=EntityCategory.CONFIG,
         press_args={"state": DeviceState.ON, "update_state": True},
         supported=lambda _: True,
     ),
     SwitcherThermostatButtonEntityDescription(
         key="assume_off",
-        REDACTED_VALUE"assume_off",
+        translation_key="assume_off",
         entity_category=EntityCategory.CONFIG,
         press_args={"state": DeviceState.OFF, "update_state": True},
         supported=lambda _: True,
     ),
     SwitcherThermostatButtonEntityDescription(
         key="vertical_swing_on",
-        REDACTED_VALUE"vertical_swing_on",
+        translation_key="vertical_swing_on",
         press_args={"swing": ThermostatSwing.ON},
         supported=lambda remote: bool(remote.separated_swing_command),
     ),
     SwitcherThermostatButtonEntityDescription(
         key="vertical_swing_off",
-        REDACTED_VALUE"vertical_swing_off",
+        translation_key="vertical_swing_off",
         press_args={"swing": ThermostatSwing.OFF},
         supported=lambda remote: bool(remote.separated_swing_command),
     ),

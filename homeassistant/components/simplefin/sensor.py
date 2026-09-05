@@ -33,7 +33,7 @@ class SimpleFinSensorEntityDescription(SensorEntityDescription):
 SIMPLEFIN_SENSORS: tuple[SimpleFinSensorEntityDescription, ...] = (
     SimpleFinSensorEntityDescription(
         key="balance",
-        REDACTED_VALUE"balance",
+        translation_key="balance",
         state_class=SensorStateClass.TOTAL,
         device_class=SensorDeviceClass.MONETARY,
         value_fn=lambda account: account.balance,
@@ -42,7 +42,7 @@ SIMPLEFIN_SENSORS: tuple[SimpleFinSensorEntityDescription, ...] = (
     ),
     SimpleFinSensorEntityDescription(
         key="age",
-        REDACTED_VALUE"age",
+        translation_key="age",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda account: account.balance_date,

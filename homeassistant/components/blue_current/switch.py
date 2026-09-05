@@ -83,7 +83,7 @@ async def set_linked_charge_cards(
 SWITCHES = (
     BlueCurrentSwitchEntityDescription(
         key=PLUG_AND_CHARGE,
-        REDACTED_VALUEPLUG_AND_CHARGE,
+        translation_key=PLUG_AND_CHARGE,
         function=set_plug_and_charge,
         turn_on_off_fn=lambda evse_id, connector: update_on_value_and_activity(
             PLUG_AND_CHARGE, evse_id, connector
@@ -91,7 +91,7 @@ SWITCHES = (
     ),
     BlueCurrentSwitchEntityDescription(
         key=LINKED_CHARGE_CARDS,
-        REDACTED_VALUELINKED_CHARGE_CARDS,
+        translation_key=LINKED_CHARGE_CARDS,
         function=set_linked_charge_cards,
         turn_on_off_fn=lambda evse_id, connector: update_on_value_and_activity(
             PUBLIC_CHARGING, evse_id, connector, reverse_is_on=True
@@ -99,7 +99,7 @@ SWITCHES = (
     ),
     BlueCurrentSwitchEntityDescription(
         key=BLOCK,
-        REDACTED_VALUEBLOCK,
+        translation_key=BLOCK,
         function=lambda connector, evse_id, value: connector.client.block(
             evse_id, value
         ),

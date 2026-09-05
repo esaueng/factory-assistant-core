@@ -46,7 +46,7 @@ class RingBinarySensorEntityDescription(
 BINARY_SENSOR_TYPES: tuple[RingBinarySensorEntityDescription, ...] = (
     RingBinarySensorEntityDescription(
         key=KIND_DING,
-        REDACTED_VALUEKIND_DING,
+        translation_key=KIND_DING,
         device_class=BinarySensorDeviceClass.OCCUPANCY,
         capability=RingCapability.DING,
         deprecated_info=DeprecatedInfo(

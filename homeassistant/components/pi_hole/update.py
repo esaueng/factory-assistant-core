@@ -28,7 +28,7 @@ class PiHoleUpdateEntityDescription(UpdateEntityDescription):
 UPDATE_ENTITY_TYPES: tuple[PiHoleUpdateEntityDescription, ...] = (
     PiHoleUpdateEntityDescription(
         key="core_update_available",
-        REDACTED_VALUE"core_update_available",
+        translation_key="core_update_available",
         title="Pi-hole Core",
         entity_category=EntityCategory.DIAGNOSTIC,
         installed_version=lambda api: api.core_current,
@@ -38,7 +38,7 @@ UPDATE_ENTITY_TYPES: tuple[PiHoleUpdateEntityDescription, ...] = (
     ),
     PiHoleUpdateEntityDescription(
         key="web_update_available",
-        REDACTED_VALUE"web_update_available",
+        translation_key="web_update_available",
         title="Pi-hole Web interface",
         entity_category=EntityCategory.DIAGNOSTIC,
         installed_version=lambda api: api.web_current,
@@ -48,7 +48,7 @@ UPDATE_ENTITY_TYPES: tuple[PiHoleUpdateEntityDescription, ...] = (
     ),
     PiHoleUpdateEntityDescription(
         key="ftl_update_available",
-        REDACTED_VALUE"ftl_update_available",
+        translation_key="ftl_update_available",
         title="Pi-hole FTL DNS",
         entity_category=EntityCategory.DIAGNOSTIC,
         installed_version=lambda api: api.ftl_current,

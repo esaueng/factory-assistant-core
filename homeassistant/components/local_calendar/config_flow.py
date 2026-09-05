@@ -38,7 +38,7 @@ STEP_USER_DATA_SCHEMA = vol.Schema(
                     ATTR_CREATE_EMPTY,
                     ATTR_IMPORT_ICS_FILE,
                 ],
-                REDACTED_VALUECONF_IMPORT,
+                translation_key=CONF_IMPORT,
             )
         ),
     }

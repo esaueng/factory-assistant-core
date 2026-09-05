@@ -61,7 +61,7 @@ async def async_setup_platform(
             is_fixable=False,
             issue_domain=DOMAIN,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUEf"deprecated_yaml_import_issue_{result.get('reason')}",
+            translation_key=f"deprecated_yaml_import_issue_{result.get('reason')}",
             translation_placeholders={
                 "domain": DOMAIN,
                 "integration_title": "PJLink",
@@ -77,7 +77,7 @@ async def async_setup_platform(
         is_fixable=False,
         issue_domain=DOMAIN,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"deprecated_yaml",
+        translation_key="deprecated_yaml",
         translation_placeholders={
             "domain": DOMAIN,
             "integration_title": "PJLink",

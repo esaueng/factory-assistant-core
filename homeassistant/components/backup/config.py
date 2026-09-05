@@ -786,7 +786,7 @@ def check_unavailable_agents(hass: HomeAssistant, manager: BackupManager) -> Non
             is_fixable=False,
             learn_more_url="homeassistant://config/backup",
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"automatic_backup_agents_unavailable",
+            translation_key="automatic_backup_agents_unavailable",
             translation_placeholders={
                 "agent_id": agent_id,
                 "backup_settings": "/config/backup/settings",

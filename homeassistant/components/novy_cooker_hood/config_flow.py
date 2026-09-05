@@ -113,7 +113,7 @@ class NovyCookerHoodConfigFlow(ConfigFlow, domain=DOMAIN):
                 selector.SelectSelectorConfig(
                     options=_CODE_OPTIONS,
                     mode=selector.SelectSelectorMode.DROPDOWN,
-                    REDACTED_VALUE"code",
+                    translation_key="code",
                 )
             ),
         }

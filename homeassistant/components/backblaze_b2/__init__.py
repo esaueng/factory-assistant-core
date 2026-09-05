@@ -56,13 +56,13 @@ async def async_setup_entry(hass: HomeAssistant, entry: BackblazeConfigEntry) ->
     except exception.Unauthorized as err:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_credentials",
+            translation_key="invalid_credentials",
         ) from err
     except exception.RestrictedBucket as err:
         create_bucket_access_restricted_issue(hass, entry, err.bucket_name)
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"restricted_bucket",
+            translation_key="restricted_bucket",
             translation_placeholders={
                 "restricted_bucket_name": err.bucket_name,
             },
@@ -71,12 +71,12 @@ async def async_setup_entry(hass: HomeAssistant, entry: BackblazeConfigEntry) ->
         create_bucket_not_found_issue(hass, entry, entry.data[CONF_BUCKET])
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_bucket_name",
+            translation_key="invalid_bucket_name",
         ) from err
     except exception.BadRequest as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"bad_request",
+            translation_key="bad_request",
             translation_placeholders={"error_message": str(err)},
         ) from err
     except (
@@ -86,13 +86,13 @@ async def async_setup_entry(hass: HomeAssistant, entry: BackblazeConfigEntry) ->
     ) as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect",
+            translation_key="cannot_connect",
         ) from err
     except exception.MissingAccountData as err:
         # pylint: disable-next=home-assistant-exception-translation-key-missing
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_auth",
+            translation_key="invalid_auth",
         ) from err
 
     entry.runtime_data = bucket

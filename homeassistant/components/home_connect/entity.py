@@ -98,7 +98,7 @@ class HomeConnectEntity(CoordinatorEntity[HomeConnectApplianceCoordinator]):
         except HomeConnectError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_option",
+                translation_key="set_option",
                 translation_placeholders=get_dict_from_home_connect_error(err),
             ) from err
 

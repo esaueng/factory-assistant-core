@@ -57,13 +57,13 @@ class ValveControllerBinarySensorDescription(
 PAIRED_SENSOR_DESCRIPTIONS = (
     PairedSensorBinarySensorDescription(
         key=SENSOR_KIND_LEAK_DETECTED,
-        REDACTED_VALUE"leak",
+        translation_key="leak",
         device_class=BinarySensorDeviceClass.MOISTURE,
         is_on_fn=lambda data: data["wet"],
     ),
     PairedSensorBinarySensorDescription(
         key=SENSOR_KIND_MOVED,
-        REDACTED_VALUE"moved",
+        translation_key="moved",
         device_class=BinarySensorDeviceClass.MOVING,
         entity_category=EntityCategory.DIAGNOSTIC,
         is_on_fn=lambda data: data["moved"],
@@ -73,7 +73,7 @@ PAIRED_SENSOR_DESCRIPTIONS = (
 VALVE_CONTROLLER_DESCRIPTIONS = (
     ValveControllerBinarySensorDescription(
         key=SENSOR_KIND_LEAK_DETECTED,
-        REDACTED_VALUE"leak",
+        translation_key="leak",
         device_class=BinarySensorDeviceClass.MOISTURE,
         api_category=API_SYSTEM_ONBOARD_SENSOR_STATUS,
         is_on_fn=lambda data: data["wet"],

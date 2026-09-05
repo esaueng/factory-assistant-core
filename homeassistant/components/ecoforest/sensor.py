@@ -46,7 +46,7 @@ SENSOR_TYPES: tuple[EcoforestSensorEntityDescription, ...] = (
     ),
     EcoforestSensorEntityDescription(
         key="cpu_temperature",
-        REDACTED_VALUE"cpu_temperature",
+        translation_key="cpu_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         entity_registry_enabled_default=False,
@@ -54,7 +54,7 @@ SENSOR_TYPES: tuple[EcoforestSensorEntityDescription, ...] = (
     ),
     EcoforestSensorEntityDescription(
         key="gas_temperature",
-        REDACTED_VALUE"gas_temperature",
+        translation_key="gas_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         entity_registry_enabled_default=False,
@@ -62,7 +62,7 @@ SENSOR_TYPES: tuple[EcoforestSensorEntityDescription, ...] = (
     ),
     EcoforestSensorEntityDescription(
         key="ntc_temperature",
-        REDACTED_VALUE"ntc_temperature",
+        translation_key="ntc_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         entity_registry_enabled_default=False,
@@ -70,21 +70,21 @@ SENSOR_TYPES: tuple[EcoforestSensorEntityDescription, ...] = (
     ),
     EcoforestSensorEntityDescription(
         key="status",
-        REDACTED_VALUE"status",
+        translation_key="status",
         device_class=SensorDeviceClass.ENUM,
         options=STATUS_TYPE,
         value_fn=lambda data: data.state.value,
     ),
     EcoforestSensorEntityDescription(
         key="alarm",
-        REDACTED_VALUE"alarm",
+        translation_key="alarm",
         device_class=SensorDeviceClass.ENUM,
         options=ALARM_TYPE,
         value_fn=lambda data: data.alarm.value if data.alarm else "none",
     ),
     EcoforestSensorEntityDescription(
         key="depression",
-        REDACTED_VALUE"depression",
+        translation_key="depression",
         native_unit_of_measurement=UnitOfPressure.PA,
         device_class=SensorDeviceClass.ATMOSPHERIC_PRESSURE,
         entity_registry_enabled_default=False,
@@ -92,7 +92,7 @@ SENSOR_TYPES: tuple[EcoforestSensorEntityDescription, ...] = (
     ),
     EcoforestSensorEntityDescription(
         key="working_hours",
-        REDACTED_VALUE"working_hours",
+        translation_key="working_hours",
         native_unit_of_measurement=UnitOfTime.HOURS,
         device_class=SensorDeviceClass.DURATION,
         entity_registry_enabled_default=False,
@@ -100,14 +100,14 @@ SENSOR_TYPES: tuple[EcoforestSensorEntityDescription, ...] = (
     ),
     EcoforestSensorEntityDescription(
         key="ignitions",
-        REDACTED_VALUE"ignitions",
+        translation_key="ignitions",
         native_unit_of_measurement="ignitions",
         entity_registry_enabled_default=False,
         value_fn=lambda data: data.ignitions,
     ),
     EcoforestSensorEntityDescription(
         key="live_pulse",
-        REDACTED_VALUE"live_pulse",
+        translation_key="live_pulse",
         native_unit_of_measurement=UnitOfTime.SECONDS,
         device_class=SensorDeviceClass.DURATION,
         entity_registry_enabled_default=False,
@@ -115,7 +115,7 @@ SENSOR_TYPES: tuple[EcoforestSensorEntityDescription, ...] = (
     ),
     EcoforestSensorEntityDescription(
         key="pulse_offset",
-        REDACTED_VALUE"pulse_offset",
+        translation_key="pulse_offset",
         native_unit_of_measurement=UnitOfTime.SECONDS,
         device_class=SensorDeviceClass.DURATION,
         entity_registry_enabled_default=False,
@@ -123,14 +123,14 @@ SENSOR_TYPES: tuple[EcoforestSensorEntityDescription, ...] = (
     ),
     EcoforestSensorEntityDescription(
         key="extractor",
-        REDACTED_VALUE"extractor",
+        translation_key="extractor",
         native_unit_of_measurement=PERCENTAGE,
         entity_registry_enabled_default=False,
         value_fn=lambda data: data.extractor,
     ),
     EcoforestSensorEntityDescription(
         key="convecto_air_flow",
-        REDACTED_VALUE"convector_air_flow",
+        translation_key="convector_air_flow",
         native_unit_of_measurement=PERCENTAGE,
         entity_registry_enabled_default=False,
         value_fn=lambda data: data.convecto_air_flow,

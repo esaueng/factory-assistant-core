@@ -90,7 +90,7 @@ class SatelIntegraSwitch(
         if self._code is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"missing_output_access_code",
+                translation_key="missing_output_access_code",
             )
 
         await self._controller.set_output(self._code, self._device_number, True)
@@ -102,7 +102,7 @@ class SatelIntegraSwitch(
         if self._code is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"missing_output_access_code",
+                translation_key="missing_output_access_code",
             )
 
         await self._controller.set_output(self._code, self._device_number, False)

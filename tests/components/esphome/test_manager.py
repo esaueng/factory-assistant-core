@@ -1944,7 +1944,7 @@ async def test_assist_in_progress_issue_deleted(
         is_fixable=True,
         is_persistent=True,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"assist_in_progress_deprecated",
+        translation_key="assist_in_progress_deprecated",
         translation_placeholders={
             "integration_name": "ESPHome",
         },

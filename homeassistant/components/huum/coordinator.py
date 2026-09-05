@@ -55,5 +55,5 @@ class HuumDataUpdateCoordinator(DataUpdateCoordinator[HuumStatusResponse]):
         except (Forbidden, NotAuthenticated) as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_failed",
+                translation_key="auth_failed",
             ) from err

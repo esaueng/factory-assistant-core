@@ -47,7 +47,7 @@ class WallboxNumberEntityDescription(NumberEntityDescription):
 NUMBER_TYPES: dict[str, WallboxNumberEntityDescription] = {
     CHARGER_MAX_CHARGING_CURRENT_KEY: WallboxNumberEntityDescription(
         key=CHARGER_MAX_CHARGING_CURRENT_KEY,
-        REDACTED_VALUE"maximum_charging_current",
+        translation_key="maximum_charging_current",
         max_value_fn=lambda coordinator: cast(
             float, coordinator.data[CHARGER_MAX_AVAILABLE_POWER_KEY]
         ),
@@ -57,7 +57,7 @@ NUMBER_TYPES: dict[str, WallboxNumberEntityDescription] = {
     ),
     CHARGER_ENERGY_PRICE_KEY: WallboxNumberEntityDescription(
         key=CHARGER_ENERGY_PRICE_KEY,
-        REDACTED_VALUE"energy_price",
+        translation_key="energy_price",
         max_value_fn=lambda _: 5,
         min_value_fn=lambda _: -5,
         set_value_fn=lambda coordinator: coordinator.async_set_energy_cost,
@@ -65,7 +65,7 @@ NUMBER_TYPES: dict[str, WallboxNumberEntityDescription] = {
     ),
     CHARGER_MAX_ICP_CURRENT_KEY: WallboxNumberEntityDescription(
         key=CHARGER_MAX_ICP_CURRENT_KEY,
-        REDACTED_VALUE"maximum_icp_current",
+        translation_key="maximum_icp_current",
         max_value_fn=lambda _: 255,
         min_value_fn=lambda _: 6,
         set_value_fn=lambda coordinator: coordinator.async_set_icp_current,

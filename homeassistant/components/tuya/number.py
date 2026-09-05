@@ -32,45 +32,45 @@ NUMBERS: dict[DeviceCategory, tuple[NumberEntityDescription, ...]] = {
     DeviceCategory.BH: (
         NumberEntityDescription(
             key=DPCode.TEMP_SET,
-            REDACTED_VALUE"temperature",
+            translation_key="temperature",
             device_class=NumberDeviceClass.TEMPERATURE,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.TEMP_SET_F,
-            REDACTED_VALUE"temperature",
+            translation_key="temperature",
             device_class=NumberDeviceClass.TEMPERATURE,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.TEMP_BOILING_C,
-            REDACTED_VALUE"temperature_after_boiling",
+            translation_key="temperature_after_boiling",
             device_class=NumberDeviceClass.TEMPERATURE,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.TEMP_BOILING_F,
-            REDACTED_VALUE"temperature_after_boiling",
+            translation_key="temperature_after_boiling",
             device_class=NumberDeviceClass.TEMPERATURE,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.WARM_TIME,
-            REDACTED_VALUE"heat_preservation_time",
+            translation_key="heat_preservation_time",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.BZYD: (
         NumberEntityDescription(
             key=DPCode.VOLUME_SET,
-            REDACTED_VALUE"volume",
+            translation_key="volume",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.CO2BJ: (
         NumberEntityDescription(
             key=DPCode.ALARM_TIME,
-            REDACTED_VALUE"alarm_duration",
+            translation_key="alarm_duration",
             native_unit_of_measurement=UnitOfTime.SECONDS,
             device_class=NumberDeviceClass.DURATION,
             entity_category=EntityCategory.CONFIG,
@@ -79,83 +79,83 @@ NUMBERS: dict[DeviceCategory, tuple[NumberEntityDescription, ...]] = {
     DeviceCategory.CWWSQ: (
         NumberEntityDescription(
             key=DPCode.MANUAL_FEED,
-            REDACTED_VALUE"feed",
+            translation_key="feed",
         ),
         NumberEntityDescription(
             key=DPCode.VOICE_TIMES,
-            REDACTED_VALUE"voice_times",
+            translation_key="voice_times",
         ),
     ),
     DeviceCategory.DGNBJ: (
         NumberEntityDescription(
             key=DPCode.ALARM_TIME,
-            REDACTED_VALUE"time",
+            translation_key="time",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.FS: (
         NumberEntityDescription(
             key=DPCode.TEMP,
-            REDACTED_VALUE"temperature",
+            translation_key="temperature",
             device_class=NumberDeviceClass.TEMPERATURE,
         ),
     ),
     DeviceCategory.HPS: (
         NumberEntityDescription(
             key=DPCode.SENSITIVITY,
-            REDACTED_VALUE"sensitivity",
+            translation_key="sensitivity",
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.NEAR_DETECTION,
-            REDACTED_VALUE"near_detection",
+            translation_key="near_detection",
             device_class=NumberDeviceClass.DISTANCE,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.FAR_DETECTION,
-            REDACTED_VALUE"far_detection",
+            translation_key="far_detection",
             device_class=NumberDeviceClass.DISTANCE,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.TARGET_DIS_CLOSEST,
-            REDACTED_VALUE"target_dis_closest",
+            translation_key="target_dis_closest",
             device_class=NumberDeviceClass.DISTANCE,
         ),
     ),
     DeviceCategory.JSQ: (
         NumberEntityDescription(
             key=DPCode.TEMP_SET,
-            REDACTED_VALUE"temperature",
+            translation_key="temperature",
             device_class=NumberDeviceClass.TEMPERATURE,
         ),
         NumberEntityDescription(
             key=DPCode.TEMP_SET_F,
-            REDACTED_VALUE"temperature",
+            translation_key="temperature",
             device_class=NumberDeviceClass.TEMPERATURE,
         ),
     ),
     DeviceCategory.KFJ: (
         NumberEntityDescription(
             key=DPCode.WATER_SET,
-            REDACTED_VALUE"water_level",
+            translation_key="water_level",
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.TEMP_SET,
-            REDACTED_VALUE"temperature",
+            translation_key="temperature",
             device_class=NumberDeviceClass.TEMPERATURE,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.WARM_TIME,
-            REDACTED_VALUE"heat_preservation_time",
+            translation_key="heat_preservation_time",
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.POWDER_SET,
-            REDACTED_VALUE"powder",
+            translation_key="powder",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
@@ -163,20 +163,20 @@ NUMBERS: dict[DeviceCategory, tuple[NumberEntityDescription, ...]] = {
         NumberEntityDescription(
             key=DPCode.DELAY_SET,
             # This setting is called "Arm Delay" in the official Tuya app
-            REDACTED_VALUE"arm_delay",
+            translation_key="arm_delay",
             device_class=NumberDeviceClass.DURATION,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.ALARM_DELAY_TIME,
-            REDACTED_VALUE"alarm_delay",
+            translation_key="alarm_delay",
             device_class=NumberDeviceClass.DURATION,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.ALARM_TIME,
             # This setting is called "Siren Duration" in the official Tuya app
-            REDACTED_VALUE"siren_duration",
+            translation_key="siren_duration",
             device_class=NumberDeviceClass.DURATION,
             entity_category=EntityCategory.CONFIG,
         ),
@@ -184,7 +184,7 @@ NUMBERS: dict[DeviceCategory, tuple[NumberEntityDescription, ...]] = {
     DeviceCategory.MSP: (
         NumberEntityDescription(
             key=DPCode.DELAY_CLEAN_TIME,
-            REDACTED_VALUE"delay_clean_time",
+            translation_key="delay_clean_time",
             device_class=NumberDeviceClass.DURATION,
             entity_category=EntityCategory.CONFIG,
         ),
@@ -192,30 +192,30 @@ NUMBERS: dict[DeviceCategory, tuple[NumberEntityDescription, ...]] = {
     DeviceCategory.MZJ: (
         NumberEntityDescription(
             key=DPCode.COOK_TEMPERATURE,
-            REDACTED_VALUE"cook_temperature",
+            translation_key="cook_temperature",
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.COOK_TIME,
-            REDACTED_VALUE"cook_time",
+            translation_key="cook_time",
             native_unit_of_measurement=UnitOfTime.MINUTES,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.CLOUD_RECIPE_NUMBER,
-            REDACTED_VALUE"cloud_recipe",
+            translation_key="cloud_recipe",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.SWTZ: (
         NumberEntityDescription(
             key=DPCode.COOK_TEMPERATURE,
-            REDACTED_VALUE"cook_temperature",
+            translation_key="cook_temperature",
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.COOK_TEMPERATURE_2,
-            REDACTED_VALUE"indexed_cook_temperature",
+            translation_key="indexed_cook_temperature",
             translation_placeholders={"index": "2"},
             entity_category=EntityCategory.CONFIG,
         ),
@@ -223,7 +223,7 @@ NUMBERS: dict[DeviceCategory, tuple[NumberEntityDescription, ...]] = {
     DeviceCategory.SD: (
         NumberEntityDescription(
             key=DPCode.VOLUME_SET,
-            REDACTED_VALUE"volume",
+            translation_key="volume",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
@@ -231,63 +231,63 @@ NUMBERS: dict[DeviceCategory, tuple[NumberEntityDescription, ...]] = {
         # Controls the irrigation duration for indexed water valves
         NumberEntityDescription(
             key=DPCode.COUNTDOWN,
-            REDACTED_VALUE"irrigation_duration",
+            translation_key="irrigation_duration",
             device_class=NumberDeviceClass.DURATION,
             entity_category=EntityCategory.CONFIG,
         ),
         # Controls the irrigation duration for indexed water valves
         NumberEntityDescription(
             key=DPCode.COUNTDOWN_1,
-            REDACTED_VALUE"indexed_irrigation_duration",
+            translation_key="indexed_irrigation_duration",
             translation_placeholders={"index": "1"},
             device_class=NumberDeviceClass.DURATION,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.COUNTDOWN_2,
-            REDACTED_VALUE"indexed_irrigation_duration",
+            translation_key="indexed_irrigation_duration",
             translation_placeholders={"index": "2"},
             device_class=NumberDeviceClass.DURATION,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.COUNTDOWN_3,
-            REDACTED_VALUE"indexed_irrigation_duration",
+            translation_key="indexed_irrigation_duration",
             translation_placeholders={"index": "3"},
             device_class=NumberDeviceClass.DURATION,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.COUNTDOWN_4,
-            REDACTED_VALUE"indexed_irrigation_duration",
+            translation_key="indexed_irrigation_duration",
             translation_placeholders={"index": "4"},
             device_class=NumberDeviceClass.DURATION,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.COUNTDOWN_5,
-            REDACTED_VALUE"indexed_irrigation_duration",
+            translation_key="indexed_irrigation_duration",
             translation_placeholders={"index": "5"},
             device_class=NumberDeviceClass.DURATION,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.COUNTDOWN_6,
-            REDACTED_VALUE"indexed_irrigation_duration",
+            translation_key="indexed_irrigation_duration",
             translation_placeholders={"index": "6"},
             device_class=NumberDeviceClass.DURATION,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.COUNTDOWN_7,
-            REDACTED_VALUE"indexed_irrigation_duration",
+            translation_key="indexed_irrigation_duration",
             translation_placeholders={"index": "7"},
             device_class=NumberDeviceClass.DURATION,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.COUNTDOWN_8,
-            REDACTED_VALUE"indexed_irrigation_duration",
+            translation_key="indexed_irrigation_duration",
             translation_placeholders={"index": "8"},
             device_class=NumberDeviceClass.DURATION,
             entity_category=EntityCategory.CONFIG,
@@ -296,85 +296,85 @@ NUMBERS: dict[DeviceCategory, tuple[NumberEntityDescription, ...]] = {
     DeviceCategory.SGBJ: (
         NumberEntityDescription(
             key=DPCode.ALARM_TIME,
-            REDACTED_VALUE"time",
+            translation_key="time",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.SP: (
         NumberEntityDescription(
             key=DPCode.BASIC_DEVICE_VOLUME,
-            REDACTED_VALUE"volume",
+            translation_key="volume",
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.IPC_BRIGHT,
-            REDACTED_VALUE"video_brightness",
+            translation_key="video_brightness",
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.IPC_CONTRAST,
-            REDACTED_VALUE"video_contrast",
+            translation_key="video_contrast",
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.IPC_SHARP,
-            REDACTED_VALUE"video_sharpness",
+            translation_key="video_sharpness",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.SZJQR: (
         NumberEntityDescription(
             key=DPCode.ARM_DOWN_PERCENT,
-            REDACTED_VALUE"move_down",
+            translation_key="move_down",
             native_unit_of_measurement=PERCENTAGE,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.ARM_UP_PERCENT,
-            REDACTED_VALUE"move_up",
+            translation_key="move_up",
             native_unit_of_measurement=PERCENTAGE,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.CLICK_SUSTAIN_TIME,
-            REDACTED_VALUE"down_delay",
+            translation_key="down_delay",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.TGKG: (
         NumberEntityDescription(
             key=DPCode.BRIGHTNESS_MIN_1,
-            REDACTED_VALUE"indexed_minimum_brightness",
+            translation_key="indexed_minimum_brightness",
             translation_placeholders={"index": "1"},
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.BRIGHTNESS_MAX_1,
-            REDACTED_VALUE"indexed_maximum_brightness",
+            translation_key="indexed_maximum_brightness",
             translation_placeholders={"index": "1"},
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.BRIGHTNESS_MIN_2,
-            REDACTED_VALUE"indexed_minimum_brightness",
+            translation_key="indexed_minimum_brightness",
             translation_placeholders={"index": "2"},
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.BRIGHTNESS_MAX_2,
-            REDACTED_VALUE"indexed_maximum_brightness",
+            translation_key="indexed_maximum_brightness",
             translation_placeholders={"index": "2"},
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.BRIGHTNESS_MIN_3,
-            REDACTED_VALUE"indexed_minimum_brightness",
+            translation_key="indexed_minimum_brightness",
             translation_placeholders={"index": "3"},
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.BRIGHTNESS_MAX_3,
-            REDACTED_VALUE"indexed_maximum_brightness",
+            translation_key="indexed_maximum_brightness",
             translation_placeholders={"index": "3"},
             entity_category=EntityCategory.CONFIG,
         ),
@@ -382,25 +382,25 @@ NUMBERS: dict[DeviceCategory, tuple[NumberEntityDescription, ...]] = {
     DeviceCategory.TGQ: (
         NumberEntityDescription(
             key=DPCode.BRIGHTNESS_MIN_1,
-            REDACTED_VALUE"indexed_minimum_brightness",
+            translation_key="indexed_minimum_brightness",
             translation_placeholders={"index": "1"},
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.BRIGHTNESS_MAX_1,
-            REDACTED_VALUE"indexed_maximum_brightness",
+            translation_key="indexed_maximum_brightness",
             translation_placeholders={"index": "1"},
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.BRIGHTNESS_MIN_2,
-            REDACTED_VALUE"indexed_minimum_brightness",
+            translation_key="indexed_minimum_brightness",
             translation_placeholders={"index": "2"},
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.BRIGHTNESS_MAX_2,
-            REDACTED_VALUE"indexed_maximum_brightness",
+            translation_key="indexed_maximum_brightness",
             translation_placeholders={"index": "2"},
             entity_category=EntityCategory.CONFIG,
         ),
@@ -409,20 +409,20 @@ NUMBERS: dict[DeviceCategory, tuple[NumberEntityDescription, ...]] = {
         NumberEntityDescription(
             key=DPCode.DELAY_SET,
             # This setting is called "Arm Delay" in the official Tuya app
-            REDACTED_VALUE"arm_delay",
+            translation_key="arm_delay",
             device_class=NumberDeviceClass.DURATION,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.ALARM_DELAY_TIME,
-            REDACTED_VALUE"alarm_delay",
+            translation_key="alarm_delay",
             device_class=NumberDeviceClass.DURATION,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.ALARM_TIME,
             # This setting is called "Siren Duration" in the official Tuya app
-            REDACTED_VALUE"siren_duration",
+            translation_key="siren_duration",
             device_class=NumberDeviceClass.DURATION,
             entity_category=EntityCategory.CONFIG,
         ),
@@ -430,19 +430,19 @@ NUMBERS: dict[DeviceCategory, tuple[NumberEntityDescription, ...]] = {
     DeviceCategory.WK: (
         NumberEntityDescription(
             key=DPCode.TEMP_CORRECTION,
-            REDACTED_VALUE"temp_correction",
+            translation_key="temp_correction",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.XNYJCN: (
         NumberEntityDescription(
             key=DPCode.BACKUP_RESERVE,
-            REDACTED_VALUE"battery_backup_reserve",
+            translation_key="battery_backup_reserve",
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.OUTPUT_POWER_LIMIT,
-            REDACTED_VALUE"inverter_output_power_limit",
+            translation_key="inverter_output_power_limit",
             device_class=NumberDeviceClass.POWER,
             entity_category=EntityCategory.CONFIG,
         ),
@@ -450,23 +450,23 @@ NUMBERS: dict[DeviceCategory, tuple[NumberEntityDescription, ...]] = {
     DeviceCategory.YWCGQ: (
         NumberEntityDescription(
             key=DPCode.MAX_SET,
-            REDACTED_VALUE"alarm_maximum",
+            translation_key="alarm_maximum",
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.MINI_SET,
-            REDACTED_VALUE"alarm_minimum",
+            translation_key="alarm_minimum",
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.INSTALLATION_HEIGHT,
-            REDACTED_VALUE"installation_height",
+            translation_key="installation_height",
             device_class=NumberDeviceClass.DISTANCE,
             entity_category=EntityCategory.CONFIG,
         ),
         NumberEntityDescription(
             key=DPCode.LIQUID_DEPTH_MAX,
-            REDACTED_VALUE"maximum_liquid_depth",
+            translation_key="maximum_liquid_depth",
             device_class=NumberDeviceClass.DISTANCE,
             entity_category=EntityCategory.CONFIG,
         ),
@@ -474,14 +474,14 @@ NUMBERS: dict[DeviceCategory, tuple[NumberEntityDescription, ...]] = {
     DeviceCategory.ZD: (
         NumberEntityDescription(
             key=DPCode.SENSITIVITY,
-            REDACTED_VALUE"sensitivity",
+            translation_key="sensitivity",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.ZNRB: (
         NumberEntityDescription(
             key=DPCode.TEMP_SET,
-            REDACTED_VALUE"temperature",
+            translation_key="temperature",
             device_class=NumberDeviceClass.TEMPERATURE,
         ),
     ),

@@ -67,19 +67,19 @@ class BaseDataUpdateCoordinator[_DataT](DataUpdateCoordinator[_DataT]):
             _LOGGER.debug("Error %s: %s [%s]", e.code, e.error, e.link)
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"server_error",
+                translation_key="server_error",
                 translation_placeholders={"error_msg": str(e.error)},
             ) from e
         except NtfyConnectionError as e:
             _LOGGER.debug("Error", exc_info=True)
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connection_error",
+                translation_key="connection_error",
             ) from e
         except NtfyTimeoutError as e:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"timeout_error",
+                translation_key="timeout_error",
             ) from e
 
 
@@ -96,7 +96,7 @@ class NtfyDataUpdateCoordinator(BaseDataUpdateCoordinator[NtfyAccount]):
         except NtfyUnauthorizedAuthenticationError as e:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"authentication_error",
+                translation_key="authentication_error",
             ) from e
 
 
@@ -138,5 +138,5 @@ class NtfyLatestReleaseUpdateCoordinator(DataUpdateCoordinator[LatestRelease]):
         except UpdateCheckerError as e:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_check_failed",
+                translation_key="update_check_failed",
             ) from e

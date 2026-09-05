@@ -44,7 +44,7 @@ def _temperature_sensor(
     return OumanEh800SensorDescription(
         device=device,
         key=key,
-        REDACTED_VALUEkey,
+        translation_key=key,
         device_class=device_class,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -62,7 +62,7 @@ def _percentage_sensor(
     return OumanEh800SensorDescription(
         device=device,
         key=key,
-        REDACTED_VALUEkey,
+        translation_key=key,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
         suggested_display_precision=1,

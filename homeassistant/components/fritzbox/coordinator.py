@@ -69,12 +69,12 @@ class FritzboxDataUpdateCoordinator(DataUpdateCoordinator[FritzboxCoordinatorDat
         except RequestConnectionError as err:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connect_error",
+                translation_key="connect_error",
             ) from err
         except LoginError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"login_failed",
+                translation_key="login_failed",
             ) from err
 
         self.has_templates = await self.hass.async_add_executor_job(
@@ -196,7 +196,7 @@ class FritzboxDataUpdateCoordinator(DataUpdateCoordinator[FritzboxCoordinatorDat
             self.hass.config_entries.async_schedule_reload(self.config_entry.entry_id)
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connect_error_reload",
+                translation_key="connect_error_reload",
             ) from ex
 
         for device in new_data.devices.values():

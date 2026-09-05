@@ -68,12 +68,12 @@ class MealieDataUpdateCoordinator[_DataT](DataUpdateCoordinator[_DataT]):
         except MealieAuthenticationError as error:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_failed",
+                translation_key="auth_failed",
             ) from error
         except MealieConnectionError as error:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUEf"update_failed_{self._name}",
+                translation_key=f"update_failed_{self._name}",
             ) from error
 
     @abstractmethod

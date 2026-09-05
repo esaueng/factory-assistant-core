@@ -42,7 +42,7 @@ class PyLoadSensorEntityDescription(SensorEntityDescription):
 SENSOR_DESCRIPTIONS: tuple[PyLoadSensorEntityDescription, ...] = (
     PyLoadSensorEntityDescription(
         key=PyLoadSensorEntity.SPEED,
-        REDACTED_VALUEPyLoadSensorEntity.SPEED,
+        translation_key=PyLoadSensorEntity.SPEED,
         device_class=SensorDeviceClass.DATA_RATE,
         native_unit_of_measurement=UnitOfDataRate.BYTES_PER_SECOND,
         suggested_unit_of_measurement=UnitOfDataRate.MEGABITS_PER_SECOND,
@@ -51,28 +51,28 @@ SENSOR_DESCRIPTIONS: tuple[PyLoadSensorEntityDescription, ...] = (
     ),
     PyLoadSensorEntityDescription(
         key=PyLoadSensorEntity.ACTIVE,
-        REDACTED_VALUEPyLoadSensorEntity.ACTIVE,
+        translation_key=PyLoadSensorEntity.ACTIVE,
         native_unit_of_measurement=UNIT_DOWNLOADS,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data.active,
     ),
     PyLoadSensorEntityDescription(
         key=PyLoadSensorEntity.QUEUE,
-        REDACTED_VALUEPyLoadSensorEntity.QUEUE,
+        translation_key=PyLoadSensorEntity.QUEUE,
         native_unit_of_measurement=UNIT_DOWNLOADS,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data.queue,
     ),
     PyLoadSensorEntityDescription(
         key=PyLoadSensorEntity.TOTAL,
-        REDACTED_VALUEPyLoadSensorEntity.TOTAL,
+        translation_key=PyLoadSensorEntity.TOTAL,
         native_unit_of_measurement=UNIT_DOWNLOADS,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data.total,
     ),
     PyLoadSensorEntityDescription(
         key=PyLoadSensorEntity.FREE_SPACE,
-        REDACTED_VALUEPyLoadSensorEntity.FREE_SPACE,
+        translation_key=PyLoadSensorEntity.FREE_SPACE,
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
         suggested_unit_of_measurement=UnitOfInformation.GIBIBYTES,

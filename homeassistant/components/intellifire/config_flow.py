@@ -331,7 +331,7 @@ class IntelliFireOptionsFlowHandler(OptionsFlow):
 
         cloud_local_options = selector.SelectSelectorConfig(
             options=[API_MODE_LOCAL, API_MODE_CLOUD],
-            REDACTED_VALUE"api_mode",
+            translation_key="api_mode",
         )
 
         return self.async_show_form(

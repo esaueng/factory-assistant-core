@@ -46,13 +46,13 @@ class ViCareBinarySensorEntityDescription(
 CIRCUIT_SENSORS: tuple[ViCareBinarySensorEntityDescription, ...] = (
     ViCareBinarySensorEntityDescription(
         key="circulationpump_active",
-        REDACTED_VALUE"circulation_pump",
+        translation_key="circulation_pump",
         device_class=BinarySensorDeviceClass.RUNNING,
         value_getter=lambda api: api.getCirculationPumpActive(),
     ),
     ViCareBinarySensorEntityDescription(
         key="frost_protection_active",
-        REDACTED_VALUE"frost_protection",
+        translation_key="frost_protection",
         value_getter=lambda api: api.getFrostProtectionActive(),
     ),
 )
@@ -60,7 +60,7 @@ CIRCUIT_SENSORS: tuple[ViCareBinarySensorEntityDescription, ...] = (
 BURNER_SENSORS: tuple[ViCareBinarySensorEntityDescription, ...] = (
     ViCareBinarySensorEntityDescription(
         key="burner_active",
-        REDACTED_VALUE"burner",
+        translation_key="burner",
         device_class=BinarySensorDeviceClass.RUNNING,
         value_getter=lambda api: api.getActive(),
     ),
@@ -69,7 +69,7 @@ BURNER_SENSORS: tuple[ViCareBinarySensorEntityDescription, ...] = (
 COMPRESSOR_SENSORS: tuple[ViCareBinarySensorEntityDescription, ...] = (
     ViCareBinarySensorEntityDescription(
         key="compressor_active",
-        REDACTED_VALUE"compressor",
+        translation_key="compressor",
         device_class=BinarySensorDeviceClass.RUNNING,
         value_getter=lambda api: api.getActive(),
     ),
@@ -78,31 +78,31 @@ COMPRESSOR_SENSORS: tuple[ViCareBinarySensorEntityDescription, ...] = (
 GLOBAL_SENSORS: tuple[ViCareBinarySensorEntityDescription, ...] = (
     ViCareBinarySensorEntityDescription(
         key="solar_pump_active",
-        REDACTED_VALUE"solar_pump",
+        translation_key="solar_pump",
         device_class=BinarySensorDeviceClass.RUNNING,
         value_getter=lambda api: api.getSolarPumpActive(),
     ),
     ViCareBinarySensorEntityDescription(
         key="charging_active",
-        REDACTED_VALUE"domestic_hot_water_charging",
+        translation_key="domestic_hot_water_charging",
         device_class=BinarySensorDeviceClass.RUNNING,
         value_getter=lambda api: api.getDomesticHotWaterChargingActive(),
     ),
     ViCareBinarySensorEntityDescription(
         key="dhw_circulationpump_active",
-        REDACTED_VALUE"domestic_hot_water_circulation_pump",
+        translation_key="domestic_hot_water_circulation_pump",
         device_class=BinarySensorDeviceClass.RUNNING,
         value_getter=lambda api: api.getDomesticHotWaterCirculationPumpActive(),
     ),
     ViCareBinarySensorEntityDescription(
         key="dhw_pump_active",
-        REDACTED_VALUE"domestic_hot_water_pump",
+        translation_key="domestic_hot_water_pump",
         device_class=BinarySensorDeviceClass.RUNNING,
         value_getter=lambda api: api.getDomesticHotWaterPumpActive(),
     ),
     ViCareBinarySensorEntityDescription(
         key="one_time_charge",
-        REDACTED_VALUE"one_time_charge",
+        translation_key="one_time_charge",
         device_class=BinarySensorDeviceClass.RUNNING,
         value_getter=lambda api: api.getOneTimeCharge(),
     ),
@@ -113,33 +113,33 @@ GLOBAL_SENSORS: tuple[ViCareBinarySensorEntityDescription, ...] = (
     ),
     ViCareBinarySensorEntityDescription(
         key="identification_mode",
-        REDACTED_VALUE"identification_mode",
+        translation_key="identification_mode",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_getter=lambda api: api.getIdentification(),
         entity_registry_enabled_default=False,
     ),
     ViCareBinarySensorEntityDescription(
         key="mounting_mode",
-        REDACTED_VALUE"mounting_mode",
+        translation_key="mounting_mode",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_getter=lambda api: api.getMountingMode(),
         entity_registry_enabled_default=False,
     ),
     ViCareBinarySensorEntityDescription(
         key="child_safety_lock_mode",
-        REDACTED_VALUE"child_safety_lock_mode",
+        translation_key="child_safety_lock_mode",
         value_getter=lambda api: api.getChildLock() == "active",
         entity_registry_enabled_default=False,
     ),
     ViCareBinarySensorEntityDescription(
         key="valve",
-        REDACTED_VALUE"valve",
+        translation_key="valve",
         device_class=BinarySensorDeviceClass.DOOR,
         value_getter=lambda api: api.isValveOpen(),
     ),
     ViCareBinarySensorEntityDescription(
         key="ventilation_frost_protection",
-        REDACTED_VALUE"ventilation_frost_protection",
+        translation_key="ventilation_frost_protection",
         value_getter=lambda api: api.getHeatExchangerFrostProtectionActive(),
     ),
 )

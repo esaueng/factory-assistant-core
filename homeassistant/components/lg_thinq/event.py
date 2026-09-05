@@ -15,11 +15,11 @@ from .entity import ThinQEntity
 
 NOTIFICATION_EVENT_DESC = EventEntityDescription(
     key=ThinQPropertyEx.NOTIFICATION,
-    REDACTED_VALUEThinQPropertyEx.NOTIFICATION,
+    translation_key=ThinQPropertyEx.NOTIFICATION,
 )
 ERROR_EVENT_DESC = EventEntityDescription(
     key=ThinQPropertyEx.ERROR,
-    REDACTED_VALUEThinQPropertyEx.ERROR,
+    translation_key=ThinQPropertyEx.ERROR,
 )
 ALL_EVENTS: tuple[EventEntityDescription, ...] = (
     ERROR_EVENT_DESC,

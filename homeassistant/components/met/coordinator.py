@@ -117,7 +117,7 @@ class MetDataUpdateCoordinator(DataUpdateCoordinator[MetWeatherData]):
         except CannotConnect as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
+                translation_key="update_failed",
                 translation_placeholders={"error": str(err)},
             ) from err
 

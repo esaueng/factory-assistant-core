@@ -64,7 +64,7 @@ class DelugeSensorEntityDescription(SensorEntityDescription):
 SENSOR_TYPES: tuple[DelugeSensorEntityDescription, ...] = (
     DelugeSensorEntityDescription(
         key=DelugeSensorType.CURRENT_STATUS_SENSOR.value,
-        REDACTED_VALUE"status",
+        translation_key="status",
         value=lambda data: get_state(
             data, DelugeSensorType.CURRENT_STATUS_SENSOR.value
         ),
@@ -73,7 +73,7 @@ SENSOR_TYPES: tuple[DelugeSensorEntityDescription, ...] = (
     ),
     DelugeSensorEntityDescription(
         key=DelugeSensorType.DOWNLOAD_SPEED_SENSOR.value,
-        REDACTED_VALUEDelugeSensorType.DOWNLOAD_SPEED_SENSOR.value,
+        translation_key=DelugeSensorType.DOWNLOAD_SPEED_SENSOR.value,
         device_class=SensorDeviceClass.DATA_RATE,
         native_unit_of_measurement=UnitOfDataRate.KILOBYTES_PER_SECOND,
         state_class=SensorStateClass.MEASUREMENT,
@@ -83,7 +83,7 @@ SENSOR_TYPES: tuple[DelugeSensorEntityDescription, ...] = (
     ),
     DelugeSensorEntityDescription(
         key=DelugeSensorType.UPLOAD_SPEED_SENSOR.value,
-        REDACTED_VALUEDelugeSensorType.UPLOAD_SPEED_SENSOR.value,
+        translation_key=DelugeSensorType.UPLOAD_SPEED_SENSOR.value,
         device_class=SensorDeviceClass.DATA_RATE,
         native_unit_of_measurement=UnitOfDataRate.KILOBYTES_PER_SECOND,
         state_class=SensorStateClass.MEASUREMENT,
@@ -91,7 +91,7 @@ SENSOR_TYPES: tuple[DelugeSensorEntityDescription, ...] = (
     ),
     DelugeSensorEntityDescription(
         key=DelugeSensorType.PROTOCOL_TRAFFIC_UPLOAD_SPEED_SENSOR.value,
-        REDACTED_VALUEDelugeSensorType.PROTOCOL_TRAFFIC_UPLOAD_SPEED_SENSOR.value,
+        translation_key=DelugeSensorType.PROTOCOL_TRAFFIC_UPLOAD_SPEED_SENSOR.value,
         device_class=SensorDeviceClass.DATA_RATE,
         native_unit_of_measurement=UnitOfDataRate.KILOBYTES_PER_SECOND,
         state_class=SensorStateClass.MEASUREMENT,
@@ -101,7 +101,7 @@ SENSOR_TYPES: tuple[DelugeSensorEntityDescription, ...] = (
     ),
     DelugeSensorEntityDescription(
         key=DelugeSensorType.PROTOCOL_TRAFFIC_DOWNLOAD_SPEED_SENSOR.value,
-        REDACTED_VALUEDelugeSensorType.PROTOCOL_TRAFFIC_DOWNLOAD_SPEED_SENSOR.value,
+        translation_key=DelugeSensorType.PROTOCOL_TRAFFIC_DOWNLOAD_SPEED_SENSOR.value,
         device_class=SensorDeviceClass.DATA_RATE,
         native_unit_of_measurement=UnitOfDataRate.KILOBYTES_PER_SECOND,
         state_class=SensorStateClass.MEASUREMENT,
@@ -111,13 +111,13 @@ SENSOR_TYPES: tuple[DelugeSensorEntityDescription, ...] = (
     ),
     DelugeSensorEntityDescription(
         key=DelugeSensorType.DOWNLOADING_COUNT_SENSOR.value,
-        REDACTED_VALUEDelugeSensorType.DOWNLOADING_COUNT_SENSOR.value,
+        translation_key=DelugeSensorType.DOWNLOADING_COUNT_SENSOR.value,
         state_class=SensorStateClass.TOTAL,
         value=lambda data: data[DelugeSensorType.DOWNLOADING_COUNT_SENSOR.value],
     ),
     DelugeSensorEntityDescription(
         key=DelugeSensorType.SEEDING_COUNT_SENSOR.value,
-        REDACTED_VALUEDelugeSensorType.SEEDING_COUNT_SENSOR.value,
+        translation_key=DelugeSensorType.SEEDING_COUNT_SENSOR.value,
         state_class=SensorStateClass.TOTAL,
         value=lambda data: data[DelugeSensorType.SEEDING_COUNT_SENSOR.value],
     ),

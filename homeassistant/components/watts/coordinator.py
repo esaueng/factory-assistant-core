@@ -80,7 +80,7 @@ class WattsVisionHubCoordinator(DataUpdateCoordinator[dict[str, Device]]):
             except WattsVisionAuthError as err:
                 raise ConfigEntryAuthFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"authentication_failed",
+                    translation_key="authentication_failed",
                 ) from err
             except (
                 WattsVisionConnectionError,
@@ -94,7 +94,7 @@ class WattsVisionHubCoordinator(DataUpdateCoordinator[dict[str, Device]]):
                 if is_first_refresh:
                     raise ConfigEntryNotReady(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"failed_to_discover_devices",
+                        translation_key="failed_to_discover_devices",
                     ) from err
                 _LOGGER.warning(
                     "Periodic discovery failed: %s, falling back to update", err
@@ -120,7 +120,7 @@ class WattsVisionHubCoordinator(DataUpdateCoordinator[dict[str, Device]]):
         except WattsVisionAuthError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"authentication_failed",
+                translation_key="authentication_failed",
             ) from err
         except (
             WattsVisionConnectionError,
@@ -133,7 +133,7 @@ class WattsVisionHubCoordinator(DataUpdateCoordinator[dict[str, Device]]):
         ) as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_to_update_devices",
+                translation_key="failed_to_update_devices",
             ) from err
 
         _LOGGER.debug("Updated %d devices", len(devices))
@@ -226,14 +226,14 @@ class WattsVisionDeviceCoordinator(DataUpdateCoordinator[WattsVisionDeviceData])
         ) as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_to_refresh_device",
+                translation_key="failed_to_refresh_device",
                 translation_placeholders={"device_id": self.device_id},
             ) from err
 
         if not device:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_not_found",
+                translation_key="device_not_found",
                 translation_placeholders={"device_id": self.device_id},
             )
 

@@ -48,7 +48,7 @@ class FlexitCoordinator(DataUpdateCoordinator[FlexitBACnet]):
         except (asyncio.exceptions.TimeoutError, ConnectionError, DecodingError) as exc:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"not_ready",
+                translation_key="not_ready",
                 translation_placeholders={
                     "ip": str(self.config_entry.data[CONF_IP_ADDRESS]),
                 },

@@ -40,7 +40,7 @@ ENTITIES: tuple[TedeeSensorEntityDescription, ...] = (
     ),
     TedeeSensorEntityDescription(
         key="pullspring_duration",
-        REDACTED_VALUE"pullspring_duration",
+        translation_key="pullspring_duration",
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.SECONDS,
         state_class=SensorStateClass.MEASUREMENT,

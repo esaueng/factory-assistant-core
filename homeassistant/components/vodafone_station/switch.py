@@ -36,25 +36,25 @@ class VodafoneStationEntityDescription(SwitchEntityDescription):
 SWITCHES: Final = (
     VodafoneStationEntityDescription(
         key="main",
-        REDACTED_VALUE"main",
+        translation_key="main",
         band=WifiBand.BAND_2_4_GHZ,
         typology=WifiType.MAIN,
     ),
     VodafoneStationEntityDescription(
         key="guest",
-        REDACTED_VALUE"guest",
+        translation_key="guest",
         band=WifiBand.BAND_2_4_GHZ,
         typology=WifiType.GUEST,
     ),
     VodafoneStationEntityDescription(
         key="main_5g",
-        REDACTED_VALUE"main_5g",
+        translation_key="main_5g",
         band=WifiBand.BAND_5_GHZ,
         typology=WifiType.MAIN,
     ),
     VodafoneStationEntityDescription(
         key="guest_5g",
-        REDACTED_VALUE"guest_5g",
+        translation_key="guest_5g",
         band=WifiBand.BAND_5_GHZ,
         typology=WifiType.GUEST,
     ),
@@ -107,7 +107,7 @@ class VodafoneSwitchEntity(CoordinatorEntity[VodafoneStationRouter], SwitchEntit
             self.coordinator.config_entry.async_start_reauth(self.hass)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_authenticate",
+                translation_key="cannot_authenticate",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except (
@@ -120,7 +120,7 @@ class VodafoneSwitchEntity(CoordinatorEntity[VodafoneStationRouter], SwitchEntit
             self.coordinator.last_update_success = False
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_execute_action",
+                translation_key="cannot_execute_action",
                 translation_placeholders={"error": repr(err)},
             ) from err
 

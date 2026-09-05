@@ -57,23 +57,23 @@ class PowerfoxBaseCoordinator[T](DataUpdateCoordinator[T]):
         except PowerfoxAuthenticationError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_failed",
+                translation_key="auth_failed",
             ) from err
         except PowerfoxConnectionError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connection_error",
+                translation_key="connection_error",
             ) from err
         except PowerfoxNoDataError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_data_error",
+                translation_key="no_data_error",
                 translation_placeholders={"device_name": self.device.name},
             ) from err
         except PowerfoxPrivacyError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"privacy_error",
+                translation_key="privacy_error",
                 translation_placeholders={"device_name": self.device.name},
             ) from err
 

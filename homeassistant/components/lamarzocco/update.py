@@ -39,14 +39,14 @@ class LaMarzoccoUpdateEntityDescription(
 ENTITIES: tuple[LaMarzoccoUpdateEntityDescription, ...] = (
     LaMarzoccoUpdateEntityDescription(
         key="machine_firmware",
-        REDACTED_VALUE"machine_firmware",
+        translation_key="machine_firmware",
         device_class=UpdateDeviceClass.FIRMWARE,
         component=FirmwareType.MACHINE,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     LaMarzoccoUpdateEntityDescription(
         key="gateway_firmware",
-        REDACTED_VALUE"gateway_firmware",
+        translation_key="gateway_firmware",
         device_class=UpdateDeviceClass.FIRMWARE,
         component=FirmwareType.GATEWAY,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -136,7 +136,7 @@ class LaMarzoccoUpdateEntity(LaMarzoccoEntity, UpdateEntity):
         except (TimeoutError, RequestNotSuccessful) as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
+                translation_key="update_failed",
                 translation_placeholders={
                     "key": self.entity_description.key,
                 },

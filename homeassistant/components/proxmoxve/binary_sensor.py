@@ -63,14 +63,14 @@ class ProxmoxStorageBinarySensorEntityDescription(BinarySensorEntityDescription)
 NODE_SENSORS: tuple[ProxmoxNodeBinarySensorEntityDescription, ...] = (
     ProxmoxNodeBinarySensorEntityDescription(
         key="status",
-        REDACTED_VALUE"status",
+        translation_key="status",
         state_fn=lambda data: data.node["status"] == NODE_ONLINE,
         device_class=BinarySensorDeviceClass.RUNNING,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     ProxmoxNodeBinarySensorEntityDescription(
         key="node_backup_status",
-        REDACTED_VALUE"node_backup_status",
+        translation_key="node_backup_status",
         state_fn=lambda data: bool(
             data.backups and data.backups[0]["status"] != STATUS_OK
         ),
@@ -82,7 +82,7 @@ NODE_SENSORS: tuple[ProxmoxNodeBinarySensorEntityDescription, ...] = (
 CONTAINER_SENSORS: tuple[ProxmoxContainerBinarySensorEntityDescription, ...] = (
     ProxmoxContainerBinarySensorEntityDescription(
         key="status",
-        REDACTED_VALUE"status",
+        translation_key="status",
         state_fn=lambda data: data["status"] == VM_CONTAINER_RUNNING,
         device_class=BinarySensorDeviceClass.RUNNING,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -92,7 +92,7 @@ CONTAINER_SENSORS: tuple[ProxmoxContainerBinarySensorEntityDescription, ...] = (
 VM_SENSORS: tuple[ProxmoxVMBinarySensorEntityDescription, ...] = (
     ProxmoxVMBinarySensorEntityDescription(
         key="status",
-        REDACTED_VALUE"status",
+        translation_key="status",
         state_fn=lambda data: data["status"] == VM_CONTAINER_RUNNING,
         device_class=BinarySensorDeviceClass.RUNNING,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -102,19 +102,19 @@ VM_SENSORS: tuple[ProxmoxVMBinarySensorEntityDescription, ...] = (
 STORAGE_SENSORS: tuple[ProxmoxStorageBinarySensorEntityDescription, ...] = (
     ProxmoxStorageBinarySensorEntityDescription(
         key="storage_active",
-        REDACTED_VALUE"storage_active",
+        translation_key="storage_active",
         state_fn=lambda data: data["active"] == STORAGE_ACTIVE,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     ProxmoxStorageBinarySensorEntityDescription(
         key="storage_enabled",
-        REDACTED_VALUE"storage_enabled",
+        translation_key="storage_enabled",
         state_fn=lambda data: data["enabled"] == STORAGE_ENABLED,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     ProxmoxStorageBinarySensorEntityDescription(
         key="storage_shared",
-        REDACTED_VALUE"storage_shared",
+        translation_key="storage_shared",
         state_fn=lambda data: data["shared"] == STORAGE_SHARED,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),

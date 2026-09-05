@@ -55,7 +55,7 @@ class VeSyncNumberEntityDescription(NumberEntityDescription):
 NUMBER_DESCRIPTIONS: list[VeSyncNumberEntityDescription] = [
     VeSyncNumberEntityDescription(
         key="mist_level",
-        REDACTED_VALUE"mist_level",
+        translation_key="mist_level",
         native_min_value_fn=lambda device: min(_mist_levels(device)),
         native_max_value_fn=lambda device: max(_mist_levels(device)),
         native_step=1,

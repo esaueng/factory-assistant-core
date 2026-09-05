@@ -122,7 +122,7 @@ class FlexitClimateEntity(FlexitEntity, ClimateEntity):
         ) as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_temperature",
+                translation_key="set_temperature",
                 translation_placeholders={
                     "temperature": str(temperature),
                 },
@@ -160,7 +160,7 @@ class FlexitClimateEntity(FlexitEntity, ClimateEntity):
         ) as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_preset_mode",
+                translation_key="set_preset_mode",
                 translation_placeholders={
                     "preset": preset_mode,
                 },
@@ -190,7 +190,7 @@ class FlexitClimateEntity(FlexitEntity, ClimateEntity):
         ) as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_hvac_mode",
+                translation_key="set_hvac_mode",
                 translation_placeholders={
                     "mode": str(hvac_mode),
                 },

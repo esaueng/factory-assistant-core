@@ -26,7 +26,7 @@ def async_create_deprecated_yaml_issue(
         issue_domain=DOMAIN,
         breaks_in_ha_version="2026.9.0",
         severity=severity,
-        REDACTED_VALUEissue_id,
+        translation_key=issue_id,
         translation_placeholders={
             "domain": DOMAIN,
             "url": f"/config/integrations/dashboard/add?domain={DOMAIN}",

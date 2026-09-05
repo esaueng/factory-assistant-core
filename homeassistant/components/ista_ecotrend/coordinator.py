@@ -46,12 +46,12 @@ class IstaCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         except ServerError as e:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connection_exception",
+                translation_key="connection_exception",
             ) from e
         except (LoginError, KeycloakError) as e:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"authentication_exception",
+                translation_key="authentication_exception",
                 translation_placeholders={
                     CONF_EMAIL: self.config_entry.data[CONF_EMAIL]
                 },
@@ -65,12 +65,12 @@ class IstaCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         except ServerError as e:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connection_exception",
+                translation_key="connection_exception",
             ) from e
         except (LoginError, KeycloakError) as e:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"authentication_exception",
+                translation_key="authentication_exception",
                 translation_placeholders={
                     CONF_EMAIL: self.config_entry.data[CONF_EMAIL]
                 },

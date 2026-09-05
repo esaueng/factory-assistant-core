@@ -12,10 +12,10 @@ def handle_fressnapf_tracker_exception(exception: FressnapfTrackerError):
     if isinstance(exception, FressnapfTrackerInvalidTokenError):
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_auth",
+            translation_key="invalid_auth",
         ) from exception
     raise HomeAssistantError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"api_error",
+        translation_key="api_error",
         translation_placeholders={"error_message": str(exception)},
     ) from exception

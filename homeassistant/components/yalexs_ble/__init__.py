@@ -87,7 +87,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: YALEXSBLEConfigEntry) ->
         # discovery will trigger setup retry.
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_not_advertising",
+            translation_key="device_not_advertising",
             translation_placeholders={
                 "local_name": local_name,
                 "address": address,

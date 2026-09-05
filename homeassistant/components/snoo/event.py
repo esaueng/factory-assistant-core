@@ -20,7 +20,7 @@ async def async_setup_entry(
             coordinator,
             EventEntityDescription(
                 key="event",
-                REDACTED_VALUE"event",
+                translation_key="event",
                 event_types=[
                     "timer",
                     "cry",

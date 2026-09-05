@@ -99,17 +99,17 @@ class TedeeApiCoordinator(DataUpdateCoordinator[dict[int, TedeeLock]]):
             # pylint: disable-next=home-assistant-exception-translation-key-missing
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"authentication_failed",
+                translation_key="authentication_failed",
             ) from ex
 
         except TedeeDataUpdateException as ex:
             _LOGGER.debug("Error while updating data: %s", str(ex))
             raise UpdateFailed(
-                translation_domain=DOMAIN, REDACTED_VALUE"update_failed"
+                translation_domain=DOMAIN, translation_key="update_failed"
             ) from ex
         except (TedeeClientException, TimeoutError) as ex:
             raise UpdateFailed(
-                translation_domain=DOMAIN, REDACTED_VALUE"api_error"
+                translation_domain=DOMAIN, translation_key="api_error"
             ) from ex
 
     def webhook_received(self, message: dict[str, Any]) -> None:

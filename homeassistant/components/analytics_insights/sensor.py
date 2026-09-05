@@ -33,7 +33,7 @@ def get_app_entity_description(
     """Get app entity description."""
     return AnalyticsSensorEntityDescription(
         key=f"app_{name_slug}_active_installations",
-        REDACTED_VALUE"apps",
+        translation_key="apps",
         name=name_slug,
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: data.apps.get(name_slug),
@@ -46,7 +46,7 @@ def get_core_integration_entity_description(
     """Get core integration entity description."""
     return AnalyticsSensorEntityDescription(
         key=f"core_{domain}_active_installations",
-        REDACTED_VALUE"core_integrations",
+        translation_key="core_integrations",
         name=name,
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: data.core_integrations.get(domain),
@@ -59,7 +59,7 @@ def get_custom_integration_entity_description(
     """Get custom integration entity description."""
     return AnalyticsSensorEntityDescription(
         key=f"custom_{domain}_active_installations",
-        REDACTED_VALUE"custom_integrations",
+        translation_key="custom_integrations",
         translation_placeholders={"custom_integration_domain": domain},
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: data.custom_integrations.get(domain),
@@ -69,14 +69,14 @@ def get_custom_integration_entity_description(
 GENERAL_SENSORS = [
     AnalyticsSensorEntityDescription(
         key="total_active_installations",
-        REDACTED_VALUE"total_active_installations",
+        translation_key="total_active_installations",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: data.active_installations,
     ),
     AnalyticsSensorEntityDescription(
         key="total_reports_integrations",
-        REDACTED_VALUE"total_reports_integrations",
+        translation_key="total_reports_integrations",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: data.reports_integrations,

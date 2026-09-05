@@ -67,13 +67,13 @@ class SolarLogInverterSensorEntityDescription(SensorEntityDescription):
 SOLARLOG_BASIC_SENSOR_TYPES: tuple[SolarLogCoordinatorSensorEntityDescription, ...] = (
     SolarLogCoordinatorSensorEntityDescription(
         key="last_updated",
-        REDACTED_VALUE"last_update",
+        translation_key="last_update",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda data: data.last_updated,
     ),
     SolarLogCoordinatorSensorEntityDescription(
         key="power_ac",
-        REDACTED_VALUE"power_ac",
+        translation_key="power_ac",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -81,7 +81,7 @@ SOLARLOG_BASIC_SENSOR_TYPES: tuple[SolarLogCoordinatorSensorEntityDescription, .
     ),
     SolarLogCoordinatorSensorEntityDescription(
         key="power_dc",
-        REDACTED_VALUE"power_dc",
+        translation_key="power_dc",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -89,7 +89,7 @@ SOLARLOG_BASIC_SENSOR_TYPES: tuple[SolarLogCoordinatorSensorEntityDescription, .
     ),
     SolarLogCoordinatorSensorEntityDescription(
         key="voltage_ac",
-        REDACTED_VALUE"voltage_ac",
+        translation_key="voltage_ac",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -97,7 +97,7 @@ SOLARLOG_BASIC_SENSOR_TYPES: tuple[SolarLogCoordinatorSensorEntityDescription, .
     ),
     SolarLogCoordinatorSensorEntityDescription(
         key="voltage_dc",
-        REDACTED_VALUE"voltage_dc",
+        translation_key="voltage_dc",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -105,7 +105,7 @@ SOLARLOG_BASIC_SENSOR_TYPES: tuple[SolarLogCoordinatorSensorEntityDescription, .
     ),
     SolarLogCoordinatorSensorEntityDescription(
         key="yield_day",
-        REDACTED_VALUE"yield_day",
+        translation_key="yield_day",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -115,7 +115,7 @@ SOLARLOG_BASIC_SENSOR_TYPES: tuple[SolarLogCoordinatorSensorEntityDescription, .
     ),
     SolarLogCoordinatorSensorEntityDescription(
         key="yield_yesterday",
-        REDACTED_VALUE"yield_yesterday",
+        translation_key="yield_yesterday",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -124,7 +124,7 @@ SOLARLOG_BASIC_SENSOR_TYPES: tuple[SolarLogCoordinatorSensorEntityDescription, .
     ),
     SolarLogCoordinatorSensorEntityDescription(
         key="yield_month",
-        REDACTED_VALUE"yield_month",
+        translation_key="yield_month",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -134,7 +134,7 @@ SOLARLOG_BASIC_SENSOR_TYPES: tuple[SolarLogCoordinatorSensorEntityDescription, .
     ),
     SolarLogCoordinatorSensorEntityDescription(
         key="yield_year",
-        REDACTED_VALUE"yield_year",
+        translation_key="yield_year",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -143,7 +143,7 @@ SOLARLOG_BASIC_SENSOR_TYPES: tuple[SolarLogCoordinatorSensorEntityDescription, .
     ),
     SolarLogCoordinatorSensorEntityDescription(
         key="yield_total",
-        REDACTED_VALUE"yield_total",
+        translation_key="yield_total",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -153,7 +153,7 @@ SOLARLOG_BASIC_SENSOR_TYPES: tuple[SolarLogCoordinatorSensorEntityDescription, .
     ),
     SolarLogCoordinatorSensorEntityDescription(
         key="consumption_ac",
-        REDACTED_VALUE"consumption_ac",
+        translation_key="consumption_ac",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -161,7 +161,7 @@ SOLARLOG_BASIC_SENSOR_TYPES: tuple[SolarLogCoordinatorSensorEntityDescription, .
     ),
     SolarLogCoordinatorSensorEntityDescription(
         key="consumption_day",
-        REDACTED_VALUE"consumption_day",
+        translation_key="consumption_day",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -171,7 +171,7 @@ SOLARLOG_BASIC_SENSOR_TYPES: tuple[SolarLogCoordinatorSensorEntityDescription, .
     ),
     SolarLogCoordinatorSensorEntityDescription(
         key="consumption_yesterday",
-        REDACTED_VALUE"consumption_yesterday",
+        translation_key="consumption_yesterday",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -180,7 +180,7 @@ SOLARLOG_BASIC_SENSOR_TYPES: tuple[SolarLogCoordinatorSensorEntityDescription, .
     ),
     SolarLogCoordinatorSensorEntityDescription(
         key="consumption_month",
-        REDACTED_VALUE"consumption_month",
+        translation_key="consumption_month",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -190,7 +190,7 @@ SOLARLOG_BASIC_SENSOR_TYPES: tuple[SolarLogCoordinatorSensorEntityDescription, .
     ),
     SolarLogCoordinatorSensorEntityDescription(
         key="consumption_year",
-        REDACTED_VALUE"consumption_year",
+        translation_key="consumption_year",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -200,7 +200,7 @@ SOLARLOG_BASIC_SENSOR_TYPES: tuple[SolarLogCoordinatorSensorEntityDescription, .
     ),
     SolarLogCoordinatorSensorEntityDescription(
         key="consumption_total",
-        REDACTED_VALUE"consumption_total",
+        translation_key="consumption_total",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -210,7 +210,7 @@ SOLARLOG_BASIC_SENSOR_TYPES: tuple[SolarLogCoordinatorSensorEntityDescription, .
     ),
     SolarLogCoordinatorSensorEntityDescription(
         key="total_power",
-        REDACTED_VALUE"total_power",
+        translation_key="total_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -218,7 +218,7 @@ SOLARLOG_BASIC_SENSOR_TYPES: tuple[SolarLogCoordinatorSensorEntityDescription, .
     ),
     SolarLogCoordinatorSensorEntityDescription(
         key="alternator_loss",
-        REDACTED_VALUE"alternator_loss",
+        translation_key="alternator_loss",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -226,7 +226,7 @@ SOLARLOG_BASIC_SENSOR_TYPES: tuple[SolarLogCoordinatorSensorEntityDescription, .
     ),
     SolarLogCoordinatorSensorEntityDescription(
         key="capacity",
-        REDACTED_VALUE"capacity",
+        translation_key="capacity",
         native_unit_of_measurement=PERCENTAGE,
         device_class=SensorDeviceClass.POWER_FACTOR,
         state_class=SensorStateClass.MEASUREMENT,
@@ -235,7 +235,7 @@ SOLARLOG_BASIC_SENSOR_TYPES: tuple[SolarLogCoordinatorSensorEntityDescription, .
     ),
     SolarLogCoordinatorSensorEntityDescription(
         key="efficiency",
-        REDACTED_VALUE"efficiency",
+        translation_key="efficiency",
         native_unit_of_measurement=PERCENTAGE,
         device_class=SensorDeviceClass.POWER_FACTOR,
         state_class=SensorStateClass.MEASUREMENT,
@@ -244,7 +244,7 @@ SOLARLOG_BASIC_SENSOR_TYPES: tuple[SolarLogCoordinatorSensorEntityDescription, .
     ),
     SolarLogCoordinatorSensorEntityDescription(
         key="power_available",
-        REDACTED_VALUE"power_available",
+        translation_key="power_available",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -252,7 +252,7 @@ SOLARLOG_BASIC_SENSOR_TYPES: tuple[SolarLogCoordinatorSensorEntityDescription, .
     ),
     SolarLogCoordinatorSensorEntityDescription(
         key="usage",
-        REDACTED_VALUE"usage",
+        translation_key="usage",
         native_unit_of_measurement=PERCENTAGE,
         device_class=SensorDeviceClass.POWER_FACTOR,
         state_class=SensorStateClass.MEASUREMENT,
@@ -267,7 +267,7 @@ different DataUpdateCoordinator."""
 SOLARLOG_LONGTIME_SENSOR_TYPES: tuple[SolarLogLongtimeSensorEntityDescription, ...] = (
     SolarLogLongtimeSensorEntityDescription(
         key="self_consumption_year",
-        REDACTED_VALUE"self_consumption_year",
+        translation_key="self_consumption_year",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -278,7 +278,7 @@ SOLARLOG_LONGTIME_SENSOR_TYPES: tuple[SolarLogLongtimeSensorEntityDescription, .
 SOLARLOG_BATTERY_SENSOR_TYPES: tuple[SolarLogBatterySensorEntityDescription, ...] = (
     SolarLogBatterySensorEntityDescription(
         key="charging_power",
-        REDACTED_VALUE"charging_power",
+        translation_key="charging_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -286,7 +286,7 @@ SOLARLOG_BATTERY_SENSOR_TYPES: tuple[SolarLogBatterySensorEntityDescription, ...
     ),
     SolarLogBatterySensorEntityDescription(
         key="discharging_power",
-        REDACTED_VALUE"discharging_power",
+        translation_key="discharging_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -294,7 +294,7 @@ SOLARLOG_BATTERY_SENSOR_TYPES: tuple[SolarLogBatterySensorEntityDescription, ...
     ),
     SolarLogBatterySensorEntityDescription(
         key="charge_level",
-        REDACTED_VALUE"charge_level",
+        translation_key="charge_level",
         native_unit_of_measurement=PERCENTAGE,
         device_class=SensorDeviceClass.BATTERY,
         state_class=SensorStateClass.MEASUREMENT,
@@ -305,7 +305,7 @@ SOLARLOG_BATTERY_SENSOR_TYPES: tuple[SolarLogBatterySensorEntityDescription, ...
 SOLARLOG_INVERTER_SENSOR_TYPES: tuple[SolarLogInverterSensorEntityDescription, ...] = (
     SolarLogInverterSensorEntityDescription(
         key="current_power",
-        REDACTED_VALUE"current_power",
+        translation_key="current_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -315,7 +315,7 @@ SOLARLOG_INVERTER_SENSOR_TYPES: tuple[SolarLogInverterSensorEntityDescription, .
     ),
     SolarLogInverterSensorEntityDescription(
         key="consumption_year",
-        REDACTED_VALUE"consumption_year",
+        translation_key="consumption_year",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,

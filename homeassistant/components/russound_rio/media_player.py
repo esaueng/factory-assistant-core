@@ -240,7 +240,7 @@ class RussoundZoneDevice(RussoundBaseEntity, MediaPlayerEntity):
         if media_type != RUSSOUND_MEDIA_TYPE_PRESET:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unsupported_media_type",
+                translation_key="unsupported_media_type",
                 translation_placeholders={
                     "media_type": media_type,
                 },
@@ -251,7 +251,7 @@ class RussoundZoneDevice(RussoundBaseEntity, MediaPlayerEntity):
         except ValueError as ve:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"preset_non_integer",
+                translation_key="preset_non_integer",
                 translation_placeholders={"preset_id": media_id},
             ) from ve
         if source_id:
@@ -260,7 +260,7 @@ class RussoundZoneDevice(RussoundBaseEntity, MediaPlayerEntity):
         if not self._source.presets or preset_id not in self._source.presets:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"missing_preset",
+                translation_key="missing_preset",
                 translation_placeholders={"preset_id": media_id},
             )
         await self._zone.restore_preset(preset_id)

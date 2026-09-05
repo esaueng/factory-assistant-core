@@ -127,13 +127,13 @@ async def async_setup_entry(hass: HomeAssistant, entry: LaMarzoccoConfigEntry) -
             settings = await cloud_client.get_thing_settings(serial)
         except AuthFail as ex:
             raise ConfigEntryAuthFailed(
-                translation_domain=DOMAIN, REDACTED_VALUE"authentication_failed"
+                translation_domain=DOMAIN, translation_key="authentication_failed"
             ) from ex
         except (RequestNotSuccessful, TimeoutError) as ex:
             _LOGGER.debug(ex, exc_info=True)
             if not bluetooth_client:
                 raise ConfigEntryNotReady(
-                    translation_domain=DOMAIN, REDACTED_VALUE"api_error"
+                    translation_domain=DOMAIN, translation_key="api_error"
                 ) from ex
             _LOGGER.debug("Cloud failed, continuing with Bluetooth only", exc_info=True)
         else:
@@ -149,7 +149,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: LaMarzoccoConfigEntry) -
                     "unsupported_gateway_firmware",
                     is_fixable=False,
                     severity=ir.IssueSeverity.ERROR,
-                    REDACTED_VALUE"unsupported_gateway_firmware",
+                    translation_key="unsupported_gateway_firmware",
                     translation_placeholders={"gateway_version": str(gateway_version)},
                 )
             # Update BLE Token if exists
@@ -188,7 +188,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: LaMarzoccoConfigEntry) -
 
     if local_mode and not bluetooth_client:
         raise ConfigEntryNotReady(
-            translation_domain=DOMAIN, REDACTED_VALUE"bluetooth_required_offline"
+            translation_domain=DOMAIN, translation_key="bluetooth_required_offline"
         )
 
     # bt coordinator only if bluetooth client is available

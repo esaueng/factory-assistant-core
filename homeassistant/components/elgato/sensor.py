@@ -47,7 +47,7 @@ SENSORS = [
     ),
     ElgatoSensorEntityDescription(
         key="voltage",
-        REDACTED_VALUE"voltage",
+        translation_key="voltage",
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.VOLTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -60,7 +60,7 @@ SENSORS = [
     ),
     ElgatoSensorEntityDescription(
         key="input_charge_current",
-        REDACTED_VALUE"input_charge_current",
+        translation_key="input_charge_current",
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.CURRENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -73,7 +73,7 @@ SENSORS = [
     ),
     ElgatoSensorEntityDescription(
         key="charge_power",
-        REDACTED_VALUE"charge_power",
+        translation_key="charge_power",
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.POWER,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -85,7 +85,7 @@ SENSORS = [
     ),
     ElgatoSensorEntityDescription(
         key="input_charge_voltage",
-        REDACTED_VALUE"input_charge_voltage",
+        translation_key="input_charge_voltage",
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.VOLTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,

@@ -57,7 +57,7 @@ SELECT_TYPES: Final[tuple[MieleSelectDefinition, ...]] = (
         description=MieleSelectDescription(
             key="fridge_freezer_modes",
             value_fn=lambda value: 1,
-            REDACTED_VALUE"fridge_freezer_mode",
+            translation_key="fridge_freezer_mode",
         ),
     ),
 )
@@ -129,7 +129,7 @@ class MieleSelectMode(MieleEntity, SelectEntity):
             _LOGGER.debug("Option '%s' is not available for %s", option, self.entity_id)
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_option",
+                translation_key="invalid_option",
                 translation_placeholders={
                     "option": option,
                     "entity": self.entity_id,
@@ -144,7 +144,7 @@ class MieleSelectMode(MieleEntity, SelectEntity):
             _LOGGER.debug("Error setting select state for %s: %s", self.entity_id, err)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_state_error",
+                translation_key="set_state_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                 },

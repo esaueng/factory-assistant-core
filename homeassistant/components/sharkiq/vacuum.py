@@ -193,7 +193,7 @@ class SharkVacuumEntity(CoordinatorEntity[SharkIqUpdateCoordinator], StateVacuum
             else:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"invalid_room",
+                    translation_key="invalid_room",
                     translation_placeholders={"room": room},
                 )
 

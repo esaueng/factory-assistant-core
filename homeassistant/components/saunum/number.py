@@ -47,7 +47,7 @@ class LeilSaunaNumberEntityDescription(NumberEntityDescription):
 NUMBERS: tuple[LeilSaunaNumberEntityDescription, ...] = (
     LeilSaunaNumberEntityDescription(
         key="sauna_duration",
-        REDACTED_VALUE"sauna_duration",
+        translation_key="sauna_duration",
         device_class=NumberDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.MINUTES,
         native_min_value=1,
@@ -62,7 +62,7 @@ NUMBERS: tuple[LeilSaunaNumberEntityDescription, ...] = (
     ),
     LeilSaunaNumberEntityDescription(
         key="fan_duration",
-        REDACTED_VALUE"fan_duration",
+        translation_key="fan_duration",
         device_class=NumberDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.MINUTES,
         native_min_value=1,
@@ -121,7 +121,7 @@ class LeilSaunaNumber(LeilSaunaEntity, NumberEntity):
         ):
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUEf"session_active_cannot_change_{self.entity_description.key}",
+                translation_key=f"session_active_cannot_change_{self.entity_description.key}",
             )
 
         try:
@@ -129,7 +129,7 @@ class LeilSaunaNumber(LeilSaunaEntity, NumberEntity):
         except SaunumException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUEf"set_{self.entity_description.key}_failed",
+                translation_key=f"set_{self.entity_description.key}_failed",
             ) from err
 
         await self.coordinator.async_request_refresh()

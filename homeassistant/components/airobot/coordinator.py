@@ -58,12 +58,12 @@ class AirobotDataUpdateCoordinator(DataUpdateCoordinator[AirobotData]):
         except AirobotAuthError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"authentication_failed",
+                translation_key="authentication_failed",
             ) from err
         except AirobotConnectionError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connection_failed",
+                translation_key="connection_failed",
             ) from err
 
         return AirobotData(status=status, settings=settings)

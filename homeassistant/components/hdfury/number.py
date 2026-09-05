@@ -33,7 +33,7 @@ class HDFuryNumberEntityDescription(NumberEntityDescription):
 NUMBERS: tuple[HDFuryNumberEntityDescription, ...] = (
     HDFuryNumberEntityDescription(
         key="unmutecnt",
-        REDACTED_VALUE"audio_unmute",
+        translation_key="audio_unmute",
         entity_registry_enabled_default=False,
         mode=NumberMode.BOX,
         native_min_value=50,
@@ -46,7 +46,7 @@ NUMBERS: tuple[HDFuryNumberEntityDescription, ...] = (
     ),
     HDFuryNumberEntityDescription(
         key="earcunmutecnt",
-        REDACTED_VALUE"earc_unmute",
+        translation_key="earc_unmute",
         entity_registry_enabled_default=False,
         mode=NumberMode.BOX,
         native_min_value=0,
@@ -59,7 +59,7 @@ NUMBERS: tuple[HDFuryNumberEntityDescription, ...] = (
     ),
     HDFuryNumberEntityDescription(
         key="oledfade",
-        REDACTED_VALUE"oled_fade",
+        translation_key="oled_fade",
         mode=NumberMode.BOX,
         native_min_value=1,
         native_max_value=100,
@@ -71,7 +71,7 @@ NUMBERS: tuple[HDFuryNumberEntityDescription, ...] = (
     ),
     HDFuryNumberEntityDescription(
         key="reboottimer",
-        REDACTED_VALUE"reboot_timer",
+        translation_key="reboot_timer",
         mode=NumberMode.BOX,
         native_min_value=0,
         native_max_value=100,
@@ -121,7 +121,7 @@ class HDFuryNumber(HDFuryEntity, NumberEntity):
         except HDFuryError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
             ) from error
 
         await self.coordinator.async_request_refresh()

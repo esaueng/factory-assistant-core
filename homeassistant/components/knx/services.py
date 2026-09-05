@@ -93,7 +93,7 @@ def get_knx_module(hass: HomeAssistant) -> KNXModule:
         return hass.data[KNX_MODULE_KEY]
     except KeyError as err:
         raise HomeAssistantError(
-            translation_domain=DOMAIN, REDACTED_VALUE"integration_not_loaded"
+            translation_domain=DOMAIN, translation_key="integration_not_loaded"
         ) from err
 
 
@@ -130,7 +130,7 @@ async def service_event_register_modify(call: ServiceCall) -> None:
             return
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"service_event_register_ga_not_found",
+            translation_key="service_event_register_ga_not_found",
             translation_placeholders={
                 "group_addresses": ", ".join(map(str, sorted(_error_gas)))
             },
@@ -181,7 +181,7 @@ async def service_exposure_register_modify(call: ServiceCall) -> None:
         except KeyError as err:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_exposure_remove_not_found",
+                translation_key="service_exposure_remove_not_found",
                 translation_placeholders={
                     "group_address": group_address,
                 },
@@ -253,7 +253,7 @@ async def service_send_to_knx_bus(call: ServiceCall) -> None:
         if transcoder is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_send_invalid_type",
+                translation_key="service_send_invalid_type",
                 translation_placeholders={"type": attr_type},
             )
         try:
@@ -261,7 +261,7 @@ async def service_send_to_knx_bus(call: ServiceCall) -> None:
         except ConversionError as err:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_send_invalid_payload",
+                translation_key="service_send_invalid_payload",
                 translation_placeholders={"error": str(err)},
             ) from err
     elif isinstance(attr_payload, int):

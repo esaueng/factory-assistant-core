@@ -17,7 +17,7 @@ _LOGGER = logging.getLogger(__name__)
 SWITCH_DESCRIPTIONS = [
     SwitchEntityDescription(
         key="wifi",
-        REDACTED_VALUE"wifi",
+        translation_key="wifi",
     )
 ]
 

@@ -178,7 +178,7 @@ class ModelDeprecatedRepairFlow(RepairsFlow):
             or (subentry := entry.subentries.get(self._current_subentry_id)) is None
         ):
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"subentry_not_found"
+                translation_domain=DOMAIN, translation_key="subentry_not_found"
             )
 
         updated_data = {
@@ -209,5 +209,5 @@ async def async_create_fix_flow(
     if issue_id == "model_deprecated":
         return ModelDeprecatedRepairFlow()
     raise HomeAssistantError(
-        translation_domain=DOMAIN, REDACTED_VALUE"unknown_issue_id"
+        translation_domain=DOMAIN, translation_key="unknown_issue_id"
     )

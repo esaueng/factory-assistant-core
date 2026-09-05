@@ -27,7 +27,7 @@ class RitualsNumberEntityDescription(NumberEntityDescription):
 ENTITY_DESCRIPTIONS = (
     RitualsNumberEntityDescription(
         key="perfume_amount",
-        REDACTED_VALUE"perfume_amount",
+        translation_key="perfume_amount",
         native_min_value=1,
         native_max_value=3,
         value_fn=lambda diffuser: diffuser.perfume_amount,

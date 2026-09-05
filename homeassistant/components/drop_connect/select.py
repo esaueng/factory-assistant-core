@@ -32,7 +32,7 @@ class DROPSelectEntityDescription(SelectEntityDescription):
 SELECTS: list[DROPSelectEntityDescription] = [
     DROPSelectEntityDescription(
         key=PROTECT_MODE,
-        REDACTED_VALUEPROTECT_MODE,
+        translation_key=PROTECT_MODE,
         options=PROTECT_MODE_OPTIONS,
         value_fn=lambda device: device.drop_api.protect_mode(),
         set_fn=lambda device, value: device.set_protect_mode(value),

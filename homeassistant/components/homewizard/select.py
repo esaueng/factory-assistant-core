@@ -49,7 +49,7 @@ class HomeWizardBatteryModeSelectEntity(HomeWizardEntity, SelectEntity):
         )
         description = SelectEntityDescription(
             key="battery_group_mode",
-            REDACTED_VALUE"battery_group_mode",
+            translation_key="battery_group_mode",
             entity_category=EntityCategory.CONFIG,
             entity_registry_enabled_default=entity_registry_enabled_default,
             options=[

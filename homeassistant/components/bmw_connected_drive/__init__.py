@@ -15,7 +15,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         DOMAIN,
         is_fixable=False,
         severity=ir.IssueSeverity.ERROR,
-        REDACTED_VALUE"integration_removed",
+        translation_key="integration_removed",
         translation_placeholders={
             "entries": "/config/integrations/integration/bmw_connected_drive",
             "custom_component_url": "https://github.com/kvanbiesen/bmw-cardata-ha",

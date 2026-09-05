@@ -54,7 +54,7 @@ class LeilSaunaLight(LeilSaunaEntity, LightEntity):
         except SaunumException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_light_on_failed",
+                translation_key="set_light_on_failed",
             ) from err
 
         await self.coordinator.async_request_refresh()
@@ -66,7 +66,7 @@ class LeilSaunaLight(LeilSaunaEntity, LightEntity):
         except SaunumException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_light_off_failed",
+                translation_key="set_light_off_failed",
             ) from err
 
         await self.coordinator.async_request_refresh()

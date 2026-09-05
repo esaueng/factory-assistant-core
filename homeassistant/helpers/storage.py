@@ -408,7 +408,7 @@ class Store[_T: Mapping[str, Any] | Sequence[Any]]:
                         f"storage_corruption_{storage_key}_{isotime}",
                         is_fixable=True,
                         issue_domain=issue_domain,
-                        REDACTED_VALUE"storage_corruption",
+                        translation_key="storage_corruption",
                         is_persistent=True,
                         severity=IssueSeverity.CRITICAL,
                         translation_placeholders={

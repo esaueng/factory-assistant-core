@@ -56,7 +56,7 @@ def exception_handler[_EntityT: EnvoyBaseEntity, **_P](
         except ACTIONERRORS as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"action_error",
+                translation_key="action_error",
                 translation_placeholders={
                     "host": self.coordinator.envoy.host,
                     "args": error.args[0],

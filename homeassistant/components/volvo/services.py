@@ -115,28 +115,28 @@ def _async_get_config_entry(hass: HomeAssistant, entry_id: str) -> VolvoConfigEn
     if not entry_id:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_entry_id",
+            translation_key="invalid_entry_id",
             translation_placeholders={"entry_id": entry_id},
         )
 
     if not (entry := hass.config_entries.async_get_entry(entry_id)):
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"entry_not_found",
+            translation_key="entry_not_found",
             translation_placeholders={"entry_id": entry_id},
         )
 
     if entry.domain != DOMAIN:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_entry",
+            translation_key="invalid_entry",
             translation_placeholders={"entry_id": entry.entry_id},
         )
 
     if entry.state is not ConfigEntryState.LOADED:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"entry_not_loaded",
+            translation_key="entry_not_loaded",
             translation_placeholders={"entry_id": entry.entry_id},
         )
 
@@ -158,7 +158,7 @@ def _get_requested_image_types(requested_image_types: list[str]) -> list[str]:
         if image_type not in allowed_image_types:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_image_type",
+                translation_key="invalid_image_type",
                 translation_placeholders={"image_type": image_type},
             )
 
@@ -204,13 +204,13 @@ async def _async_image_exists(client: AsyncClient, url: str) -> bool:
 
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"image_error",
+            translation_key="image_error",
             translation_placeholders={"url": url},
         ) from ex
     except HTTPError as ex:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"image_error",
+            translation_key="image_error",
             translation_placeholders={"url": url},
         ) from ex
     else:

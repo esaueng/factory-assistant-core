@@ -61,7 +61,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SIREN,
         entity_description=MatterSirenEntityDescription(
             key="HeimanSiren",
-            REDACTED_VALUE"siren",
+            translation_key="siren",
         ),
         entity_class=MatterSiren,
         required_attributes=(HeimanCluster.Attributes.SirenActive,),

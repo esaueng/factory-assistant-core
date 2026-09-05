@@ -83,7 +83,7 @@ CONFIG_SCHEMA = vol.Schema(
         ),
         vol.Required(CONF_METER_TYPE): selector.SelectSelector(
             selector.SelectSelectorConfig(
-                options=METER_TYPES, REDACTED_VALUECONF_METER_TYPE
+                options=METER_TYPES, translation_key=CONF_METER_TYPE
             ),
         ),
         vol.Required(CONF_METER_OFFSET, default=0): selector.NumberSelector(
@@ -92,7 +92,7 @@ CONFIG_SCHEMA = vol.Schema(
                 max=28,
                 mode=selector.NumberSelectorMode.BOX,
                 unit_of_measurement="days",
-                REDACTED_VALUECONF_METER_OFFSET,
+                translation_key=CONF_METER_OFFSET,
             ),
         ),
         vol.Required(CONF_TARIFFS, default=[]): selector.SelectSelector(

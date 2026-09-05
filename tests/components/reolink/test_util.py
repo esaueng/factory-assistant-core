@@ -44,59 +44,59 @@ DEV_ID_STANDALONE_CAM = f"{TEST_UID_CAM}"
     [
         (
             ApiError("Test error"),
-            HomeAssistantError(REDACTED_VALUE"api_error"),
+            HomeAssistantError(translation_key="api_error"),
         ),
         (
-            ApiError("Test error", REDACTED_VALUE"firmware_rate_limit"),
-            HomeAssistantError(REDACTED_VALUE"firmware_rate_limit"),
+            ApiError("Test error", translation_key="firmware_rate_limit"),
+            HomeAssistantError(translation_key="firmware_rate_limit"),
         ),
         (
-            ApiError("Test error", REDACTED_VALUE"not_in_strings.json"),
-            HomeAssistantError(REDACTED_VALUE"api_error"),
+            ApiError("Test error", translation_key="not_in_strings.json"),
+            HomeAssistantError(translation_key="api_error"),
         ),
         (
             CredentialsInvalidError("Test error"),
-            HomeAssistantError(REDACTED_VALUE"invalid_credentials"),
+            HomeAssistantError(translation_key="invalid_credentials"),
         ),
         (
             InvalidContentTypeError("Test error"),
-            HomeAssistantError(REDACTED_VALUE"invalid_content_type"),
+            HomeAssistantError(translation_key="invalid_content_type"),
         ),
         (
             InvalidParameterError("Test error"),
-            ServiceValidationError(REDACTED_VALUE"invalid_parameter"),
+            ServiceValidationError(translation_key="invalid_parameter"),
         ),
         (
             LoginError("Test error"),
-            HomeAssistantError(REDACTED_VALUE"login_error"),
+            HomeAssistantError(translation_key="login_error"),
         ),
         (
             NoDataError("Test error"),
-            HomeAssistantError(REDACTED_VALUE"no_data"),
+            HomeAssistantError(translation_key="no_data"),
         ),
         (
             NotSupportedError("Test error"),
-            HomeAssistantError(REDACTED_VALUE"not_supported"),
+            HomeAssistantError(translation_key="not_supported"),
         ),
         (
             ReolinkConnectionError("Test error"),
-            HomeAssistantError(REDACTED_VALUE"connection_error"),
+            HomeAssistantError(translation_key="connection_error"),
         ),
         (
             ReolinkError("Test error"),
-            HomeAssistantError(REDACTED_VALUE"unexpected"),
+            HomeAssistantError(translation_key="unexpected"),
         ),
         (
             ReolinkTimeoutError("Test error"),
-            HomeAssistantError(REDACTED_VALUE"timeout"),
+            HomeAssistantError(translation_key="timeout"),
         ),
         (
             SubscriptionError("Test error"),
-            HomeAssistantError(REDACTED_VALUE"subscription_error"),
+            HomeAssistantError(translation_key="subscription_error"),
         ),
         (
             UnexpectedDataError("Test error"),
-            HomeAssistantError(REDACTED_VALUE"unexpected_data"),
+            HomeAssistantError(translation_key="unexpected_data"),
         ),
     ],
 )

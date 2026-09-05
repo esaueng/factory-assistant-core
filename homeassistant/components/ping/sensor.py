@@ -29,7 +29,7 @@ class PingSensorEntityDescription(SensorEntityDescription):
 SENSORS: tuple[PingSensorEntityDescription, ...] = (
     PingSensorEntityDescription(
         key="round_trip_time_avg",
-        REDACTED_VALUE"round_trip_time_avg",
+        translation_key="round_trip_time_avg",
         native_unit_of_measurement=UnitOfTime.MILLISECONDS,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.DURATION,
@@ -40,7 +40,7 @@ SENSORS: tuple[PingSensorEntityDescription, ...] = (
     ),
     PingSensorEntityDescription(
         key="round_trip_time_max",
-        REDACTED_VALUE"round_trip_time_max",
+        translation_key="round_trip_time_max",
         native_unit_of_measurement=UnitOfTime.MILLISECONDS,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.DURATION,
@@ -51,7 +51,7 @@ SENSORS: tuple[PingSensorEntityDescription, ...] = (
     ),
     PingSensorEntityDescription(
         key="round_trip_time_mdev",
-        REDACTED_VALUE"round_trip_time_mdev",
+        translation_key="round_trip_time_mdev",
         native_unit_of_measurement=UnitOfTime.MILLISECONDS,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.DURATION,
@@ -62,7 +62,7 @@ SENSORS: tuple[PingSensorEntityDescription, ...] = (
     ),
     PingSensorEntityDescription(
         key="round_trip_time_min",
-        REDACTED_VALUE"round_trip_time_min",
+        translation_key="round_trip_time_min",
         native_unit_of_measurement=UnitOfTime.MILLISECONDS,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.DURATION,
@@ -73,7 +73,7 @@ SENSORS: tuple[PingSensorEntityDescription, ...] = (
     ),
     PingSensorEntityDescription(
         key="jitter",
-        REDACTED_VALUE"jitter",
+        translation_key="jitter",
         native_unit_of_measurement=UnitOfTime.MILLISECONDS,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.DURATION,
@@ -84,7 +84,7 @@ SENSORS: tuple[PingSensorEntityDescription, ...] = (
     ),
     PingSensorEntityDescription(
         key="loss",
-        REDACTED_VALUE"loss",
+        translation_key="loss",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_registry_enabled_default=False,

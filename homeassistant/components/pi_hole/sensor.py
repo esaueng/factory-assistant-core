@@ -17,48 +17,48 @@ from .entity import PiHoleEntity
 SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="ads_blocked_today",
-        REDACTED_VALUE"ads_blocked_today",
+        translation_key="ads_blocked_today",
         suggested_display_precision=0,
     ),
     SensorEntityDescription(
         key="ads_percentage_today",
-        REDACTED_VALUE"ads_percentage_today",
+        translation_key="ads_percentage_today",
         native_unit_of_measurement=PERCENTAGE,
         suggested_display_precision=1,
     ),
     SensorEntityDescription(
         key="clients_ever_seen",
-        REDACTED_VALUE"clients_ever_seen",
+        translation_key="clients_ever_seen",
         suggested_display_precision=0,
     ),
     SensorEntityDescription(
         key="dns_queries_today",
-        REDACTED_VALUE"dns_queries_today",
+        translation_key="dns_queries_today",
         suggested_display_precision=0,
     ),
     SensorEntityDescription(
         key="domains_being_blocked",
-        REDACTED_VALUE"domains_being_blocked",
+        translation_key="domains_being_blocked",
         suggested_display_precision=0,
     ),
     SensorEntityDescription(
         key="queries_cached",
-        REDACTED_VALUE"queries_cached",
+        translation_key="queries_cached",
         suggested_display_precision=0,
     ),
     SensorEntityDescription(
         key="queries_forwarded",
-        REDACTED_VALUE"queries_forwarded",
+        translation_key="queries_forwarded",
         suggested_display_precision=0,
     ),
     SensorEntityDescription(
         key="unique_clients",
-        REDACTED_VALUE"unique_clients",
+        translation_key="unique_clients",
         suggested_display_precision=0,
     ),
     SensorEntityDescription(
         key="unique_domains",
-        REDACTED_VALUE"unique_domains",
+        translation_key="unique_domains",
         suggested_display_precision=0,
     ),
 )
@@ -66,48 +66,48 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
 SENSOR_TYPES_V6: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="queries.blocked",
-        REDACTED_VALUE"ads_blocked",
+        translation_key="ads_blocked",
         suggested_display_precision=0,
     ),
     SensorEntityDescription(
         key="queries.percent_blocked",
-        REDACTED_VALUE"percent_ads_blocked",
+        translation_key="percent_ads_blocked",
         native_unit_of_measurement=PERCENTAGE,
         suggested_display_precision=2,
     ),
     SensorEntityDescription(
         key="clients.total",
-        REDACTED_VALUE"clients_ever_seen",
+        translation_key="clients_ever_seen",
         suggested_display_precision=0,
     ),
     SensorEntityDescription(
         key="queries.total",
-        REDACTED_VALUE"dns_queries",
+        translation_key="dns_queries",
         suggested_display_precision=0,
     ),
     SensorEntityDescription(
         key="gravity.domains_being_blocked",
-        REDACTED_VALUE"domains_being_blocked",
+        translation_key="domains_being_blocked",
         suggested_display_precision=0,
     ),
     SensorEntityDescription(
         key="queries.cached",
-        REDACTED_VALUE"queries_cached",
+        translation_key="queries_cached",
         suggested_display_precision=0,
     ),
     SensorEntityDescription(
         key="queries.forwarded",
-        REDACTED_VALUE"queries_forwarded",
+        translation_key="queries_forwarded",
         suggested_display_precision=0,
     ),
     SensorEntityDescription(
         key="clients.active",
-        REDACTED_VALUE"unique_clients",
+        translation_key="unique_clients",
         suggested_display_precision=0,
     ),
     SensorEntityDescription(
         key="queries.unique_domains",
-        REDACTED_VALUE"unique_domains",
+        translation_key="unique_domains",
         suggested_display_precision=0,
     ),
 )

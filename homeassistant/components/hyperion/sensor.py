@@ -43,7 +43,7 @@ from .const import (
 SENSORS = [TYPE_HYPERION_SENSOR_VISIBLE_PRIORITY]
 PRIORITY_SENSOR_DESCRIPTION = SensorEntityDescription(
     key="visible_priority",
-    REDACTED_VALUE"visible_priority",
+    translation_key="visible_priority",
     icon="mdi:lava-lamp",
 )
 

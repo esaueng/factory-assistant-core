@@ -66,7 +66,7 @@ async def async_setup_entry(
     if len(gateway_ids) == offline_gateways:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"connection_failed",
+            translation_key="connection_failed",
         )
 
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
@@ -113,12 +113,12 @@ def check_mydevolo_and_get_gateway_ids(mydevolo: Mydevolo) -> list[str]:
     if not mydevolo.credentials_valid():
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_auth",
+            translation_key="invalid_auth",
         )
     if mydevolo.maintenance():
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"maintenance",
+            translation_key="maintenance",
         )
 
     return mydevolo.get_gateway_ids()

@@ -32,7 +32,7 @@ async def async_sync_device_time(client: BSBLAN, device_name: str) -> None:
     except BSBLANError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"sync_time_failed",
+            translation_key="sync_time_failed",
             translation_placeholders={
                 "device_name": device_name,
                 "error": str(err),

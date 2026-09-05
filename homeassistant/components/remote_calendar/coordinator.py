@@ -63,13 +63,13 @@ class RemoteCalendarDataUpdateCoordinator(DataUpdateCoordinator[Calendar]):
             _LOGGER.debug("%s: %s", self._url, str(err) or type(err).__name__)
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"timeout",
+                translation_key="timeout",
             ) from err
         except (HTTPError, InvalidURL) as err:
             _LOGGER.debug("%s: %s", self._url, str(err) or type(err).__name__)
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unable_to_fetch",
+                translation_key="unable_to_fetch",
             ) from err
         try:
             self.ics = res.text
@@ -77,6 +77,6 @@ class RemoteCalendarDataUpdateCoordinator(DataUpdateCoordinator[Calendar]):
         except InvalidIcsException as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unable_to_parse",
+                translation_key="unable_to_parse",
                 translation_placeholders={"err": str(err)},
             ) from err

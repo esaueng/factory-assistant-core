@@ -52,7 +52,7 @@ class UptimeKumaUpdateEntity(
 
     entity_description = UpdateEntityDescription(
         key=UptimeKumaUpdate.UPDATE,
-        REDACTED_VALUEUptimeKumaUpdate.UPDATE,
+        translation_key=UptimeKumaUpdate.UPDATE,
         entity_category=EntityCategory.DIAGNOSTIC,
     )
     _attr_supported_features = UpdateEntityFeature.RELEASE_NOTES

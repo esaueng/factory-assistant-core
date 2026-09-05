@@ -37,7 +37,7 @@ class OpenThermButtonEntityDescription(
 BUTTON_DESCRIPTIONS: tuple[OpenThermButtonEntityDescription, ...] = (
     OpenThermButtonEntityDescription(
         key="cancel_room_setpoint_override",
-        REDACTED_VALUE"cancel_room_setpoint_override",
+        translation_key="cancel_room_setpoint_override",
         device_description=THERMOSTAT_DEVICE_DESCRIPTION,
         action=lambda hub: hub.set_room_setpoint(0),
     ),

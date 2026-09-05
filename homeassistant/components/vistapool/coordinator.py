@@ -57,7 +57,7 @@ class VistapoolDataUpdateCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         except AquariteError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
+                translation_key="update_failed",
             ) from err
 
     async def subscribe(self) -> None:

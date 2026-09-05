@@ -142,7 +142,7 @@ class UnifiAccessCoordinator(DataUpdateCoordinator[UnifiAccessData]):
         except ValueError as err:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_lock_rule_type",
+                translation_key="invalid_lock_rule_type",
             ) from err
         rule = DoorLockRule(
             type=lock_rule_type, interval=self._normalize_interval(interval)
@@ -199,22 +199,22 @@ class UnifiAccessCoordinator(DataUpdateCoordinator[UnifiAccessData]):
         except ApiAuthError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed_auth",
+                translation_key="update_failed_auth",
             ) from err
         except ApiConnectionError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed_connection",
+                translation_key="update_failed_connection",
             ) from err
         except ApiError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed_api",
+                translation_key="update_failed_api",
             ) from err
         except TimeoutError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed_timeout",
+                translation_key="update_failed_timeout",
             ) from err
 
         previous_lock_rules = self.data.door_lock_rules.copy() if self.data else {}

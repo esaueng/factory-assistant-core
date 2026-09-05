@@ -79,14 +79,14 @@ def async_get_transmitters(
     if component is None:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"component_not_loaded",
+            translation_key="component_not_loaded",
         )
 
     entities = list(component.entities)
     if not entities:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"no_transmitters",
+            translation_key="no_transmitters",
         )
 
     return [
@@ -115,7 +115,7 @@ async def async_send_command(
     if component is None:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"component_not_loaded",
+            translation_key="component_not_loaded",
         )
 
     ent_reg = er.async_get(hass)
@@ -124,14 +124,14 @@ async def async_send_command(
     if entity is None:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"entity_not_found",
+            translation_key="entity_not_found",
             translation_placeholders={"entity_id": entity_id},
         )
 
     if not entity.supports_frequency(command.frequency):
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unsupported_frequency",
+            translation_key="unsupported_frequency",
             translation_placeholders={
                 "entity_id": entity_id,
                 "frequency": str(command.frequency),
@@ -141,7 +141,7 @@ async def async_send_command(
     if not entity.supports_modulation(command.modulation):
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unsupported_modulation",
+            translation_key="unsupported_modulation",
             translation_placeholders={
                 "entity_id": entity_id,
                 "modulation": command.modulation,

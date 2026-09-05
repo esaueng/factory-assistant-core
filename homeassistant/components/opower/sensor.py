@@ -36,14 +36,14 @@ class OpowerEntityDescription(SensorEntityDescription):
 COMMON_SENSORS: tuple[OpowerEntityDescription, ...] = (
     OpowerEntityDescription(
         key="last_changed",
-        REDACTED_VALUE"last_changed",
+        translation_key="last_changed",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.last_changed,
     ),
     OpowerEntityDescription(
         key="last_updated",
-        REDACTED_VALUE"last_updated",
+        translation_key="last_updated",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.last_updated,
@@ -56,7 +56,7 @@ COMMON_SENSORS: tuple[OpowerEntityDescription, ...] = (
 ELEC_SENSORS: tuple[OpowerEntityDescription, ...] = (
     OpowerEntityDescription(
         key="elec_usage_to_date",
-        REDACTED_VALUE"elec_usage_to_date",
+        translation_key="elec_usage_to_date",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         # Not TOTAL_INCREASING because it can decrease for accounts with solar
@@ -66,7 +66,7 @@ ELEC_SENSORS: tuple[OpowerEntityDescription, ...] = (
     ),
     OpowerEntityDescription(
         key="elec_forecasted_usage",
-        REDACTED_VALUE"elec_forecasted_usage",
+        translation_key="elec_forecasted_usage",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL,
@@ -75,7 +75,7 @@ ELEC_SENSORS: tuple[OpowerEntityDescription, ...] = (
     ),
     OpowerEntityDescription(
         key="elec_typical_usage",
-        REDACTED_VALUE"elec_typical_usage",
+        translation_key="elec_typical_usage",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL,
@@ -84,7 +84,7 @@ ELEC_SENSORS: tuple[OpowerEntityDescription, ...] = (
     ),
     OpowerEntityDescription(
         key="elec_cost_to_date",
-        REDACTED_VALUE"elec_cost_to_date",
+        translation_key="elec_cost_to_date",
         device_class=SensorDeviceClass.MONETARY,
         native_unit_of_measurement="USD",
         state_class=SensorStateClass.TOTAL,
@@ -93,7 +93,7 @@ ELEC_SENSORS: tuple[OpowerEntityDescription, ...] = (
     ),
     OpowerEntityDescription(
         key="elec_forecasted_cost",
-        REDACTED_VALUE"elec_forecasted_cost",
+        translation_key="elec_forecasted_cost",
         device_class=SensorDeviceClass.MONETARY,
         native_unit_of_measurement="USD",
         state_class=SensorStateClass.TOTAL,
@@ -102,7 +102,7 @@ ELEC_SENSORS: tuple[OpowerEntityDescription, ...] = (
     ),
     OpowerEntityDescription(
         key="elec_typical_cost",
-        REDACTED_VALUE"elec_typical_cost",
+        translation_key="elec_typical_cost",
         device_class=SensorDeviceClass.MONETARY,
         native_unit_of_measurement="USD",
         state_class=SensorStateClass.TOTAL,
@@ -111,7 +111,7 @@ ELEC_SENSORS: tuple[OpowerEntityDescription, ...] = (
     ),
     OpowerEntityDescription(
         key="elec_start_date",
-        REDACTED_VALUE"elec_start_date",
+        translation_key="elec_start_date",
         device_class=SensorDeviceClass.DATE,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -119,7 +119,7 @@ ELEC_SENSORS: tuple[OpowerEntityDescription, ...] = (
     ),
     OpowerEntityDescription(
         key="elec_end_date",
-        REDACTED_VALUE"elec_end_date",
+        translation_key="elec_end_date",
         device_class=SensorDeviceClass.DATE,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -129,7 +129,7 @@ ELEC_SENSORS: tuple[OpowerEntityDescription, ...] = (
 GAS_SENSORS: tuple[OpowerEntityDescription, ...] = (
     OpowerEntityDescription(
         key="gas_usage_to_date",
-        REDACTED_VALUE"gas_usage_to_date",
+        translation_key="gas_usage_to_date",
         device_class=SensorDeviceClass.GAS,
         native_unit_of_measurement=UnitOfVolume.CENTUM_CUBIC_FEET,
         state_class=SensorStateClass.TOTAL,
@@ -138,7 +138,7 @@ GAS_SENSORS: tuple[OpowerEntityDescription, ...] = (
     ),
     OpowerEntityDescription(
         key="gas_forecasted_usage",
-        REDACTED_VALUE"gas_forecasted_usage",
+        translation_key="gas_forecasted_usage",
         device_class=SensorDeviceClass.GAS,
         native_unit_of_measurement=UnitOfVolume.CENTUM_CUBIC_FEET,
         state_class=SensorStateClass.TOTAL,
@@ -147,7 +147,7 @@ GAS_SENSORS: tuple[OpowerEntityDescription, ...] = (
     ),
     OpowerEntityDescription(
         key="gas_typical_usage",
-        REDACTED_VALUE"gas_typical_usage",
+        translation_key="gas_typical_usage",
         device_class=SensorDeviceClass.GAS,
         native_unit_of_measurement=UnitOfVolume.CENTUM_CUBIC_FEET,
         state_class=SensorStateClass.TOTAL,
@@ -156,7 +156,7 @@ GAS_SENSORS: tuple[OpowerEntityDescription, ...] = (
     ),
     OpowerEntityDescription(
         key="gas_cost_to_date",
-        REDACTED_VALUE"gas_cost_to_date",
+        translation_key="gas_cost_to_date",
         device_class=SensorDeviceClass.MONETARY,
         native_unit_of_measurement="USD",
         state_class=SensorStateClass.TOTAL,
@@ -165,7 +165,7 @@ GAS_SENSORS: tuple[OpowerEntityDescription, ...] = (
     ),
     OpowerEntityDescription(
         key="gas_forecasted_cost",
-        REDACTED_VALUE"gas_forecasted_cost",
+        translation_key="gas_forecasted_cost",
         device_class=SensorDeviceClass.MONETARY,
         native_unit_of_measurement="USD",
         state_class=SensorStateClass.TOTAL,
@@ -174,7 +174,7 @@ GAS_SENSORS: tuple[OpowerEntityDescription, ...] = (
     ),
     OpowerEntityDescription(
         key="gas_typical_cost",
-        REDACTED_VALUE"gas_typical_cost",
+        translation_key="gas_typical_cost",
         device_class=SensorDeviceClass.MONETARY,
         native_unit_of_measurement="USD",
         state_class=SensorStateClass.TOTAL,
@@ -183,7 +183,7 @@ GAS_SENSORS: tuple[OpowerEntityDescription, ...] = (
     ),
     OpowerEntityDescription(
         key="gas_start_date",
-        REDACTED_VALUE"gas_start_date",
+        translation_key="gas_start_date",
         device_class=SensorDeviceClass.DATE,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -191,7 +191,7 @@ GAS_SENSORS: tuple[OpowerEntityDescription, ...] = (
     ),
     OpowerEntityDescription(
         key="gas_end_date",
-        REDACTED_VALUE"gas_end_date",
+        translation_key="gas_end_date",
         device_class=SensorDeviceClass.DATE,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,

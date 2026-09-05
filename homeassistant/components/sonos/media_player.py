@@ -359,7 +359,7 @@ class SonosMediaPlayerEntity(SonosEntity, MediaPlayerEntity):
         if len(fav) != 1:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_favorite",
+                translation_key="invalid_favorite",
                 translation_placeholders={
                     "name": name,
                 },
@@ -497,7 +497,7 @@ class SonosMediaPlayerEntity(SonosEntity, MediaPlayerEntity):
             else:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"announce_media_error",
+                    translation_key="announce_media_error",
                     translation_placeholders={
                         "media_id": media_id,
                         "response": response,
@@ -596,7 +596,7 @@ class SonosMediaPlayerEntity(SonosEntity, MediaPlayerEntity):
             if not playlist:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"invalid_sonos_playlist",
+                    translation_key="invalid_sonos_playlist",
                     translation_placeholders={
                         "name": media_id,
                     },
@@ -609,7 +609,7 @@ class SonosMediaPlayerEntity(SonosEntity, MediaPlayerEntity):
             if not item:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"invalid_media",
+                    translation_key="invalid_media",
                     translation_placeholders={
                         "media_id": media_id,
                     },
@@ -618,7 +618,7 @@ class SonosMediaPlayerEntity(SonosEntity, MediaPlayerEntity):
         else:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_content_type",
+                translation_key="invalid_content_type",
                 translation_placeholders={
                     "media_type": media_type,
                 },
@@ -661,7 +661,7 @@ class SonosMediaPlayerEntity(SonosEntity, MediaPlayerEntity):
         if not item:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_media",
+                translation_key="invalid_media",
                 translation_placeholders={
                     "media_id": media_id,
                 },
@@ -729,7 +729,7 @@ class SonosMediaPlayerEntity(SonosEntity, MediaPlayerEntity):
         if alarm is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_alarm_id",
+                translation_key="invalid_alarm_id",
                 translation_placeholders={
                     "alarm_id": str(alarm_id),
                 },
@@ -842,7 +842,7 @@ class SonosMediaPlayerEntity(SonosEntity, MediaPlayerEntity):
             if not (entity_reg_entry := entity_registry.async_get(entity_id)):
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"entity_not_found",
+                    translation_key="entity_not_found",
                     translation_placeholders={"entity_id": entity_id},
                 )
             if not (
@@ -853,7 +853,7 @@ class SonosMediaPlayerEntity(SonosEntity, MediaPlayerEntity):
             ):
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"speaker_not_found",
+                    translation_key="speaker_not_found",
                     translation_placeholders={"entity_id": entity_id},
                 )
 

@@ -167,7 +167,7 @@ class ActronSystemClimate(ActronAirAcEntity, ActronAirClimateEntity):
         if (temperature := kwargs.get(ATTR_TEMPERATURE)) is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"temperature_missing",
+                translation_key="temperature_missing",
             )
         await self._status.user_aircon_settings.set_temperature(temperature=temperature)
 
@@ -253,6 +253,6 @@ class ActronZoneClimate(ActronAirZoneEntity, ActronAirClimateEntity):
         if (temperature := kwargs.get(ATTR_TEMPERATURE)) is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"temperature_missing",
+                translation_key="temperature_missing",
             )
         await self._zone.set_temperature(temperature=temperature)

@@ -36,13 +36,13 @@ class IOmeterEntityDescription(SensorEntityDescription):
 SENSOR_TYPES: list[IOmeterEntityDescription] = [
     IOmeterEntityDescription(
         key="meter_number",
-        REDACTED_VALUE"meter_number",
+        translation_key="meter_number",
         icon="mdi:meter-electric",
         value_fn=lambda data: data.status.meter.number,
     ),
     IOmeterEntityDescription(
         key="wifi_rssi",
-        REDACTED_VALUE"wifi_rssi",
+        translation_key="wifi_rssi",
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS,
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         state_class=SensorStateClass.MEASUREMENT,
@@ -52,7 +52,7 @@ SENSOR_TYPES: list[IOmeterEntityDescription] = [
     ),
     IOmeterEntityDescription(
         key="core_bridge_rssi",
-        REDACTED_VALUE"core_bridge_rssi",
+        translation_key="core_bridge_rssi",
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS,
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         state_class=SensorStateClass.MEASUREMENT,
@@ -62,14 +62,14 @@ SENSOR_TYPES: list[IOmeterEntityDescription] = [
     ),
     IOmeterEntityDescription(
         key="power_status",
-        REDACTED_VALUE"power_status",
+        translation_key="power_status",
         device_class=SensorDeviceClass.ENUM,
         options=["battery", "wired", "unknown"],
         value_fn=lambda data: data.status.device.core.power_status or STATE_UNKNOWN,
     ),
     IOmeterEntityDescription(
         key="battery_level",
-        REDACTED_VALUE"battery_level",
+        translation_key="battery_level",
         native_unit_of_measurement=PERCENTAGE,
         device_class=SensorDeviceClass.BATTERY,
         state_class=SensorStateClass.MEASUREMENT,
@@ -81,22 +81,22 @@ SENSOR_TYPES: list[IOmeterEntityDescription] = [
     ),
     IOmeterEntityDescription(
         key="pin_status",
-        REDACTED_VALUE"pin_status",
+        translation_key="pin_status",
         device_class=SensorDeviceClass.ENUM,
         options=["entered", "pending", "missing", "unknown"],
         value_fn=lambda data: data.status.device.core.pin_status or STATE_UNKNOWN,
     ),
     IOmeterEntityDescription(
-        key="REDACTED_VALUE",
-        REDACTED_VALUE"REDACTED_VALUE",
+        key="consumption_tariff_t1",
+        translation_key="consumption_tariff_t1",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: data.reading.get_consumption_tariff_T1(),
     ),
     IOmeterEntityDescription(
-        key="REDACTED_VALUE",
-        REDACTED_VALUE"REDACTED_VALUE",
+        key="consumption_tariff_t2",
+        translation_key="consumption_tariff_t2",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL,
@@ -104,7 +104,7 @@ SENSOR_TYPES: list[IOmeterEntityDescription] = [
     ),
     IOmeterEntityDescription(
         key="total_consumption",
-        REDACTED_VALUE"total_consumption",
+        translation_key="total_consumption",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL,
@@ -112,7 +112,7 @@ SENSOR_TYPES: list[IOmeterEntityDescription] = [
     ),
     IOmeterEntityDescription(
         key="total_production",
-        REDACTED_VALUE"total_production",
+        translation_key="total_production",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL,

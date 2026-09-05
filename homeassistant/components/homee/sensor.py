@@ -275,7 +275,7 @@ NODE_SENSOR_DESCRIPTIONS: tuple[HomeeNodeSensorEntityDescription, ...] = (
         ],
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
-        REDACTED_VALUE"node_state",
+        translation_key="node_state",
         value_fn=lambda node: get_name_for_enum(NodeState, node.state),
     ),
 )

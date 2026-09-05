@@ -27,7 +27,7 @@ class SnooButtonEntityDescription(ButtonEntityDescription):
 BUTTON_DESCRIPTIONS: list[SnooButtonEntityDescription] = [
     SnooButtonEntityDescription(
         key="start_snoo",
-        REDACTED_VALUE"start_snoo",
+        translation_key="start_snoo",
         press_fn=lambda snoo, device: snoo.start_snoo(
             device,
         ),
@@ -64,6 +64,6 @@ class SnooButton(SnooDescriptionEntity, ButtonEntity):
         except SnooCommandException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUEf"{self.entity_description.key}_failed",
+                translation_key=f"{self.entity_description.key}_failed",
                 translation_placeholders={"name": str(self.name)},
             ) from err

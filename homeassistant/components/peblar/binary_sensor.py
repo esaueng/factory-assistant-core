@@ -28,7 +28,7 @@ class PeblarBinarySensorEntityDescription(BinarySensorEntityDescription):
 DESCRIPTIONS = [
     PeblarBinarySensorEntityDescription(
         key="active_error_codes",
-        REDACTED_VALUE"active_error_codes",
+        translation_key="active_error_codes",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -36,7 +36,7 @@ DESCRIPTIONS = [
     ),
     PeblarBinarySensorEntityDescription(
         key="active_warning_codes",
-        REDACTED_VALUE"active_warning_codes",
+        translation_key="active_warning_codes",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,

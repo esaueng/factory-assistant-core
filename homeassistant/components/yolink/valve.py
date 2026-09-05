@@ -55,7 +55,7 @@ def sprinkler_valve_available(device: YoLinkDevice, data: dict[str, Any]) -> boo
 DEVICE_TYPES: tuple[YoLinkValveEntityDescription, ...] = (
     YoLinkValveEntityDescription(
         key="valve_state",
-        REDACTED_VALUE"meter_valve_state",
+        translation_key="meter_valve_state",
         device_class=ValveDeviceClass.WATER,
         value=lambda value: value != "open" if value is not None else None,
         exists_fn=lambda device: (
@@ -65,7 +65,7 @@ DEVICE_TYPES: tuple[YoLinkValveEntityDescription, ...] = (
     ),
     YoLinkValveEntityDescription(
         key="valve_1_state",
-        REDACTED_VALUE"meter_valve_1_state",
+        translation_key="meter_valve_1_state",
         device_class=ValveDeviceClass.WATER,
         value=lambda value: value != "open" if value is not None else None,
         exists_fn=lambda device: (
@@ -75,7 +75,7 @@ DEVICE_TYPES: tuple[YoLinkValveEntityDescription, ...] = (
     ),
     YoLinkValveEntityDescription(
         key="valve_2_state",
-        REDACTED_VALUE"meter_valve_2_state",
+        translation_key="meter_valve_2_state",
         device_class=ValveDeviceClass.WATER,
         value=lambda value: value != "open" if value is not None else None,
         exists_fn=lambda device: (
@@ -85,7 +85,7 @@ DEVICE_TYPES: tuple[YoLinkValveEntityDescription, ...] = (
     ),
     YoLinkValveEntityDescription(
         key="valve",
-        REDACTED_VALUE"sprinkler_valve",
+        translation_key="sprinkler_valve",
         device_class=ValveDeviceClass.WATER,
         value=lambda value: value is False if value is not None else None,
         exists_fn=lambda device: (
@@ -168,7 +168,7 @@ class YoLinkValveEntity(YoLinkEntity, ValveEntity):
             and self.coordinator.dev_net_type == ATTR_DEVICE_MODEL_A
         ):
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"valve_inoperable_currently"
+                translation_domain=DOMAIN, translation_key="valve_inoperable_currently"
             )
         if (
             self.coordinator.device.device_type

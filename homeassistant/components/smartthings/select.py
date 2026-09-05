@@ -131,7 +131,7 @@ CAPABILITIES_TO_SELECT: dict[Capability | str, SmartThingsSelectDescription] = {
     Capability.DISHWASHER_OPERATING_STATE: SmartThingsSelectDescription(
         key=Capability.DISHWASHER_OPERATING_STATE,
         name=None,
-        REDACTED_VALUE"operating_state",
+        translation_key="operating_state",
         requires_remote_control_status=True,
         options_attribute=Attribute.SUPPORTED_MACHINE_STATES,
         status_attribute=Attribute.MACHINE_STATE,
@@ -140,7 +140,7 @@ CAPABILITIES_TO_SELECT: dict[Capability | str, SmartThingsSelectDescription] = {
     Capability.DRYER_OPERATING_STATE: SmartThingsSelectDescription(
         key=Capability.DRYER_OPERATING_STATE,
         name=None,
-        REDACTED_VALUE"operating_state",
+        translation_key="operating_state",
         requires_remote_control_status=True,
         options_attribute=Attribute.SUPPORTED_MACHINE_STATES,
         status_attribute=Attribute.MACHINE_STATE,
@@ -150,7 +150,7 @@ CAPABILITIES_TO_SELECT: dict[Capability | str, SmartThingsSelectDescription] = {
     Capability.WASHER_OPERATING_STATE: SmartThingsSelectDescription(
         key=Capability.WASHER_OPERATING_STATE,
         name=None,
-        REDACTED_VALUE"operating_state",
+        translation_key="operating_state",
         requires_remote_control_status=True,
         options_attribute=Attribute.SUPPORTED_MACHINE_STATES,
         status_attribute=Attribute.MACHINE_STATE,
@@ -159,7 +159,7 @@ CAPABILITIES_TO_SELECT: dict[Capability | str, SmartThingsSelectDescription] = {
     ),
     Capability.SAMSUNG_CE_AUTO_DISPENSE_DETERGENT: SmartThingsSelectDescription(
         key=Capability.SAMSUNG_CE_AUTO_DISPENSE_DETERGENT,
-        REDACTED_VALUE"detergent_amount",
+        translation_key="detergent_amount",
         options_attribute=Attribute.SUPPORTED_AMOUNT,
         status_attribute=Attribute.AMOUNT,
         command=Command.SET_AMOUNT,
@@ -168,7 +168,7 @@ CAPABILITIES_TO_SELECT: dict[Capability | str, SmartThingsSelectDescription] = {
     Capability.SAMSUNG_CE_FLEXIBLE_AUTO_DISPENSE_DETERGENT: (
         SmartThingsSelectDescription(
             key=Capability.SAMSUNG_CE_FLEXIBLE_AUTO_DISPENSE_DETERGENT,
-            REDACTED_VALUE"flexible_detergent_amount",
+            translation_key="flexible_detergent_amount",
             options_attribute=Attribute.SUPPORTED_AMOUNT,
             status_attribute=Attribute.AMOUNT,
             command=Command.SET_AMOUNT,
@@ -177,7 +177,7 @@ CAPABILITIES_TO_SELECT: dict[Capability | str, SmartThingsSelectDescription] = {
     ),
     Capability.SAMSUNG_CE_LAMP: SmartThingsSelectDescription(
         key=Capability.SAMSUNG_CE_LAMP,
-        REDACTED_VALUE"lamp",
+        translation_key="lamp",
         options_attribute=Attribute.SUPPORTED_BRIGHTNESS_LEVEL,
         status_attribute=Attribute.BRIGHTNESS_LEVEL,
         command=Command.SET_BRIGHTNESS_LEVEL,
@@ -188,7 +188,7 @@ CAPABILITIES_TO_SELECT: dict[Capability | str, SmartThingsSelectDescription] = {
     ),
     Capability.SAMSUNG_CE_SOUND_DETECTION_SENSITIVITY: SmartThingsSelectDescription(
         key=Capability.SAMSUNG_CE_SOUND_DETECTION_SENSITIVITY,
-        REDACTED_VALUE"sound_detection_sensitivity",
+        translation_key="sound_detection_sensitivity",
         options_attribute=Attribute.SUPPORTED_LEVELS,
         status_attribute=Attribute.LEVEL,
         command=Command.SET_LEVEL,
@@ -197,7 +197,7 @@ CAPABILITIES_TO_SELECT: dict[Capability | str, SmartThingsSelectDescription] = {
     ),
     Capability.CUSTOM_WASHER_SPIN_LEVEL: SmartThingsSelectDescription(
         key=Capability.CUSTOM_WASHER_SPIN_LEVEL,
-        REDACTED_VALUE"spin_level",
+        translation_key="spin_level",
         options_attribute=Attribute.SUPPORTED_WASHER_SPIN_LEVEL,
         status_attribute=Attribute.WASHER_SPIN_LEVEL,
         command=Command.SET_WASHER_SPIN_LEVEL,
@@ -206,7 +206,7 @@ CAPABILITIES_TO_SELECT: dict[Capability | str, SmartThingsSelectDescription] = {
     ),
     Capability.CUSTOM_WASHER_SOIL_LEVEL: SmartThingsSelectDescription(
         key=Capability.CUSTOM_WASHER_SOIL_LEVEL,
-        REDACTED_VALUE"soil_level",
+        translation_key="soil_level",
         options_attribute=Attribute.SUPPORTED_WASHER_SOIL_LEVEL,
         status_attribute=Attribute.WASHER_SOIL_LEVEL,
         command=Command.SET_WASHER_SOIL_LEVEL,
@@ -215,7 +215,7 @@ CAPABILITIES_TO_SELECT: dict[Capability | str, SmartThingsSelectDescription] = {
     ),
     Capability.CUSTOM_WASHER_WATER_TEMPERATURE: SmartThingsSelectDescription(
         key=Capability.CUSTOM_WASHER_WATER_TEMPERATURE,
-        REDACTED_VALUE"water_temperature",
+        translation_key="water_temperature",
         requires_remote_control_status=True,
         options_attribute=Attribute.SUPPORTED_WASHER_WATER_TEMPERATURE,
         status_attribute=Attribute.WASHER_WATER_TEMPERATURE,
@@ -225,7 +225,7 @@ CAPABILITIES_TO_SELECT: dict[Capability | str, SmartThingsSelectDescription] = {
     ),
     Capability.SAMSUNG_CE_ROBOT_CLEANER_WATER_SPRAY_LEVEL: SmartThingsSelectDescription(
         key=Capability.SAMSUNG_CE_ROBOT_CLEANER_WATER_SPRAY_LEVEL,
-        REDACTED_VALUE"robot_cleaner_water_spray_level",
+        translation_key="robot_cleaner_water_spray_level",
         options_attribute=Attribute.SUPPORTED_WATER_SPRAY_LEVELS,
         status_attribute=Attribute.WATER_SPRAY_LEVEL,
         command=Command.SET_WATER_SPRAY_LEVEL,
@@ -234,7 +234,7 @@ CAPABILITIES_TO_SELECT: dict[Capability | str, SmartThingsSelectDescription] = {
     ),
     Capability.SAMSUNG_CE_ROBOT_CLEANER_DRIVING_MODE: SmartThingsSelectDescription(
         key=Capability.SAMSUNG_CE_ROBOT_CLEANER_DRIVING_MODE,
-        REDACTED_VALUE"robot_cleaner_driving_mode",
+        translation_key="robot_cleaner_driving_mode",
         options_attribute=Attribute.SUPPORTED_DRIVING_MODES,
         status_attribute=Attribute.DRIVING_MODE,
         command=Command.SET_DRIVING_MODE,
@@ -243,7 +243,7 @@ CAPABILITIES_TO_SELECT: dict[Capability | str, SmartThingsSelectDescription] = {
     ),
     Capability.SAMSUNG_CE_DUST_FILTER_ALARM: SmartThingsSelectDescription(
         key=Capability.SAMSUNG_CE_DUST_FILTER_ALARM,
-        REDACTED_VALUE"dust_filter_alarm",
+        translation_key="dust_filter_alarm",
         options_attribute=Attribute.SUPPORTED_ALARM_THRESHOLDS,
         status_attribute=Attribute.ALARM_THRESHOLD,
         command=Command.SET_ALARM_THRESHOLD,
@@ -252,7 +252,7 @@ CAPABILITIES_TO_SELECT: dict[Capability | str, SmartThingsSelectDescription] = {
     ),
     Capability.SAMSUNG_CE_ROBOT_CLEANER_SYSTEM_SOUND_MODE: SmartThingsSelectDescription(
         key=Capability.SAMSUNG_CE_ROBOT_CLEANER_SYSTEM_SOUND_MODE,
-        REDACTED_VALUE"robot_cleaner_sound_mode",
+        translation_key="robot_cleaner_sound_mode",
         options_attribute=Attribute.SUPPORTED_SOUND_MODES,
         status_attribute=Attribute.SOUND_MODE,
         command=Command.SET_SOUND_MODE,
@@ -262,7 +262,7 @@ CAPABILITIES_TO_SELECT: dict[Capability | str, SmartThingsSelectDescription] = {
     ),
     Capability.SAMSUNG_CE_ROBOT_CLEANER_CLEANING_TYPE: SmartThingsSelectDescription(
         key=Capability.SAMSUNG_CE_ROBOT_CLEANER_CLEANING_TYPE,
-        REDACTED_VALUE"robot_cleaner_cleaning_type",
+        translation_key="robot_cleaner_cleaning_type",
         options_attribute=Attribute.SUPPORTED_CLEANING_TYPES,
         status_attribute=Attribute.CLEANING_TYPE,
         command=Command.SET_CLEANING_TYPE,
@@ -275,7 +275,7 @@ DISHWASHER_WASHING_OPTIONS_TO_SELECT: dict[
 ] = {
     Attribute.SELECTED_ZONE: SmartThingsSelectDescription(
         key=Capability.SAMSUNG_CE_DISHWASHER_WASHING_OPTIONS,
-        REDACTED_VALUE"selected_zone",
+        translation_key="selected_zone",
         options_attribute=Attribute.SELECTED_ZONE,
         status_attribute=Attribute.SELECTED_ZONE,
         command=Command.SET_SELECTED_ZONE,
@@ -284,7 +284,7 @@ DISHWASHER_WASHING_OPTIONS_TO_SELECT: dict[
     ),
     Attribute.ZONE_BOOSTER: SmartThingsSelectDescription(
         key=Capability.SAMSUNG_CE_DISHWASHER_WASHING_OPTIONS,
-        REDACTED_VALUE"zone_booster",
+        translation_key="zone_booster",
         options_attribute=Attribute.ZONE_BOOSTER,
         status_attribute=Attribute.ZONE_BOOSTER,
         command=Command.SET_ZONE_BOOSTER,

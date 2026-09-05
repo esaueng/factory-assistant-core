@@ -59,7 +59,7 @@ class MieleEntity(MieleBaseEntity[MieleDataUpdateCoordinator]):
             identifiers={(DOMAIN, device_id)},
             serial_number=device_id,
             name=device.device_name or appliance_type or device.tech_type,
-            REDACTED_VALUENone if device.device_name else appliance_type,
+            translation_key=None if device.device_name else appliance_type,
             manufacturer=MANUFACTURER,
             model=(
                 appliance_type.capitalize().replace("_", " ")

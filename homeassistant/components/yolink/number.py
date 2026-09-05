@@ -46,7 +46,7 @@ def get_volume_value(state: dict[str, Any]) -> int | None:
 DEVICE_CONFIG_DESCRIPTIONS: tuple[YoLinkNumberTypeConfigEntityDescription, ...] = (
     YoLinkNumberTypeConfigEntityDescription(
         key=OPTIONS_VOLUME,
-        REDACTED_VALUE"config_volume",
+        translation_key="config_volume",
         native_min_value=1,
         native_max_value=16,
         mode=NumberMode.SLIDER,

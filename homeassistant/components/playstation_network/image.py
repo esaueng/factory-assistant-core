@@ -42,14 +42,14 @@ class PlaystationNetworkImageEntityDescription(ImageEntityDescription):
 IMAGE_DESCRIPTIONS_ME: tuple[PlaystationNetworkImageEntityDescription, ...] = (
     PlaystationNetworkImageEntityDescription(
         key=PlaystationNetworkImage.SHARE_PROFILE,
-        REDACTED_VALUEPlaystationNetworkImage.SHARE_PROFILE,
+        translation_key=PlaystationNetworkImage.SHARE_PROFILE,
         image_url_fn=lambda data: data.shareable_profile_link["shareImageUrl"],
     ),
 )
 IMAGE_DESCRIPTIONS_ALL: tuple[PlaystationNetworkImageEntityDescription, ...] = (
     PlaystationNetworkImageEntityDescription(
         key=PlaystationNetworkImage.AVATAR,
-        REDACTED_VALUEPlaystationNetworkImage.AVATAR,
+        translation_key=PlaystationNetworkImage.AVATAR,
         image_url_fn=(
             lambda data: next(
                 (
@@ -63,7 +63,7 @@ IMAGE_DESCRIPTIONS_ALL: tuple[PlaystationNetworkImageEntityDescription, ...] = (
     ),
     PlaystationNetworkImageEntityDescription(
         key=PlaystationNetworkImage.NOW_PLAYING_IMAGE,
-        REDACTED_VALUEPlaystationNetworkImage.NOW_PLAYING_IMAGE,
+        translation_key=PlaystationNetworkImage.NOW_PLAYING_IMAGE,
         image_url_fn=(
             lambda data: (
                 get_game_title_info(data.presence).get("conceptIconUrl")

@@ -37,7 +37,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: LD2410BLEConfigEntry) ->
     if not ble_device:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_not_found",
+            translation_key="device_not_found",
             translation_placeholders={
                 "address": address,
                 "reason": bluetooth.async_address_reachability_diagnostics(

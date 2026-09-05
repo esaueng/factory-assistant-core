@@ -101,7 +101,7 @@ def _normalize_partial_options_data(
                 is_fixable=True,
                 is_persistent=True,
                 severity=ir.IssueSeverity.WARNING,
-                REDACTED_VALUEISSUE_KEY_LEGACY_HOMEASSISTANT_FOLDER,
+                translation_key=ISSUE_KEY_LEGACY_HOMEASSISTANT_FOLDER,
             )
         if folders:
             data[ATTR_FOLDERS] = folders
@@ -458,7 +458,7 @@ def async_register_network_storage_services(
         if (device := dev_reg.async_get(service.data[ATTR_DEVICE_ID])) is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"mount_reload_unknown_device_id",
+                translation_key="mount_reload_unknown_device_id",
             )
 
         if (
@@ -469,7 +469,7 @@ def async_register_network_storage_services(
         ):
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"mount_reload_invalid_device",
+                translation_key="mount_reload_invalid_device",
             )
 
         try:
@@ -477,7 +477,7 @@ def async_register_network_storage_services(
         except SupervisorError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"mount_reload_error",
+                translation_key="mount_reload_error",
                 translation_placeholders={"name": device.name, "error": str(error)},
             ) from error
 

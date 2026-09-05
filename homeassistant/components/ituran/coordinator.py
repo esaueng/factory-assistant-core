@@ -51,11 +51,11 @@ class IturanDataUpdateCoordinator(DataUpdateCoordinator[dict[str, Vehicle]]):
             vehicles = await self.ituran.get_vehicles()
         except IturanApiError as e:
             raise UpdateFailed(
-                translation_domain=DOMAIN, REDACTED_VALUE"api_error"
+                translation_domain=DOMAIN, translation_key="api_error"
             ) from e
         except IturanAuthError as e:
             raise ConfigEntryAuthFailed(
-                translation_domain=DOMAIN, REDACTED_VALUE"auth_error"
+                translation_domain=DOMAIN, translation_key="auth_error"
             ) from e
 
         updated_data = {vehicle.license_plate: vehicle for vehicle in vehicles}

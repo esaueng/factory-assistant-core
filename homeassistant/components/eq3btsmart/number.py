@@ -50,7 +50,7 @@ NUMBER_ENTITY_DESCRIPTIONS = [
         value_set_func=lambda thermostat: (
             thermostat.async_configure_comfort_temperature
         ),
-        REDACTED_VALUEENTITY_KEY_COMFORT,
+        translation_key=ENTITY_KEY_COMFORT,
         native_min_value=EQ3_MIN_TEMP,
         native_max_value=EQ3_MAX_TEMP,
         native_step=EQ3BT_STEP,
@@ -61,7 +61,7 @@ NUMBER_ENTITY_DESCRIPTIONS = [
         key=ENTITY_KEY_ECO,
         value_func=lambda presets: presets.eco_temperature,
         value_set_func=lambda thermostat: thermostat.async_configure_eco_temperature,
-        REDACTED_VALUEENTITY_KEY_ECO,
+        translation_key=ENTITY_KEY_ECO,
         native_min_value=EQ3_MIN_TEMP,
         native_max_value=EQ3_MAX_TEMP,
         native_step=EQ3BT_STEP,
@@ -74,7 +74,7 @@ NUMBER_ENTITY_DESCRIPTIONS = [
         value_set_func=lambda thermostat: (
             thermostat.async_configure_window_open_temperature
         ),
-        REDACTED_VALUEENTITY_KEY_WINDOW_OPEN_TEMPERATURE,
+        translation_key=ENTITY_KEY_WINDOW_OPEN_TEMPERATURE,
         native_min_value=EQ3_MIN_TEMP,
         native_max_value=EQ3_MAX_TEMP,
         native_step=EQ3BT_STEP,
@@ -85,7 +85,7 @@ NUMBER_ENTITY_DESCRIPTIONS = [
         key=ENTITY_KEY_OFFSET,
         value_func=lambda presets: presets.offset_temperature,
         value_set_func=lambda thermostat: thermostat.async_configure_temperature_offset,
-        REDACTED_VALUEENTITY_KEY_OFFSET,
+        translation_key=ENTITY_KEY_OFFSET,
         native_min_value=EQ3_MIN_OFFSET,
         native_max_value=EQ3_MAX_OFFSET,
         native_step=EQ3BT_STEP,
@@ -98,7 +98,7 @@ NUMBER_ENTITY_DESCRIPTIONS = [
             thermostat.async_configure_window_open_duration
         ),
         value_func=lambda presets: presets.window_open_time.total_seconds() / 60,
-        REDACTED_VALUEENTITY_KEY_WINDOW_OPEN_TIMEOUT,
+        translation_key=ENTITY_KEY_WINDOW_OPEN_TIMEOUT,
         native_min_value=0,
         native_max_value=60,
         native_step=5,

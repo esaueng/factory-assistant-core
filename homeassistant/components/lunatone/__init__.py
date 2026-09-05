@@ -78,7 +78,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: LunatoneConfigEntry) -> 
 
     if info_api.data is None or info_api.serial_number is None:
         raise ConfigEntryError(
-            translation_domain=DOMAIN, REDACTED_VALUE"missing_device_info"
+            translation_domain=DOMAIN, translation_key="missing_device_info"
         )
 
     if info_api.uid is not None:

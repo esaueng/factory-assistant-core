@@ -97,7 +97,7 @@ class TeslaFleetEntity[_ApiT: VehicleFleet | EnergySite](
         if not self.scoped:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUEf"missing_scope_{scope.name.lower()}",
+                translation_key=f"missing_scope_{scope.name.lower()}",
             )
 
 

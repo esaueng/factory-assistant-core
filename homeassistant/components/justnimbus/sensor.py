@@ -35,7 +35,7 @@ class JustNimbusEntityDescription(SensorEntityDescription):
 SENSOR_TYPES = (
     JustNimbusEntityDescription(
         key="pump_pressure",
-        REDACTED_VALUE"pump_pressure",
+        translation_key="pump_pressure",
         native_unit_of_measurement=UnitOfPressure.BAR,
         device_class=SensorDeviceClass.PRESSURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -44,7 +44,7 @@ SENSOR_TYPES = (
     ),
     JustNimbusEntityDescription(
         key="reservoir_temp",
-        REDACTED_VALUE"reservoir_temperature",
+        translation_key="reservoir_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -53,7 +53,7 @@ SENSOR_TYPES = (
     ),
     JustNimbusEntityDescription(
         key="reservoir_content",
-        REDACTED_VALUE"reservoir_content",
+        translation_key="reservoir_content",
         native_unit_of_measurement=UnitOfVolume.LITERS,
         device_class=SensorDeviceClass.VOLUME,
         state_class=SensorStateClass.TOTAL,
@@ -62,7 +62,7 @@ SENSOR_TYPES = (
     ),
     JustNimbusEntityDescription(
         key="water_saved",
-        REDACTED_VALUE"water_saved",
+        translation_key="water_saved",
         native_unit_of_measurement=UnitOfVolume.LITERS,
         device_class=SensorDeviceClass.VOLUME,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -71,7 +71,7 @@ SENSOR_TYPES = (
     ),
     JustNimbusEntityDescription(
         key="water_used",
-        REDACTED_VALUE"water_used",
+        translation_key="water_used",
         native_unit_of_measurement=UnitOfVolume.LITERS,
         device_class=SensorDeviceClass.VOLUME,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -80,7 +80,7 @@ SENSOR_TYPES = (
     ),
     JustNimbusEntityDescription(
         key="reservoir_capacity",
-        REDACTED_VALUE"reservoir_capacity",
+        translation_key="reservoir_capacity",
         native_unit_of_measurement=UnitOfVolume.LITERS,
         device_class=SensorDeviceClass.VOLUME,
         state_class=SensorStateClass.TOTAL,
@@ -89,7 +89,7 @@ SENSOR_TYPES = (
     ),
     JustNimbusEntityDescription(
         key="pump_type",
-        REDACTED_VALUE"pump_type",
+        translation_key="pump_type",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda coordinator: coordinator.data.pump_type,
     ),

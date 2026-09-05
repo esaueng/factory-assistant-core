@@ -39,7 +39,7 @@ class HoneywellHumidifierEntityDescription(HumidifierEntityDescription):
 HUMIDIFIERS: dict[str, HoneywellHumidifierEntityDescription] = {
     "Humidifier": HoneywellHumidifierEntityDescription(
         key=HUMIDIFIER_KEY,
-        REDACTED_VALUEHUMIDIFIER_KEY,
+        translation_key=HUMIDIFIER_KEY,
         current_humidity=lambda device: device.current_humidity,
         set_humidity=lambda device, humidity: device.set_humidifier_setpoint(humidity),
         min_humidity=lambda device: device.humidifier_lower_limit,
@@ -52,7 +52,7 @@ HUMIDIFIERS: dict[str, HoneywellHumidifierEntityDescription] = {
     ),
     "Dehumidifier": HoneywellHumidifierEntityDescription(
         key=DEHUMIDIFIER_KEY,
-        REDACTED_VALUEDEHUMIDIFIER_KEY,
+        translation_key=DEHUMIDIFIER_KEY,
         current_humidity=lambda device: device.current_humidity,
         set_humidity=lambda device, humidity: device.set_dehumidifier_setpoint(
             humidity

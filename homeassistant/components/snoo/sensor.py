@@ -29,14 +29,14 @@ class SnooSensorEntityDescription(SensorEntityDescription):
 SENSOR_DESCRIPTIONS: list[SnooSensorEntityDescription] = [
     SnooSensorEntityDescription(
         key="state",
-        REDACTED_VALUE"state",
+        translation_key="state",
         value_fn=lambda data: data.state_machine.state.name,
         device_class=SensorDeviceClass.ENUM,
         options=[e.name for e in SnooStates],
     ),
     SnooSensorEntityDescription(
         key="time_left",
-        REDACTED_VALUE"time_left",
+        translation_key="time_left",
         value_fn=lambda data: data.state_machine.time_left_timestamp,
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,

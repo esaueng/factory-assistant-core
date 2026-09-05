@@ -57,7 +57,7 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
             key="supercooling",
             value_fn=lambda value: value.state_status,
             on_value=StateStatus.supercooling,
-            REDACTED_VALUE"supercooling",
+            translation_key="supercooling",
             on_cmd_data={PROCESS_ACTION: MieleActions.START_SUPERCOOL},
             off_cmd_data={PROCESS_ACTION: MieleActions.STOP_SUPERCOOL},
         ),
@@ -72,7 +72,7 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
             key="superfreezing",
             value_fn=lambda value: value.state_status,
             on_value=StateStatus.superfreezing,
-            REDACTED_VALUE"superfreezing",
+            translation_key="superfreezing",
             on_cmd_data={PROCESS_ACTION: MieleActions.START_SUPERFREEZE},
             off_cmd_data={PROCESS_ACTION: MieleActions.STOP_SUPERFREEZE},
         ),
@@ -101,7 +101,7 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
             key="poweronoff",
             value_fn=lambda value: value.state_status,
             off_value=1,
-            REDACTED_VALUE"power",
+            translation_key="power",
             on_cmd_data={POWER_ON: True},
             off_cmd_data={POWER_OFF: True},
         ),
@@ -167,7 +167,7 @@ class MieleSwitch(MieleEntity, SwitchEntity):
             _LOGGER.debug("Error setting switch state for %s: %s", self.entity_id, err)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_state_error",
+                translation_key="set_state_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                 },
@@ -200,7 +200,7 @@ class MielePowerSwitch(MieleSwitch):
             _LOGGER.debug("Error setting switch state for %s: %s", self.entity_id, err)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_state_error",
+                translation_key="set_state_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                 },

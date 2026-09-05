@@ -32,7 +32,7 @@ from .util import get_valid_flume_devices
 FLUME_QUERIES_SENSOR: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="current_interval",
-        REDACTED_VALUE"current_interval",
+        translation_key="current_interval",
         suggested_display_precision=2,
         native_unit_of_measurement=UnitOfVolumeFlowRate.GALLONS_PER_MINUTE,
         device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
@@ -40,7 +40,7 @@ FLUME_QUERIES_SENSOR: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="month_to_date",
-        REDACTED_VALUE"month_to_date",
+        translation_key="month_to_date",
         suggested_display_precision=2,
         native_unit_of_measurement=UnitOfVolume.GALLONS,
         device_class=SensorDeviceClass.WATER,
@@ -48,7 +48,7 @@ FLUME_QUERIES_SENSOR: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="week_to_date",
-        REDACTED_VALUE"week_to_date",
+        translation_key="week_to_date",
         suggested_display_precision=2,
         native_unit_of_measurement=UnitOfVolume.GALLONS,
         device_class=SensorDeviceClass.WATER,
@@ -56,7 +56,7 @@ FLUME_QUERIES_SENSOR: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="today",
-        REDACTED_VALUE"today",
+        translation_key="today",
         suggested_display_precision=2,
         native_unit_of_measurement=UnitOfVolume.GALLONS,
         device_class=SensorDeviceClass.WATER,
@@ -64,7 +64,7 @@ FLUME_QUERIES_SENSOR: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="last_60_min",
-        REDACTED_VALUE"last_60_min",
+        translation_key="last_60_min",
         suggested_display_precision=2,
         native_unit_of_measurement=UnitOfVolumeFlowRate.GALLONS_PER_HOUR,
         device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
@@ -72,7 +72,7 @@ FLUME_QUERIES_SENSOR: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="last_24_hrs",
-        REDACTED_VALUE"last_24_hrs",
+        translation_key="last_24_hrs",
         suggested_display_precision=2,
         native_unit_of_measurement=UnitOfVolumeFlowRate.GALLONS_PER_DAY,
         device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
@@ -80,7 +80,7 @@ FLUME_QUERIES_SENSOR: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="last_30_days",
-        REDACTED_VALUE"last_30_days",
+        translation_key="last_30_days",
         suggested_display_precision=2,
         native_unit_of_measurement=f"{UnitOfVolume.GALLONS}/mo",
         state_class=SensorStateClass.MEASUREMENT,

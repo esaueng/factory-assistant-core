@@ -65,7 +65,7 @@ class RehlkoUpdateCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         except CommunicationError as error:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
+                translation_key="update_failed",
             ) from error
         return result
 

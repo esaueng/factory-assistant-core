@@ -56,7 +56,7 @@ SENSOR_TYPES: tuple[GiosSensorEntityDescription, ...] = (
         value=lambda sensors: sensors.aqi.value if sensors.aqi else None,
         device_class=SensorDeviceClass.ENUM,
         options=["very_bad", "bad", "sufficient", "moderate", "good", "very_good"],
-        REDACTED_VALUE"aqi",
+        translation_key="aqi",
     ),
     GiosSensorEntityDescription(
         key=ATTR_C6H6,
@@ -64,7 +64,7 @@ SENSOR_TYPES: tuple[GiosSensorEntityDescription, ...] = (
         suggested_display_precision=0,
         native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"c6h6",
+        translation_key="c6h6",
     ),
     GiosSensorEntityDescription(
         key=ATTR_CO,
@@ -96,11 +96,11 @@ SENSOR_TYPES: tuple[GiosSensorEntityDescription, ...] = (
         value=lambda sensors: sensors.no2.index if sensors.no2 else None,
         device_class=SensorDeviceClass.ENUM,
         options=["very_bad", "bad", "sufficient", "moderate", "good", "very_good"],
-        REDACTED_VALUE"no2_index",
+        translation_key="no2_index",
     ),
     GiosSensorEntityDescription(
         key=ATTR_NOX,
-        REDACTED_VALUEATTR_NOX,
+        translation_key=ATTR_NOX,
         value=lambda sensors: sensors.nox.value if sensors.nox else None,
         suggested_display_precision=0,
         native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
@@ -120,7 +120,7 @@ SENSOR_TYPES: tuple[GiosSensorEntityDescription, ...] = (
         value=lambda sensors: sensors.o3.index if sensors.o3 else None,
         device_class=SensorDeviceClass.ENUM,
         options=["very_bad", "bad", "sufficient", "moderate", "good", "very_good"],
-        REDACTED_VALUE"o3_index",
+        translation_key="o3_index",
     ),
     GiosSensorEntityDescription(
         key=ATTR_PM10,
@@ -136,7 +136,7 @@ SENSOR_TYPES: tuple[GiosSensorEntityDescription, ...] = (
         value=lambda sensors: sensors.pm10.index if sensors.pm10 else None,
         device_class=SensorDeviceClass.ENUM,
         options=["very_bad", "bad", "sufficient", "moderate", "good", "very_good"],
-        REDACTED_VALUE"pm10_index",
+        translation_key="pm10_index",
     ),
     GiosSensorEntityDescription(
         key=ATTR_PM25,
@@ -152,7 +152,7 @@ SENSOR_TYPES: tuple[GiosSensorEntityDescription, ...] = (
         value=lambda sensors: sensors.pm25.index if sensors.pm25 else None,
         device_class=SensorDeviceClass.ENUM,
         options=["very_bad", "bad", "sufficient", "moderate", "good", "very_good"],
-        REDACTED_VALUE"pm25_index",
+        translation_key="pm25_index",
     ),
     GiosSensorEntityDescription(
         key=ATTR_SO2,
@@ -168,7 +168,7 @@ SENSOR_TYPES: tuple[GiosSensorEntityDescription, ...] = (
         value=lambda sensors: sensors.so2.index if sensors.so2 else None,
         device_class=SensorDeviceClass.ENUM,
         options=["very_bad", "bad", "sufficient", "moderate", "good", "very_good"],
-        REDACTED_VALUE"so2_index",
+        translation_key="so2_index",
     ),
 )
 

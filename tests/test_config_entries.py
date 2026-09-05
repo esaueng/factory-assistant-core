@@ -1538,7 +1538,7 @@ async def _test_reauth_issue(
         issue_id=issue_id,
         learn_more_url=None,
         severity=ir.IssueSeverity.ERROR,
-        REDACTED_VALUE"config_entry_reauth",
+        translation_key="config_entry_reauth",
         translation_placeholders={"name": "test_title"},
     )
     return issue

@@ -58,7 +58,7 @@ async def async_add_bonus_time(call: ServiceCall) -> None:
     if device is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_not_found",
+            translation_key="device_not_found",
         )
     for entry_id in device.config_entries:
         config_entry = call.hass.config_entries.async_get_entry(entry_id)
@@ -71,5 +71,5 @@ async def async_add_bonus_time(call: ServiceCall) -> None:
         ].add_extra_time(bonus_time)
     raise ServiceValidationError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"invalid_device",
+        translation_key="invalid_device",
     )

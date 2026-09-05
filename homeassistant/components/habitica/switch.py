@@ -39,7 +39,7 @@ class HabiticaSwitchEntity(StrEnum):
 SWTICH_DESCRIPTIONS: tuple[HabiticaSwitchEntityDescription, ...] = (
     HabiticaSwitchEntityDescription(
         key=HabiticaSwitchEntity.SLEEP,
-        REDACTED_VALUEHabiticaSwitchEntity.SLEEP,
+        translation_key=HabiticaSwitchEntity.SLEEP,
         device_class=SwitchDeviceClass.SWITCH,
         turn_on_fn=lambda habitica: habitica.toggle_sleep(),
         turn_off_fn=lambda habitica: habitica.toggle_sleep(),

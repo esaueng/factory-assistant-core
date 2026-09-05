@@ -61,13 +61,13 @@ async def validate_input(hass: HomeAssistant, data: dict[str, Any]) -> dict[str,
     except (aiocomelit_exceptions.CannotConnect, TimeoutError) as err:
         raise CannotConnect(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect",
+            translation_key="cannot_connect",
             translation_placeholders={"error": repr(err)},
         ) from err
     except aiocomelit_exceptions.CannotAuthenticate as err:
         raise InvalidAuth(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_authenticate",
+            translation_key="cannot_authenticate",
         ) from err
     finally:
         await api.logout()

@@ -38,21 +38,21 @@ class OhmeSwitchDescription(OhmeEntityDescription, SwitchEntityDescription):
 SWITCH_CONFIG = [
     OhmeConfigSwitchDescription(
         key="lock_buttons",
-        REDACTED_VALUE"lock_buttons",
+        translation_key="lock_buttons",
         entity_category=EntityCategory.CONFIG,
         is_supported_fn=lambda client: client.is_capable("buttonsLockable"),
         configuration_key="buttonsLocked",
     ),
     OhmeConfigSwitchDescription(
         key="require_approval",
-        REDACTED_VALUE"require_approval",
+        translation_key="require_approval",
         entity_category=EntityCategory.CONFIG,
         is_supported_fn=lambda client: client.is_capable("pluginsRequireApprovalMode"),
         configuration_key="pluginsRequireApproval",
     ),
     OhmeConfigSwitchDescription(
         key="sleep_when_inactive",
-        REDACTED_VALUE"sleep_when_inactive",
+        translation_key="sleep_when_inactive",
         entity_category=EntityCategory.CONFIG,
         is_supported_fn=lambda client: client.is_capable("stealth"),
         configuration_key="stealthEnabled",
@@ -62,7 +62,7 @@ SWITCH_CONFIG = [
 SWITCH_DESCRIPTION = [
     OhmeSwitchDescription(
         key="price_cap",
-        REDACTED_VALUE"price_cap",
+        translation_key="price_cap",
         is_supported_fn=lambda client: client.cap_available,
         is_on_fn=lambda client: client.cap_enabled,
         on_fn=lambda client: client.async_change_price_cap(True),
@@ -70,7 +70,7 @@ SWITCH_DESCRIPTION = [
     ),
     OhmeSwitchDescription(
         key="solar_boost",
-        REDACTED_VALUE"solar_boost",
+        translation_key="solar_boost",
         is_supported_fn=lambda client: client.is_capable("solar"),
         is_on_fn=lambda client: client.solar_enabled,
         on_fn=lambda client: client.async_set_solar_mode(True),
@@ -149,6 +149,6 @@ class OhmeConfigSwitch(OhmeEntity, SwitchEntity):
             )
         except ApiException as e:
             raise HomeAssistantError(
-                REDACTED_VALUE"api_failed", translation_domain=DOMAIN
+                translation_key="api_failed", translation_domain=DOMAIN
             ) from e
         await self.coordinator.async_request_refresh()

@@ -54,7 +54,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: MotionMountConfigEntry) 
         if CONF_PIN not in entry.data:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_pin_provided",
+                translation_key="no_pin_provided",
             )
 
         pin = entry.data[CONF_PIN]
@@ -62,7 +62,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: MotionMountConfigEntry) 
         if not mm.is_authenticated:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"incorrect_pin",
+                translation_key="incorrect_pin",
             )
 
     # Store an API object for your platforms to access

@@ -651,7 +651,7 @@ async def test_translated_unit(
         )
         entity0.entity_description = SensorEntityDescription(
             "test",
-            REDACTED_VALUE"test_translation_key",
+            translation_key="test_translation_key",
         )
         setup_test_component_platform(hass, sensor.DOMAIN, [entity0])
 
@@ -684,7 +684,7 @@ async def test_translated_unit_with_native_unit_raises(
         )
         entity0.entity_description = SensorEntityDescription(
             "test",
-            REDACTED_VALUE"test_translation_key",
+            translation_key="test_translation_key",
             native_unit_of_measurement="bad_unit",
         )
         setup_test_component_platform(hass, sensor.DOMAIN, [entity0])
@@ -716,7 +716,7 @@ async def test_unit_translation_key_without_platform_raises(
         )
         entity0.entity_description = SensorEntityDescription(
             "test",
-            REDACTED_VALUE"test_translation_key",
+            translation_key="test_translation_key",
         )
         with pytest.raises(
             ValueError,

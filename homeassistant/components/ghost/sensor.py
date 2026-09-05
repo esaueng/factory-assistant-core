@@ -48,56 +48,56 @@ SENSORS: tuple[GhostSensorEntityDescription, ...] = (
     # Core member metrics
     GhostSensorEntityDescription(
         key="total_members",
-        REDACTED_VALUE"total_members",
+        translation_key="total_members",
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: data.members.get("total", 0),
     ),
     GhostSensorEntityDescription(
         key="paid_members",
-        REDACTED_VALUE"paid_members",
+        translation_key="paid_members",
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: data.members.get("paid", 0),
     ),
     GhostSensorEntityDescription(
         key="free_members",
-        REDACTED_VALUE"free_members",
+        translation_key="free_members",
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: data.members.get("free", 0),
     ),
     GhostSensorEntityDescription(
         key="comped_members",
-        REDACTED_VALUE"comped_members",
+        translation_key="comped_members",
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: data.members.get("comped", 0),
     ),
     GhostSensorEntityDescription(
         key="gift_members",
-        REDACTED_VALUE"gift_members",
+        translation_key="gift_members",
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: data.members.get("gift", 0),
     ),
     # Post metrics
     GhostSensorEntityDescription(
         key="published_posts",
-        REDACTED_VALUE"published_posts",
+        translation_key="published_posts",
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: data.posts.get("published", 0),
     ),
     GhostSensorEntityDescription(
         key="draft_posts",
-        REDACTED_VALUE"draft_posts",
+        translation_key="draft_posts",
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: data.posts.get("drafts", 0),
     ),
     GhostSensorEntityDescription(
         key="scheduled_posts",
-        REDACTED_VALUE"scheduled_posts",
+        translation_key="scheduled_posts",
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: data.posts.get("scheduled", 0),
     ),
     GhostSensorEntityDescription(
         key="latest_post",
-        REDACTED_VALUE"latest_post",
+        translation_key="latest_post",
         value_fn=lambda data: (
             data.latest_post.get("title") if data.latest_post else None
         ),
@@ -105,14 +105,14 @@ SENSORS: tuple[GhostSensorEntityDescription, ...] = (
     # Email metrics
     GhostSensorEntityDescription(
         key="latest_email",
-        REDACTED_VALUE"latest_email",
+        translation_key="latest_email",
         value_fn=lambda data: (
             data.latest_email.get("title") if data.latest_email else None
         ),
     ),
     GhostSensorEntityDescription(
         key="latest_email_sent",
-        REDACTED_VALUE"latest_email_sent",
+        translation_key="latest_email_sent",
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: (
             data.latest_email.get("email_count") if data.latest_email else None
@@ -120,7 +120,7 @@ SENSORS: tuple[GhostSensorEntityDescription, ...] = (
     ),
     GhostSensorEntityDescription(
         key="latest_email_opened",
-        REDACTED_VALUE"latest_email_opened",
+        translation_key="latest_email_opened",
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: (
             data.latest_email.get("opened_count") if data.latest_email else None
@@ -128,7 +128,7 @@ SENSORS: tuple[GhostSensorEntityDescription, ...] = (
     ),
     GhostSensorEntityDescription(
         key="latest_email_open_rate",
-        REDACTED_VALUE"latest_email_open_rate",
+        translation_key="latest_email_open_rate",
         native_unit_of_measurement="%",
         value_fn=lambda data: (
             data.latest_email.get("open_rate") if data.latest_email else None
@@ -136,7 +136,7 @@ SENSORS: tuple[GhostSensorEntityDescription, ...] = (
     ),
     GhostSensorEntityDescription(
         key="latest_email_clicked",
-        REDACTED_VALUE"latest_email_clicked",
+        translation_key="latest_email_clicked",
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: (
             data.latest_email.get("clicked_count") if data.latest_email else None
@@ -144,7 +144,7 @@ SENSORS: tuple[GhostSensorEntityDescription, ...] = (
     ),
     GhostSensorEntityDescription(
         key="latest_email_click_rate",
-        REDACTED_VALUE"latest_email_click_rate",
+        translation_key="latest_email_click_rate",
         native_unit_of_measurement="%",
         value_fn=lambda data: (
             data.latest_email.get("click_rate") if data.latest_email else None
@@ -153,20 +153,20 @@ SENSORS: tuple[GhostSensorEntityDescription, ...] = (
     # Social/ActivityPub metrics
     GhostSensorEntityDescription(
         key="socialweb_followers",
-        REDACTED_VALUE"socialweb_followers",
+        translation_key="socialweb_followers",
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: data.activitypub.get("followers", 0),
     ),
     GhostSensorEntityDescription(
         key="socialweb_following",
-        REDACTED_VALUE"socialweb_following",
+        translation_key="socialweb_following",
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: data.activitypub.get("following", 0),
     ),
     # Engagement metrics
     GhostSensorEntityDescription(
         key="total_comments",
-        REDACTED_VALUE"total_comments",
+        translation_key="total_comments",
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: data.comments,
     ),
@@ -176,7 +176,7 @@ SENSORS: tuple[GhostSensorEntityDescription, ...] = (
 REVENUE_SENSORS: tuple[GhostSensorEntityDescription, ...] = (
     GhostSensorEntityDescription(
         key="mrr",
-        REDACTED_VALUE"mrr",
+        translation_key="mrr",
         device_class=SensorDeviceClass.MONETARY,
         state_class=SensorStateClass.TOTAL,
         native_unit_of_measurement=CURRENCY,
@@ -185,7 +185,7 @@ REVENUE_SENSORS: tuple[GhostSensorEntityDescription, ...] = (
     ),
     GhostSensorEntityDescription(
         key="arr",
-        REDACTED_VALUE"arr",
+        translation_key="arr",
         device_class=SensorDeviceClass.MONETARY,
         state_class=SensorStateClass.TOTAL,
         native_unit_of_measurement=CURRENCY,

@@ -66,7 +66,7 @@ SENSORS: tuple[LetPotSensorEntityDescription[LetPotGardenStatus], ...] = (
     ),
     LetPotSensorEntityDescription[LetPotGardenStatus](
         key="water_level",
-        REDACTED_VALUE"water_level",
+        translation_key="water_level",
         value_fn=lambda status: status.water_level,
         native_unit_of_measurement_fn=lambda _: PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,

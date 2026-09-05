@@ -153,7 +153,7 @@ def _async_check_firmware_version(
         is_fixable=False,
         severity=IssueSeverity.WARNING,
         learn_more_url=PROJECT_URLS.get(device_info.project_name, DEFAULT_URL),
-        REDACTED_VALUE"ble_firmware_outdated",
+        translation_key="ble_firmware_outdated",
         translation_placeholders={
             "name": device_info.name,
             "version": STABLE_BLE_VERSION_STR,
@@ -178,7 +178,7 @@ def _async_check_using_api_password(
         is_fixable=False,
         severity=IssueSeverity.WARNING,
         learn_more_url="https://esphome.io/components/api.html",
-        REDACTED_VALUE"api_password_deprecated",
+        translation_key="api_password_deprecated",
         translation_placeholders={
             "name": device_info.name,
         },
@@ -322,7 +322,7 @@ class ESPHomeManager:
                 self.services_issue,
                 is_fixable=False,
                 severity=IssueSeverity.WARNING,
-                REDACTED_VALUE"service_calls_not_allowed",
+                translation_key="service_calls_not_allowed",
                 translation_placeholders={
                     "name": device_info.friendly_name or device_info.name,
                 },
@@ -603,7 +603,7 @@ class ESPHomeManager:
                     issue,
                     is_fixable=True,
                     severity=IssueSeverity.ERROR,
-                    REDACTED_VALUE"device_conflict",
+                    translation_key="device_conflict",
                     translation_placeholders=shared_data,
                     data={**shared_data, "entry_id": entry.entry_id},
                 )
@@ -1196,7 +1196,7 @@ async def execute_service(
         except APIConnectionError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"action_call_failed",
+                translation_key="action_call_failed",
                 translation_placeholders={
                     "call_name": service.name,
                     "device_name": entry_data.name,
@@ -1225,7 +1225,7 @@ async def execute_service(
     except APIConnectionError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"action_call_failed",
+            translation_key="action_call_failed",
             translation_placeholders={
                 "call_name": service.name,
                 "device_name": entry_data.name,
@@ -1235,7 +1235,7 @@ async def execute_service(
     except TimeoutError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"action_call_timeout",
+            translation_key="action_call_timeout",
             translation_placeholders={
                 "call_name": service.name,
                 "device_name": entry_data.name,
@@ -1247,7 +1247,7 @@ async def execute_service(
     if not response.success:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"action_call_failed",
+            translation_key="action_call_failed",
             translation_placeholders={
                 "call_name": service.name,
                 "device_name": entry_data.name,
@@ -1262,7 +1262,7 @@ async def execute_service(
         except ValueError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"action_call_failed",
+                translation_key="action_call_failed",
                 translation_placeholders={
                     "call_name": service.name,
                     "device_name": entry_data.name,

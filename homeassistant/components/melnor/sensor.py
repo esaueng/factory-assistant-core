@@ -75,7 +75,7 @@ DEVICE_ENTITY_DESCRIPTIONS: list[MelnorSensorEntityDescription] = [
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         key="rssi",
-        REDACTED_VALUE"rssi",
+        translation_key="rssi",
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         state_class=SensorStateClass.MEASUREMENT,
         state_fn=lambda device: device.rssi,
@@ -86,13 +86,13 @@ ZONE_ENTITY_DESCRIPTIONS: list[MelnorZoneSensorEntityDescription] = [
     MelnorZoneSensorEntityDescription(
         device_class=SensorDeviceClass.TIMESTAMP,
         key="manual_cycle_end",
-        REDACTED_VALUE"manual_cycle_end",
+        translation_key="manual_cycle_end",
         state_fn=watering_seconds_left,
     ),
     MelnorZoneSensorEntityDescription(
         device_class=SensorDeviceClass.TIMESTAMP,
         key="next_cycle",
-        REDACTED_VALUE"next_cycle",
+        translation_key="next_cycle",
         state_fn=next_cycle,
     ),
 ]

@@ -77,17 +77,17 @@ class RingDataCoordinator(DataUpdateCoordinator[RingDevices]):
             # and start a config flow with SOURCE_REAUTH (async_step_reauth)
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_authentication",
+                translation_key="api_authentication",
             ) from err
         except RingTimeout as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_timeout",
+                translation_key="api_timeout",
             ) from err
         except RingError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_error",
+                translation_key="api_error",
             ) from err
 
     async def _async_update_data(self) -> RingDevices:

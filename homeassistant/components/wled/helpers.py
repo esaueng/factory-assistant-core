@@ -30,13 +30,13 @@ def wled_exception_handler[_WLEDEntityT: WLEDEntity, **_P](
             self.coordinator.async_update_listeners()
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connection_error",
+                translation_key="connection_error",
                 translation_placeholders={"error": str(error)},
             ) from error
         except WLEDError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_response_wled_error",
+                translation_key="invalid_response_wled_error",
                 translation_placeholders={"error": str(error)},
             ) from error
 

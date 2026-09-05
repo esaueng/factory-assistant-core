@@ -26,7 +26,7 @@ class TVCameraSensorEntityDescription(BinarySensorEntityDescription):
 
 BINARY_SENSOR_TYPE = TVCameraSensorEntityDescription(
     key="active",
-    REDACTED_VALUE"active",
+    translation_key="active",
     value_fn=lambda data: data.data.active,
 )
 

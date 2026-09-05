@@ -16,14 +16,14 @@ THEME_NAMES = [theme_name.lower() for theme_name in ThemeLibrary().themes]
 
 INFRARED_BRIGHTNESS_ENTITY = SelectEntityDescription(
     key=INFRARED_BRIGHTNESS,
-    REDACTED_VALUE"infrared_brightness",
+    translation_key="infrared_brightness",
     entity_category=EntityCategory.CONFIG,
     options=list(INFRARED_BRIGHTNESS_VALUES_MAP.values()),
 )
 
 THEME_ENTITY = SelectEntityDescription(
     key=ATTR_THEME,
-    REDACTED_VALUE"theme",
+    translation_key="theme",
     entity_category=EntityCategory.CONFIG,
     options=THEME_NAMES,
 )

@@ -272,7 +272,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
             _LOGGER.warning("Disconnected from Rflink, reconnecting")
             hass.async_create_task(connect(), eager_start=False)
 
-    _reconnect_job = HassJob(reconnect, "Rflink reconnect", REDACTED_VALUE)
+    _reconnect_job = HassJob(reconnect, "Rflink reconnect", cancel_on_shutdown=True)
 
     async def connect():
         """Set up connection and hook it into HA for reconnect/shutdown."""

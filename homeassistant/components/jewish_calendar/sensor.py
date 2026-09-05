@@ -58,7 +58,7 @@ class JewishCalendarTimestampSensorDescription(JewishCalendarBaseSensorDescripti
 INFO_SENSORS: tuple[JewishCalendarSensorDescription, ...] = (
     JewishCalendarSensorDescription(
         key="date",
-        REDACTED_VALUE"hebrew_date",
+        translation_key="hebrew_date",
         value_fn=lambda info: str(info.hdate),
         attr_fn=lambda info: {
             "hebrew_year": str(info.hdate.year),
@@ -70,7 +70,7 @@ INFO_SENSORS: tuple[JewishCalendarSensorDescription, ...] = (
     ),
     JewishCalendarSensorDescription(
         key="weekly_portion",
-        REDACTED_VALUE"weekly_portion",
+        translation_key="weekly_portion",
         device_class=SensorDeviceClass.ENUM,
         options_fn=lambda _: [str(p) for p in Parasha],
         value_fn=lambda info: info.upcoming_shabbat.parasha,
@@ -78,7 +78,7 @@ INFO_SENSORS: tuple[JewishCalendarSensorDescription, ...] = (
     ),
     JewishCalendarSensorDescription(
         key="holiday",
-        REDACTED_VALUE"holiday",
+        translation_key="holiday",
         device_class=SensorDeviceClass.ENUM,
         options_fn=lambda diaspora: HolidayDatabase(diaspora).get_all_names(),
         value_fn=lambda info: ", ".join(str(holiday) for holiday in info.holidays),
@@ -94,13 +94,13 @@ INFO_SENSORS: tuple[JewishCalendarSensorDescription, ...] = (
     ),
     JewishCalendarSensorDescription(
         key="omer_count",
-        REDACTED_VALUE"omer_count",
+        translation_key="omer_count",
         entity_registry_enabled_default=False,
         value_fn=lambda info: info.omer.total_days,
     ),
     JewishCalendarSensorDescription(
         key="daf_yomi",
-        REDACTED_VALUE"daf_yomi",
+        translation_key="daf_yomi",
         entity_registry_enabled_default=False,
         value_fn=lambda info: info.daf_yomi,
     ),
@@ -109,75 +109,75 @@ INFO_SENSORS: tuple[JewishCalendarSensorDescription, ...] = (
 TIME_SENSORS: tuple[JewishCalendarTimestampSensorDescription, ...] = (
     JewishCalendarTimestampSensorDescription(
         key="alot_hashachar",
-        REDACTED_VALUE"alot_hashachar",
+        translation_key="alot_hashachar",
         entity_registry_enabled_default=False,
     ),
     JewishCalendarTimestampSensorDescription(
         key="talit_and_tefillin",
-        REDACTED_VALUE"talit_and_tefillin",
+        translation_key="talit_and_tefillin",
         entity_registry_enabled_default=False,
     ),
     JewishCalendarTimestampSensorDescription(
         key="netz_hachama",
-        REDACTED_VALUE"netz_hachama",
+        translation_key="netz_hachama",
     ),
     JewishCalendarTimestampSensorDescription(
         key="sof_zman_shema_gra",
-        REDACTED_VALUE"sof_zman_shema_gra",
+        translation_key="sof_zman_shema_gra",
         entity_registry_enabled_default=False,
     ),
     JewishCalendarTimestampSensorDescription(
         key="sof_zman_shema_mga",
-        REDACTED_VALUE"sof_zman_shema_mga",
+        translation_key="sof_zman_shema_mga",
         entity_registry_enabled_default=False,
     ),
     JewishCalendarTimestampSensorDescription(
         key="sof_zman_tfilla_gra",
-        REDACTED_VALUE"sof_zman_tfilla_gra",
+        translation_key="sof_zman_tfilla_gra",
         entity_registry_enabled_default=False,
     ),
     JewishCalendarTimestampSensorDescription(
         key="sof_zman_tfilla_mga",
-        REDACTED_VALUE"sof_zman_tfilla_mga",
+        translation_key="sof_zman_tfilla_mga",
         entity_registry_enabled_default=False,
     ),
     JewishCalendarTimestampSensorDescription(
         key="chatzot_hayom",
-        REDACTED_VALUE"chatzot_hayom",
+        translation_key="chatzot_hayom",
         entity_registry_enabled_default=False,
     ),
     JewishCalendarTimestampSensorDescription(
         key="mincha_gedola",
-        REDACTED_VALUE"mincha_gedola",
+        translation_key="mincha_gedola",
         entity_registry_enabled_default=False,
     ),
     JewishCalendarTimestampSensorDescription(
         key="mincha_ketana",
-        REDACTED_VALUE"mincha_ketana",
+        translation_key="mincha_ketana",
         entity_registry_enabled_default=False,
     ),
     JewishCalendarTimestampSensorDescription(
         key="plag_hamincha",
-        REDACTED_VALUE"plag_hamincha",
+        translation_key="plag_hamincha",
         entity_registry_enabled_default=False,
     ),
     JewishCalendarTimestampSensorDescription(
         key="shkia",
-        REDACTED_VALUE"shkia",
+        translation_key="shkia",
     ),
     JewishCalendarTimestampSensorDescription(
         key="tset_hakohavim_tsom",
-        REDACTED_VALUE"tset_hakohavim_tsom",
+        translation_key="tset_hakohavim_tsom",
         entity_registry_enabled_default=False,
     ),
     JewishCalendarTimestampSensorDescription(
         key="tset_hakohavim_shabbat",
-        REDACTED_VALUE"tset_hakohavim_shabbat",
+        translation_key="tset_hakohavim_shabbat",
         entity_registry_enabled_default=False,
     ),
     JewishCalendarTimestampSensorDescription(
         key="upcoming_shabbat_candle_lighting",
-        REDACTED_VALUE"upcoming_shabbat_candle_lighting",
+        translation_key="upcoming_shabbat_candle_lighting",
         entity_registry_enabled_default=False,
         value_fn=lambda at_date, mz: (
             mz(at_date.upcoming_shabbat.previous_day.gdate).candle_lighting
@@ -186,14 +186,14 @@ TIME_SENSORS: tuple[JewishCalendarTimestampSensorDescription, ...] = (
     ),
     JewishCalendarTimestampSensorDescription(
         key="upcoming_shabbat_havdalah",
-        REDACTED_VALUE"upcoming_shabbat_havdalah",
+        translation_key="upcoming_shabbat_havdalah",
         entity_registry_enabled_default=False,
         value_fn=lambda at_date, mz: mz(at_date.upcoming_shabbat.gdate).havdalah,
         next_update_fn=lambda zmanim: zmanim.havdalah,
     ),
     JewishCalendarTimestampSensorDescription(
         key="upcoming_candle_lighting",
-        REDACTED_VALUE"upcoming_candle_lighting",
+        translation_key="upcoming_candle_lighting",
         value_fn=lambda at_date, mz: (
             mz(
                 at_date.upcoming_shabbat_or_yom_tov.first_day.previous_day.gdate
@@ -203,7 +203,7 @@ TIME_SENSORS: tuple[JewishCalendarTimestampSensorDescription, ...] = (
     ),
     JewishCalendarTimestampSensorDescription(
         key="upcoming_havdalah",
-        REDACTED_VALUE"upcoming_havdalah",
+        translation_key="upcoming_havdalah",
         value_fn=lambda at_date, mz: (
             mz(at_date.upcoming_shabbat_or_yom_tov.last_day.gdate).havdalah
         ),

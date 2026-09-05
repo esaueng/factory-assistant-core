@@ -101,7 +101,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: MatterConfigEntry) -> bo
                     "server_version_version_too_old",
                     is_fixable=False,
                     severity=IssueSeverity.ERROR,
-                    REDACTED_VALUE"server_version_version_too_old",
+                    translation_key="server_version_version_too_old",
                 )
         elif isinstance(err, ServerVersionTooNew):
             async_create_issue(
@@ -110,7 +110,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: MatterConfigEntry) -> bo
                 "server_version_version_too_new",
                 is_fixable=False,
                 severity=IssueSeverity.ERROR,
-                REDACTED_VALUE"server_version_version_too_new",
+                translation_key="server_version_version_too_new",
             )
         raise ConfigEntryNotReady(f"Invalid server version: {err}") from err
 

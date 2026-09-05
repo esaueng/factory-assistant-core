@@ -36,19 +36,19 @@ class TractiveSwitchEntityDescription(SwitchEntityDescription):
 SWITCH_TYPES: tuple[TractiveSwitchEntityDescription, ...] = (
     TractiveSwitchEntityDescription(
         key=ATTR_BUZZER,
-        REDACTED_VALUE"tracker_buzzer",
+        translation_key="tracker_buzzer",
         method="async_set_buzzer",
         entity_category=EntityCategory.CONFIG,
     ),
     TractiveSwitchEntityDescription(
         key=ATTR_LED,
-        REDACTED_VALUE"tracker_led",
+        translation_key="tracker_led",
         method="async_set_led",
         entity_category=EntityCategory.CONFIG,
     ),
     TractiveSwitchEntityDescription(
         key=ATTR_LIVE_TRACKING,
-        REDACTED_VALUE"live_tracking",
+        translation_key="live_tracking",
         method="async_set_live_tracking",
         entity_category=EntityCategory.CONFIG,
     ),
@@ -115,7 +115,7 @@ class TractiveSwitch(TractiveEntity, SwitchEntity):
         except TractiveError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_to_turn_on",
+                translation_key="failed_to_turn_on",
                 translation_placeholders={"entity": self.entity_id},
             ) from error
         # Write state back to avoid switch flips with a slow response
@@ -130,7 +130,7 @@ class TractiveSwitch(TractiveEntity, SwitchEntity):
         except TractiveError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_to_turn_off",
+                translation_key="failed_to_turn_off",
                 translation_placeholders={"entity": self.entity_id},
             ) from error
         # Write state back to avoid switch flips with a slow response

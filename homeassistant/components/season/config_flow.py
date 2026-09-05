@@ -38,7 +38,7 @@ class SeasonConfigFlow(ConfigFlow, domain=DOMAIN):
                 {
                     vol.Required(CONF_TYPE, default=TYPE_ASTRONOMICAL): SelectSelector(
                         SelectSelectorConfig(
-                            REDACTED_VALUE"season_type",
+                            translation_key="season_type",
                             mode=SelectSelectorMode.LIST,
                             options=[
                                 TYPE_ASTRONOMICAL,

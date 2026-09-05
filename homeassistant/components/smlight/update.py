@@ -47,14 +47,14 @@ class SmUpdateEntityDescription(UpdateEntityDescription):
 
 CORE_UPDATE_ENTITY = SmUpdateEntityDescription(
     key="core_update",
-    REDACTED_VALUE"core_update",
+    translation_key="core_update",
     installed_version=lambda x, idx: x.sw_version,
     latest_version=lambda x, idx: x.esp_firmware[0] if x.esp_firmware else None,
 )
 
 ZB_UPDATE_ENTITY = SmUpdateEntityDescription(
     key="zigbee_update",
-    REDACTED_VALUE"zigbee_update",
+    translation_key="zigbee_update",
     installed_version=lambda x, idx: x.radios[idx].zb_version,
     latest_version=zigbee_latest_version,
 )
@@ -210,7 +210,7 @@ class SmUpdateEntity(SmEntity, UpdateEntity):
         self.coordinator.in_progress = False
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"firmware_update_failed",
+            translation_key="firmware_update_failed",
             translation_placeholders={
                 "device_name": str(self.name),
             },

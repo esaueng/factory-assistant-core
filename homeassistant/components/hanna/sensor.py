@@ -26,34 +26,34 @@ _LOGGER = logging.getLogger(__name__)
 SENSOR_DESCRIPTIONS = [
     SensorEntityDescription(
         key="ph",
-        REDACTED_VALUE"ph_value",
+        translation_key="ph_value",
         device_class=SensorDeviceClass.PH,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="orp",
-        REDACTED_VALUE"chlorine_orp_value",
+        translation_key="chlorine_orp_value",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="temp",
-        REDACTED_VALUE"water_temperature",
+        translation_key="water_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="airTemp",
-        REDACTED_VALUE"air_temperature",
+        translation_key="air_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="acidBase",
-        REDACTED_VALUE"ph_acid_base_flow_rate",
+        translation_key="ph_acid_base_flow_rate",
         icon="mdi:chemical-weapon",
         device_class=SensorDeviceClass.VOLUME,
         native_unit_of_measurement=UnitOfVolume.MILLILITERS,
@@ -61,7 +61,7 @@ SENSOR_DESCRIPTIONS = [
     ),
     SensorEntityDescription(
         key="cl",
-        REDACTED_VALUE"chlorine_flow_rate",
+        translation_key="chlorine_flow_rate",
         icon="mdi:chemical-weapon",
         device_class=SensorDeviceClass.VOLUME,
         native_unit_of_measurement=UnitOfVolume.MILLILITERS,

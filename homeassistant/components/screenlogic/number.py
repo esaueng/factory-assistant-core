@@ -57,7 +57,7 @@ SUPPORTED_INTELLICHEM_NUMBERS = [
         key=VALUE.CALCIUM_HARDNESS,
         entity_category=EntityCategory.CONFIG,
         mode=NumberMode.BOX,
-        REDACTED_VALUE"calcium_hardness",
+        translation_key="calcium_hardness",
     ),
     ScreenLogicPushNumberDescription(
         subscription_code=CODE.CHEMISTRY_CHANGED,
@@ -65,7 +65,7 @@ SUPPORTED_INTELLICHEM_NUMBERS = [
         key=VALUE.CYA,
         entity_category=EntityCategory.CONFIG,
         mode=NumberMode.BOX,
-        REDACTED_VALUE"cya",
+        translation_key="cya",
     ),
     ScreenLogicPushNumberDescription(
         subscription_code=CODE.CHEMISTRY_CHANGED,
@@ -73,7 +73,7 @@ SUPPORTED_INTELLICHEM_NUMBERS = [
         key=VALUE.TOTAL_ALKALINITY,
         entity_category=EntityCategory.CONFIG,
         mode=NumberMode.BOX,
-        REDACTED_VALUE"total_alkalinity",
+        translation_key="total_alkalinity",
     ),
     ScreenLogicPushNumberDescription(
         subscription_code=CODE.CHEMISTRY_CHANGED,
@@ -81,7 +81,7 @@ SUPPORTED_INTELLICHEM_NUMBERS = [
         key=VALUE.SALT_TDS_PPM,
         entity_category=EntityCategory.CONFIG,
         mode=NumberMode.BOX,
-        REDACTED_VALUE"salt_tds_ppm",
+        translation_key="salt_tds_ppm",
     ),
 ]
 
@@ -90,13 +90,13 @@ SUPPORTED_SCG_NUMBERS = [
         data_root=(DEVICE.SCG, GROUP.CONFIGURATION),
         key=VALUE.POOL_SETPOINT,
         entity_category=EntityCategory.CONFIG,
-        REDACTED_VALUE"pool_setpoint",
+        translation_key="pool_setpoint",
     ),
     ScreenLogicNumberDescription(
         data_root=(DEVICE.SCG, GROUP.CONFIGURATION),
         key=VALUE.SPA_SETPOINT,
         entity_category=EntityCategory.CONFIG,
-        REDACTED_VALUE"spa_setpoint",
+        translation_key="spa_setpoint",
     ),
 ]
 

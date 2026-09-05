@@ -52,7 +52,7 @@ def _audio_output_value_fn(client: StreamMagicClient) -> str | None:
 CONTROL_ENTITIES: tuple[CambridgeAudioSelectEntityDescription, ...] = (
     CambridgeAudioSelectEntityDescription(
         key="display_brightness",
-        REDACTED_VALUE"display_brightness",
+        translation_key="display_brightness",
         options=[
             DisplayBrightness.BRIGHT.value,
             DisplayBrightness.DIM.value,
@@ -67,7 +67,7 @@ CONTROL_ENTITIES: tuple[CambridgeAudioSelectEntityDescription, ...] = (
     ),
     CambridgeAudioSelectEntityDescription(
         key="audio_output",
-        REDACTED_VALUE"audio_output",
+        translation_key="audio_output",
         entity_category=EntityCategory.CONFIG,
         options_fn=lambda client: [
             output.name for output in client.audio_output.outputs
@@ -78,7 +78,7 @@ CONTROL_ENTITIES: tuple[CambridgeAudioSelectEntityDescription, ...] = (
     ),
     CambridgeAudioSelectEntityDescription(
         key="control_bus_mode",
-        REDACTED_VALUE"control_bus_mode",
+        translation_key="control_bus_mode",
         options=[
             ControlBusMode.AMPLIFIER.value,
             ControlBusMode.RECEIVER.value,

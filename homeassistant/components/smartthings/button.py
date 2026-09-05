@@ -32,24 +32,24 @@ class SmartThingsButtonDescription(ButtonEntityDescription):
 CAPABILITIES_TO_BUTTONS: dict[Capability | str, SmartThingsButtonDescription] = {
     Capability.OVEN_OPERATING_STATE: SmartThingsButtonDescription(
         key=Capability.OVEN_OPERATING_STATE,
-        REDACTED_VALUE"stop",
+        translation_key="stop",
         command=Command.STOP,
     ),
     Capability.CUSTOM_WATER_FILTER: SmartThingsButtonDescription(
         key=Capability.CUSTOM_WATER_FILTER,
-        REDACTED_VALUE"reset_water_filter",
+        translation_key="reset_water_filter",
         command=Command.RESET_WATER_FILTER,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     Capability.SAMSUNG_CE_HOOD_FILTER: SmartThingsButtonDescription(
         key=Capability.SAMSUNG_CE_HOOD_FILTER,
-        REDACTED_VALUE"reset_hood_filter",
+        translation_key="reset_hood_filter",
         command=Command.RESET_HOOD_FILTER,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     Capability.CUSTOM_HEPA_FILTER: SmartThingsButtonDescription(
         key=Capability.CUSTOM_HEPA_FILTER,
-        REDACTED_VALUE"reset_hepa_filter",
+        translation_key="reset_hepa_filter",
         command=Command.RESET_HEPA_FILTER,
         entity_category=EntityCategory.DIAGNOSTIC,
         components=[MAIN, "station"],
@@ -62,7 +62,7 @@ DISHWASHER_OPERATION_COMMANDS_TO_BUTTONS: dict[
 ] = {
     Command.CANCEL: SmartThingsButtonDescription(
         key=Capability.SAMSUNG_CE_DISHWASHER_OPERATION,
-        REDACTED_VALUE"cancel",
+        translation_key="cancel",
         command_identifier="drain",
         command=Command.CANCEL,
         argument=[True],
@@ -70,21 +70,21 @@ DISHWASHER_OPERATION_COMMANDS_TO_BUTTONS: dict[
     ),
     Command.PAUSE: SmartThingsButtonDescription(
         key=Capability.SAMSUNG_CE_DISHWASHER_OPERATION,
-        REDACTED_VALUE"pause",
+        translation_key="pause",
         command=Command.PAUSE,
         requires_remote_control_status=True,
         requires_dishwasher_machine_state={"run"},
     ),
     Command.RESUME: SmartThingsButtonDescription(
         key=Capability.SAMSUNG_CE_DISHWASHER_OPERATION,
-        REDACTED_VALUE"resume",
+        translation_key="resume",
         command=Command.RESUME,
         requires_remote_control_status=True,
         requires_dishwasher_machine_state={"pause"},
     ),
     Command.START: SmartThingsButtonDescription(
         key=Capability.SAMSUNG_CE_DISHWASHER_OPERATION,
-        REDACTED_VALUE"start",
+        translation_key="start",
         command=Command.START,
         requires_remote_control_status=True,
         requires_dishwasher_machine_state={"stop"},
@@ -93,7 +93,7 @@ DISHWASHER_OPERATION_COMMANDS_TO_BUTTONS: dict[
 
 DISHWASHER_CANCEL_AND_DRAIN_BUTTON = SmartThingsButtonDescription(
     key=Capability.CUSTOM_SUPPORTED_OPTIONS,
-    REDACTED_VALUE"cancel_and_drain",
+    translation_key="cancel_and_drain",
     command_identifier="89",
     command=Command.SET_COURSE,
     argument="89",
@@ -194,7 +194,7 @@ class SmartThingsButtonEntity(SmartThingsEntity, ButtonEntity):
             == "false"
         ):
             raise ServiceValidationError(
-                translation_domain=DOMAIN, REDACTED_VALUE"remote_control_status"
+                translation_domain=DOMAIN, translation_key="remote_control_status"
             )
         if (
             self.entity_description.requires_dishwasher_machine_state

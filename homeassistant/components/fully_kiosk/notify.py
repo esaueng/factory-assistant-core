@@ -24,12 +24,12 @@ class FullyNotifyEntityDescription(NotifyEntityDescription):
 NOTIFIERS: tuple[FullyNotifyEntityDescription, ...] = (
     FullyNotifyEntityDescription(
         key="overlay_message",
-        REDACTED_VALUE"overlay_message",
+        translation_key="overlay_message",
         cmd="setOverlayMessage",
     ),
     FullyNotifyEntityDescription(
         key="tts",
-        REDACTED_VALUE"tts",
+        translation_key="tts",
         cmd="textToSpeech",
     ),
 )

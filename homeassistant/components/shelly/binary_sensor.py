@@ -128,37 +128,37 @@ class RpcBluTrvBinarySensor(RpcBinarySensor):
 BLOCK_SENSORS: dict[tuple[str, str], BlockBinarySensorDescription] = {
     ("device", "overtemp"): BlockBinarySensorDescription(
         key="device|overtemp",
-        REDACTED_VALUE"overheating",
+        translation_key="overheating",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     ("device", "overpower"): BlockBinarySensorDescription(
         key="device|overpower",
-        REDACTED_VALUE"overpowering",
+        translation_key="overpowering",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     ("light", "overpower"): BlockBinarySensorDescription(
         key="light|overpower",
-        REDACTED_VALUE"overpowering",
+        translation_key="overpowering",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     ("relay", "overpower"): BlockBinarySensorDescription(
         key="relay|overpower",
-        REDACTED_VALUE"overpowering",
+        translation_key="overpowering",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     ("sensor", "dwIsOpened"): BlockBinarySensorDescription(
         key="sensor|dwIsOpened",
-        REDACTED_VALUE"door",
+        translation_key="door",
         device_class=BinarySensorDeviceClass.OPENING,
         available=lambda block: cast(int, block.dwIsOpened) != -1,
     ),
     ("sensor", "flood"): BlockBinarySensorDescription(
         key="sensor|flood",
-        REDACTED_VALUE"flood",
+        translation_key="flood",
         device_class=BinarySensorDeviceClass.MOISTURE,
     ),
     ("sensor", "gas"): BlockBinarySensorDescription(
@@ -175,25 +175,25 @@ BLOCK_SENSORS: dict[tuple[str, str], BlockBinarySensorDescription] = {
     ),
     ("input", "input"): BlockBinarySensorDescription(
         key="input|input",
-        REDACTED_VALUE"input",
+        translation_key="input",
         device_class=BinarySensorDeviceClass.POWER,
         removal_condition=is_block_momentary_input,
     ),
     ("relay", "input"): BlockBinarySensorDescription(
         key="relay|input",
-        REDACTED_VALUE"input",
+        translation_key="input",
         device_class=BinarySensorDeviceClass.POWER,
         removal_condition=is_block_momentary_input,
     ),
     ("device", "input"): BlockBinarySensorDescription(
         key="device|input",
-        REDACTED_VALUE"input",
+        translation_key="input",
         device_class=BinarySensorDeviceClass.POWER,
         removal_condition=is_block_momentary_input,
     ),
     ("sensor", "extInput"): BlockBinarySensorDescription(
         key="sensor|extInput",
-        REDACTED_VALUE"external_input",
+        translation_key="external_input",
         device_class=BinarySensorDeviceClass.POWER,
         entity_registry_enabled_default=False,
     ),
@@ -205,7 +205,7 @@ BLOCK_SENSORS: dict[tuple[str, str], BlockBinarySensorDescription] = {
 REST_SENSORS: Final = {
     "cloud": RestBinarySensorDescription(
         key="cloud",
-        REDACTED_VALUE"cloud",
+        translation_key="cloud",
         value=lambda status, _: status["cloud"]["connected"],
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         entity_registry_enabled_default=False,
@@ -217,14 +217,14 @@ RPC_SENSORS: Final = {
     "input": RpcBinarySensorDescription(
         key="input",
         sub_key="state",
-        REDACTED_VALUE"input",
+        translation_key="input",
         device_class=BinarySensorDeviceClass.POWER,
         removal_condition=is_rpc_momentary_input,
     ),
     "cloud": RpcBinarySensorDescription(
         key="cloud",
         sub_key="connected",
-        REDACTED_VALUE"cloud",
+        translation_key="cloud",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -232,7 +232,7 @@ RPC_SENSORS: Final = {
     "external_power": RpcBinarySensorDescription(
         key="devicepower",
         sub_key="external",
-        REDACTED_VALUE"external_power",
+        translation_key="external_power",
         value=lambda status, _: status["present"],
         device_class=BinarySensorDeviceClass.POWER,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -240,7 +240,7 @@ RPC_SENSORS: Final = {
     "overtemp": RpcBinarySensorDescription(
         key="switch",
         sub_key="errors",
-        REDACTED_VALUE"overheating",
+        translation_key="overheating",
         device_class=BinarySensorDeviceClass.PROBLEM,
         value=lambda status, _: False if status is None else "overtemp" in status,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -249,7 +249,7 @@ RPC_SENSORS: Final = {
     "overpower": RpcBinarySensorDescription(
         key="switch",
         sub_key="errors",
-        REDACTED_VALUE"overpowering",
+        translation_key="overpowering",
         device_class=BinarySensorDeviceClass.PROBLEM,
         value=lambda status, _: False if status is None else "overpower" in status,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -258,7 +258,7 @@ RPC_SENSORS: Final = {
     "overvoltage": RpcBinarySensorDescription(
         key="switch",
         sub_key="errors",
-        REDACTED_VALUE"overvoltage",
+        translation_key="overvoltage",
         device_class=BinarySensorDeviceClass.PROBLEM,
         value=lambda status, _: False if status is None else "overvoltage" in status,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -267,7 +267,7 @@ RPC_SENSORS: Final = {
     "overcurrent": RpcBinarySensorDescription(
         key="switch",
         sub_key="errors",
-        REDACTED_VALUE"overcurrent",
+        translation_key="overcurrent",
         device_class=BinarySensorDeviceClass.PROBLEM,
         value=lambda status, _: False if status is None else "overcurrent" in status,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -281,7 +281,7 @@ RPC_SENSORS: Final = {
     "restart": RpcBinarySensorDescription(
         key="sys",
         sub_key="restart_required",
-        REDACTED_VALUE"restart_required",
+        translation_key="restart_required",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -305,7 +305,7 @@ RPC_SENSORS: Final = {
     "calibration": RpcBinarySensorDescription(
         key="blutrv",
         sub_key="errors",
-        REDACTED_VALUE"calibration",
+        translation_key="calibration",
         device_class=BinarySensorDeviceClass.PROBLEM,
         value=lambda status, _: False if status is None else "not_calibrated" in status,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -314,13 +314,13 @@ RPC_SENSORS: Final = {
     "flood": RpcBinarySensorDescription(
         key="flood",
         sub_key="alarm",
-        REDACTED_VALUE"flood",
+        translation_key="flood",
         device_class=BinarySensorDeviceClass.MOISTURE,
     ),
     "mute": RpcBinarySensorDescription(
         key="flood",
         sub_key="mute",
-        REDACTED_VALUE"mute",
+        translation_key="mute",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "flood_cable_unplugged": RpcBinarySensorDescription(
@@ -329,7 +329,7 @@ RPC_SENSORS: Final = {
         value=lambda status, _: (
             False if status is None else "cable_unplugged" in status
         ),
-        REDACTED_VALUE"cable_unplugged",
+        translation_key="cable_unplugged",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
         supported=lambda status: status.get("alarm") is not None,
@@ -356,7 +356,7 @@ RPC_SENSORS: Final = {
     "cury_tilt": RpcBinarySensorDescription(
         key="cury",
         sub_key="errors",
-        REDACTED_VALUE"tilt",
+        translation_key="tilt",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
         value=lambda status, _: (
@@ -367,7 +367,7 @@ RPC_SENSORS: Final = {
     "cury_rotation": RpcBinarySensorDescription(
         key="cury",
         sub_key="errors",
-        REDACTED_VALUE"rotation",
+        translation_key="rotation",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
         value=lambda status, _: (

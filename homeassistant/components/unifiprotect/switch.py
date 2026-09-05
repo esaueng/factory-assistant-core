@@ -64,7 +64,7 @@ async def _set_hdr(obj: Camera, value: bool) -> None:
 CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ProtectSwitchEntityDescription(
         key="ssh",
-        REDACTED_VALUE"ssh_enabled",
+        translation_key="ssh_enabled",
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.CONFIG,
         ufp_value="is_ssh_enabled",
@@ -73,7 +73,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="status_light",
-        REDACTED_VALUE"status_light",
+        translation_key="status_light",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="feature_flags.has_led_status",
         ufp_value="led_settings.is_enabled",
@@ -82,7 +82,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription[Camera](
         key="hdr_mode",
-        REDACTED_VALUE"hdr_mode",
+        translation_key="hdr_mode",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         ufp_required_field="feature_flags.has_hdr",
@@ -92,7 +92,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription[Camera](
         key="high_fps",
-        REDACTED_VALUE"high_fps",
+        translation_key="high_fps",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="feature_flags.has_highfps",
         ufp_value="is_high_fps_enabled",
@@ -101,7 +101,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="system_sounds",
-        REDACTED_VALUE"system_sounds",
+        translation_key="system_sounds",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="has_speaker",
         ufp_value="speaker_settings.are_system_sounds_enabled",
@@ -111,7 +111,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="osd_name",
-        REDACTED_VALUE"overlay_show_name",
+        translation_key="overlay_show_name",
         entity_category=EntityCategory.CONFIG,
         ufp_value="osd_settings.is_name_enabled",
         ufp_set_method="set_osd_name_public",
@@ -119,7 +119,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="osd_date",
-        REDACTED_VALUE"overlay_show_date",
+        translation_key="overlay_show_date",
         entity_category=EntityCategory.CONFIG,
         ufp_value="osd_settings.is_date_enabled",
         ufp_set_method="set_osd_date_public",
@@ -127,7 +127,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="osd_logo",
-        REDACTED_VALUE"overlay_show_logo",
+        translation_key="overlay_show_logo",
         entity_category=EntityCategory.CONFIG,
         ufp_value="osd_settings.is_logo_enabled",
         ufp_set_method="set_osd_logo_public",
@@ -135,7 +135,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="osd_bitrate",
-        REDACTED_VALUE"overlay_show_nerd_mode",
+        translation_key="overlay_show_nerd_mode",
         entity_category=EntityCategory.CONFIG,
         ufp_value="osd_settings.is_debug_enabled",
         ufp_set_method="set_osd_nerd_mode_public",
@@ -143,7 +143,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="color_night_vision",
-        REDACTED_VALUE"color_night_vision",
+        translation_key="color_night_vision",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="has_color_night_vision",
         ufp_value="isp_settings.is_color_night_vision_enabled",
@@ -152,7 +152,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="motion",
-        REDACTED_VALUE"motion",
+        translation_key="motion",
         entity_category=EntityCategory.CONFIG,
         ufp_value="recording_settings.enable_motion_detection",
         ufp_enabled="is_recording_enabled",
@@ -161,7 +161,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="smart_person",
-        REDACTED_VALUE"detections_person",
+        translation_key="detections_person",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="can_detect_person",
         ufp_value="is_person_detection_on",
@@ -171,7 +171,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="smart_vehicle",
-        REDACTED_VALUE"detections_vehicle",
+        translation_key="detections_vehicle",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="can_detect_vehicle",
         ufp_value="is_vehicle_detection_on",
@@ -181,7 +181,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="smart_animal",
-        REDACTED_VALUE"detections_animal",
+        translation_key="detections_animal",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="can_detect_animal",
         ufp_value="is_animal_detection_on",
@@ -191,7 +191,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="smart_package",
-        REDACTED_VALUE"detections_package",
+        translation_key="detections_package",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="can_detect_package",
         ufp_value="is_package_detection_on",
@@ -201,7 +201,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="smart_licenseplate",
-        REDACTED_VALUE"detections_license_plate",
+        translation_key="detections_license_plate",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="can_detect_license_plate",
         ufp_value="is_license_plate_detection_on",
@@ -211,7 +211,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="smart_smoke",
-        REDACTED_VALUE"detections_smoke",
+        translation_key="detections_smoke",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="can_detect_smoke",
         ufp_value="is_smoke_detection_on",
@@ -221,7 +221,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="smart_cmonx",
-        REDACTED_VALUE"detections_co_alarm",
+        translation_key="detections_co_alarm",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="can_detect_co",
         ufp_value="is_co_detection_on",
@@ -231,7 +231,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="smart_siren",
-        REDACTED_VALUE"detections_siren",
+        translation_key="detections_siren",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="can_detect_siren",
         ufp_value="is_siren_detection_on",
@@ -241,7 +241,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="smart_baby_cry",
-        REDACTED_VALUE"detections_baby_cry",
+        translation_key="detections_baby_cry",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="can_detect_baby_cry",
         ufp_value="is_baby_cry_detection_on",
@@ -251,7 +251,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="smart_speak",
-        REDACTED_VALUE"detections_speak",
+        translation_key="detections_speak",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="can_detect_speaking",
         ufp_value="is_speaking_detection_on",
@@ -261,7 +261,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="smart_bark",
-        REDACTED_VALUE"detections_bark",
+        translation_key="detections_bark",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="can_detect_bark",
         ufp_value="is_bark_detection_on",
@@ -271,7 +271,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="smart_car_alarm",
-        REDACTED_VALUE"detections_car_alarm",
+        translation_key="detections_car_alarm",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="can_detect_car_alarm",
         ufp_value="is_car_alarm_detection_on",
@@ -282,7 +282,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="smart_car_horn",
-        REDACTED_VALUE"detections_car_horn",
+        translation_key="detections_car_horn",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="can_detect_car_horn",
         ufp_value="is_car_horn_detection_on",
@@ -292,7 +292,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="smart_glass_break",
-        REDACTED_VALUE"detections_glass_break",
+        translation_key="detections_glass_break",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="can_detect_glass_break",
         ufp_value="is_glass_break_detection_on",
@@ -302,7 +302,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="track_person",
-        REDACTED_VALUE"tracking_person",
+        translation_key="tracking_person",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="feature_flags.is_ptz",
         ufp_value="is_person_tracking_enabled",
@@ -313,7 +313,7 @@ CAMERA_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
 
 PRIVACY_MODE_SWITCH = ProtectSwitchEntityDescription[Camera](
     key="privacy_mode",
-    REDACTED_VALUE"privacy_mode",
+    translation_key="privacy_mode",
     entity_category=EntityCategory.CONFIG,
     ufp_required_field="feature_flags.has_privacy_mask",
     ufp_value="is_privacy_on",
@@ -323,7 +323,7 @@ PRIVACY_MODE_SWITCH = ProtectSwitchEntityDescription[Camera](
 SENSE_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ProtectSwitchEntityDescription(
         key="status_light",
-        REDACTED_VALUE"status_light",
+        translation_key="status_light",
         entity_category=EntityCategory.CONFIG,
         ufp_value="led_settings.is_enabled",
         ufp_set_method="set_status_light",
@@ -331,7 +331,7 @@ SENSE_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="motion",
-        REDACTED_VALUE"detections_motion",
+        translation_key="detections_motion",
         entity_category=EntityCategory.CONFIG,
         ufp_value="motion_settings.is_enabled",
         ufp_set_method="set_motion_status",
@@ -339,7 +339,7 @@ SENSE_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="temperature",
-        REDACTED_VALUE"temperature_sensor",
+        translation_key="temperature_sensor",
         entity_category=EntityCategory.CONFIG,
         ufp_value="temperature_settings.is_enabled",
         ufp_set_method="set_temperature_status",
@@ -347,7 +347,7 @@ SENSE_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="humidity",
-        REDACTED_VALUE"humidity_sensor",
+        translation_key="humidity_sensor",
         entity_category=EntityCategory.CONFIG,
         ufp_value="humidity_settings.is_enabled",
         ufp_set_method="set_humidity_status",
@@ -355,7 +355,7 @@ SENSE_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="light",
-        REDACTED_VALUE"light_sensor",
+        translation_key="light_sensor",
         entity_category=EntityCategory.CONFIG,
         ufp_value="light_settings.is_enabled",
         ufp_set_method="set_light_status",
@@ -363,7 +363,7 @@ SENSE_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="alarm",
-        REDACTED_VALUE"alarm_sound_detection",
+        translation_key="alarm_sound_detection",
         entity_category=EntityCategory.CONFIG,
         ufp_value="alarm_settings.is_enabled",
         ufp_set_method="set_alarm_status",
@@ -375,7 +375,7 @@ SENSE_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
 LIGHT_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ProtectSwitchEntityDescription(
         key="ssh",
-        REDACTED_VALUE"ssh_enabled",
+        translation_key="ssh_enabled",
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.CONFIG,
         ufp_value="is_ssh_enabled",
@@ -384,7 +384,7 @@ LIGHT_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ),
     ProtectSwitchEntityDescription(
         key="status_light",
-        REDACTED_VALUE"status_light",
+        translation_key="status_light",
         entity_category=EntityCategory.CONFIG,
         ufp_value="light_device_settings.is_indicator_enabled",
         ufp_set_method="set_status_light",
@@ -395,7 +395,7 @@ LIGHT_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
 DOORLOCK_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ProtectSwitchEntityDescription(
         key="status_light",
-        REDACTED_VALUE"status_light",
+        translation_key="status_light",
         entity_category=EntityCategory.CONFIG,
         ufp_value="led_settings.is_enabled",
         ufp_set_method="set_status_light",
@@ -406,7 +406,7 @@ DOORLOCK_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
 VIEWER_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ProtectSwitchEntityDescription(
         key="ssh",
-        REDACTED_VALUE"ssh_enabled",
+        translation_key="ssh_enabled",
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.CONFIG,
         ufp_value="is_ssh_enabled",
@@ -418,14 +418,14 @@ VIEWER_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
 NVR_SWITCHES: tuple[ProtectSwitchEntityDescription, ...] = (
     ProtectSwitchEntityDescription(
         key="analytics_enabled",
-        REDACTED_VALUE"analytics_enabled",
+        translation_key="analytics_enabled",
         entity_category=EntityCategory.CONFIG,
         ufp_value="is_analytics_enabled",
         ufp_set_method="set_anonymous_analytics",
     ),
     ProtectSwitchEntityDescription(
         key="insights_enabled",
-        REDACTED_VALUE"insights_enabled",
+        translation_key="insights_enabled",
         entity_category=EntityCategory.CONFIG,
         ufp_value="is_insights_enabled",
         ufp_set_method="set_insights",
@@ -677,12 +677,12 @@ class ProtectRelayOutputSwitch(SwitchEntity):
         if (relay := self._relay) is None:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"relay_not_available",
+                translation_key="relay_not_available",
             )
         if relay.get_output(self._output_id) is None:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"relay_not_available",
+                translation_key="relay_not_available",
             )
         await relay.activate_output(self._output_id, state=state)
 

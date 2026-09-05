@@ -62,6 +62,6 @@ class BroadlinkInfraredEntity(BroadlinkEntity, InfraredEmitterEntity):
         except (BroadlinkException, OSError) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"send_command_failed",
+                translation_key="send_command_failed",
                 translation_placeholders={"error": str(err)},
             ) from err

@@ -26,7 +26,7 @@ class CoolmasterCleanFilter(CoolmasterEntity, SensorEntity):
 
     entity_description = SensorEntityDescription(
         key="error_code",
-        REDACTED_VALUE"error_code",
+        translation_key="error_code",
         entity_category=EntityCategory.DIAGNOSTIC,
     )
 

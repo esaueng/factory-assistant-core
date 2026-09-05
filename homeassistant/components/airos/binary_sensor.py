@@ -34,14 +34,14 @@ AirOS8BinarySensorEntityDescription = AirOSBinarySensorEntityDescription[AirOS8D
 COMMON_BINARY_SENSORS: tuple[AirOSBinarySensorEntityDescription, ...] = (
     AirOSBinarySensorEntityDescription(
         key="dhcp_client",
-        REDACTED_VALUE"dhcp_client",
+        translation_key="dhcp_client",
         device_class=BinarySensorDeviceClass.RUNNING,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.services.dhcpc,
     ),
     AirOSBinarySensorEntityDescription(
         key="dhcp_server",
-        REDACTED_VALUE"dhcp_server",
+        translation_key="dhcp_server",
         device_class=BinarySensorDeviceClass.RUNNING,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.services.dhcpd,
@@ -49,7 +49,7 @@ COMMON_BINARY_SENSORS: tuple[AirOSBinarySensorEntityDescription, ...] = (
     ),
     AirOSBinarySensorEntityDescription(
         key="pppoe",
-        REDACTED_VALUE"pppoe",
+        translation_key="pppoe",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.services.pppoe,
@@ -60,13 +60,13 @@ COMMON_BINARY_SENSORS: tuple[AirOSBinarySensorEntityDescription, ...] = (
 AIROS8_BINARY_SENSORS: tuple[AirOS8BinarySensorEntityDescription, ...] = (
     AirOS8BinarySensorEntityDescription(
         key="portfw",
-        REDACTED_VALUE"port_forwarding",
+        translation_key="port_forwarding",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.portfw,
     ),
     AirOS8BinarySensorEntityDescription(
         key="dhcp6_server",
-        REDACTED_VALUE"dhcp6_server",
+        translation_key="dhcp6_server",
         device_class=BinarySensorDeviceClass.RUNNING,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.services.dhcp6d_stateful,

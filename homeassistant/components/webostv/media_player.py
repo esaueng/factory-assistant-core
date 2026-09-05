@@ -85,7 +85,7 @@ def cmd[_R, **_P](
         if self.state is MediaPlayerState.OFF and func.__name__ != "async_turn_off":
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_off",
+                translation_key="device_off",
                 translation_placeholders={
                     "name": str(self._entry.title),
                     "func": func.__name__,
@@ -96,7 +96,7 @@ def cmd[_R, **_P](
         except WEBOSTV_EXCEPTIONS as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
                 translation_placeholders={
                     "name": str(self._entry.title),
                     "func": func.__name__,
@@ -389,7 +389,7 @@ class LgWebOSMediaPlayerEntity(RestoreEntity, MediaPlayerEntity):
         if (source_dict := self._source_list.get(source)) is None:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"source_not_found",
+                translation_key="source_not_found",
                 translation_placeholders={
                     "source": source,
                     "name": self.entity_id,

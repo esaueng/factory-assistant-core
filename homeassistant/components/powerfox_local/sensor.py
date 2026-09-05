@@ -38,7 +38,7 @@ SENSORS: tuple[PowerfoxLocalSensorEntityDescription, ...] = (
     ),
     PowerfoxLocalSensorEntityDescription(
         key="energy_usage",
-        REDACTED_VALUE"energy_usage",
+        translation_key="energy_usage",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -46,7 +46,7 @@ SENSORS: tuple[PowerfoxLocalSensorEntityDescription, ...] = (
     ),
     PowerfoxLocalSensorEntityDescription(
         key="energy_usage_high_tariff",
-        REDACTED_VALUE"energy_usage_high_tariff",
+        translation_key="energy_usage_high_tariff",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -54,7 +54,7 @@ SENSORS: tuple[PowerfoxLocalSensorEntityDescription, ...] = (
     ),
     PowerfoxLocalSensorEntityDescription(
         key="energy_usage_low_tariff",
-        REDACTED_VALUE"energy_usage_low_tariff",
+        translation_key="energy_usage_low_tariff",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -62,7 +62,7 @@ SENSORS: tuple[PowerfoxLocalSensorEntityDescription, ...] = (
     ),
     PowerfoxLocalSensorEntityDescription(
         key="energy_return",
-        REDACTED_VALUE"energy_return",
+        translation_key="energy_return",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,

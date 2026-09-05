@@ -60,58 +60,58 @@ AIR_QUALITY_SENSOR_DESC: dict[ThinQProperty, SensorEntityDescription] = {
     ThinQProperty.MONITORING_ENABLED: SensorEntityDescription(
         key=ThinQProperty.MONITORING_ENABLED,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUEThinQProperty.MONITORING_ENABLED,
+        translation_key=ThinQProperty.MONITORING_ENABLED,
     ),
     ThinQProperty.TEMPERATURE: SensorEntityDescription(
         key=ThinQProperty.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUEThinQProperty.TEMPERATURE,
+        translation_key=ThinQProperty.TEMPERATURE,
     ),
     ThinQProperty.ODOR_LEVEL: SensorEntityDescription(
         key=ThinQProperty.ODOR_LEVEL,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUEThinQProperty.ODOR_LEVEL,
+        translation_key=ThinQProperty.ODOR_LEVEL,
     ),
     ThinQProperty.TOTAL_POLLUTION_LEVEL: SensorEntityDescription(
         key=ThinQProperty.TOTAL_POLLUTION_LEVEL,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUEThinQProperty.TOTAL_POLLUTION_LEVEL,
+        translation_key=ThinQProperty.TOTAL_POLLUTION_LEVEL,
     ),
     ThinQProperty.CO2: SensorEntityDescription(
         key=ThinQProperty.CO2,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUE"carbon_dioxide",
+        translation_key="carbon_dioxide",
     ),
 }
 BATTERY_SENSOR_DESC: dict[ThinQProperty, SensorEntityDescription] = {
     ThinQProperty.BATTERY_PERCENT: SensorEntityDescription(
         key=ThinQProperty.BATTERY_PERCENT,
-        REDACTED_VALUEThinQProperty.BATTERY_LEVEL,
+        translation_key=ThinQProperty.BATTERY_LEVEL,
     ),
 }
 DISH_WASHING_COURSE_SENSOR_DESC: dict[ThinQProperty, SensorEntityDescription] = {
     ThinQProperty.CURRENT_DISH_WASHING_COURSE: SensorEntityDescription(
         key=ThinQProperty.CURRENT_DISH_WASHING_COURSE,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUEThinQProperty.CURRENT_DISH_WASHING_COURSE,
+        translation_key=ThinQProperty.CURRENT_DISH_WASHING_COURSE,
     )
 }
 FILTER_INFO_SENSOR_DESC: dict[ThinQProperty, SensorEntityDescription] = {
     ThinQProperty.FILTER_LIFETIME: SensorEntityDescription(
         key=ThinQProperty.FILTER_LIFETIME,
         native_unit_of_measurement=UnitOfTime.HOURS,
-        REDACTED_VALUEThinQProperty.FILTER_LIFETIME,
+        translation_key=ThinQProperty.FILTER_LIFETIME,
     ),
     ThinQProperty.FILTER_REMAIN_PERCENT: SensorEntityDescription(
         key=ThinQProperty.FILTER_REMAIN_PERCENT,
         native_unit_of_measurement=PERCENTAGE,
-        REDACTED_VALUEThinQProperty.FILTER_LIFETIME,
+        translation_key=ThinQProperty.FILTER_LIFETIME,
     ),
     ThinQProperty.TOP_FILTER_REMAIN_PERCENT: SensorEntityDescription(
         key=ThinQProperty.TOP_FILTER_REMAIN_PERCENT,
         native_unit_of_measurement=PERCENTAGE,
-        REDACTED_VALUEThinQProperty.TOP_FILTER_REMAIN_PERCENT,
+        translation_key=ThinQProperty.TOP_FILTER_REMAIN_PERCENT,
     ),
 }
 HUMIDITY_SENSOR_DESC: dict[ThinQProperty, SensorEntityDescription] = {
@@ -126,215 +126,215 @@ JOB_MODE_SENSOR_DESC: dict[ThinQProperty, SensorEntityDescription] = {
     ThinQProperty.CURRENT_JOB_MODE: SensorEntityDescription(
         key=ThinQProperty.CURRENT_JOB_MODE,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUEThinQProperty.CURRENT_JOB_MODE,
+        translation_key=ThinQProperty.CURRENT_JOB_MODE,
     ),
     ThinQPropertyEx.CURRENT_JOB_MODE_STICK_CLEANER: SensorEntityDescription(
         key=ThinQProperty.CURRENT_JOB_MODE,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUEThinQPropertyEx.CURRENT_JOB_MODE_STICK_CLEANER,
+        translation_key=ThinQPropertyEx.CURRENT_JOB_MODE_STICK_CLEANER,
     ),
     ThinQProperty.PERSONALIZATION_MODE: SensorEntityDescription(
         key=ThinQProperty.PERSONALIZATION_MODE,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUEThinQProperty.PERSONALIZATION_MODE,
+        translation_key=ThinQProperty.PERSONALIZATION_MODE,
     ),
 }
 LIGHT_SENSOR_DESC: dict[ThinQProperty, SensorEntityDescription] = {
     ThinQProperty.BRIGHTNESS: SensorEntityDescription(
         key=ThinQProperty.BRIGHTNESS,
-        REDACTED_VALUEThinQProperty.BRIGHTNESS,
+        translation_key=ThinQProperty.BRIGHTNESS,
     ),
     ThinQProperty.DURATION: SensorEntityDescription(
         key=ThinQProperty.DURATION,
         native_unit_of_measurement=UnitOfTime.HOURS,
-        REDACTED_VALUEThinQProperty.DURATION,
+        translation_key=ThinQProperty.DURATION,
     ),
 }
 POWER_SENSOR_DESC: dict[ThinQProperty, SensorEntityDescription] = {
     ThinQProperty.POWER_LEVEL: SensorEntityDescription(
         key=ThinQProperty.POWER_LEVEL,
-        REDACTED_VALUEThinQProperty.POWER_LEVEL,
+        translation_key=ThinQProperty.POWER_LEVEL,
     )
 }
 PREFERENCE_SENSOR_DESC: dict[ThinQProperty, SensorEntityDescription] = {
     ThinQProperty.RINSE_LEVEL: SensorEntityDescription(
         key=ThinQProperty.RINSE_LEVEL,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUEThinQProperty.RINSE_LEVEL,
+        translation_key=ThinQProperty.RINSE_LEVEL,
     ),
     ThinQProperty.SOFTENING_LEVEL: SensorEntityDescription(
         key=ThinQProperty.SOFTENING_LEVEL,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUEThinQProperty.SOFTENING_LEVEL,
+        translation_key=ThinQProperty.SOFTENING_LEVEL,
     ),
 }
 RECIPE_SENSOR_DESC: dict[ThinQProperty, SensorEntityDescription] = {
     ThinQProperty.RECIPE_NAME: SensorEntityDescription(
         key=ThinQProperty.RECIPE_NAME,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUEThinQProperty.RECIPE_NAME,
+        translation_key=ThinQProperty.RECIPE_NAME,
     ),
     ThinQProperty.WORT_INFO: SensorEntityDescription(
         key=ThinQProperty.WORT_INFO,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUEThinQProperty.WORT_INFO,
+        translation_key=ThinQProperty.WORT_INFO,
     ),
     ThinQProperty.YEAST_INFO: SensorEntityDescription(
         key=ThinQProperty.YEAST_INFO,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUEThinQProperty.YEAST_INFO,
+        translation_key=ThinQProperty.YEAST_INFO,
     ),
     ThinQProperty.HOP_OIL_INFO: SensorEntityDescription(
         key=ThinQProperty.HOP_OIL_INFO,
-        REDACTED_VALUEThinQProperty.HOP_OIL_INFO,
+        translation_key=ThinQProperty.HOP_OIL_INFO,
     ),
     ThinQProperty.HOP_OIL_CAPSULE_1: SensorEntityDescription(
         key=ThinQProperty.HOP_OIL_CAPSULE_1,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUEThinQProperty.HOP_OIL_CAPSULE_1,
+        translation_key=ThinQProperty.HOP_OIL_CAPSULE_1,
     ),
     ThinQProperty.HOP_OIL_CAPSULE_2: SensorEntityDescription(
         key=ThinQProperty.HOP_OIL_CAPSULE_2,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUEThinQProperty.HOP_OIL_CAPSULE_2,
+        translation_key=ThinQProperty.HOP_OIL_CAPSULE_2,
     ),
     ThinQProperty.FLAVOR_INFO: SensorEntityDescription(
         key=ThinQProperty.FLAVOR_INFO,
-        REDACTED_VALUEThinQProperty.FLAVOR_INFO,
+        translation_key=ThinQProperty.FLAVOR_INFO,
     ),
     ThinQProperty.FLAVOR_CAPSULE_1: SensorEntityDescription(
         key=ThinQProperty.FLAVOR_CAPSULE_1,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUEThinQProperty.FLAVOR_CAPSULE_1,
+        translation_key=ThinQProperty.FLAVOR_CAPSULE_1,
     ),
     ThinQProperty.FLAVOR_CAPSULE_2: SensorEntityDescription(
         key=ThinQProperty.FLAVOR_CAPSULE_2,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUEThinQProperty.FLAVOR_CAPSULE_2,
+        translation_key=ThinQProperty.FLAVOR_CAPSULE_2,
     ),
     ThinQProperty.BEER_REMAIN: SensorEntityDescription(
         key=ThinQProperty.BEER_REMAIN,
         native_unit_of_measurement=PERCENTAGE,
-        REDACTED_VALUEThinQProperty.BEER_REMAIN,
+        translation_key=ThinQProperty.BEER_REMAIN,
     ),
 }
 REFRIGERATION_SENSOR_DESC: dict[ThinQProperty, SensorEntityDescription] = {
     ThinQProperty.FRESH_AIR_FILTER: SensorEntityDescription(
         key=ThinQProperty.FRESH_AIR_FILTER,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUEThinQProperty.FRESH_AIR_FILTER,
+        translation_key=ThinQProperty.FRESH_AIR_FILTER,
     ),
     ThinQProperty.FRESH_AIR_FILTER_REMAIN_PERCENT: SensorEntityDescription(
         key=ThinQProperty.FRESH_AIR_FILTER_REMAIN_PERCENT,
         native_unit_of_measurement=PERCENTAGE,
-        REDACTED_VALUEThinQProperty.FRESH_AIR_FILTER,
+        translation_key=ThinQProperty.FRESH_AIR_FILTER,
     ),
 }
 RUN_STATE_SENSOR_DESC: dict[ThinQProperty, SensorEntityDescription] = {
     ThinQProperty.CURRENT_STATE: SensorEntityDescription(
         key=ThinQProperty.CURRENT_STATE,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUEThinQProperty.CURRENT_STATE,
+        translation_key=ThinQProperty.CURRENT_STATE,
     ),
     ThinQProperty.COCK_STATE: SensorEntityDescription(
         key=ThinQProperty.COCK_STATE,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUEThinQProperty.COCK_STATE,
+        translation_key=ThinQProperty.COCK_STATE,
     ),
     ThinQProperty.STERILIZING_STATE: SensorEntityDescription(
         key=ThinQProperty.STERILIZING_STATE,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUEThinQProperty.STERILIZING_STATE,
+        translation_key=ThinQProperty.STERILIZING_STATE,
     ),
     ThinQProperty.GROWTH_MODE: SensorEntityDescription(
         key=ThinQProperty.GROWTH_MODE,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUEThinQProperty.GROWTH_MODE,
+        translation_key=ThinQProperty.GROWTH_MODE,
     ),
     ThinQProperty.WIND_VOLUME: SensorEntityDescription(
         key=ThinQProperty.WIND_VOLUME,
         device_class=SensorDeviceClass.WIND_SPEED,
-        REDACTED_VALUEThinQProperty.WIND_VOLUME,
+        translation_key=ThinQProperty.WIND_VOLUME,
     ),
 }
 TEMPERATURE_SENSOR_DESC: dict[ThinQProperty, SensorEntityDescription] = {
     ThinQProperty.TARGET_TEMPERATURE: SensorEntityDescription(
         key=ThinQProperty.TARGET_TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
-        REDACTED_VALUEThinQProperty.TARGET_TEMPERATURE,
+        translation_key=ThinQProperty.TARGET_TEMPERATURE,
     ),
     ThinQProperty.DAY_TARGET_TEMPERATURE: SensorEntityDescription(
         key=ThinQProperty.DAY_TARGET_TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUEThinQProperty.DAY_TARGET_TEMPERATURE,
+        translation_key=ThinQProperty.DAY_TARGET_TEMPERATURE,
     ),
     ThinQProperty.NIGHT_TARGET_TEMPERATURE: SensorEntityDescription(
         key=ThinQProperty.NIGHT_TARGET_TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUEThinQProperty.NIGHT_TARGET_TEMPERATURE,
+        translation_key=ThinQProperty.NIGHT_TARGET_TEMPERATURE,
     ),
     ThinQProperty.TEMPERATURE_STATE: SensorEntityDescription(
         key=ThinQProperty.TEMPERATURE_STATE,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUEThinQProperty.TEMPERATURE_STATE,
+        translation_key=ThinQProperty.TEMPERATURE_STATE,
     ),
     ThinQProperty.CURRENT_TEMPERATURE: SensorEntityDescription(
         key=ThinQProperty.CURRENT_TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUEThinQProperty.CURRENT_TEMPERATURE,
+        translation_key=ThinQProperty.CURRENT_TEMPERATURE,
     ),
     ThinQPropertyEx.ROOM_AIR_CURRENT_TEMPERATURE: SensorEntityDescription(
         key=ThinQPropertyEx.ROOM_AIR_CURRENT_TEMPERATURE,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUEThinQPropertyEx.ROOM_AIR_CURRENT_TEMPERATURE,
+        translation_key=ThinQPropertyEx.ROOM_AIR_CURRENT_TEMPERATURE,
     ),
     ThinQPropertyEx.ROOM_IN_WATER_CURRENT_TEMPERATURE: SensorEntityDescription(
         key=ThinQPropertyEx.ROOM_IN_WATER_CURRENT_TEMPERATURE,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUEThinQPropertyEx.ROOM_IN_WATER_CURRENT_TEMPERATURE,
+        translation_key=ThinQPropertyEx.ROOM_IN_WATER_CURRENT_TEMPERATURE,
     ),
     ThinQPropertyEx.ROOM_OUT_WATER_CURRENT_TEMPERATURE: SensorEntityDescription(
         key=ThinQPropertyEx.ROOM_OUT_WATER_CURRENT_TEMPERATURE,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUEThinQPropertyEx.ROOM_OUT_WATER_CURRENT_TEMPERATURE,
+        translation_key=ThinQPropertyEx.ROOM_OUT_WATER_CURRENT_TEMPERATURE,
     ),
 }
 WATER_FILTER_INFO_SENSOR_DESC: dict[ThinQProperty, SensorEntityDescription] = {
     ThinQProperty.USED_TIME: SensorEntityDescription(
         key=ThinQProperty.USED_TIME,
         native_unit_of_measurement=UnitOfTime.MONTHS,
-        REDACTED_VALUEThinQProperty.USED_TIME,
+        translation_key=ThinQProperty.USED_TIME,
     ),
     ThinQProperty.WATER_FILTER_STATE: SensorEntityDescription(
         key=ThinQProperty.WATER_FILTER_STATE,
-        REDACTED_VALUEThinQProperty.WATER_FILTER_STATE,
+        translation_key=ThinQProperty.WATER_FILTER_STATE,
     ),
     ThinQProperty.WATER_FILTER_1_REMAIN_PERCENT: SensorEntityDescription(
         key=ThinQProperty.WATER_FILTER_1_REMAIN_PERCENT,
         native_unit_of_measurement=PERCENTAGE,
-        REDACTED_VALUEThinQProperty.WATER_FILTER_1_REMAIN_PERCENT,
+        translation_key=ThinQProperty.WATER_FILTER_1_REMAIN_PERCENT,
     ),
     ThinQProperty.WATER_FILTER_2_REMAIN_PERCENT: SensorEntityDescription(
         key=ThinQProperty.WATER_FILTER_2_REMAIN_PERCENT,
         native_unit_of_measurement=PERCENTAGE,
-        REDACTED_VALUEThinQProperty.WATER_FILTER_2_REMAIN_PERCENT,
+        translation_key=ThinQProperty.WATER_FILTER_2_REMAIN_PERCENT,
     ),
     ThinQProperty.WATER_FILTER_3_REMAIN_PERCENT: SensorEntityDescription(
         key=ThinQProperty.WATER_FILTER_3_REMAIN_PERCENT,
         native_unit_of_measurement=PERCENTAGE,
-        REDACTED_VALUEThinQProperty.WATER_FILTER_3_REMAIN_PERCENT,
+        translation_key=ThinQProperty.WATER_FILTER_3_REMAIN_PERCENT,
     ),
 }
 WATER_INFO_SENSOR_DESC: dict[ThinQProperty, SensorEntityDescription] = {
     ThinQProperty.WATER_TYPE: SensorEntityDescription(
         key=ThinQProperty.WATER_TYPE,
-        REDACTED_VALUEThinQProperty.WATER_TYPE,
+        translation_key=ThinQProperty.WATER_TYPE,
     ),
 }
 ELAPSED_DAY_SENSOR_DESC: dict[ThinQProperty, SensorEntityDescription] = {
@@ -342,30 +342,30 @@ ELAPSED_DAY_SENSOR_DESC: dict[ThinQProperty, SensorEntityDescription] = {
         key=ThinQProperty.ELAPSED_DAY_STATE,
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.DAYS,
-        REDACTED_VALUEThinQProperty.ELAPSED_DAY_STATE,
+        translation_key=ThinQProperty.ELAPSED_DAY_STATE,
     ),
     ThinQProperty.ELAPSED_DAY_TOTAL: SensorEntityDescription(
         key=ThinQProperty.ELAPSED_DAY_TOTAL,
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.DAYS,
-        REDACTED_VALUEThinQProperty.ELAPSED_DAY_TOTAL,
+        translation_key=ThinQProperty.ELAPSED_DAY_TOTAL,
     ),
 }
 TIME_SENSOR_DESC: dict[ThinQProperty, SensorEntityDescription] = {
     TimerProperty.LIGHT_START: SensorEntityDescription(
         key=TimerProperty.LIGHT_START,
         device_class=SensorDeviceClass.TIMESTAMP,
-        REDACTED_VALUETimerProperty.LIGHT_START,
+        translation_key=TimerProperty.LIGHT_START,
     ),
     TimerProperty.ABSOLUTE_TO_START: SensorEntityDescription(
         key=TimerProperty.ABSOLUTE_TO_START,
         device_class=SensorDeviceClass.TIMESTAMP,
-        REDACTED_VALUETimerProperty.ABSOLUTE_TO_START,
+        translation_key=TimerProperty.ABSOLUTE_TO_START,
     ),
     TimerProperty.ABSOLUTE_TO_STOP: SensorEntityDescription(
         key=TimerProperty.ABSOLUTE_TO_STOP,
         device_class=SensorDeviceClass.TIMESTAMP,
-        REDACTED_VALUETimerProperty.ABSOLUTE_TO_STOP,
+        translation_key=TimerProperty.ABSOLUTE_TO_STOP,
     ),
 }
 TIMER_SENSOR_DESC: dict[ThinQProperty, SensorEntityDescription] = {
@@ -373,52 +373,52 @@ TIMER_SENSOR_DESC: dict[ThinQProperty, SensorEntityDescription] = {
         key=TimerProperty.TOTAL,
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.MINUTES,
-        REDACTED_VALUETimerProperty.TOTAL,
+        translation_key=TimerProperty.TOTAL,
     ),
     TimerProperty.RELATIVE_TO_START: SensorEntityDescription(
         key=TimerProperty.RELATIVE_TO_START,
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.MINUTES,
-        REDACTED_VALUETimerProperty.RELATIVE_TO_START,
+        translation_key=TimerProperty.RELATIVE_TO_START,
     ),
     TimerProperty.RELATIVE_TO_STOP: SensorEntityDescription(
         key=TimerProperty.RELATIVE_TO_STOP,
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.MINUTES,
-        REDACTED_VALUETimerProperty.RELATIVE_TO_STOP,
+        translation_key=TimerProperty.RELATIVE_TO_STOP,
     ),
     TimerProperty.SLEEP_TIMER_RELATIVE_TO_STOP: SensorEntityDescription(
         key=TimerProperty.SLEEP_TIMER_RELATIVE_TO_STOP,
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.MINUTES,
-        REDACTED_VALUETimerProperty.SLEEP_TIMER_RELATIVE_TO_STOP,
+        translation_key=TimerProperty.SLEEP_TIMER_RELATIVE_TO_STOP,
     ),
     TimerProperty.RELATIVE_TO_START_WM: SensorEntityDescription(
         key=TimerProperty.RELATIVE_TO_START,
         device_class=SensorDeviceClass.TIMESTAMP,
-        REDACTED_VALUETimerProperty.RELATIVE_TO_START_WM,
+        translation_key=TimerProperty.RELATIVE_TO_START_WM,
     ),
     TimerProperty.RELATIVE_TO_STOP_WM: SensorEntityDescription(
         key=TimerProperty.RELATIVE_TO_STOP,
         device_class=SensorDeviceClass.TIMESTAMP,
-        REDACTED_VALUETimerProperty.RELATIVE_TO_STOP_WM,
+        translation_key=TimerProperty.RELATIVE_TO_STOP_WM,
     ),
     TimerProperty.REMAIN: SensorEntityDescription(
         key=TimerProperty.REMAIN,
         device_class=SensorDeviceClass.TIMESTAMP,
-        REDACTED_VALUETimerProperty.REMAIN,
+        translation_key=TimerProperty.REMAIN,
     ),
     TimerProperty.RUNNING: SensorEntityDescription(
         key=TimerProperty.RUNNING,
         device_class=SensorDeviceClass.TIMESTAMP,
-        REDACTED_VALUETimerProperty.RUNNING,
+        translation_key=TimerProperty.RUNNING,
     ),
 }
 
 WASHER_SENSORS: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key=ThinQProperty.CYCLE_COUNT,
-        REDACTED_VALUEThinQProperty.CYCLE_COUNT,
+        translation_key=ThinQProperty.CYCLE_COUNT,
     ),
     RUN_STATE_SENSOR_DESC[ThinQProperty.CURRENT_STATE],
     TIMER_SENSOR_DESC[TimerProperty.TOTAL],
@@ -593,7 +593,7 @@ ENUM_TEMPERATURE_SENSOR_MAP: dict[DeviceType, tuple[SensorEntityDescription, ...
         SensorEntityDescription(
             key=ThinQProperty.TARGET_TEMPERATURE,
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
-            REDACTED_VALUEThinQProperty.TARGET_TEMPERATURE,
+            translation_key=ThinQProperty.TARGET_TEMPERATURE,
         ),
     ),
 }
@@ -616,14 +616,14 @@ class ThinQEnergySensorEntityDescription(SensorEntityDescription):
 ENERGY_USAGE_SENSORS: tuple[ThinQEnergySensorEntityDescription, ...] = (
     ThinQEnergySensorEntityDescription(
         key="yesterday",
-        REDACTED_VALUE"energy_usage_yesterday",
+        translation_key="energy_usage_yesterday",
         usage_period=USAGE_DAILY,
         start_date_fn=lambda today: today - timedelta(days=1),
         end_date_fn=lambda today: today - timedelta(days=1),
     ),
     ThinQEnergySensorEntityDescription(
         key="this_month",
-        REDACTED_VALUE"energy_usage_this_month",
+        translation_key="energy_usage_this_month",
         usage_period=USAGE_MONTHLY,
         start_date_fn=lambda today: today,
         end_date_fn=lambda today: today,
@@ -631,7 +631,7 @@ ENERGY_USAGE_SENSORS: tuple[ThinQEnergySensorEntityDescription, ...] = (
     ),
     ThinQEnergySensorEntityDescription(
         key="last_month",
-        REDACTED_VALUE"energy_usage_last_month",
+        translation_key="energy_usage_last_month",
         usage_period=USAGE_MONTHLY,
         start_date_fn=lambda today: today.replace(day=1) - timedelta(days=1),
         end_date_fn=lambda today: today.replace(day=1) - timedelta(days=1),

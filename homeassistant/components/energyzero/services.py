@@ -61,7 +61,7 @@ def __get_date(date_input: str | None) -> date | datetime:
 
     raise ServiceValidationError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"invalid_date",
+        translation_key="invalid_date",
         translation_placeholders={
             "date": date_input,
         },
@@ -91,7 +91,7 @@ def __get_coordinator(call: ServiceCall) -> EnergyZeroDataUpdateCoordinator:
     if not entry:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_config_entry",
+            translation_key="invalid_config_entry",
             translation_placeholders={
                 "config_entry": entry_id,
             },
@@ -99,7 +99,7 @@ def __get_coordinator(call: ServiceCall) -> EnergyZeroDataUpdateCoordinator:
     if entry.state is not ConfigEntryState.LOADED:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unloaded_config_entry",
+            translation_key="unloaded_config_entry",
             translation_placeholders={
                 "config_entry": entry.title,
             },

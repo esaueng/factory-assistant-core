@@ -38,7 +38,7 @@ class LetPotNumberEntityDescription[_DataT: LetPotDeviceStatus](
 NUMBERS: tuple[LetPotNumberEntityDescription[LetPotGardenStatus], ...] = (
     LetPotNumberEntityDescription[LetPotGardenStatus](
         key="light_brightness_levels",
-        REDACTED_VALUE"light_brightness",
+        translation_key="light_brightness",
         value_fn=(
             lambda coordinator: (
                 coordinator.device_client.get_light_brightness_levels(
@@ -77,7 +77,7 @@ NUMBERS: tuple[LetPotNumberEntityDescription[LetPotGardenStatus], ...] = (
     ),
     LetPotNumberEntityDescription[LetPotGardenStatus](
         key="plant_days",
-        REDACTED_VALUE"plant_days",
+        translation_key="plant_days",
         native_unit_of_measurement=UnitOfTime.DAYS,
         value_fn=lambda coordinator: coordinator.data.plant_days,
         set_value_fn=(

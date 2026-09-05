@@ -57,7 +57,7 @@ class MotionblindsBLESensorEntityDescription[_T](SensorEntityDescription):
 SENSORS: tuple[MotionblindsBLESensorEntityDescription, ...] = (
     MotionblindsBLESensorEntityDescription[MotionConnectionType](
         key=ATTR_CONNECTION,
-        REDACTED_VALUEATTR_CONNECTION,
+        translation_key=ATTR_CONNECTION,
         device_class=SensorDeviceClass.ENUM,
         entity_category=EntityCategory.DIAGNOSTIC,
         options=["connected", "connecting", "disconnected", "disconnecting"],
@@ -67,7 +67,7 @@ SENSORS: tuple[MotionblindsBLESensorEntityDescription, ...] = (
     ),
     MotionblindsBLESensorEntityDescription[MotionCalibrationType](
         key=ATTR_CALIBRATION,
-        REDACTED_VALUEATTR_CALIBRATION,
+        translation_key=ATTR_CALIBRATION,
         device_class=SensorDeviceClass.ENUM,
         entity_category=EntityCategory.DIAGNOSTIC,
         options=["calibrated", "uncalibrated", "calibrating"],

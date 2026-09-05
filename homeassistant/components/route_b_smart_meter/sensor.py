@@ -38,7 +38,7 @@ class SensorEntityDescriptionWithValueAccessor(SensorEntityDescription):
 SENSOR_DESCRIPTIONS = (
     SensorEntityDescriptionWithValueAccessor(
         key=ATTR_API_INSTANTANEOUS_CURRENT_R_PHASE,
-        REDACTED_VALUEATTR_API_INSTANTANEOUS_CURRENT_R_PHASE,
+        translation_key=ATTR_API_INSTANTANEOUS_CURRENT_R_PHASE,
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
@@ -46,7 +46,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     SensorEntityDescriptionWithValueAccessor(
         key=ATTR_API_INSTANTANEOUS_CURRENT_T_PHASE,
-        REDACTED_VALUEATTR_API_INSTANTANEOUS_CURRENT_T_PHASE,
+        translation_key=ATTR_API_INSTANTANEOUS_CURRENT_T_PHASE,
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
@@ -54,7 +54,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     SensorEntityDescriptionWithValueAccessor(
         key=ATTR_API_INSTANTANEOUS_POWER,
-        REDACTED_VALUEATTR_API_INSTANTANEOUS_POWER,
+        translation_key=ATTR_API_INSTANTANEOUS_POWER,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -62,7 +62,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     SensorEntityDescriptionWithValueAccessor(
         key=ATTR_API_TOTAL_CONSUMPTION,
-        REDACTED_VALUEATTR_API_TOTAL_CONSUMPTION,
+        translation_key=ATTR_API_TOTAL_CONSUMPTION,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,

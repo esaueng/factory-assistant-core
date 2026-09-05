@@ -64,7 +64,7 @@ class RingSirenEntityDescription(
 SIRENS: tuple[RingSirenEntityDescription[Any], ...] = (
     RingSirenEntityDescription[RingChime](
         key="siren",
-        REDACTED_VALUE"siren",
+        translation_key="siren",
         available_tones=[RingEventKind.DING.value, RingEventKind.MOTION.value],
         # Historically the chime siren entity has appended `siren` to the unique id
         unique_id_fn=lambda device: f"{device.device_api_id}-siren",
@@ -75,7 +75,7 @@ SIRENS: tuple[RingSirenEntityDescription[Any], ...] = (
     ),
     RingSirenEntityDescription[RingStickUpCam](
         key="siren",
-        REDACTED_VALUE"siren",
+        translation_key="siren",
         exists_fn=lambda device: device.has_capability(RingCapability.SIREN),
         is_on_fn=lambda device: device.siren > 0,
         turn_on_fn=lambda device, _: device.async_set_siren(1),

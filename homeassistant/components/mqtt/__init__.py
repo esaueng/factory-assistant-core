@@ -294,7 +294,7 @@ async def async_check_config_schema(
                     )
                     raise ServiceValidationError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"invalid_platform_config_message",
+                        translation_key="invalid_platform_config_message",
                         translation_placeholders={
                             "domain": domain,
                             "message": message,
@@ -330,7 +330,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
             severity=ir.IssueSeverity.WARNING,
             learn_more_url="https://www.home-assistant.io/integrations/mqtt/"
             "#configuration",
-            REDACTED_VALUE"yaml_setup_without_active_setup",
+            translation_key="yaml_setup_without_active_setup",
         )
 
     websocket_api.async_register_command(hass, websocket_subscribe)
@@ -342,7 +342,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
         if not mqtt_config_entry_enabled(hass):
             raise ServiceValidationError(
-                REDACTED_VALUE"mqtt_not_setup_cannot_publish",
+                translation_key="mqtt_not_setup_cannot_publish",
                 translation_domain=DOMAIN,
                 translation_placeholders={"topic": msg_topic},
             )
@@ -426,7 +426,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         except ConfigValidationError as ex:
             raise ServiceValidationError(
                 translation_domain=ex.translation_domain,
-                REDACTED_VALUEex.translation_key,
+                translation_key=ex.translation_key,
                 translation_placeholders=ex.translation_placeholders,
             ) from ex
 
@@ -540,7 +540,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
                     "protocol": protocol,
                 },
                 translation_placeholders={"broker": broker, "protocol": protocol},
-                REDACTED_VALUE"protocol_5_migration",
+                translation_key="protocol_5_migration",
             )
 
     async def _setup_client() -> tuple[MqttData, dict[str, Any]]:

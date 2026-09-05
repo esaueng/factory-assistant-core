@@ -100,7 +100,7 @@ class ConfigValidationError(HomeAssistantError, ExceptionGroup[Exception]):
         super().__init__(
             *(message_translation_key, exceptions),
             translation_domain=translation_domain,
-            REDACTED_VALUEmessage_translation_key,
+            translation_key=message_translation_key,
             translation_placeholders=translation_placeholders,
         )
         self.generate_message = True
@@ -347,7 +347,7 @@ class ServiceNotFound(ServiceValidationError):
         """Initialize error."""
         super().__init__(
             translation_domain="homeassistant",
-            REDACTED_VALUE"service_not_found",
+            translation_key="service_not_found",
             translation_placeholders={"domain": domain, "service": service},
         )
         self.domain = domain
@@ -362,7 +362,7 @@ class ServiceNotSupported(ServiceValidationError):
         """Initialize ServiceNotSupported exception."""
         super().__init__(
             translation_domain="homeassistant",
-            REDACTED_VALUE"service_not_supported",
+            translation_key="service_not_supported",
             translation_placeholders={
                 "domain": domain,
                 "service": service,
@@ -385,7 +385,7 @@ class MaxLengthExceeded(HomeAssistantError):
             value = str(value)
         super().__init__(
             translation_domain="homeassistant",
-            REDACTED_VALUE"max_length_exceeded",
+            translation_key="max_length_exceeded",
             translation_placeholders={
                 "value": value,
                 "property_name": property_name,

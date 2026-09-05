@@ -32,7 +32,7 @@ class NtfyUpdate(StrEnum):
 
 DESCRIPTION = UpdateEntityDescription(
     key=NtfyUpdate.UPDATE,
-    REDACTED_VALUENtfyUpdate.UPDATE,
+    translation_key=NtfyUpdate.UPDATE,
     entity_category=EntityCategory.DIAGNOSTIC,
 )
 

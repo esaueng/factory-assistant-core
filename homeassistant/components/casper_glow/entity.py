@@ -40,6 +40,6 @@ class CasperGlowEntity(PassiveBluetoothCoordinatorEntity[CasperGlowCoordinator])
         except CasperGlowError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
                 translation_placeholders={"error": str(err)},
             ) from err

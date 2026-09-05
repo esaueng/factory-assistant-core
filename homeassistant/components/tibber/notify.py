@@ -46,5 +46,5 @@ class TibberNotificationEntity(NotifyEntity):
             )
         except TimeoutError as exc:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"send_message_timeout"
+                translation_domain=DOMAIN, translation_key="send_message_timeout"
             ) from exc

@@ -41,7 +41,7 @@ class YouTubeSensorEntityDescription(SensorEntityDescription):
 SENSOR_TYPES = [
     YouTubeSensorEntityDescription(
         key="latest_upload",
-        REDACTED_VALUE"latest_upload",
+        translation_key="latest_upload",
         available_fn=lambda channel: channel[ATTR_LATEST_VIDEO] is not None,
         value_fn=lambda channel: channel[ATTR_LATEST_VIDEO][ATTR_TITLE],
         entity_picture_fn=lambda channel: channel[ATTR_LATEST_VIDEO][ATTR_THUMBNAIL],
@@ -52,7 +52,7 @@ SENSOR_TYPES = [
     ),
     YouTubeSensorEntityDescription(
         key="subscribers",
-        REDACTED_VALUE"subscribers",
+        translation_key="subscribers",
         native_unit_of_measurement="subscribers",
         state_class=SensorStateClass.MEASUREMENT,
         available_fn=lambda _: True,
@@ -62,7 +62,7 @@ SENSOR_TYPES = [
     ),
     YouTubeSensorEntityDescription(
         key="views",
-        REDACTED_VALUE"views",
+        translation_key="views",
         native_unit_of_measurement="views",
         state_class=SensorStateClass.TOTAL_INCREASING,
         available_fn=lambda _: True,
@@ -72,7 +72,7 @@ SENSOR_TYPES = [
     ),
     YouTubeSensorEntityDescription(
         key="videos",
-        REDACTED_VALUE"videos",
+        translation_key="videos",
         native_unit_of_measurement="videos",
         state_class=SensorStateClass.TOTAL,
         available_fn=lambda _: True,

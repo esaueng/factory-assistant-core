@@ -304,7 +304,7 @@ class NestFlowHandler(
                         CONF_TOPIC_NAME, default=next(iter(topics))
                     ): SelectSelector(
                         SelectSelectorConfig(
-                            REDACTED_VALUE"topic_name",
+                            translation_key="topic_name",
                             mode=SelectSelectorMode.LIST,
                             options=topics,
                         )
@@ -412,7 +412,7 @@ class NestFlowHandler(
                         default=next(iter(subscriptions)),
                     ): SelectSelector(
                         SelectSelectorConfig(
-                            REDACTED_VALUE"subscription_name",
+                            translation_key="subscription_name",
                             mode=SelectSelectorMode.LIST,
                             options=subscriptions,
                         )

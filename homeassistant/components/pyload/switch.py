@@ -43,7 +43,7 @@ class PyLoadSwitchEntityDescription(SwitchEntityDescription):
 SENSOR_DESCRIPTIONS: tuple[PyLoadSwitchEntityDescription, ...] = (
     PyLoadSwitchEntityDescription(
         key=PyLoadSwitch.PAUSE_RESUME_QUEUE,
-        REDACTED_VALUEPyLoadSwitch.PAUSE_RESUME_QUEUE,
+        translation_key=PyLoadSwitch.PAUSE_RESUME_QUEUE,
         device_class=SwitchDeviceClass.SWITCH,
         turn_on_fn=lambda api: api.unpause(),
         turn_off_fn=lambda api: api.pause(),
@@ -52,7 +52,7 @@ SENSOR_DESCRIPTIONS: tuple[PyLoadSwitchEntityDescription, ...] = (
     ),
     PyLoadSwitchEntityDescription(
         key=PyLoadSwitch.RECONNECT,
-        REDACTED_VALUEPyLoadSwitch.RECONNECT,
+        translation_key=PyLoadSwitch.RECONNECT,
         device_class=SwitchDeviceClass.SWITCH,
         turn_on_fn=lambda api: api.toggle_reconnect(),
         turn_off_fn=lambda api: api.toggle_reconnect(),
@@ -96,12 +96,12 @@ class PyLoadSwitchEntity(BasePyLoadEntity, SwitchEntity):
         except CannotConnect as e:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_call_exception",
+                translation_key="service_call_exception",
             ) from e
         except InvalidAuth as e:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_call_auth_exception",
+                translation_key="service_call_auth_exception",
             ) from e
 
         await self.coordinator.async_refresh()
@@ -113,12 +113,12 @@ class PyLoadSwitchEntity(BasePyLoadEntity, SwitchEntity):
         except CannotConnect as e:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_call_exception",
+                translation_key="service_call_exception",
             ) from e
         except InvalidAuth as e:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_call_auth_exception",
+                translation_key="service_call_auth_exception",
             ) from e
 
         await self.coordinator.async_refresh()
@@ -130,12 +130,12 @@ class PyLoadSwitchEntity(BasePyLoadEntity, SwitchEntity):
         except CannotConnect as e:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_call_exception",
+                translation_key="service_call_exception",
             ) from e
         except InvalidAuth as e:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_call_auth_exception",
+                translation_key="service_call_auth_exception",
             ) from e
 
         await self.coordinator.async_refresh()

@@ -1,7 +1,7 @@
 """Tests for the Tami4 config flow."""
 
 import pytest
-from REDACTED_VALUE import exceptions
+from Tami4EdgeAPI import exceptions
 
 from homeassistant import config_entries
 from homeassistant.components.tami4.const import CONF_PHONE, DOMAIN
@@ -147,7 +147,7 @@ async def test_step_otp_valid_device_no_name(hass: HomeAssistant) -> None:
     ("mock_submit_otp", "expected_error"),
     [
         (Exception, "unknown"),
-        (exceptions.REDACTED_VALUEException, "cannot_connect"),
+        (exceptions.Tami4EdgeAPIException, "cannot_connect"),
         (exceptions.OTPFailedException, "invalid_auth"),
     ],
     indirect=["mock_submit_otp"],

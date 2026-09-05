@@ -29,7 +29,7 @@ def homewizard_exception_handler[_HomeWizardEntityT: HomeWizardEntity, **_P](
         except RequestError as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
             ) from ex
         except DisabledError as ex:
             await self.hass.config_entries.async_reload(
@@ -37,12 +37,12 @@ def homewizard_exception_handler[_HomeWizardEntityT: HomeWizardEntity, **_P](
             )
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_disabled",
+                translation_key="api_disabled",
             ) from ex
         except UnauthorizedError as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_unauthorized",
+                translation_key="api_unauthorized",
             ) from ex
 
     return handler

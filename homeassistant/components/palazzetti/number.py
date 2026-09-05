@@ -61,12 +61,12 @@ class PalazzettiCombustionPowerEntity(PalazzettiEntity, NumberEntity):
             await self.coordinator.client.set_power_mode(int(value))
         except CommunicationError as err:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"cannot_connect"
+                translation_domain=DOMAIN, translation_key="cannot_connect"
             ) from err
         except ValidationError as err:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_combustion_power",
+                translation_key="invalid_combustion_power",
                 translation_placeholders={
                     "value": str(value),
                 },
@@ -106,12 +106,12 @@ class PalazzettiFanEntity(PalazzettiEntity, NumberEntity):
             await self.coordinator.client.set_fan_speed(int(value), self.fan)
         except CommunicationError as err:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"cannot_connect"
+                translation_domain=DOMAIN, translation_key="cannot_connect"
             ) from err
         except ValidationError as err:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_fan_speed",
+                translation_key="invalid_fan_speed",
                 translation_placeholders={
                     "name": str.lower(self.fan.name),
                     "value": str(value),

@@ -30,7 +30,7 @@ class ArcamFmjBinarySensorEntityDescription(BinarySensorEntityDescription):
 BINARY_SENSORS: tuple[ArcamFmjBinarySensorEntityDescription, ...] = (
     ArcamFmjBinarySensorEntityDescription(
         key="incoming_video_interlaced",
-        REDACTED_VALUE"incoming_video_interlaced",
+        translation_key="incoming_video_interlaced",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda state: (
             vp.interlaced

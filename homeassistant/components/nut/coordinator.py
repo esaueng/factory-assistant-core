@@ -62,7 +62,7 @@ class NutCoordinator(DataUpdateCoordinator[dict[str, str]]):
         except NUTLoginError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_authentication",
+                translation_key="device_authentication",
                 translation_placeholders={
                     "err": str(err),
                 },
@@ -70,7 +70,7 @@ class NutCoordinator(DataUpdateCoordinator[dict[str, str]]):
         except NUTError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"data_fetch_error",
+                translation_key="data_fetch_error",
                 translation_placeholders={
                     "err": str(err),
                 },

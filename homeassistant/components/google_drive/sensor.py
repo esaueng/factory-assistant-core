@@ -35,7 +35,7 @@ class GoogleDriveSensorEntityDescription(SensorEntityDescription):
 SENSORS: tuple[GoogleDriveSensorEntityDescription, ...] = (
     GoogleDriveSensorEntityDescription(
         key="storage_total",
-        REDACTED_VALUE"storage_total",
+        translation_key="storage_total",
         native_unit_of_measurement=UnitOfInformation.BYTES,
         suggested_unit_of_measurement=UnitOfInformation.GIBIBYTES,
         suggested_display_precision=0,
@@ -46,7 +46,7 @@ SENSORS: tuple[GoogleDriveSensorEntityDescription, ...] = (
     ),
     GoogleDriveSensorEntityDescription(
         key="storage_used",
-        REDACTED_VALUE"storage_used",
+        translation_key="storage_used",
         native_unit_of_measurement=UnitOfInformation.BYTES,
         suggested_unit_of_measurement=UnitOfInformation.GIBIBYTES,
         suggested_display_precision=0,
@@ -56,7 +56,7 @@ SENSORS: tuple[GoogleDriveSensorEntityDescription, ...] = (
     ),
     GoogleDriveSensorEntityDescription(
         key="storage_used_in_drive",
-        REDACTED_VALUE"storage_used_in_drive",
+        translation_key="storage_used_in_drive",
         native_unit_of_measurement=UnitOfInformation.BYTES,
         suggested_unit_of_measurement=UnitOfInformation.GIBIBYTES,
         suggested_display_precision=0,
@@ -67,7 +67,7 @@ SENSORS: tuple[GoogleDriveSensorEntityDescription, ...] = (
     ),
     GoogleDriveSensorEntityDescription(
         key="storage_used_in_drive_trash",
-        REDACTED_VALUE"storage_used_in_drive_trash",
+        translation_key="storage_used_in_drive_trash",
         native_unit_of_measurement=UnitOfInformation.BYTES,
         suggested_unit_of_measurement=UnitOfInformation.GIBIBYTES,
         suggested_display_precision=0,
@@ -78,7 +78,7 @@ SENSORS: tuple[GoogleDriveSensorEntityDescription, ...] = (
     ),
     GoogleDriveSensorEntityDescription(
         key="backups_size",
-        REDACTED_VALUE"backups_size",
+        translation_key="backups_size",
         native_unit_of_measurement=UnitOfInformation.BYTES,
         suggested_unit_of_measurement=UnitOfInformation.MEBIBYTES,
         suggested_display_precision=0,

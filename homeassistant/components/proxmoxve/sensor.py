@@ -60,7 +60,7 @@ class ProxmoxStorageSensorEntityDescription(SensorEntityDescription):
 NODE_SENSORS: tuple[ProxmoxNodeSensorEntityDescription, ...] = (
     ProxmoxNodeSensorEntityDescription(
         key="node_cpu",
-        REDACTED_VALUE"node_cpu",
+        translation_key="node_cpu",
         value_fn=lambda data: data.node["cpu"] * 100,
         native_unit_of_measurement=PERCENTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -69,12 +69,12 @@ NODE_SENSORS: tuple[ProxmoxNodeSensorEntityDescription, ...] = (
     ),
     ProxmoxNodeSensorEntityDescription(
         key="node_max_cpu",
-        REDACTED_VALUE"node_max_cpu",
+        translation_key="node_max_cpu",
         value_fn=lambda data: data.node["maxcpu"],
     ),
     ProxmoxNodeSensorEntityDescription(
         key="node_disk",
-        REDACTED_VALUE"node_disk",
+        translation_key="node_disk",
         value_fn=lambda data: data.node["disk"],
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -85,7 +85,7 @@ NODE_SENSORS: tuple[ProxmoxNodeSensorEntityDescription, ...] = (
     ),
     ProxmoxNodeSensorEntityDescription(
         key="node_max_disk",
-        REDACTED_VALUE"node_max_disk",
+        translation_key="node_max_disk",
         value_fn=lambda data: data.node["maxdisk"],
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -96,7 +96,7 @@ NODE_SENSORS: tuple[ProxmoxNodeSensorEntityDescription, ...] = (
     ),
     ProxmoxNodeSensorEntityDescription(
         key="node_memory",
-        REDACTED_VALUE"node_memory",
+        translation_key="node_memory",
         value_fn=lambda data: data.node["mem"],
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -107,7 +107,7 @@ NODE_SENSORS: tuple[ProxmoxNodeSensorEntityDescription, ...] = (
     ),
     ProxmoxNodeSensorEntityDescription(
         key="node_max_memory",
-        REDACTED_VALUE"node_max_memory",
+        translation_key="node_max_memory",
         value_fn=lambda data: data.node["maxmem"],
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -118,7 +118,7 @@ NODE_SENSORS: tuple[ProxmoxNodeSensorEntityDescription, ...] = (
     ),
     ProxmoxNodeSensorEntityDescription(
         key="node_memory_percentage",
-        REDACTED_VALUE"node_memory_percentage",
+        translation_key="node_memory_percentage",
         value_fn=lambda data: int(data.node["mem"]) / int(data.node["maxmem"]) * 100,
         native_unit_of_measurement=PERCENTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -127,7 +127,7 @@ NODE_SENSORS: tuple[ProxmoxNodeSensorEntityDescription, ...] = (
     ),
     ProxmoxNodeSensorEntityDescription(
         key="node_uptime",
-        REDACTED_VALUE"node_uptime",
+        translation_key="node_uptime",
         value_fn=lambda data: data.node["uptime"],
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.SECONDS,
@@ -137,14 +137,14 @@ NODE_SENSORS: tuple[ProxmoxNodeSensorEntityDescription, ...] = (
     ),
     ProxmoxNodeSensorEntityDescription(
         key="node_status",
-        REDACTED_VALUE"node_status",
+        translation_key="node_status",
         value_fn=lambda data: data.node["status"],
         device_class=SensorDeviceClass.ENUM,
         options=["online", "offline"],
     ),
     ProxmoxNodeSensorEntityDescription(
         key="node_backup_last_backup",
-        REDACTED_VALUE"node_backup_last_backup",
+        translation_key="node_backup_last_backup",
         value_fn=lambda data: (
             dt_util.utc_from_timestamp(data.backups[0]["endtime"])
             if data.backups
@@ -155,7 +155,7 @@ NODE_SENSORS: tuple[ProxmoxNodeSensorEntityDescription, ...] = (
     ),
     ProxmoxNodeSensorEntityDescription(
         key="node_backup_duration",
-        REDACTED_VALUE"node_backup_duration",
+        translation_key="node_backup_duration",
         value_fn=lambda data: (
             data.backups[0]["endtime"] - data.backups[0]["starttime"]
             if data.backups
@@ -172,12 +172,12 @@ NODE_SENSORS: tuple[ProxmoxNodeSensorEntityDescription, ...] = (
 VM_SENSORS: tuple[ProxmoxVMSensorEntityDescription, ...] = (
     ProxmoxVMSensorEntityDescription(
         key="vm_max_cpu",
-        REDACTED_VALUE"vm_max_cpu",
+        translation_key="vm_max_cpu",
         value_fn=lambda data: data["cpus"],
     ),
     ProxmoxVMSensorEntityDescription(
         key="vm_cpu",
-        REDACTED_VALUE"vm_cpu",
+        translation_key="vm_cpu",
         value_fn=lambda data: data["cpu"] * 100,
         native_unit_of_measurement=PERCENTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -186,7 +186,7 @@ VM_SENSORS: tuple[ProxmoxVMSensorEntityDescription, ...] = (
     ),
     ProxmoxVMSensorEntityDescription(
         key="vm_memory",
-        REDACTED_VALUE"vm_memory",
+        translation_key="vm_memory",
         value_fn=lambda data: data["mem"],
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -197,7 +197,7 @@ VM_SENSORS: tuple[ProxmoxVMSensorEntityDescription, ...] = (
     ),
     ProxmoxVMSensorEntityDescription(
         key="vm_max_memory",
-        REDACTED_VALUE"vm_max_memory",
+        translation_key="vm_max_memory",
         value_fn=lambda data: data["maxmem"],
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -208,7 +208,7 @@ VM_SENSORS: tuple[ProxmoxVMSensorEntityDescription, ...] = (
     ),
     ProxmoxVMSensorEntityDescription(
         key="vm_memory_percentage",
-        REDACTED_VALUE"vm_memory_percentage",
+        translation_key="vm_memory_percentage",
         value_fn=lambda data: int(data["mem"]) / int(data["maxmem"]) * 100,
         native_unit_of_measurement=PERCENTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -217,7 +217,7 @@ VM_SENSORS: tuple[ProxmoxVMSensorEntityDescription, ...] = (
     ),
     ProxmoxVMSensorEntityDescription(
         key="vm_uptime",
-        REDACTED_VALUE"vm_uptime",
+        translation_key="vm_uptime",
         value_fn=lambda data: data["uptime"],
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.SECONDS,
@@ -227,7 +227,7 @@ VM_SENSORS: tuple[ProxmoxVMSensorEntityDescription, ...] = (
     ),
     ProxmoxVMSensorEntityDescription(
         key="vm_disk",
-        REDACTED_VALUE"vm_disk",
+        translation_key="vm_disk",
         value_fn=lambda data: data["disk"],
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -238,7 +238,7 @@ VM_SENSORS: tuple[ProxmoxVMSensorEntityDescription, ...] = (
     ),
     ProxmoxVMSensorEntityDescription(
         key="vm_max_disk",
-        REDACTED_VALUE"vm_max_disk",
+        translation_key="vm_max_disk",
         value_fn=lambda data: data["maxdisk"],
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -249,14 +249,14 @@ VM_SENSORS: tuple[ProxmoxVMSensorEntityDescription, ...] = (
     ),
     ProxmoxVMSensorEntityDescription(
         key="vm_status",
-        REDACTED_VALUE"vm_status",
+        translation_key="vm_status",
         value_fn=lambda data: data["status"],
         device_class=SensorDeviceClass.ENUM,
         options=["running", "stopped", "suspended"],
     ),
     ProxmoxVMSensorEntityDescription(
         key="vm_netin",
-        REDACTED_VALUE"vm_netin",
+        translation_key="vm_netin",
         value_fn=lambda data: data["netin"],
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -267,7 +267,7 @@ VM_SENSORS: tuple[ProxmoxVMSensorEntityDescription, ...] = (
     ),
     ProxmoxVMSensorEntityDescription(
         key="vm_netout",
-        REDACTED_VALUE"vm_netout",
+        translation_key="vm_netout",
         value_fn=lambda data: data["netout"],
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -281,12 +281,12 @@ VM_SENSORS: tuple[ProxmoxVMSensorEntityDescription, ...] = (
 CONTAINER_SENSORS: tuple[ProxmoxContainerSensorEntityDescription, ...] = (
     ProxmoxContainerSensorEntityDescription(
         key="container_max_cpu",
-        REDACTED_VALUE"container_max_cpu",
+        translation_key="container_max_cpu",
         value_fn=lambda data: data["cpus"],
     ),
     ProxmoxContainerSensorEntityDescription(
         key="container_cpu",
-        REDACTED_VALUE"container_cpu",
+        translation_key="container_cpu",
         value_fn=lambda data: data["cpu"] * 100,
         native_unit_of_measurement=PERCENTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -295,7 +295,7 @@ CONTAINER_SENSORS: tuple[ProxmoxContainerSensorEntityDescription, ...] = (
     ),
     ProxmoxContainerSensorEntityDescription(
         key="container_memory",
-        REDACTED_VALUE"container_memory",
+        translation_key="container_memory",
         value_fn=lambda data: data["mem"],
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -306,7 +306,7 @@ CONTAINER_SENSORS: tuple[ProxmoxContainerSensorEntityDescription, ...] = (
     ),
     ProxmoxContainerSensorEntityDescription(
         key="container_max_memory",
-        REDACTED_VALUE"container_max_memory",
+        translation_key="container_max_memory",
         value_fn=lambda data: data["maxmem"],
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -317,7 +317,7 @@ CONTAINER_SENSORS: tuple[ProxmoxContainerSensorEntityDescription, ...] = (
     ),
     ProxmoxContainerSensorEntityDescription(
         key="container_memory_percentage",
-        REDACTED_VALUE"container_memory_percentage",
+        translation_key="container_memory_percentage",
         value_fn=lambda data: int(data["mem"]) / int(data["maxmem"]) * 100,
         native_unit_of_measurement=PERCENTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -326,7 +326,7 @@ CONTAINER_SENSORS: tuple[ProxmoxContainerSensorEntityDescription, ...] = (
     ),
     ProxmoxContainerSensorEntityDescription(
         key="container_uptime",
-        REDACTED_VALUE"container_uptime",
+        translation_key="container_uptime",
         value_fn=lambda data: data["uptime"],
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.SECONDS,
@@ -336,7 +336,7 @@ CONTAINER_SENSORS: tuple[ProxmoxContainerSensorEntityDescription, ...] = (
     ),
     ProxmoxContainerSensorEntityDescription(
         key="container_disk",
-        REDACTED_VALUE"container_disk",
+        translation_key="container_disk",
         value_fn=lambda data: data["disk"],
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -347,7 +347,7 @@ CONTAINER_SENSORS: tuple[ProxmoxContainerSensorEntityDescription, ...] = (
     ),
     ProxmoxContainerSensorEntityDescription(
         key="container_max_disk",
-        REDACTED_VALUE"container_max_disk",
+        translation_key="container_max_disk",
         value_fn=lambda data: data["maxdisk"],
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -358,14 +358,14 @@ CONTAINER_SENSORS: tuple[ProxmoxContainerSensorEntityDescription, ...] = (
     ),
     ProxmoxContainerSensorEntityDescription(
         key="container_status",
-        REDACTED_VALUE"container_status",
+        translation_key="container_status",
         value_fn=lambda data: data["status"],
         device_class=SensorDeviceClass.ENUM,
         options=["running", "stopped", "suspended"],
     ),
     ProxmoxContainerSensorEntityDescription(
         key="container_netin",
-        REDACTED_VALUE"container_netin",
+        translation_key="container_netin",
         value_fn=lambda data: data["netin"],
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -376,7 +376,7 @@ CONTAINER_SENSORS: tuple[ProxmoxContainerSensorEntityDescription, ...] = (
     ),
     ProxmoxContainerSensorEntityDescription(
         key="container_netout",
-        REDACTED_VALUE"container_netout",
+        translation_key="container_netout",
         value_fn=lambda data: data["netout"],
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -390,7 +390,7 @@ CONTAINER_SENSORS: tuple[ProxmoxContainerSensorEntityDescription, ...] = (
 STORAGE_SENSORS: tuple[ProxmoxStorageSensorEntityDescription, ...] = (
     ProxmoxStorageSensorEntityDescription(
         key="storage_used",
-        REDACTED_VALUE"storage_used",
+        translation_key="storage_used",
         value_fn=lambda data: data["used"],
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -401,7 +401,7 @@ STORAGE_SENSORS: tuple[ProxmoxStorageSensorEntityDescription, ...] = (
     ),
     ProxmoxStorageSensorEntityDescription(
         key="storage_total",
-        REDACTED_VALUE"storage_total",
+        translation_key="storage_total",
         value_fn=lambda data: data["total"],
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -412,7 +412,7 @@ STORAGE_SENSORS: tuple[ProxmoxStorageSensorEntityDescription, ...] = (
     ),
     ProxmoxStorageSensorEntityDescription(
         key="storage_available",
-        REDACTED_VALUE"storage_available",
+        translation_key="storage_available",
         value_fn=lambda data: data["avail"],
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -423,7 +423,7 @@ STORAGE_SENSORS: tuple[ProxmoxStorageSensorEntityDescription, ...] = (
     ),
     ProxmoxStorageSensorEntityDescription(
         key="storage_used_percentage",
-        REDACTED_VALUE"storage_used_percentage",
+        translation_key="storage_used_percentage",
         value_fn=lambda data: (
             round(value * 100, 1)
             if (value := data.get("used_fraction")) is not None

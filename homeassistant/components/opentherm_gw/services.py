@@ -53,7 +53,7 @@ def _get_gateway(call: ServiceCall) -> OpenThermGatewayHub:
     if gw_hub is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_gateway_id",
+            translation_key="invalid_gateway_id",
             translation_placeholders={"gw_id": gw_id},
         )
     return gw_hub

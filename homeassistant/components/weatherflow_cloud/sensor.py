@@ -96,7 +96,7 @@ WEBSOCKET_WIND_SENSORS: tuple[
     WeatherFlowCloudSensorEntityDescriptionWebsocketWind(
         key="wind_direction",
         device_class=SensorDeviceClass.WIND_DIRECTION,
-        REDACTED_VALUE"wind_direction",
+        translation_key="wind_direction",
         value_fn=lambda data: data.wind_direction_degrees,
         native_unit_of_measurement="°",
     ),
@@ -107,7 +107,7 @@ WEBSOCKET_OBSERVATION_SENSORS: tuple[
 ] = (
     WeatherFlowCloudSensorEntityDescriptionWebsocketObservation(
         key="wind_lull",
-        REDACTED_VALUE"wind_lull",
+        translation_key="wind_lull",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.WIND_SPEED,
         suggested_display_precision=1,
@@ -116,7 +116,7 @@ WEBSOCKET_OBSERVATION_SENSORS: tuple[
     ),
     WeatherFlowCloudSensorEntityDescriptionWebsocketObservation(
         key="wind_gust",
-        REDACTED_VALUE"wind_gust",
+        translation_key="wind_gust",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.WIND_SPEED,
         suggested_display_precision=1,
@@ -125,7 +125,7 @@ WEBSOCKET_OBSERVATION_SENSORS: tuple[
     ),
     WeatherFlowCloudSensorEntityDescriptionWebsocketObservation(
         key="wind_avg",
-        REDACTED_VALUE"wind_avg",
+        translation_key="wind_avg",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.WIND_SPEED,
         suggested_display_precision=1,
@@ -134,7 +134,7 @@ WEBSOCKET_OBSERVATION_SENSORS: tuple[
     ),
     WeatherFlowCloudSensorEntityDescriptionWebsocketObservation(
         key="wind_sample_interval",
-        REDACTED_VALUE"wind_sample_interval",
+        translation_key="wind_sample_interval",
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
         native_unit_of_measurement=UnitOfTime.SECONDS,
@@ -149,7 +149,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     # Air Sensors
     WeatherFlowCloudSensorEntityDescription(
         key="air_density",
-        REDACTED_VALUE"air_density",
+        translation_key="air_density",
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=5,
         value_fn=lambda data: data.air_density,
@@ -157,7 +157,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     ),
     WeatherFlowCloudSensorEntityDescription(
         key="relative_humidity",
-        REDACTED_VALUE"relative_humidity",
+        translation_key="relative_humidity",
         device_class=SensorDeviceClass.HUMIDITY,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=0,
@@ -167,7 +167,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     # Light Sensors
     WeatherFlowCloudSensorEntityDescription(
         key="brightness",
-        REDACTED_VALUE"illuminance",
+        translation_key="illuminance",
         device_class=SensorDeviceClass.ILLUMINANCE,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=0,
@@ -176,7 +176,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     ),
     WeatherFlowCloudSensorEntityDescription(
         key="uv",
-        REDACTED_VALUE"uv_index",
+        translation_key="uv_index",
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=2,
         value_fn=lambda data: data.uv,
@@ -184,7 +184,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     ),
     WeatherFlowCloudSensorEntityDescription(
         key="solar_radiation",
-        REDACTED_VALUE"solar_radiation",
+        translation_key="solar_radiation",
         device_class=SensorDeviceClass.IRRADIANCE,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=0,
@@ -194,7 +194,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     # Temp Sensors
     WeatherFlowCloudSensorEntityDescription(
         key="air_temperature",
-        REDACTED_VALUE"air_temperature",
+        translation_key="air_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
@@ -203,7 +203,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     ),
     WeatherFlowCloudSensorEntityDescription(
         key="dew_point",
-        REDACTED_VALUE"dew_point",
+        translation_key="dew_point",
         value_fn=lambda data: data.dew_point,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -212,7 +212,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     ),
     WeatherFlowCloudSensorEntityDescription(
         key="feels_like",
-        REDACTED_VALUE"feels_like",
+        translation_key="feels_like",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
@@ -221,7 +221,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     ),
     WeatherFlowCloudSensorEntityDescription(
         key="heat_index",
-        REDACTED_VALUE"heat_index",
+        translation_key="heat_index",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
@@ -230,7 +230,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     ),
     WeatherFlowCloudSensorEntityDescription(
         key="wind_chill",
-        REDACTED_VALUE"wind_chill",
+        translation_key="wind_chill",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
@@ -239,7 +239,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     ),
     WeatherFlowCloudSensorEntityDescription(
         key="wet_bulb_temperature",
-        REDACTED_VALUE"wet_bulb_temperature",
+        translation_key="wet_bulb_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
@@ -248,7 +248,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     ),
     WeatherFlowCloudSensorEntityDescription(
         key="wet_bulb_globe_temperature",
-        REDACTED_VALUE"wet_bulb_globe_temperature",
+        translation_key="wet_bulb_globe_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
@@ -258,7 +258,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     # Pressure Sensors
     WeatherFlowCloudSensorEntityDescription(
         key="barometric_pressure",
-        REDACTED_VALUE"barometric_pressure",
+        translation_key="barometric_pressure",
         value_fn=lambda data: data.barometric_pressure,
         native_unit_of_measurement=UnitOfPressure.MBAR,
         device_class=SensorDeviceClass.ATMOSPHERIC_PRESSURE,
@@ -267,7 +267,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     ),
     WeatherFlowCloudSensorEntityDescription(
         key="sea_level_pressure",
-        REDACTED_VALUE"sea_level_pressure",
+        translation_key="sea_level_pressure",
         value_fn=lambda data: data.sea_level_pressure,
         native_unit_of_measurement=UnitOfPressure.MBAR,
         device_class=SensorDeviceClass.ATMOSPHERIC_PRESSURE,
@@ -277,7 +277,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     # Rain Sensors
     WeatherFlowCloudSensorEntityDescription(
         key="precip_accum_last_1hr",
-        REDACTED_VALUE"precip_accum_last_1hr",
+        translation_key="precip_accum_last_1hr",
         device_class=SensorDeviceClass.PRECIPITATION,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
@@ -286,7 +286,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     ),
     WeatherFlowCloudSensorEntityDescription(
         key="precip_accum_local_day",
-        REDACTED_VALUE"precip_accum_local_day",
+        translation_key="precip_accum_local_day",
         device_class=SensorDeviceClass.PRECIPITATION,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
@@ -295,7 +295,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     ),
     WeatherFlowCloudSensorEntityDescription(
         key="precip_accum_local_day_final",
-        REDACTED_VALUE"precip_accum_local_day_final",
+        translation_key="precip_accum_local_day_final",
         device_class=SensorDeviceClass.PRECIPITATION,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
@@ -304,7 +304,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     ),
     WeatherFlowCloudSensorEntityDescription(
         key="precip_accum_local_yesterday",
-        REDACTED_VALUE"precip_accum_local_yesterday",
+        translation_key="precip_accum_local_yesterday",
         device_class=SensorDeviceClass.PRECIPITATION,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
@@ -313,7 +313,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     ),
     WeatherFlowCloudSensorEntityDescription(
         key="precip_accum_local_yesterday_final",
-        REDACTED_VALUE"precip_accum_local_yesterday_final",
+        translation_key="precip_accum_local_yesterday_final",
         device_class=SensorDeviceClass.PRECIPITATION,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
@@ -322,7 +322,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     ),
     WeatherFlowCloudSensorEntityDescription(
         key="precip_analysis_type_yesterday",
-        REDACTED_VALUE"precip_analysis_type_yesterday",
+        translation_key="precip_analysis_type_yesterday",
         device_class=SensorDeviceClass.ENUM,
         options=["none", "rain", "snow", "sleet", "storm"],
         suggested_display_precision=1,
@@ -332,7 +332,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     ),
     WeatherFlowCloudSensorEntityDescription(
         key="precip_minutes_local_day",
-        REDACTED_VALUE"precip_minutes_local_day",
+        translation_key="precip_minutes_local_day",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTime.MINUTES,
         suggested_display_precision=1,
@@ -340,7 +340,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     ),
     WeatherFlowCloudSensorEntityDescription(
         key="precip_minutes_local_yesterday",
-        REDACTED_VALUE"precip_minutes_local_yesterday",
+        translation_key="precip_minutes_local_yesterday",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTime.MINUTES,
         suggested_display_precision=1,
@@ -348,7 +348,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     ),
     WeatherFlowCloudSensorEntityDescription(
         key="precip_minutes_local_yesterday_final",
-        REDACTED_VALUE"precip_minutes_local_yesterday_final",
+        translation_key="precip_minutes_local_yesterday_final",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTime.MINUTES,
         suggested_display_precision=1,
@@ -357,25 +357,25 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     # Lightning Sensors
     WeatherFlowCloudSensorEntityDescription(
         key="lightning_strike_count",
-        REDACTED_VALUE"lightning_strike_count",
+        translation_key="lightning_strike_count",
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: data.lightning_strike_count,
     ),
     WeatherFlowCloudSensorEntityDescription(
         key="lightning_strike_count_last_1hr",
-        REDACTED_VALUE"lightning_strike_count_last_1hr",
+        translation_key="lightning_strike_count_last_1hr",
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: data.lightning_strike_count_last_1hr,
     ),
     WeatherFlowCloudSensorEntityDescription(
         key="lightning_strike_count_last_3hr",
-        REDACTED_VALUE"lightning_strike_count_last_3hr",
+        translation_key="lightning_strike_count_last_3hr",
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: data.lightning_strike_count_last_3hr,
     ),
     WeatherFlowCloudSensorEntityDescription(
         key="lightning_strike_last_distance",
-        REDACTED_VALUE"lightning_strike_last_distance",
+        translation_key="lightning_strike_last_distance",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.DISTANCE,
         native_unit_of_measurement=UnitOfLength.KILOMETERS,
@@ -383,7 +383,7 @@ WF_SENSORS: tuple[WeatherFlowCloudSensorEntityDescription, ...] = (
     ),
     WeatherFlowCloudSensorEntityDescription(
         key="lightning_strike_last_epoch",
-        REDACTED_VALUE"lightning_strike_last_epoch",
+        translation_key="lightning_strike_last_epoch",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=(
             lambda data: (

@@ -29,11 +29,11 @@ SWITCHES: dict[DeviceCategory, tuple[SwitchEntityDescription, ...]] = {
     DeviceCategory.BH: (
         SwitchEntityDescription(
             key=DPCode.START,
-            REDACTED_VALUE"start",
+            translation_key="start",
         ),
         SwitchEntityDescription(
             key=DPCode.WARM,
-            REDACTED_VALUE"heat_preservation",
+            translation_key="heat_preservation",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
@@ -44,19 +44,19 @@ SWITCHES: dict[DeviceCategory, tuple[SwitchEntityDescription, ...]] = {
         ),
         SwitchEntityDescription(
             key=DPCode.CHILD_LOCK,
-            REDACTED_VALUE"child_lock",
+            translation_key="child_lock",
             icon="mdi:account-lock",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_MUSIC,
-            REDACTED_VALUE"music",
+            translation_key="music",
             icon="mdi:music",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SNOOZE,
-            REDACTED_VALUE"snooze",
+            translation_key="snooze",
             icon="mdi:alarm-snooze",
             entity_category=EntityCategory.CONFIG,
         ),
@@ -64,63 +64,63 @@ SWITCHES: dict[DeviceCategory, tuple[SwitchEntityDescription, ...]] = {
     DeviceCategory.CJKG: (
         SwitchEntityDescription(
             key=DPCode.SWITCH_1,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "1"},
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_2,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "2"},
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_3,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "3"},
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_4,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "4"},
         ),
     ),
     DeviceCategory.CL: (
         SwitchEntityDescription(
             key=DPCode.CONTROL_BACK,
-            REDACTED_VALUE"reverse",
+            translation_key="reverse",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.OPPOSITE,
-            REDACTED_VALUE"reverse",
+            translation_key="reverse",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.CN: (
         SwitchEntityDescription(
             key=DPCode.DISINFECTION,
-            REDACTED_VALUE"disinfection",
+            translation_key="disinfection",
         ),
         SwitchEntityDescription(
             key=DPCode.WATER,
-            REDACTED_VALUE"water",
+            translation_key="water",
         ),
     ),
     DeviceCategory.CS: (
         SwitchEntityDescription(
             key=DPCode.ANION,
-            REDACTED_VALUE"ionizer",
+            translation_key="ionizer",
             icon="mdi:atom",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.CHILD_LOCK,
-            REDACTED_VALUE"child_lock",
+            translation_key="child_lock",
             icon="mdi:account-lock",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.FILTER_RESET,
-            REDACTED_VALUE"filter_reset",
+            translation_key="filter_reset",
             icon="mdi:filter",
             entity_category=EntityCategory.CONFIG,
         ),
@@ -128,39 +128,39 @@ SWITCHES: dict[DeviceCategory, tuple[SwitchEntityDescription, ...]] = {
     DeviceCategory.CWJWQ: (
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            REDACTED_VALUE"switch",
+            translation_key="switch",
         ),
     ),
     DeviceCategory.CWWSQ: (
         SwitchEntityDescription(
             key=DPCode.SLOW_FEED,
-            REDACTED_VALUE"slow_feed",
+            translation_key="slow_feed",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.CWYSJ: (
         SwitchEntityDescription(
             key=DPCode.FILTER_RESET,
-            REDACTED_VALUE"filter_reset",
+            translation_key="filter_reset",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.PUMP_RESET,
-            REDACTED_VALUE"water_pump_reset",
+            translation_key="water_pump_reset",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            REDACTED_VALUE"power",
+            translation_key="power",
         ),
         SwitchEntityDescription(
             key=DPCode.WATER_RESET,
-            REDACTED_VALUE"reset_of_water_usage_days",
+            translation_key="reset_of_water_usage_days",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.UV,
-            REDACTED_VALUE"uv_sterilization",
+            translation_key="uv_sterilization",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
@@ -170,18 +170,18 @@ SWITCHES: dict[DeviceCategory, tuple[SwitchEntityDescription, ...]] = {
         # switch to control the plug.
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            REDACTED_VALUE"plug",
+            translation_key="plug",
         ),
     ),
     DeviceCategory.DLQ: (
         SwitchEntityDescription(
             key=DPCode.CHILD_LOCK,
-            REDACTED_VALUE"child_lock",
+            translation_key="child_lock",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            REDACTED_VALUE"switch",
+            translation_key="switch",
         ),
     ),
     DeviceCategory.DR: (
@@ -225,604 +225,604 @@ SWITCHES: dict[DeviceCategory, tuple[SwitchEntityDescription, ...]] = {
     DeviceCategory.FS: (
         SwitchEntityDescription(
             key=DPCode.ANION,
-            REDACTED_VALUE"anion",
+            translation_key="anion",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.HUMIDIFIER,
-            REDACTED_VALUE"humidification",
+            translation_key="humidification",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.OXYGEN,
-            REDACTED_VALUE"oxygen_bar",
+            translation_key="oxygen_bar",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.FAN_COOL,
-            REDACTED_VALUE"natural_wind",
+            translation_key="natural_wind",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.FAN_BEEP,
-            REDACTED_VALUE"sound",
+            translation_key="sound",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.CHILD_LOCK,
-            REDACTED_VALUE"child_lock",
+            translation_key="child_lock",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.FSD: (
         SwitchEntityDescription(
             key=DPCode.FAN_BEEP,
-            REDACTED_VALUE"sound",
+            translation_key="sound",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.GGQ: (
         SwitchEntityDescription(
             key=DPCode.SWITCH_1,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "1"},
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_2,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "2"},
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_3,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "3"},
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_4,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "4"},
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_5,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "5"},
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_6,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "6"},
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_7,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "7"},
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_8,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "8"},
         ),
     ),
     DeviceCategory.HXD: (
         SwitchEntityDescription(
             key=DPCode.SWITCH_1,
-            REDACTED_VALUE"radio",
+            translation_key="radio",
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_2,
-            REDACTED_VALUE"indexed_alarm",
+            translation_key="indexed_alarm",
             translation_placeholders={"index": "1"},
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_3,
-            REDACTED_VALUE"indexed_alarm",
+            translation_key="indexed_alarm",
             translation_placeholders={"index": "2"},
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_4,
-            REDACTED_VALUE"indexed_alarm",
+            translation_key="indexed_alarm",
             translation_placeholders={"index": "3"},
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_5,
-            REDACTED_VALUE"indexed_alarm",
+            translation_key="indexed_alarm",
             translation_placeholders={"index": "4"},
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_6,
-            REDACTED_VALUE"sleep_aid",
+            translation_key="sleep_aid",
         ),
     ),
     DeviceCategory.JSQ: (
         SwitchEntityDescription(
             key=DPCode.SWITCH_SOUND,
-            REDACTED_VALUE"voice",
+            translation_key="voice",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SLEEP,
-            REDACTED_VALUE"sleep",
+            translation_key="sleep",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.STERILIZATION,
-            REDACTED_VALUE"sterilization",
+            translation_key="sterilization",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.KG: (
         SwitchEntityDescription(
             key=DPCode.CHILD_LOCK,
-            REDACTED_VALUE"child_lock",
+            translation_key="child_lock",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_1,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "1"},
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_2,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "2"},
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_3,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "3"},
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_4,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "4"},
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_5,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "5"},
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_6,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "6"},
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_7,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "7"},
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_8,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "8"},
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB1,
-            REDACTED_VALUE"indexed_usb",
+            translation_key="indexed_usb",
             translation_placeholders={"index": "1"},
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB2,
-            REDACTED_VALUE"indexed_usb",
+            translation_key="indexed_usb",
             translation_placeholders={"index": "2"},
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB3,
-            REDACTED_VALUE"indexed_usb",
+            translation_key="indexed_usb",
             translation_placeholders={"index": "3"},
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB4,
-            REDACTED_VALUE"indexed_usb",
+            translation_key="indexed_usb",
             translation_placeholders={"index": "4"},
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB5,
-            REDACTED_VALUE"indexed_usb",
+            translation_key="indexed_usb",
             translation_placeholders={"index": "5"},
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB6,
-            REDACTED_VALUE"indexed_usb",
+            translation_key="indexed_usb",
             translation_placeholders={"index": "6"},
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            REDACTED_VALUE"switch",
+            translation_key="switch",
             device_class=SwitchDeviceClass.OUTLET,
         ),
     ),
     DeviceCategory.KJ: (
         SwitchEntityDescription(
             key=DPCode.ANION,
-            REDACTED_VALUE"ionizer",
+            translation_key="ionizer",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.FILTER_RESET,
-            REDACTED_VALUE"filter_cartridge_reset",
+            translation_key="filter_cartridge_reset",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.LOCK,
-            REDACTED_VALUE"child_lock",
+            translation_key="child_lock",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            REDACTED_VALUE"power",
+            translation_key="power",
         ),
         SwitchEntityDescription(
             key=DPCode.WET,
-            REDACTED_VALUE"humidification",
+            translation_key="humidification",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.UV,
-            REDACTED_VALUE"uv_sterilization",
+            translation_key="uv_sterilization",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.KT: (
         SwitchEntityDescription(
             key=DPCode.ANION,
-            REDACTED_VALUE"ionizer",
+            translation_key="ionizer",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.LOCK,
-            REDACTED_VALUE"child_lock",
+            translation_key="child_lock",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.KS: (
         SwitchEntityDescription(
             key=DPCode.ANION,
-            REDACTED_VALUE"ionizer",
+            translation_key="ionizer",
         ),
     ),
     DeviceCategory.MAL: (
         SwitchEntityDescription(
             key=DPCode.SWITCH_ALARM_SOUND,
             # This switch is called "Arm Beep" in the official Tuya app
-            REDACTED_VALUE"arm_beep",
+            translation_key="arm_beep",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_ALARM_LIGHT,
             # This switch is called "Siren" in the official Tuya app
-            REDACTED_VALUE"siren",
+            translation_key="siren",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.MSP: (
         SwitchEntityDescription(
             key=DPCode.AUTO_CLEAN,
-            REDACTED_VALUE"auto_clean",
+            translation_key="auto_clean",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.MZJ: (
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            REDACTED_VALUE"switch",
+            translation_key="switch",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.START,
-            REDACTED_VALUE"start",
+            translation_key="start",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.PC: (
         SwitchEntityDescription(
             key=DPCode.CHILD_LOCK,
-            REDACTED_VALUE"child_lock",
+            translation_key="child_lock",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_1,
-            REDACTED_VALUE"indexed_socket",
+            translation_key="indexed_socket",
             translation_placeholders={"index": "1"},
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_2,
-            REDACTED_VALUE"indexed_socket",
+            translation_key="indexed_socket",
             translation_placeholders={"index": "2"},
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_3,
-            REDACTED_VALUE"indexed_socket",
+            translation_key="indexed_socket",
             translation_placeholders={"index": "3"},
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_4,
-            REDACTED_VALUE"indexed_socket",
+            translation_key="indexed_socket",
             translation_placeholders={"index": "4"},
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_5,
-            REDACTED_VALUE"indexed_socket",
+            translation_key="indexed_socket",
             translation_placeholders={"index": "5"},
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_6,
-            REDACTED_VALUE"indexed_socket",
+            translation_key="indexed_socket",
             translation_placeholders={"index": "6"},
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB1,
-            REDACTED_VALUE"indexed_usb",
+            translation_key="indexed_usb",
             translation_placeholders={"index": "1"},
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB2,
-            REDACTED_VALUE"indexed_usb",
+            translation_key="indexed_usb",
             translation_placeholders={"index": "2"},
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB3,
-            REDACTED_VALUE"indexed_usb",
+            translation_key="indexed_usb",
             translation_placeholders={"index": "3"},
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB4,
-            REDACTED_VALUE"indexed_usb",
+            translation_key="indexed_usb",
             translation_placeholders={"index": "4"},
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB5,
-            REDACTED_VALUE"indexed_usb",
+            translation_key="indexed_usb",
             translation_placeholders={"index": "5"},
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_USB6,
-            REDACTED_VALUE"indexed_usb",
+            translation_key="indexed_usb",
             translation_placeholders={"index": "6"},
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            REDACTED_VALUE"socket",
+            translation_key="socket",
             device_class=SwitchDeviceClass.OUTLET,
         ),
     ),
     DeviceCategory.QCCDZ: (
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            REDACTED_VALUE"switch",
+            translation_key="switch",
         ),
     ),
     DeviceCategory.QJDCZ: (
         SwitchEntityDescription(
             key=DPCode.SWITCH_1,
-            REDACTED_VALUE"switch",
+            translation_key="switch",
         ),
     ),
     DeviceCategory.QN: (
         SwitchEntityDescription(
             key=DPCode.ANION,
-            REDACTED_VALUE"ionizer",
+            translation_key="ionizer",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.LOCK,
-            REDACTED_VALUE"child_lock",
+            translation_key="child_lock",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.QXJ: (
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            REDACTED_VALUE"switch",
+            translation_key="switch",
             device_class=SwitchDeviceClass.OUTLET,
         ),
     ),
     DeviceCategory.SD: (
         SwitchEntityDescription(
             key=DPCode.SWITCH_DISTURB,
-            REDACTED_VALUE"do_not_disturb",
+            translation_key="do_not_disturb",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.VOICE_SWITCH,
-            REDACTED_VALUE"mute_voice",
+            translation_key="mute_voice",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.SGBJ: (
         SwitchEntityDescription(
             key=DPCode.MUFFLING,
-            REDACTED_VALUE"mute",
+            translation_key="mute",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.SJZ: (
         SwitchEntityDescription(
             key=DPCode.CHILD_LOCK,
-            REDACTED_VALUE"child_lock",
+            translation_key="child_lock",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.SP: (
         SwitchEntityDescription(
             key=DPCode.WIRELESS_BATTERYLOCK,
-            REDACTED_VALUE"battery_lock",
+            translation_key="battery_lock",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.CRY_DETECTION_SWITCH,
-            REDACTED_VALUE"cry_detection",
+            translation_key="cry_detection",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.DECIBEL_SWITCH,
-            REDACTED_VALUE"sound_detection",
+            translation_key="sound_detection",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.RECORD_SWITCH,
-            REDACTED_VALUE"video_recording",
+            translation_key="video_recording",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.MOTION_RECORD,
-            REDACTED_VALUE"motion_recording",
+            translation_key="motion_recording",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.BASIC_PRIVATE,
-            REDACTED_VALUE"privacy_mode",
+            translation_key="privacy_mode",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.BASIC_FLIP,
-            REDACTED_VALUE"flip",
+            translation_key="flip",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.BASIC_OSD,
-            REDACTED_VALUE"time_watermark",
+            translation_key="time_watermark",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.BASIC_WDR,
-            REDACTED_VALUE"wide_dynamic_range",
+            translation_key="wide_dynamic_range",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.MOTION_TRACKING,
-            REDACTED_VALUE"motion_tracking",
+            translation_key="motion_tracking",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.MOTION_SWITCH,
-            REDACTED_VALUE"motion_alarm",
+            translation_key="motion_alarm",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.MOTION_AREA_SWITCH,
-            REDACTED_VALUE"motion_detection_zone",
+            translation_key="motion_detection_zone",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.IPC_AUTO_SIREN,
-            REDACTED_VALUE"auto_siren",
+            translation_key="auto_siren",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.SZ: (
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            REDACTED_VALUE"power",
+            translation_key="power",
         ),
         SwitchEntityDescription(
             key=DPCode.PUMP,
-            REDACTED_VALUE"pump",
+            translation_key="pump",
         ),
     ),
     DeviceCategory.SZJQR: (
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            REDACTED_VALUE"switch",
+            translation_key="switch",
         ),
     ),
     DeviceCategory.TDQ: (
         SwitchEntityDescription(
             key=DPCode.SWITCH_1,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "1"},
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_2,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "2"},
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_3,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "3"},
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_4,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "4"},
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_5,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "5"},
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_6,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "6"},
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.CHILD_LOCK,
-            REDACTED_VALUE"child_lock",
+            translation_key="child_lock",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.TYNDJ: (
         SwitchEntityDescription(
             key=DPCode.SWITCH_SAVE_ENERGY,
-            REDACTED_VALUE"energy_saving",
+            translation_key="energy_saving",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.WG2: (
         SwitchEntityDescription(
             key=DPCode.MUFFLING,
-            REDACTED_VALUE"mute",
+            translation_key="mute",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.WK: (
         SwitchEntityDescription(
             key=DPCode.CHILD_LOCK,
-            REDACTED_VALUE"child_lock",
+            translation_key="child_lock",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.FROST,
-            REDACTED_VALUE"frost_protection",
+            translation_key="frost_protection",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.WKCZ: (
         SwitchEntityDescription(
             key=DPCode.SWITCH_1,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "1"},
             device_class=SwitchDeviceClass.OUTLET,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_2,
-            REDACTED_VALUE"indexed_switch",
+            translation_key="indexed_switch",
             translation_placeholders={"index": "2"},
             device_class=SwitchDeviceClass.OUTLET,
         ),
@@ -830,12 +830,12 @@ SWITCHES: dict[DeviceCategory, tuple[SwitchEntityDescription, ...]] = {
     DeviceCategory.WKF: (
         SwitchEntityDescription(
             key=DPCode.CHILD_LOCK,
-            REDACTED_VALUE"child_lock",
+            translation_key="child_lock",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.WINDOW_CHECK,
-            REDACTED_VALUE"open_window_detection",
+            translation_key="open_window_detection",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
@@ -848,68 +848,68 @@ SWITCHES: dict[DeviceCategory, tuple[SwitchEntityDescription, ...]] = {
     DeviceCategory.WSDCG: (
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            REDACTED_VALUE"switch",
+            translation_key="switch",
             device_class=SwitchDeviceClass.OUTLET,
         ),
     ),
     DeviceCategory.XDD: (
         SwitchEntityDescription(
             key=DPCode.DO_NOT_DISTURB,
-            REDACTED_VALUE"do_not_disturb",
+            translation_key="do_not_disturb",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.XNYJCN: (
         SwitchEntityDescription(
             key=DPCode.FEEDIN_POWER_LIMIT_ENABLE,
-            REDACTED_VALUE"output_power_limit",
+            translation_key="output_power_limit",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.XXJ: (
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            REDACTED_VALUE"power",
+            translation_key="power",
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_SPRAY,
-            REDACTED_VALUE"spray",
+            translation_key="spray",
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH_VOICE,
-            REDACTED_VALUE"voice",
+            translation_key="voice",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.YWBJ: (
         SwitchEntityDescription(
             key=DPCode.MUFFLING,
-            REDACTED_VALUE"mute",
+            translation_key="mute",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.ZNDB: (
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            REDACTED_VALUE"switch",
+            translation_key="switch",
         ),
     ),
     DeviceCategory.ZNJXS: (
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            REDACTED_VALUE"switch",
+            translation_key="switch",
         ),
     ),
     DeviceCategory.ZNRB: (
         SwitchEntityDescription(
             key=DPCode.CHILD_LOCK,
-            REDACTED_VALUE"child_lock",
+            translation_key="child_lock",
             icon="mdi:account-lock",
             entity_category=EntityCategory.CONFIG,
         ),
         SwitchEntityDescription(
             key=DPCode.SWITCH,
-            REDACTED_VALUE"switch",
+            translation_key="switch",
         ),
     ),
 }

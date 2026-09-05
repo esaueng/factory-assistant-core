@@ -87,17 +87,17 @@ class SensiboDataUpdateCoordinator(DataUpdateCoordinator[SensiboData]):
         except AuthenticationError as error:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_error",
+                translation_key="auth_error",
             ) from error
         except SensiboError as error:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_error",
+                translation_key="update_error",
                 translation_placeholders={"error": str(error)},
             ) from error
 
         if not data.raw:
-            raise UpdateFailed(translation_domain=DOMAIN, REDACTED_VALUE"no_data")
+            raise UpdateFailed(translation_domain=DOMAIN, translation_key="no_data")
 
         current_devices = set(data.parsed)
         for device_data in data.parsed.values():

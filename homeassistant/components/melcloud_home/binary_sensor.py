@@ -37,14 +37,14 @@ class ATWBinarySensorEntityDescription(BinarySensorEntityDescription):
 ATA_SENSORS: tuple[ATABinarySensorEntityDescription, ...] = (
     ATABinarySensorEntityDescription(
         key="error",
-        REDACTED_VALUE"error",
+        translation_key="error",
         device_class=BinarySensorDeviceClass.PROBLEM,
         state_fn=lambda unit: unit.is_in_error,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     ATABinarySensorEntityDescription(
         key="standby",
-        REDACTED_VALUE"standby",
+        translation_key="standby",
         state_fn=lambda unit: unit.in_standby_mode,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
@@ -53,20 +53,20 @@ ATA_SENSORS: tuple[ATABinarySensorEntityDescription, ...] = (
 ATW_SENSORS: tuple[ATWBinarySensorEntityDescription, ...] = (
     ATWBinarySensorEntityDescription(
         key="error",
-        REDACTED_VALUE"error",
+        translation_key="error",
         device_class=BinarySensorDeviceClass.PROBLEM,
         state_fn=lambda unit: unit.is_in_error,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     ATWBinarySensorEntityDescription(
         key="standby",
-        REDACTED_VALUE"standby",
+        translation_key="standby",
         state_fn=lambda unit: unit.in_standby_mode,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     ATWBinarySensorEntityDescription(
         key="forced_hot_water",
-        REDACTED_VALUE"forced_hot_water",
+        translation_key="forced_hot_water",
         state_fn=lambda unit: unit.forced_hot_water_mode,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),

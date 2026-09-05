@@ -85,7 +85,7 @@ class LcnServiceCall:
         ):
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_device_id",
+                translation_key="invalid_device_id",
                 translation_placeholders={"device_id": device_id},
             )
 
@@ -333,7 +333,7 @@ class SendKeys(LcnServiceCall):
             if pypck.lcn_defs.SendKeyCommand[service.data[CONF_STATE]] is not hit:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"invalid_send_keys_action",
+                    translation_key="invalid_send_keys_action",
                 )
             delay_unit = pypck.lcn_defs.TimeUnit.parse(service.data[CONF_TIME_UNIT])
             await device_connection.send_keys_hit_deferred(keys, delay_time, delay_unit)
@@ -372,7 +372,7 @@ class LockKeys(LcnServiceCall):
             if table_id != 0:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"invalid_lock_keys_table",
+                    translation_key="invalid_lock_keys_table",
                 )
             delay_unit = pypck.lcn_defs.TimeUnit.parse(service.data[CONF_TIME_UNIT])
             await device_connection.lock_keys_tab_a_temporary(

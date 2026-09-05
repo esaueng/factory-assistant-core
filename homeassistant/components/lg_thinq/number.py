@@ -31,62 +31,62 @@ from .entity import ThinQEntity
 NUMBER_DESC: dict[ThinQProperty, NumberEntityDescription] = {
     ThinQProperty.FAN_SPEED: NumberEntityDescription(
         key=ThinQProperty.FAN_SPEED,
-        REDACTED_VALUEThinQProperty.FAN_SPEED,
+        translation_key=ThinQProperty.FAN_SPEED,
         entity_registry_enabled_default=False,
     ),
     ThinQProperty.LAMP_BRIGHTNESS: NumberEntityDescription(
         key=ThinQProperty.LAMP_BRIGHTNESS,
-        REDACTED_VALUEThinQProperty.LAMP_BRIGHTNESS,
+        translation_key=ThinQProperty.LAMP_BRIGHTNESS,
     ),
     ThinQProperty.LIGHT_STATUS: NumberEntityDescription(
         key=ThinQProperty.LIGHT_STATUS,
         native_unit_of_measurement=PERCENTAGE,
-        REDACTED_VALUEThinQProperty.LIGHT_STATUS,
+        translation_key=ThinQProperty.LIGHT_STATUS,
     ),
     ThinQProperty.TARGET_HUMIDITY: NumberEntityDescription(
         key=ThinQProperty.TARGET_HUMIDITY,
         device_class=NumberDeviceClass.HUMIDITY,
         native_unit_of_measurement=PERCENTAGE,
-        REDACTED_VALUEThinQProperty.TARGET_HUMIDITY,
+        translation_key=ThinQProperty.TARGET_HUMIDITY,
     ),
     ThinQProperty.TARGET_TEMPERATURE: NumberEntityDescription(
         key=ThinQProperty.TARGET_TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
-        REDACTED_VALUEThinQProperty.TARGET_TEMPERATURE,
+        translation_key=ThinQProperty.TARGET_TEMPERATURE,
     ),
     ThinQProperty.WIND_TEMPERATURE: NumberEntityDescription(
         key=ThinQProperty.WIND_TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
-        REDACTED_VALUEThinQProperty.WIND_TEMPERATURE,
+        translation_key=ThinQProperty.WIND_TEMPERATURE,
     ),
 }
 TIMER_NUMBER_DESC: dict[ThinQProperty, NumberEntityDescription] = {
     ThinQProperty.RELATIVE_HOUR_TO_START: NumberEntityDescription(
         key=ThinQProperty.RELATIVE_HOUR_TO_START,
         native_unit_of_measurement=UnitOfTime.HOURS,
-        REDACTED_VALUEThinQProperty.RELATIVE_HOUR_TO_START,
+        translation_key=ThinQProperty.RELATIVE_HOUR_TO_START,
     ),
     TimerProperty.RELATIVE_HOUR_TO_START_WM: NumberEntityDescription(
         key=ThinQProperty.RELATIVE_HOUR_TO_START,
         native_min_value=0,
         native_unit_of_measurement=UnitOfTime.HOURS,
-        REDACTED_VALUETimerProperty.RELATIVE_HOUR_TO_START_WM,
+        translation_key=TimerProperty.RELATIVE_HOUR_TO_START_WM,
     ),
     ThinQProperty.RELATIVE_HOUR_TO_STOP: NumberEntityDescription(
         key=ThinQProperty.RELATIVE_HOUR_TO_STOP,
         native_unit_of_measurement=UnitOfTime.HOURS,
-        REDACTED_VALUEThinQProperty.RELATIVE_HOUR_TO_STOP,
+        translation_key=ThinQProperty.RELATIVE_HOUR_TO_STOP,
     ),
     TimerProperty.RELATIVE_HOUR_TO_STOP_WM: NumberEntityDescription(
         key=ThinQProperty.RELATIVE_HOUR_TO_STOP,
         native_min_value=0,
         native_unit_of_measurement=UnitOfTime.HOURS,
-        REDACTED_VALUETimerProperty.RELATIVE_HOUR_TO_STOP_WM,
+        translation_key=TimerProperty.RELATIVE_HOUR_TO_STOP_WM,
     ),
     ThinQProperty.SLEEP_TIMER_RELATIVE_HOUR_TO_STOP: NumberEntityDescription(
         key=ThinQProperty.SLEEP_TIMER_RELATIVE_HOUR_TO_STOP,
         native_unit_of_measurement=UnitOfTime.HOURS,
-        REDACTED_VALUEThinQProperty.SLEEP_TIMER_RELATIVE_HOUR_TO_STOP,
+        translation_key=ThinQProperty.SLEEP_TIMER_RELATIVE_HOUR_TO_STOP,
     ),
 }
 WASHER_NUMBERS: tuple[NumberEntityDescription, ...] = (
@@ -194,7 +194,7 @@ def _check_deprecated_fan_speed_entity(
         breaks_in_ha_version="2026.12.0",
         is_fixable=True,
         severity=IssueSeverity.WARNING,
-        REDACTED_VALUEtranslation_key,
+        translation_key=translation_key,
         translation_placeholders=placeholders,
         data={"entity_id": entity_id, **placeholders},
     )

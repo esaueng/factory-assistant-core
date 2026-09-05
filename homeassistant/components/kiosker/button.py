@@ -26,55 +26,55 @@ class KioskerButtonEntityDescription(ButtonEntityDescription):
 BUTTONS: tuple[KioskerButtonEntityDescription, ...] = (
     KioskerButtonEntityDescription(
         key="ping",
-        REDACTED_VALUE"ping",
+        translation_key="ping",
         entity_category=EntityCategory.DIAGNOSTIC,
         action_fn=lambda api: api.ping(),
     ),
     KioskerButtonEntityDescription(
         key="navigateRefresh",
-        REDACTED_VALUE"navigate_refresh",
+        translation_key="navigate_refresh",
         action_fn=lambda api: api.navigate_refresh(),
     ),
     KioskerButtonEntityDescription(
         key="navigateHome",
-        REDACTED_VALUE"navigate_home",
+        translation_key="navigate_home",
         action_fn=lambda api: api.navigate_home(),
     ),
     KioskerButtonEntityDescription(
         key="navigateForward",
-        REDACTED_VALUE"navigate_forward",
+        translation_key="navigate_forward",
         action_fn=lambda api: api.navigate_forward(),
     ),
     KioskerButtonEntityDescription(
         key="navigateBackward",
-        REDACTED_VALUE"navigate_backward",
+        translation_key="navigate_backward",
         action_fn=lambda api: api.navigate_backward(),
     ),
     KioskerButtonEntityDescription(
         key="print",
-        REDACTED_VALUE"print",
+        translation_key="print",
         action_fn=lambda api: api.print(),
     ),
     KioskerButtonEntityDescription(
         key="clearCache",
-        REDACTED_VALUE"clear_cache",
+        translation_key="clear_cache",
         entity_category=EntityCategory.CONFIG,
         action_fn=lambda api: api.clear_cache(),
     ),
     KioskerButtonEntityDescription(
         key="clearCookies",
-        REDACTED_VALUE"clear_cookies",
+        translation_key="clear_cookies",
         entity_category=EntityCategory.CONFIG,
         action_fn=lambda api: api.clear_cookies(),
     ),
     KioskerButtonEntityDescription(
         key="screensaverInteract",
-        REDACTED_VALUE"screensaver_interact",
+        translation_key="screensaver_interact",
         action_fn=lambda api: api.screensaver_interact(),
     ),
     KioskerButtonEntityDescription(
         key="blackoutClear",
-        REDACTED_VALUE"blackout_clear",
+        translation_key="blackout_clear",
         action_fn=lambda api: api.blackout_clear(),
     ),
 )

@@ -533,7 +533,7 @@ class UnavailableScriptEntity(BaseScriptEntity):
             f"{self.entity_id}_validation_{self._validation_status}",
             is_fixable=False,
             severity=IssueSeverity.ERROR,
-            REDACTED_VALUEf"validation_{self._validation_status}",
+            translation_key=f"validation_{self._validation_status}",
             translation_placeholders={
                 "edit": f"/config/script/edit/{self.unique_id}",
                 "entity_id": self.entity_id,

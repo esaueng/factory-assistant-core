@@ -145,7 +145,7 @@ def create_routes_api_disabled_issue(hass: HomeAssistant, entry: ConfigEntry) ->
         learn_more_url="https://www.home-assistant.io/integrations/google_travel_time#setup",
         is_fixable=False,
         severity=IssueSeverity.ERROR,
-        REDACTED_VALUE"routes_api_disabled",
+        translation_key="routes_api_disabled",
         translation_placeholders={
             "entry_title": entry.title,
             "enable_api_url": "https://cloud.google.com/endpoints/docs/openapi/enable-api",

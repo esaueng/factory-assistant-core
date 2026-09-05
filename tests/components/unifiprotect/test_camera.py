@@ -683,7 +683,7 @@ async def test_aiport_rtsp_issue_cleanup(
         issue_id=issue_id,
         learn_more_url=None,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"rtsp_disabled",
+        translation_key="rtsp_disabled",
         translation_placeholders=None,
     )
 

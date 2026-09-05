@@ -32,7 +32,7 @@ class SwitchBotCloudBinarySensorEntityDescription(BinarySensorEntityDescription)
 CALIBRATION_DESCRIPTION = SwitchBotCloudBinarySensorEntityDescription(
     key="calibrate",
     name="Calibration",
-    REDACTED_VALUE"calibration",
+    translation_key="calibration",
     device_class=BinarySensorDeviceClass.PROBLEM,
     entity_category=EntityCategory.DIAGNOSTIC,
     on_value=False,

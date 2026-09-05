@@ -64,7 +64,7 @@ async def get_state_characteristics(handler: SchemaCommonFlowHandler) -> vol.Sch
             vol.Required(CONF_STATE_CHARACTERISTIC): SelectSelector(
                 SelectSelectorConfig(
                     options=list(options),
-                    REDACTED_VALUECONF_STATE_CHARACTERISTIC,
+                    translation_key=CONF_STATE_CHARACTERISTIC,
                     sort=True,
                     mode=SelectSelectorMode.DROPDOWN,
                 )
@@ -112,7 +112,7 @@ DATA_SCHEMA_OPTIONS = vol.Schema(
                 options=list(
                     set(list(STATS_BINARY_SUPPORT) + list(STATS_NUMERIC_SUPPORT))
                 ),
-                REDACTED_VALUECONF_STATE_CHARACTERISTIC,
+                translation_key=CONF_STATE_CHARACTERISTIC,
                 mode=SelectSelectorMode.DROPDOWN,
                 read_only=True,
             )

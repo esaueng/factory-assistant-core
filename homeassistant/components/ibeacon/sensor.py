@@ -40,7 +40,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     IBeaconSensorEntityDescription(
         key="power",
-        REDACTED_VALUE"power",
+        translation_key="power",
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         entity_registry_enabled_default=False,
@@ -49,7 +49,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     IBeaconSensorEntityDescription(
         key="estimated_distance",
-        REDACTED_VALUE"estimated_distance",
+        translation_key="estimated_distance",
         native_unit_of_measurement=UnitOfLength.METERS,
         value_fn=lambda ibeacon_advertisement: ibeacon_advertisement.distance,
         state_class=SensorStateClass.MEASUREMENT,
@@ -57,7 +57,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     IBeaconSensorEntityDescription(
         key="vendor",
-        REDACTED_VALUE"vendor",
+        translation_key="vendor",
         entity_registry_enabled_default=False,
         value_fn=lambda ibeacon_advertisement: ibeacon_advertisement.vendor,
     ),

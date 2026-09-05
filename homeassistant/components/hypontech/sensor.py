@@ -50,7 +50,7 @@ OVERVIEW_SENSORS: tuple[HypontechSensorDescription, ...] = (
     ),
     HypontechSensorDescription(
         key="lifetime_energy",
-        REDACTED_VALUE"lifetime_energy",
+        translation_key="lifetime_energy",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -58,7 +58,7 @@ OVERVIEW_SENSORS: tuple[HypontechSensorDescription, ...] = (
     ),
     HypontechSensorDescription(
         key="today_energy",
-        REDACTED_VALUE"today_energy",
+        translation_key="today_energy",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -72,7 +72,7 @@ PLANT_SENSORS: tuple[HypontechPlantSensorDescription, ...] = (
     # endpoint; the plant endpoint's total power is exposed as "total_power".
     HypontechPlantSensorDescription(
         key="pv_power",
-        REDACTED_VALUE"pv_power",
+        translation_key="pv_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -80,7 +80,7 @@ PLANT_SENSORS: tuple[HypontechPlantSensorDescription, ...] = (
     ),
     HypontechPlantSensorDescription(
         key="total_power",
-        REDACTED_VALUE"total_power",
+        translation_key="total_power",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda c: c.info.power,
@@ -88,7 +88,7 @@ PLANT_SENSORS: tuple[HypontechPlantSensorDescription, ...] = (
     ),
     HypontechPlantSensorDescription(
         key="lifetime_energy",
-        REDACTED_VALUE"lifetime_energy",
+        translation_key="lifetime_energy",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -96,7 +96,7 @@ PLANT_SENSORS: tuple[HypontechPlantSensorDescription, ...] = (
     ),
     HypontechPlantSensorDescription(
         key="today_energy",
-        REDACTED_VALUE"today_energy",
+        translation_key="today_energy",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -104,7 +104,7 @@ PLANT_SENSORS: tuple[HypontechPlantSensorDescription, ...] = (
     ),
     HypontechPlantSensorDescription(
         key="load_power",
-        REDACTED_VALUE"load_power",
+        translation_key="load_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -112,7 +112,7 @@ PLANT_SENSORS: tuple[HypontechPlantSensorDescription, ...] = (
     ),
     HypontechPlantSensorDescription(
         key="grid_power",
-        REDACTED_VALUE"grid_power",
+        translation_key="grid_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -124,7 +124,7 @@ PLANT_SENSORS: tuple[HypontechPlantSensorDescription, ...] = (
 BATTERY_SENSORS: tuple[HypontechPlantSensorDescription, ...] = (
     HypontechPlantSensorDescription(
         key="battery_power",
-        REDACTED_VALUE"battery_power",
+        translation_key="battery_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -133,7 +133,7 @@ BATTERY_SENSORS: tuple[HypontechPlantSensorDescription, ...] = (
     ),
     HypontechPlantSensorDescription(
         key="battery_state_of_charge",
-        REDACTED_VALUE"battery_state_of_charge",
+        translation_key="battery_state_of_charge",
         native_unit_of_measurement=PERCENTAGE,
         device_class=SensorDeviceClass.BATTERY,
         state_class=SensorStateClass.MEASUREMENT,

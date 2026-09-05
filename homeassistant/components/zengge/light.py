@@ -30,7 +30,7 @@ def async_setup_platform(
         DOMAIN,
         is_fixable=False,
         severity=ir.IssueSeverity.ERROR,
-        REDACTED_VALUE"integration_removed",
+        translation_key="integration_removed",
         translation_placeholders={
             "led_ble_url": "https://www.home-assistant.io/integrations/led_ble/",
         },

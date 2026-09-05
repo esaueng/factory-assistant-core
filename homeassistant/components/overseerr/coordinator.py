@@ -58,11 +58,11 @@ class OverseerrCoordinator(DataUpdateCoordinator[OverseerrData]):
         except OverseerrAuthenticationError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_error",
+                translation_key="auth_error",
             ) from err
         except OverseerrConnectionError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connection_error",
+                translation_key="connection_error",
                 translation_placeholders={"error": str(err)},
             ) from err

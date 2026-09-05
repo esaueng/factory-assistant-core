@@ -79,7 +79,7 @@ class HueButtonEventEntity(HueBaseEntity, EventEntity):
     entity_description = EventEntityDescription(
         key="button",
         device_class=EventDeviceClass.BUTTON,
-        REDACTED_VALUE"button",
+        translation_key="button",
         has_entity_name=True,
     )
 
@@ -131,7 +131,7 @@ class HueRotaryEventEntity(HueBaseEntity, EventEntity):
     entity_description = EventEntityDescription(
         key="rotary",
         device_class=EventDeviceClass.BUTTON,
-        REDACTED_VALUE"rotary",
+        translation_key="rotary",
         event_types=[
             RelativeRotaryDirection.CLOCK_WISE.value,
             RelativeRotaryDirection.COUNTER_CLOCK_WISE.value,

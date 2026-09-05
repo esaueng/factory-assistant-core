@@ -44,7 +44,7 @@ async def async_setup_entry(
                         "started",
                         "up",
                     ],
-                    REDACTED_VALUE"monitor_status",
+                    translation_key="monitor_status",
                 ),
             )
             for monitor in new_monitors

@@ -30,7 +30,7 @@ class AcaiaBinarySensorEntityDescription(BinarySensorEntityDescription):
 BINARY_SENSORS: tuple[AcaiaBinarySensorEntityDescription, ...] = (
     AcaiaBinarySensorEntityDescription(
         key="timer_running",
-        REDACTED_VALUE"timer_running",
+        translation_key="timer_running",
         device_class=BinarySensorDeviceClass.RUNNING,
         is_on_fn=lambda scale: scale.timer_running,
     ),

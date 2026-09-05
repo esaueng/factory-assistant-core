@@ -26,7 +26,7 @@ async def async_setup_entry(
                     "ridiculous_speed",
                     "ludicrous_speed",
                 ],
-                REDACTED_VALUE"speed",
+                translation_key="speed",
             ),
         ]
     )

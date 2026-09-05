@@ -27,7 +27,7 @@ class RitualsSelectEntityDescription(SelectEntityDescription):
 ENTITY_DESCRIPTIONS = (
     RitualsSelectEntityDescription(
         key="room_size_square_meter",
-        REDACTED_VALUE"room_size_square_meter",
+        translation_key="room_size_square_meter",
         unit_of_measurement=UnitOfArea.SQUARE_METERS,
         entity_category=EntityCategory.CONFIG,
         options=["15", "30", "60", "100"],

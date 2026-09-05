@@ -311,7 +311,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: SwitchbotConfigEntry) ->
         # Device was not in range; retry when it starts advertising again.
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_not_found_error",
+            translation_key="device_not_found_error",
             translation_placeholders={
                 "sensor_type": entry.data[CONF_SENSOR_TYPE],
                 "address": entry.data[CONF_ADDRESS],
@@ -340,7 +340,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: SwitchbotConfigEntry) ->
     if not ble_device:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_not_found_error",
+            translation_key="device_not_found_error",
             translation_placeholders={
                 "sensor_type": sensor_type,
                 "address": address,
@@ -367,7 +367,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: SwitchbotConfigEntry) ->
         except ValueError as error:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"value_error",
+                translation_key="value_error",
                 translation_placeholders={"error": str(error)},
             ) from error
     else:
@@ -392,7 +392,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: SwitchbotConfigEntry) ->
     if not await coordinator.async_wait_ready():
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"advertising_state_error",
+            translation_key="advertising_state_error",
             translation_placeholders={"address": address},
         )
 

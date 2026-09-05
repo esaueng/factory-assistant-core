@@ -43,7 +43,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
             if entry is None or entry.state is not ConfigEntryState.LOADED:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"invalid_config_entry",
+                    translation_key="invalid_config_entry",
                 )
             home_store = entry.runtime_data
             for identifier in device_entry.identifiers:

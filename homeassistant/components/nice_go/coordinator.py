@@ -97,7 +97,7 @@ class NiceGOUpdateCoordinator(DataUpdateCoordinator[dict[str, NiceGODevice]]):
                 f"firmware_update_required_{device_id}",
                 is_fixable=False,
                 severity=ir.IssueSeverity.ERROR,
-                REDACTED_VALUE"firmware_update_required",
+                translation_key="firmware_update_required",
                 translation_placeholders={"device_name": name},
             )
             return None

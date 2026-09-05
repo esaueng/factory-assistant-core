@@ -33,7 +33,7 @@ class EheimDigitalTimeDescription[_DeviceT: EheimDigitalDevice](TimeEntityDescri
 REEFLEX_DESCRIPTIONS: tuple[EheimDigitalTimeDescription[EheimDigitalReeflexUV], ...] = (
     EheimDigitalTimeDescription[EheimDigitalReeflexUV](
         key="start_time",
-        REDACTED_VALUE"start_time",
+        translation_key="start_time",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda device: device.start_time,
         set_value_fn=lambda device, value: device.set_day_start_time(value),
@@ -43,14 +43,14 @@ REEFLEX_DESCRIPTIONS: tuple[EheimDigitalTimeDescription[EheimDigitalReeflexUV], 
 FILTER_DESCRIPTIONS: tuple[EheimDigitalTimeDescription[EheimDigitalFilter], ...] = (
     EheimDigitalTimeDescription[EheimDigitalFilter](
         key="day_start_time",
-        REDACTED_VALUE"day_start_time",
+        translation_key="day_start_time",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda device: device.day_start_time,
         set_value_fn=lambda device, value: device.set_day_start_time(value),
     ),
     EheimDigitalTimeDescription[EheimDigitalFilter](
         key="night_start_time",
-        REDACTED_VALUE"night_start_time",
+        translation_key="night_start_time",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda device: device.night_start_time,
         set_value_fn=lambda device, value: device.set_night_start_time(value),
@@ -62,14 +62,14 @@ CLASSICVARIO_DESCRIPTIONS: tuple[
 ] = (
     EheimDigitalTimeDescription[EheimDigitalClassicVario](
         key="day_start_time",
-        REDACTED_VALUE"day_start_time",
+        translation_key="day_start_time",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda device: device.day_start_time,
         set_value_fn=lambda device, value: device.set_day_start_time(value),
     ),
     EheimDigitalTimeDescription[EheimDigitalClassicVario](
         key="night_start_time",
-        REDACTED_VALUE"night_start_time",
+        translation_key="night_start_time",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda device: device.night_start_time,
         set_value_fn=lambda device, value: device.set_night_start_time(value),
@@ -79,14 +79,14 @@ CLASSICVARIO_DESCRIPTIONS: tuple[
 HEATER_DESCRIPTIONS: tuple[EheimDigitalTimeDescription[EheimDigitalHeater], ...] = (
     EheimDigitalTimeDescription[EheimDigitalHeater](
         key="day_start_time",
-        REDACTED_VALUE"day_start_time",
+        translation_key="day_start_time",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda device: device.day_start_time,
         set_value_fn=lambda device, value: device.set_day_start_time(value),
     ),
     EheimDigitalTimeDescription[EheimDigitalHeater](
         key="night_start_time",
-        REDACTED_VALUE"night_start_time",
+        translation_key="night_start_time",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda device: device.night_start_time,
         set_value_fn=lambda device, value: device.set_night_start_time(value),

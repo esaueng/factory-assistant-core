@@ -177,7 +177,7 @@ def create_issue(
             f"{key}_{entity_id}",
             is_fixable=False,
             severity=IssueSeverity.WARNING,
-            REDACTED_VALUEkey,
+            translation_key=key,
             translation_placeholders={
                 "entity_name": name,
                 "entity_id": entity_id,

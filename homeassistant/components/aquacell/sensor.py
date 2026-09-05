@@ -33,28 +33,28 @@ class SoftenerSensorEntityDescription(SensorEntityDescription):
 SENSORS: tuple[SoftenerSensorEntityDescription, ...] = (
     SoftenerSensorEntityDescription(
         key="salt_left_side_percentage",
-        REDACTED_VALUE"salt_left_side_percentage",
+        translation_key="salt_left_side_percentage",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda softener: softener.salt.left_percent,
     ),
     SoftenerSensorEntityDescription(
         key="salt_right_side_percentage",
-        REDACTED_VALUE"salt_right_side_percentage",
+        translation_key="salt_right_side_percentage",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda softener: softener.salt.right_percent,
     ),
     SoftenerSensorEntityDescription(
         key="salt_left_side_time_remaining",
-        REDACTED_VALUE"salt_left_side_time_remaining",
+        translation_key="salt_left_side_time_remaining",
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.DAYS,
         value_fn=lambda softener: softener.salt.left_days,
     ),
     SoftenerSensorEntityDescription(
         key="salt_right_side_time_remaining",
-        REDACTED_VALUE"salt_right_side_time_remaining",
+        translation_key="salt_right_side_time_remaining",
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.DAYS,
         value_fn=lambda softener: softener.salt.right_days,
@@ -67,7 +67,7 @@ SENSORS: tuple[SoftenerSensorEntityDescription, ...] = (
     ),
     SoftenerSensorEntityDescription(
         key="wi_fi_strength",
-        REDACTED_VALUE"wi_fi_strength",
+        translation_key="wi_fi_strength",
         value_fn=lambda softener: softener.diagnostics.wifi_level,
         device_class=SensorDeviceClass.ENUM,
         options=[
@@ -78,7 +78,7 @@ SENSORS: tuple[SoftenerSensorEntityDescription, ...] = (
     ),
     SoftenerSensorEntityDescription(
         key="last_update",
-        REDACTED_VALUE"last_update",
+        translation_key="last_update",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda softener: softener.diagnostics.last_update,
     ),

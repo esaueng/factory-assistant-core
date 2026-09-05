@@ -62,7 +62,7 @@ class LiebherrEntity(CoordinatorEntity[LiebherrCoordinator]):
         except (LiebherrConnectionError, LiebherrTimeoutError) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
             ) from err
 
         await asyncio.sleep(REFRESH_DELAY.total_seconds())

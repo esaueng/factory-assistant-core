@@ -61,47 +61,47 @@ PLANT_MEASUREMENT_STATUS_LIST: list[str] = [
 SENSORS: Final[list[FytaSensorEntityDescription]] = [
     FytaSensorEntityDescription(
         key="scientific_name",
-        REDACTED_VALUE"scientific_name",
+        translation_key="scientific_name",
         value_fn=lambda plant: plant.scientific_name,
     ),
     FytaSensorEntityDescription(
         key="status",
-        REDACTED_VALUE"plant_status",
+        translation_key="plant_status",
         device_class=SensorDeviceClass.ENUM,
         options=PLANT_STATUS_LIST,
         value_fn=lambda plant: plant.status.name.lower(),
     ),
     FytaSensorEntityDescription(
         key="temperature_status",
-        REDACTED_VALUE"temperature_status",
+        translation_key="temperature_status",
         device_class=SensorDeviceClass.ENUM,
         options=PLANT_MEASUREMENT_STATUS_LIST,
         value_fn=lambda plant: plant.temperature_status.name.lower(),
     ),
     FytaSensorEntityDescription(
         key="light_status",
-        REDACTED_VALUE"light_status",
+        translation_key="light_status",
         device_class=SensorDeviceClass.ENUM,
         options=PLANT_MEASUREMENT_STATUS_LIST,
         value_fn=lambda plant: plant.light_status.name.lower(),
     ),
     FytaSensorEntityDescription(
         key="moisture_status",
-        REDACTED_VALUE"moisture_status",
+        translation_key="moisture_status",
         device_class=SensorDeviceClass.ENUM,
         options=PLANT_MEASUREMENT_STATUS_LIST,
         value_fn=lambda plant: plant.moisture_status.name.lower(),
     ),
     FytaSensorEntityDescription(
         key="nutrients_status",
-        REDACTED_VALUE"nutrients_status",
+        translation_key="nutrients_status",
         device_class=SensorDeviceClass.ENUM,
         options=PLANT_MEASUREMENT_STATUS_LIST,
         value_fn=lambda plant: plant.nutrients_status.name.lower(),
     ),
     FytaSensorEntityDescription(
         key="salinity_status",
-        REDACTED_VALUE"salinity_status",
+        translation_key="salinity_status",
         device_class=SensorDeviceClass.ENUM,
         options=PLANT_MEASUREMENT_STATUS_LIST,
         value_fn=lambda plant: plant.salinity_status.name.lower(),
@@ -114,13 +114,13 @@ SENSORS: Final[list[FytaSensorEntityDescription]] = [
     ),
     FytaSensorEntityDescription(
         key="fertilise_last",
-        REDACTED_VALUE"last_fertilised",
+        translation_key="last_fertilised",
         device_class=SensorDeviceClass.DATE,
         value_fn=lambda plant: plant.fertilise_last,
     ),
     FytaSensorEntityDescription(
         key="fertilise_next",
-        REDACTED_VALUE"next_fertilisation",
+        translation_key="next_fertilisation",
         device_class=SensorDeviceClass.DATE,
         value_fn=lambda plant: plant.fertilise_next,
     ),
@@ -150,7 +150,7 @@ MEASUREMENT_SENSORS: Final[list[FytaMeasurementSensorEntityDescription]] = [
     ),
     FytaMeasurementSensorEntityDescription(
         key="light",
-        REDACTED_VALUE"light",
+        translation_key="light",
         native_unit_of_measurement="μmol/s⋅m²",
         state_class=SensorStateClass.MEASUREMENT,
         attribute_fn=lambda plant: {
@@ -176,7 +176,7 @@ MEASUREMENT_SENSORS: Final[list[FytaMeasurementSensorEntityDescription]] = [
     ),
     FytaMeasurementSensorEntityDescription(
         key="salinity",
-        REDACTED_VALUE"salinity",
+        translation_key="salinity",
         native_unit_of_measurement=UnitOfConductivity.MILLISIEMENS_PER_CM,
         device_class=SensorDeviceClass.CONDUCTIVITY,
         state_class=SensorStateClass.MEASUREMENT,

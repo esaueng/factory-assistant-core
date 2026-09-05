@@ -86,49 +86,49 @@ async def async_setup_entry(
     except OPNsenseUnknownFirmware as err:
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unknown_firmware",
+            translation_key="unknown_firmware",
             translation_placeholders={"url": url},
         ) from err
     except OPNsenseBelowMinFirmware as err:
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"firmware_too_old",
+            translation_key="firmware_too_old",
             translation_placeholders={"url": url},
         ) from err
     except OPNsenseInvalidURL as err:
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_url",
+            translation_key="invalid_url",
             translation_placeholders={"url": url},
         ) from err
     except OPNsenseTimeoutError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"timeout_connecting",
+            translation_key="timeout_connecting",
             translation_placeholders={"url": url},
         ) from err
     except OPNsenseSSLError as err:
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"ssl_error",
+            translation_key="ssl_error",
             translation_placeholders={"url": url},
         ) from err
     except OPNsenseInvalidAuth as err:
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_auth",
+            translation_key="invalid_auth",
             translation_placeholders={"url": url},
         ) from err
     except OPNsensePrivilegeMissing as err:
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"privilege_missing",
+            translation_key="privilege_missing",
             translation_placeholders={"url": url},
         ) from err
     except OPNsenseConnectionError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect",
+            translation_key="cannot_connect",
             translation_placeholders={"url": url},
         ) from err
 
@@ -141,7 +141,7 @@ async def async_setup_entry(
             if intf_description not in known_interfaces:
                 raise ConfigEntryError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"tracker_interface_not_found",
+                    translation_key="tracker_interface_not_found",
                     translation_placeholders={
                         "interface": intf_description,
                         "known": ", ".join(known_interfaces),

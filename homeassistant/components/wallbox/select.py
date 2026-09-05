@@ -36,7 +36,7 @@ class WallboxSelectEntityDescription(SelectEntityDescription):
 SELECT_TYPES: dict[str, WallboxSelectEntityDescription] = {
     CHARGER_ECO_SMART_KEY: WallboxSelectEntityDescription(
         key=CHARGER_ECO_SMART_KEY,
-        REDACTED_VALUECHARGER_ECO_SMART_KEY,
+        translation_key=CHARGER_ECO_SMART_KEY,
         options=[
             EcoSmartMode.OFF,
             EcoSmartMode.ECO_MODE,
@@ -104,6 +104,6 @@ class WallboxSelect(WallboxEntity, SelectEntity):
             await self.entity_description.select_option_fn(self.coordinator, option)
         except (ConnectionError, HTTPError) as e:
             raise HomeAssistantError(
-                REDACTED_VALUE"api_failed", translation_domain=DOMAIN
+                translation_key="api_failed", translation_domain=DOMAIN
             ) from e
         await self.coordinator.async_request_refresh()

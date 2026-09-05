@@ -32,7 +32,7 @@ class SonosSelectEntityDescription(SelectEntityDescription):
 SELECT_TYPES: list[SonosSelectEntityDescription] = [
     SonosSelectEntityDescription(
         key=SPEECH_DIALOG_LEVEL,
-        REDACTED_VALUESPEECH_DIALOG_LEVEL,
+        translation_key=SPEECH_DIALOG_LEVEL,
         soco_attribute=ATTR_DIALOG_LEVEL,
         speaker_attribute=ATTR_DIALOG_LEVEL_ENUM,
         speaker_model=MODEL_SONOS_ARC_ULTRA,

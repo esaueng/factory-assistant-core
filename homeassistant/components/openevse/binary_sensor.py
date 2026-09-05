@@ -32,36 +32,36 @@ class OpenEVSEBinarySensorDescription(BinarySensorEntityDescription):
 BINARY_SENSOR_TYPES: tuple[OpenEVSEBinarySensorDescription, ...] = (
     OpenEVSEBinarySensorDescription(
         key="vehicle",
-        REDACTED_VALUE"vehicle",
+        translation_key="vehicle",
         device_class=BinarySensorDeviceClass.PLUG,
         value_fn=lambda ev: ev.vehicle,
     ),
     OpenEVSEBinarySensorDescription(
         key="divert_active",
-        REDACTED_VALUE"divert_active",
+        translation_key="divert_active",
         value_fn=lambda ev: ev.divert_active,
     ),
     OpenEVSEBinarySensorDescription(
         key="using_ethernet",
-        REDACTED_VALUE"using_ethernet",
+        translation_key="using_ethernet",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda ev: ev.using_ethernet,
     ),
     OpenEVSEBinarySensorDescription(
         key="shaper_active",
-        REDACTED_VALUE"shaper_active",
+        translation_key="shaper_active",
         value_fn=lambda ev: ev.shaper_active,
     ),
     OpenEVSEBinarySensorDescription(
         key="has_limit",
-        REDACTED_VALUE"has_limit",
+        translation_key="has_limit",
         entity_registry_enabled_default=False,
         value_fn=lambda ev: ev.has_limit,
     ),
     OpenEVSEBinarySensorDescription(
         key="mqtt_connected",
-        REDACTED_VALUE"mqtt_connected",
+        translation_key="mqtt_connected",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,

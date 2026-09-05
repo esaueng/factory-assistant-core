@@ -63,21 +63,21 @@ FORECAST_SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         value_fn=lambda data: AIR_QUALITY_CATEGORY_MAP[data[ATTR_CATEGORY_VALUE]],
         device_class=SensorDeviceClass.ENUM,
         options=list(AIR_QUALITY_CATEGORY_MAP.values()),
-        REDACTED_VALUE"air_quality",
+        translation_key="air_quality",
     ),
     AccuWeatherSensorDescription(
         key="CloudCoverDay",
         entity_registry_enabled_default=False,
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda data: cast(int, data),
-        REDACTED_VALUE"cloud_cover_day",
+        translation_key="cloud_cover_day",
     ),
     AccuWeatherSensorDescription(
         key="CloudCoverNight",
         entity_registry_enabled_default=False,
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda data: cast(int, data),
-        REDACTED_VALUE"cloud_cover_night",
+        translation_key="cloud_cover_night",
     ),
     AccuWeatherSensorDescription(
         key="Grass",
@@ -87,23 +87,23 @@ FORECAST_SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         attr_fn=lambda data: {
             ATTR_LEVEL: POLLEN_CATEGORY_MAP[data[ATTR_CATEGORY_VALUE]]
         },
-        REDACTED_VALUE"grass_pollen",
+        translation_key="grass_pollen",
     ),
     AccuWeatherSensorDescription(
         key="HoursOfSun",
         native_unit_of_measurement=UnitOfTime.HOURS,
         value_fn=lambda data: cast(float, data),
-        REDACTED_VALUE"hours_of_sun",
+        translation_key="hours_of_sun",
     ),
     AccuWeatherSensorDescription(
         key="LongPhraseDay",
         value_fn=lambda data: cast(str, data),
-        REDACTED_VALUE"condition_day",
+        translation_key="condition_day",
     ),
     AccuWeatherSensorDescription(
         key="LongPhraseNight",
         value_fn=lambda data: cast(str, data),
-        REDACTED_VALUE"condition_night",
+        translation_key="condition_night",
     ),
     AccuWeatherSensorDescription(
         key="Mold",
@@ -113,7 +113,7 @@ FORECAST_SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         attr_fn=lambda data: {
             ATTR_LEVEL: POLLEN_CATEGORY_MAP[data[ATTR_CATEGORY_VALUE]]
         },
-        REDACTED_VALUE"mold_pollen",
+        translation_key="mold_pollen",
     ),
     AccuWeatherSensorDescription(
         key="Ragweed",
@@ -123,21 +123,21 @@ FORECAST_SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         attr_fn=lambda data: {
             ATTR_LEVEL: POLLEN_CATEGORY_MAP[data[ATTR_CATEGORY_VALUE]]
         },
-        REDACTED_VALUE"ragweed_pollen",
+        translation_key="ragweed_pollen",
     ),
     AccuWeatherSensorDescription(
         key="RealFeelTemperatureMax",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda data: cast(float, data[ATTR_VALUE]),
-        REDACTED_VALUE"realfeel_temperature_max",
+        translation_key="realfeel_temperature_max",
     ),
     AccuWeatherSensorDescription(
         key="RealFeelTemperatureMin",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda data: cast(float, data[ATTR_VALUE]),
-        REDACTED_VALUE"realfeel_temperature_min",
+        translation_key="realfeel_temperature_min",
     ),
     AccuWeatherSensorDescription(
         key="RealFeelTemperatureShadeMax",
@@ -145,7 +145,7 @@ FORECAST_SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         entity_registry_enabled_default=False,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda data: cast(float, data[ATTR_VALUE]),
-        REDACTED_VALUE"realfeel_temperature_shade_max",
+        translation_key="realfeel_temperature_shade_max",
     ),
     AccuWeatherSensorDescription(
         key="RealFeelTemperatureShadeMin",
@@ -153,7 +153,7 @@ FORECAST_SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         entity_registry_enabled_default=False,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda data: cast(float, data[ATTR_VALUE]),
-        REDACTED_VALUE"realfeel_temperature_shade_min",
+        translation_key="realfeel_temperature_shade_min",
     ),
     AccuWeatherSensorDescription(
         key="SolarIrradianceDay",
@@ -161,7 +161,7 @@ FORECAST_SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         entity_registry_enabled_default=False,
         native_unit_of_measurement=UnitOfIrradiance.WATTS_PER_SQUARE_METER,
         value_fn=lambda data: cast(float, data[ATTR_VALUE]),
-        REDACTED_VALUE"solar_irradiance_day",
+        translation_key="solar_irradiance_day",
     ),
     AccuWeatherSensorDescription(
         key="SolarIrradianceNight",
@@ -169,19 +169,19 @@ FORECAST_SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         entity_registry_enabled_default=False,
         native_unit_of_measurement=UnitOfIrradiance.WATTS_PER_SQUARE_METER,
         value_fn=lambda data: cast(float, data[ATTR_VALUE]),
-        REDACTED_VALUE"solar_irradiance_night",
+        translation_key="solar_irradiance_night",
     ),
     AccuWeatherSensorDescription(
         key="ThunderstormProbabilityDay",
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda data: cast(int, data),
-        REDACTED_VALUE"thunderstorm_probability_day",
+        translation_key="thunderstorm_probability_day",
     ),
     AccuWeatherSensorDescription(
         key="ThunderstormProbabilityNight",
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda data: cast(int, data),
-        REDACTED_VALUE"thunderstorm_probability_night",
+        translation_key="thunderstorm_probability_night",
     ),
     AccuWeatherSensorDescription(
         key="Tree",
@@ -191,7 +191,7 @@ FORECAST_SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         attr_fn=lambda data: {
             ATTR_LEVEL: POLLEN_CATEGORY_MAP[data[ATTR_CATEGORY_VALUE]]
         },
-        REDACTED_VALUE"tree_pollen",
+        translation_key="tree_pollen",
     ),
     AccuWeatherSensorDescription(
         key="UVIndex",
@@ -200,7 +200,7 @@ FORECAST_SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         attr_fn=lambda data: {
             ATTR_LEVEL: POLLEN_CATEGORY_MAP[data[ATTR_CATEGORY_VALUE]]
         },
-        REDACTED_VALUE"uv_index_forecast",
+        translation_key="uv_index_forecast",
     ),
     AccuWeatherSensorDescription(
         key="WindGustDay",
@@ -209,7 +209,7 @@ FORECAST_SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         native_unit_of_measurement=UnitOfSpeed.KILOMETERS_PER_HOUR,
         value_fn=lambda data: cast(float, data[ATTR_SPEED][ATTR_VALUE]),
         attr_fn=lambda data: {"direction": data[ATTR_DIRECTION][ATTR_ENGLISH]},
-        REDACTED_VALUE"wind_gust_speed_day",
+        translation_key="wind_gust_speed_day",
     ),
     AccuWeatherSensorDescription(
         key="WindGustNight",
@@ -218,7 +218,7 @@ FORECAST_SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         native_unit_of_measurement=UnitOfSpeed.KILOMETERS_PER_HOUR,
         value_fn=lambda data: cast(float, data[ATTR_SPEED][ATTR_VALUE]),
         attr_fn=lambda data: {"direction": data[ATTR_DIRECTION][ATTR_ENGLISH]},
-        REDACTED_VALUE"wind_gust_speed_night",
+        translation_key="wind_gust_speed_night",
     ),
     AccuWeatherSensorDescription(
         key="WindDay",
@@ -226,7 +226,7 @@ FORECAST_SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         native_unit_of_measurement=UnitOfSpeed.KILOMETERS_PER_HOUR,
         value_fn=lambda data: cast(float, data[ATTR_SPEED][ATTR_VALUE]),
         attr_fn=lambda data: {"direction": data[ATTR_DIRECTION][ATTR_ENGLISH]},
-        REDACTED_VALUE"wind_speed_day",
+        translation_key="wind_speed_day",
     ),
     AccuWeatherSensorDescription(
         key="WindNight",
@@ -234,7 +234,7 @@ FORECAST_SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         native_unit_of_measurement=UnitOfSpeed.KILOMETERS_PER_HOUR,
         value_fn=lambda data: cast(float, data[ATTR_SPEED][ATTR_VALUE]),
         attr_fn=lambda data: {"direction": data[ATTR_DIRECTION][ATTR_ENGLISH]},
-        REDACTED_VALUE"wind_speed_night",
+        translation_key="wind_speed_night",
     ),
 )
 
@@ -246,7 +246,7 @@ SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda data: cast(float, data[API_METRIC][ATTR_VALUE]),
-        REDACTED_VALUE"apparent_temperature",
+        translation_key="apparent_temperature",
     ),
     AccuWeatherSensorDescription(
         key="Ceiling",
@@ -255,7 +255,7 @@ SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         native_unit_of_measurement=UnitOfLength.METERS,
         value_fn=lambda data: cast(float, data[API_METRIC][ATTR_VALUE]),
         suggested_display_precision=0,
-        REDACTED_VALUE"cloud_ceiling",
+        translation_key="cloud_ceiling",
     ),
     AccuWeatherSensorDescription(
         key="CloudCover",
@@ -263,7 +263,7 @@ SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda data: cast(int, data),
-        REDACTED_VALUE"cloud_cover",
+        translation_key="cloud_cover",
     ),
     AccuWeatherSensorDescription(
         key="DewPoint",
@@ -272,7 +272,7 @@ SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda data: cast(float, data[API_METRIC][ATTR_VALUE]),
-        REDACTED_VALUE"dew_point",
+        translation_key="dew_point",
     ),
     AccuWeatherSensorDescription(
         key="RealFeelTemperature",
@@ -280,7 +280,7 @@ SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda data: cast(float, data[API_METRIC][ATTR_VALUE]),
-        REDACTED_VALUE"realfeel_temperature",
+        translation_key="realfeel_temperature",
     ),
     AccuWeatherSensorDescription(
         key="RealFeelTemperatureShade",
@@ -289,7 +289,7 @@ SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda data: cast(float, data[API_METRIC][ATTR_VALUE]),
-        REDACTED_VALUE"realfeel_temperature_shade",
+        translation_key="realfeel_temperature_shade",
     ),
     AccuWeatherSensorDescription(
         key="RelativeHumidity",
@@ -298,7 +298,7 @@ SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda data: cast(int, data),
-        REDACTED_VALUE"humidity",
+        translation_key="humidity",
     ),
     AccuWeatherSensorDescription(
         key="Precipitation",
@@ -307,7 +307,7 @@ SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         native_unit_of_measurement=UnitOfVolumetricFlux.MILLIMETERS_PER_HOUR,
         value_fn=lambda data: cast(float, data[API_METRIC][ATTR_VALUE]),
         attr_fn=lambda data: {"type": data["PrecipitationType"]},
-        REDACTED_VALUE"precipitation",
+        translation_key="precipitation",
     ),
     AccuWeatherSensorDescription(
         key="Pressure",
@@ -317,14 +317,14 @@ SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         suggested_display_precision=0,
         native_unit_of_measurement=UnitOfPressure.HPA,
         value_fn=lambda data: cast(float, data[API_METRIC][ATTR_VALUE]),
-        REDACTED_VALUE"pressure",
+        translation_key="pressure",
     ),
     AccuWeatherSensorDescription(
         key="PressureTendency",
         device_class=SensorDeviceClass.ENUM,
         options=["falling", "rising", "steady"],
         value_fn=lambda data: cast(str, data["LocalizedText"]).lower(),
-        REDACTED_VALUE"pressure_tendency",
+        translation_key="pressure_tendency",
     ),
     AccuWeatherSensorDescription(
         key="Temperature",
@@ -333,7 +333,7 @@ SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda data: cast(float, data[API_METRIC][ATTR_VALUE]),
-        REDACTED_VALUE"temperature",
+        translation_key="temperature",
     ),
     AccuWeatherSensorDescription(
         key="UVIndex",
@@ -342,7 +342,7 @@ SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         native_unit_of_measurement=UV_INDEX,
         value_fn=lambda data: cast(int, data),
         attr_fn=lambda data: {ATTR_LEVEL: data["UVIndexText"]},
-        REDACTED_VALUE"uv_index",
+        translation_key="uv_index",
     ),
     AccuWeatherSensorDescription(
         key="WetBulbTemperature",
@@ -351,7 +351,7 @@ SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda data: cast(float, data[API_METRIC][ATTR_VALUE]),
-        REDACTED_VALUE"wet_bulb_temperature",
+        translation_key="wet_bulb_temperature",
     ),
     AccuWeatherSensorDescription(
         key="WindChillTemperature",
@@ -360,7 +360,7 @@ SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda data: cast(float, data[API_METRIC][ATTR_VALUE]),
-        REDACTED_VALUE"wind_chill_temperature",
+        translation_key="wind_chill_temperature",
     ),
     AccuWeatherSensorDescription(
         key="Wind",
@@ -369,7 +369,7 @@ SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfSpeed.KILOMETERS_PER_HOUR,
         value_fn=lambda data: cast(float, data[ATTR_SPEED][API_METRIC][ATTR_VALUE]),
-        REDACTED_VALUE"wind_speed",
+        translation_key="wind_speed",
     ),
     AccuWeatherSensorDescription(
         key="WindGust",
@@ -378,7 +378,7 @@ SENSOR_TYPES: tuple[AccuWeatherSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfSpeed.KILOMETERS_PER_HOUR,
         value_fn=lambda data: cast(float, data[ATTR_SPEED][API_METRIC][ATTR_VALUE]),
-        REDACTED_VALUE"wind_gust_speed",
+        translation_key="wind_gust_speed",
     ),
 )
 

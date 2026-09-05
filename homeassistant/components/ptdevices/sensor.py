@@ -56,7 +56,7 @@ SENSOR_DESCRIPTIONS: tuple[PTDevicesSensorEntityDescription, ...] = (
     # Percent of water in the tank
     PTDevicesSensorEntityDescription(
         key=PTDevicesSensors.LEVEL_PERCENT,
-        REDACTED_VALUEPTDevicesSensors.LEVEL_PERCENT,
+        translation_key=PTDevicesSensors.LEVEL_PERCENT,
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: cast(float, data.get(PTDevicesSensors.LEVEL_PERCENT)),
@@ -64,7 +64,7 @@ SENSOR_DESCRIPTIONS: tuple[PTDevicesSensorEntityDescription, ...] = (
     # Volume of water in the tank (Liters)
     PTDevicesSensorEntityDescription(
         key=PTDevicesSensors.LEVEL_VOLUME,
-        REDACTED_VALUEPTDevicesSensors.LEVEL_VOLUME,
+        translation_key=PTDevicesSensors.LEVEL_VOLUME,
         native_unit_of_measurement=UnitOfVolume.LITERS,
         device_class=SensorDeviceClass.VOLUME_STORAGE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -73,7 +73,7 @@ SENSOR_DESCRIPTIONS: tuple[PTDevicesSensorEntityDescription, ...] = (
     # Depth of water in the tank (Meters)
     PTDevicesSensorEntityDescription(
         key=PTDevicesSensors.LEVEL_DEPTH,
-        REDACTED_VALUEPTDevicesSensors.LEVEL_DEPTH,
+        translation_key=PTDevicesSensors.LEVEL_DEPTH,
         native_unit_of_measurement=UnitOfLength.METERS,
         device_class=SensorDeviceClass.DISTANCE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -83,7 +83,7 @@ SENSOR_DESCRIPTIONS: tuple[PTDevicesSensorEntityDescription, ...] = (
     # Temperature measured by external temperature probe (Celsius)
     PTDevicesSensorEntityDescription(
         key=PTDevicesSensors.PROBE_TEMPERATURE,
-        REDACTED_VALUEPTDevicesSensors.PROBE_TEMPERATURE,
+        translation_key=PTDevicesSensors.PROBE_TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -92,7 +92,7 @@ SENSOR_DESCRIPTIONS: tuple[PTDevicesSensorEntityDescription, ...] = (
     # Status of the device
     PTDevicesSensorEntityDescription(
         key=PTDevicesSensors.DEVICE_STATUS,
-        REDACTED_VALUEPTDevicesSensors.DEVICE_STATUS,
+        translation_key=PTDevicesSensors.DEVICE_STATUS,
         device_class=SensorDeviceClass.ENUM,
         options=[
             member.value
@@ -108,7 +108,7 @@ SENSOR_DESCRIPTIONS: tuple[PTDevicesSensorEntityDescription, ...] = (
     # Wifi signal strength (%)
     PTDevicesSensorEntityDescription(
         key=PTDevicesSensors.DEVICE_WIFI_STRENGTH,
-        REDACTED_VALUEPTDevicesSensors.DEVICE_WIFI_STRENGTH,
+        translation_key=PTDevicesSensors.DEVICE_WIFI_STRENGTH,
         native_unit_of_measurement=PERCENTAGE,
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -120,7 +120,7 @@ SENSOR_DESCRIPTIONS: tuple[PTDevicesSensorEntityDescription, ...] = (
     # LoRa signal strength (dBm)
     PTDevicesSensorEntityDescription(
         key=PTDevicesSensors.TX_SIGNAL_STRENGTH,
-        REDACTED_VALUEPTDevicesSensors.TX_SIGNAL_STRENGTH,
+        translation_key=PTDevicesSensors.TX_SIGNAL_STRENGTH,
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
@@ -133,7 +133,7 @@ SENSOR_DESCRIPTIONS: tuple[PTDevicesSensorEntityDescription, ...] = (
     # Battery voltage (Volts)
     PTDevicesSensorEntityDescription(
         key=PTDevicesSensors.DEVICE_BATTERY_VOLTAGE,
-        REDACTED_VALUEPTDevicesSensors.DEVICE_BATTERY_VOLTAGE,
+        translation_key=PTDevicesSensors.DEVICE_BATTERY_VOLTAGE,
         device_class=SensorDeviceClass.VOLTAGE,
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.MEASUREMENT,

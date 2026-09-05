@@ -149,7 +149,7 @@ class AsusWrtFlowHandler(ConfigFlow, domain=DOMAIN):
                 default=user_input.get(CONF_PROTOCOL, PROTOCOL_HTTPS),
             ): SelectSelector(
                 SelectSelectorConfig(
-                    options=ALLOWED_PROTOCOL, REDACTED_VALUE"protocols"
+                    options=ALLOWED_PROTOCOL, translation_key="protocols"
                 )
             ),
             vol.Required(CONF_MORE_OPTIONS): section(

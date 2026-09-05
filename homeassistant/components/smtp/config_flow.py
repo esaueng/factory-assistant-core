@@ -77,7 +77,7 @@ STEP_USER_DATA_SCHEMA = vol.Schema(
             SelectSelectorConfig(
                 options=ENCRYPTION_OPTIONS,
                 mode=SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUE"encryption",
+                translation_key="encryption",
             )
         ),
         vol.Optional(CONF_USERNAME): TextSelector(

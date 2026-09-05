@@ -49,10 +49,10 @@ class TailwindDataUpdateCoordinator(DataUpdateCoordinator[TailwindDeviceStatus])
         except TailwindConnectionError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
             ) from err
         except TailwindError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unknown_error",
+                translation_key="unknown_error",
             ) from err

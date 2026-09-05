@@ -61,7 +61,7 @@ async def _get_valid_tracker(hass: HomeAssistant, device: Device) -> Tracker | N
             learn_more_url="https://www.home-assistant.io/integrations/fressnapf_tracker/",
             is_fixable=False,
             severity=IssueSeverity.WARNING,
-            REDACTED_VALUE"invalid_fressnapf_tracker",
+            translation_key="invalid_fressnapf_tracker",
             translation_placeholders={
                 "tracker_id": device.serialnumber,
             },
@@ -84,7 +84,7 @@ async def async_setup_entry(
     except FressnapfTrackerAuthenticationError as exception:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_auth",
+            translation_key="invalid_auth",
         ) from exception
 
     coordinators: list[FressnapfTrackerDataUpdateCoordinator] = []

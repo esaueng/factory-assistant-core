@@ -45,7 +45,7 @@ SWITCHES = [
     ),
     HomeWizardSwitchEntityDescription(
         key="switch_lock",
-        REDACTED_VALUE"switch_lock",
+        translation_key="switch_lock",
         entity_category=EntityCategory.CONFIG,
         create_fn=lambda x: x.device.supports_state(),
         available_fn=lambda x: x.state is not None,
@@ -54,7 +54,7 @@ SWITCHES = [
     ),
     HomeWizardSwitchEntityDescription(
         key="cloud_connection",
-        REDACTED_VALUE"cloud_connection",
+        translation_key="cloud_connection",
         entity_category=EntityCategory.CONFIG,
         create_fn=lambda x: x.device.supports_cloud_enable(),
         available_fn=lambda x: x.system is not None,

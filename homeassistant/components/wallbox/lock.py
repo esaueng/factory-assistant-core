@@ -17,7 +17,7 @@ from .entity import WallboxEntity
 LOCK_TYPES: dict[str, LockEntityDescription] = {
     CHARGER_LOCKED_UNLOCKED_KEY: LockEntityDescription(
         key=CHARGER_LOCKED_UNLOCKED_KEY,
-        REDACTED_VALUE"lock",
+        translation_key="lock",
     ),
 }
 

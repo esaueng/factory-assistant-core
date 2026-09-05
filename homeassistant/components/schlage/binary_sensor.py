@@ -26,7 +26,7 @@ class SchlageBinarySensorEntityDescription(BinarySensorEntityDescription):
 _DESCRIPTIONS: tuple[SchlageBinarySensorEntityDescription] = (
     SchlageBinarySensorEntityDescription(
         key="keypad_disabled",
-        REDACTED_VALUE"keypad_disabled",
+        translation_key="keypad_disabled",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.lock.keypad_disabled(data.logs),

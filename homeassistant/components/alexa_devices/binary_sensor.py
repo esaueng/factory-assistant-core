@@ -62,32 +62,32 @@ DEPRECATED_BINARY_SENSORS: Final = (
     AmazonBinarySensorEntityDescription(
         key="bluetooth",
         entity_category=EntityCategory.DIAGNOSTIC,
-        REDACTED_VALUE"bluetooth",
+        translation_key="bluetooth",
         is_on_fn=lambda device, key: False,
     ),
     AmazonBinarySensorEntityDescription(
         key="babyCryDetectionState",
-        REDACTED_VALUE"baby_cry_detection",
+        translation_key="baby_cry_detection",
         is_on_fn=lambda device, key: False,
     ),
     AmazonBinarySensorEntityDescription(
         key="beepingApplianceDetectionState",
-        REDACTED_VALUE"beeping_appliance_detection",
+        translation_key="beeping_appliance_detection",
         is_on_fn=lambda device, key: False,
     ),
     AmazonBinarySensorEntityDescription(
         key="coughDetectionState",
-        REDACTED_VALUE"cough_detection",
+        translation_key="cough_detection",
         is_on_fn=lambda device, key: False,
     ),
     AmazonBinarySensorEntityDescription(
         key="dogBarkDetectionState",
-        REDACTED_VALUE"dog_bark_detection",
+        translation_key="dog_bark_detection",
         is_on_fn=lambda device, key: False,
     ),
     AmazonBinarySensorEntityDescription(
         key="waterSoundsDetectionState",
-        REDACTED_VALUE"water_sounds_detection",
+        translation_key="water_sounds_detection",
         is_on_fn=lambda device, key: False,
     ),
 )

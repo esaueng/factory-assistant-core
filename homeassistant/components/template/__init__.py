@@ -70,7 +70,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         except HomeAssistantError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_to_reload_template_entities",
+                translation_key="failed_to_reload_template_entities",
                 translation_placeholders={"error": str(err)},
             ) from err
 

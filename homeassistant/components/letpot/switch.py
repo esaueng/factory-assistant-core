@@ -33,7 +33,7 @@ class LetPotSwitchEntityDescription[_DataT: LetPotDeviceStatus](
 SWITCHES: tuple[LetPotSwitchEntityDescription[LetPotGardenStatus], ...] = (
     LetPotSwitchEntityDescription[LetPotGardenStatus](
         key="alarm_sound",
-        REDACTED_VALUE"alarm_sound",
+        translation_key="alarm_sound",
         value_fn=lambda status: status.system_sound,
         set_value_fn=(
             lambda device_client, serial, value: device_client.set_sound(serial, value)
@@ -43,7 +43,7 @@ SWITCHES: tuple[LetPotSwitchEntityDescription[LetPotGardenStatus], ...] = (
     ),
     LetPotSwitchEntityDescription[LetPotGardenStatus](
         key="auto_mode",
-        REDACTED_VALUE"auto_mode",
+        translation_key="auto_mode",
         value_fn=lambda status: status.water_mode == 1,
         set_value_fn=(
             lambda device_client, serial, value: device_client.set_water_mode(
@@ -62,7 +62,7 @@ SWITCHES: tuple[LetPotSwitchEntityDescription[LetPotGardenStatus], ...] = (
     ),
     LetPotSwitchEntityDescription[LetPotGardenStatus](
         key="power",
-        REDACTED_VALUE"power",
+        translation_key="power",
         value_fn=lambda status: status.system_on,
         set_value_fn=lambda device_client, serial, value: device_client.set_power(
             serial, value
@@ -71,7 +71,7 @@ SWITCHES: tuple[LetPotSwitchEntityDescription[LetPotGardenStatus], ...] = (
     ),
     LetPotSwitchEntityDescription[LetPotGardenStatus](
         key="pump_cycling",
-        REDACTED_VALUE"pump_cycling",
+        translation_key="pump_cycling",
         value_fn=lambda status: status.pump_mode == 1,
         set_value_fn=lambda device_client, serial, value: device_client.set_pump_mode(
             serial, value

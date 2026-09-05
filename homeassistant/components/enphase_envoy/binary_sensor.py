@@ -33,14 +33,14 @@ class EnvoyEnchargeBinarySensorEntityDescription(BinarySensorEntityDescription):
 ENCHARGE_SENSORS = (
     EnvoyEnchargeBinarySensorEntityDescription(
         key="communicating",
-        REDACTED_VALUE"communicating",
+        translation_key="communicating",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=attrgetter("communicating"),
     ),
     EnvoyEnchargeBinarySensorEntityDescription(
         key="dc_switch",
-        REDACTED_VALUE"dc_switch",
+        translation_key="dc_switch",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda encharge: not encharge.dc_switch_off,
     ),
@@ -57,14 +57,14 @@ class EnvoyEnpowerBinarySensorEntityDescription(BinarySensorEntityDescription):
 ENPOWER_SENSORS = (
     EnvoyEnpowerBinarySensorEntityDescription(
         key="communicating",
-        REDACTED_VALUE"communicating",
+        translation_key="communicating",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=attrgetter("communicating"),
     ),
     EnvoyEnpowerBinarySensorEntityDescription(
         key="mains_oper_state",
-        REDACTED_VALUE"grid_status",
+        translation_key="grid_status",
         value_fn=lambda enpower: enpower.mains_oper_state == "closed",
     ),
 )
@@ -80,7 +80,7 @@ class EnvoyCollarBinarySensorEntityDescription(BinarySensorEntityDescription):
 COLLAR_SENSORS = (
     EnvoyCollarBinarySensorEntityDescription(
         key="communicating",
-        REDACTED_VALUE"communicating",
+        translation_key="communicating",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=attrgetter("communicating"),
@@ -98,7 +98,7 @@ class EnvoyC6CCBinarySensorEntityDescription(BinarySensorEntityDescription):
 C6CC_SENSORS = (
     EnvoyC6CCBinarySensorEntityDescription(
         key="communicating",
-        REDACTED_VALUE"communicating",
+        translation_key="communicating",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=attrgetter("communicating"),

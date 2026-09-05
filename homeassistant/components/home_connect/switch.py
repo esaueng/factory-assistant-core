@@ -27,144 +27,144 @@ PARALLEL_UPDATES = 1
 SWITCHES = (
     SwitchEntityDescription(
         key=SettingKey.BSH_COMMON_CHILD_LOCK,
-        REDACTED_VALUE"child_lock",
+        translation_key="child_lock",
     ),
     SwitchEntityDescription(
         key=SettingKey.CONSUMER_PRODUCTS_COFFEE_MAKER_CUP_WARMER,
-        REDACTED_VALUE"cup_warmer",
+        translation_key="cup_warmer",
     ),
     SwitchEntityDescription(
         key=SettingKey.REFRIGERATION_FRIDGE_FREEZER_SUPER_MODE_FREEZER,
-        REDACTED_VALUE"freezer_super_mode",
+        translation_key="freezer_super_mode",
     ),
     SwitchEntityDescription(
         key=SettingKey.REFRIGERATION_FRIDGE_FREEZER_SUPER_MODE_REFRIGERATOR,
-        REDACTED_VALUE"refrigerator_super_mode",
+        translation_key="refrigerator_super_mode",
     ),
     SwitchEntityDescription(
         key=SettingKey.REFRIGERATION_COMMON_ECO_MODE,
-        REDACTED_VALUE"eco_mode",
+        translation_key="eco_mode",
     ),
     SwitchEntityDescription(
         key=SettingKey.COOKING_OVEN_SABBATH_MODE,
-        REDACTED_VALUE"sabbath_mode",
+        translation_key="sabbath_mode",
     ),
     SwitchEntityDescription(
         key=SettingKey.REFRIGERATION_COMMON_SABBATH_MODE,
-        REDACTED_VALUE"sabbath_mode",
+        translation_key="sabbath_mode",
     ),
     SwitchEntityDescription(
         key=SettingKey.REFRIGERATION_COMMON_VACATION_MODE,
-        REDACTED_VALUE"vacation_mode",
+        translation_key="vacation_mode",
     ),
     SwitchEntityDescription(
         key=SettingKey.REFRIGERATION_COMMON_FRESH_MODE,
-        REDACTED_VALUE"fresh_mode",
+        translation_key="fresh_mode",
     ),
     SwitchEntityDescription(
         key=SettingKey.REFRIGERATION_COMMON_DISPENSER_ENABLED,
-        REDACTED_VALUE"dispenser_enabled",
+        translation_key="dispenser_enabled",
     ),
     SwitchEntityDescription(
         key=SettingKey.REFRIGERATION_COMMON_DOOR_ASSISTANT_FRIDGE,
-        REDACTED_VALUE"door_assistant_fridge",
+        translation_key="door_assistant_fridge",
     ),
     SwitchEntityDescription(
         key=SettingKey.REFRIGERATION_COMMON_DOOR_ASSISTANT_FREEZER,
-        REDACTED_VALUE"door_assistant_freezer",
+        translation_key="door_assistant_freezer",
     ),
 )
 
 
 POWER_SWITCH_DESCRIPTION = SwitchEntityDescription(
     key=SettingKey.BSH_COMMON_POWER_STATE,
-    REDACTED_VALUE"power",
+    translation_key="power",
 )
 
 SWITCH_OPTIONS = (
     SwitchEntityDescription(
         key=OptionKey.CONSUMER_PRODUCTS_COFFEE_MAKER_MULTIPLE_BEVERAGES,
-        REDACTED_VALUE"multiple_beverages",
+        translation_key="multiple_beverages",
     ),
     SwitchEntityDescription(
         key=OptionKey.DISHCARE_DISHWASHER_INTENSIV_ZONE,
-        REDACTED_VALUE"intensiv_zone",
+        translation_key="intensiv_zone",
     ),
     SwitchEntityDescription(
         key=OptionKey.DISHCARE_DISHWASHER_BRILLIANCE_DRY,
-        REDACTED_VALUE"brilliance_dry",
+        translation_key="brilliance_dry",
     ),
     SwitchEntityDescription(
         key=OptionKey.DISHCARE_DISHWASHER_VARIO_SPEED_PLUS,
-        REDACTED_VALUE"vario_speed_plus",
+        translation_key="vario_speed_plus",
     ),
     SwitchEntityDescription(
         key=OptionKey.DISHCARE_DISHWASHER_SILENCE_ON_DEMAND,
-        REDACTED_VALUE"silence_on_demand",
+        translation_key="silence_on_demand",
     ),
     SwitchEntityDescription(
         key=OptionKey.DISHCARE_DISHWASHER_HALF_LOAD,
-        REDACTED_VALUE"half_load",
+        translation_key="half_load",
     ),
     SwitchEntityDescription(
         key=OptionKey.DISHCARE_DISHWASHER_EXTRA_DRY,
-        REDACTED_VALUE"extra_dry",
+        translation_key="extra_dry",
     ),
     SwitchEntityDescription(
         key=OptionKey.DISHCARE_DISHWASHER_HYGIENE_PLUS,
-        REDACTED_VALUE"hygiene_plus",
+        translation_key="hygiene_plus",
     ),
     SwitchEntityDescription(
         key=OptionKey.DISHCARE_DISHWASHER_ECO_DRY,
-        REDACTED_VALUE"eco_dry",
+        translation_key="eco_dry",
     ),
     SwitchEntityDescription(
         key=OptionKey.DISHCARE_DISHWASHER_ZEOLITE_DRY,
-        REDACTED_VALUE"zeolite_dry",
+        translation_key="zeolite_dry",
     ),
     SwitchEntityDescription(
         key=OptionKey.COOKING_OVEN_FAST_PRE_HEAT,
-        REDACTED_VALUE"fast_pre_heat",
+        translation_key="fast_pre_heat",
     ),
     SwitchEntityDescription(
         key=OptionKey.LAUNDRY_CARE_COMMON_SILENT_MODE,
-        REDACTED_VALUE"silent_mode",
+        translation_key="silent_mode",
     ),
     SwitchEntityDescription(
         key=OptionKey.LAUNDRY_CARE_WASHER_I_DOS_1_ACTIVE,
-        REDACTED_VALUE"i_dos1_active",
+        translation_key="i_dos1_active",
     ),
     SwitchEntityDescription(
         key=OptionKey.LAUNDRY_CARE_WASHER_I_DOS_2_ACTIVE,
-        REDACTED_VALUE"i_dos2_active",
+        translation_key="i_dos2_active",
     ),
     SwitchEntityDescription(
         key=OptionKey.LAUNDRY_CARE_WASHER_INTENSIVE_PLUS,
-        REDACTED_VALUE"intensive_plus",
+        translation_key="intensive_plus",
     ),
     SwitchEntityDescription(
         key=OptionKey.LAUNDRY_CARE_WASHER_LESS_IRONING,
-        REDACTED_VALUE"less_ironing",
+        translation_key="less_ironing",
     ),
     SwitchEntityDescription(
         key=OptionKey.LAUNDRY_CARE_WASHER_MINI_LOAD,
-        REDACTED_VALUE"mini_load",
+        translation_key="mini_load",
     ),
     SwitchEntityDescription(
         key=OptionKey.LAUNDRY_CARE_WASHER_PREWASH,
-        REDACTED_VALUE"prewash",
+        translation_key="prewash",
     ),
     SwitchEntityDescription(
         key=OptionKey.LAUNDRY_CARE_WASHER_RINSE_HOLD,
-        REDACTED_VALUE"rinse_hold",
+        translation_key="rinse_hold",
     ),
     SwitchEntityDescription(
         key=OptionKey.LAUNDRY_CARE_WASHER_SOAK,
-        REDACTED_VALUE"soaking",
+        translation_key="soaking",
     ),
     SwitchEntityDescription(
         key=OptionKey.LAUNDRY_CARE_WASHER_WATER_PLUS,
-        REDACTED_VALUE"water_plus",
+        translation_key="water_plus",
     ),
 )
 
@@ -230,7 +230,7 @@ class HomeConnectSwitch(HomeConnectEntity, SwitchEntity):
             self._attr_available = False
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"turn_on",
+                translation_key="turn_on",
                 translation_placeholders={
                     **get_dict_from_home_connect_error(err),
                     "entity_id": self.entity_id,
@@ -250,7 +250,7 @@ class HomeConnectSwitch(HomeConnectEntity, SwitchEntity):
             self._attr_available = False
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"turn_off",
+                translation_key="turn_off",
                 translation_placeholders={
                     **get_dict_from_home_connect_error(err),
                     "entity_id": self.entity_id,
@@ -280,7 +280,7 @@ class HomeConnectPowerSwitch(HomeConnectEntity, SwitchEntity):
             self._attr_is_on = False
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"power_on",
+                translation_key="power_on",
                 translation_placeholders={
                     **get_dict_from_home_connect_error(err),
                     "appliance_name": self.appliance.info.name,
@@ -294,7 +294,7 @@ class HomeConnectPowerSwitch(HomeConnectEntity, SwitchEntity):
             if self.power_off_state is UNDEFINED:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"unable_to_retrieve_turn_off",
+                    translation_key="unable_to_retrieve_turn_off",
                     translation_placeholders={
                         "appliance_name": self.appliance.info.name
                     },
@@ -303,7 +303,7 @@ class HomeConnectPowerSwitch(HomeConnectEntity, SwitchEntity):
         if self.power_off_state is None:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"turn_off_not_supported",
+                translation_key="turn_off_not_supported",
                 translation_placeholders={"appliance_name": self.appliance.info.name},
             )
         try:
@@ -316,7 +316,7 @@ class HomeConnectPowerSwitch(HomeConnectEntity, SwitchEntity):
             self._attr_is_on = True
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"power_off",
+                translation_key="power_off",
                 translation_placeholders={
                     **get_dict_from_home_connect_error(err),
                     "appliance_name": self.appliance.info.name,

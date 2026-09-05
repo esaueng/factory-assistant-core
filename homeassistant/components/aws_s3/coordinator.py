@@ -63,7 +63,7 @@ class S3DataUpdateCoordinator(DataUpdateCoordinator[SensorData]):
         except BotoCoreError as error:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"error_fetching_data",
+                translation_key="error_fetching_data",
             ) from error
 
         all_backups_size = sum(b.size for b in backups)

@@ -78,7 +78,7 @@ def is_open(data: dict[str, Any]) -> bool:
 VALVE_CONTROLLER_DESCRIPTIONS = (
     ValveControllerSwitchDescription(
         key=SWITCH_KIND_ONBOARD_AP,
-        REDACTED_VALUE"onboard_access_point",
+        translation_key="onboard_access_point",
         entity_category=EntityCategory.CONFIG,
         extra_state_attributes_fn=lambda data: {
             ATTR_CONNECTED_CLIENTS: data.get("ap_clients"),
@@ -91,7 +91,7 @@ VALVE_CONTROLLER_DESCRIPTIONS = (
     ),
     ValveControllerSwitchDescription(
         key=SWITCH_KIND_VALVE,
-        REDACTED_VALUE"valve_controller",
+        translation_key="valve_controller",
         api_category=API_VALVE_STATUS,
         extra_state_attributes_fn=lambda data: {
             ATTR_AVG_CURRENT: data["average_current"],

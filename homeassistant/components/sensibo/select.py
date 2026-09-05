@@ -33,7 +33,7 @@ DEVICE_SELECT_TYPES = (
         data_key="light_mode",
         value_fn=lambda data: data.light_mode,
         options_fn=lambda data: data.light_modes,
-        REDACTED_VALUE"light",
+        translation_key="light",
         transformation=lambda data: data.light_modes_translated,
     ),
 )

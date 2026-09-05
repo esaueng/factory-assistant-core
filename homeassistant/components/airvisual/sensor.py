@@ -49,7 +49,7 @@ GEOGRAPHY_SENSOR_DESCRIPTIONS = (
             "very_unhealthy",
             "hazardous",
         ],
-        REDACTED_VALUE"pollutant_level",
+        translation_key="pollutant_level",
     ),
     SensorEntityDescription(
         key=SENSOR_KIND_AQI,
@@ -62,7 +62,7 @@ GEOGRAPHY_SENSOR_DESCRIPTIONS = (
         name="Main pollutant",
         device_class=SensorDeviceClass.ENUM,
         options=["co", "n2", "o3", "p1", "p2", "s2"],
-        REDACTED_VALUE"pollutant_label",
+        translation_key="pollutant_label",
     ),
 )
 GEOGRAPHY_SENSOR_LOCALES = {"cn": "Chinese", "us": "U.S."}

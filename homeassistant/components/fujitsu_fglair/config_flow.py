@@ -25,7 +25,7 @@ STEP_USER_DATA_SCHEMA = vol.Schema(
         vol.Required(CONF_REGION, default=REGION_DEFAULT): SelectSelector(
             SelectSelectorConfig(
                 options=[region.lower() for region in FGLAIR_APP_CREDENTIALS],
-                REDACTED_VALUECONF_REGION,
+                translation_key=CONF_REGION,
             )
         ),
     }

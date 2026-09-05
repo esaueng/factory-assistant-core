@@ -227,13 +227,13 @@ def partition_usage(
 BASE_SENSOR_TYPES: tuple[SystemBridgeSensorEntityDescription, ...] = (
     SystemBridgeSensorEntityDescription(
         key="boot_time",
-        REDACTED_VALUE"boot_time",
+        translation_key="boot_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         value=lambda data: datetime.fromtimestamp(data.system.boot_time, tz=UTC),
     ),
     SystemBridgeSensorEntityDescription(
         key="cpu_power_package",
-        REDACTED_VALUE"cpu_power_package",
+        translation_key="cpu_power_package",
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=2,
@@ -241,7 +241,7 @@ BASE_SENSOR_TYPES: tuple[SystemBridgeSensorEntityDescription, ...] = (
     ),
     SystemBridgeSensorEntityDescription(
         key="cpu_speed",
-        REDACTED_VALUE"cpu_speed",
+        translation_key="cpu_speed",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfFrequency.GIGAHERTZ,
         device_class=SensorDeviceClass.FREQUENCY,
@@ -250,7 +250,7 @@ BASE_SENSOR_TYPES: tuple[SystemBridgeSensorEntityDescription, ...] = (
     ),
     SystemBridgeSensorEntityDescription(
         key="cpu_temperature",
-        REDACTED_VALUE"cpu_temperature",
+        translation_key="cpu_temperature",
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -260,7 +260,7 @@ BASE_SENSOR_TYPES: tuple[SystemBridgeSensorEntityDescription, ...] = (
     ),
     SystemBridgeSensorEntityDescription(
         key="cpu_voltage",
-        REDACTED_VALUE"cpu_voltage",
+        translation_key="cpu_voltage",
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -270,12 +270,12 @@ BASE_SENSOR_TYPES: tuple[SystemBridgeSensorEntityDescription, ...] = (
     ),
     SystemBridgeSensorEntityDescription(
         key="kernel",
-        REDACTED_VALUE"kernel",
+        translation_key="kernel",
         value=lambda data: data.system.platform,
     ),
     SystemBridgeSensorEntityDescription(
         key="memory_free",
-        REDACTED_VALUE"memory_free",
+        translation_key="memory_free",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -284,7 +284,7 @@ BASE_SENSOR_TYPES: tuple[SystemBridgeSensorEntityDescription, ...] = (
     ),
     SystemBridgeSensorEntityDescription(
         key="memory_used_percentage",
-        REDACTED_VALUE"memory_used_percentage",
+        translation_key="memory_used_percentage",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
         suggested_display_precision=2,
@@ -292,7 +292,7 @@ BASE_SENSOR_TYPES: tuple[SystemBridgeSensorEntityDescription, ...] = (
     ),
     SystemBridgeSensorEntityDescription(
         key="memory_used",
-        REDACTED_VALUE"memory_used",
+        translation_key="memory_used",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
@@ -302,18 +302,18 @@ BASE_SENSOR_TYPES: tuple[SystemBridgeSensorEntityDescription, ...] = (
     ),
     SystemBridgeSensorEntityDescription(
         key="os",
-        REDACTED_VALUE"os",
+        translation_key="os",
         value=lambda data: f"{data.system.platform} {data.system.platform_version}",
     ),
     SystemBridgeSensorEntityDescription(
         key="processes_count",
-        REDACTED_VALUE"processes",
+        translation_key="processes",
         state_class=SensorStateClass.MEASUREMENT,
         value=lambda data: len(data.processes),
     ),
     SystemBridgeSensorEntityDescription(
         key="processes_load",
-        REDACTED_VALUE"load",
+        translation_key="load",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
         suggested_display_precision=1,
@@ -321,7 +321,7 @@ BASE_SENSOR_TYPES: tuple[SystemBridgeSensorEntityDescription, ...] = (
     ),
     SystemBridgeSensorEntityDescription(
         key="power_usage",
-        REDACTED_VALUE"power_usage",
+        translation_key="power_usage",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -330,12 +330,12 @@ BASE_SENSOR_TYPES: tuple[SystemBridgeSensorEntityDescription, ...] = (
     ),
     SystemBridgeSensorEntityDescription(
         key="version",
-        REDACTED_VALUE"version",
+        translation_key="version",
         value=lambda data: data.system.version,
     ),
     SystemBridgeSensorEntityDescription(
         key="version_latest",
-        REDACTED_VALUE"version_latest",
+        translation_key="version_latest",
         value=lambda data: data.system.version_latest,
     ),
 )
@@ -351,7 +351,7 @@ BATTERY_SENSOR_TYPES: tuple[SystemBridgeSensorEntityDescription, ...] = (
     ),
     SystemBridgeSensorEntityDescription(
         key="battery_time_remaining",
-        REDACTED_VALUE"battery_time_remaining",
+        translation_key="battery_time_remaining",
         device_class=SensorDeviceClass.TIMESTAMP,
         value=battery_time_remaining,
     ),
@@ -380,7 +380,7 @@ async def async_setup_entry(
                 coordinator,
                 SystemBridgeSensorEntityDescription(
                     key=f"filesystem_{partition.mount_point.replace(':', '')}",
-                    REDACTED_VALUE"space_used",
+                    translation_key="space_used",
                     translation_placeholders={"partition": partition.mount_point},
                     state_class=SensorStateClass.MEASUREMENT,
                     native_unit_of_measurement=PERCENTAGE,
@@ -411,7 +411,7 @@ async def async_setup_entry(
             coordinator,
             SystemBridgeSensorEntityDescription(
                 key="displays_connected",
-                REDACTED_VALUE"displays_connected",
+                translation_key="displays_connected",
                 state_class=SensorStateClass.MEASUREMENT,
                 value=lambda data: len(data.displays) if data.displays else None,
             ),
@@ -427,7 +427,7 @@ async def async_setup_entry(
                     coordinator,
                     SystemBridgeSensorEntityDescription(
                         key=f"display_{display.id}_resolution_x",
-                        REDACTED_VALUE"display_resolution_x",
+                        translation_key="display_resolution_x",
                         translation_placeholders={"display_id": display.id},
                         state_class=SensorStateClass.MEASUREMENT,
                         native_unit_of_measurement=PIXELS,
@@ -441,7 +441,7 @@ async def async_setup_entry(
                     coordinator,
                     SystemBridgeSensorEntityDescription(
                         key=f"display_{display.id}_resolution_y",
-                        REDACTED_VALUE"display_resolution_y",
+                        translation_key="display_resolution_y",
                         translation_placeholders={"display_id": display.id},
                         state_class=SensorStateClass.MEASUREMENT,
                         native_unit_of_measurement=PIXELS,
@@ -455,7 +455,7 @@ async def async_setup_entry(
                     coordinator,
                     SystemBridgeSensorEntityDescription(
                         key=f"display_{display.id}_refresh_rate",
-                        REDACTED_VALUE"display_refresh_rate",
+                        translation_key="display_refresh_rate",
                         translation_placeholders={"display_id": display.id},
                         state_class=SensorStateClass.MEASUREMENT,
                         native_unit_of_measurement=UnitOfFrequency.HERTZ,
@@ -474,7 +474,7 @@ async def async_setup_entry(
                     coordinator,
                     SystemBridgeSensorEntityDescription(
                         key=f"gpu_{gpu.id}_core_clock_speed",
-                        REDACTED_VALUE"gpu_core_clock_speed",
+                        translation_key="gpu_core_clock_speed",
                         translation_placeholders={"gpu_name": gpu.name},
                         entity_registry_enabled_default=False,
                         state_class=SensorStateClass.MEASUREMENT,
@@ -489,7 +489,7 @@ async def async_setup_entry(
                     coordinator,
                     SystemBridgeSensorEntityDescription(
                         key=f"gpu_{gpu.id}_memory_clock_speed",
-                        REDACTED_VALUE"gpu_memory_clock_speed",
+                        translation_key="gpu_memory_clock_speed",
                         translation_placeholders={"gpu_name": gpu.name},
                         entity_registry_enabled_default=False,
                         state_class=SensorStateClass.MEASUREMENT,
@@ -504,7 +504,7 @@ async def async_setup_entry(
                     coordinator,
                     SystemBridgeSensorEntityDescription(
                         key=f"gpu_{gpu.id}_memory_free",
-                        REDACTED_VALUE"gpu_memory_free",
+                        translation_key="gpu_memory_free",
                         translation_placeholders={"gpu_name": gpu.name},
                         state_class=SensorStateClass.MEASUREMENT,
                         native_unit_of_measurement=UnitOfInformation.MEGABYTES,
@@ -518,7 +518,7 @@ async def async_setup_entry(
                     coordinator,
                     SystemBridgeSensorEntityDescription(
                         key=f"gpu_{gpu.id}_memory_used_percentage",
-                        REDACTED_VALUE"gpu_memory_used_percentage",
+                        translation_key="gpu_memory_used_percentage",
                         translation_placeholders={"gpu_name": gpu.name},
                         state_class=SensorStateClass.MEASUREMENT,
                         native_unit_of_measurement=PERCENTAGE,
@@ -531,7 +531,7 @@ async def async_setup_entry(
                     coordinator,
                     SystemBridgeSensorEntityDescription(
                         key=f"gpu_{gpu.id}_memory_used",
-                        REDACTED_VALUE"gpu_memory_used",
+                        translation_key="gpu_memory_used",
                         translation_placeholders={"gpu_name": gpu.name},
                         entity_registry_enabled_default=False,
                         state_class=SensorStateClass.MEASUREMENT,
@@ -546,7 +546,7 @@ async def async_setup_entry(
                     coordinator,
                     SystemBridgeSensorEntityDescription(
                         key=f"gpu_{gpu.id}_fan_speed",
-                        REDACTED_VALUE"gpu_fan_speed",
+                        translation_key="gpu_fan_speed",
                         translation_placeholders={"gpu_name": gpu.name},
                         entity_registry_enabled_default=False,
                         state_class=SensorStateClass.MEASUREMENT,
@@ -559,7 +559,7 @@ async def async_setup_entry(
                     coordinator,
                     SystemBridgeSensorEntityDescription(
                         key=f"gpu_{gpu.id}_power_usage",
-                        REDACTED_VALUE"gpu_power_usage",
+                        translation_key="gpu_power_usage",
                         translation_placeholders={"gpu_name": gpu.name},
                         entity_registry_enabled_default=False,
                         state_class=SensorStateClass.MEASUREMENT,
@@ -572,7 +572,7 @@ async def async_setup_entry(
                     coordinator,
                     SystemBridgeSensorEntityDescription(
                         key=f"gpu_{gpu.id}_temperature",
-                        REDACTED_VALUE"gpu_temperature",
+                        translation_key="gpu_temperature",
                         translation_placeholders={"gpu_name": gpu.name},
                         entity_registry_enabled_default=False,
                         device_class=SensorDeviceClass.TEMPERATURE,
@@ -587,7 +587,7 @@ async def async_setup_entry(
                     coordinator,
                     SystemBridgeSensorEntityDescription(
                         key=f"gpu_{gpu.id}_usage_percentage",
-                        REDACTED_VALUE"gpu_usage_percentage",
+                        translation_key="gpu_usage_percentage",
                         translation_placeholders={"gpu_name": gpu.name},
                         state_class=SensorStateClass.MEASUREMENT,
                         native_unit_of_measurement=PERCENTAGE,
@@ -607,7 +607,7 @@ async def async_setup_entry(
                         coordinator,
                         SystemBridgeSensorEntityDescription(
                             key=f"processes_load_cpu_{cpu.id}",
-                            REDACTED_VALUE"processes_load_cpu",
+                            translation_key="processes_load_cpu",
                             translation_placeholders={"cpu_id": str(cpu.id)},
                             entity_registry_enabled_default=False,
                             state_class=SensorStateClass.MEASUREMENT,
@@ -621,7 +621,7 @@ async def async_setup_entry(
                         coordinator,
                         SystemBridgeSensorEntityDescription(
                             key=f"cpu_power_core_{cpu.id}",
-                            REDACTED_VALUE"cpu_power_core",
+                            translation_key="cpu_power_core",
                             translation_placeholders={"cpu_id": str(cpu.id)},
                             entity_registry_enabled_default=False,
                             native_unit_of_measurement=UnitOfPower.WATT,

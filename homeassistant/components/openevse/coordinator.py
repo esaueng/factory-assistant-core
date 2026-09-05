@@ -64,10 +64,10 @@ class OpenEVSEDataUpdateCoordinator(DataUpdateCoordinator[None]):
         except TimeoutError as error:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
             ) from error
         except AuthenticationError as error:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"authentication_error",
+                translation_key="authentication_error",
             ) from error

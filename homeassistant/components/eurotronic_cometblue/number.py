@@ -34,7 +34,7 @@ DESCRIPTIONS = [
     CometBlueNumberEntityDescription(
         key="offset",
         cometblue_key="tempOffset",
-        REDACTED_VALUE"offset",
+        translation_key="offset",
         device_class=NumberDeviceClass.TEMPERATURE_DELTA,
         entity_category=EntityCategory.CONFIG,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -47,7 +47,7 @@ DESCRIPTIONS = [
     CometBlueNumberEntityDescription(
         key="eco_setpoint",
         cometblue_key="targetTempLow",
-        REDACTED_VALUE"eco_setpoint",
+        translation_key="eco_setpoint",
         device_class=NumberDeviceClass.TEMPERATURE,
         entity_category=EntityCategory.CONFIG,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -59,7 +59,7 @@ DESCRIPTIONS = [
     CometBlueNumberEntityDescription(
         key="comfort_setpoint",
         cometblue_key="targetTempHigh",
-        REDACTED_VALUE"comfort_setpoint",
+        translation_key="comfort_setpoint",
         device_class=NumberDeviceClass.TEMPERATURE,
         entity_category=EntityCategory.CONFIG,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,

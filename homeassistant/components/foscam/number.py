@@ -26,7 +26,7 @@ class FoscamNumberEntityDescription(NumberEntityDescription):
 NUMBER_DESCRIPTIONS: list[FoscamNumberEntityDescription] = [
     FoscamNumberEntityDescription(
         key="device_volume",
-        REDACTED_VALUE"device_volume",
+        translation_key="device_volume",
         native_min_value=0,
         native_max_value=100,
         native_step=1,
@@ -35,7 +35,7 @@ NUMBER_DESCRIPTIONS: list[FoscamNumberEntityDescription] = [
     ),
     FoscamNumberEntityDescription(
         key="speak_volume",
-        REDACTED_VALUE"speak_volume",
+        translation_key="speak_volume",
         native_min_value=0,
         native_max_value=100,
         native_step=1,

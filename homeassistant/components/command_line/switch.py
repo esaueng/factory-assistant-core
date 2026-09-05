@@ -114,7 +114,7 @@ class CommandSwitch(ManualTriggerEntity, SwitchEntity):
                     self._update_entity_state,
                     self._scan_interval,
                     name=f"Command Line Cover - {self.name}",
-                    REDACTED_VALUE,
+                    cancel_on_shutdown=True,
                 ),
             )
 

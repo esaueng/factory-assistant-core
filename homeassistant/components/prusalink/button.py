@@ -32,7 +32,7 @@ BUTTONS: dict[str, tuple[PrusaLinkButtonEntityDescription, ...]] = {
     "status": (
         PrusaLinkButtonEntityDescription[PrinterStatus](
             key="printer.cancel_job",
-            REDACTED_VALUE"cancel_job",
+            translation_key="cancel_job",
             press_fn=lambda api: api.cancel_job,
             available_fn=lambda data: (
                 data["printer"]["state"]
@@ -41,7 +41,7 @@ BUTTONS: dict[str, tuple[PrusaLinkButtonEntityDescription, ...]] = {
         ),
         PrusaLinkButtonEntityDescription[PrinterStatus](
             key="job.pause_job",
-            REDACTED_VALUE"pause_job",
+            translation_key="pause_job",
             press_fn=lambda api: api.pause_job,
             available_fn=lambda data: cast(
                 bool, data["printer"]["state"] == PrinterState.PRINTING.value
@@ -49,7 +49,7 @@ BUTTONS: dict[str, tuple[PrusaLinkButtonEntityDescription, ...]] = {
         ),
         PrusaLinkButtonEntityDescription[PrinterStatus](
             key="job.resume_job",
-            REDACTED_VALUE"resume_job",
+            translation_key="resume_job",
             press_fn=lambda api: api.resume_job,
             available_fn=lambda data: cast(
                 bool, data["printer"]["state"] == PrinterState.PAUSED.value
@@ -57,7 +57,7 @@ BUTTONS: dict[str, tuple[PrusaLinkButtonEntityDescription, ...]] = {
         ),
         PrusaLinkButtonEntityDescription[PrinterStatus](
             key="job.continue_job",
-            REDACTED_VALUE"continue_job",
+            translation_key="continue_job",
             press_fn=lambda api: api.continue_job,
             available_fn=lambda data: cast(
                 bool, data["printer"]["state"] == PrinterState.ATTENTION.value

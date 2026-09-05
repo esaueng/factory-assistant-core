@@ -52,7 +52,7 @@ BSH_PROGRAM_SENSORS = (
     HomeConnectSensorEntityDescription(
         key=EventKey.BSH_COMMON_OPTION_REMAINING_PROGRAM_TIME,
         device_class=SensorDeviceClass.TIMESTAMP,
-        REDACTED_VALUE"program_finish_time",
+        translation_key="program_finish_time",
         appliance_types=(
             "CoffeeMaker",
             "CookProcessor",
@@ -68,7 +68,7 @@ BSH_PROGRAM_SENSORS = (
     HomeConnectSensorEntityDescription(
         key=EventKey.BSH_COMMON_OPTION_PROGRAM_PROGRESS,
         native_unit_of_measurement=PERCENTAGE,
-        REDACTED_VALUE"program_progress",
+        translation_key="program_progress",
         appliance_types=APPLIANCES_WITH_PROGRAMS,
     ),
 )
@@ -88,7 +88,7 @@ SENSORS = (
             "error",
             "aborting",
         ],
-        REDACTED_VALUE"operation_state",
+        translation_key="operation_state",
     ),
     HomeConnectSensorEntityDescription(
         key=StatusKey.BSH_COMMON_DOOR_STATE,
@@ -98,62 +98,62 @@ SENSORS = (
             "locked",
             "open",
         ],
-        REDACTED_VALUE"door",
+        translation_key="door",
     ),
     HomeConnectSensorEntityDescription(
         key=StatusKey.CONSUMER_PRODUCTS_COFFEE_MAKER_BEVERAGE_COUNTER_COFFEE,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL_INCREASING,
-        REDACTED_VALUE"coffee_counter",
+        translation_key="coffee_counter",
     ),
     HomeConnectSensorEntityDescription(
         key=StatusKey.CONSUMER_PRODUCTS_COFFEE_MAKER_BEVERAGE_COUNTER_POWDER_COFFEE,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL_INCREASING,
-        REDACTED_VALUE"powder_coffee_counter",
+        translation_key="powder_coffee_counter",
     ),
     HomeConnectSensorEntityDescription(
         key=StatusKey.CONSUMER_PRODUCTS_COFFEE_MAKER_BEVERAGE_COUNTER_HOT_WATER,
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfVolume.MILLILITERS,
         device_class=SensorDeviceClass.VOLUME,
-        REDACTED_VALUE"hot_water_counter",
+        translation_key="hot_water_counter",
     ),
     HomeConnectSensorEntityDescription(
         key=StatusKey.CONSUMER_PRODUCTS_COFFEE_MAKER_BEVERAGE_COUNTER_HOT_WATER_CUPS,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL_INCREASING,
-        REDACTED_VALUE"hot_water_cups_counter",
+        translation_key="hot_water_cups_counter",
     ),
     HomeConnectSensorEntityDescription(
         key=StatusKey.CONSUMER_PRODUCTS_COFFEE_MAKER_BEVERAGE_COUNTER_HOT_MILK,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL_INCREASING,
-        REDACTED_VALUE"hot_milk_counter",
+        translation_key="hot_milk_counter",
     ),
     HomeConnectSensorEntityDescription(
         key=StatusKey.CONSUMER_PRODUCTS_COFFEE_MAKER_BEVERAGE_COUNTER_FROTHY_MILK,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL_INCREASING,
-        REDACTED_VALUE"frothy_milk_counter",
+        translation_key="frothy_milk_counter",
     ),
     HomeConnectSensorEntityDescription(
         key=StatusKey.CONSUMER_PRODUCTS_COFFEE_MAKER_BEVERAGE_COUNTER_MILK,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL_INCREASING,
-        REDACTED_VALUE"milk_counter",
+        translation_key="milk_counter",
     ),
     HomeConnectSensorEntityDescription(
         key=StatusKey.CONSUMER_PRODUCTS_COFFEE_MAKER_BEVERAGE_COUNTER_COFFEE_AND_MILK,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL_INCREASING,
-        REDACTED_VALUE"coffee_and_milk_counter",
+        translation_key="coffee_and_milk_counter",
     ),
     HomeConnectSensorEntityDescription(
         key=StatusKey.CONSUMER_PRODUCTS_COFFEE_MAKER_BEVERAGE_COUNTER_RISTRETTO_ESPRESSO,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL_INCREASING,
-        REDACTED_VALUE"ristretto_espresso_counter",
+        translation_key="ristretto_espresso_counter",
     ),
     HomeConnectSensorEntityDescription(
         key=StatusKey.BSH_COMMON_BATTERY_LEVEL,
@@ -171,7 +171,7 @@ SENSORS = (
             "streaminglocalancloud",
             "error",
         ],
-        REDACTED_VALUE"camera_state",
+        translation_key="camera_state",
     ),
     HomeConnectSensorEntityDescription(
         key=StatusKey.CONSUMER_PRODUCTS_CLEANING_ROBOT_LAST_SELECTED_MAP,
@@ -182,13 +182,13 @@ SENSORS = (
             "map2",
             "map3",
         ],
-        REDACTED_VALUE"last_selected_map",
+        translation_key="last_selected_map",
     ),
     HomeConnectSensorEntityDescription(
         key=StatusKey.COOKING_OVEN_CURRENT_CAVITY_TEMPERATURE,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"oven_current_cavity_temperature",
+        translation_key="oven_current_cavity_temperature",
         fetch_unit=True,
     ),
 )
@@ -199,7 +199,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"program_aborted",
+        translation_key="program_aborted",
         appliance_types=("Dishwasher", "Microwave", "CleaningRobot", "CookProcessor"),
     ),
     HomeConnectSensorEntityDescription(
@@ -207,7 +207,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"program_finished",
+        translation_key="program_finished",
         appliance_types=(
             "Oven",
             "Dishwasher",
@@ -224,7 +224,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"alarm_clock_elapsed",
+        translation_key="alarm_clock_elapsed",
         appliance_types=("Oven", "Cooktop"),
     ),
     HomeConnectSensorEntityDescription(
@@ -232,7 +232,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"preheat_finished",
+        translation_key="preheat_finished",
         appliance_types=("Oven", "Cooktop"),
     ),
     HomeConnectSensorEntityDescription(
@@ -240,7 +240,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"regular_preheat_finished",
+        translation_key="regular_preheat_finished",
         appliance_types=("Oven",),
     ),
     HomeConnectSensorEntityDescription(
@@ -248,7 +248,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"drying_process_finished",
+        translation_key="drying_process_finished",
         appliance_types=("Dryer",),
     ),
     HomeConnectSensorEntityDescription(
@@ -256,7 +256,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"salt_nearly_empty",
+        translation_key="salt_nearly_empty",
         appliance_types=("Dishwasher",),
     ),
     HomeConnectSensorEntityDescription(
@@ -264,7 +264,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"rinse_aid_nearly_empty",
+        translation_key="rinse_aid_nearly_empty",
         appliance_types=("Dishwasher",),
     ),
     HomeConnectSensorEntityDescription(
@@ -272,7 +272,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"bean_container_empty",
+        translation_key="bean_container_empty",
         appliance_types=("CoffeeMaker",),
     ),
     HomeConnectSensorEntityDescription(
@@ -280,7 +280,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"water_tank_empty",
+        translation_key="water_tank_empty",
         appliance_types=("CoffeeMaker",),
     ),
     HomeConnectSensorEntityDescription(
@@ -288,7 +288,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"drip_tray_full",
+        translation_key="drip_tray_full",
         appliance_types=("CoffeeMaker",),
     ),
     HomeConnectSensorEntityDescription(
@@ -296,7 +296,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"keep_milk_tank_cool",
+        translation_key="keep_milk_tank_cool",
         appliance_types=("CoffeeMaker",),
     ),
     HomeConnectSensorEntityDescription(
@@ -304,7 +304,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="descaling_in_20_cups",
         appliance_types=("CoffeeMaker",),
     ),
     HomeConnectSensorEntityDescription(
@@ -312,7 +312,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="descaling_in_15_cups",
         appliance_types=("CoffeeMaker",),
     ),
     HomeConnectSensorEntityDescription(
@@ -320,7 +320,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="descaling_in_10_cups",
         appliance_types=("CoffeeMaker",),
     ),
     HomeConnectSensorEntityDescription(
@@ -328,7 +328,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="descaling_in_5_cups",
         appliance_types=("CoffeeMaker",),
     ),
     HomeConnectSensorEntityDescription(
@@ -336,7 +336,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"device_should_be_descaled",
+        translation_key="device_should_be_descaled",
         appliance_types=("CoffeeMaker",),
     ),
     HomeConnectSensorEntityDescription(
@@ -344,7 +344,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"device_descaling_overdue",
+        translation_key="device_descaling_overdue",
         appliance_types=("CoffeeMaker",),
     ),
     HomeConnectSensorEntityDescription(
@@ -352,7 +352,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"device_descaling_blockage",
+        translation_key="device_descaling_blockage",
         appliance_types=("CoffeeMaker",),
     ),
     HomeConnectSensorEntityDescription(
@@ -360,7 +360,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"device_should_be_cleaned",
+        translation_key="device_should_be_cleaned",
         appliance_types=("CoffeeMaker",),
     ),
     HomeConnectSensorEntityDescription(
@@ -368,7 +368,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"device_cleaning_overdue",
+        translation_key="device_cleaning_overdue",
         appliance_types=("CoffeeMaker",),
     ),
     HomeConnectSensorEntityDescription(
@@ -376,7 +376,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"calc_n_clean_in20cups",
+        translation_key="calc_n_clean_in20cups",
         appliance_types=("CoffeeMaker",),
     ),
     HomeConnectSensorEntityDescription(
@@ -384,7 +384,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"calc_n_clean_in15cups",
+        translation_key="calc_n_clean_in15cups",
         appliance_types=("CoffeeMaker",),
     ),
     HomeConnectSensorEntityDescription(
@@ -392,7 +392,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"calc_n_clean_in10cups",
+        translation_key="calc_n_clean_in10cups",
         appliance_types=("CoffeeMaker",),
     ),
     HomeConnectSensorEntityDescription(
@@ -400,7 +400,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"calc_n_clean_in5cups",
+        translation_key="calc_n_clean_in5cups",
         appliance_types=("CoffeeMaker",),
     ),
     HomeConnectSensorEntityDescription(
@@ -408,7 +408,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"device_should_be_calc_n_cleaned",
+        translation_key="device_should_be_calc_n_cleaned",
         appliance_types=("CoffeeMaker",),
     ),
     HomeConnectSensorEntityDescription(
@@ -416,7 +416,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"device_calc_n_clean_overdue",
+        translation_key="device_calc_n_clean_overdue",
         appliance_types=("CoffeeMaker",),
     ),
     HomeConnectSensorEntityDescription(
@@ -424,7 +424,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"device_calc_n_clean_blockage",
+        translation_key="device_calc_n_clean_blockage",
         appliance_types=("CoffeeMaker",),
     ),
     HomeConnectSensorEntityDescription(
@@ -432,7 +432,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"freezer_door_alarm",
+        translation_key="freezer_door_alarm",
         appliance_types=("FridgeFreezer", "Freezer"),
     ),
     HomeConnectSensorEntityDescription(
@@ -440,7 +440,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"refrigerator_door_alarm",
+        translation_key="refrigerator_door_alarm",
         appliance_types=("FridgeFreezer", "Refrigerator"),
     ),
     HomeConnectSensorEntityDescription(
@@ -448,7 +448,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"freezer_temperature_alarm",
+        translation_key="freezer_temperature_alarm",
         appliance_types=("FridgeFreezer", "Freezer"),
     ),
     HomeConnectSensorEntityDescription(
@@ -456,7 +456,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"empty_dust_box_and_clean_filter",
+        translation_key="empty_dust_box_and_clean_filter",
         appliance_types=("CleaningRobot",),
     ),
     HomeConnectSensorEntityDescription(
@@ -464,7 +464,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"robot_is_stuck",
+        translation_key="robot_is_stuck",
         appliance_types=("CleaningRobot",),
     ),
     HomeConnectSensorEntityDescription(
@@ -472,7 +472,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"docking_station_not_found",
+        translation_key="docking_station_not_found",
         appliance_types=("CleaningRobot",),
     ),
     HomeConnectSensorEntityDescription(
@@ -480,7 +480,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"poor_i_dos_1_fill_level",
+        translation_key="poor_i_dos_1_fill_level",
         appliance_types=("Washer", "WasherDryer"),
     ),
     HomeConnectSensorEntityDescription(
@@ -488,7 +488,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"poor_i_dos_2_fill_level",
+        translation_key="poor_i_dos_2_fill_level",
         appliance_types=("Washer", "WasherDryer"),
     ),
     HomeConnectSensorEntityDescription(
@@ -496,7 +496,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"grease_filter_max_saturation_nearly_reached",
+        translation_key="grease_filter_max_saturation_nearly_reached",
         appliance_types=("Hood",),
     ),
     HomeConnectSensorEntityDescription(
@@ -504,7 +504,7 @@ EVENT_SENSORS = (
         device_class=SensorDeviceClass.ENUM,
         options=EVENT_OPTIONS,
         default_value="off",
-        REDACTED_VALUE"grease_filter_max_saturation_reached",
+        translation_key="grease_filter_max_saturation_reached",
         appliance_types=("Hood",),
     ),
 )

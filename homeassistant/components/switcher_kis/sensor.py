@@ -58,12 +58,12 @@ POWER_SENSORS: list[SwitcherSensorEntityDescription] = [
 TIME_SENSORS: list[SwitcherSensorEntityDescription] = [
     SwitcherSensorEntityDescription(
         key="remaining_time",
-        REDACTED_VALUE"remaining_time",
+        translation_key="remaining_time",
         value_fn=lambda data: cast(SwitcherTimedBase, data).remaining_time,
     ),
     SwitcherSensorEntityDescription(
         key="auto_off_set",
-        REDACTED_VALUE"auto_shutdown",
+        translation_key="auto_shutdown",
         entity_registry_enabled_default=False,
         value_fn=lambda data: cast(SwitcherTimedBase, data).auto_shutdown,
     ),

@@ -35,7 +35,7 @@ class LeilSaunaSensorEntityDescription(SensorEntityDescription):
 SENSORS: tuple[LeilSaunaSensorEntityDescription, ...] = (
     LeilSaunaSensorEntityDescription(
         key="current_temperature",
-        REDACTED_VALUE"current_temperature",
+        translation_key="current_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -43,13 +43,13 @@ SENSORS: tuple[LeilSaunaSensorEntityDescription, ...] = (
     ),
     LeilSaunaSensorEntityDescription(
         key="heater_elements_active",
-        REDACTED_VALUE"heater_elements_active",
+        translation_key="heater_elements_active",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data.heater_elements_active,
     ),
     LeilSaunaSensorEntityDescription(
         key="on_time",
-        REDACTED_VALUE"on_time",
+        translation_key="on_time",
         native_unit_of_measurement=UnitOfTime.SECONDS,
         suggested_unit_of_measurement=UnitOfTime.HOURS,
         device_class=SensorDeviceClass.DURATION,

@@ -55,13 +55,13 @@ class XiaomiMiioBinarySensorDescription(BinarySensorEntityDescription):
 BINARY_SENSOR_TYPES = (
     XiaomiMiioBinarySensorDescription(
         key=ATTR_NO_WATER,
-        REDACTED_VALUEATTR_NO_WATER,
+        translation_key=ATTR_NO_WATER,
         icon="mdi:water-off-outline",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     XiaomiMiioBinarySensorDescription(
         key=ATTR_WATER_TANK_DETACHED,
-        REDACTED_VALUEATTR_WATER_TANK_DETACHED,
+        translation_key=ATTR_WATER_TANK_DETACHED,
         icon="mdi:car-coolant-level",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         value=lambda value: not value,
@@ -69,13 +69,13 @@ BINARY_SENSOR_TYPES = (
     ),
     XiaomiMiioBinarySensorDescription(
         key=ATTR_PTC_STATUS,
-        REDACTED_VALUEATTR_PTC_STATUS,
+        translation_key=ATTR_PTC_STATUS,
         device_class=BinarySensorDeviceClass.POWER,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     XiaomiMiioBinarySensorDescription(
         key=ATTR_POWERSUPPLY_ATTACHED,
-        REDACTED_VALUEATTR_POWERSUPPLY_ATTACHED,
+        translation_key=ATTR_POWERSUPPLY_ATTACHED,
         device_class=BinarySensorDeviceClass.PLUG,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
@@ -87,7 +87,7 @@ FAN_ZA5_BINARY_SENSORS = (ATTR_POWERSUPPLY_ATTACHED,)
 VACUUM_SENSORS = {
     ATTR_MOP_ATTACHED: XiaomiMiioBinarySensorDescription(
         key=ATTR_WATER_BOX_ATTACHED,
-        REDACTED_VALUEATTR_WATER_BOX_ATTACHED,
+        translation_key=ATTR_WATER_BOX_ATTACHED,
         icon="mdi:square-rounded",
         parent_key=VacuumCoordinatorDataAttributes.status,
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
@@ -95,7 +95,7 @@ VACUUM_SENSORS = {
     ),
     ATTR_WATER_BOX_ATTACHED: XiaomiMiioBinarySensorDescription(
         key=ATTR_WATER_BOX_ATTACHED,
-        REDACTED_VALUEATTR_WATER_BOX_ATTACHED,
+        translation_key=ATTR_WATER_BOX_ATTACHED,
         icon="mdi:water",
         parent_key=VacuumCoordinatorDataAttributes.status,
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
@@ -103,7 +103,7 @@ VACUUM_SENSORS = {
     ),
     ATTR_WATER_SHORTAGE: XiaomiMiioBinarySensorDescription(
         key=ATTR_WATER_SHORTAGE,
-        REDACTED_VALUEATTR_WATER_SHORTAGE,
+        translation_key=ATTR_WATER_SHORTAGE,
         icon="mdi:water",
         parent_key=VacuumCoordinatorDataAttributes.status,
         device_class=BinarySensorDeviceClass.PROBLEM,
@@ -115,7 +115,7 @@ VACUUM_SENSORS_SEPARATE_MOP = {
     **VACUUM_SENSORS,
     ATTR_MOP_ATTACHED: XiaomiMiioBinarySensorDescription(
         key=ATTR_MOP_ATTACHED,
-        REDACTED_VALUEATTR_MOP_ATTACHED,
+        translation_key=ATTR_MOP_ATTACHED,
         icon="mdi:square-rounded",
         parent_key=VacuumCoordinatorDataAttributes.status,
         device_class=BinarySensorDeviceClass.CONNECTIVITY,

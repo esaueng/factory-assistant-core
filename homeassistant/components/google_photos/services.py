@@ -45,20 +45,20 @@ def _read_file_contents(
         if not hass.config.is_allowed_path(filename):
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_access_to_path",
+                translation_key="no_access_to_path",
                 translation_placeholders={"filename": filename},
             )
         filename_path = Path(filename)
         if not filename_path.exists():
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"filename_does_not_exist",
+                translation_key="filename_does_not_exist",
                 translation_placeholders={"filename": filename},
             )
         if filename_path.stat().st_size > CONTENT_SIZE_LIMIT:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"file_too_large",
+                translation_key="file_too_large",
                 translation_placeholders={
                     "filename": filename,
                     "size": str(filename_path.stat().st_size),
@@ -69,7 +69,7 @@ def _read_file_contents(
         if mime_type is None or not (mime_type.startswith(("image", "video"))):
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"filename_is_not_image",
+                translation_key="filename_is_not_image",
                 translation_placeholders={"filename": filename},
             )
         results.append((mime_type, filename_path.read_bytes()))
@@ -86,7 +86,7 @@ async def _async_handle_upload(call: ServiceCall) -> ServiceResponse:
     if UPLOAD_SCOPE not in scopes:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"missing_upload_permission",
+            translation_key="missing_upload_permission",
         )
     coordinator = config_entry.runtime_data
     client_api = coordinator.client
@@ -101,7 +101,7 @@ async def _async_handle_upload(call: ServiceCall) -> ServiceResponse:
     except GooglePhotosApiError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"create_album_error",
+            translation_key="create_album_error",
             translation_placeholders={"message": str(err)},
         ) from err
 
@@ -112,7 +112,7 @@ async def _async_handle_upload(call: ServiceCall) -> ServiceResponse:
     except GooglePhotosApiError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"upload_error",
+            translation_key="upload_error",
             translation_placeholders={"message": str(err)},
         ) from err
     try:
@@ -126,7 +126,7 @@ async def _async_handle_upload(call: ServiceCall) -> ServiceResponse:
     except GooglePhotosApiError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"api_error",
+            translation_key="api_error",
             translation_placeholders={"message": str(err)},
         ) from err
     if call.return_response:

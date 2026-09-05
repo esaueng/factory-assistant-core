@@ -89,13 +89,13 @@ class Hub:
         except AuthenticationError as auth_error:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"authentication_failed",
+                translation_key="authentication_failed",
                 translation_placeholders={"host": self.host},
             ) from auth_error
         except CannotConnectError as connect_error:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
                 translation_placeholders={"host": self.host},
             ) from connect_error
 

@@ -52,11 +52,11 @@ class DiscovergyUpdateCoordinator(DataUpdateCoordinator[Reading]):
         except InvalidLogin as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_auth",
+                translation_key="invalid_auth",
             ) from err
         except (HTTPError, DiscovergyClientError) as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"reading_update_failed",
+                translation_key="reading_update_failed",
                 translation_placeholders={"meter_id": self.meter.meter_id},
             ) from err

@@ -429,7 +429,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterSensorEntityDescription(
             key="FlowSensor",
             native_unit_of_measurement=UnitOfVolumeFlowRate.CUBIC_METERS_PER_HOUR,
-            REDACTED_VALUE"flow",
+            translation_key="flow",
             device_to_ha=lambda x: x / 10,
             state_class=SensorStateClass.MEASUREMENT,
         ),
@@ -494,7 +494,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="PowerSourceBatVoltage",
-            REDACTED_VALUE"battery_voltage",
+            translation_key="battery_voltage",
             native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
             # Battery voltages are low-voltage diagnostics; use 2 decimals in volts
             # to provide finer granularity than mains-level voltage sensors.
@@ -511,7 +511,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="PowerSourceBatTimeRemaining",
-            REDACTED_VALUE"battery_time_remaining",
+            translation_key="battery_time_remaining",
             native_unit_of_measurement=UnitOfTime.SECONDS,
             suggested_unit_of_measurement=UnitOfTime.MINUTES,
             device_class=SensorDeviceClass.DURATION,
@@ -525,7 +525,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="PowerSourceBatChargeState",
-            REDACTED_VALUE"battery_charge_state",
+            translation_key="battery_charge_state",
             device_class=SensorDeviceClass.ENUM,
             entity_category=EntityCategory.DIAGNOSTIC,
             options=[state for state in CHARGE_STATE_MAP.values() if state is not None],
@@ -538,7 +538,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="PowerSourceBatTimeToFullCharge",
-            REDACTED_VALUE"battery_time_to_full_charge",
+            translation_key="battery_time_to_full_charge",
             native_unit_of_measurement=UnitOfTime.SECONDS,
             suggested_unit_of_measurement=UnitOfTime.MINUTES,
             device_class=SensorDeviceClass.DURATION,
@@ -552,7 +552,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="PowerSourceBatReplacementDescription",
-            REDACTED_VALUE"battery_replacement_description",
+            translation_key="battery_replacement_description",
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
         entity_class=MatterSensor,
@@ -620,7 +620,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="EveThermoValvePosition",
-            REDACTED_VALUE"valve_position",
+            translation_key="valve_position",
             native_unit_of_measurement=PERCENTAGE,
         ),
         entity_class=MatterSensor,
@@ -642,7 +642,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="EveWeatherWeatherTrend",
-            REDACTED_VALUE"eve_weather_trend",
+            translation_key="eve_weather_trend",
             device_class=SensorDeviceClass.ENUM,
             options=[x for x in EVE_CLUSTER_WEATHER_MAP.values() if x is not None],
             device_to_ha=EVE_CLUSTER_WEATHER_MAP.get,
@@ -681,7 +681,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterSensorEntityDescription(
             key="TotalVolatileOrganicCompoundsSensorLevel",
             device_class=SensorDeviceClass.ENUM,
-            REDACTED_VALUE"tvoc_level",
+            translation_key="tvoc_level",
             options=[x for x in CONCENTRATION_LEVEL_MAP.values() if x is not None],
             device_to_ha=CONCENTRATION_LEVEL_MAP.get,
         ),
@@ -734,7 +734,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="AirQuality",
-            REDACTED_VALUE"air_quality",
+            translation_key="air_quality",
             device_class=SensorDeviceClass.ENUM,
             options=[x for x in AIR_QUALITY_MAP.values() if x is not None],
             device_to_ha=lambda x: AIR_QUALITY_MAP[x],
@@ -787,7 +787,7 @@ DISCOVERY_SCHEMAS = [
             key="RadonSensor",
             native_unit_of_measurement=CONCENTRATION_BECQUERELS_PER_CUBIC_METER,
             state_class=SensorStateClass.MEASUREMENT,
-            REDACTED_VALUE"radon_concentration",
+            translation_key="radon_concentration",
         ),
         entity_class=MatterSensor,
         required_attributes=(
@@ -800,7 +800,7 @@ DISCOVERY_SCHEMAS = [
             key="HepaFilterCondition",
             native_unit_of_measurement=PERCENTAGE,
             state_class=SensorStateClass.MEASUREMENT,
-            REDACTED_VALUE"hepa_filter_condition",
+            translation_key="hepa_filter_condition",
         ),
         entity_class=MatterSensor,
         required_attributes=(clusters.HepaFilterMonitoring.Attributes.Condition,),
@@ -811,7 +811,7 @@ DISCOVERY_SCHEMAS = [
             key="ActivatedCarbonFilterCondition",
             native_unit_of_measurement=PERCENTAGE,
             state_class=SensorStateClass.MEASUREMENT,
-            REDACTED_VALUE"activated_carbon_filter_condition",
+            translation_key="activated_carbon_filter_condition",
         ),
         entity_class=MatterSensor,
         required_attributes=(
@@ -911,7 +911,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterSensorEntityDescription(
             key="SwitchCurrentPosition",
             state_class=SensorStateClass.MEASUREMENT,
-            REDACTED_VALUE"switch_current_position",
+            translation_key="switch_current_position",
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
         ),
@@ -972,7 +972,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="ElectricalPowerMeasurementVoltage",
-            REDACTED_VALUE"voltage",
+            translation_key="voltage",
             device_class=SensorDeviceClass.VOLTAGE,
             entity_category=EntityCategory.DIAGNOSTIC,
             native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
@@ -988,7 +988,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="ElectricalPowerMeasurementRMSVoltage",
-            REDACTED_VALUE"rms_voltage",
+            translation_key="rms_voltage",
             device_class=SensorDeviceClass.VOLTAGE,
             entity_category=EntityCategory.DIAGNOSTIC,
             native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
@@ -1006,7 +1006,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="ElectricalPowerMeasurementApparentCurrent",
-            REDACTED_VALUE"apparent_current",
+            translation_key="apparent_current",
             device_class=SensorDeviceClass.CURRENT,
             entity_category=EntityCategory.DIAGNOSTIC,
             native_unit_of_measurement=UnitOfElectricCurrent.MILLIAMPERE,
@@ -1024,7 +1024,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="ElectricalPowerMeasurementActiveCurrent",
-            REDACTED_VALUE"active_current",
+            translation_key="active_current",
             device_class=SensorDeviceClass.CURRENT,
             entity_category=EntityCategory.DIAGNOSTIC,
             native_unit_of_measurement=UnitOfElectricCurrent.MILLIAMPERE,
@@ -1042,7 +1042,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="ElectricalPowerMeasurementReactiveCurrent",
-            REDACTED_VALUE"reactive_current",
+            translation_key="reactive_current",
             device_class=SensorDeviceClass.CURRENT,
             entity_category=EntityCategory.DIAGNOSTIC,
             native_unit_of_measurement=UnitOfElectricCurrent.MILLIAMPERE,
@@ -1060,7 +1060,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="ElectricalPowerMeasurementRMSCurrent",
-            REDACTED_VALUE"rms_current",
+            translation_key="rms_current",
             device_class=SensorDeviceClass.CURRENT,
             entity_category=EntityCategory.DIAGNOSTIC,
             native_unit_of_measurement=UnitOfElectricCurrent.MILLIAMPERE,
@@ -1096,7 +1096,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="ElectricalEnergyMeasurementCumulativeEnergyExported",
-            REDACTED_VALUE"energy_exported",
+            translation_key="energy_exported",
             device_class=SensorDeviceClass.ENERGY,
             native_unit_of_measurement=UnitOfEnergy.MILLIWATT_HOUR,
             suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
@@ -1168,7 +1168,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="SmokeCOAlarmContaminationState",
-            REDACTED_VALUE"contamination_state",
+            translation_key="contamination_state",
             device_class=SensorDeviceClass.ENUM,
             options=list(CONTAMINATION_STATE_MAP.values()),
             device_to_ha=CONTAMINATION_STATE_MAP.get,
@@ -1180,7 +1180,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="SmokeCOAlarmExpiryDate",
-            REDACTED_VALUE"expiry_date",
+            translation_key="expiry_date",
             device_class=SensorDeviceClass.TIMESTAMP,
             # raw value is epoch seconds
             device_to_ha=datetime.fromtimestamp,
@@ -1193,7 +1193,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterOperationalStateSensorEntityDescription(
             key="OperationalState",
             device_class=SensorDeviceClass.ENUM,
-            REDACTED_VALUE"operational_state",
+            translation_key="operational_state",
         ),
         entity_class=MatterOperationalStateSensor,
         required_attributes=(
@@ -1207,7 +1207,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="OperationalStateCountdownTime",
-            REDACTED_VALUE"estimated_end_time",
+            translation_key="estimated_end_time",
             device_class=SensorDeviceClass.TIMESTAMP,
             device_to_ha=(
                 lambda x: dt_util.utcnow() + timedelta(seconds=x) if x > 0 else None
@@ -1220,7 +1220,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterListSensorEntityDescription(
             key="OperationalStateCurrentPhase",
-            REDACTED_VALUE"current_phase",
+            translation_key="current_phase",
             list_attribute=clusters.OperationalState.Attributes.PhaseList,
         ),
         entity_class=MatterListSensor,
@@ -1235,7 +1235,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="OperationalStateOperationalError",
-            REDACTED_VALUE"operational_error",
+            translation_key="operational_error",
             device_class=SensorDeviceClass.ENUM,
             entity_category=EntityCategory.DIAGNOSTIC,
             options=list(OPERATIONAL_STATE_ERROR_MAP.values()),
@@ -1248,7 +1248,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterListSensorEntityDescription(
             key="RvcOperationalStateCurrentPhase",
-            REDACTED_VALUE"current_phase",
+            translation_key="current_phase",
             list_attribute=clusters.RvcOperationalState.Attributes.PhaseList,
         ),
         entity_class=MatterListSensor,
@@ -1263,7 +1263,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterListSensorEntityDescription(
             key="OvenCavityOperationalStateCurrentPhase",
-            REDACTED_VALUE"current_phase",
+            translation_key="current_phase",
             list_attribute=clusters.OvenCavityOperationalState.Attributes.PhaseList,
         ),
         entity_class=MatterListSensor,
@@ -1292,7 +1292,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="ThermostatPIHeatingDemand",
-            REDACTED_VALUE"pi_heating_demand",
+            translation_key="pi_heating_demand",
             native_unit_of_measurement=PERCENTAGE,
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
@@ -1305,7 +1305,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="ThermostatOutdoorTemperature",
-            REDACTED_VALUE"outdoor_temperature",
+            translation_key="outdoor_temperature",
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             suggested_display_precision=1,
             device_class=SensorDeviceClass.TEMPERATURE,
@@ -1323,7 +1323,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterOperationalStateSensorEntityDescription(
             key="RvcOperationalState",
             device_class=SensorDeviceClass.ENUM,
-            REDACTED_VALUE"operational_state",
+            translation_key="operational_state",
             state_list_attribute=clusters.RvcOperationalState.Attributes.OperationalStateList,
             state_attribute=clusters.RvcOperationalState.Attributes.OperationalState,
             state_map=RVC_OPERATIONAL_STATE_MAP,
@@ -1341,7 +1341,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="RvcOperationalStateOperationalError",
-            REDACTED_VALUE"operational_error",
+            translation_key="operational_error",
             device_class=SensorDeviceClass.ENUM,
             entity_category=EntityCategory.DIAGNOSTIC,
             options=list(RVC_OPERATIONAL_STATE_ERROR_MAP.values()),
@@ -1355,7 +1355,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterOperationalStateSensorEntityDescription(
             key="OvenCavityOperationalState",
             device_class=SensorDeviceClass.ENUM,
-            REDACTED_VALUE"operational_state",
+            translation_key="operational_state",
             state_list_attribute=clusters.OvenCavityOperationalState.Attributes.OperationalStateList,
             state_attribute=clusters.OvenCavityOperationalState.Attributes.OperationalState,
         ),
@@ -1373,7 +1373,7 @@ DISCOVERY_SCHEMAS = [
             key="TargetPositionLiftPercent100ths",
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
-            REDACTED_VALUE"window_covering_target_position",
+            translation_key="window_covering_target_position",
             device_to_ha=lambda x: round((10000 - x) / 100),
             native_unit_of_measurement=PERCENTAGE,
         ),
@@ -1386,7 +1386,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="EnergyEvseFaultState",
-            REDACTED_VALUE"evse_fault_state",
+            translation_key="evse_fault_state",
             device_class=SensorDeviceClass.ENUM,
             entity_category=EntityCategory.DIAGNOSTIC,
             options=list(EVSE_FAULT_STATE_MAP.values()),
@@ -1399,7 +1399,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="EnergyEvseCircuitCapacity",
-            REDACTED_VALUE"evse_circuit_capacity",
+            translation_key="evse_circuit_capacity",
             device_class=SensorDeviceClass.CURRENT,
             entity_category=EntityCategory.DIAGNOSTIC,
             native_unit_of_measurement=UnitOfElectricCurrent.MILLIAMPERE,
@@ -1414,7 +1414,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="EnergyEvseMinimumChargeCurrent",
-            REDACTED_VALUE"evse_min_charge_current",
+            translation_key="evse_min_charge_current",
             device_class=SensorDeviceClass.CURRENT,
             entity_category=EntityCategory.DIAGNOSTIC,
             native_unit_of_measurement=UnitOfElectricCurrent.MILLIAMPERE,
@@ -1429,7 +1429,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="EnergyEvseMaximumChargeCurrent",
-            REDACTED_VALUE"evse_max_charge_current",
+            translation_key="evse_max_charge_current",
             device_class=SensorDeviceClass.CURRENT,
             entity_category=EntityCategory.DIAGNOSTIC,
             native_unit_of_measurement=UnitOfElectricCurrent.MILLIAMPERE,
@@ -1444,7 +1444,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="EnergyEvseUserMaximumChargeCurrent",
-            REDACTED_VALUE"evse_user_max_charge_current",
+            translation_key="evse_user_max_charge_current",
             device_class=SensorDeviceClass.CURRENT,
             entity_category=EntityCategory.DIAGNOSTIC,
             native_unit_of_measurement=UnitOfElectricCurrent.MILLIAMPERE,
@@ -1459,7 +1459,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="EnergyEvseStateOfCharge",
-            REDACTED_VALUE"evse_soc",
+            translation_key="evse_soc",
             native_unit_of_measurement=PERCENTAGE,
             device_class=SensorDeviceClass.BATTERY,
             state_class=SensorStateClass.MEASUREMENT,
@@ -1471,7 +1471,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="WaterHeaterManagementTankVolume",
-            REDACTED_VALUE"tank_volume",
+            translation_key="tank_volume",
             device_class=SensorDeviceClass.VOLUME_STORAGE,
             native_unit_of_measurement=UnitOfVolume.LITERS,
             state_class=SensorStateClass.MEASUREMENT,
@@ -1483,7 +1483,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="WaterHeaterManagementTankPercentage",
-            REDACTED_VALUE"tank_percentage",
+            translation_key="tank_percentage",
             native_unit_of_measurement=PERCENTAGE,
             state_class=SensorStateClass.MEASUREMENT,
         ),
@@ -1494,7 +1494,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="WaterHeaterManagementEstimatedHeatRequired",
-            REDACTED_VALUE"estimated_heat_required",
+            translation_key="estimated_heat_required",
             device_class=SensorDeviceClass.ENERGY,
             entity_category=EntityCategory.DIAGNOSTIC,
             native_unit_of_measurement=UnitOfEnergy.MILLIWATT_HOUR,
@@ -1511,7 +1511,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="ESAState",
-            REDACTED_VALUE"esa_state",
+            translation_key="esa_state",
             device_class=SensorDeviceClass.ENUM,
             entity_category=EntityCategory.DIAGNOSTIC,
             options=list(ESA_STATE_MAP.values()),
@@ -1524,7 +1524,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="ESAOptOutState",
-            REDACTED_VALUE"esa_opt_out_state",
+            translation_key="esa_opt_out_state",
             device_class=SensorDeviceClass.ENUM,
             entity_category=EntityCategory.DIAGNOSTIC,
             options=list(DEM_OPT_OUT_STATE_MAP.values()),
@@ -1537,7 +1537,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="PumpControlMode",
-            REDACTED_VALUE"pump_control_mode",
+            translation_key="pump_control_mode",
             device_class=SensorDeviceClass.ENUM,
             options=[
                 mode for mode in PUMP_CONTROL_MODE_MAP.values() if mode is not None
@@ -1553,7 +1553,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="PumpSpeed",
-            REDACTED_VALUE"pump_speed",
+            translation_key="pump_speed",
             native_unit_of_measurement=REVOLUTIONS_PER_MINUTE,
             state_class=SensorStateClass.MEASUREMENT,
         ),
@@ -1564,7 +1564,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="ValveConfigurationAndControlAutoCloseTime",
-            REDACTED_VALUE"auto_close_time",
+            translation_key="auto_close_time",
             device_class=SensorDeviceClass.TIMESTAMP,
             device_to_ha=matter_epoch_microseconds_to_utc,
         ),
@@ -1578,7 +1578,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="ServiceAreaEstimatedEndTime",
-            REDACTED_VALUE"estimated_end_time",
+            translation_key="estimated_end_time",
             device_class=SensorDeviceClass.TIMESTAMP,
             device_to_ha=matter_epoch_seconds_to_utc,
         ),
@@ -1589,7 +1589,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="DoorLockDoorOpenEvents",
-            REDACTED_VALUE"door_open_events",
+            translation_key="door_open_events",
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
             state_class=SensorStateClass.TOTAL_INCREASING,
@@ -1602,7 +1602,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="DoorLockDoorClosedEvents",
-            REDACTED_VALUE"door_closed_events",
+            translation_key="door_closed_events",
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
             state_class=SensorStateClass.TOTAL_INCREASING,
@@ -1616,7 +1616,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="WiFiDiagnosticsRssi",
-            REDACTED_VALUE"wifi_rssi",
+            translation_key="wifi_rssi",
             native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
             device_class=SensorDeviceClass.SIGNAL_STRENGTH,
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -1631,7 +1631,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="ThreadDiagnosticsChannel",
-            REDACTED_VALUE"thread_channel",
+            translation_key="thread_channel",
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
         ),
@@ -1642,7 +1642,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="ThreadDiagnosticsRoutingRole",
-            REDACTED_VALUE"thread_routing_role",
+            translation_key="thread_routing_role",
             device_class=SensorDeviceClass.ENUM,
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
@@ -1656,7 +1656,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="ThreadDiagnosticsNetworkName",
-            REDACTED_VALUE"thread_network_name",
+            translation_key="thread_network_name",
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
         ),
@@ -1668,7 +1668,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="GeneralDiagnosticsRebootCount",
-            REDACTED_VALUE"reboot_count",
+            translation_key="reboot_count",
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
             state_class=SensorStateClass.TOTAL_INCREASING,
@@ -1680,7 +1680,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="GeneralDiagnosticsUpTime",
-            REDACTED_VALUE"uptime",
+            translation_key="uptime",
             device_class=SensorDeviceClass.UPTIME,
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
@@ -1693,7 +1693,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SENSOR,
         entity_description=MatterSensorEntityDescription(
             key="GeneralDiagnosticsBootReason",
-            REDACTED_VALUE"boot_reason",
+            translation_key="boot_reason",
             device_class=SensorDeviceClass.ENUM,
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,

@@ -30,7 +30,7 @@ DESCRIPTIONS = (
     *(
         GardenaBluetoothTextEntityDescription(
             key=f"position_{i}_name",
-            REDACTED_VALUE"position_name",
+            translation_key="position_name",
             translation_placeholders={"number": str(i)},
             has_entity_name=True,
             char=getattr(AquaContourPosition, f"position_name_{i}"),
@@ -42,7 +42,7 @@ DESCRIPTIONS = (
     *(
         GardenaBluetoothTextEntityDescription(
             key=f"contour_{i}_name",
-            REDACTED_VALUE"contour_name",
+            translation_key="contour_name",
             translation_placeholders={"number": str(i)},
             has_entity_name=True,
             char=getattr(AquaContourContours, f"contour_name_{i}"),

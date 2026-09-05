@@ -5253,7 +5253,7 @@ async def test_device_name_translation_placeholders(
             config_entry_id=config_entry_1.entry_id,
             connections={(dr.CONNECTION_NETWORK_MAC, "12:34:56:AB:CD:EF")},
             name="Device Bla",
-            REDACTED_VALUEtranslation_key,
+            translation_key=translation_key,
             translation_placeholders=placeholders,
         )
         assert entry1.name == expected_device_name
@@ -5361,7 +5361,7 @@ async def test_device_name_translation_placeholders_errors(
             config_entry_id=config_entry_1.entry_id,
             connections={(dr.CONNECTION_NETWORK_MAC, "12:34:56:AB:CD:EF")},
             name="Device Bla",
-            REDACTED_VALUEtranslation_key,
+            translation_key=translation_key,
             translation_placeholders=placeholders,
         )
 

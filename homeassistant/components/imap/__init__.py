@@ -82,22 +82,22 @@ async def async_get_imap_client(hass: HomeAssistant, entry_id: str) -> IMAP4_SSL
     ):
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_entry",
+            translation_key="invalid_entry",
         )
     try:
         client = await connect_to_server(entry.data)
     except InvalidAuth as exc:
         raise ServiceValidationError(
-            translation_domain=DOMAIN, REDACTED_VALUE"invalid_auth"
+            translation_domain=DOMAIN, translation_key="invalid_auth"
         ) from exc
     except InvalidFolder as exc:
         raise ServiceValidationError(
-            translation_domain=DOMAIN, REDACTED_VALUE"invalid_folder"
+            translation_domain=DOMAIN, translation_key="invalid_folder"
         ) from exc
     except (TimeoutError, AioImapException) as exc:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"imap_server_fail",
+            translation_key="imap_server_fail",
             translation_placeholders={"error": str(exc)},
         ) from exc
     return client
@@ -110,7 +110,7 @@ def raise_on_error(response: Response, translation_key: str) -> None:
         error: str = response.lines[0].decode("utf-8")
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUEtranslation_key,
+            translation_key=translation_key,
             translation_placeholders={"error": error},
         )
 
@@ -133,7 +133,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         except (TimeoutError, AioImapException) as exc:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"imap_server_fail",
+                translation_key="imap_server_fail",
                 translation_placeholders={"error": str(exc)},
             ) from exc
         raise_on_error(response, "seen_failed")
@@ -170,7 +170,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         except (TimeoutError, AioImapException) as exc:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"imap_server_fail",
+                translation_key="imap_server_fail",
                 translation_placeholders={"error": str(exc)},
             ) from exc
         await client.close()
@@ -197,7 +197,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         except (TimeoutError, AioImapException) as exc:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"imap_server_fail",
+                translation_key="imap_server_fail",
                 translation_placeholders={"error": str(exc)},
             ) from exc
         await client.close()
@@ -219,7 +219,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         except (TimeoutError, AioImapException) as exc:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"imap_server_fail",
+                translation_key="imap_server_fail",
                 translation_placeholders={"error": str(exc)},
             ) from exc
         raise_on_error(response, "fetch_failed")
@@ -256,7 +256,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
                 except (AssertionError, ValueError, IndexError) as exc:
                     raise ServiceValidationError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"invalid_part_index",
+                        translation_key="invalid_part_index",
                     ) from exc
 
             return part
@@ -276,7 +276,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         except (TimeoutError, AioImapException) as exc:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"imap_server_fail",
+                translation_key="imap_server_fail",
                 translation_placeholders={"error": str(exc)},
             ) from exc
         raise_on_error(response, "fetch_failed")
@@ -290,7 +290,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         except AssertionError as exc:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_part_index",
+                translation_key="invalid_part_index",
             ) from exc
         return {
             "part_data": part_data_content,

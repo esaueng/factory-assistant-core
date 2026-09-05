@@ -19,7 +19,7 @@ PARALLEL_UPDATES = 0
 VELOV_BINARY_SENSOR_DESCRIPTIONS: tuple[BinarySensorEntityDescription, ...] = (
     BinarySensorEntityDescription(
         key="station_open",
-        REDACTED_VALUE"station_open",
+        translation_key="station_open",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
 )

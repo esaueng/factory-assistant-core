@@ -38,7 +38,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ImgwPibConfigEntry) -> b
     except (ClientError, TimeoutError, ApiError) as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect",
+            translation_key="cannot_connect",
             translation_placeholders={
                 "entry": entry.title,
                 "error": repr(err),

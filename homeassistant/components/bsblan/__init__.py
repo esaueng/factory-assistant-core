@@ -137,24 +137,24 @@ async def async_setup_entry(hass: HomeAssistant, entry: BSBLanConfigEntry) -> bo
     except BSBLANConnectionError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"setup_connection_error",
+            translation_key="setup_connection_error",
             translation_placeholders={"host": entry.data[CONF_HOST]},
         ) from err
     except BSBLANAuthError as err:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"setup_auth_error",
+            translation_key="setup_auth_error",
         ) from err
     except TimeoutError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"setup_connection_error",
+            translation_key="setup_connection_error",
             translation_placeholders={"host": entry.data[CONF_HOST]},
         ) from err
     except BSBLANError as err:
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"setup_general_error",
+            translation_key="setup_general_error",
         ) from err
 
     # Fetch static values per configured circuit.

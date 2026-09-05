@@ -67,10 +67,10 @@ class SFRDataUpdateCoordinator[_DataT](DataUpdateCoordinator[_DataT]):
         except SFRBoxError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unknown_error",
+                translation_key="unknown_error",
                 translation_placeholders={"error": str(err)},
             ) from err
         raise UpdateFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"no_data",
+            translation_key="no_data",
         )

@@ -26,25 +26,25 @@ class LaMetricButtonEntityDescription(ButtonEntityDescription):
 BUTTONS = [
     LaMetricButtonEntityDescription(
         key="app_next",
-        REDACTED_VALUE"app_next",
+        translation_key="app_next",
         entity_category=EntityCategory.CONFIG,
         press_fn=lambda api: api.app_next(),
     ),
     LaMetricButtonEntityDescription(
         key="app_previous",
-        REDACTED_VALUE"app_previous",
+        translation_key="app_previous",
         entity_category=EntityCategory.CONFIG,
         press_fn=lambda api: api.app_previous(),
     ),
     LaMetricButtonEntityDescription(
         key="dismiss_current",
-        REDACTED_VALUE"dismiss_current",
+        translation_key="dismiss_current",
         entity_category=EntityCategory.CONFIG,
         press_fn=lambda api: api.dismiss_current_notification(),
     ),
     LaMetricButtonEntityDescription(
         key="dismiss_all",
-        REDACTED_VALUE"dismiss_all",
+        translation_key="dismiss_all",
         entity_category=EntityCategory.CONFIG,
         press_fn=lambda api: api.dismiss_all_notifications(),
     ),

@@ -14,7 +14,7 @@ from .entity import FullyKioskEntity
 ENTITY_TYPES: tuple[NumberEntityDescription, ...] = (
     NumberEntityDescription(
         key="timeToScreensaverV2",
-        REDACTED_VALUE"screensaver_time",
+        translation_key="screensaver_time",
         native_max_value=86400,
         native_step=1,
         native_min_value=0,
@@ -23,7 +23,7 @@ ENTITY_TYPES: tuple[NumberEntityDescription, ...] = (
     ),
     NumberEntityDescription(
         key="screensaverBrightness",
-        REDACTED_VALUE"screensaver_brightness",
+        translation_key="screensaver_brightness",
         native_max_value=255,
         native_step=1,
         native_min_value=0,
@@ -31,7 +31,7 @@ ENTITY_TYPES: tuple[NumberEntityDescription, ...] = (
     ),
     NumberEntityDescription(
         key="timeToScreenOffV2",
-        REDACTED_VALUE"screen_off_time",
+        translation_key="screen_off_time",
         native_max_value=86400,
         native_step=1,
         native_min_value=0,
@@ -40,7 +40,7 @@ ENTITY_TYPES: tuple[NumberEntityDescription, ...] = (
     ),
     NumberEntityDescription(
         key="screenBrightness",
-        REDACTED_VALUE"screen_brightness",
+        translation_key="screen_brightness",
         native_max_value=255,
         native_step=1,
         native_min_value=0,

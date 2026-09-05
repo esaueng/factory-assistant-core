@@ -44,7 +44,7 @@ class IronOSSwitch(StrEnum):
 SWITCH_DESCRIPTIONS: tuple[IronOSSwitchEntityDescription, ...] = (
     IronOSSwitchEntityDescription(
         key=IronOSSwitch.ANIMATION_LOOP,
-        REDACTED_VALUEIronOSSwitch.ANIMATION_LOOP,
+        translation_key=IronOSSwitch.ANIMATION_LOOP,
         characteristic=CharSetting.ANIMATION_LOOP,
         is_on_fn=lambda x: x.get("animation_loop"),
         entity_registry_enabled_default=False,
@@ -52,35 +52,35 @@ SWITCH_DESCRIPTIONS: tuple[IronOSSwitchEntityDescription, ...] = (
     ),
     IronOSSwitchEntityDescription(
         key=IronOSSwitch.COOLING_TEMP_BLINK,
-        REDACTED_VALUEIronOSSwitch.COOLING_TEMP_BLINK,
+        translation_key=IronOSSwitch.COOLING_TEMP_BLINK,
         characteristic=CharSetting.COOLING_TEMP_BLINK,
         is_on_fn=lambda x: x.get("cooling_temp_blink"),
         entity_category=EntityCategory.CONFIG,
     ),
     IronOSSwitchEntityDescription(
         key=IronOSSwitch.IDLE_SCREEN_DETAILS,
-        REDACTED_VALUEIronOSSwitch.IDLE_SCREEN_DETAILS,
+        translation_key=IronOSSwitch.IDLE_SCREEN_DETAILS,
         characteristic=CharSetting.IDLE_SCREEN_DETAILS,
         is_on_fn=lambda x: x.get("idle_screen_details"),
         entity_category=EntityCategory.CONFIG,
     ),
     IronOSSwitchEntityDescription(
         key=IronOSSwitch.SOLDER_SCREEN_DETAILS,
-        REDACTED_VALUEIronOSSwitch.SOLDER_SCREEN_DETAILS,
+        translation_key=IronOSSwitch.SOLDER_SCREEN_DETAILS,
         characteristic=CharSetting.SOLDER_SCREEN_DETAILS,
         is_on_fn=lambda x: x.get("solder_screen_details"),
         entity_category=EntityCategory.CONFIG,
     ),
     IronOSSwitchEntityDescription(
         key=IronOSSwitch.INVERT_BUTTONS,
-        REDACTED_VALUEIronOSSwitch.INVERT_BUTTONS,
+        translation_key=IronOSSwitch.INVERT_BUTTONS,
         characteristic=CharSetting.INVERT_BUTTONS,
         is_on_fn=lambda x: x.get("invert_buttons"),
         entity_category=EntityCategory.CONFIG,
     ),
     IronOSSwitchEntityDescription(
         key=IronOSSwitch.DISPLAY_INVERT,
-        REDACTED_VALUEIronOSSwitch.DISPLAY_INVERT,
+        translation_key=IronOSSwitch.DISPLAY_INVERT,
         characteristic=CharSetting.DISPLAY_INVERT,
         is_on_fn=lambda x: x.get("display_invert"),
         entity_registry_enabled_default=False,
@@ -88,7 +88,7 @@ SWITCH_DESCRIPTIONS: tuple[IronOSSwitchEntityDescription, ...] = (
     ),
     IronOSSwitchEntityDescription(
         key=IronOSSwitch.CALIBRATE_CJC,
-        REDACTED_VALUEIronOSSwitch.CALIBRATE_CJC,
+        translation_key=IronOSSwitch.CALIBRATE_CJC,
         characteristic=CharSetting.CALIBRATE_CJC,
         is_on_fn=lambda x: x.get("calibrate_cjc"),
         entity_registry_enabled_default=False,
@@ -96,7 +96,7 @@ SWITCH_DESCRIPTIONS: tuple[IronOSSwitchEntityDescription, ...] = (
     ),
     IronOSSwitchEntityDescription(
         key=IronOSSwitch.BOOST,
-        REDACTED_VALUEIronOSSwitch.BOOST,
+        translation_key=IronOSSwitch.BOOST,
         characteristic=CharSetting.BOOST_TEMP,
         is_on_fn=lambda x: bool(x.get("boost_temp")),
         entity_category=EntityCategory.CONFIG,

@@ -190,7 +190,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "battery_empty": SysMonitorSensorEntityDescription(
         key="battery_empty",
-        REDACTED_VALUE"battery_empty",
+        translation_key="battery_empty",
         device_class=SensorDeviceClass.TIMESTAMP,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=battery_time_ends,
@@ -199,7 +199,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "disk_free": SysMonitorSensorEntityDescription(
         key="disk_free",
-        REDACTED_VALUE"disk_free",
+        translation_key="disk_free",
         placeholder="mount_point",
         native_unit_of_measurement=UnitOfInformation.GIBIBYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -219,7 +219,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "disk_use": SysMonitorSensorEntityDescription(
         key="disk_use",
-        REDACTED_VALUE"disk_use",
+        translation_key="disk_use",
         placeholder="mount_point",
         native_unit_of_measurement=UnitOfInformation.GIBIBYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -239,7 +239,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "disk_use_percent": SysMonitorSensorEntityDescription(
         key="disk_use_percent",
-        REDACTED_VALUE"disk_use_percent",
+        translation_key="disk_use_percent",
         placeholder="mount_point",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -255,7 +255,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "fan_speed": SysMonitorSensorEntityDescription(
         key="fan_speed",
-        REDACTED_VALUE"fan_speed",
+        translation_key="fan_speed",
         placeholder="fan_name",
         native_unit_of_measurement=REVOLUTIONS_PER_MINUTE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -265,7 +265,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "ipv4_address": SysMonitorSensorEntityDescription(
         key="ipv4_address",
-        REDACTED_VALUE"ipv4_address",
+        translation_key="ipv4_address",
         placeholder="ip_address",
         mandatory_arg=True,
         value_fn=get_ip_address,
@@ -273,7 +273,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "ipv6_address": SysMonitorSensorEntityDescription(
         key="ipv6_address",
-        REDACTED_VALUE"ipv6_address",
+        translation_key="ipv6_address",
         placeholder="ip_address",
         mandatory_arg=True,
         value_fn=get_ip_address,
@@ -287,7 +287,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "load_1m": SysMonitorSensorEntityDescription(
         key="load_1m",
-        REDACTED_VALUE"load_1m",
+        translation_key="load_1m",
         icon=get_cpu_icon(),
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda entity: round(entity.coordinator.data.load[0], 2),
@@ -295,7 +295,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "load_5m": SysMonitorSensorEntityDescription(
         key="load_5m",
-        REDACTED_VALUE"load_5m",
+        translation_key="load_5m",
         icon=get_cpu_icon(),
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda entity: round(entity.coordinator.data.load[1], 2),
@@ -303,7 +303,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "load_15m": SysMonitorSensorEntityDescription(
         key="load_15m",
-        REDACTED_VALUE"load_15m",
+        translation_key="load_15m",
         icon=get_cpu_icon(),
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda entity: round(entity.coordinator.data.load[2], 2),
@@ -311,7 +311,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "memory_free": SysMonitorSensorEntityDescription(
         key="memory_free",
-        REDACTED_VALUE"memory_free",
+        translation_key="memory_free",
         native_unit_of_measurement=UnitOfInformation.MEBIBYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -322,7 +322,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "memory_use": SysMonitorSensorEntityDescription(
         key="memory_use",
-        REDACTED_VALUE"memory_use",
+        translation_key="memory_use",
         native_unit_of_measurement=UnitOfInformation.MEBIBYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -340,7 +340,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "memory_use_percent": SysMonitorSensorEntityDescription(
         key="memory_use_percent",
-        REDACTED_VALUE"memory_use_percent",
+        translation_key="memory_use_percent",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda entity: entity.coordinator.data.memory.percent,
@@ -348,7 +348,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "network_in": SysMonitorSensorEntityDescription(
         key="network_in",
-        REDACTED_VALUE"network_in",
+        translation_key="network_in",
         placeholder="interface",
         native_unit_of_measurement=UnitOfInformation.MEBIBYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -359,7 +359,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "network_out": SysMonitorSensorEntityDescription(
         key="network_out",
-        REDACTED_VALUE"network_out",
+        translation_key="network_out",
         placeholder="interface",
         native_unit_of_measurement=UnitOfInformation.MEBIBYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -370,7 +370,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "packets_in": SysMonitorSensorEntityDescription(
         key="packets_in",
-        REDACTED_VALUE"packets_in",
+        translation_key="packets_in",
         placeholder="interface",
         state_class=SensorStateClass.TOTAL_INCREASING,
         mandatory_arg=True,
@@ -379,7 +379,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "packets_out": SysMonitorSensorEntityDescription(
         key="packets_out",
-        REDACTED_VALUE"packets_out",
+        translation_key="packets_out",
         placeholder="interface",
         state_class=SensorStateClass.TOTAL_INCREASING,
         mandatory_arg=True,
@@ -388,7 +388,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "process_num_fds": SysMonitorSensorEntityDescription(
         key="process_num_fds",
-        REDACTED_VALUE"process_num_fds",
+        translation_key="process_num_fds",
         placeholder="process",
         state_class=SensorStateClass.MEASUREMENT,
         entity_registry_enabled_default=False,
@@ -398,7 +398,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "processor_use": SysMonitorSensorEntityDescription(
         key="processor_use",
-        REDACTED_VALUE"processor_use",
+        translation_key="processor_use",
         native_unit_of_measurement=PERCENTAGE,
         icon=get_cpu_icon(),
         state_class=SensorStateClass.MEASUREMENT,
@@ -413,7 +413,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "processor_temperature": SysMonitorSensorEntityDescription(
         key="processor_temperature",
-        REDACTED_VALUE"processor_temperature",
+        translation_key="processor_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -425,7 +425,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "swap_free": SysMonitorSensorEntityDescription(
         key="swap_free",
-        REDACTED_VALUE"swap_free",
+        translation_key="swap_free",
         native_unit_of_measurement=UnitOfInformation.MEBIBYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -434,7 +434,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "swap_use": SysMonitorSensorEntityDescription(
         key="swap_use",
-        REDACTED_VALUE"swap_use",
+        translation_key="swap_use",
         native_unit_of_measurement=UnitOfInformation.MEBIBYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -443,7 +443,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "swap_use_percent": SysMonitorSensorEntityDescription(
         key="swap_use_percent",
-        REDACTED_VALUE"swap_use_percent",
+        translation_key="swap_use_percent",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda entity: entity.coordinator.data.swap.percent,
@@ -451,7 +451,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "throughput_network_in": SysMonitorSensorEntityDescription(
         key="throughput_network_in",
-        REDACTED_VALUE"throughput_network_in",
+        translation_key="throughput_network_in",
         placeholder="interface",
         native_unit_of_measurement=UnitOfDataRate.MEGABYTES_PER_SECOND,
         device_class=SensorDeviceClass.DATA_RATE,
@@ -462,7 +462,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "throughput_network_out": SysMonitorSensorEntityDescription(
         key="throughput_network_out",
-        REDACTED_VALUE"throughput_network_out",
+        translation_key="throughput_network_out",
         placeholder="interface",
         native_unit_of_measurement=UnitOfDataRate.MEGABYTES_PER_SECOND,
         device_class=SensorDeviceClass.DATA_RATE,
@@ -473,7 +473,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "memory_pressure_some_avg10": SysMonitorSensorEntityDescription(
         key="memory_pressure_some_avg10",
-        REDACTED_VALUE"memory_pressure_some_avg10",
+        translation_key="memory_pressure_some_avg10",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda entity: (
@@ -485,7 +485,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "memory_pressure_some_avg60": SysMonitorSensorEntityDescription(
         key="memory_pressure_some_avg60",
-        REDACTED_VALUE"memory_pressure_some_avg60",
+        translation_key="memory_pressure_some_avg60",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda entity: (
@@ -497,7 +497,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "memory_pressure_some_avg300": SysMonitorSensorEntityDescription(
         key="memory_pressure_some_avg300",
-        REDACTED_VALUE"memory_pressure_some_avg300",
+        translation_key="memory_pressure_some_avg300",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda entity: (
@@ -509,7 +509,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "memory_pressure_some_total": SysMonitorSensorEntityDescription(
         key="memory_pressure_some_total",
-        REDACTED_VALUE"memory_pressure_some_total",
+        translation_key="memory_pressure_some_total",
         native_unit_of_measurement=UnitOfTime.MICROSECONDS,
         state_class=SensorStateClass.TOTAL_INCREASING,
         value_fn=lambda entity: (
@@ -521,7 +521,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "memory_pressure_full_avg10": SysMonitorSensorEntityDescription(
         key="memory_pressure_full_avg10",
-        REDACTED_VALUE"memory_pressure_full_avg10",
+        translation_key="memory_pressure_full_avg10",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda entity: (
@@ -533,7 +533,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "memory_pressure_full_avg60": SysMonitorSensorEntityDescription(
         key="memory_pressure_full_avg60",
-        REDACTED_VALUE"memory_pressure_full_avg60",
+        translation_key="memory_pressure_full_avg60",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda entity: (
@@ -545,7 +545,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "memory_pressure_full_avg300": SysMonitorSensorEntityDescription(
         key="memory_pressure_full_avg300",
-        REDACTED_VALUE"memory_pressure_full_avg300",
+        translation_key="memory_pressure_full_avg300",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda entity: (
@@ -557,7 +557,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "memory_pressure_full_total": SysMonitorSensorEntityDescription(
         key="memory_pressure_full_total",
-        REDACTED_VALUE"memory_pressure_full_total",
+        translation_key="memory_pressure_full_total",
         native_unit_of_measurement=UnitOfTime.MICROSECONDS,
         state_class=SensorStateClass.TOTAL_INCREASING,
         value_fn=lambda entity: (
@@ -569,7 +569,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "io_pressure_some_avg10": SysMonitorSensorEntityDescription(
         key="io_pressure_some_avg10",
-        REDACTED_VALUE"io_pressure_some_avg10",
+        translation_key="io_pressure_some_avg10",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda entity: (
@@ -579,7 +579,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "io_pressure_some_avg60": SysMonitorSensorEntityDescription(
         key="io_pressure_some_avg60",
-        REDACTED_VALUE"io_pressure_some_avg60",
+        translation_key="io_pressure_some_avg60",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda entity: (
@@ -589,7 +589,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "io_pressure_some_avg300": SysMonitorSensorEntityDescription(
         key="io_pressure_some_avg300",
-        REDACTED_VALUE"io_pressure_some_avg300",
+        translation_key="io_pressure_some_avg300",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda entity: (
@@ -599,7 +599,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "io_pressure_some_total": SysMonitorSensorEntityDescription(
         key="io_pressure_some_total",
-        REDACTED_VALUE"io_pressure_some_total",
+        translation_key="io_pressure_some_total",
         native_unit_of_measurement=UnitOfTime.MICROSECONDS,
         state_class=SensorStateClass.TOTAL_INCREASING,
         value_fn=lambda entity: (
@@ -609,7 +609,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "io_pressure_full_avg10": SysMonitorSensorEntityDescription(
         key="io_pressure_full_avg10",
-        REDACTED_VALUE"io_pressure_full_avg10",
+        translation_key="io_pressure_full_avg10",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda entity: (
@@ -619,7 +619,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "io_pressure_full_avg60": SysMonitorSensorEntityDescription(
         key="io_pressure_full_avg60",
-        REDACTED_VALUE"io_pressure_full_avg60",
+        translation_key="io_pressure_full_avg60",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda entity: (
@@ -629,7 +629,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "io_pressure_full_avg300": SysMonitorSensorEntityDescription(
         key="io_pressure_full_avg300",
-        REDACTED_VALUE"io_pressure_full_avg300",
+        translation_key="io_pressure_full_avg300",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda entity: (
@@ -639,7 +639,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "io_pressure_full_total": SysMonitorSensorEntityDescription(
         key="io_pressure_full_total",
-        REDACTED_VALUE"io_pressure_full_total",
+        translation_key="io_pressure_full_total",
         native_unit_of_measurement=UnitOfTime.MICROSECONDS,
         state_class=SensorStateClass.TOTAL_INCREASING,
         value_fn=lambda entity: (
@@ -649,7 +649,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "cpu_pressure_some_avg10": SysMonitorSensorEntityDescription(
         key="cpu_pressure_some_avg10",
-        REDACTED_VALUE"cpu_pressure_some_avg10",
+        translation_key="cpu_pressure_some_avg10",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda entity: (
@@ -659,7 +659,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "cpu_pressure_some_avg60": SysMonitorSensorEntityDescription(
         key="cpu_pressure_some_avg60",
-        REDACTED_VALUE"cpu_pressure_some_avg60",
+        translation_key="cpu_pressure_some_avg60",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda entity: (
@@ -669,7 +669,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "cpu_pressure_some_avg300": SysMonitorSensorEntityDescription(
         key="cpu_pressure_some_avg300",
-        REDACTED_VALUE"cpu_pressure_some_avg300",
+        translation_key="cpu_pressure_some_avg300",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda entity: (
@@ -681,7 +681,7 @@ SENSOR_TYPES: dict[str, SysMonitorSensorEntityDescription] = {
     ),
     "cpu_pressure_some_total": SysMonitorSensorEntityDescription(
         key="cpu_pressure_some_total",
-        REDACTED_VALUE"cpu_pressure_some_total",
+        translation_key="cpu_pressure_some_total",
         native_unit_of_measurement=UnitOfTime.MICROSECONDS,
         state_class=SensorStateClass.TOTAL_INCREASING,
         value_fn=lambda entity: (

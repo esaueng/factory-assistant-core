@@ -4,8 +4,8 @@ from dataclasses import dataclass
 from datetime import date, timedelta
 import logging
 
-from REDACTED_VALUE import REDACTED_VALUE, exceptions
-from REDACTED_VALUE.water_quality import WaterQuality
+from Tami4EdgeAPI import Tami4EdgeAPI, exceptions
+from Tami4EdgeAPI.water_quality import WaterQuality
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
@@ -42,7 +42,7 @@ class Tami4EdgeCoordinator(DataUpdateCoordinator[FlattenedWaterQuality]):
     config_entry: Tami4ConfigEntry
 
     def __init__(
-        self, hass: HomeAssistant, config_entry: Tami4ConfigEntry, api: REDACTED_VALUE
+        self, hass: HomeAssistant, config_entry: Tami4ConfigEntry, api: Tami4EdgeAPI
     ) -> None:
         """Initialize the water quality coordinator."""
         super().__init__(

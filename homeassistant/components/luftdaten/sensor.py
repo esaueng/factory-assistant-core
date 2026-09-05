@@ -48,7 +48,7 @@ SENSORS: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="pressure_at_sealevel",
-        REDACTED_VALUE"pressure_at_sealevel",
+        translation_key="pressure_at_sealevel",
         native_unit_of_measurement=UnitOfPressure.PA,
         device_class=SensorDeviceClass.PRESSURE,
         state_class=SensorStateClass.MEASUREMENT,

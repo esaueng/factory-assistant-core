@@ -136,7 +136,7 @@ class NoboZone(NoboBaseEntity, ClimateEntity):
         except PynoboError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUEtranslation_key,
+                translation_key=translation_key,
             ) from err
 
     async def async_set_temperature(self, **kwargs: Any) -> None:
@@ -151,7 +151,7 @@ class NoboZone(NoboBaseEntity, ClimateEntity):
             except PynoboError as err:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"set_temperature_failed",
+                    translation_key="set_temperature_failed",
                 ) from err
 
     async def async_update(self) -> None:

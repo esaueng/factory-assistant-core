@@ -74,7 +74,7 @@ class LaMarzoccoSelectEntityDescription(
 ENTITIES: tuple[LaMarzoccoSelectEntityDescription, ...] = (
     LaMarzoccoSelectEntityDescription(
         key="steam_temp_select",
-        REDACTED_VALUE"steam_temp_select",
+        translation_key="steam_temp_select",
         options=["1", "2", "3"],
         select_option_fn=lambda machine, option: machine.set_steam_level(
             STEAM_LEVEL_HA_TO_LM[option]
@@ -95,7 +95,7 @@ ENTITIES: tuple[LaMarzoccoSelectEntityDescription, ...] = (
     ),
     LaMarzoccoSelectEntityDescription(
         key="prebrew_infusion_select",
-        REDACTED_VALUE"prebrew_infusion_select",
+        translation_key="prebrew_infusion_select",
         entity_category=EntityCategory.CONFIG,
         options=["disabled", "prebrew", "preinfusion"],
         select_option_fn=lambda machine, option: machine.set_pre_extraction_mode(
@@ -118,7 +118,7 @@ ENTITIES: tuple[LaMarzoccoSelectEntityDescription, ...] = (
     ),
     LaMarzoccoSelectEntityDescription(
         key="smart_standby_mode",
-        REDACTED_VALUE"smart_standby_mode",
+        translation_key="smart_standby_mode",
         entity_category=EntityCategory.CONFIG,
         options=["power_on", "last_brewing"],
         select_option_fn=lambda machine, option: machine.set_smart_standby(
@@ -132,7 +132,7 @@ ENTITIES: tuple[LaMarzoccoSelectEntityDescription, ...] = (
     ),
     LaMarzoccoSelectEntityDescription(
         key="bbw_dose_mode",
-        REDACTED_VALUE"bbw_dose_mode",
+        translation_key="bbw_dose_mode",
         entity_category=EntityCategory.CONFIG,
         options=["continuous", "dose1", "dose2"],
         select_option_fn=lambda machine, option: machine.set_brew_by_weight_dose_mode(
@@ -199,7 +199,7 @@ class LaMarzoccoSelectEntity(LaMarzoccoEntity, SelectEntity):
             except RequestNotSuccessful as exc:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"select_option_error",
+                    translation_key="select_option_error",
                     translation_placeholders={
                         "key": self.entity_description.key,
                         "option": option,

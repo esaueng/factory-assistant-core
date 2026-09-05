@@ -112,7 +112,7 @@ class EsphomeAssistSatelliteWakeWordSelect(
 
     entity_description = SelectEntityDescription(
         key="wake_word",
-        REDACTED_VALUE"wake_word",
+        translation_key="wake_word",
         entity_category=EntityCategory.CONFIG,
     )
 
@@ -125,7 +125,7 @@ class EsphomeAssistSatelliteWakeWordSelect(
             self.entity_description = replace(
                 self.entity_description,
                 key=f"wake_word_{index + 1}",
-                REDACTED_VALUE"wake_word_n",
+                translation_key="wake_word_n",
                 translation_placeholders={"index": str(index + 1)},
             )
 

@@ -256,7 +256,7 @@ SENSOR_TYPES: tuple[YoLinkSensorEntityDescription, ...] = (
     # mcu temperature
     YoLinkSensorEntityDescription(
         key="devTemperature",
-        REDACTED_VALUE"device_temperature",
+        translation_key="device_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -281,7 +281,7 @@ SENSOR_TYPES: tuple[YoLinkSensorEntityDescription, ...] = (
     ),
     YoLinkSensorEntityDescription(
         key="state",
-        REDACTED_VALUE"power_failure_alarm",
+        translation_key="power_failure_alarm",
         device_class=SensorDeviceClass.ENUM,
         options=["normal", "alert", "off"],
         exists_fn=lambda device: device.device_type == ATTR_DEVICE_POWER_FAILURE_ALARM,
@@ -289,7 +289,7 @@ SENSOR_TYPES: tuple[YoLinkSensorEntityDescription, ...] = (
     ),
     YoLinkSensorEntityDescription(
         key="mute",
-        REDACTED_VALUE"power_failure_alarm_mute",
+        translation_key="power_failure_alarm_mute",
         device_class=SensorDeviceClass.ENUM,
         options=["muted", "unmuted"],
         exists_fn=lambda device: device.device_type == ATTR_DEVICE_POWER_FAILURE_ALARM,
@@ -297,7 +297,7 @@ SENSOR_TYPES: tuple[YoLinkSensorEntityDescription, ...] = (
     ),
     YoLinkSensorEntityDescription(
         key="sound",
-        REDACTED_VALUE"power_failure_alarm_volume",
+        translation_key="power_failure_alarm_volume",
         device_class=SensorDeviceClass.ENUM,
         options=["low", "medium", "high"],
         exists_fn=lambda device: device.device_type == ATTR_DEVICE_POWER_FAILURE_ALARM,
@@ -305,7 +305,7 @@ SENSOR_TYPES: tuple[YoLinkSensorEntityDescription, ...] = (
     ),
     YoLinkSensorEntityDescription(
         key="beep",
-        REDACTED_VALUE"power_failure_alarm_beep",
+        translation_key="power_failure_alarm_beep",
         device_class=SensorDeviceClass.ENUM,
         options=["enabled", "disabled"],
         exists_fn=lambda device: device.device_type == ATTR_DEVICE_POWER_FAILURE_ALARM,
@@ -322,7 +322,7 @@ SENSOR_TYPES: tuple[YoLinkSensorEntityDescription, ...] = (
     ),
     YoLinkSensorEntityDescription(
         key="meter_reading",
-        REDACTED_VALUE"water_meter_reading",
+        translation_key="water_meter_reading",
         device_class=SensorDeviceClass.WATER,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -334,7 +334,7 @@ SENSOR_TYPES: tuple[YoLinkSensorEntityDescription, ...] = (
     ),
     YoLinkSensorEntityDescription(
         key="meter_1_reading",
-        REDACTED_VALUE"water_meter_1_reading",
+        translation_key="water_meter_1_reading",
         device_class=SensorDeviceClass.WATER,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -346,7 +346,7 @@ SENSOR_TYPES: tuple[YoLinkSensorEntityDescription, ...] = (
     ),
     YoLinkSensorEntityDescription(
         key="meter_2_reading",
-        REDACTED_VALUE"water_meter_2_reading",
+        translation_key="water_meter_2_reading",
         device_class=SensorDeviceClass.WATER,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -358,7 +358,7 @@ SENSOR_TYPES: tuple[YoLinkSensorEntityDescription, ...] = (
     ),
     YoLinkSensorEntityDescription(
         key="power",
-        REDACTED_VALUE"current_power",
+        translation_key="current_power",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -370,7 +370,7 @@ SENSOR_TYPES: tuple[YoLinkSensorEntityDescription, ...] = (
     ),
     YoLinkSensorEntityDescription(
         key="watt",
-        REDACTED_VALUE"power_consumption",
+        translation_key="power_consumption",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL,

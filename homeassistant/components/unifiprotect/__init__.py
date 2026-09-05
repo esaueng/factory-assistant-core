@@ -86,7 +86,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: UFPConfigEntry) -> bool:
         if data_service.auth_retries > AUTH_RETRIES:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"entry_auth_failed",
+                translation_key="entry_auth_failed",
             ) from err
         raise ConfigEntryNotReady from err
     except (TimeoutError, ClientError, ServerDisconnectedError) as err:
@@ -112,7 +112,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: UFPConfigEntry) -> bool:
     if not protect.is_api_key_set():
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"api_key_required",
+            translation_key="api_key_required",
         )
 
     if auth_user and auth_user.cloud_account:
@@ -124,14 +124,14 @@ async def async_setup_entry(hass: HomeAssistant, entry: UFPConfigEntry) -> bool:
             is_persistent=False,
             learn_more_url="https://www.home-assistant.io/integrations/unifiprotect/#local-user",
             severity=IssueSeverity.ERROR,
-            REDACTED_VALUE"cloud_user",
+            translation_key="cloud_user",
             data={"entry_id": entry.entry_id},
         )
 
     if nvr_info.version < MIN_REQUIRED_PROTECT_V:
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"protect_version",
+            translation_key="protect_version",
             translation_placeholders={
                 "current_version": str(nvr_info.version),
                 "min_version": str(MIN_REQUIRED_PROTECT_V),

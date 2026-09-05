@@ -21,7 +21,7 @@ _LOGGER = logging.getLogger(__name__)
 
 IMAGE_TYPE = ImageEntityDescription(
     key="last_motion_image",
-    REDACTED_VALUE"last_motion_image",
+    translation_key="last_motion_image",
 )
 
 

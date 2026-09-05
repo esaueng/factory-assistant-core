@@ -125,19 +125,19 @@ class PlaystationNetworkNotifyBaseEntity(PlaystationNetworkServiceEntity, Notify
         except PSNAWPNotFoundError as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"group_invalid",
+                translation_key="group_invalid",
                 translation_placeholders=dict(self.translation_placeholders),
             ) from e
         except PSNAWPForbiddenError as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"send_message_forbidden",
+                translation_key="send_message_forbidden",
                 translation_placeholders=dict(self.translation_placeholders),
             ) from e
         except (PSNAWPServerError, PSNAWPClientError) as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"send_message_failed",
+                translation_key="send_message_failed",
                 translation_placeholders=dict(self.translation_placeholders),
             ) from e
 
@@ -157,7 +157,7 @@ class PlaystationNetworkNotifyEntity(PlaystationNetworkNotifyBaseEntity):
         group_details = coordinator.data[group_id]
         self.entity_description = NotifyEntityDescription(
             key=group_id,
-            REDACTED_VALUEPlaystationNetworkNotify.GROUP_MESSAGE,
+            translation_key=PlaystationNetworkNotify.GROUP_MESSAGE,
             translation_placeholders={
                 CONF_NAME: group_details["groupName"]["value"]
                 or ", ".join(
@@ -185,7 +185,7 @@ class PlaystationNetworkDirectMessageNotifyEntity(PlaystationNetworkNotifyBaseEn
         self.account_id = account_id
         self.entity_description = NotifyEntityDescription(
             key=f"{account_id}_{PlaystationNetworkNotify.DIRECT_MESSAGE}",
-            REDACTED_VALUEPlaystationNetworkNotify.DIRECT_MESSAGE,
+            translation_key=PlaystationNetworkNotify.DIRECT_MESSAGE,
             translation_placeholders={
                 CONF_NAME: coordinator.psn.friends_list[account_id].online_id
             },

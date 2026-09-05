@@ -45,7 +45,7 @@ class PowerviewButtonDescription(
 BUTTONS_SHADE: Final = [
     PowerviewButtonDescription(
         key="calibrate",
-        REDACTED_VALUE"calibrate",
+        translation_key="calibrate",
         icon="mdi:swap-vertical-circle-outline",
         entity_category=EntityCategory.DIAGNOSTIC,
         create_entity_fn=lambda shade: shade.is_supported(MOTION_CALIBRATE),
@@ -60,7 +60,7 @@ BUTTONS_SHADE: Final = [
     ),
     PowerviewButtonDescription(
         key="favorite",
-        REDACTED_VALUE"favorite",
+        translation_key="favorite",
         icon="mdi:heart",
         entity_category=EntityCategory.DIAGNOSTIC,
         create_entity_fn=lambda shade: shade.is_supported(MOTION_FAVORITE),

@@ -24,5 +24,5 @@ async def async_get_service(
         DOMAIN,
         is_fixable=False,
         severity=ir.IssueSeverity.ERROR,
-        REDACTED_VALUE"integration_removed",
+        translation_key="integration_removed",
     )

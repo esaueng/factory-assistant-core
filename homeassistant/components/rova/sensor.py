@@ -20,19 +20,19 @@ ISSUE_PLACEHOLDER = {"url": "/config/integrations/dashboard/add?domain=rova"}
 SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="gft",
-        REDACTED_VALUE"bio",
+        translation_key="bio",
     ),
     SensorEntityDescription(
         key="papier",
-        REDACTED_VALUE"paper",
+        translation_key="paper",
     ),
     SensorEntityDescription(
         key="pmd",
-        REDACTED_VALUE"plastic",
+        translation_key="plastic",
     ),
     SensorEntityDescription(
         key="restafval",
-        REDACTED_VALUE"residual",
+        translation_key="residual",
     ),
 )
 

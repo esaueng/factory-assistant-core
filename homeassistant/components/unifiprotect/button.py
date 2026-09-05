@@ -54,7 +54,7 @@ ALL_DEVICE_BUTTONS: tuple[ProtectButtonEntityDescription, ...] = (
     ),
     ProtectButtonEntityDescription(
         key="unadopt",
-        REDACTED_VALUE"unadopt_device",
+        translation_key="unadopt_device",
         entity_registry_enabled_default=False,
         ufp_press="unadopt",
         ufp_perm=PermRequired.DELETE,
@@ -63,14 +63,14 @@ ALL_DEVICE_BUTTONS: tuple[ProtectButtonEntityDescription, ...] = (
 
 ADOPT_BUTTON = ProtectButtonEntityDescription[ProtectAdoptableDeviceModel](
     key="adopt",
-    REDACTED_VALUE"adopt_device",
+    translation_key="adopt_device",
     ufp_press="adopt",
 )
 
 SENSOR_BUTTONS: tuple[ProtectButtonEntityDescription, ...] = (
     ProtectButtonEntityDescription(
         key="clear_tamper",
-        REDACTED_VALUE"clear_tamper",
+        translation_key="clear_tamper",
         ufp_press="clear_tamper",
         ufp_perm=PermRequired.WRITE,
     ),
@@ -79,12 +79,12 @@ SENSOR_BUTTONS: tuple[ProtectButtonEntityDescription, ...] = (
 CHIME_BUTTONS: tuple[ProtectButtonEntityDescription, ...] = (
     ProtectButtonEntityDescription(
         key="play",
-        REDACTED_VALUE"play_chime",
+        translation_key="play_chime",
         ufp_press="play",
     ),
     ProtectButtonEntityDescription(
         key="play_buzzer",
-        REDACTED_VALUE"play_buzzer",
+        translation_key="play_buzzer",
         ufp_press="play_buzzer",
     ),
 )

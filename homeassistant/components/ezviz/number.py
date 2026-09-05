@@ -37,7 +37,7 @@ class EzvizNumberEntityDescription(NumberEntityDescription):
 
 NUMBER_TYPE = EzvizNumberEntityDescription(
     key="detection_sensibility",
-    REDACTED_VALUE"detection_sensibility",
+    translation_key="detection_sensibility",
     entity_category=EntityCategory.CONFIG,
     native_min_value=0,
     native_step=1,

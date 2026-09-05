@@ -29,12 +29,12 @@ class RDWBinarySensorEntityDescription(BinarySensorEntityDescription):
 BINARY_SENSORS: tuple[RDWBinarySensorEntityDescription, ...] = (
     RDWBinarySensorEntityDescription(
         key="liability_insured",
-        REDACTED_VALUE"liability_insured",
+        translation_key="liability_insured",
         is_on_fn=lambda vehicle: vehicle.liability_insured,
     ),
     RDWBinarySensorEntityDescription(
         key="pending_recall",
-        REDACTED_VALUE"pending_recall",
+        translation_key="pending_recall",
         device_class=BinarySensorDeviceClass.PROBLEM,
         is_on_fn=lambda vehicle: vehicle.pending_recall,
     ),

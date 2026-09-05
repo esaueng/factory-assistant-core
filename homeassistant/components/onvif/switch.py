@@ -31,7 +31,7 @@ class ONVIFSwitchEntityDescription(SwitchEntityDescription):
 SWITCHES: tuple[ONVIFSwitchEntityDescription, ...] = (
     ONVIFSwitchEntityDescription(
         key="autofocus",
-        REDACTED_VALUE"autofocus",
+        translation_key="autofocus",
         turn_on_data={"Focus": {"AutoFocusMode": "AUTO"}},
         turn_off_data={"Focus": {"AutoFocusMode": "MANUAL"}},
         turn_on_fn=lambda device: device.async_set_imaging_settings,
@@ -40,7 +40,7 @@ SWITCHES: tuple[ONVIFSwitchEntityDescription, ...] = (
     ),
     ONVIFSwitchEntityDescription(
         key="ir_lamp",
-        REDACTED_VALUE"ir_lamp",
+        translation_key="ir_lamp",
         turn_on_data={"IrCutFilter": "OFF"},
         turn_off_data={"IrCutFilter": "ON"},
         turn_on_fn=lambda device: device.async_set_imaging_settings,
@@ -49,7 +49,7 @@ SWITCHES: tuple[ONVIFSwitchEntityDescription, ...] = (
     ),
     ONVIFSwitchEntityDescription(
         key="wiper",
-        REDACTED_VALUE"wiper",
+        translation_key="wiper",
         turn_on_data="tt:Wiper|On",
         turn_off_data="tt:Wiper|Off",
         turn_on_fn=lambda device: device.async_run_aux_command,

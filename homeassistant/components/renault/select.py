@@ -67,7 +67,7 @@ SENSOR_TYPES: tuple[RenaultSelectEntityDescription, ...] = (
     RenaultSelectEntityDescription[KamereonVehicleChargeModeData](
         key="charge_mode",
         coordinator="charge_mode",
-        REDACTED_VALUE"charge_mode",
+        translation_key="charge_mode",
         options=["always", "always_charging", "schedule_mode", "scheduled"],
         update_fn=lambda e, option: e.vehicle.set_charge_mode(option),
         value_fn=lambda e: e.coordinator.data.chargeMode,

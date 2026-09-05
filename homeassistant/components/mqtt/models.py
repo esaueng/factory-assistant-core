@@ -75,7 +75,7 @@ class SubscriptionID:
         if subscription_id > MAX_28BIT:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"mqtt_max_subscription_id_reached",
+                translation_key="mqtt_max_subscription_id_reached",
             )
         self._used_ids.add(subscription_id)
         self._next_id += 1

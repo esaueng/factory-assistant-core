@@ -143,7 +143,7 @@ class CloudBackupAgent(BackupAgent):
                 if err.code == "NC-SH-FH-03":
                     raise BackupAgentError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"backup_size_too_large",
+                        translation_key="backup_size_too_large",
                         translation_placeholders={
                             "size": str(round(size / (1024**3), 2))
                         },

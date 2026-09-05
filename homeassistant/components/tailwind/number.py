@@ -30,7 +30,7 @@ class TailwindNumberEntityDescription(NumberEntityDescription):
 DESCRIPTIONS = [
     TailwindNumberEntityDescription(
         key="brightness",
-        REDACTED_VALUE"brightness",
+        translation_key="brightness",
         entity_category=EntityCategory.CONFIG,
         native_step=1,
         native_min_value=0,
@@ -76,6 +76,6 @@ class TailwindNumberEntity(TailwindEntity, NumberEntity):
         except TailwindError as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
             ) from exc
         await self.coordinator.async_request_refresh()

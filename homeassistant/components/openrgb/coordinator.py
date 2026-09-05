@@ -67,7 +67,7 @@ class OpenRGBCoordinator(DataUpdateCoordinator[dict[str, Device]]):
             # pylint: disable-next=home-assistant-exception-translation-key-missing
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
                 translation_placeholders={
                     "server_address": self.server_address,
                     "error": str(err),
@@ -82,7 +82,7 @@ class OpenRGBCoordinator(DataUpdateCoordinator[dict[str, Device]]):
             except CONNECTION_ERRORS as err:
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"communication_error",
+                    translation_key="communication_error",
                     translation_placeholders={
                         "server_address": self.server_address,
                         "error": str(err),

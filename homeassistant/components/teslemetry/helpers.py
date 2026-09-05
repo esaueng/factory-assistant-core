@@ -38,7 +38,7 @@ async def handle_command(command: Awaitable[dict[str, Any]]) -> dict[str, Any]:
     except TeslaFleetError as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"command_exception",
+            translation_key="command_exception",
             translation_placeholders={"message": e.message},
         ) from e
     LOGGER.debug("Command result: %s", result)
@@ -53,12 +53,12 @@ async def handle_vehicle_command(command: Awaitable[dict[str, Any]]) -> Any:
             # No response with error
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_error",
+                translation_key="command_error",
                 translation_placeholders={"error": error},
             )
         # No response without error (unexpected)
         raise HomeAssistantError(
-            translation_domain=DOMAIN, REDACTED_VALUE"command_no_response"
+            translation_domain=DOMAIN, translation_key="command_no_response"
         )
     if (result := response.get("result")) is not True:
         if reason := response.get("reason"):
@@ -68,12 +68,12 @@ async def handle_vehicle_command(command: Awaitable[dict[str, Any]]) -> Any:
             # Result of false with reason
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_reason",
+                translation_key="command_reason",
                 translation_placeholders={"reason": reason},
             )
         # Result of false without reason (unexpected)
         raise HomeAssistantError(
-            translation_domain=DOMAIN, REDACTED_VALUE"command_no_result"
+            translation_domain=DOMAIN, translation_key="command_no_result"
         )
     # Response with result of true
     return result

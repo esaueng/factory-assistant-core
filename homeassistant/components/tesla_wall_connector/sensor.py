@@ -51,14 +51,14 @@ class WallConnectorSensorDescription(
 WALL_CONNECTOR_SENSORS = [
     WallConnectorSensorDescription(
         key="evse_state",
-        REDACTED_VALUE"status_code",
+        translation_key="status_code",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data[WALLCONNECTOR_DATA_VITALS].evse_state,
         entity_registry_enabled_default=False,
     ),
     WallConnectorSensorDescription(
         key="status",
-        REDACTED_VALUE"status",
+        translation_key="status",
         device_class=SensorDeviceClass.ENUM,
         value_fn=lambda data: EVSE_STATE.get(
             data[WALLCONNECTOR_DATA_VITALS].evse_state
@@ -67,7 +67,7 @@ WALL_CONNECTOR_SENSORS = [
     ),
     WallConnectorSensorDescription(
         key="handle_temp_c",
-        REDACTED_VALUE"handle_temp_c",
+        translation_key="handle_temp_c",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda data: round(data[WALLCONNECTOR_DATA_VITALS].handle_temp_c, 1),
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -76,7 +76,7 @@ WALL_CONNECTOR_SENSORS = [
     ),
     WallConnectorSensorDescription(
         key="pcba_temp_c",
-        REDACTED_VALUE"pcba_temp_c",
+        translation_key="pcba_temp_c",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda data: round(data[WALLCONNECTOR_DATA_VITALS].pcba_temp_c, 1),
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -85,7 +85,7 @@ WALL_CONNECTOR_SENSORS = [
     ),
     WallConnectorSensorDescription(
         key="mcu_temp_c",
-        REDACTED_VALUE"mcu_temp_c",
+        translation_key="mcu_temp_c",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda data: round(data[WALLCONNECTOR_DATA_VITALS].mcu_temp_c, 1),
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -94,7 +94,7 @@ WALL_CONNECTOR_SENSORS = [
     ),
     WallConnectorSensorDescription(
         key="grid_v",
-        REDACTED_VALUE"grid_v",
+        translation_key="grid_v",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         value_fn=lambda data: round(data[WALLCONNECTOR_DATA_VITALS].grid_v, 1),
         device_class=SensorDeviceClass.VOLTAGE,
@@ -103,7 +103,7 @@ WALL_CONNECTOR_SENSORS = [
     ),
     WallConnectorSensorDescription(
         key="grid_hz",
-        REDACTED_VALUE"grid_hz",
+        translation_key="grid_hz",
         native_unit_of_measurement=UnitOfFrequency.HERTZ,
         value_fn=lambda data: round(data[WALLCONNECTOR_DATA_VITALS].grid_hz, 3),
         device_class=SensorDeviceClass.FREQUENCY,
@@ -112,7 +112,7 @@ WALL_CONNECTOR_SENSORS = [
     ),
     WallConnectorSensorDescription(
         key="current_a_a",
-        REDACTED_VALUE"current_a_a",
+        translation_key="current_a_a",
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         value_fn=lambda data: data[WALLCONNECTOR_DATA_VITALS].currentA_a,
         device_class=SensorDeviceClass.CURRENT,
@@ -121,7 +121,7 @@ WALL_CONNECTOR_SENSORS = [
     ),
     WallConnectorSensorDescription(
         key="current_b_a",
-        REDACTED_VALUE"current_b_a",
+        translation_key="current_b_a",
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         value_fn=lambda data: data[WALLCONNECTOR_DATA_VITALS].currentB_a,
         device_class=SensorDeviceClass.CURRENT,
@@ -130,7 +130,7 @@ WALL_CONNECTOR_SENSORS = [
     ),
     WallConnectorSensorDescription(
         key="current_c_a",
-        REDACTED_VALUE"current_c_a",
+        translation_key="current_c_a",
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         value_fn=lambda data: data[WALLCONNECTOR_DATA_VITALS].currentC_a,
         device_class=SensorDeviceClass.CURRENT,
@@ -139,7 +139,7 @@ WALL_CONNECTOR_SENSORS = [
     ),
     WallConnectorSensorDescription(
         key="voltage_a_v",
-        REDACTED_VALUE"voltage_a_v",
+        translation_key="voltage_a_v",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         value_fn=lambda data: data[WALLCONNECTOR_DATA_VITALS].voltageA_v,
         device_class=SensorDeviceClass.VOLTAGE,
@@ -148,7 +148,7 @@ WALL_CONNECTOR_SENSORS = [
     ),
     WallConnectorSensorDescription(
         key="voltage_b_v",
-        REDACTED_VALUE"voltage_b_v",
+        translation_key="voltage_b_v",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         value_fn=lambda data: data[WALLCONNECTOR_DATA_VITALS].voltageB_v,
         device_class=SensorDeviceClass.VOLTAGE,
@@ -157,7 +157,7 @@ WALL_CONNECTOR_SENSORS = [
     ),
     WallConnectorSensorDescription(
         key="voltage_c_v",
-        REDACTED_VALUE"voltage_c_v",
+        translation_key="voltage_c_v",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         value_fn=lambda data: data[WALLCONNECTOR_DATA_VITALS].voltageC_v,
         device_class=SensorDeviceClass.VOLTAGE,
@@ -166,7 +166,7 @@ WALL_CONNECTOR_SENSORS = [
     ),
     WallConnectorSensorDescription(
         key="total_power_w",
-        REDACTED_VALUE"total_power_w",
+        translation_key="total_power_w",
         native_unit_of_measurement=UnitOfPower.WATT,
         suggested_unit_of_measurement=UnitOfPower.KILO_WATT,
         value_fn=lambda data: data[WALLCONNECTOR_DATA_VITALS].total_power_w,
@@ -175,7 +175,7 @@ WALL_CONNECTOR_SENSORS = [
     ),
     WallConnectorSensorDescription(
         key="session_energy_wh",
-        REDACTED_VALUE"session_energy_wh",
+        translation_key="session_energy_wh",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         value_fn=lambda data: data[WALLCONNECTOR_DATA_VITALS].session_energy_wh,

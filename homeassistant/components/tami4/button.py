@@ -4,8 +4,8 @@ from collections.abc import Callable
 from dataclasses import dataclass
 import logging
 
-from REDACTED_VALUE import REDACTED_VALUE
-from REDACTED_VALUE.drink import Drink
+from Tami4EdgeAPI import Tami4EdgeAPI
+from Tami4EdgeAPI.drink import Drink
 
 from homeassistant.components.button import ButtonEntity, ButtonEntityDescription
 from homeassistant.core import HomeAssistant
@@ -22,19 +22,19 @@ _LOGGER = logging.getLogger(__name__)
 class Tami4EdgeButtonEntityDescription(ButtonEntityDescription):
     """A class that describes Tami4Edge button entities."""
 
-    press_fn: Callable[[REDACTED_VALUE], None]
+    press_fn: Callable[[Tami4EdgeAPI], None]
 
 
 @dataclass(frozen=True, kw_only=True)
 class Tami4EdgeDrinkButtonEntityDescription(ButtonEntityDescription):
     """A class that describes Tami4Edge Drink button entities."""
 
-    press_fn: Callable[[REDACTED_VALUE, Drink], None]
+    press_fn: Callable[[Tami4EdgeAPI, Drink], None]
 
 
 BOIL_WATER_BUTTON = Tami4EdgeButtonEntityDescription(
     key="boil_water",
-    REDACTED_VALUE"boil_water",
+    translation_key="boil_water",
     press_fn=lambda api: api.boil_water(),
 )
 
@@ -57,7 +57,7 @@ async def async_setup_entry(
             api=api,
             entity_description=Tami4EdgeDrinkButtonEntityDescription(
                 key=drink.id,
-                REDACTED_VALUE"prepare_drink",
+                translation_key="prepare_drink",
                 translation_placeholders={"drink_name": drink.name},
                 press_fn=lambda api, drink: api.prepare_drink(drink),
             ),
@@ -85,7 +85,7 @@ class Tami4EdgeDrinkButton(Tami4EdgeBaseEntity, ButtonEntity):
     entity_description: Tami4EdgeDrinkButtonEntityDescription
 
     def __init__(
-        self, api: REDACTED_VALUE, entity_description: EntityDescription, drink: Drink
+        self, api: Tami4EdgeAPI, entity_description: EntityDescription, drink: Drink
     ) -> None:
         """Initialize the drink button."""
         super().__init__(api=api, entity_description=entity_description)

@@ -30,7 +30,7 @@ class ZinvoltBatteryStateDescription(NumberEntityDescription):
 NUMBERS: tuple[ZinvoltBatteryStateDescription, ...] = (
     ZinvoltBatteryStateDescription(
         key="max_output",
-        REDACTED_VALUE"max_output",
+        translation_key="max_output",
         entity_category=EntityCategory.CONFIG,
         device_class=NumberDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -47,7 +47,7 @@ NUMBERS: tuple[ZinvoltBatteryStateDescription, ...] = (
     ),
     ZinvoltBatteryStateDescription(
         key="upper_threshold",
-        REDACTED_VALUE"upper_threshold",
+        translation_key="upper_threshold",
         entity_category=EntityCategory.CONFIG,
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda state: state.battery.global_settings.battery_upper_threshold,
@@ -59,7 +59,7 @@ NUMBERS: tuple[ZinvoltBatteryStateDescription, ...] = (
     ),
     ZinvoltBatteryStateDescription(
         key="lower_threshold",
-        REDACTED_VALUE"lower_threshold",
+        translation_key="lower_threshold",
         entity_category=EntityCategory.CONFIG,
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda state: state.battery.global_settings.battery_lower_threshold,
@@ -71,7 +71,7 @@ NUMBERS: tuple[ZinvoltBatteryStateDescription, ...] = (
     ),
     ZinvoltBatteryStateDescription(
         key="standby_time",
-        REDACTED_VALUE"standby_time",
+        translation_key="standby_time",
         entity_category=EntityCategory.CONFIG,
         native_unit_of_measurement=UnitOfTime.MINUTES,
         device_class=NumberDeviceClass.DURATION,

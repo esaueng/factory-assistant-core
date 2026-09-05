@@ -48,20 +48,20 @@ BINARY_SENSORS: dict[str, tuple[PrusaLinkBinarySensorEntityDescription, ...]] = 
     "info": (
         PrusaLinkBinarySensorEntityDescription[PrinterInfo](
             key="info.mmu",
-            REDACTED_VALUE"mmu",
+            translation_key="mmu",
             value_fn=lambda data: data["mmu"],
             entity_registry_enabled_default=False,
         ),
         PrusaLinkBinarySensorEntityDescription[PrinterInfo](
             key="info.sd_ready",
-            REDACTED_VALUE"sd_ready",
+            translation_key="sd_ready",
             value_fn=lambda data: data["sd_ready"],
             supported_fn=lambda data: data.get("sd_ready") is not None,
             entity_registry_enabled_default=False,
         ),
         PrusaLinkBinarySensorEntityDescription[PrinterInfo](
             key="info.farm_mode",
-            REDACTED_VALUE"farm_mode",
+            translation_key="farm_mode",
             value_fn=lambda data: data["farm_mode"],
             supported_fn=lambda data: data.get("farm_mode") is not None,
             entity_registry_enabled_default=False,

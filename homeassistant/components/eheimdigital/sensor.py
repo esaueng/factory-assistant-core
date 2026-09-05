@@ -37,7 +37,7 @@ class EheimDigitalSensorDescription[_DeviceT: EheimDigitalDevice](
 FILTER_DESCRIPTIONS: tuple[EheimDigitalSensorDescription[EheimDigitalFilter], ...] = (
     EheimDigitalSensorDescription[EheimDigitalFilter](
         key="current_speed",
-        REDACTED_VALUE"current_speed",
+        translation_key="current_speed",
         value_fn=lambda device: device.current_speed,
         device_class=SensorDeviceClass.FREQUENCY,
         suggested_display_precision=1,
@@ -45,7 +45,7 @@ FILTER_DESCRIPTIONS: tuple[EheimDigitalSensorDescription[EheimDigitalFilter], ..
     ),
     EheimDigitalSensorDescription[EheimDigitalFilter](
         key="service_hours",
-        REDACTED_VALUE"service_hours",
+        translation_key="service_hours",
         value_fn=lambda device: device.service_hours,
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.HOURS,
@@ -60,13 +60,13 @@ CLASSICVARIO_DESCRIPTIONS: tuple[
 ] = (
     EheimDigitalSensorDescription[EheimDigitalClassicVario](
         key="current_speed",
-        REDACTED_VALUE"current_speed",
+        translation_key="current_speed",
         value_fn=lambda device: device.current_speed,
         native_unit_of_measurement=PERCENTAGE,
     ),
     EheimDigitalSensorDescription[EheimDigitalClassicVario](
         key="service_hours",
-        REDACTED_VALUE"service_hours",
+        translation_key="service_hours",
         value_fn=lambda device: device.service_hours,
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.HOURS,
@@ -75,7 +75,7 @@ CLASSICVARIO_DESCRIPTIONS: tuple[
     ),
     EheimDigitalSensorDescription[EheimDigitalClassicVario](
         key="error_code",
-        REDACTED_VALUE"error_code",
+        translation_key="error_code",
         value_fn=lambda device: device.error_code.name.lower(),
         device_class=SensorDeviceClass.ENUM,
         options=[name.lower() for name in FilterErrorCode._member_names_],

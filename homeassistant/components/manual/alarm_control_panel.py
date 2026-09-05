@@ -424,7 +424,7 @@ class ManualAlarm(AlarmControlPanelEntity, RestoreEntity):
 
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_code",
+            translation_key="invalid_code",
         )
 
     @property

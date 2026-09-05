@@ -259,7 +259,7 @@ async def _cast_skill(call: ServiceCall) -> ServiceResponse:
     except StopIteration as e:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"task_not_found",
+            translation_key="task_not_found",
             translation_placeholders={"task": f"'{call.data[ATTR_TASK]}'"},
         ) from e
 
@@ -268,13 +268,13 @@ async def _cast_skill(call: ServiceCall) -> ServiceResponse:
     except TooManyRequestsError as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"setup_rate_limit_exception",
+            translation_key="setup_rate_limit_exception",
             translation_placeholders={"retry_after": str(e.retry_after)},
         ) from e
     except NotAuthorizedError as e:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"not_enough_mana",
+            translation_key="not_enough_mana",
             translation_placeholders={
                 "cost": cost,
                 "mana": f"{int(coordinator.data.user.stats.mp or 0)} MP",
@@ -286,19 +286,19 @@ async def _cast_skill(call: ServiceCall) -> ServiceResponse:
         # or the skill hasn't been unlocked yet.
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"skill_not_found",
+            translation_key="skill_not_found",
             translation_placeholders={"skill": call.data[ATTR_SKILL]},
         ) from e
     except HabiticaException as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"service_call_exception",
+            translation_key="service_call_exception",
             translation_placeholders={"reason": str(e.error.message)},
         ) from e
     except ClientError as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"service_call_exception",
+            translation_key="service_call_exception",
             translation_placeholders={"reason": str(e)},
         ) from e
     else:
@@ -329,27 +329,27 @@ async def _manage_quests(call: ServiceCall) -> ServiceResponse:
     except TooManyRequestsError as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"setup_rate_limit_exception",
+            translation_key="setup_rate_limit_exception",
             translation_placeholders={"retry_after": str(e.retry_after)},
         ) from e
     except NotAuthorizedError as e:
         raise ServiceValidationError(
-            translation_domain=DOMAIN, REDACTED_VALUE"quest_action_unallowed"
+            translation_domain=DOMAIN, translation_key="quest_action_unallowed"
         ) from e
     except NotFoundError as e:
         raise ServiceValidationError(
-            translation_domain=DOMAIN, REDACTED_VALUE"quest_not_found"
+            translation_domain=DOMAIN, translation_key="quest_not_found"
         ) from e
     except HabiticaException as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"service_call_exception",
+            translation_key="service_call_exception",
             translation_placeholders={"reason": str(e.error.message)},
         ) from e
     except ClientError as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"service_call_exception",
+            translation_key="service_call_exception",
             translation_placeholders={"reason": str(e)},
         ) from e
     else:
@@ -375,7 +375,7 @@ async def _score_task(call: ServiceCall) -> ServiceResponse:
     except StopIteration as e:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"task_not_found",
+            translation_key="task_not_found",
             translation_placeholders={"task": f"'{call.data[ATTR_TASK]}'"},
         ) from e
 
@@ -386,14 +386,14 @@ async def _score_task(call: ServiceCall) -> ServiceResponse:
     except TooManyRequestsError as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"setup_rate_limit_exception",
+            translation_key="setup_rate_limit_exception",
             translation_placeholders={"retry_after": str(e.retry_after)},
         ) from e
     except NotAuthorizedError as e:
         if task_value is not None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"not_enough_gold",
+                translation_key="not_enough_gold",
                 translation_placeholders={
                     "gold": f"{(coordinator.data.user.stats.gp or 0):.2f} GP",
                     "cost": f"{task_value:.2f} GP",
@@ -401,19 +401,19 @@ async def _score_task(call: ServiceCall) -> ServiceResponse:
             ) from e
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"service_call_exception",
+            translation_key="service_call_exception",
             translation_placeholders={"reason": e.error.message},
         ) from e
     except HabiticaException as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"service_call_exception",
+            translation_key="service_call_exception",
             translation_placeholders={"reason": str(e.error.message)},
         ) from e
     except ClientError as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"service_call_exception",
+            translation_key="service_call_exception",
             translation_placeholders={"reason": str(e)},
         ) from e
     else:
@@ -444,18 +444,18 @@ async def _transformation(call: ServiceCall) -> ServiceResponse:
         except NotFoundError as e:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"party_not_found",
+                translation_key="party_not_found",
             ) from e
         except HabiticaException as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_call_exception",
+                translation_key="service_call_exception",
                 translation_placeholders={"reason": str(e.error.message)},
             ) from e
         except ClientError as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_call_exception",
+                translation_key="service_call_exception",
                 translation_placeholders={"reason": str(e)},
             ) from e
         try:
@@ -473,7 +473,7 @@ async def _transformation(call: ServiceCall) -> ServiceResponse:
         except StopIteration as e:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"target_not_found",
+                translation_key="target_not_found",
                 translation_placeholders={"target": f"'{call.data[ATTR_TARGET]}'"},
             ) from e
     try:
@@ -481,25 +481,25 @@ async def _transformation(call: ServiceCall) -> ServiceResponse:
     except TooManyRequestsError as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"setup_rate_limit_exception",
+            translation_key="setup_rate_limit_exception",
             translation_placeholders={"retry_after": str(e.retry_after)},
         ) from e
     except NotAuthorizedError as e:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"item_not_found",
+            translation_key="item_not_found",
             translation_placeholders={"item": call.data[ATTR_ITEM]},
         ) from e
     except HabiticaException as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"service_call_exception",
+            translation_key="service_call_exception",
             translation_placeholders={"reason": str(e.error.message)},
         ) from e
     except ClientError as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"service_call_exception",
+            translation_key="service_call_exception",
             translation_placeholders={"reason": str(e)},
         ) from e
     else:
@@ -585,7 +585,7 @@ async def _create_or_update_task(call: ServiceCall) -> ServiceResponse:  # noqa:
         except StopIteration as e:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"task_not_found",
+                translation_key="task_not_found",
                 translation_placeholders={"task": f"'{call.data[ATTR_TASK]}'"},
             ) from e
 
@@ -629,19 +629,19 @@ async def _create_or_update_task(call: ServiceCall) -> ServiceResponse:  # noqa:
             except TooManyRequestsError as e:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"setup_rate_limit_exception",
+                    translation_key="setup_rate_limit_exception",
                     translation_placeholders={"retry_after": str(e.retry_after)},
                 ) from e
             except HabiticaException as e:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"service_call_exception",
+                    translation_key="service_call_exception",
                     translation_placeholders={"reason": str(e.error.message)},
                 ) from e
             except ClientError as e:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"service_call_exception",
+                    translation_key="service_call_exception",
                     translation_placeholders={"reason": str(e)},
                 ) from e
 
@@ -785,13 +785,13 @@ async def _create_or_update_task(call: ServiceCall) -> ServiceResponse:  # noqa:
         else:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"frequency_not_weekly",
+                translation_key="frequency_not_weekly",
             )
     if repeat_monthly := call.data.get(ATTR_REPEAT_MONTHLY):
         if frequency is not Frequency.MONTHLY:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"frequency_not_monthly",
+                translation_key="frequency_not_monthly",
             )
 
         if repeat_monthly == "day_of_week":
@@ -823,19 +823,19 @@ async def _create_or_update_task(call: ServiceCall) -> ServiceResponse:  # noqa:
     except TooManyRequestsError as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"setup_rate_limit_exception",
+            translation_key="setup_rate_limit_exception",
             translation_placeholders={"retry_after": str(e.retry_after)},
         ) from e
     except HabiticaException as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"service_call_exception",
+            translation_key="service_call_exception",
             translation_placeholders={"reason": str(e.error.message)},
         ) from e
     except ClientError as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"service_call_exception",
+            translation_key="service_call_exception",
             translation_placeholders={"reason": str(e)},
         ) from e
     else:

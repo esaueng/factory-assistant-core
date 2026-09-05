@@ -44,7 +44,7 @@ class BrotherDataUpdateCoordinator(DataUpdateCoordinator[BrotherSensors]):
         except (ConnectionError, SnmpError, UnsupportedModelError) as error:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_error",
+                translation_key="update_error",
                 translation_placeholders={
                     "device": self.device_name,
                     "error": repr(error),

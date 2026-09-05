@@ -505,7 +505,7 @@ async def test_other_fixable_issues(
         data={"entry_id": entry.entry_id},
         is_fixable=True,
         severity=ir.IssueSeverity.ERROR,
-        REDACTED_VALUE"other_issue",
+        translation_key="other_issue",
     )
 
     assert issue_registry.async_get_issue(DOMAIN, issue_id)

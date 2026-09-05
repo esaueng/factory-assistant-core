@@ -63,7 +63,7 @@ class ImmichMediaSource(MediaSource):
         """Return media."""
         if not (entries := self.hass.config_entries.async_loaded_entries(DOMAIN)):
             raise BrowseError(
-                translation_domain=DOMAIN, REDACTED_VALUE"not_configured"
+                translation_domain=DOMAIN, translation_key="not_configured"
             )
         return BrowseMediaSource(
             domain=DOMAIN,
@@ -140,7 +140,7 @@ class ImmichMediaSource(MediaSource):
                 except ImmichForbiddenError as err:
                     raise BrowseError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"missing_api_permission",
+                        translation_key="missing_api_permission",
                         translation_placeholders={"msg": str(err)},
                     ) from err
                 except ImmichError:
@@ -167,7 +167,7 @@ class ImmichMediaSource(MediaSource):
                 except ImmichForbiddenError as err:
                     raise BrowseError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"missing_api_permission",
+                        translation_key="missing_api_permission",
                         translation_placeholders={"msg": str(err)},
                     ) from err
                 except ImmichError:
@@ -193,7 +193,7 @@ class ImmichMediaSource(MediaSource):
                 except ImmichForbiddenError as err:
                     raise BrowseError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"missing_api_permission",
+                        translation_key="missing_api_permission",
                         translation_placeholders={"msg": str(err)},
                     ) from err
                 except ImmichError:
@@ -232,7 +232,7 @@ class ImmichMediaSource(MediaSource):
             except ImmichForbiddenError as err:
                 raise BrowseError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"missing_api_permission",
+                    translation_key="missing_api_permission",
                     translation_placeholders={"msg": str(err)},
                 ) from err
             except ImmichError:
@@ -250,7 +250,7 @@ class ImmichMediaSource(MediaSource):
             except ImmichForbiddenError as err:
                 raise BrowseError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"missing_api_permission",
+                    translation_key="missing_api_permission",
                     translation_placeholders={"msg": str(err)},
                 ) from err
             except ImmichError:
@@ -268,7 +268,7 @@ class ImmichMediaSource(MediaSource):
             except ImmichForbiddenError as err:
                 raise BrowseError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"missing_api_permission",
+                    translation_key="missing_api_permission",
                     translation_placeholders={"msg": str(err)},
                 ) from err
             except ImmichError:
@@ -280,7 +280,7 @@ class ImmichMediaSource(MediaSource):
             except ImmichForbiddenError as err:
                 raise BrowseError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"missing_api_permission",
+                    translation_key="missing_api_permission",
                     translation_placeholders={"msg": str(err)},
                 ) from err
             except ImmichError:
@@ -331,14 +331,14 @@ class ImmichMediaSource(MediaSource):
         except IndexError as err:
             raise Unresolvable(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"identifier_unresolvable",
+                translation_key="identifier_unresolvable",
                 translation_placeholders={"identifier": item.identifier},
             ) from err
 
         if identifier.mime_type is None:
             raise Unresolvable(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"identifier_no_mime_type_unresolvable",
+                translation_key="identifier_no_mime_type_unresolvable",
                 translation_placeholders={"identifier": item.identifier},
             )
 

@@ -21,7 +21,7 @@ from .coordinator import BlinkConfigEntry, BlinkUpdateCoordinator
 SWITCH_TYPES: tuple[SwitchEntityDescription, ...] = (
     SwitchEntityDescription(
         key=TYPE_CAMERA_ARMED,
-        REDACTED_VALUE"camera_motion",
+        translation_key="camera_motion",
         device_class=SwitchDeviceClass.SWITCH,
     ),
 )
@@ -75,7 +75,7 @@ class BlinkSwitch(CoordinatorEntity[BlinkUpdateCoordinator], SwitchEntity):
         except TimeoutError as er:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_arm_motion",
+                translation_key="failed_arm_motion",
             ) from er
         except UnauthorizedError as er:
             self.coordinator.config_entry.async_start_reauth(self.hass)
@@ -91,7 +91,7 @@ class BlinkSwitch(CoordinatorEntity[BlinkUpdateCoordinator], SwitchEntity):
         except TimeoutError as er:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_disarm_motion",
+                translation_key="failed_disarm_motion",
             ) from er
         except UnauthorizedError as er:
             self.coordinator.config_entry.async_start_reauth(self.hass)

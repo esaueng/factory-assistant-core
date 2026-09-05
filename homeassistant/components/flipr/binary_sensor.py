@@ -14,12 +14,12 @@ from .entity import FliprEntity
 BINARY_SENSORS_TYPES: tuple[BinarySensorEntityDescription, ...] = (
     BinarySensorEntityDescription(
         key="ph_status",
-        REDACTED_VALUE"ph_status",
+        translation_key="ph_status",
         device_class=BinarySensorDeviceClass.PROBLEM,
     ),
     BinarySensorEntityDescription(
         key="chlorine_status",
-        REDACTED_VALUE"chlorine_status",
+        translation_key="chlorine_status",
         device_class=BinarySensorDeviceClass.PROBLEM,
     ),
 )

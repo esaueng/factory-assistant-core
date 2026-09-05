@@ -54,7 +54,7 @@ def _compute_ratio(uploaded: int | None, downloaded: int | None) -> float | None
 SENSOR_TYPES: tuple[TransmissionSensorEntityDescription, ...] = (
     TransmissionSensorEntityDescription(
         key="download",
-        REDACTED_VALUE"download_speed",
+        translation_key="download_speed",
         device_class=SensorDeviceClass.DATA_RATE,
         native_unit_of_measurement=UnitOfDataRate.BYTES_PER_SECOND,
         suggested_display_precision=2,
@@ -63,7 +63,7 @@ SENSOR_TYPES: tuple[TransmissionSensorEntityDescription, ...] = (
     ),
     TransmissionSensorEntityDescription(
         key="upload",
-        REDACTED_VALUE"upload_speed",
+        translation_key="upload_speed",
         device_class=SensorDeviceClass.DATA_RATE,
         native_unit_of_measurement=UnitOfDataRate.BYTES_PER_SECOND,
         suggested_display_precision=2,
@@ -72,7 +72,7 @@ SENSOR_TYPES: tuple[TransmissionSensorEntityDescription, ...] = (
     ),
     TransmissionSensorEntityDescription(
         key="status",
-        REDACTED_VALUE"transmission_status",
+        translation_key="transmission_status",
         device_class=SensorDeviceClass.ENUM,
         options=[STATE_IDLE, STATE_UP_DOWN, STATE_SEEDING, STATE_DOWNLOADING],
         val_func=lambda coordinator: get_state(
@@ -81,7 +81,7 @@ SENSOR_TYPES: tuple[TransmissionSensorEntityDescription, ...] = (
     ),
     TransmissionSensorEntityDescription(
         key="active_torrents",
-        REDACTED_VALUE"active_torrents",
+        translation_key="active_torrents",
         val_func=lambda coordinator: coordinator.data.active_torrent_count,
         extra_state_attr_func=lambda coordinator: _torrents_info_attr(
             coordinator=coordinator, key="active"
@@ -89,7 +89,7 @@ SENSOR_TYPES: tuple[TransmissionSensorEntityDescription, ...] = (
     ),
     TransmissionSensorEntityDescription(
         key="paused_torrents",
-        REDACTED_VALUE"paused_torrents",
+        translation_key="paused_torrents",
         val_func=lambda coordinator: coordinator.data.paused_torrent_count,
         extra_state_attr_func=lambda coordinator: _torrents_info_attr(
             coordinator=coordinator, key="paused"
@@ -97,7 +97,7 @@ SENSOR_TYPES: tuple[TransmissionSensorEntityDescription, ...] = (
     ),
     TransmissionSensorEntityDescription(
         key="total_torrents",
-        REDACTED_VALUE"total_torrents",
+        translation_key="total_torrents",
         val_func=lambda coordinator: coordinator.data.torrent_count,
         extra_state_attr_func=lambda coordinator: _torrents_info_attr(
             coordinator=coordinator, key="total"
@@ -105,7 +105,7 @@ SENSOR_TYPES: tuple[TransmissionSensorEntityDescription, ...] = (
     ),
     TransmissionSensorEntityDescription(
         key="completed_torrents",
-        REDACTED_VALUE"completed_torrents",
+        translation_key="completed_torrents",
         val_func=lambda coordinator: len(
             filter_torrents(coordinator.torrents, FILTER_MODES["completed"])
         ),
@@ -115,7 +115,7 @@ SENSOR_TYPES: tuple[TransmissionSensorEntityDescription, ...] = (
     ),
     TransmissionSensorEntityDescription(
         key="started_torrents",
-        REDACTED_VALUE"started_torrents",
+        translation_key="started_torrents",
         val_func=lambda coordinator: len(
             filter_torrents(coordinator.torrents, FILTER_MODES["started"])
         ),
@@ -125,7 +125,7 @@ SENSOR_TYPES: tuple[TransmissionSensorEntityDescription, ...] = (
     ),
     TransmissionSensorEntityDescription(
         key="session_download",
-        REDACTED_VALUE"session_download",
+        translation_key="session_download",
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
         suggested_unit_of_measurement=UnitOfInformation.GIBIBYTES,
@@ -135,7 +135,7 @@ SENSOR_TYPES: tuple[TransmissionSensorEntityDescription, ...] = (
     ),
     TransmissionSensorEntityDescription(
         key="session_upload",
-        REDACTED_VALUE"session_upload",
+        translation_key="session_upload",
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
         suggested_unit_of_measurement=UnitOfInformation.GIBIBYTES,
@@ -145,7 +145,7 @@ SENSOR_TYPES: tuple[TransmissionSensorEntityDescription, ...] = (
     ),
     TransmissionSensorEntityDescription(
         key="total_download",
-        REDACTED_VALUE"total_download",
+        translation_key="total_download",
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
         suggested_unit_of_measurement=UnitOfInformation.GIBIBYTES,
@@ -155,7 +155,7 @@ SENSOR_TYPES: tuple[TransmissionSensorEntityDescription, ...] = (
     ),
     TransmissionSensorEntityDescription(
         key="total_upload",
-        REDACTED_VALUE"total_upload",
+        translation_key="total_upload",
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
         suggested_unit_of_measurement=UnitOfInformation.GIBIBYTES,
@@ -165,7 +165,7 @@ SENSOR_TYPES: tuple[TransmissionSensorEntityDescription, ...] = (
     ),
     TransmissionSensorEntityDescription(
         key="session_ratio",
-        REDACTED_VALUE"session_ratio",
+        translation_key="session_ratio",
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=3,
         val_func=lambda coordinator: _compute_ratio(
@@ -175,7 +175,7 @@ SENSOR_TYPES: tuple[TransmissionSensorEntityDescription, ...] = (
     ),
     TransmissionSensorEntityDescription(
         key="total_ratio",
-        REDACTED_VALUE"total_ratio",
+        translation_key="total_ratio",
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=3,
         val_func=lambda coordinator: _compute_ratio(

@@ -83,7 +83,7 @@ async def test_token_in_config_file(
             CONF_TOKEN: token,
         },
     )
-    mock_envoy.auth = EnvoyTokenAuth("127.0.0.1", token=token, REDACTED_VALUE"1234")
+    mock_envoy.auth = EnvoyTokenAuth("127.0.0.1", token=token, envoy_serial="1234")
     await setup_integration(hass, entry)
 
     assert (entity_state := hass.states.get("sensor.inverter_1"))
@@ -123,7 +123,7 @@ async def test_expired_token_in_config(
     mock_envoy.auth = EnvoyTokenAuth(
         "127.0.0.1",
         token=current_token,
-        REDACTED_VALUE"1234",
+        envoy_serial="1234",
         cloud_username="test_username",
         cloud_password="test_password",
     )
@@ -219,7 +219,7 @@ async def test_coordinator_token_refresh_error(
         },
     )
     # override fresh token in conftest mock_envoy.auth
-    mock_envoy.auth = EnvoyTokenAuth("127.0.0.1", token=token, REDACTED_VALUE"1234")
+    mock_envoy.auth = EnvoyTokenAuth("127.0.0.1", token=token, envoy_serial="1234")
     # force token refresh to fail.
     with patch(
         "pyenphase.auth.EnvoyTokenAuth._obtain_token",
@@ -262,7 +262,7 @@ async def test_coordinator_first_update_auth_error(
     mock_envoy.auth = EnvoyTokenAuth(
         "127.0.0.1",
         token=current_token,
-        REDACTED_VALUE"1234",
+        envoy_serial="1234",
         cloud_username="test_username",
         cloud_password="test_password",
     )
@@ -656,7 +656,7 @@ async def test_retry_timeout_settings(
             CONF_TOKEN: token,
         },
     )
-    mock_envoy.auth = EnvoyTokenAuth("127.0.0.1", token=token, REDACTED_VALUE"1234")
+    mock_envoy.auth = EnvoyTokenAuth("127.0.0.1", token=token, envoy_serial="1234")
     await setup_integration(hass, entry)
 
     assert (entity_state := hass.states.get("sensor.inverter_1"))

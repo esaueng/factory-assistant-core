@@ -58,7 +58,7 @@ SUPPORTED_CORE_SENSORS = [
         key=VALUE.AIR_TEMPERATURE,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"air_temperature",
+        translation_key="air_temperature",
     ),
     ScreenLogicPushSensorDescription(
         subscription_code=CODE.STATUS_CHANGED,
@@ -70,7 +70,7 @@ SUPPORTED_CORE_SENSORS = [
             CONTROLLER_STATE(val).name.lower() if val in [1, 2, 3] else None
         ),
         entity_category=EntityCategory.DIAGNOSTIC,
-        REDACTED_VALUE"controller_state",
+        translation_key="controller_state",
     ),
 ]
 
@@ -110,7 +110,7 @@ SUPPORTED_INTELLICHEM_SENSORS = [
         data_root=(DEVICE.INTELLICHEM, GROUP.SENSOR),
         key=VALUE.ORP_NOW,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"chem_now",
+        translation_key="chem_now",
         translation_placeholders={"chem": "ORP"},
     ),
     ScreenLogicPushSensorDescription(
@@ -118,7 +118,7 @@ SUPPORTED_INTELLICHEM_SENSORS = [
         data_root=(DEVICE.INTELLICHEM, GROUP.SENSOR),
         key=VALUE.PH_NOW,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"chem_now",
+        translation_key="chem_now",
         translation_placeholders={"chem": "pH"},
     ),
     ScreenLogicPushSensorDescription(
@@ -127,7 +127,7 @@ SUPPORTED_INTELLICHEM_SENSORS = [
         key=VALUE.ORP_SUPPLY_LEVEL,
         state_class=SensorStateClass.MEASUREMENT,
         value_mod=lambda val: int(val) - 1,
-        REDACTED_VALUE"chem_supply_level",
+        translation_key="chem_supply_level",
         translation_placeholders={"chem": "ORP"},
     ),
     ScreenLogicPushSensorDescription(
@@ -136,7 +136,7 @@ SUPPORTED_INTELLICHEM_SENSORS = [
         key=VALUE.PH_SUPPLY_LEVEL,
         state_class=SensorStateClass.MEASUREMENT,
         value_mod=lambda val: int(val) - 1,
-        REDACTED_VALUE"chem_supply_level",
+        translation_key="chem_supply_level",
         translation_placeholders={"chem": "pH"},
     ),
     ScreenLogicPushSensorDescription(
@@ -145,41 +145,41 @@ SUPPORTED_INTELLICHEM_SENSORS = [
         key=VALUE.PH_PROBE_WATER_TEMP,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"ph_probe_water_temp",
+        translation_key="ph_probe_water_temp",
     ),
     ScreenLogicPushSensorDescription(
         subscription_code=CODE.CHEMISTRY_CHANGED,
         data_root=(DEVICE.INTELLICHEM, GROUP.SENSOR),
         key=VALUE.SATURATION,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"saturation",
+        translation_key="saturation",
     ),
     ScreenLogicPushSensorDescription(
         subscription_code=CODE.CHEMISTRY_CHANGED,
         data_root=(DEVICE.INTELLICHEM, GROUP.CONFIGURATION),
         key=VALUE.CALCIUM_HARDNESS,
         entity_registry_enabled_default=False,  # Superseded by number entity
-        REDACTED_VALUE"calcium_hardness",
+        translation_key="calcium_hardness",
     ),
     ScreenLogicPushSensorDescription(
         subscription_code=CODE.CHEMISTRY_CHANGED,
         data_root=(DEVICE.INTELLICHEM, GROUP.CONFIGURATION),
         key=VALUE.CYA,
         entity_registry_enabled_default=False,  # Superseded by number entity
-        REDACTED_VALUE"cya",
+        translation_key="cya",
     ),
     ScreenLogicPushSensorDescription(
         subscription_code=CODE.CHEMISTRY_CHANGED,
         data_root=(DEVICE.INTELLICHEM, GROUP.CONFIGURATION),
         key=VALUE.ORP_SETPOINT,
-        REDACTED_VALUE"chem_setpoint",
+        translation_key="chem_setpoint",
         translation_placeholders={"chem": "ORP"},
     ),
     ScreenLogicPushSensorDescription(
         subscription_code=CODE.CHEMISTRY_CHANGED,
         data_root=(DEVICE.INTELLICHEM, GROUP.CONFIGURATION),
         key=VALUE.PH_SETPOINT,
-        REDACTED_VALUE"chem_setpoint",
+        translation_key="chem_setpoint",
         translation_placeholders={"chem": "pH"},
     ),
     ScreenLogicPushSensorDescription(
@@ -187,14 +187,14 @@ SUPPORTED_INTELLICHEM_SENSORS = [
         data_root=(DEVICE.INTELLICHEM, GROUP.CONFIGURATION),
         key=VALUE.TOTAL_ALKALINITY,
         entity_registry_enabled_default=False,  # Superseded by number entity
-        REDACTED_VALUE"total_alkalinity",
+        translation_key="total_alkalinity",
     ),
     ScreenLogicPushSensorDescription(
         subscription_code=CODE.CHEMISTRY_CHANGED,
         data_root=(DEVICE.INTELLICHEM, GROUP.CONFIGURATION),
         key=VALUE.SALT_TDS_PPM,
         entity_registry_enabled_default=False,  # Superseded by number entity
-        REDACTED_VALUE"salt_tds_ppm",
+        translation_key="salt_tds_ppm",
     ),
     ScreenLogicPushSensorDescription(
         subscription_code=CODE.CHEMISTRY_CHANGED,
@@ -203,7 +203,7 @@ SUPPORTED_INTELLICHEM_SENSORS = [
         device_class=SensorDeviceClass.ENUM,
         options=["dosing", "mixing", "monitoring"],
         value_mod=lambda val: DOSE_STATE(val).name.lower(),
-        REDACTED_VALUE"chem_dose_state",
+        translation_key="chem_dose_state",
         translation_placeholders={"chem": "ORP"},
     ),
     ScreenLogicPushSensorDescription(
@@ -212,7 +212,7 @@ SUPPORTED_INTELLICHEM_SENSORS = [
         key=VALUE.ORP_LAST_DOSE_TIME,
         device_class=SensorDeviceClass.DURATION,
         state_class=SensorStateClass.TOTAL_INCREASING,
-        REDACTED_VALUE"chem_last_dose_time",
+        translation_key="chem_last_dose_time",
         translation_placeholders={"chem": "ORP"},
     ),
     ScreenLogicPushSensorDescription(
@@ -221,7 +221,7 @@ SUPPORTED_INTELLICHEM_SENSORS = [
         key=VALUE.ORP_LAST_DOSE_VOLUME,
         device_class=SensorDeviceClass.VOLUME,
         state_class=SensorStateClass.TOTAL_INCREASING,
-        REDACTED_VALUE"chem_last_dose_volume",
+        translation_key="chem_last_dose_volume",
         translation_placeholders={"chem": "ORP"},
     ),
     ScreenLogicPushSensorDescription(
@@ -231,7 +231,7 @@ SUPPORTED_INTELLICHEM_SENSORS = [
         device_class=SensorDeviceClass.ENUM,
         options=["dosing", "mixing", "monitoring"],
         value_mod=lambda val: DOSE_STATE(val).name.lower(),
-        REDACTED_VALUE"chem_dose_state",
+        translation_key="chem_dose_state",
         translation_placeholders={"chem": "pH"},
     ),
     ScreenLogicPushSensorDescription(
@@ -240,7 +240,7 @@ SUPPORTED_INTELLICHEM_SENSORS = [
         key=VALUE.PH_LAST_DOSE_TIME,
         device_class=SensorDeviceClass.DURATION,
         state_class=SensorStateClass.TOTAL_INCREASING,
-        REDACTED_VALUE"chem_last_dose_time",
+        translation_key="chem_last_dose_time",
         translation_placeholders={"chem": "pH"},
     ),
     ScreenLogicPushSensorDescription(
@@ -249,7 +249,7 @@ SUPPORTED_INTELLICHEM_SENSORS = [
         key=VALUE.PH_LAST_DOSE_VOLUME,
         device_class=SensorDeviceClass.VOLUME,
         state_class=SensorStateClass.TOTAL_INCREASING,
-        REDACTED_VALUE"chem_last_dose_volume",
+        translation_key="chem_last_dose_volume",
         translation_placeholders={"chem": "pH"},
     ),
 ]
@@ -259,12 +259,12 @@ SUPPORTED_SCG_SENSORS = [
         data_root=(DEVICE.SCG, GROUP.SENSOR),
         key=VALUE.SALT_PPM,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"salt_ppm",
+        translation_key="salt_ppm",
     ),
     ScreenLogicSensorDescription(
         data_root=(DEVICE.SCG, GROUP.CONFIGURATION),
         key=VALUE.SUPER_CHLOR_TIMER,
-        REDACTED_VALUE"super_chlor_timer",
+        translation_key="super_chlor_timer",
     ),
 ]
 

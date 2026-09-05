@@ -38,7 +38,7 @@ BUTTONS: Final = [
     ),
     SynologyDSMbuttonDescription(
         key="shutdown",
-        REDACTED_VALUE"shutdown",
+        translation_key="shutdown",
         entity_category=EntityCategory.CONFIG,
         press_action=lambda syno_api: syno_api.async_shutdown,
     ),

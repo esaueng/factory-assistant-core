@@ -43,20 +43,20 @@ class BalboaBinarySensorEntityDescription(BinarySensorEntityDescription):
 BINARY_SENSOR_DESCRIPTIONS = (
     BalboaBinarySensorEntityDescription(
         key="Filter1",
-        REDACTED_VALUE"filter_1",
+        translation_key="filter_1",
         device_class=BinarySensorDeviceClass.RUNNING,
         is_on_fn=lambda spa: spa.filter_cycle_1_running,
     ),
     BalboaBinarySensorEntityDescription(
         key="Filter2",
-        REDACTED_VALUE"filter_2",
+        translation_key="filter_2",
         device_class=BinarySensorDeviceClass.RUNNING,
         is_on_fn=lambda spa: spa.filter_cycle_2_running,
     ),
 )
 CIRCULATION_PUMP_DESCRIPTION = BalboaBinarySensorEntityDescription(
     key="Circ Pump",
-    REDACTED_VALUE"circ_pump",
+    translation_key="circ_pump",
     device_class=BinarySensorDeviceClass.RUNNING,
     is_on_fn=lambda spa: (pump := spa.circulation_pump) is not None and pump.state > 0,
 )

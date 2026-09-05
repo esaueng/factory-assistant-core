@@ -28,7 +28,7 @@ def plugwise_command[_PlugwiseEntityT: PlugwiseEntity, **_P, _R](
         except PlugwiseException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"error_communicating_with_api",
+                translation_key="error_communicating_with_api",
                 translation_placeholders={
                     "error": str(err),
                 },

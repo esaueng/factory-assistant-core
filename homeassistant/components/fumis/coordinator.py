@@ -48,22 +48,22 @@ class FumisDataUpdateCoordinator(DataUpdateCoordinator[FumisInfo]):
         except FumisAuthenticationError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"authentication_error",
+                translation_key="authentication_error",
             ) from err
         except FumisStoveOfflineError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"stove_offline",
+                translation_key="stove_offline",
             ) from err
         except FumisConnectionError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
                 translation_placeholders={"error": str(err)},
             ) from err
         except FumisError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unknown_error",
+                translation_key="unknown_error",
                 translation_placeholders={"error": str(err)},
             ) from err

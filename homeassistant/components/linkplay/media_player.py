@@ -282,7 +282,7 @@ class LinkPlayMediaPlayerEntity(LinkPlayBaseEntity, MediaPlayerEntity):
         if bridge is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_grouping_entity",
+                translation_key="invalid_grouping_entity",
                 translation_placeholders={"entity_id": entity_id},
             )
 

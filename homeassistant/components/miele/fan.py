@@ -45,14 +45,14 @@ FAN_TYPES: Final[tuple[MieleFanDefinition, ...]] = (
         types=(MieleAppliance.HOOD,),
         description=FanEntityDescription(
             key="fan",
-            REDACTED_VALUE"fan",
+            translation_key="fan",
         ),
     ),
     MieleFanDefinition(
         types=(MieleAppliance.HOB_INDUCT_EXTR,),
         description=FanEntityDescription(
             key="fan_readonly",
-            REDACTED_VALUE"fan",
+            translation_key="fan",
         ),
     ),
 )
@@ -144,7 +144,7 @@ class MieleFan(MieleEntity, FanEntity):
                 _LOGGER.debug("Error setting fan state for %s: %s", self.entity_id, err)
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"set_state_error",
+                    translation_key="set_state_error",
                     translation_placeholders={
                         "entity": self.entity_id,
                     },
@@ -168,7 +168,7 @@ class MieleFan(MieleEntity, FanEntity):
             # pylint: disable-next=home-assistant-exception-placeholder-mismatch
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_state_error",
+                translation_key="set_state_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                 },
@@ -186,7 +186,7 @@ class MieleFan(MieleEntity, FanEntity):
             # pylint: disable-next=home-assistant-exception-placeholder-mismatch
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_state_error",
+                translation_key="set_state_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                 },

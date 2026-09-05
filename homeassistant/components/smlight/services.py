@@ -86,7 +86,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
         if not target_entries:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_device_found",
+                translation_key="no_device_found",
             )
 
         for target_entry in target_entries:
@@ -96,7 +96,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
             if not coordinator.data.info.has_peripherals:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"not_supported_buzzer",
+                    translation_key="not_supported_buzzer",
                 )
 
             try:
@@ -106,7 +106,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
             except SmlightError as err:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"play_tone_failed",
+                    translation_key="play_tone_failed",
                     translation_placeholders={
                         "device_name": target_entry.title,
                         "error": str(err),

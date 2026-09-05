@@ -30,7 +30,7 @@ class CoolmasterCleanFilter(CoolmasterEntity, BinarySensorEntity):
 
     entity_description = BinarySensorEntityDescription(
         key="clean_filter",
-        REDACTED_VALUE"clean_filter",
+        translation_key="clean_filter",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
     )

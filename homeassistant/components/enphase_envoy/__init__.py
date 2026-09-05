@@ -34,7 +34,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: EnphaseConfigEntry) -> b
         # and update the config entry so we do not mix up devices.
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unexpected_device",
+            translation_key="unexpected_device",
             translation_placeholders={
                 "host": host,
                 "expected_serial": str(entry.unique_id),

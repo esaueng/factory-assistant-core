@@ -61,7 +61,7 @@ class FlexitNumberEntityDescription(NumberEntityDescription):
 NUMBERS: tuple[FlexitNumberEntityDescription, ...] = (
     FlexitNumberEntityDescription(
         key="away_extract_fan_setpoint",
-        REDACTED_VALUE"away_extract_fan_setpoint",
+        translation_key="away_extract_fan_setpoint",
         device_class=NumberDeviceClass.POWER_FACTOR,
         native_step=1,
         mode=NumberMode.SLIDER,
@@ -73,7 +73,7 @@ NUMBERS: tuple[FlexitNumberEntityDescription, ...] = (
     ),
     FlexitNumberEntityDescription(
         key="away_supply_fan_setpoint",
-        REDACTED_VALUE"away_supply_fan_setpoint",
+        translation_key="away_supply_fan_setpoint",
         device_class=NumberDeviceClass.POWER_FACTOR,
         native_step=1,
         mode=NumberMode.SLIDER,
@@ -85,7 +85,7 @@ NUMBERS: tuple[FlexitNumberEntityDescription, ...] = (
     ),
     FlexitNumberEntityDescription(
         key="cooker_hood_extract_fan_setpoint",
-        REDACTED_VALUE"cooker_hood_extract_fan_setpoint",
+        translation_key="cooker_hood_extract_fan_setpoint",
         device_class=NumberDeviceClass.POWER_FACTOR,
         native_step=1,
         mode=NumberMode.SLIDER,
@@ -97,7 +97,7 @@ NUMBERS: tuple[FlexitNumberEntityDescription, ...] = (
     ),
     FlexitNumberEntityDescription(
         key="cooker_hood_supply_fan_setpoint",
-        REDACTED_VALUE"cooker_hood_supply_fan_setpoint",
+        translation_key="cooker_hood_supply_fan_setpoint",
         device_class=NumberDeviceClass.POWER_FACTOR,
         native_step=1,
         mode=NumberMode.SLIDER,
@@ -109,7 +109,7 @@ NUMBERS: tuple[FlexitNumberEntityDescription, ...] = (
     ),
     FlexitNumberEntityDescription(
         key="fireplace_extract_fan_setpoint",
-        REDACTED_VALUE"fireplace_extract_fan_setpoint",
+        translation_key="fireplace_extract_fan_setpoint",
         device_class=NumberDeviceClass.POWER_FACTOR,
         native_step=1,
         mode=NumberMode.SLIDER,
@@ -121,7 +121,7 @@ NUMBERS: tuple[FlexitNumberEntityDescription, ...] = (
     ),
     FlexitNumberEntityDescription(
         key="fireplace_supply_fan_setpoint",
-        REDACTED_VALUE"fireplace_supply_fan_setpoint",
+        translation_key="fireplace_supply_fan_setpoint",
         device_class=NumberDeviceClass.POWER_FACTOR,
         native_step=1,
         mode=NumberMode.SLIDER,
@@ -133,7 +133,7 @@ NUMBERS: tuple[FlexitNumberEntityDescription, ...] = (
     ),
     FlexitNumberEntityDescription(
         key="high_extract_fan_setpoint",
-        REDACTED_VALUE"high_extract_fan_setpoint",
+        translation_key="high_extract_fan_setpoint",
         device_class=NumberDeviceClass.POWER_FACTOR,
         native_step=1,
         mode=NumberMode.SLIDER,
@@ -145,7 +145,7 @@ NUMBERS: tuple[FlexitNumberEntityDescription, ...] = (
     ),
     FlexitNumberEntityDescription(
         key="high_supply_fan_setpoint",
-        REDACTED_VALUE"high_supply_fan_setpoint",
+        translation_key="high_supply_fan_setpoint",
         device_class=NumberDeviceClass.POWER_FACTOR,
         native_step=1,
         mode=NumberMode.SLIDER,
@@ -157,7 +157,7 @@ NUMBERS: tuple[FlexitNumberEntityDescription, ...] = (
     ),
     FlexitNumberEntityDescription(
         key="home_extract_fan_setpoint",
-        REDACTED_VALUE"home_extract_fan_setpoint",
+        translation_key="home_extract_fan_setpoint",
         device_class=NumberDeviceClass.POWER_FACTOR,
         native_step=1,
         mode=NumberMode.SLIDER,
@@ -169,7 +169,7 @@ NUMBERS: tuple[FlexitNumberEntityDescription, ...] = (
     ),
     FlexitNumberEntityDescription(
         key="home_supply_fan_setpoint",
-        REDACTED_VALUE"home_supply_fan_setpoint",
+        translation_key="home_supply_fan_setpoint",
         device_class=NumberDeviceClass.POWER_FACTOR,
         native_step=1,
         mode=NumberMode.SLIDER,
@@ -181,7 +181,7 @@ NUMBERS: tuple[FlexitNumberEntityDescription, ...] = (
     ),
     FlexitNumberEntityDescription(
         key="fireplace_mode_runtime",
-        REDACTED_VALUE"fireplace_mode_runtime",
+        translation_key="fireplace_mode_runtime",
         device_class=NumberDeviceClass.DURATION,
         native_step=1,
         mode=NumberMode.SLIDER,
@@ -253,7 +253,7 @@ class FlexitNumber(FlexitEntity, NumberEntity):
         except (asyncio.exceptions.TimeoutError, ConnectionError, DecodingError) as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_value_error",
+                translation_key="set_value_error",
                 translation_placeholders={
                     "value": str(value),
                 },

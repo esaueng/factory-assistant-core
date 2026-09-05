@@ -72,7 +72,7 @@ async def async_setup_entry(
     if not await hass.async_add_executor_job(os.path.exists, device_path):
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_disconnected",
+            translation_key="device_disconnected",
         )
 
     # Create and store the firmware update coordinator in runtime_data

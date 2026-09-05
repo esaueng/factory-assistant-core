@@ -87,7 +87,7 @@ def create_repair_if_used(
                 is_fixable=False,
                 breaks_in_ha_version=breaks_in,
                 severity=IssueSeverity.WARNING,
-                REDACTED_VALUEissue_id,
+                translation_key=issue_id,
                 translation_placeholders={
                     "items": "* `" + "`\n* `".join(items) + "`\n"
                 },

@@ -66,7 +66,7 @@ class HWEnergyDeviceUpdateCoordinator(DataUpdateCoordinator[DeviceResponseEntry]
                 issue_id,
                 is_fixable=True,
                 is_persistent=False,
-                REDACTED_VALUEISSUE_BATTERY_MODE_CLOUD_DISABLED,
+                translation_key=ISSUE_BATTERY_MODE_CLOUD_DISABLED,
                 severity=ir.IssueSeverity.WARNING,
                 data={"entry_id": self.config_entry.entry_id},
             )
@@ -80,7 +80,7 @@ class HWEnergyDeviceUpdateCoordinator(DataUpdateCoordinator[DeviceResponseEntry]
 
         except RequestError as ex:
             raise UpdateFailed(
-                translation_domain=DOMAIN, REDACTED_VALUE"communication_error"
+                translation_domain=DOMAIN, translation_key="communication_error"
             ) from ex
 
         except DisabledError as ex:
@@ -96,7 +96,7 @@ class HWEnergyDeviceUpdateCoordinator(DataUpdateCoordinator[DeviceResponseEntry]
                     )
 
             raise UpdateFailed(
-                translation_domain=DOMAIN, REDACTED_VALUE"api_disabled"
+                translation_domain=DOMAIN, translation_key="api_disabled"
             ) from ex
 
         except UnauthorizedError as ex:

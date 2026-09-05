@@ -59,7 +59,7 @@ class DropletDataCoordinator(DataUpdateCoordinator[None]):
     async def _async_update_data(self) -> None:
         if not self.droplet.connected:
             raise UpdateFailed(
-                translation_domain=DOMAIN, REDACTED_VALUE"connection_error"
+                translation_domain=DOMAIN, translation_key="connection_error"
             )
 
     async def setup(self) -> bool:

@@ -75,7 +75,7 @@ SENSORS: tuple[ArveDeviceEntityDescription, ...] = (
     ),
     ArveDeviceEntityDescription(
         key="TVOC",
-        REDACTED_VALUE"tvoc",
+        translation_key="tvoc",
         value_fn=lambda arve_data: arve_data.tvoc,
         state_class=SensorStateClass.MEASUREMENT,
     ),

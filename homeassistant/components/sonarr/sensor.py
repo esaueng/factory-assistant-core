@@ -85,14 +85,14 @@ def get_wanted_attr(wanted: SonarrWantedMissing) -> dict[str, str]:
 SENSOR_TYPES: dict[str, SonarrSensorEntityDescription[Any]] = {
     "commands": SonarrSensorEntityDescription[list[Command]](
         key="commands",
-        REDACTED_VALUE"commands",
+        translation_key="commands",
         entity_registry_enabled_default=False,
         value_fn=len,
         attributes_fn=lambda data: {c.name: c.status for c in data},
     ),
     "diskspace": SonarrSensorEntityDescription[list[Diskspace]](
         key="diskspace",
-        REDACTED_VALUE"diskspace",
+        translation_key="diskspace",
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         entity_registry_enabled_default=False,
@@ -101,14 +101,14 @@ SENSOR_TYPES: dict[str, SonarrSensorEntityDescription[Any]] = {
     ),
     "queue": SonarrSensorEntityDescription[SonarrQueue](
         key="queue",
-        REDACTED_VALUE"queue",
+        translation_key="queue",
         entity_registry_enabled_default=False,
         value_fn=lambda data: data.totalRecords,
         attributes_fn=get_queue_attr,
     ),
     "series": SonarrSensorEntityDescription[list[SonarrSeries]](
         key="series",
-        REDACTED_VALUE"series",
+        translation_key="series",
         entity_registry_enabled_default=False,
         value_fn=len,
         attributes_fn=lambda data: {
@@ -121,7 +121,7 @@ SENSOR_TYPES: dict[str, SonarrSensorEntityDescription[Any]] = {
     ),
     "upcoming": SonarrSensorEntityDescription[list[SonarrCalendar]](
         key="upcoming",
-        REDACTED_VALUE"upcoming",
+        translation_key="upcoming",
         value_fn=len,
         attributes_fn=lambda data: {
             e.series.title: f"S{e.seasonNumber:02d}E{e.episodeNumber:02d}"  # type: ignore[misc]
@@ -130,7 +130,7 @@ SENSOR_TYPES: dict[str, SonarrSensorEntityDescription[Any]] = {
     ),
     "wanted": SonarrSensorEntityDescription[SonarrWantedMissing](
         key="wanted",
-        REDACTED_VALUE"wanted",
+        translation_key="wanted",
         entity_registry_enabled_default=False,
         value_fn=lambda data: data.totalRecords,
         attributes_fn=get_wanted_attr,

@@ -47,7 +47,7 @@ class SwitchBotSensorEntityDescription(SensorEntityDescription):
 SENSOR_TYPES: dict[str, SwitchBotSensorEntityDescription] = {
     "rssi": SwitchBotSensorEntityDescription(
         key="rssi",
-        REDACTED_VALUE"bluetooth_signal",
+        translation_key="bluetooth_signal",
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         state_class=SensorStateClass.MEASUREMENT,
@@ -56,7 +56,7 @@ SENSOR_TYPES: dict[str, SwitchBotSensorEntityDescription] = {
     ),
     "wifi_rssi": SwitchBotSensorEntityDescription(
         key="wifi_rssi",
-        REDACTED_VALUE"wifi_signal",
+        translation_key="wifi_signal",
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         state_class=SensorStateClass.MEASUREMENT,
@@ -78,7 +78,7 @@ SENSOR_TYPES: dict[str, SwitchBotSensorEntityDescription] = {
     ),
     "lightLevel": SwitchBotSensorEntityDescription(
         key="lightLevel",
-        REDACTED_VALUE"light_level",
+        translation_key="light_level",
         state_class=SensorStateClass.MEASUREMENT,
     ),
     "humidity": SwitchBotSensorEntityDescription(
@@ -119,7 +119,7 @@ SENSOR_TYPES: dict[str, SwitchBotSensorEntityDescription] = {
     ),
     "aqi_level": SwitchBotSensorEntityDescription(
         key="aqi_level",
-        REDACTED_VALUE"aqi_quality_level",
+        translation_key="aqi_quality_level",
         device_class=SensorDeviceClass.ENUM,
         options=[member.name.lower() for member in AirQualityLevel],
     ),
@@ -131,13 +131,13 @@ SENSOR_TYPES: dict[str, SwitchBotSensorEntityDescription] = {
     ),
     "water_level": SwitchBotSensorEntityDescription(
         key="water_level",
-        REDACTED_VALUE"water_level",
+        translation_key="water_level",
         device_class=SensorDeviceClass.ENUM,
         options=HumidifierWaterLevel.get_levels(),
     ),
     "battery_range": SwitchBotSensorEntityDescription(
         key="battery_range",
-        REDACTED_VALUE"battery_range",
+        translation_key="battery_range",
         device_class=SensorDeviceClass.ENUM,
         options=["critical", "low", "medium", "high"],
         entity_category=EntityCategory.DIAGNOSTIC,

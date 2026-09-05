@@ -70,7 +70,7 @@ class LetPotSelectEntityDescription[_DataT: LetPotDeviceStatus](
 SELECTORS: tuple[LetPotSelectEntityDescription[LetPotGardenStatus], ...] = (
     LetPotSelectEntityDescription[LetPotGardenStatus](
         key="display_temperature_unit",
-        REDACTED_VALUE"display_temperature_unit",
+        translation_key="display_temperature_unit",
         options=[x.name.lower() for x in TemperatureUnit],
         value_fn=(
             lambda coordinator: (
@@ -96,7 +96,7 @@ SELECTORS: tuple[LetPotSelectEntityDescription[LetPotGardenStatus], ...] = (
     ),
     LetPotSelectEntityDescription[LetPotGardenStatus](
         key="light_brightness_low_high",
-        REDACTED_VALUE"light_brightness",
+        translation_key="light_brightness",
         options=[
             LightBrightnessLowHigh.LOW.value,
             LightBrightnessLowHigh.HIGH.value,
@@ -115,7 +115,7 @@ SELECTORS: tuple[LetPotSelectEntityDescription[LetPotGardenStatus], ...] = (
     ),
     LetPotSelectEntityDescription[LetPotGardenStatus](
         key="light_mode",
-        REDACTED_VALUE"light_mode",
+        translation_key="light_mode",
         options=[x.name.lower() for x in LightMode],
         value_fn=(
             lambda coordinator: (

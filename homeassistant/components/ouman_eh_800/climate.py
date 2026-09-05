@@ -65,7 +65,7 @@ CLIMATE_DESCRIPTIONS: tuple[OumanEh800ClimateEntityDescription, ...] = (
     OumanEh800ClimateEntityDescription(
         device=OumanDevice.L1,
         key="climate",
-        REDACTED_VALUE"heating_circuit",
+        translation_key="heating_circuit",
         operation_mode_endpoint=L1BaseEndpoints.OPERATION_MODE,
         current_temperature_endpoint=L1RoomSensor.ROOM_TEMPERATURE,
         target_temperature_endpoint=L1RoomSensor.ROOM_TEMPERATURE_SETPOINT_USER,
@@ -74,7 +74,7 @@ CLIMATE_DESCRIPTIONS: tuple[OumanEh800ClimateEntityDescription, ...] = (
     OumanEh800ClimateEntityDescription(
         device=OumanDevice.L2,
         key="climate",
-        REDACTED_VALUE"heating_circuit",
+        translation_key="heating_circuit",
         operation_mode_endpoint=L2BaseEndpoints.OPERATION_MODE,
         current_temperature_endpoint=L2RoomSensor.ROOM_TEMPERATURE,
         target_temperature_endpoint=L2RoomSensor.ROOM_TEMPERATURE_SETPOINT_USER,

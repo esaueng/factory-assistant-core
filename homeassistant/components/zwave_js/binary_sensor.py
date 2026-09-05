@@ -151,23 +151,23 @@ class LegacyDoorStateRepairDescription:
 
 LEGACY_DOOR_STATE_REPAIR_DESCRIPTIONS: dict[str, LegacyDoorStateRepairDescription] = {
     "legacy_access_control_door_state_simple_open": LegacyDoorStateRepairDescription(
-        issue_REDACTED_VALUE"deprecated_legacy_door_open_state",
+        issue_translation_key="deprecated_legacy_door_open_state",
         replacement_state_key=OpeningState.OPEN,
     ),
     "legacy_access_control_door_state_open": LegacyDoorStateRepairDescription(
-        issue_REDACTED_VALUE"deprecated_legacy_door_open_state",
+        issue_translation_key="deprecated_legacy_door_open_state",
         replacement_state_key=OpeningState.OPEN,
     ),
     "legacy_access_control_door_state_open_regular": LegacyDoorStateRepairDescription(
-        issue_REDACTED_VALUE"deprecated_legacy_door_open_state",
+        issue_translation_key="deprecated_legacy_door_open_state",
         replacement_state_key=OpeningState.OPEN,
     ),
     "legacy_access_control_door_state_open_tilt": LegacyDoorStateRepairDescription(
-        issue_REDACTED_VALUE"deprecated_legacy_door_tilt_state",
+        issue_translation_key="deprecated_legacy_door_tilt_state",
         replacement_state_key=OpeningState.TILTED,
     ),
     "legacy_access_control_door_tilt_state_tilted": LegacyDoorStateRepairDescription(
-        issue_REDACTED_VALUE"deprecated_legacy_door_tilt_state",
+        issue_translation_key="deprecated_legacy_door_tilt_state",
         replacement_state_key=OpeningState.TILTED,
     ),
 }
@@ -537,7 +537,7 @@ def _async_check_legacy_entity_repair(
             is_fixable=False,
             is_persistent=False,
             severity=IssueSeverity.WARNING,
-            REDACTED_VALUErepair_description.issue_translation_key,
+            translation_key=repair_description.issue_translation_key,
             translation_placeholders={
                 "entity_id": entity_id,
                 "entity_name": (

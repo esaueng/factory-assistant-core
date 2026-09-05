@@ -88,7 +88,7 @@ class DemoManager:
             self._hass,
             lambda now: self._update(),
             DEFAULT_UPDATE_INTERVAL,
-            REDACTED_VALUE,
+            cancel_on_shutdown=True,
         )
 
     def _update(self, count: int = 1) -> None:

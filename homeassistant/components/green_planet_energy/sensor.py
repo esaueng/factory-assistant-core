@@ -72,7 +72,7 @@ SENSOR_DESCRIPTIONS: list[GreenPlanetEnergySensorEntityDescription] = [
     # Statistical sensors only - hourly prices available via service
     GreenPlanetEnergySensorEntityDescription(
         key="gpe_highest_price_today",
-        REDACTED_VALUE"highest_price_today",
+        translation_key="highest_price_today",
         native_unit_of_measurement=f"{CURRENCY_EURO}/{UnitOfEnergy.KILO_WATT_HOUR}",
         suggested_display_precision=4,
         value_fn=lambda api, data: (
@@ -83,7 +83,7 @@ SENSOR_DESCRIPTIONS: list[GreenPlanetEnergySensorEntityDescription] = [
     ),
     GreenPlanetEnergySensorEntityDescription(
         key="gpe_highest_price_time",
-        REDACTED_VALUE"highest_price_time",
+        translation_key="highest_price_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda api, data: (
             dt_util.start_of_local_day().replace(hour=hour)
@@ -93,7 +93,7 @@ SENSOR_DESCRIPTIONS: list[GreenPlanetEnergySensorEntityDescription] = [
     ),
     GreenPlanetEnergySensorEntityDescription(
         key="gpe_lowest_price_day",
-        REDACTED_VALUE"lowest_price_day",
+        translation_key="lowest_price_day",
         native_unit_of_measurement=f"{CURRENCY_EURO}/{UnitOfEnergy.KILO_WATT_HOUR}",
         suggested_display_precision=4,
         translation_placeholders={"time_range": "(06:00-18:00)"},
@@ -105,14 +105,14 @@ SENSOR_DESCRIPTIONS: list[GreenPlanetEnergySensorEntityDescription] = [
     ),
     GreenPlanetEnergySensorEntityDescription(
         key="gpe_lowest_price_day_time",
-        REDACTED_VALUE"lowest_price_day_time",
+        translation_key="lowest_price_day_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         translation_placeholders={"time_range": "(06:00-18:00)"},
         value_fn=_get_lowest_price_day_time,
     ),
     GreenPlanetEnergySensorEntityDescription(
         key="gpe_lowest_price_night",
-        REDACTED_VALUE"lowest_price_night",
+        translation_key="lowest_price_night",
         native_unit_of_measurement=f"{CURRENCY_EURO}/{UnitOfEnergy.KILO_WATT_HOUR}",
         suggested_display_precision=4,
         translation_placeholders={"time_range": "(18:00-06:00)"},
@@ -124,14 +124,14 @@ SENSOR_DESCRIPTIONS: list[GreenPlanetEnergySensorEntityDescription] = [
     ),
     GreenPlanetEnergySensorEntityDescription(
         key="gpe_lowest_price_night_time",
-        REDACTED_VALUE"lowest_price_night_time",
+        translation_key="lowest_price_night_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         translation_placeholders={"time_range": "(18:00-06:00)"},
         value_fn=_get_lowest_price_night_time,
     ),
     GreenPlanetEnergySensorEntityDescription(
         key="gpe_current_price",
-        REDACTED_VALUE"current_price",
+        translation_key="current_price",
         native_unit_of_measurement=f"{CURRENCY_EURO}/{UnitOfEnergy.KILO_WATT_HOUR}",
         suggested_display_precision=4,
         value_fn=lambda api, data: (

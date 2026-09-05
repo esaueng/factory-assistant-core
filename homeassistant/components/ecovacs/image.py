@@ -54,7 +54,7 @@ class EcovacsMap(
 
     entity_description = EntityDescription(
         key="map",
-        REDACTED_VALUE"map",
+        translation_key="map",
     )
 
     def image(self) -> bytes | None:

@@ -26,7 +26,7 @@ class TileBinarySensorEntityDescription(BinarySensorEntityDescription):
 ENTITIES: tuple[TileBinarySensorEntityDescription, ...] = (
     TileBinarySensorEntityDescription(
         key="lost",
-        REDACTED_VALUE"lost",
+        translation_key="lost",
         is_on_fn=lambda tile: tile.lost,
     ),
 )

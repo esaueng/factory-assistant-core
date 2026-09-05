@@ -72,7 +72,7 @@ class GardenaBluetoothSensorEntityDescription[T](SensorEntityDescription):
 DESCRIPTIONS = (
     GardenaBluetoothSensorEntityDescription(
         key=Valve.activation_reason.unique_id,
-        REDACTED_VALUE"activation_reason",
+        translation_key="activation_reason",
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -96,7 +96,7 @@ DESCRIPTIONS = (
     ),
     GardenaBluetoothSensorEntityDescription(
         key=Sensor.battery_level.unique_id,
-        REDACTED_VALUE"sensor_battery_level",
+        translation_key="sensor_battery_level",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.BATTERY,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -114,14 +114,14 @@ DESCRIPTIONS = (
     ),
     GardenaBluetoothSensorEntityDescription(
         key=Sensor.type.unique_id,
-        REDACTED_VALUE"sensor_type",
+        translation_key="sensor_type",
         entity_category=EntityCategory.DIAGNOSTIC,
         char=Sensor.type,
         connected_state=Sensor.connected_state,
     ),
     GardenaBluetoothSensorEntityDescription(
         key=Sensor.measurement_timestamp.unique_id,
-        REDACTED_VALUE"sensor_measurement_timestamp",
+        translation_key="sensor_measurement_timestamp",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         char=Sensor.measurement_timestamp,
@@ -130,7 +130,7 @@ DESCRIPTIONS = (
     ),
     GardenaBluetoothSensorEntityDescription(
         key=FlowStatistics.overall.unique_id,
-        REDACTED_VALUE"flow_statistics_overall",
+        translation_key="flow_statistics_overall",
         state_class=SensorStateClass.TOTAL_INCREASING,
         device_class=SensorDeviceClass.WATER,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -139,7 +139,7 @@ DESCRIPTIONS = (
     ),
     GardenaBluetoothSensorEntityDescription(
         key=FlowStatistics.current.unique_id,
-        REDACTED_VALUE"flow_statistics_current",
+        translation_key="flow_statistics_current",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -148,7 +148,7 @@ DESCRIPTIONS = (
     ),
     GardenaBluetoothSensorEntityDescription(
         key=FlowStatistics.resettable.unique_id,
-        REDACTED_VALUE"flow_statistics_resettable",
+        translation_key="flow_statistics_resettable",
         state_class=SensorStateClass.TOTAL_INCREASING,
         device_class=SensorDeviceClass.WATER,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -157,7 +157,7 @@ DESCRIPTIONS = (
     ),
     GardenaBluetoothSensorEntityDescription(
         key=FlowStatistics.last_reset.unique_id,
-        REDACTED_VALUE"flow_statistics_reset_timestamp",
+        translation_key="flow_statistics_reset_timestamp",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         char=FlowStatistics.last_reset,
@@ -165,7 +165,7 @@ DESCRIPTIONS = (
     ),
     GardenaBluetoothSensorEntityDescription(
         key=Spray.current_distance.unique_id,
-        REDACTED_VALUE"spray_current_distance",
+        translation_key="spray_current_distance",
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=PERCENTAGE,
@@ -174,7 +174,7 @@ DESCRIPTIONS = (
     ),
     GardenaBluetoothSensorEntityDescription(
         key=Spray.current_sector.unique_id,
-        REDACTED_VALUE"spray_current_sector",
+        translation_key="spray_current_sector",
         state_class=SensorStateClass.MEASUREMENT_ANGLE,
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=DEGREE,
@@ -182,7 +182,7 @@ DESCRIPTIONS = (
     ),
     GardenaBluetoothSensorEntityDescription(
         key="aqua_contour_error",
-        REDACTED_VALUE"aqua_contour_error",
+        translation_key="aqua_contour_error",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.ENUM,
         char=EventHistory.error,
@@ -195,7 +195,7 @@ DESCRIPTIONS = (
     ),
     GardenaBluetoothSensorEntityDescription(
         key="aqua_contour_error_timestamp",
-        REDACTED_VALUE"error_timestamp",
+        translation_key="error_timestamp",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.TIMESTAMP,
         char=EventHistory.error,

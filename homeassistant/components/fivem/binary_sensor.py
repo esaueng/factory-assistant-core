@@ -25,7 +25,7 @@ class FiveMBinarySensorEntityDescription(
 BINARY_SENSORS: tuple[FiveMBinarySensorEntityDescription, ...] = (
     FiveMBinarySensorEntityDescription(
         key=NAME_STATUS,
-        REDACTED_VALUE"status",
+        translation_key="status",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
     ),
 )

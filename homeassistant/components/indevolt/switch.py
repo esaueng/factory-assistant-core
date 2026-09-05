@@ -36,7 +36,7 @@ class IndevoltSwitchEntityDescription(SwitchEntityDescription):
 SWITCHES: Final = (
     IndevoltSwitchEntityDescription(
         key="grid_charging",
-        REDACTED_VALUE"grid_charging",
+        translation_key="grid_charging",
         generation=(2,),
         read_key=IndevoltConfig.READ_GRID_CHARGING,
         write_key=IndevoltConfig.WRITE_GRID_CHARGING,
@@ -46,7 +46,7 @@ SWITCHES: Final = (
     ),
     IndevoltSwitchEntityDescription(
         key="light",
-        REDACTED_VALUE"light",
+        translation_key="light",
         generation=(2,),
         read_key=IndevoltConfig.READ_LIGHT,
         write_key=IndevoltConfig.WRITE_LIGHT,
@@ -54,7 +54,7 @@ SWITCHES: Final = (
     ),
     IndevoltSwitchEntityDescription(
         key="bypass",
-        REDACTED_VALUE"bypass",
+        translation_key="bypass",
         generation=(2,),
         read_key=IndevoltConfig.READ_BYPASS,
         write_key=IndevoltConfig.WRITE_BYPASS,
@@ -138,6 +138,6 @@ class IndevoltSwitchEntity(IndevoltEntity, SwitchEntity):
         else:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"write_error",
+                translation_key="write_error",
                 translation_placeholders={"name": str(self.name)},
             )

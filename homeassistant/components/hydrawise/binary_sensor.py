@@ -50,7 +50,7 @@ CONTROLLER_BINARY_SENSORS: tuple[HydrawiseBinarySensorEntityDescription, ...] = 
 RAIN_SENSOR_BINARY_SENSOR: tuple[HydrawiseBinarySensorEntityDescription, ...] = (
     HydrawiseBinarySensorEntityDescription(
         key="rain_sensor",
-        REDACTED_VALUE"rain_sensor",
+        translation_key="rain_sensor",
         device_class=BinarySensorDeviceClass.MOISTURE,
         value_fn=lambda rain_sensor: rain_sensor.sensor.status.active,
     ),
@@ -59,7 +59,7 @@ RAIN_SENSOR_BINARY_SENSOR: tuple[HydrawiseBinarySensorEntityDescription, ...] = 
 ZONE_BINARY_SENSORS: tuple[HydrawiseBinarySensorEntityDescription, ...] = (
     HydrawiseBinarySensorEntityDescription(
         key="is_watering",
-        REDACTED_VALUE"watering",
+        translation_key="watering",
         device_class=BinarySensorDeviceClass.RUNNING,
         value_fn=(
             lambda watering_sensor: (

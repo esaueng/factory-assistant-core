@@ -48,7 +48,7 @@ SENSOR_TYPES = [
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"grid_voltage",
+        translation_key="grid_voltage",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
@@ -57,7 +57,7 @@ SENSOR_TYPES = [
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"grid_current",
+        translation_key="grid_current",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
@@ -66,7 +66,7 @@ SENSOR_TYPES = [
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfFrequency.HERTZ,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"grid_frequency",
+        translation_key="grid_frequency",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
@@ -75,7 +75,7 @@ SENSOR_TYPES = [
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"i_leak_dcdc",
+        translation_key="i_leak_dcdc",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
@@ -84,7 +84,7 @@ SENSOR_TYPES = [
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"i_leak_inverter",
+        translation_key="i_leak_inverter",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
@@ -93,7 +93,7 @@ SENSOR_TYPES = [
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"power_in_1",
+        translation_key="power_in_1",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
@@ -102,7 +102,7 @@ SENSOR_TYPES = [
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"power_in_2",
+        translation_key="power_in_2",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
@@ -111,7 +111,7 @@ SENSOR_TYPES = [
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"voltage_in_1",
+        translation_key="voltage_in_1",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
@@ -120,7 +120,7 @@ SENSOR_TYPES = [
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"current_in_1",
+        translation_key="current_in_1",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
@@ -129,7 +129,7 @@ SENSOR_TYPES = [
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"voltage_in_2",
+        translation_key="voltage_in_2",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
@@ -138,7 +138,7 @@ SENSOR_TYPES = [
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"current_in_2",
+        translation_key="current_in_2",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
@@ -146,14 +146,14 @@ SENSOR_TYPES = [
         device_class=SensorDeviceClass.ENUM,
         options=ALARM_STATES,
         entity_category=EntityCategory.DIAGNOSTIC,
-        REDACTED_VALUE"alarm",
+        translation_key="alarm",
     ),
     SensorEntityDescription(
         key="instantaneouspower",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"power_output",
+        translation_key="power_output",
     ),
     SensorEntityDescription(
         key="temp",
@@ -167,7 +167,7 @@ SENSOR_TYPES = [
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement="MOhms",
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"r_iso",
+        translation_key="r_iso",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
@@ -175,7 +175,7 @@ SENSOR_TYPES = [
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
-        REDACTED_VALUE"total_energy",
+        translation_key="total_energy",
     ),
 ]
 

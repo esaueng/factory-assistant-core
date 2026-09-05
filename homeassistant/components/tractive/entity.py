@@ -29,7 +29,7 @@ class TractiveEntity(Entity):
             self._attr_device_info = DeviceInfo(
                 configuration_url="https://my.tractive.com/",
                 identifiers={(DOMAIN, tracker_details["_id"])},
-                REDACTED_VALUE"tracker",
+                translation_key="tracker",
                 translation_placeholders={"id": tracker_details["_id"]},
                 manufacturer="Tractive GmbH",
                 sw_version=tracker_details["fw_version"],

@@ -1371,7 +1371,7 @@ class EntityRegistry(BaseRegistry):
                 original_name=original_name,
                 suggested_object_id=suggested_object_id,
                 supported_features=supported_features,
-                REDACTED_VALUEtranslation_key,
+                translation_key=translation_key,
                 unit_of_measurement=unit_of_measurement,
             )
 
@@ -1500,7 +1500,7 @@ class EntityRegistry(BaseRegistry):
             platform=platform,
             suggested_object_id=suggested_object_id,
             supported_features=none_if_undefined(supported_features) or 0,
-            REDACTED_VALUEnone_if_undefined(translation_key),
+            translation_key=none_if_undefined(translation_key),
             unique_id=unique_id,
             unit_of_measurement=none_if_undefined(unit_of_measurement),
         )
@@ -1930,7 +1930,7 @@ class EntityRegistry(BaseRegistry):
             original_icon=original_icon,
             original_name=original_name,
             supported_features=supported_features,
-            REDACTED_VALUEtranslation_key,
+            translation_key=translation_key,
             unit_of_measurement=unit_of_measurement,
         )
 
@@ -2071,7 +2071,7 @@ class EntityRegistry(BaseRegistry):
                     platform=entity["platform"],
                     suggested_object_id=entity["suggested_object_id"],
                     supported_features=entity["supported_features"],
-                    REDACTED_VALUEentity["translation_key"],
+                    translation_key=entity["translation_key"],
                     unique_id=entity["unique_id"],
                     previous_unique_id=entity["previous_unique_id"],
                     unit_of_measurement=entity["unit_of_measurement"],

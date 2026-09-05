@@ -44,7 +44,7 @@ SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="lifetime_energy",
         json_key="lifeTimeData",
-        REDACTED_VALUE"lifetime_energy",
+        translation_key="lifetime_energy",
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -52,7 +52,7 @@ SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="energy_this_year",
         json_key="lastYearData",
-        REDACTED_VALUE"energy_this_year",
+        translation_key="energy_this_year",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
@@ -61,7 +61,7 @@ SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="energy_this_month",
         json_key="lastMonthData",
-        REDACTED_VALUE"energy_this_month",
+        translation_key="energy_this_month",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
@@ -70,7 +70,7 @@ SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="energy_today",
         json_key="lastDayData",
-        REDACTED_VALUE"energy_today",
+        translation_key="energy_today",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
@@ -79,7 +79,7 @@ SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="current_power",
         json_key="currentPower",
-        REDACTED_VALUE"current_power",
+        translation_key="current_power",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
@@ -87,43 +87,43 @@ SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="site_details",
         json_key="status",
-        REDACTED_VALUE"site_details",
+        translation_key="site_details",
         entity_registry_enabled_default=False,
     ),
     SolarEdgeSensorEntityDescription(
         key="meters",
         json_key="meters",
-        REDACTED_VALUE"meters",
+        translation_key="meters",
         entity_registry_enabled_default=False,
     ),
     SolarEdgeSensorEntityDescription(
         key="sensors",
         json_key="sensors",
-        REDACTED_VALUE"sensors",
+        translation_key="sensors",
         entity_registry_enabled_default=False,
     ),
     SolarEdgeSensorEntityDescription(
         key="gateways",
         json_key="gateways",
-        REDACTED_VALUE"gateways",
+        translation_key="gateways",
         entity_registry_enabled_default=False,
     ),
     SolarEdgeSensorEntityDescription(
         key="batteries",
         json_key="batteries",
-        REDACTED_VALUE"batteries",
+        translation_key="batteries",
         entity_registry_enabled_default=False,
     ),
     SolarEdgeSensorEntityDescription(
         key="inverters",
         json_key="inverters",
-        REDACTED_VALUE"inverters",
+        translation_key="inverters",
         entity_registry_enabled_default=False,
     ),
     SolarEdgeSensorEntityDescription(
         key="power_consumption",
         json_key="LOAD",
-        REDACTED_VALUE"power_consumption",
+        translation_key="power_consumption",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.POWER,
@@ -131,7 +131,7 @@ SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="solar_power",
         json_key="PV",
-        REDACTED_VALUE"solar_power",
+        translation_key="solar_power",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.POWER,
@@ -139,7 +139,7 @@ SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="grid_power",
         json_key="GRID",
-        REDACTED_VALUE"grid_power",
+        translation_key="grid_power",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.POWER,
@@ -147,7 +147,7 @@ SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="storage_power",
         json_key="STORAGE",
-        REDACTED_VALUE"storage_power",
+        translation_key="storage_power",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.POWER,
@@ -155,7 +155,7 @@ SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="grid_flow_direction",
         json_key="grid_flow_direction",
-        REDACTED_VALUE"grid_flow_direction",
+        translation_key="grid_flow_direction",
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.ENUM,
         options=["export", "import"],
@@ -163,7 +163,7 @@ SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="storage_flow_direction",
         json_key="storage_flow_direction",
-        REDACTED_VALUE"storage_flow_direction",
+        translation_key="storage_flow_direction",
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.ENUM,
         options=["charge", "discharge"],
@@ -171,7 +171,7 @@ SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="purchased_energy",
         json_key="Purchased",
-        REDACTED_VALUE"purchased_energy",
+        translation_key="purchased_energy",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
@@ -180,7 +180,7 @@ SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="production_energy",
         json_key="Production",
-        REDACTED_VALUE"production_energy",
+        translation_key="production_energy",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
@@ -189,7 +189,7 @@ SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="consumption_energy",
         json_key="Consumption",
-        REDACTED_VALUE"consumption_energy",
+        translation_key="consumption_energy",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
@@ -198,7 +198,7 @@ SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="selfconsumption_energy",
         json_key="SelfConsumption",
-        REDACTED_VALUE"selfconsumption_energy",
+        translation_key="selfconsumption_energy",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
@@ -207,7 +207,7 @@ SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="feedin_energy",
         json_key="FeedIn",
-        REDACTED_VALUE"feedin_energy",
+        translation_key="feedin_energy",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
@@ -216,7 +216,7 @@ SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="storage_level",
         json_key="storage_level",
-        REDACTED_VALUE"storage_level",
+        translation_key="storage_level",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
@@ -225,7 +225,7 @@ SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="storage_charge_energy",
         json_key="charge_energy",
-        REDACTED_VALUE"storage_charge_energy",
+        translation_key="storage_charge_energy",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
@@ -234,7 +234,7 @@ SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="storage_discharge_energy",
         json_key="discharge_energy",
-        REDACTED_VALUE"storage_discharge_energy",
+        translation_key="storage_discharge_energy",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
@@ -247,7 +247,7 @@ BATTERY_SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="battery_charge_energy",
         json_key="charge_energy",
-        REDACTED_VALUE"battery_charge_energy",
+        translation_key="battery_charge_energy",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
@@ -256,7 +256,7 @@ BATTERY_SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="battery_discharge_energy",
         json_key="discharge_energy",
-        REDACTED_VALUE"battery_discharge_energy",
+        translation_key="battery_discharge_energy",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
@@ -265,7 +265,7 @@ BATTERY_SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="battery_state_of_charge",
         json_key="state_of_charge",
-        REDACTED_VALUE"battery_state_of_charge",
+        translation_key="battery_state_of_charge",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
@@ -274,7 +274,7 @@ BATTERY_SENSOR_TYPES = [
     SolarEdgeSensorEntityDescription(
         key="battery_power",
         json_key="power",
-        REDACTED_VALUE"battery_power",
+        translation_key="battery_power",
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.WATT,

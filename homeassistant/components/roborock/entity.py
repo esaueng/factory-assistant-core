@@ -60,7 +60,7 @@ class RoborockEntityV1(RoborockEntity):
                 command_name = command
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={
                     "command": command_name,
                 },

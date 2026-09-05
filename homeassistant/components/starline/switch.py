@@ -13,19 +13,19 @@ from .entity import StarlineEntity
 SWITCH_TYPES: tuple[SwitchEntityDescription, ...] = (
     SwitchEntityDescription(
         key="ign",
-        REDACTED_VALUE"engine",
+        translation_key="engine",
     ),
     SwitchEntityDescription(
         key="webasto",
-        REDACTED_VALUE"webasto",
+        translation_key="webasto",
     ),
     SwitchEntityDescription(
         key="out",
-        REDACTED_VALUE"additional_channel",
+        translation_key="additional_channel",
     ),
     SwitchEntityDescription(
         key="valet",
-        REDACTED_VALUE"service_mode",
+        translation_key="service_mode",
     ),
 )
 

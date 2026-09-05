@@ -47,7 +47,7 @@ class TelegramBotEventEntity(TelegramBotEntity, EventEntity):
 
         super().__init__(
             config_entry,
-            EventEntityDescription(key="update_event", REDACTED_VALUE"update_event"),
+            EventEntityDescription(key="update_event", translation_key="update_event"),
         )
 
     async def async_added_to_hass(self) -> None:

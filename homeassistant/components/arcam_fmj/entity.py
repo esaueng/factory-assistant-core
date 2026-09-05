@@ -25,7 +25,7 @@ def convert_exception[**_P, _R](
             return await func(*args, **kwargs)
         except ConnectionFailed as exception:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"connection_failed"
+                translation_domain=DOMAIN, translation_key="connection_failed"
             ) from exception
 
     return _convert_exception

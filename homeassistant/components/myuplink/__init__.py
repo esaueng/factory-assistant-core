@@ -45,7 +45,7 @@ async def async_setup_entry(
     except ImplementationUnavailableError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"implementation_unavailable",
+            translation_key="implementation_unavailable",
         ) from err
 
     session = OAuth2Session(hass, config_entry, implementation)
@@ -57,22 +57,22 @@ async def async_setup_entry(
         if err.status in {HTTPStatus.UNAUTHORIZED, HTTPStatus.FORBIDDEN}:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"config_entry_auth_failed",
+                translation_key="config_entry_auth_failed",
             ) from err
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"config_entry_not_ready",
+            translation_key="config_entry_not_ready",
         ) from err
     except ClientError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"config_entry_not_ready",
+            translation_key="config_entry_not_ready",
         ) from err
 
     if set(config_entry.data["token"]["scope"].split(" ")) != set(OAUTH2_SCOPES):
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"incorrect_oauth2_scope",
+            translation_key="incorrect_oauth2_scope",
         )
 
     # Setup MyUplinkAPI and coordinator for data fetch

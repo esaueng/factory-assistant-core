@@ -28,7 +28,7 @@ async def async_setup_entry(
                 entry.runtime_data,
                 SensorEntityDescription(
                     key="do_not_disturb_until",
-                    REDACTED_VALUE"do_not_disturb_until",
+                    translation_key="do_not_disturb_until",
                     device_class=SensorDeviceClass.TIMESTAMP,
                 ),
                 entry,

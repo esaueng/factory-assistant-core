@@ -36,26 +36,26 @@ class SmSwitchEntityDescription(SwitchEntityDescription):
 SWITCHES: list[SmSwitchEntityDescription] = [
     SmSwitchEntityDescription(
         key="disable_led",
-        REDACTED_VALUE"disable_led",
+        translation_key="disable_led",
         setting=Settings.DISABLE_LEDS,
         state_fn=lambda x: x.disable_leds,
     ),
     SmSwitchEntityDescription(
         key="night_mode",
-        REDACTED_VALUE"night_mode",
+        translation_key="night_mode",
         setting=Settings.NIGHT_MODE,
         state_fn=lambda x: x.night_mode,
     ),
     SmSwitchEntityDescription(
         key="auto_zigbee_update",
-        REDACTED_VALUE"auto_zigbee_update",
+        translation_key="auto_zigbee_update",
         setting=Settings.ZB_AUTOUPDATE,
         entity_registry_enabled_default=False,
         state_fn=lambda x: x.auto_zigbee,
     ),
     SmSwitchEntityDescription(
         key="vpn_enabled",
-        REDACTED_VALUE"vpn_enabled",
+        translation_key="vpn_enabled",
         setting=Settings.ENABLE_VPN,
         entity_registry_enabled_default=False,
         state_fn=lambda x: x.vpn_enabled,

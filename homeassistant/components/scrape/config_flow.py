@@ -161,7 +161,7 @@ SENSOR_SETTINGS = vol.Schema(
                                 if cls != SensorDeviceClass.ENUM
                             ],
                             mode=SelectSelectorMode.DROPDOWN,
-                            REDACTED_VALUE"device_class",
+                            translation_key="device_class",
                             sort=True,
                         )
                     ),
@@ -169,7 +169,7 @@ SENSOR_SETTINGS = vol.Schema(
                         SelectSelectorConfig(
                             options=[cls.value for cls in SensorStateClass],
                             mode=SelectSelectorMode.DROPDOWN,
-                            REDACTED_VALUE"state_class",
+                            translation_key="state_class",
                             sort=True,
                         )
                     ),
@@ -178,7 +178,7 @@ SENSOR_SETTINGS = vol.Schema(
                             options=[cls.value for cls in UnitOfTemperature],
                             custom_value=True,
                             mode=SelectSelectorMode.DROPDOWN,
-                            REDACTED_VALUE"unit_of_measurement",
+                            translation_key="unit_of_measurement",
                             sort=True,
                         )
                     ),

@@ -46,7 +46,7 @@ class ProbePlusDataUpdateCoordinator(DataUpdateCoordinator[None]):
         if available_scanners == 0:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_bleak_scanner",
+                translation_key="no_bleak_scanner",
             )
 
         self.device: ProbePlusDevice = ProbePlusDevice(

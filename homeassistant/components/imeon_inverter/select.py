@@ -30,7 +30,7 @@ class ImeonSelectEntityDescription(SelectEntityDescription):
 SELECT_DESCRIPTIONS: tuple[ImeonSelectEntityDescription, ...] = (
     ImeonSelectEntityDescription(
         key="manager_inverter_mode",
-        REDACTED_VALUE"manager_inverter_mode",
+        translation_key="manager_inverter_mode",
         options=list(INVERTER_MODE_OPTIONS),
         values=ATTR_INVERTER_MODE,
         set_value_fn=lambda api, mode: api.set_inverter_mode(

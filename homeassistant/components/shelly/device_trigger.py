@@ -104,7 +104,7 @@ async def async_validate_trigger_config(
 
     raise InvalidDeviceAutomationConfig(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"invalid_trigger",
+        translation_key="invalid_trigger",
         translation_placeholders={"trigger": str(trigger)},
     )
 
@@ -139,7 +139,7 @@ async def async_get_triggers(
 
     raise InvalidDeviceAutomationConfig(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"device_not_found",
+        translation_key="device_not_found",
         translation_placeholders={"device": device_id},
     )
 

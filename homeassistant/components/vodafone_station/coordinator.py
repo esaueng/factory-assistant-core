@@ -140,7 +140,7 @@ class VodafoneStationRouter(DataUpdateCoordinator[UpdateCoordinatorDataType]):
         except exceptions.CannotAuthenticate as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_authenticate",
+                translation_key="cannot_authenticate",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except (
@@ -157,7 +157,7 @@ class VodafoneStationRouter(DataUpdateCoordinator[UpdateCoordinatorDataType]):
                 await self.initialize_api()
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
+                translation_key="update_failed",
                 translation_placeholders={"error": repr(err)},
             ) from err
 

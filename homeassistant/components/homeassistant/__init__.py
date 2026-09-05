@@ -292,7 +292,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # noqa:
         except (HomeAssistantError, FileNotFoundError) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"core_config_reload_failed",
+                translation_key="core_config_reload_failed",
                 translation_placeholders={"error": str(err)},
             ) from err
 
@@ -432,7 +432,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # noqa:
                     learn_more_url=DEPRECATION_URL,
                     is_fixable=False,
                     severity=IssueSeverity.WARNING,
-                    REDACTED_VALUE"deprecated_container",
+                    translation_key="deprecated_container",
                     translation_placeholders={"arch": arch},
                 )
             deprecated_architecture = bit32 and installation_type != "Container"
@@ -449,7 +449,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # noqa:
                     learn_more_url=DEPRECATION_URL,
                     is_fixable=False,
                     severity=IssueSeverity.WARNING,
-                    REDACTED_VALUEissue_id,
+                    translation_key=issue_id,
                     translation_placeholders={
                         "installation_type": installation_type,
                         "arch": arch,
@@ -464,7 +464,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # noqa:
                 learn_more_url=DEPRECATION_URL,
                 is_fixable=False,
                 severity=IssueSeverity.WARNING,
-                REDACTED_VALUE"unsupported_local_deps",
+                translation_key="unsupported_local_deps",
             )
 
     # Delay deprecation check to make sure installation method is determined correctly

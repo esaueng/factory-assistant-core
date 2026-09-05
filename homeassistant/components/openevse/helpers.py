@@ -27,18 +27,18 @@ def openevse_exception_handler(value: float) -> Iterator[None]:
     except ValueError as err:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_value",
+            translation_key="invalid_value",
             translation_placeholders={"value": str(value)},
         ) from err
     except AuthenticationError as err:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"authentication_error",
+            translation_key="authentication_error",
         ) from err
     except UnsupportedFeature as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unsupported_feature",
+            translation_key="unsupported_feature",
         ) from err
     except (
         TimeoutError,
@@ -48,5 +48,5 @@ def openevse_exception_handler(value: float) -> Iterator[None]:
     ) as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"communication_error",
+            translation_key="communication_error",
         ) from err

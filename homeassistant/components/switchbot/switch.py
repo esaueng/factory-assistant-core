@@ -35,7 +35,7 @@ class SwitchbotSwitchEntityDescription(SwitchEntityDescription):
 AIRPURIFIER_BASIC_SWITCHES: tuple[SwitchbotSwitchEntityDescription, ...] = (
     SwitchbotSwitchEntityDescription(
         key="child_lock",
-        REDACTED_VALUE"child_lock",
+        translation_key="child_lock",
         device_class=SwitchDeviceClass.SWITCH,
         is_on_fn=lambda device: device.is_child_lock_on(),
         turn_on_fn=lambda device: device.open_child_lock(),
@@ -47,7 +47,7 @@ AIRPURIFIER_TABLE_SWITCHES: tuple[SwitchbotSwitchEntityDescription, ...] = (
     *AIRPURIFIER_BASIC_SWITCHES,
     SwitchbotSwitchEntityDescription(
         key="wireless_charging",
-        REDACTED_VALUE"wireless_charging",
+        translation_key="wireless_charging",
         device_class=SwitchDeviceClass.SWITCH,
         is_on_fn=lambda device: device.is_wireless_charging_on(),
         turn_on_fn=lambda device: device.open_wireless_charging(),

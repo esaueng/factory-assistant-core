@@ -137,7 +137,7 @@ class LockEntity(Entity, cached_properties=CACHED_PROPERTIES_WITH_ATTR_):
                 assert self.code_format
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"add_default_code",
+                translation_key="add_default_code",
                 translation_placeholders={
                     "entity_id": self.entity_id,
                     "code_format": self.code_format,

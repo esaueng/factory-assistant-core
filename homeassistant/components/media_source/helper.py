@@ -27,7 +27,7 @@ def _get_media_item(
     if item.domain is not None and item.domain not in hass.data[MEDIA_SOURCE_DATA]:
         raise UnknownMediaSource(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unknown_media_source",
+            translation_key="unknown_media_source",
             translation_placeholders={"domain": item.domain},
         )
 
@@ -49,7 +49,7 @@ async def async_browse_media(
     except ValueError as err:
         raise BrowseError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"browse_media_failed",
+            translation_key="browse_media_failed",
             translation_placeholders={
                 "media_content_id": str(media_content_id),
                 "error": str(err),
@@ -88,7 +88,7 @@ async def async_resolve_media(
     except ValueError as err:
         raise Unresolvable(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"resolve_media_failed",
+            translation_key="resolve_media_failed",
             translation_placeholders={
                 "media_content_id": str(media_content_id),
                 "error": str(err),

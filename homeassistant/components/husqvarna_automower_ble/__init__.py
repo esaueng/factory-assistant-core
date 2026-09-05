@@ -28,7 +28,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: HusqvarnaConfigEntry) ->
     if CONF_PIN not in entry.data:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"pin_required",
+            translation_key="pin_required",
             translation_placeholders={"domain_name": "Husqvarna Automower BLE"},
         )
 
@@ -58,7 +58,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: HusqvarnaConfigEntry) ->
     except (TimeoutError, BleakError) as exception:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"connection_failed",
+            translation_key="connection_failed",
             translation_placeholders={
                 "address": address,
                 "error": str(exception) or type(exception).__name__,

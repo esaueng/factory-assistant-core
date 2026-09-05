@@ -32,7 +32,7 @@ def _count_now_playing(data: dict[str, dict[str, Any]]) -> int:
 SENSOR_TYPES: tuple[JellyfinSensorEntityDescription, ...] = (
     JellyfinSensorEntityDescription(
         key="watching",
-        REDACTED_VALUE"watching",
+        translation_key="watching",
         value_fn=_count_now_playing,
     ),
 )

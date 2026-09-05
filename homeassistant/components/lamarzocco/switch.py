@@ -41,7 +41,7 @@ class LaMarzoccoSwitchEntityDescription(
 ENTITIES: tuple[LaMarzoccoSwitchEntityDescription, ...] = (
     LaMarzoccoSwitchEntityDescription(
         key="steam_boiler_enable",
-        REDACTED_VALUE"steam_boiler",
+        translation_key="steam_boiler",
         control_fn=lambda machine, state: machine.set_steam(state),
         is_on_fn=(
             lambda machine: (
@@ -61,7 +61,7 @@ ENTITIES: tuple[LaMarzoccoSwitchEntityDescription, ...] = (
     ),
     LaMarzoccoSwitchEntityDescription(
         key="steam_boiler_enable",
-        REDACTED_VALUE"steam_boiler",
+        translation_key="steam_boiler",
         control_fn=lambda machine, state: machine.set_steam(state),
         is_on_fn=(
             lambda machine: (
@@ -81,7 +81,7 @@ ENTITIES: tuple[LaMarzoccoSwitchEntityDescription, ...] = (
     ),
     LaMarzoccoSwitchEntityDescription(
         key="smart_standby_enabled",
-        REDACTED_VALUE"smart_standby_enabled",
+        translation_key="smart_standby_enabled",
         entity_category=EntityCategory.CONFIG,
         control_fn=lambda machine, state: machine.set_smart_standby(
             enabled=state,
@@ -97,7 +97,7 @@ ENTITIES: tuple[LaMarzoccoSwitchEntityDescription, ...] = (
 
 MAIN_SWITCH_ENTITY = LaMarzoccoSwitchEntityDescription(
     key="main",
-    REDACTED_VALUE"main",
+    translation_key="main",
     name=None,
     control_fn=lambda machine, state: machine.set_power(state),
     is_on_fn=(
@@ -157,7 +157,7 @@ class LaMarzoccoSwitchEntity(LaMarzoccoEntity, SwitchEntity):
         except RequestNotSuccessful as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"switch_on_error",
+                translation_key="switch_on_error",
                 translation_placeholders={"key": self.entity_description.key},
             ) from exc
         self.async_write_ha_state()
@@ -169,7 +169,7 @@ class LaMarzoccoSwitchEntity(LaMarzoccoEntity, SwitchEntity):
         except RequestNotSuccessful as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"switch_off_error",
+                translation_key="switch_off_error",
                 translation_placeholders={"key": self.entity_description.key},
             ) from exc
         self.async_write_ha_state()
@@ -218,7 +218,7 @@ class LaMarzoccoAutoOnOffSwitchEntity(LaMarzoccoBaseEntity, SwitchEntity):
         except RequestNotSuccessful as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auto_on_off_error",
+                translation_key="auto_on_off_error",
                 translation_placeholders={"id": self._identifier, "state": str(state)},
             ) from exc
         self.async_write_ha_state()

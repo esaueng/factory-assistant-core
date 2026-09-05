@@ -20,7 +20,7 @@ from .services import handle_fressnapf_tracker_exception
 PARALLEL_UPDATES = 1
 
 SWITCH_ENTITY_DESCRIPTION = SwitchEntityDescription(
-    REDACTED_VALUE"energy_saving",
+    translation_key="energy_saving",
     entity_category=EntityCategory.CONFIG,
     device_class=SwitchDeviceClass.SWITCH,
     key="energy_saving",

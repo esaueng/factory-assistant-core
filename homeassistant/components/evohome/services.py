@@ -109,7 +109,7 @@ def _resolve_ctl_unique_id(
             hass,
             f"deprecated_{call.service}_service",
             SERVICE_BREAKS_IN_HA_VERSION,
-            REDACTED_VALUE"deprecated_controller_service",
+            translation_key="deprecated_controller_service",
             translation_placeholders={"service": call.service},
         )
         return tcs_id
@@ -119,7 +119,7 @@ def _resolve_ctl_unique_id(
     if entry is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"entity_not_found",
+            translation_key="entity_not_found",
             translation_placeholders={ATTR_ENTITY_ID: entity_id},
         )
 
@@ -131,7 +131,7 @@ def _resolve_ctl_unique_id(
     ):
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"controller_only_service",
+            translation_key="controller_only_service",
             translation_placeholders={"service": call.service},
         )
 
@@ -164,7 +164,7 @@ def _validate_set_system_mode_params(tcs: ControlSystem, data: dict[str, Any]) -
     if (mode_info := tcs_modes.get(mode)) is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"mode_not_supported",
+            translation_key="mode_not_supported",
             translation_placeholders={ATTR_MODE: mode},
         )
 
@@ -174,7 +174,7 @@ def _validate_set_system_mode_params(tcs: ControlSystem, data: dict[str, Any]) -
         if ATTR_DURATION in data or ATTR_PERIOD in data:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"mode_cant_be_temporary",
+                translation_key="mode_cant_be_temporary",
                 translation_placeholders={ATTR_MODE: mode},
             )
         return
@@ -184,14 +184,14 @@ def _validate_set_system_mode_params(tcs: ControlSystem, data: dict[str, Any]) -
     if timing_mode == SZ_DURATION and ATTR_PERIOD in data:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"mode_cant_have_period",
+            translation_key="mode_cant_have_period",
             translation_placeholders={ATTR_MODE: mode},
         )
 
     if timing_mode == SZ_PERIOD and ATTR_DURATION in data:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"mode_cant_have_duration",
+            translation_key="mode_cant_have_duration",
             translation_placeholders={ATTR_MODE: mode},
         )
 

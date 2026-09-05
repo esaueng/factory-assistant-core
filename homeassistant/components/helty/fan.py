@@ -122,6 +122,6 @@ class HeltyFan(HeltyEntity, FanEntity):
         except HeltyError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_fan_mode_failed",
+                translation_key="set_fan_mode_failed",
             ) from err
         await self.coordinator.async_request_refresh()

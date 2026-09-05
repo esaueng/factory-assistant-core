@@ -22,47 +22,47 @@ SENSOR_TYPES: dict[str, SensorEntityDescription] = {
     ),
     "alarm_sound_mod": SensorEntityDescription(
         key="alarm_sound_mod",
-        REDACTED_VALUE"alarm_sound_mod",
+        translation_key="alarm_sound_mod",
         entity_registry_enabled_default=False,
     ),
     "last_alarm_time": SensorEntityDescription(
         key="last_alarm_time",
-        REDACTED_VALUE"last_alarm_time",
+        translation_key="last_alarm_time",
         entity_registry_enabled_default=False,
     ),
     "Seconds_Last_Trigger": SensorEntityDescription(
         key="Seconds_Last_Trigger",
-        REDACTED_VALUE"seconds_last_trigger",
+        translation_key="seconds_last_trigger",
         entity_registry_enabled_default=False,
     ),
     "last_alarm_pic": SensorEntityDescription(
         key="last_alarm_pic",
-        REDACTED_VALUE"last_alarm_pic",
+        translation_key="last_alarm_pic",
         entity_registry_enabled_default=False,
     ),
     "supported_channels": SensorEntityDescription(
         key="supported_channels",
-        REDACTED_VALUE"supported_channels",
+        translation_key="supported_channels",
     ),
     "local_ip": SensorEntityDescription(
         key="local_ip",
-        REDACTED_VALUE"local_ip",
+        translation_key="local_ip",
     ),
     "wan_ip": SensorEntityDescription(
         key="wan_ip",
-        REDACTED_VALUE"wan_ip",
+        translation_key="wan_ip",
     ),
     "PIR_Status": SensorEntityDescription(
         key="PIR_Status",
-        REDACTED_VALUE"pir_status",
+        translation_key="pir_status",
     ),
     "last_alarm_type_code": SensorEntityDescription(
         key="last_alarm_type_code",
-        REDACTED_VALUE"last_alarm_type_code",
+        translation_key="last_alarm_type_code",
     ),
     "last_alarm_type_name": SensorEntityDescription(
         key="last_alarm_type_name",
-        REDACTED_VALUE"last_alarm_type_name",
+        translation_key="last_alarm_type_name",
     ),
 }
 

@@ -193,7 +193,7 @@ def async_enable_report_state(
         )
 
     unsub = async_call_later(
-        hass, INITIAL_REPORT_DELAY, HassJob(initial_report, REDACTED_VALUE)
+        hass, INITIAL_REPORT_DELAY, HassJob(initial_report, cancel_on_shutdown=True)
     )
 
     @callback

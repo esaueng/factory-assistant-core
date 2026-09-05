@@ -27,7 +27,7 @@ class FullyImageEntityDescription(ImageEntityDescription):
 IMAGES: tuple[FullyImageEntityDescription, ...] = (
     FullyImageEntityDescription(
         key="screenshot",
-        REDACTED_VALUE"screenshot",
+        translation_key="screenshot",
         image_fn=lambda fully: fully.getScreenshot(),
     ),
 )

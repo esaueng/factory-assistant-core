@@ -236,7 +236,7 @@ class FritzBoxTools(DataUpdateCoordinator[UpdateCoordinatorDataType]):
         except ParseError as ex:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"error_parse_device_info",
+                translation_key="error_parse_device_info",
             ) from ex
 
         _LOGGER.debug(
@@ -337,7 +337,7 @@ class FritzBoxTools(DataUpdateCoordinator[UpdateCoordinatorDataType]):
             self.hass.config_entries.async_schedule_reload(self.config_entry.entry_id)
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
+                translation_key="update_failed",
                 translation_placeholders={"error": str(ex)},
             ) from ex
 
@@ -453,7 +453,7 @@ class FritzBoxTools(DataUpdateCoordinator[UpdateCoordinatorDataType]):
             if not self.hass.is_stopping:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"error_refresh_hosts_info",
+                    translation_key="error_refresh_hosts_info",
                 ) from ex
 
         hosts: dict[str, Device] = {}

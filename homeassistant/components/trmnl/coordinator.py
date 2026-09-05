@@ -45,12 +45,12 @@ class TRMNLCoordinator(DataUpdateCoordinator[dict[int, Device]]):
         except TRMNLAuthenticationError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"authentication_error",
+                translation_key="authentication_error",
             ) from err
         except TRMNLError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_error",
+                translation_key="update_error",
                 translation_placeholders={"error": str(err)},
             ) from err
         new_data = {device.identifier: device for device in devices}

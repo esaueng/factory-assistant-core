@@ -81,7 +81,7 @@ def get_options_schema(country: str) -> vol.Schema:
                 options=categories,
                 multiple=True,
                 mode=SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUE"categories",
+                translation_key="categories",
             )
         )
     return vol.Schema(schema)
@@ -248,7 +248,7 @@ class HolidayOptionsFlowHandler(OptionsFlowWithReload):
                         options=categories,
                         multiple=True,
                         mode=SelectSelectorMode.DROPDOWN,
-                        REDACTED_VALUE"categories",
+                        translation_key="categories",
                     )
                 )
             }

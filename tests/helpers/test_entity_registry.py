@@ -202,7 +202,7 @@ def test_get_or_create_updates_data(
         original_icon="initial-original_icon",
         original_name="initial-original_name",
         supported_features=5,
-        REDACTED_VALUE"initial-translation_key",
+        translation_key="initial-translation_key",
         unit_of_measurement="initial-unit_of_measurement",
     )
 
@@ -234,7 +234,7 @@ def test_get_or_create_updates_data(
         original_name="initial-original_name",
         suggested_object_id=None,
         supported_features=5,
-        REDACTED_VALUE"initial-translation_key",
+        translation_key="initial-translation_key",
         unit_of_measurement="initial-unit_of_measurement",
     )
 
@@ -265,7 +265,7 @@ def test_get_or_create_updates_data(
         original_name="updated-original_name",
         suggested_object_id="suggested",
         supported_features=10,
-        REDACTED_VALUE"updated-translation_key",
+        translation_key="updated-translation_key",
         unit_of_measurement="updated-unit_of_measurement",
     )
 
@@ -296,7 +296,7 @@ def test_get_or_create_updates_data(
         original_name="updated-original_name",
         suggested_object_id="suggested",
         supported_features=10,
-        REDACTED_VALUE"updated-translation_key",
+        translation_key="updated-translation_key",
         unit_of_measurement="updated-unit_of_measurement",
     )
 
@@ -321,7 +321,7 @@ def test_get_or_create_updates_data(
         original_name=None,
         suggested_object_id=None,
         supported_features=None,
-        REDACTED_VALUENone,
+        translation_key=None,
         unit_of_measurement=None,
     )
 
@@ -352,7 +352,7 @@ def test_get_or_create_updates_data(
         original_name=None,
         suggested_object_id=None,
         supported_features=0,  # supported_features is stored as an int
-        REDACTED_VALUENone,
+        translation_key=None,
         unit_of_measurement=None,
     )
 
@@ -439,7 +439,7 @@ async def test_loading_saving_data(
         original_icon="hass:original-icon",
         original_name="Original Name",
         supported_features=5,
-        REDACTED_VALUE"initial-translation_key",
+        translation_key="initial-translation_key",
         unit_of_measurement="initial-unit_of_measurement",
     )
     entity_registry.async_update_entity(
@@ -2308,7 +2308,7 @@ async def test_update_entity_disabled_by(
         original_name="original_name_1",
         suggested_object_id="hue_5678",
         supported_features=1,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="translation_key_1",
         unit_of_measurement="unit_1",
     )
 
@@ -2349,7 +2349,7 @@ async def test_update_entity_disabled_by(
         original_name="original_name_1",
         suggested_object_id="hue_5678",
         supported_features=1,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="translation_key_1",
         unit_of_measurement="unit_1",
     )
 
@@ -2403,7 +2403,7 @@ async def test_update_entity_disabled_by_2(
         original_name="original_name_1",
         suggested_object_id="hue_5678",
         supported_features=1,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="translation_key_1",
         unit_of_measurement="unit_1",
     )
 
@@ -2446,7 +2446,7 @@ async def test_update_entity_disabled_by_2(
         original_name="original_name_1",
         suggested_object_id="hue_5678",
         supported_features=1,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="translation_key_1",
         unit_of_measurement="unit_1",
     )
 
@@ -3941,7 +3941,7 @@ async def test_restore_entity(
         original_name="original_name_1",
         suggested_object_id="suggested_1",
         supported_features=1,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="translation_key_1",
         unit_of_measurement="unit_1",
     )
     entry2 = entity_registry.async_get_or_create(
@@ -4003,7 +4003,7 @@ async def test_restore_entity(
         original_name="original_name_2",
         suggested_object_id="suggested_2",
         supported_features=2,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="translation_key_2",
         unit_of_measurement="unit_2",
     )
     # Add back the second entity without config entry and with different
@@ -4052,7 +4052,7 @@ async def test_restore_entity(
         original_name="original_name_2",
         suggested_object_id="suggested_2",
         supported_features=2,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="translation_key_2",
         unit_of_measurement="unit_2",
     )
     assert entry2 != entry2_restored
@@ -4178,7 +4178,7 @@ async def test_restore_migrated_entity_disabled_by(
         original_name="original_name_1",
         suggested_object_id="hue_5678",
         supported_features=1,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="translation_key_1",
         unit_of_measurement="unit_1",
     )
 
@@ -4211,7 +4211,7 @@ async def test_restore_migrated_entity_disabled_by(
         original_name="original_name_2",
         suggested_object_id="suggested_2",
         supported_features=2,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="translation_key_2",
         unit_of_measurement="unit_2",
     )
 
@@ -4249,7 +4249,7 @@ async def test_restore_migrated_entity_disabled_by(
         original_name="original_name_2",
         suggested_object_id="suggested_2",
         supported_features=2,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="translation_key_2",
         unit_of_measurement="unit_2",
     )
 
@@ -4303,7 +4303,7 @@ async def test_restore_migrated_entity_hidden_by(
         original_name="original_name_1",
         suggested_object_id="hue_5678",
         supported_features=1,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="translation_key_1",
         unit_of_measurement="unit_1",
     )
 
@@ -4336,7 +4336,7 @@ async def test_restore_migrated_entity_hidden_by(
         original_name="original_name_2",
         suggested_object_id="suggested_2",
         supported_features=2,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="translation_key_2",
         unit_of_measurement="unit_2",
     )
 
@@ -4374,7 +4374,7 @@ async def test_restore_migrated_entity_hidden_by(
         original_name="original_name_2",
         suggested_object_id="suggested_2",
         supported_features=2,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="translation_key_2",
         unit_of_measurement="unit_2",
     )
 
@@ -4419,7 +4419,7 @@ async def test_restore_migrated_entity_initial_options(
         original_name="original_name_1",
         suggested_object_id="hue_5678",
         supported_features=1,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="translation_key_1",
         unit_of_measurement="unit_1",
     )
 
@@ -4452,7 +4452,7 @@ async def test_restore_migrated_entity_initial_options(
         original_name="original_name_2",
         suggested_object_id="suggested_2",
         supported_features=2,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="translation_key_2",
         unit_of_measurement="unit_2",
     )
 
@@ -4490,7 +4490,7 @@ async def test_restore_migrated_entity_initial_options(
         original_name="original_name_2",
         suggested_object_id="suggested_2",
         supported_features=2,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="translation_key_2",
         unit_of_measurement="unit_2",
     )
 
@@ -4611,7 +4611,7 @@ async def test_restore_entity_disabled_by(
         original_name="original_name_1",
         suggested_object_id="hue_5678",
         supported_features=1,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="translation_key_1",
         unit_of_measurement="unit_1",
     )
 
@@ -4639,7 +4639,7 @@ async def test_restore_entity_disabled_by(
         original_name="original_name_2",
         suggested_object_id="suggested_2",
         supported_features=2,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="translation_key_2",
         unit_of_measurement="unit_2",
     )
 
@@ -4677,7 +4677,7 @@ async def test_restore_entity_disabled_by(
         original_name="original_name_2",
         suggested_object_id="suggested_2",
         supported_features=2,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="translation_key_2",
         unit_of_measurement="unit_2",
     )
 
@@ -4740,7 +4740,7 @@ async def test_restore_entity_disabled_by_2(
         original_name="original_name_1",
         suggested_object_id="hue_5678",
         supported_features=1,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="translation_key_1",
         unit_of_measurement="unit_1",
     )
 
@@ -4768,7 +4768,7 @@ async def test_restore_entity_disabled_by_2(
         original_name="original_name_2",
         suggested_object_id="suggested_2",
         supported_features=2,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="translation_key_2",
         unit_of_measurement="unit_2",
     )
 
@@ -4806,7 +4806,7 @@ async def test_restore_entity_disabled_by_2(
         original_name="original_name_2",
         suggested_object_id="suggested_2",
         supported_features=2,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="translation_key_2",
         unit_of_measurement="unit_2",
     )
 

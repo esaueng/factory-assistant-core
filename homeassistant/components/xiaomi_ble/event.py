@@ -31,7 +31,7 @@ from .types import XiaomiBLEConfigEntry
 DESCRIPTIONS_BY_EVENT_CLASS = {
     EVENT_CLASS_BUTTON: EventEntityDescription(
         key=EVENT_CLASS_BUTTON,
-        REDACTED_VALUE"button",
+        translation_key="button",
         event_types=[
             "press",
             "double_press",
@@ -41,7 +41,7 @@ DESCRIPTIONS_BY_EVENT_CLASS = {
     ),
     EVENT_CLASS_CUBE: EventEntityDescription(
         key=EVENT_CLASS_CUBE,
-        REDACTED_VALUE"cube",
+        translation_key="cube",
         event_types=[
             "rotate_left",
             "rotate_right",
@@ -49,7 +49,7 @@ DESCRIPTIONS_BY_EVENT_CLASS = {
     ),
     EVENT_CLASS_DIMMER: EventEntityDescription(
         key=EVENT_CLASS_DIMMER,
-        REDACTED_VALUE"dimmer",
+        translation_key="dimmer",
         event_types=[
             "press",
             "long_press",
@@ -61,7 +61,7 @@ DESCRIPTIONS_BY_EVENT_CLASS = {
     ),
     EVENT_CLASS_ERROR: EventEntityDescription(
         key=EVENT_CLASS_ERROR,
-        REDACTED_VALUE"error",
+        translation_key="error",
         event_types=[
             "frequent_unlocking_with_incorrect_password",
             "frequent_unlocking_with_wrong_fingerprints",
@@ -90,7 +90,7 @@ DESCRIPTIONS_BY_EVENT_CLASS = {
     ),
     EVENT_CLASS_FINGERPRINT: EventEntityDescription(
         key=EVENT_CLASS_FINGERPRINT,
-        REDACTED_VALUE"fingerprint",
+        translation_key="fingerprint",
         event_types=[
             "match_successful",
             "match_failed",
@@ -102,7 +102,7 @@ DESCRIPTIONS_BY_EVENT_CLASS = {
     ),
     EVENT_CLASS_LOCK: EventEntityDescription(
         key=EVENT_CLASS_LOCK,
-        REDACTED_VALUE"lock",
+        translation_key="lock",
         event_types=[
             "lock_outside_the_door",
             "unlock_outside_the_door",
@@ -118,7 +118,7 @@ DESCRIPTIONS_BY_EVENT_CLASS = {
     ),
     EVENT_CLASS_MOTION: EventEntityDescription(
         key=EVENT_CLASS_MOTION,
-        REDACTED_VALUE"motion",
+        translation_key="motion",
         event_types=["motion_detected"],
         device_class=EventDeviceClass.MOTION,
     ),

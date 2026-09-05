@@ -28,25 +28,25 @@ class TechnoVEBinarySensorDescription(BinarySensorEntityDescription):
 BINARY_SENSORS = [
     TechnoVEBinarySensorDescription(
         key="conflict_in_sharing_config",
-        REDACTED_VALUE"conflict_in_sharing_config",
+        translation_key="conflict_in_sharing_config",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda station: station.info.conflict_in_sharing_config,
     ),
     TechnoVEBinarySensorDescription(
         key="in_sharing_mode",
-        REDACTED_VALUE"in_sharing_mode",
+        translation_key="in_sharing_mode",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda station: station.info.in_sharing_mode,
     ),
     TechnoVEBinarySensorDescription(
         key="is_battery_protected",
-        REDACTED_VALUE"is_battery_protected",
+        translation_key="is_battery_protected",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda station: station.info.is_battery_protected,
     ),
     TechnoVEBinarySensorDescription(
         key="is_static_ip",
-        REDACTED_VALUE"is_static_ip",
+        translation_key="is_static_ip",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda station: station.info.is_static_ip,

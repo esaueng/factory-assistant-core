@@ -30,7 +30,7 @@ class CompitDeviceDescription:
 DESCRIPTIONS: dict[CompitParameter, SelectEntityDescription] = {
     CompitParameter.LANGUAGE: SelectEntityDescription(
         key=CompitParameter.LANGUAGE.value,
-        REDACTED_VALUE"language",
+        translation_key="language",
         options=[
             "polish",
             "english",
@@ -38,7 +38,7 @@ DESCRIPTIONS: dict[CompitParameter, SelectEntityDescription] = {
     ),
     CompitParameter.AEROKONFBYPASS: SelectEntityDescription(
         key=CompitParameter.AEROKONFBYPASS.value,
-        REDACTED_VALUE"aero_by_pass",
+        translation_key="aero_by_pass",
         options=[
             "off",
             "auto",
@@ -47,7 +47,7 @@ DESCRIPTIONS: dict[CompitParameter, SelectEntityDescription] = {
     ),
     CompitParameter.NANO_MODE: SelectEntityDescription(
         key=CompitParameter.NANO_MODE.value,
-        REDACTED_VALUE"nano_work_mode",
+        translation_key="nano_work_mode",
         options=[
             "manual_3",
             "manual_2",
@@ -60,7 +60,7 @@ DESCRIPTIONS: dict[CompitParameter, SelectEntityDescription] = {
     ),
     CompitParameter.R900_OPERATING_MODE: SelectEntityDescription(
         key=CompitParameter.R900_OPERATING_MODE.value,
-        REDACTED_VALUE"operating_mode",
+        translation_key="operating_mode",
         options=[
             "disabled",
             "eco",
@@ -69,7 +69,7 @@ DESCRIPTIONS: dict[CompitParameter, SelectEntityDescription] = {
     ),
     CompitParameter.SOLAR_COMP_OPERATING_MODE: SelectEntityDescription(
         key=CompitParameter.SOLAR_COMP_OPERATING_MODE.value,
-        REDACTED_VALUE"solarcomp_operating_mode",
+        translation_key="solarcomp_operating_mode",
         options=[
             "auto",
             "de_icing",
@@ -79,7 +79,7 @@ DESCRIPTIONS: dict[CompitParameter, SelectEntityDescription] = {
     ),
     CompitParameter.R490_OPERATING_MODE: SelectEntityDescription(
         key=CompitParameter.R490_OPERATING_MODE.value,
-        REDACTED_VALUE"operating_mode",
+        translation_key="operating_mode",
         options=[
             "disabled",
             "eco",
@@ -88,7 +88,7 @@ DESCRIPTIONS: dict[CompitParameter, SelectEntityDescription] = {
     ),
     CompitParameter.WORK_MODE: SelectEntityDescription(
         key=CompitParameter.WORK_MODE.value,
-        REDACTED_VALUE"work_mode",
+        translation_key="work_mode",
         options=[
             "winter",
             "summer",
@@ -97,7 +97,7 @@ DESCRIPTIONS: dict[CompitParameter, SelectEntityDescription] = {
     ),
     CompitParameter.R470_OPERATING_MODE: SelectEntityDescription(
         key=CompitParameter.R470_OPERATING_MODE.value,
-        REDACTED_VALUE"operating_mode",
+        translation_key="operating_mode",
         options=[
             "disabled",
             "auto",
@@ -106,7 +106,7 @@ DESCRIPTIONS: dict[CompitParameter, SelectEntityDescription] = {
     ),
     CompitParameter.HEATING_SOURCE_OF_CORRECTION: SelectEntityDescription(
         key=CompitParameter.HEATING_SOURCE_OF_CORRECTION.value,
-        REDACTED_VALUE"heating_source_of_correction",
+        translation_key="heating_source_of_correction",
         options=[
             "no_corrections",
             "schedule",
@@ -120,7 +120,7 @@ DESCRIPTIONS: dict[CompitParameter, SelectEntityDescription] = {
     ),
     CompitParameter.BIOMAX_MIXER_MODE_ZONE_1: SelectEntityDescription(
         key=CompitParameter.BIOMAX_MIXER_MODE_ZONE_1.value,
-        REDACTED_VALUE"mixer_mode_zone",
+        translation_key="mixer_mode_zone",
         options=[
             "disabled",
             "without_thermostat",
@@ -136,7 +136,7 @@ DESCRIPTIONS: dict[CompitParameter, SelectEntityDescription] = {
     ),
     CompitParameter.BIOMAX_MIXER_MODE_ZONE_2: SelectEntityDescription(
         key=CompitParameter.BIOMAX_MIXER_MODE_ZONE_2.value,
-        REDACTED_VALUE"mixer_mode_zone",
+        translation_key="mixer_mode_zone",
         options=[
             "disabled",
             "without_thermostat",
@@ -152,7 +152,7 @@ DESCRIPTIONS: dict[CompitParameter, SelectEntityDescription] = {
     ),
     CompitParameter.DHW_CIRCULATION_MODE: SelectEntityDescription(
         key=CompitParameter.DHW_CIRCULATION_MODE.value,
-        REDACTED_VALUE"dhw_circulation",
+        translation_key="dhw_circulation",
         options=[
             "disabled",
             "constant",
@@ -161,7 +161,7 @@ DESCRIPTIONS: dict[CompitParameter, SelectEntityDescription] = {
     ),
     CompitParameter.BIOMAX_HEATING_SOURCE_OF_CORRECTION: SelectEntityDescription(
         key=CompitParameter.BIOMAX_HEATING_SOURCE_OF_CORRECTION.value,
-        REDACTED_VALUE"heating_source_of_correction",
+        translation_key="heating_source_of_correction",
         options=[
             "disabled",
             "no_corrections",
@@ -176,7 +176,7 @@ DESCRIPTIONS: dict[CompitParameter, SelectEntityDescription] = {
     ),
     CompitParameter.MIXER_MODE: SelectEntityDescription(
         key=CompitParameter.MIXER_MODE.value,
-        REDACTED_VALUE"mixer_mode",
+        translation_key="mixer_mode",
         options=[
             "no_corrections",
             "schedule",
@@ -190,7 +190,7 @@ DESCRIPTIONS: dict[CompitParameter, SelectEntityDescription] = {
     ),
     CompitParameter.R480_OPERATING_MODE: SelectEntityDescription(
         key=CompitParameter.R480_OPERATING_MODE.value,
-        REDACTED_VALUE"operating_mode",
+        translation_key="operating_mode",
         options=[
             "disabled",
             "eco",
@@ -199,7 +199,7 @@ DESCRIPTIONS: dict[CompitParameter, SelectEntityDescription] = {
     ),
     CompitParameter.BUFFER_MODE: SelectEntityDescription(
         key=CompitParameter.BUFFER_MODE.value,
-        REDACTED_VALUE"buffer_mode",
+        translation_key="buffer_mode",
         options=[
             "schedule",
             "manual",

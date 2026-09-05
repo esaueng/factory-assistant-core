@@ -39,6 +39,6 @@ class DaikinCoordinator(DataUpdateCoordinator[None]):
         except DaikinException as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"error_communicating",
+                translation_key="error_communicating",
                 translation_placeholders={"error": str(err)},
             ) from err

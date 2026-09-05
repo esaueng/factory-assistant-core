@@ -31,7 +31,7 @@ class HeltySensorEntityDescription(SensorEntityDescription):
 SENSORS: tuple[HeltySensorEntityDescription, ...] = (
     HeltySensorEntityDescription(
         key="indoor_temperature",
-        REDACTED_VALUE"indoor_temperature",
+        translation_key="indoor_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -39,7 +39,7 @@ SENSORS: tuple[HeltySensorEntityDescription, ...] = (
     ),
     HeltySensorEntityDescription(
         key="outdoor_temperature",
-        REDACTED_VALUE"outdoor_temperature",
+        translation_key="outdoor_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -47,7 +47,7 @@ SENSORS: tuple[HeltySensorEntityDescription, ...] = (
     ),
     HeltySensorEntityDescription(
         key="indoor_humidity",
-        REDACTED_VALUE"indoor_humidity",
+        translation_key="indoor_humidity",
         device_class=SensorDeviceClass.HUMIDITY,
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,

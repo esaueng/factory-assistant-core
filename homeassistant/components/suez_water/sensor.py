@@ -32,7 +32,7 @@ class SuezWaterSensorEntityDescription(SensorEntityDescription):
 SENSORS: tuple[SuezWaterSensorEntityDescription, ...] = (
     SuezWaterSensorEntityDescription(
         key="water_usage_yesterday",
-        REDACTED_VALUE"water_usage_yesterday",
+        translation_key="water_usage_yesterday",
         native_unit_of_measurement=UnitOfVolume.LITERS,
         device_class=SensorDeviceClass.WATER,
         value_fn=lambda suez_data: suez_data.aggregated_value,
@@ -40,7 +40,7 @@ SENSORS: tuple[SuezWaterSensorEntityDescription, ...] = (
     ),
     SuezWaterSensorEntityDescription(
         key="water_price",
-        REDACTED_VALUE"water_price",
+        translation_key="water_price",
         native_unit_of_measurement=CURRENCY_EURO,
         device_class=SensorDeviceClass.MONETARY,
         value_fn=lambda suez_data: suez_data.price,

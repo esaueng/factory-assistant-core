@@ -30,7 +30,7 @@ class BAFNumberDescription(NumberEntityDescription):
 AUTO_COMFORT_NUMBER_DESCRIPTIONS = (
     BAFNumberDescription(
         key="comfort_min_speed",
-        REDACTED_VALUE"comfort_min_speed",
+        translation_key="comfort_min_speed",
         native_step=1,
         native_min_value=0,
         native_max_value=SPEED_RANGE[1] - 1,
@@ -40,7 +40,7 @@ AUTO_COMFORT_NUMBER_DESCRIPTIONS = (
     ),
     BAFNumberDescription(
         key="comfort_max_speed",
-        REDACTED_VALUE"comfort_max_speed",
+        translation_key="comfort_max_speed",
         native_step=1,
         native_min_value=1,
         native_max_value=SPEED_RANGE[1],
@@ -50,7 +50,7 @@ AUTO_COMFORT_NUMBER_DESCRIPTIONS = (
     ),
     BAFNumberDescription(
         key="comfort_heat_assist_speed",
-        REDACTED_VALUE"comfort_heat_assist_speed",
+        translation_key="comfort_heat_assist_speed",
         native_step=1,
         native_min_value=SPEED_RANGE[0],
         native_max_value=SPEED_RANGE[1],
@@ -63,7 +63,7 @@ AUTO_COMFORT_NUMBER_DESCRIPTIONS = (
 FAN_NUMBER_DESCRIPTIONS = (
     BAFNumberDescription(
         key="return_to_auto_timeout",
-        REDACTED_VALUE"return_to_auto_timeout",
+        translation_key="return_to_auto_timeout",
         native_step=1,
         native_min_value=ONE_MIN_SECS,
         native_max_value=HALF_DAY_SECS,
@@ -74,7 +74,7 @@ FAN_NUMBER_DESCRIPTIONS = (
     ),
     BAFNumberDescription(
         key="motion_sense_timeout",
-        REDACTED_VALUE"motion_sense_timeout",
+        translation_key="motion_sense_timeout",
         native_step=1,
         native_min_value=ONE_MIN_SECS,
         native_max_value=ONE_DAY_SECS,
@@ -88,7 +88,7 @@ FAN_NUMBER_DESCRIPTIONS = (
 LIGHT_NUMBER_DESCRIPTIONS = (
     BAFNumberDescription(
         key="light_return_to_auto_timeout",
-        REDACTED_VALUE"light_return_to_auto_timeout",
+        translation_key="light_return_to_auto_timeout",
         native_step=1,
         native_min_value=ONE_MIN_SECS,
         native_max_value=HALF_DAY_SECS,
@@ -99,7 +99,7 @@ LIGHT_NUMBER_DESCRIPTIONS = (
     ),
     BAFNumberDescription(
         key="light_auto_motion_timeout",
-        REDACTED_VALUE"light_auto_motion_timeout",
+        translation_key="light_auto_motion_timeout",
         native_step=1,
         native_min_value=ONE_MIN_SECS,
         native_max_value=ONE_DAY_SECS,

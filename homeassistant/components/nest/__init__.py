@@ -257,15 +257,15 @@ async def async_setup_entry(hass: HomeAssistant, entry: NestConfigEntry) -> bool
         await auth.async_get_access_token()
     except OAuth2TokenRequestReauthError as err:
         raise ConfigEntryAuthFailed(
-            translation_domain=DOMAIN, REDACTED_VALUE"reauth_required"
+            translation_domain=DOMAIN, translation_key="reauth_required"
         ) from err
     except OAuth2TokenRequestError as err:
         raise ConfigEntryNotReady(
-            translation_domain=DOMAIN, REDACTED_VALUE"auth_server_error"
+            translation_domain=DOMAIN, translation_key="auth_server_error"
         ) from err
     except ClientError as err:
         raise ConfigEntryNotReady(
-            translation_domain=DOMAIN, REDACTED_VALUE"auth_client_error"
+            translation_domain=DOMAIN, translation_key="auth_client_error"
         ) from err
 
     subscriber = await api.new_subscriber(hass, entry, auth)
@@ -289,7 +289,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: NestConfigEntry) -> bool
     except AuthException as err:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"reauth_required",
+            translation_key="reauth_required",
         ) from err
     except ConfigurationException as err:
         _LOGGER.error("Configuration error: %s", err)
@@ -297,13 +297,13 @@ async def async_setup_entry(hass: HomeAssistant, entry: NestConfigEntry) -> bool
     except SubscriberTimeoutException as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"subscriber_timeout",
+            translation_key="subscriber_timeout",
         ) from err
     except SubscriberException as err:
         _LOGGER.error("Subscriber error: %s", err)
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"subscriber_error",
+            translation_key="subscriber_error",
         ) from err
 
     try:
@@ -312,7 +312,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: NestConfigEntry) -> bool
         unsub()
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_api_error",
+            translation_key="device_api_error",
         ) from err
 
     @callback

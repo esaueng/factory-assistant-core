@@ -66,13 +66,13 @@ async def set_sleep_timer(player: Player) -> None:
 BUTTON_DESCRIPTIONS = [
     BluesoundButtonEntityDescription(
         key="set_sleep_timer",
-        REDACTED_VALUE"set_sleep_timer",
+        translation_key="set_sleep_timer",
         entity_registry_enabled_default=False,
         press_fn=set_sleep_timer,
     ),
     BluesoundButtonEntityDescription(
         key="clear_sleep_timer",
-        REDACTED_VALUE"clear_sleep_timer",
+        translation_key="clear_sleep_timer",
         entity_registry_enabled_default=False,
         press_fn=clear_sleep_timer,
     ),

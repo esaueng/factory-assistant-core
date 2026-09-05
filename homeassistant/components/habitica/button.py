@@ -57,13 +57,13 @@ class HabiticaButtonEntity(StrEnum):
 BUTTON_DESCRIPTIONS: tuple[HabiticaButtonEntityDescription, ...] = (
     HabiticaButtonEntityDescription(
         key=HabiticaButtonEntity.RUN_CRON,
-        REDACTED_VALUEHabiticaButtonEntity.RUN_CRON,
+        translation_key=HabiticaButtonEntity.RUN_CRON,
         press_fn=lambda habitica: habitica.run_cron(),
         available_fn=lambda data: data.user.needsCron is True,
     ),
     HabiticaButtonEntityDescription(
         key=HabiticaButtonEntity.BUY_HEALTH_POTION,
-        REDACTED_VALUEHabiticaButtonEntity.BUY_HEALTH_POTION,
+        translation_key=HabiticaButtonEntity.BUY_HEALTH_POTION,
         press_fn=lambda habitica: habitica.buy_health_potion(),
         available_fn=(
             lambda data: (
@@ -74,7 +74,7 @@ BUTTON_DESCRIPTIONS: tuple[HabiticaButtonEntityDescription, ...] = (
     ),
     HabiticaButtonEntityDescription(
         key=HabiticaButtonEntity.ALLOCATE_ALL_STAT_POINTS,
-        REDACTED_VALUEHabiticaButtonEntity.ALLOCATE_ALL_STAT_POINTS,
+        translation_key=HabiticaButtonEntity.ALLOCATE_ALL_STAT_POINTS,
         press_fn=lambda habitica: habitica.allocate_stat_points(),
         available_fn=(
             lambda data: (
@@ -85,7 +85,7 @@ BUTTON_DESCRIPTIONS: tuple[HabiticaButtonEntityDescription, ...] = (
     ),
     HabiticaButtonEntityDescription(
         key=HabiticaButtonEntity.REVIVE,
-        REDACTED_VALUEHabiticaButtonEntity.REVIVE,
+        translation_key=HabiticaButtonEntity.REVIVE,
         press_fn=lambda habitica: habitica.revive(),
         available_fn=lambda data: data.user.stats.hp == 0,
     ),
@@ -95,7 +95,7 @@ BUTTON_DESCRIPTIONS: tuple[HabiticaButtonEntityDescription, ...] = (
 CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
     HabiticaButtonEntityDescription(
         key=HabiticaButtonEntity.MPHEAL,
-        REDACTED_VALUEHabiticaButtonEntity.MPHEAL,
+        translation_key=HabiticaButtonEntity.MPHEAL,
         press_fn=lambda habitica: habitica.cast_skill(Skill.ETHEREAL_SURGE),
         available_fn=(
             lambda data: (
@@ -107,7 +107,7 @@ CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
     ),
     HabiticaButtonEntityDescription(
         key=HabiticaButtonEntity.EARTH,
-        REDACTED_VALUEHabiticaButtonEntity.EARTH,
+        translation_key=HabiticaButtonEntity.EARTH,
         press_fn=lambda habitica: habitica.cast_skill(Skill.EARTHQUAKE),
         available_fn=(
             lambda data: (
@@ -119,7 +119,7 @@ CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
     ),
     HabiticaButtonEntityDescription(
         key=HabiticaButtonEntity.FROST,
-        REDACTED_VALUEHabiticaButtonEntity.FROST,
+        translation_key=HabiticaButtonEntity.FROST,
         press_fn=lambda habitica: habitica.cast_skill(Skill.CHILLING_FROST),
         # chilling frost can only be cast once per day (streaks buff is false)
         available_fn=(
@@ -134,7 +134,7 @@ CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
     ),
     HabiticaButtonEntityDescription(
         key=HabiticaButtonEntity.DEFENSIVE_STANCE,
-        REDACTED_VALUEHabiticaButtonEntity.DEFENSIVE_STANCE,
+        translation_key=HabiticaButtonEntity.DEFENSIVE_STANCE,
         press_fn=lambda habitica: habitica.cast_skill(Skill.DEFENSIVE_STANCE),
         available_fn=(
             lambda data: (
@@ -146,7 +146,7 @@ CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
     ),
     HabiticaButtonEntityDescription(
         key=HabiticaButtonEntity.VALOROUS_PRESENCE,
-        REDACTED_VALUEHabiticaButtonEntity.VALOROUS_PRESENCE,
+        translation_key=HabiticaButtonEntity.VALOROUS_PRESENCE,
         press_fn=lambda habitica: habitica.cast_skill(Skill.VALOROUS_PRESENCE),
         available_fn=(
             lambda data: (
@@ -158,7 +158,7 @@ CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
     ),
     HabiticaButtonEntityDescription(
         key=HabiticaButtonEntity.INTIMIDATE,
-        REDACTED_VALUEHabiticaButtonEntity.INTIMIDATE,
+        translation_key=HabiticaButtonEntity.INTIMIDATE,
         press_fn=lambda habitica: habitica.cast_skill(Skill.INTIMIDATING_GAZE),
         available_fn=(
             lambda data: (
@@ -170,7 +170,7 @@ CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
     ),
     HabiticaButtonEntityDescription(
         key=HabiticaButtonEntity.TOOLS_OF_TRADE,
-        REDACTED_VALUEHabiticaButtonEntity.TOOLS_OF_TRADE,
+        translation_key=HabiticaButtonEntity.TOOLS_OF_TRADE,
         press_fn=lambda habitica: habitica.cast_skill(Skill.TOOLS_OF_THE_TRADE),
         available_fn=(
             lambda data: (
@@ -182,7 +182,7 @@ CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
     ),
     HabiticaButtonEntityDescription(
         key=HabiticaButtonEntity.STEALTH,
-        REDACTED_VALUEHabiticaButtonEntity.STEALTH,
+        translation_key=HabiticaButtonEntity.STEALTH,
         press_fn=lambda habitica: habitica.cast_skill(Skill.STEALTH),
         # Stealth buffs stack and it can only be cast if the amount of
         # buffs is smaller than the amount of unfinished dailies
@@ -207,7 +207,7 @@ CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
     ),
     HabiticaButtonEntityDescription(
         key=HabiticaButtonEntity.HEAL,
-        REDACTED_VALUEHabiticaButtonEntity.HEAL,
+        translation_key=HabiticaButtonEntity.HEAL,
         press_fn=lambda habitica: habitica.cast_skill(Skill.HEALING_LIGHT),
         available_fn=(
             lambda data: (
@@ -221,7 +221,7 @@ CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
     ),
     HabiticaButtonEntityDescription(
         key=HabiticaButtonEntity.BRIGHTNESS,
-        REDACTED_VALUEHabiticaButtonEntity.BRIGHTNESS,
+        translation_key=HabiticaButtonEntity.BRIGHTNESS,
         press_fn=lambda habitica: habitica.cast_skill(Skill.SEARING_BRIGHTNESS),
         available_fn=(
             lambda data: (
@@ -233,7 +233,7 @@ CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
     ),
     HabiticaButtonEntityDescription(
         key=HabiticaButtonEntity.PROTECT_AURA,
-        REDACTED_VALUEHabiticaButtonEntity.PROTECT_AURA,
+        translation_key=HabiticaButtonEntity.PROTECT_AURA,
         press_fn=lambda habitica: habitica.cast_skill(Skill.PROTECTIVE_AURA),
         available_fn=(
             lambda data: (
@@ -245,7 +245,7 @@ CLASS_SKILLS: tuple[HabiticaButtonEntityDescription, ...] = (
     ),
     HabiticaButtonEntityDescription(
         key=HabiticaButtonEntity.HEAL_ALL,
-        REDACTED_VALUEHabiticaButtonEntity.HEAL_ALL,
+        translation_key=HabiticaButtonEntity.HEAL_ALL,
         press_fn=lambda habitica: habitica.cast_skill(Skill.BLESSING),
         available_fn=(
             lambda data: (

@@ -49,7 +49,7 @@ class ValloxBinarySensorEntityDescription(BinarySensorEntityDescription):
 BINARY_SENSOR_ENTITIES: tuple[ValloxBinarySensorEntityDescription, ...] = (
     ValloxBinarySensorEntityDescription(
         key="post_heater",
-        REDACTED_VALUE"post_heater",
+        translation_key="post_heater",
         metric_key="A_CYC_IO_HEATER",
     ),
 )

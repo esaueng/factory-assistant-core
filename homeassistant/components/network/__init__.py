@@ -181,7 +181,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
             "docker_host_network",
             is_fixable=False,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"docker_host_network",
+            translation_key="docker_host_network",
             learn_more_url=install_url,
             translation_placeholders={"docs_url": docs_url, "install_url": install_url},
         )

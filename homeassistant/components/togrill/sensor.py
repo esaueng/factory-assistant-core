@@ -99,7 +99,7 @@ ENTITY_DESCRIPTIONS = (
     ],
     ToGrillSensorEntityDescription(
         key="ambient_temperature",
-        REDACTED_VALUE"ambient_temperature",
+        translation_key="ambient_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,

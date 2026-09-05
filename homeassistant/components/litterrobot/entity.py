@@ -31,7 +31,7 @@ def whisker_command[_WhiskerEntityT2: LitterRobotEntity, **_P](
         except LitterRobotException as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={"error": str(ex)},
             ) from ex
 

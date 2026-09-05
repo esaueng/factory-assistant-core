@@ -32,7 +32,7 @@ async def async_setup_entry(hass: core.HomeAssistant, entry: S20ConfigEntry) -> 
 
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"init_error",
+            translation_key="init_error",
             translation_placeholders={
                 "host": entry.data[CONF_HOST],
             },

@@ -63,7 +63,7 @@ DESCRIPTIONS: list[WatergateSensorEntityDescription] = [
             if data.state and data.state.water_meter
             else None
         ),
-        REDACTED_VALUE"water_meter_volume",
+        translation_key="water_meter_volume",
         key="water_meter_volume",
         native_unit_of_measurement=UnitOfVolume.LITERS,
         device_class=SensorDeviceClass.WATER,
@@ -75,7 +75,7 @@ DESCRIPTIONS: list[WatergateSensorEntityDescription] = [
             if data.state and data.state.water_meter
             else None
         ),
-        REDACTED_VALUE"water_meter_duration",
+        translation_key="water_meter_duration",
         key="water_meter_duration",
         native_unit_of_measurement=UnitOfTime.MINUTES,
         device_class=SensorDeviceClass.DURATION,
@@ -98,7 +98,7 @@ DESCRIPTIONS: list[WatergateSensorEntityDescription] = [
             if data.networking
             else None
         ),
-        REDACTED_VALUE"wifi_up_since",
+        translation_key="wifi_up_since",
         key="wifi_up_since",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -112,7 +112,7 @@ DESCRIPTIONS: list[WatergateSensorEntityDescription] = [
             if data.networking
             else None
         ),
-        REDACTED_VALUE"mqtt_up_since",
+        translation_key="mqtt_up_since",
         key="mqtt_up_since",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -122,7 +122,7 @@ DESCRIPTIONS: list[WatergateSensorEntityDescription] = [
         value_fn=lambda data: (
             data.telemetry.water_temperature if data.telemetry else None
         ),
-        REDACTED_VALUE"water_temperature",
+        translation_key="water_temperature",
         key="water_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -130,7 +130,7 @@ DESCRIPTIONS: list[WatergateSensorEntityDescription] = [
     ),
     WatergateSensorEntityDescription(
         value_fn=lambda data: data.telemetry.pressure if data.telemetry else None,
-        REDACTED_VALUE"water_pressure",
+        translation_key="water_pressure",
         key="water_pressure",
         native_unit_of_measurement=UnitOfPressure.MBAR,
         device_class=SensorDeviceClass.PRESSURE,
@@ -153,7 +153,7 @@ DESCRIPTIONS: list[WatergateSensorEntityDescription] = [
             if data.state
             else None
         ),
-        REDACTED_VALUE"up_since",
+        translation_key="up_since",
         key="up_since",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -169,7 +169,7 @@ DESCRIPTIONS: list[WatergateSensorEntityDescription] = [
             if data.state
             else None
         ),
-        REDACTED_VALUE"power_supply_mode",
+        translation_key="power_supply_mode",
         key="power_supply_mode",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,

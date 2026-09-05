@@ -57,7 +57,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
         ):
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"entity_not_found",
+                translation_key="entity_not_found",
                 translation_placeholders={
                     ATTR_ENTITY_ID: call.data[ATTR_ENTITY_ID],
                 },
@@ -77,7 +77,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
         if not activity:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"activity_not_found",
+                translation_key="activity_not_found",
             )
         try:
             await coordinator.bring.notify(
@@ -91,7 +91,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
         except (BringRequestException, BringAuthException) as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"reaction_request_failed",
+                translation_key="reaction_request_failed",
             ) from e
 
     hass.services.async_register(

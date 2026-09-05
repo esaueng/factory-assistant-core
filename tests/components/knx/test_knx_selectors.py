@@ -285,8 +285,8 @@ def test_ga_selector_serialization(
         ),
         (
             GroupSelect(
-                GroupSelectOption(REDACTED_VALUE"option_1", schema={"key_1": str}),
-                GroupSelectOption(REDACTED_VALUE"option_2", schema={"key_2": int}),
+                GroupSelectOption(translation_key="option_1", schema={"key_1": str}),
+                GroupSelectOption(translation_key="option_2", schema={"key_2": int}),
             ),
             {
                 "type": "knx_group_select",

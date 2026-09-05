@@ -37,7 +37,7 @@ class AmazonSwitchEntityDescription(SwitchEntityDescription):
 SWITCHES: Final = (
     AmazonSwitchEntityDescription(
         key="dnd",
-        REDACTED_VALUE"do_not_disturb",
+        translation_key="do_not_disturb",
         is_on_fn=lambda device: bool(device.sensors["dnd"].value),
         method="set_do_not_disturb",
     ),

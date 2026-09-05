@@ -63,13 +63,13 @@ def catch_command_errors[**_P](
         except CommandRejected as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_rejected",
+                translation_key="command_rejected",
                 translation_placeholders={"error": str(err)},
             ) from err
         except (ConnectionError, OSError, TimeoutError) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={"error": str(err)},
             ) from err
 

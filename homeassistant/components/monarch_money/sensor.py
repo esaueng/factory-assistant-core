@@ -40,7 +40,7 @@ class MonarchMoneyCashflowSensorEntityDescription(SensorEntityDescription):
 MONARCH_MONEY_VALUE_SENSORS: tuple[MonarchMoneyAccountSensorEntityDescription, ...] = (
     MonarchMoneyAccountSensorEntityDescription(
         key="value",
-        REDACTED_VALUE"value",
+        translation_key="value",
         state_class=SensorStateClass.TOTAL,
         device_class=SensorDeviceClass.MONETARY,
         value_fn=lambda account: account.balance,
@@ -53,7 +53,7 @@ MONARCH_MONEY_VALUE_SENSORS: tuple[MonarchMoneyAccountSensorEntityDescription, .
 MONARCH_MONEY_SENSORS: tuple[MonarchMoneyAccountSensorEntityDescription, ...] = (
     MonarchMoneyAccountSensorEntityDescription(
         key="currentBalance",
-        REDACTED_VALUE"balance",
+        translation_key="balance",
         state_class=SensorStateClass.TOTAL,
         device_class=SensorDeviceClass.MONETARY,
         value_fn=lambda account: account.balance,
@@ -65,7 +65,7 @@ MONARCH_MONEY_SENSORS: tuple[MonarchMoneyAccountSensorEntityDescription, ...] = 
 MONARCH_MONEY_AGE_SENSORS: tuple[MonarchMoneyAccountSensorEntityDescription, ...] = (
     MonarchMoneyAccountSensorEntityDescription(
         key="age",
-        REDACTED_VALUE"age",
+        translation_key="age",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda account: account.last_update,
@@ -75,7 +75,7 @@ MONARCH_MONEY_AGE_SENSORS: tuple[MonarchMoneyAccountSensorEntityDescription, ...
 MONARCH_CASHFLOW_SENSORS: tuple[MonarchMoneyCashflowSensorEntityDescription, ...] = (
     MonarchMoneyCashflowSensorEntityDescription(
         key="sum_income",
-        REDACTED_VALUE"sum_income",
+        translation_key="sum_income",
         summary_fn=lambda summary: summary.income,
         state_class=SensorStateClass.TOTAL,
         device_class=SensorDeviceClass.MONETARY,
@@ -83,7 +83,7 @@ MONARCH_CASHFLOW_SENSORS: tuple[MonarchMoneyCashflowSensorEntityDescription, ...
     ),
     MonarchMoneyCashflowSensorEntityDescription(
         key="sum_expense",
-        REDACTED_VALUE"sum_expense",
+        translation_key="sum_expense",
         summary_fn=lambda summary: summary.expenses,
         state_class=SensorStateClass.TOTAL,
         device_class=SensorDeviceClass.MONETARY,
@@ -91,7 +91,7 @@ MONARCH_CASHFLOW_SENSORS: tuple[MonarchMoneyCashflowSensorEntityDescription, ...
     ),
     MonarchMoneyCashflowSensorEntityDescription(
         key="savings",
-        REDACTED_VALUE"savings",
+        translation_key="savings",
         summary_fn=lambda summary: summary.savings,
         state_class=SensorStateClass.TOTAL,
         device_class=SensorDeviceClass.MONETARY,
@@ -99,7 +99,7 @@ MONARCH_CASHFLOW_SENSORS: tuple[MonarchMoneyCashflowSensorEntityDescription, ...
     ),
     MonarchMoneyCashflowSensorEntityDescription(
         key="savings_rate",
-        REDACTED_VALUE"savings_rate",
+        translation_key="savings_rate",
         summary_fn=lambda summary: summary.savings_rate * 100,
         suggested_display_precision=1,
         native_unit_of_measurement=PERCENTAGE,

@@ -51,7 +51,7 @@ SENSOR_TYPES: tuple[IncomfortSensorEntityDescription, ...] = (
     ),
     IncomfortSensorEntityDescription(
         key="tap_temp",
-        REDACTED_VALUE"tap_temperature",
+        translation_key="tap_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -63,7 +63,7 @@ SENSOR_TYPES: tuple[IncomfortSensorEntityDescription, ...] = (
     # A typical RSSI value is 28 for connection just in range
     IncomfortSensorEntityDescription(
         key="rf_message_rssi",
-        REDACTED_VALUE"rf_message_rssi",
+        translation_key="rf_message_rssi",
         state_class=SensorStateClass.MEASUREMENT,
         value_key="rf_message_rssi",
         extra_key="rfstatus_cntr",

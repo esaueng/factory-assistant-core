@@ -85,7 +85,7 @@ class NFAndroidTVNotificationService(BaseNotificationService):
                 _LOGGER.debug("Full exception:", exc_info=True)
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"connection_failed",
+                    translation_key="connection_failed",
                     translation_placeholders={CONF_HOST: self.host},
                 ) from err
 
@@ -162,7 +162,7 @@ class NFAndroidTVNotificationService(BaseNotificationService):
                 else:
                     raise ServiceValidationError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"invalid_notification_image",
+                        translation_key="invalid_notification_image",
                         translation_placeholders={"type": type(imagedata).__name__},
                     )
             if icondata := data.get(ATTR_ICON):
@@ -183,7 +183,7 @@ class NFAndroidTVNotificationService(BaseNotificationService):
                 else:
                     raise ServiceValidationError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"invalid_notification_icon",
+                        translation_key="invalid_notification_icon",
                         translation_placeholders={"type": type(icondata).__name__},
                     )
 
@@ -204,7 +204,7 @@ class NFAndroidTVNotificationService(BaseNotificationService):
             _LOGGER.debug("Full exception:", exc_info=True)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connection_failed",
+                translation_key="connection_failed",
                 translation_placeholders={CONF_HOST: self.host},
             ) from err
 

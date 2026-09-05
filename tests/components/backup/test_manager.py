@@ -962,7 +962,7 @@ async def test_create_backup_success_clears_issue(
         is_fixable=False,
         is_persistent=True,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"automatic_backup_failed_create",
+        translation_key="automatic_backup_failed_create",
     )
 
     ws_client = await hass_ws_client(hass)

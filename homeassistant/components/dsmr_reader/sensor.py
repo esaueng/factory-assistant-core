@@ -64,7 +64,7 @@ class DSMRSensor(SensorEntity):
                 f"cannot_subscribe_mqtt_topic_{self.entity_description.key}",
                 is_fixable=False,
                 severity=IssueSeverity.WARNING,
-                REDACTED_VALUE"cannot_subscribe_mqtt_topic",
+                translation_key="cannot_subscribe_mqtt_topic",
                 translation_placeholders={
                     "topic": self.entity_description.key,
                     "topic_title": self.entity_description.key.split("/")[-1],

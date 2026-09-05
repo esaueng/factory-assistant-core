@@ -77,7 +77,7 @@ async def _set_chime_volume(obj: Chime, value: float) -> None:
 CAMERA_NUMBERS: tuple[ProtectNumberEntityDescription, ...] = (
     ProtectNumberEntityDescription(
         key="wdr_value",
-        REDACTED_VALUE"wide_dynamic_range",
+        translation_key="wide_dynamic_range",
         entity_category=EntityCategory.CONFIG,
         ufp_min=0,
         ufp_max=3,
@@ -89,7 +89,7 @@ CAMERA_NUMBERS: tuple[ProtectNumberEntityDescription, ...] = (
     ),
     ProtectNumberEntityDescription(
         key="mic_level",
-        REDACTED_VALUE"microphone_level",
+        translation_key="microphone_level",
         entity_category=EntityCategory.CONFIG,
         native_unit_of_measurement=PERCENTAGE,
         ufp_min=1,
@@ -103,7 +103,7 @@ CAMERA_NUMBERS: tuple[ProtectNumberEntityDescription, ...] = (
     ),
     ProtectNumberEntityDescription(
         key="system_sounds_volume",
-        REDACTED_VALUE"system_sounds_volume",
+        translation_key="system_sounds_volume",
         entity_category=EntityCategory.CONFIG,
         native_unit_of_measurement=PERCENTAGE,
         ufp_min=0,
@@ -117,7 +117,7 @@ CAMERA_NUMBERS: tuple[ProtectNumberEntityDescription, ...] = (
     ),
     ProtectNumberEntityDescription(
         key="doorbell_ring_volume",
-        REDACTED_VALUE"doorbell_ring_volume",
+        translation_key="doorbell_ring_volume",
         entity_category=EntityCategory.CONFIG,
         native_unit_of_measurement=PERCENTAGE,
         ufp_min=0,
@@ -131,7 +131,7 @@ CAMERA_NUMBERS: tuple[ProtectNumberEntityDescription, ...] = (
     ),
     ProtectNumberEntityDescription(
         key="zoom_position",
-        REDACTED_VALUE"zoom_level",
+        translation_key="zoom_level",
         entity_category=EntityCategory.CONFIG,
         native_unit_of_measurement=PERCENTAGE,
         ufp_min=0,
@@ -144,7 +144,7 @@ CAMERA_NUMBERS: tuple[ProtectNumberEntityDescription, ...] = (
     ),
     ProtectNumberEntityDescription(
         key="chime_duration",
-        REDACTED_VALUE"chime_duration",
+        translation_key="chime_duration",
         entity_category=EntityCategory.CONFIG,
         native_unit_of_measurement=UnitOfTime.SECONDS,
         ufp_min=1,
@@ -158,7 +158,7 @@ CAMERA_NUMBERS: tuple[ProtectNumberEntityDescription, ...] = (
     ),
     ProtectNumberEntityDescription(
         key="icr_lux",
-        REDACTED_VALUE"infrared_custom_lux_trigger",
+        translation_key="infrared_custom_lux_trigger",
         entity_category=EntityCategory.CONFIG,
         ufp_min=0,
         ufp_max=30,
@@ -174,7 +174,7 @@ CAMERA_NUMBERS: tuple[ProtectNumberEntityDescription, ...] = (
 LIGHT_NUMBERS: tuple[ProtectNumberEntityDescription, ...] = (
     ProtectNumberEntityDescription(
         key="sensitivity",
-        REDACTED_VALUE"motion_sensitivity",
+        translation_key="motion_sensitivity",
         entity_category=EntityCategory.CONFIG,
         native_unit_of_measurement=PERCENTAGE,
         ufp_min=0,
@@ -186,7 +186,7 @@ LIGHT_NUMBERS: tuple[ProtectNumberEntityDescription, ...] = (
     ),
     ProtectNumberEntityDescription[Light](
         key="duration",
-        REDACTED_VALUE"auto_shutoff_duration",
+        translation_key="auto_shutoff_duration",
         entity_category=EntityCategory.CONFIG,
         native_unit_of_measurement=UnitOfTime.SECONDS,
         ufp_min=15,
@@ -201,7 +201,7 @@ LIGHT_NUMBERS: tuple[ProtectNumberEntityDescription, ...] = (
 SENSE_NUMBERS: tuple[ProtectNumberEntityDescription, ...] = (
     ProtectNumberEntityDescription(
         key="sensitivity",
-        REDACTED_VALUE"motion_sensitivity",
+        translation_key="motion_sensitivity",
         entity_category=EntityCategory.CONFIG,
         native_unit_of_measurement=PERCENTAGE,
         ufp_min=0,
@@ -216,7 +216,7 @@ SENSE_NUMBERS: tuple[ProtectNumberEntityDescription, ...] = (
 DOORLOCK_NUMBERS: tuple[ProtectNumberEntityDescription, ...] = (
     ProtectNumberEntityDescription[Doorlock](
         key="auto_lock_time",
-        REDACTED_VALUE"auto_lock_timeout",
+        translation_key="auto_lock_timeout",
         entity_category=EntityCategory.CONFIG,
         native_unit_of_measurement=UnitOfTime.SECONDS,
         ufp_min=0,
@@ -231,7 +231,7 @@ DOORLOCK_NUMBERS: tuple[ProtectNumberEntityDescription, ...] = (
 CHIME_NUMBERS: tuple[ProtectNumberEntityDescription, ...] = (
     ProtectNumberEntityDescription[Chime](
         key="volume",
-        REDACTED_VALUE"volume",
+        translation_key="volume",
         entity_category=EntityCategory.CONFIG,
         native_unit_of_measurement=PERCENTAGE,
         ufp_min=0,

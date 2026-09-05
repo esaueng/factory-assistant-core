@@ -39,56 +39,56 @@ class GitHubSensorEntityDescription(SensorEntityDescription):
 SENSOR_DESCRIPTIONS: tuple[GitHubSensorEntityDescription, ...] = (
     GitHubSensorEntityDescription(
         key="discussions_count",
-        REDACTED_VALUE"discussions_count",
+        translation_key="discussions_count",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data["discussion"]["total"],
     ),
     GitHubSensorEntityDescription(
         key="stargazers_count",
-        REDACTED_VALUE"stargazers_count",
+        translation_key="stargazers_count",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data["stargazers_count"],
     ),
     GitHubSensorEntityDescription(
         key="subscribers_count",
-        REDACTED_VALUE"subscribers_count",
+        translation_key="subscribers_count",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data["watchers"]["total"],
     ),
     GitHubSensorEntityDescription(
         key="forks_count",
-        REDACTED_VALUE"forks_count",
+        translation_key="forks_count",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data["forks_count"],
     ),
     GitHubSensorEntityDescription(
         key="issues_count",
-        REDACTED_VALUE"issues_count",
+        translation_key="issues_count",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data["issue"]["total"],
     ),
     GitHubSensorEntityDescription(
         key="pulls_count",
-        REDACTED_VALUE"pulls_count",
+        translation_key="pulls_count",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data["pull_request"]["total"],
     ),
     GitHubSensorEntityDescription(
         key="merged_pulls_count",
-        REDACTED_VALUE"merged_pulls_count",
+        translation_key="merged_pulls_count",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: data["merged_pull_request"]["total"],
     ),
     GitHubSensorEntityDescription(
         key="latest_commit",
-        REDACTED_VALUE"latest_commit",
+        translation_key="latest_commit",
         value_fn=lambda data: data["default_branch_ref"]["commit"]["message"][:255],
         attr_fn=lambda data: {
             "sha": data["default_branch_ref"]["commit"]["sha"],
@@ -97,7 +97,7 @@ SENSOR_DESCRIPTIONS: tuple[GitHubSensorEntityDescription, ...] = (
     ),
     GitHubSensorEntityDescription(
         key="latest_discussion",
-        REDACTED_VALUE"latest_discussion",
+        translation_key="latest_discussion",
         avabl_fn=lambda data: data["discussion"]["discussions"],
         value_fn=lambda data: data["discussion"]["discussions"][0]["title"][:255],
         attr_fn=lambda data: {
@@ -107,7 +107,7 @@ SENSOR_DESCRIPTIONS: tuple[GitHubSensorEntityDescription, ...] = (
     ),
     GitHubSensorEntityDescription(
         key="latest_release",
-        REDACTED_VALUE"latest_release",
+        translation_key="latest_release",
         avabl_fn=lambda data: data["release"] is not None,
         value_fn=lambda data: data["release"]["name"][:255],
         attr_fn=lambda data: {
@@ -117,7 +117,7 @@ SENSOR_DESCRIPTIONS: tuple[GitHubSensorEntityDescription, ...] = (
     ),
     GitHubSensorEntityDescription(
         key="latest_issue",
-        REDACTED_VALUE"latest_issue",
+        translation_key="latest_issue",
         avabl_fn=lambda data: data["issue"]["issues"],
         value_fn=lambda data: data["issue"]["issues"][0]["title"][:255],
         attr_fn=lambda data: {
@@ -127,7 +127,7 @@ SENSOR_DESCRIPTIONS: tuple[GitHubSensorEntityDescription, ...] = (
     ),
     GitHubSensorEntityDescription(
         key="latest_pull_request",
-        REDACTED_VALUE"latest_pull_request",
+        translation_key="latest_pull_request",
         avabl_fn=lambda data: data["pull_request"]["pull_requests"],
         value_fn=lambda data: data["pull_request"]["pull_requests"][0]["title"][:255],
         attr_fn=lambda data: {
@@ -137,7 +137,7 @@ SENSOR_DESCRIPTIONS: tuple[GitHubSensorEntityDescription, ...] = (
     ),
     GitHubSensorEntityDescription(
         key="latest_tag",
-        REDACTED_VALUE"latest_tag",
+        translation_key="latest_tag",
         avabl_fn=lambda data: data["refs"]["tags"],
         value_fn=lambda data: data["refs"]["tags"][0]["name"][:255],
         attr_fn=lambda data: {
@@ -157,28 +157,28 @@ class GitHubUserSensorEntityDescription(SensorEntityDescription):
 USER_SENSOR_DESCRIPTIONS: tuple[GitHubUserSensorEntityDescription, ...] = (
     GitHubUserSensorEntityDescription(
         key="followers",
-        REDACTED_VALUE"followers",
+        translation_key="followers",
         state_class=SensorStateClass.MEASUREMENT,
         entity_registry_enabled_default=False,
         value_fn=lambda data: data.followers,
     ),
     GitHubUserSensorEntityDescription(
         key="following",
-        REDACTED_VALUE"following",
+        translation_key="following",
         state_class=SensorStateClass.MEASUREMENT,
         entity_registry_enabled_default=False,
         value_fn=lambda data: data.following,
     ),
     GitHubUserSensorEntityDescription(
         key="public_gists",
-        REDACTED_VALUE"public_gists",
+        translation_key="public_gists",
         state_class=SensorStateClass.MEASUREMENT,
         entity_registry_enabled_default=False,
         value_fn=lambda data: data.public_gists,
     ),
     GitHubUserSensorEntityDescription(
         key="public_repos",
-        REDACTED_VALUE"public_repos",
+        translation_key="public_repos",
         state_class=SensorStateClass.MEASUREMENT,
         entity_registry_enabled_default=False,
         value_fn=lambda data: data.public_repos,

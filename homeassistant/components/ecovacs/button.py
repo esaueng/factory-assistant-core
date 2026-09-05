@@ -51,7 +51,7 @@ ENTITY_DESCRIPTIONS: tuple[EcovacsButtonEntityDescription, ...] = (
     EcovacsButtonEntityDescription(
         capability_fn=lambda caps: caps.map.relocation if caps.map else None,
         key="relocate",
-        REDACTED_VALUE"relocate",
+        translation_key="relocate",
         entity_category=EntityCategory.CONFIG,
     ),
 )
@@ -60,7 +60,7 @@ STATION_ENTITY_DESCRIPTIONS = tuple(
     EcovacsStationActionButtonEntityDescription(
         action=action,
         key=f"station_action_{action.name.lower()}",
-        REDACTED_VALUEf"station_action_{action.name.lower()}",
+        translation_key=f"station_action_{action.name.lower()}",
     )
     for action in SUPPORTED_STATION_ACTIONS
 )
@@ -70,7 +70,7 @@ LIFESPAN_ENTITY_DESCRIPTIONS = tuple(
     EcovacsLifespanButtonEntityDescription(
         component=component,
         key=f"reset_lifespan_{component.name.lower()}",
-        REDACTED_VALUEf"reset_lifespan_{component.name.lower()}",
+        translation_key=f"reset_lifespan_{component.name.lower()}",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
     )

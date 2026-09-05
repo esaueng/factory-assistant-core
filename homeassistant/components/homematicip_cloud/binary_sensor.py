@@ -137,7 +137,7 @@ SMOKE_SENSOR_DESCRIPTIONS: tuple[
     ),
     HmipBinarySensorDescription(
         key="chamber_degraded",
-        REDACTED_VALUE"chamber_degraded",
+        translation_key="chamber_degraded",
         device_class=BinarySensorDeviceClass.PROBLEM,
         value_fn=lambda device: device.chamberDegraded,
         exists_fn=lambda device: smoke_detector_channel_data_exists(
@@ -165,7 +165,7 @@ RAIN_SENSOR_DESCRIPTIONS: tuple[
 ] = (
     HmipBinarySensorDescription(
         key="rain",
-        REDACTED_VALUE"raining",
+        translation_key="raining",
         device_class=BinarySensorDeviceClass.MOISTURE,
         value_fn=lambda device: device.raining,
         channel=1,

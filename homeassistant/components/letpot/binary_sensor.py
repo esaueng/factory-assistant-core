@@ -33,7 +33,7 @@ class LetPotBinarySensorEntityDescription[_DataT: LetPotDeviceStatus](
 BINARY_SENSORS: tuple[LetPotBinarySensorEntityDescription[LetPotGardenStatus], ...] = (
     LetPotBinarySensorEntityDescription[LetPotGardenStatus](
         key="low_nutrients",
-        REDACTED_VALUE"low_nutrients",
+        translation_key="low_nutrients",
         is_on_fn=lambda status: bool(status.errors.low_nutrients),
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -44,7 +44,7 @@ BINARY_SENSORS: tuple[LetPotBinarySensorEntityDescription[LetPotGardenStatus], .
     ),
     LetPotBinarySensorEntityDescription[LetPotGardenStatus](
         key="low_water",
-        REDACTED_VALUE"low_water",
+        translation_key="low_water",
         is_on_fn=lambda status: bool(status.errors.low_water),
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -53,7 +53,7 @@ BINARY_SENSORS: tuple[LetPotBinarySensorEntityDescription[LetPotGardenStatus], .
     ),
     LetPotBinarySensorEntityDescription[LetPotGardenStatus](
         key="pump",
-        REDACTED_VALUE"pump",
+        translation_key="pump",
         is_on_fn=lambda status: status.pump_status == 1,
         device_class=BinarySensorDeviceClass.RUNNING,
         supported_fn=(
@@ -67,7 +67,7 @@ BINARY_SENSORS: tuple[LetPotBinarySensorEntityDescription[LetPotGardenStatus], .
     ),
     LetPotBinarySensorEntityDescription[LetPotGardenStatus](
         key="pump_error",
-        REDACTED_VALUE"pump_error",
+        translation_key="pump_error",
         is_on_fn=lambda status: bool(status.errors.pump_malfunction),
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -78,7 +78,7 @@ BINARY_SENSORS: tuple[LetPotBinarySensorEntityDescription[LetPotGardenStatus], .
     ),
     LetPotBinarySensorEntityDescription[LetPotGardenStatus](
         key="refill_error",
-        REDACTED_VALUE"refill_error",
+        translation_key="refill_error",
         is_on_fn=lambda status: bool(status.errors.refill_error),
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.DIAGNOSTIC,

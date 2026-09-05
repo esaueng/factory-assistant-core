@@ -33,7 +33,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: WebDavConfigEntry) -> bo
     except UnauthorizedError as err:
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_username_password",
+            translation_key="invalid_username_password",
         ) from err
 
     # Check if we can connect to the WebDAV server
@@ -41,7 +41,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: WebDavConfigEntry) -> bo
     if not result:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect",
+            translation_key="cannot_connect",
         )
 
     path = entry.data.get(CONF_BACKUP_PATH, "/")
@@ -51,7 +51,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: WebDavConfigEntry) -> bo
         # pylint: disable-next=home-assistant-exception-translation-key-missing
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_access_or_create_backup_path",
+            translation_key="cannot_access_or_create_backup_path",
         )
 
     entry.runtime_data = client

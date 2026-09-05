@@ -67,7 +67,7 @@ SERVICE_GET_TRAVEL_TIMES_SCHEMA = vol.Schema(
             SelectSelectorConfig(
                 options=REGIONS,
                 mode=SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUECONF_REGION,
+                translation_key=CONF_REGION,
                 sort=True,
             )
         ),
@@ -76,7 +76,7 @@ SERVICE_GET_TRAVEL_TIMES_SCHEMA = vol.Schema(
             SelectSelectorConfig(
                 options=VEHICLE_TYPES,
                 mode=SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUECONF_VEHICLE_TYPE,
+                translation_key=CONF_VEHICLE_TYPE,
                 sort=True,
             )
         ),
@@ -84,7 +84,7 @@ SERVICE_GET_TRAVEL_TIMES_SCHEMA = vol.Schema(
             SelectSelectorConfig(
                 options=UNITS,
                 mode=SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUECONF_UNITS,
+                translation_key=CONF_UNITS,
                 sort=True,
             )
         ),

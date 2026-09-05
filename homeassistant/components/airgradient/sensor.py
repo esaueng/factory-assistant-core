@@ -99,13 +99,13 @@ MEASUREMENT_SENSOR_TYPES: tuple[AirGradientMeasurementSensorEntityDescription, .
     ),
     AirGradientMeasurementSensorEntityDescription(
         key="tvoc",
-        REDACTED_VALUE"total_volatile_organic_component_index",
+        translation_key="total_volatile_organic_component_index",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda status: status.total_volatile_organic_component_index,
     ),
     AirGradientMeasurementSensorEntityDescription(
         key="nitrogen_index",
-        REDACTED_VALUE"nitrogen_index",
+        translation_key="nitrogen_index",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda status: status.nitrogen_index,
     ),
@@ -118,14 +118,14 @@ MEASUREMENT_SENSOR_TYPES: tuple[AirGradientMeasurementSensorEntityDescription, .
     ),
     AirGradientMeasurementSensorEntityDescription(
         key="pm003",
-        REDACTED_VALUE"pm003_count",
+        translation_key="pm003_count",
         native_unit_of_measurement="particles/dL",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda status: status.pm003_count,
     ),
     AirGradientMeasurementSensorEntityDescription(
         key="nox_raw",
-        REDACTED_VALUE"raw_nitrogen",
+        translation_key="raw_nitrogen",
         native_unit_of_measurement="ticks",
         state_class=SensorStateClass.MEASUREMENT,
         entity_registry_enabled_default=False,
@@ -133,7 +133,7 @@ MEASUREMENT_SENSOR_TYPES: tuple[AirGradientMeasurementSensorEntityDescription, .
     ),
     AirGradientMeasurementSensorEntityDescription(
         key="tvoc_raw",
-        REDACTED_VALUE"raw_total_volatile_organic_component",
+        translation_key="raw_total_volatile_organic_component",
         native_unit_of_measurement="ticks",
         state_class=SensorStateClass.MEASUREMENT,
         entity_registry_enabled_default=False,
@@ -141,7 +141,7 @@ MEASUREMENT_SENSOR_TYPES: tuple[AirGradientMeasurementSensorEntityDescription, .
     ),
     AirGradientMeasurementSensorEntityDescription(
         key="pm02_raw",
-        REDACTED_VALUE"raw_pm02",
+        translation_key="raw_pm02",
         device_class=SensorDeviceClass.PM25,
         native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -153,7 +153,7 @@ MEASUREMENT_SENSOR_TYPES: tuple[AirGradientMeasurementSensorEntityDescription, .
 CONFIG_SENSOR_TYPES: tuple[AirGradientConfigSensorEntityDescription, ...] = (
     AirGradientConfigSensorEntityDescription(
         key="co2_automatic_baseline_calibration_days",
-        REDACTED_VALUE"co2_automatic_baseline_calibration_days",
+        translation_key="co2_automatic_baseline_calibration_days",
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.DAYS,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -161,7 +161,7 @@ CONFIG_SENSOR_TYPES: tuple[AirGradientConfigSensorEntityDescription, ...] = (
     ),
     AirGradientConfigSensorEntityDescription(
         key="nox_learning_offset",
-        REDACTED_VALUE"nox_learning_offset",
+        translation_key="nox_learning_offset",
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.DAYS,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -169,7 +169,7 @@ CONFIG_SENSOR_TYPES: tuple[AirGradientConfigSensorEntityDescription, ...] = (
     ),
     AirGradientConfigSensorEntityDescription(
         key="tvoc_learning_offset",
-        REDACTED_VALUE"tvoc_learning_offset",
+        translation_key="tvoc_learning_offset",
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.DAYS,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -180,7 +180,7 @@ CONFIG_SENSOR_TYPES: tuple[AirGradientConfigSensorEntityDescription, ...] = (
 CONFIG_LED_BAR_SENSOR_TYPES: tuple[AirGradientConfigSensorEntityDescription, ...] = (
     AirGradientConfigSensorEntityDescription(
         key="led_bar_mode",
-        REDACTED_VALUE"led_bar_mode",
+        translation_key="led_bar_mode",
         device_class=SensorDeviceClass.ENUM,
         options=[x.value for x in LedBarMode],
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -188,7 +188,7 @@ CONFIG_LED_BAR_SENSOR_TYPES: tuple[AirGradientConfigSensorEntityDescription, ...
     ),
     AirGradientConfigSensorEntityDescription(
         key="led_bar_brightness",
-        REDACTED_VALUE"led_bar_brightness",
+        translation_key="led_bar_brightness",
         native_unit_of_measurement=PERCENTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda config: config.led_bar_brightness,
@@ -198,7 +198,7 @@ CONFIG_LED_BAR_SENSOR_TYPES: tuple[AirGradientConfigSensorEntityDescription, ...
 CONFIG_DISPLAY_SENSOR_TYPES: tuple[AirGradientConfigSensorEntityDescription, ...] = (
     AirGradientConfigSensorEntityDescription(
         key="display_temperature_unit",
-        REDACTED_VALUE"display_temperature_unit",
+        translation_key="display_temperature_unit",
         device_class=SensorDeviceClass.ENUM,
         options=[x.value for x in TemperatureUnit],
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -206,7 +206,7 @@ CONFIG_DISPLAY_SENSOR_TYPES: tuple[AirGradientConfigSensorEntityDescription, ...
     ),
     AirGradientConfigSensorEntityDescription(
         key="display_pm_standard",
-        REDACTED_VALUE"display_pm_standard",
+        translation_key="display_pm_standard",
         device_class=SensorDeviceClass.ENUM,
         options=list(PM_STANDARD_REVERSE),
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -214,7 +214,7 @@ CONFIG_DISPLAY_SENSOR_TYPES: tuple[AirGradientConfigSensorEntityDescription, ...
     ),
     AirGradientConfigSensorEntityDescription(
         key="display_brightness",
-        REDACTED_VALUE"display_brightness",
+        translation_key="display_brightness",
         native_unit_of_measurement=PERCENTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda config: config.display_brightness,

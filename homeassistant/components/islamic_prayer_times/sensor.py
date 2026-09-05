@@ -19,31 +19,31 @@ from .coordinator import IslamicPrayerDataUpdateCoordinator
 SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="Fajr",
-        REDACTED_VALUE"fajr",
+        translation_key="fajr",
     ),
     SensorEntityDescription(
         key="Sunrise",
-        REDACTED_VALUE"sunrise",
+        translation_key="sunrise",
     ),
     SensorEntityDescription(
         key="Dhuhr",
-        REDACTED_VALUE"dhuhr",
+        translation_key="dhuhr",
     ),
     SensorEntityDescription(
         key="Asr",
-        REDACTED_VALUE"asr",
+        translation_key="asr",
     ),
     SensorEntityDescription(
         key="Maghrib",
-        REDACTED_VALUE"maghrib",
+        translation_key="maghrib",
     ),
     SensorEntityDescription(
         key="Isha",
-        REDACTED_VALUE"isha",
+        translation_key="isha",
     ),
     SensorEntityDescription(
         key="Midnight",
-        REDACTED_VALUE"midnight",
+        translation_key="midnight",
     ),
 )
 

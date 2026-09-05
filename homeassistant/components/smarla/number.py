@@ -27,7 +27,7 @@ class SmarlaNumberEntityDescription(SmarlaEntityDescription, NumberEntityDescrip
 NUMBERS: list[SmarlaNumberEntityDescription] = [
     SmarlaNumberEntityDescription(
         key="intensity",
-        REDACTED_VALUE"intensity",
+        translation_key="intensity",
         service="babywiege",
         property="intensity",
         native_max_value=100,

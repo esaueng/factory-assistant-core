@@ -38,7 +38,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: PointConfigEntry) -> boo
     except ImplementationUnavailableError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"oauth2_implementation_unavailable",
+            translation_key="oauth2_implementation_unavailable",
         ) from err
     session = OAuth2Session(hass, entry, implementation)
     auth = api.AsyncConfigEntryAuth(

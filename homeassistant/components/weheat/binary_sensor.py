@@ -30,30 +30,30 @@ class WeHeatBinarySensorEntityDescription(BinarySensorEntityDescription):
 
 BINARY_SENSORS = [
     WeHeatBinarySensorEntityDescription(
-        REDACTED_VALUE"indoor_unit_water_pump_state",
+        translation_key="indoor_unit_water_pump_state",
         key="indoor_unit_water_pump_state",
         device_class=BinarySensorDeviceClass.RUNNING,
         value_fn=lambda status: status.indoor_unit_water_pump_state,
     ),
     WeHeatBinarySensorEntityDescription(
-        REDACTED_VALUE"indoor_unit_auxiliary_pump_state",
+        translation_key="indoor_unit_auxiliary_pump_state",
         key="indoor_unit_auxiliary_pump_state",
         device_class=BinarySensorDeviceClass.RUNNING,
         value_fn=lambda status: status.indoor_unit_auxiliary_pump_state,
     ),
     WeHeatBinarySensorEntityDescription(
-        REDACTED_VALUE"indoor_unit_dhw_valve_or_pump_state",
+        translation_key="indoor_unit_dhw_valve_or_pump_state",
         key="indoor_unit_dhw_valve_or_pump_state",
         device_class=BinarySensorDeviceClass.RUNNING,
         value_fn=lambda status: status.indoor_unit_dhw_valve_or_pump_state,
     ),
     WeHeatBinarySensorEntityDescription(
-        REDACTED_VALUE"indoor_unit_gas_boiler_state",
+        translation_key="indoor_unit_gas_boiler_state",
         key="indoor_unit_gas_boiler_state",
         value_fn=lambda status: status.indoor_unit_gas_boiler_state,
     ),
     WeHeatBinarySensorEntityDescription(
-        REDACTED_VALUE"indoor_unit_electric_heater_state",
+        translation_key="indoor_unit_electric_heater_state",
         key="indoor_unit_electric_heater_state",
         device_class=BinarySensorDeviceClass.RUNNING,
         value_fn=lambda status: status.indoor_unit_electric_heater_state,

@@ -24,46 +24,46 @@ BUTTONS: dict[DeviceCategory, tuple[ButtonEntityDescription, ...]] = {
     DeviceCategory.HXD: (
         ButtonEntityDescription(
             key=DPCode.SWITCH_USB6,
-            REDACTED_VALUE"snooze",
+            translation_key="snooze",
         ),
     ),
     DeviceCategory.MSP: (
         ButtonEntityDescription(
             key=DPCode.FACTORY_RESET,
-            REDACTED_VALUE"factory_reset",
+            translation_key="factory_reset",
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
         ),
         ButtonEntityDescription(
             key=DPCode.MANUAL_CLEAN,
-            REDACTED_VALUE"manual_clean",
+            translation_key="manual_clean",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.SD: (
         ButtonEntityDescription(
             key=DPCode.RESET_DUSTER_CLOTH,
-            REDACTED_VALUE"reset_duster_cloth",
+            translation_key="reset_duster_cloth",
             entity_category=EntityCategory.CONFIG,
         ),
         ButtonEntityDescription(
             key=DPCode.RESET_EDGE_BRUSH,
-            REDACTED_VALUE"reset_edge_brush",
+            translation_key="reset_edge_brush",
             entity_category=EntityCategory.CONFIG,
         ),
         ButtonEntityDescription(
             key=DPCode.RESET_FILTER,
-            REDACTED_VALUE"reset_filter",
+            translation_key="reset_filter",
             entity_category=EntityCategory.CONFIG,
         ),
         ButtonEntityDescription(
             key=DPCode.RESET_MAP,
-            REDACTED_VALUE"reset_map",
+            translation_key="reset_map",
             entity_category=EntityCategory.CONFIG,
         ),
         ButtonEntityDescription(
             key=DPCode.RESET_ROLL_BRUSH,
-            REDACTED_VALUE"reset_roll_brush",
+            translation_key="reset_roll_brush",
             entity_category=EntityCategory.CONFIG,
         ),
     ),

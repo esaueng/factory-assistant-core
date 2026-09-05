@@ -197,11 +197,11 @@ class FritzboxThermostat(FritzBoxDeviceEntity, ClimateEntity):
         if self.data.holiday_active or self.data.summer_active:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"change_settings_while_active_mode",
+                translation_key="change_settings_while_active_mode",
             )
 
         if self.data.lock:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"change_settings_while_lock_enabled",
+                translation_key="change_settings_while_lock_enabled",
             )

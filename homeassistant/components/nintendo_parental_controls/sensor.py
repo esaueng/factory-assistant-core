@@ -53,7 +53,7 @@ DEVICE_SENSOR_DESCRIPTIONS: tuple[
 ] = (
     NintendoParentalControlsDeviceSensorEntityDescription(
         key=NintendoParentalControlsSensor.PLAYING_TIME,
-        REDACTED_VALUENintendoParentalControlsSensor.PLAYING_TIME,
+        translation_key=NintendoParentalControlsSensor.PLAYING_TIME,
         native_unit_of_measurement=UnitOfTime.MINUTES,
         device_class=SensorDeviceClass.DURATION,
         state_class=SensorStateClass.MEASUREMENT,
@@ -61,7 +61,7 @@ DEVICE_SENSOR_DESCRIPTIONS: tuple[
     ),
     NintendoParentalControlsDeviceSensorEntityDescription(
         key=NintendoParentalControlsSensor.TIME_REMAINING,
-        REDACTED_VALUENintendoParentalControlsSensor.TIME_REMAINING,
+        translation_key=NintendoParentalControlsSensor.TIME_REMAINING,
         native_unit_of_measurement=UnitOfTime.MINUTES,
         device_class=SensorDeviceClass.DURATION,
         state_class=SensorStateClass.MEASUREMENT,
@@ -69,7 +69,7 @@ DEVICE_SENSOR_DESCRIPTIONS: tuple[
     ),
     NintendoParentalControlsDeviceSensorEntityDescription(
         key=NintendoParentalControlsSensor.TIME_EXTENDED,
-        REDACTED_VALUENintendoParentalControlsSensor.TIME_EXTENDED,
+        translation_key=NintendoParentalControlsSensor.TIME_EXTENDED,
         native_unit_of_measurement=UnitOfTime.MINUTES,
         device_class=SensorDeviceClass.DURATION,
         state_class=SensorStateClass.MEASUREMENT,
@@ -83,7 +83,7 @@ PLAYER_SENSOR_DESCRIPTIONS: tuple[
 ] = (
     NintendoParentalControlsPlayerSensorEntityDescription(
         key=NintendoParentalControlsSensor.PLAYER_PLAYING_TIME,
-        REDACTED_VALUENintendoParentalControlsSensor.PLAYER_PLAYING_TIME,
+        translation_key=NintendoParentalControlsSensor.PLAYER_PLAYING_TIME,
         native_unit_of_measurement=UnitOfTime.MINUTES,
         device_class=SensorDeviceClass.DURATION,
         state_class=SensorStateClass.MEASUREMENT,

@@ -30,7 +30,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: PegelOnlineConfigEntry) 
     except CONNECT_ERRORS as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"communication_error",
+            translation_key="communication_error",
             translation_placeholders={"error": str(err)},
         ) from err
 

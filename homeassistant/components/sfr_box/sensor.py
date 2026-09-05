@@ -41,21 +41,21 @@ DSL_SENSOR_TYPES: tuple[SFRBoxSensorEntityDescription[DslInfo], ...] = (
         key="linemode",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
-        REDACTED_VALUE"dsl_linemode",
+        translation_key="dsl_linemode",
         value_fn=lambda x: x.linemode,
     ),
     SFRBoxSensorEntityDescription[DslInfo](
         key="counter",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
-        REDACTED_VALUE"dsl_connect_count",
+        translation_key="dsl_connect_count",
         value_fn=lambda x: x.counter,
     ),
     SFRBoxSensorEntityDescription[DslInfo](
         key="crc",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
-        REDACTED_VALUE"dsl_crc_error_count",
+        translation_key="dsl_crc_error_count",
         value_fn=lambda x: x.crc,
     ),
     SFRBoxSensorEntityDescription[DslInfo](
@@ -65,7 +65,7 @@ DSL_SENSOR_TYPES: tuple[SFRBoxSensorEntityDescription[DslInfo], ...] = (
         entity_registry_enabled_default=False,
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"dsl_noise_down",
+        translation_key="dsl_noise_down",
         value_fn=lambda x: x.noise_down,
     ),
     SFRBoxSensorEntityDescription[DslInfo](
@@ -75,7 +75,7 @@ DSL_SENSOR_TYPES: tuple[SFRBoxSensorEntityDescription[DslInfo], ...] = (
         entity_registry_enabled_default=False,
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"dsl_noise_up",
+        translation_key="dsl_noise_up",
         value_fn=lambda x: x.noise_up,
     ),
     SFRBoxSensorEntityDescription[DslInfo](
@@ -85,7 +85,7 @@ DSL_SENSOR_TYPES: tuple[SFRBoxSensorEntityDescription[DslInfo], ...] = (
         entity_registry_enabled_default=False,
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"dsl_attenuation_down",
+        translation_key="dsl_attenuation_down",
         value_fn=lambda x: x.attenuation_down,
     ),
     SFRBoxSensorEntityDescription[DslInfo](
@@ -95,7 +95,7 @@ DSL_SENSOR_TYPES: tuple[SFRBoxSensorEntityDescription[DslInfo], ...] = (
         entity_registry_enabled_default=False,
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"dsl_attenuation_up",
+        translation_key="dsl_attenuation_up",
         value_fn=lambda x: x.attenuation_up,
     ),
     SFRBoxSensorEntityDescription[DslInfo](
@@ -103,7 +103,7 @@ DSL_SENSOR_TYPES: tuple[SFRBoxSensorEntityDescription[DslInfo], ...] = (
         device_class=SensorDeviceClass.DATA_RATE,
         native_unit_of_measurement=UnitOfDataRate.KILOBITS_PER_SECOND,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"dsl_rate_down",
+        translation_key="dsl_rate_down",
         value_fn=lambda x: x.rate_down,
     ),
     SFRBoxSensorEntityDescription[DslInfo](
@@ -111,7 +111,7 @@ DSL_SENSOR_TYPES: tuple[SFRBoxSensorEntityDescription[DslInfo], ...] = (
         device_class=SensorDeviceClass.DATA_RATE,
         native_unit_of_measurement=UnitOfDataRate.KILOBITS_PER_SECOND,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"dsl_rate_up",
+        translation_key="dsl_rate_up",
         value_fn=lambda x: x.rate_up,
     ),
     SFRBoxSensorEntityDescription[DslInfo](
@@ -126,7 +126,7 @@ DSL_SENSOR_TYPES: tuple[SFRBoxSensorEntityDescription[DslInfo], ...] = (
             "loss_of_power",
             "loss_of_signal_quality",
         ],
-        REDACTED_VALUE"dsl_line_status",
+        translation_key="dsl_line_status",
         value_fn=lambda x: _value_to_option(x.line_status),
     ),
     SFRBoxSensorEntityDescription[DslInfo](
@@ -145,7 +145,7 @@ DSL_SENSOR_TYPES: tuple[SFRBoxSensorEntityDescription[DslInfo], ...] = (
             "g_993_message_exchange",
             "showtime",
         ],
-        REDACTED_VALUE"dsl_training",
+        translation_key="dsl_training",
         value_fn=lambda x: _value_to_option(x.training),
     ),
 )
@@ -160,7 +160,7 @@ SYSTEM_SENSOR_TYPES: tuple[SFRBoxSensorEntityDescription[SystemInfo], ...] = (
             "ftth",
             "gprs",
         ],
-        REDACTED_VALUE"net_infra",
+        translation_key="net_infra",
         value_fn=lambda x: _value_to_option(x.net_infra),
     ),
     SFRBoxSensorEntityDescription[SystemInfo](
@@ -193,7 +193,7 @@ VOIP_SENSOR_TYPES: tuple[SFRBoxSensorEntityDescription[VoipInfo], ...] = (
             "ftth",
             "gprs",
         ],
-        REDACTED_VALUE"voip_infra",
+        translation_key="voip_infra",
         value_fn=lambda x: _value_to_option(x.infra),
     ),
 )
@@ -209,7 +209,7 @@ WAN_SENSOR_TYPES: tuple[SFRBoxSensorEntityDescription[WanInfo], ...] = (
             "ftth_routed",
             "grps_ppp",
         ],
-        REDACTED_VALUE"wan_mode",
+        translation_key="wan_mode",
         value_fn=lambda x: _value_to_option(x.mode),
     ),
 )

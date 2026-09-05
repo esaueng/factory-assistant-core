@@ -123,7 +123,7 @@ def _raise_on_set_user_error(status: SetUserResult) -> None:
         return
     raise HomeAssistantError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE_SET_USER_RESULT_KEYS.get(status, "user_rejected_unknown"),
+        translation_key=_SET_USER_RESULT_KEYS.get(status, "user_rejected_unknown"),
     )
 
 
@@ -133,7 +133,7 @@ def _raise_on_set_credential_error(status: SetCredentialResult) -> None:
         return
     raise HomeAssistantError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE_SET_CREDENTIAL_RESULT_KEYS.get(
+        translation_key=_SET_CREDENTIAL_RESULT_KEYS.get(
             status, "credential_rejected_unknown"
         ),
     )
@@ -211,7 +211,7 @@ async def async_get_credential_capabilities(
     if not supported:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"access_control_not_supported",
+            translation_key="access_control_not_supported",
         )
 
     user_caps = await node.access_control.get_user_capabilities_cached()
@@ -253,7 +253,7 @@ async def async_get_users(node: Node) -> UsersResult:
     if not supported:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"access_control_not_supported",
+            translation_key="access_control_not_supported",
         )
 
     user_caps = await node.access_control.get_user_capabilities_cached()
@@ -304,7 +304,7 @@ async def async_set_user(
     if not supported:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"access_control_not_supported",
+            translation_key="access_control_not_supported",
         )
 
     # Auto-find first available user slot
@@ -319,7 +319,7 @@ async def async_set_user(
         if user_id is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_available_user_slots",
+                translation_key="no_available_user_slots",
             )
 
     options = SetUserOptions(
@@ -339,7 +339,7 @@ async def async_delete_user(node: Node, user_id: int) -> None:
     if not await node.access_control.is_supported():
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"access_control_not_supported",
+            translation_key="access_control_not_supported",
         )
 
     status = await node.access_control.delete_user(user_id)
@@ -351,7 +351,7 @@ async def async_delete_all_users(node: Node) -> None:
     if not await node.access_control.is_supported():
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"access_control_not_supported",
+            translation_key="access_control_not_supported",
         )
 
     status = await node.access_control.delete_all_users()
@@ -375,7 +375,7 @@ async def async_set_credential(
     if not supported:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"access_control_not_supported",
+            translation_key="access_control_not_supported",
         )
 
     cred_type_str = CREDENTIAL_TYPE_MAP.get(credential_type, str(credential_type))
@@ -384,7 +384,7 @@ async def async_set_credential(
     if type_cap is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"credential_type_not_supported",
+            translation_key="credential_type_not_supported",
             translation_placeholders={"credential_type": cred_type_str},
         )
 
@@ -396,7 +396,7 @@ async def async_set_credential(
     ):
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"credential_data_invalid_length",
+            translation_key="credential_data_invalid_length",
             translation_placeholders={
                 "credential_type": cred_type_str,
                 "min_length": str(type_cap.min_credential_length),
@@ -410,7 +410,7 @@ async def async_set_credential(
         # which the lock firmware cannot store. Restrict to ASCII 0-9.
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"credential_data_pin_not_digits",
+            translation_key="credential_data_pin_not_digits",
         )
 
     if credential_slot is None:
@@ -429,13 +429,13 @@ async def async_set_credential(
         if credential_slot is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_available_credential_slots",
+                translation_key="no_available_credential_slots",
                 translation_placeholders={"credential_type": cred_type_str},
             )
     elif not 1 <= credential_slot <= type_cap.number_of_credential_slots:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"credential_slot_out_of_range",
+            translation_key="credential_slot_out_of_range",
             translation_placeholders={
                 "credential_type": cred_type_str,
                 "max_slot": str(type_cap.number_of_credential_slots),
@@ -463,7 +463,7 @@ async def async_delete_credential(
     if not await node.access_control.is_supported():
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"access_control_not_supported",
+            translation_key="access_control_not_supported",
         )
 
     status = await node.access_control.delete_credential(
@@ -477,7 +477,7 @@ async def async_delete_all_credentials(node: Node, user_id: int) -> None:
     if not await node.access_control.is_supported():
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"access_control_not_supported",
+            translation_key="access_control_not_supported",
         )
 
     credentials = await node.access_control.get_credentials_cached(user_id)
@@ -514,7 +514,7 @@ async def async_delete_all_credentials(node: Node, user_id: int) -> None:
         raise failures[0][1]
     raise HomeAssistantError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"delete_all_credentials_partial_failure",
+        translation_key="delete_all_credentials_partial_failure",
         translation_placeholders={
             "user_id": str(user_id),
             "failed_count": str(len(failures)),

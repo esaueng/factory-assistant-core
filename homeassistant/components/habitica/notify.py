@@ -112,7 +112,7 @@ class HabiticaBaseNotifyEntity(HabiticaBase, NotifyEntity):
             # pylint: disable-next=home-assistant-exception-placeholder-mismatch
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"send_message_forbidden",
+                translation_key="send_message_forbidden",
                 translation_placeholders={
                     **self.translation_placeholders,
                     "reason": e.error.message,
@@ -122,7 +122,7 @@ class HabiticaBaseNotifyEntity(HabiticaBase, NotifyEntity):
             # pylint: disable-next=home-assistant-exception-placeholder-mismatch
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"send_message_not_found",
+                translation_key="send_message_not_found",
                 translation_placeholders={
                     **self.translation_placeholders,
                     "reason": e.error.message,
@@ -131,19 +131,19 @@ class HabiticaBaseNotifyEntity(HabiticaBase, NotifyEntity):
         except TooManyRequestsError as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"setup_rate_limit_exception",
+                translation_key="setup_rate_limit_exception",
                 translation_placeholders={"retry_after": str(e.retry_after)},
             ) from e
         except HabiticaException as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_call_exception",
+                translation_key="service_call_exception",
                 translation_placeholders={"reason": e.error.message},
             ) from e
         except ClientError as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_call_exception",
+                translation_key="service_call_exception",
                 translation_placeholders={"reason": str(e)},
             ) from e
 
@@ -161,7 +161,7 @@ class HabiticaPartyChatNotifyEntity(HabiticaBaseNotifyEntity):
 
         self.entity_description = NotifyEntityDescription(
             key=HabiticaNotify.PARTY_CHAT,
-            REDACTED_VALUEHabiticaNotify.PARTY_CHAT,
+            translation_key=HabiticaNotify.PARTY_CHAT,
         )
         self.party = party
         super().__init__(coordinator)
@@ -187,7 +187,7 @@ class HabiticaPrivateMessageNotifyEntity(HabiticaBaseNotifyEntity):
         self._attr_translation_placeholders = {CONF_NAME: member.profile.name or ""}
         self.entity_description = NotifyEntityDescription(
             key=f"{member.id!s}_{HabiticaNotify.PRIVATE_MESSAGE}",
-            REDACTED_VALUEHabiticaNotify.PRIVATE_MESSAGE,
+            translation_key=HabiticaNotify.PRIVATE_MESSAGE,
         )
         self.member = member
         super().__init__(coordinator)

@@ -27,32 +27,32 @@ from .coordinator import UkraineAlarmConfigEntry, UkraineAlarmDataUpdateCoordina
 BINARY_SENSOR_TYPES: tuple[BinarySensorEntityDescription, ...] = (
     BinarySensorEntityDescription(
         key=ALERT_TYPE_UNKNOWN,
-        REDACTED_VALUE"unknown",
+        translation_key="unknown",
         device_class=BinarySensorDeviceClass.SAFETY,
     ),
     BinarySensorEntityDescription(
         key=ALERT_TYPE_AIR,
-        REDACTED_VALUE"air",
+        translation_key="air",
         device_class=BinarySensorDeviceClass.SAFETY,
     ),
     BinarySensorEntityDescription(
         key=ALERT_TYPE_URBAN_FIGHTS,
-        REDACTED_VALUE"urban_fights",
+        translation_key="urban_fights",
         device_class=BinarySensorDeviceClass.SAFETY,
     ),
     BinarySensorEntityDescription(
         key=ALERT_TYPE_ARTILLERY,
-        REDACTED_VALUE"artillery",
+        translation_key="artillery",
         device_class=BinarySensorDeviceClass.SAFETY,
     ),
     BinarySensorEntityDescription(
         key=ALERT_TYPE_CHEMICAL,
-        REDACTED_VALUE"chemical",
+        translation_key="chemical",
         device_class=BinarySensorDeviceClass.SAFETY,
     ),
     BinarySensorEntityDescription(
         key=ALERT_TYPE_NUCLEAR,
-        REDACTED_VALUE"nuclear",
+        translation_key="nuclear",
         device_class=BinarySensorDeviceClass.SAFETY,
     ),
 )

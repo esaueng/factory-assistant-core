@@ -34,13 +34,13 @@ BOT_BUTTON_DESCRIPTION = SwitchbotCloudButtonEntityDescription(
 
 ART_FRAME_NEXT_BUTTON_DESCRIPTION = SwitchbotCloudButtonEntityDescription(
     key="next",
-    REDACTED_VALUE"art_frame_next_picture",
+    translation_key="art_frame_next_picture",
     command=ArtFrameCommands.NEXT,
 )
 
 ART_FRAME_PREVIOUS_BUTTON_DESCRIPTION = SwitchbotCloudButtonEntityDescription(
     key="previous",
-    REDACTED_VALUE"art_frame_previous_picture",
+    translation_key="art_frame_previous_picture",
     command=ArtFrameCommands.PREVIOUS,
 )
 

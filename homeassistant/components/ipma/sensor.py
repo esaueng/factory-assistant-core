@@ -67,17 +67,17 @@ async def async_retrieve_warning(
 SENSOR_TYPES: tuple[IPMASensorEntityDescription, ...] = (
     IPMASensorEntityDescription(
         key="rcm",
-        REDACTED_VALUE"fire_risk",
+        translation_key="fire_risk",
         value_fn=async_retrieve_rcm,
     ),
     IPMASensorEntityDescription(
         key="uvi",
-        REDACTED_VALUE"uv_index",
+        translation_key="uv_index",
         value_fn=async_retrieve_uvi,
     ),
     IPMASensorEntityDescription(
         key="alert",
-        REDACTED_VALUE"weather_alert",
+        translation_key="weather_alert",
         value_fn=async_retrieve_warning,
     ),
 )

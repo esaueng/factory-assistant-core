@@ -19,7 +19,7 @@ from .entity import WallboxEntity
 SWITCH_TYPES: dict[str, SwitchEntityDescription] = {
     CHARGER_PAUSE_RESUME_KEY: SwitchEntityDescription(
         key=CHARGER_PAUSE_RESUME_KEY,
-        REDACTED_VALUE"pause_resume",
+        translation_key="pause_resume",
     ),
 }
 

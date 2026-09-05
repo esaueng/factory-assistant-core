@@ -78,7 +78,7 @@ SENSOR_DESCRIPTIONS = {
         icon="mdi:omega",
         native_unit_of_measurement=Units.OHM,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"impedance",
+        translation_key="impedance",
     ),
     # Mass sensor (kg)
     (DeviceClass.MASS, Units.MASS_KILOGRAMS): SensorEntityDescription(
@@ -94,7 +94,7 @@ SENSOR_DESCRIPTIONS = {
         native_unit_of_measurement=UnitOfMass.KILOGRAMS,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
-        REDACTED_VALUE"weight_non_stabilized",
+        translation_key="weight_non_stabilized",
     ),
     (DeviceClass.MOISTURE, Units.PERCENTAGE): SensorEntityDescription(
         key=f"{DeviceClass.MOISTURE}_{Units.PERCENTAGE}",

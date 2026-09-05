@@ -28,19 +28,19 @@ class ChargePointButtonEntityDescription(ButtonEntityDescription):
 CHARGE_POINT_BUTTONS = (
     ChargePointButtonEntityDescription(
         key="reset",
-        REDACTED_VALUE"reset",
+        translation_key="reset",
         function=lambda client, evse_id: client.reset(evse_id),
         device_class=ButtonDeviceClass.RESTART,
     ),
     ChargePointButtonEntityDescription(
         key="reboot",
-        REDACTED_VALUE"reboot",
+        translation_key="reboot",
         function=lambda client, evse_id: client.reboot(evse_id),
         device_class=ButtonDeviceClass.RESTART,
     ),
     ChargePointButtonEntityDescription(
         key="stop_charge_session",
-        REDACTED_VALUE"stop_charge_session",
+        translation_key="stop_charge_session",
         function=lambda client, evse_id: client.stop_session(evse_id),
     ),
 )

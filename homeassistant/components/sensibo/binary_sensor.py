@@ -40,7 +40,7 @@ class SensiboDeviceBinarySensorEntityDescription(BinarySensorEntityDescription):
 
 FILTER_CLEAN_REQUIRED_DESCRIPTION = SensiboDeviceBinarySensorEntityDescription(
     key="filter_clean",
-    REDACTED_VALUE"filter_clean",
+    translation_key="filter_clean",
     device_class=BinarySensorDeviceClass.PROBLEM,
     value_fn=lambda data: data.filter_clean,
 )
@@ -54,7 +54,7 @@ MOTION_SENSOR_TYPES: tuple[SensiboMotionBinarySensorEntityDescription, ...] = (
     ),
     SensiboMotionBinarySensorEntityDescription(
         key="is_main_sensor",
-        REDACTED_VALUE"is_main_sensor",
+        translation_key="is_main_sensor",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.is_main_sensor,
     ),
@@ -68,7 +68,7 @@ MOTION_SENSOR_TYPES: tuple[SensiboMotionBinarySensorEntityDescription, ...] = (
 MOTION_DEVICE_SENSOR_TYPES: tuple[SensiboDeviceBinarySensorEntityDescription, ...] = (
     SensiboDeviceBinarySensorEntityDescription(
         key="room_occupied",
-        REDACTED_VALUE"room_occupied",
+        translation_key="room_occupied",
         device_class=BinarySensorDeviceClass.MOTION,
         value_fn=lambda data: data.room_occupied,
     ),
@@ -81,28 +81,28 @@ DEVICE_SENSOR_TYPES: tuple[SensiboDeviceBinarySensorEntityDescription, ...] = (
 PURE_SENSOR_TYPES: tuple[SensiboDeviceBinarySensorEntityDescription, ...] = (
     SensiboDeviceBinarySensorEntityDescription(
         key="pure_ac_integration",
-        REDACTED_VALUE"pure_ac_integration",
+        translation_key="pure_ac_integration",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         value_fn=lambda data: data.pure_ac_integration,
     ),
     SensiboDeviceBinarySensorEntityDescription(
         key="pure_geo_integration",
-        REDACTED_VALUE"pure_geo_integration",
+        translation_key="pure_geo_integration",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         value_fn=lambda data: data.pure_geo_integration,
     ),
     SensiboDeviceBinarySensorEntityDescription(
         key="pure_measure_integration",
-        REDACTED_VALUE"pure_measure_integration",
+        translation_key="pure_measure_integration",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         value_fn=lambda data: data.pure_measure_integration,
     ),
     SensiboDeviceBinarySensorEntityDescription(
         key="pure_prime_integration",
-        REDACTED_VALUE"pure_prime_integration",
+        translation_key="pure_prime_integration",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         value_fn=lambda data: data.pure_prime_integration,

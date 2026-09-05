@@ -33,7 +33,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     ):
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"dir_not_allowed",
+            translation_key="dir_not_allowed",
             translation_placeholders={"filename": filepath},
         )
 

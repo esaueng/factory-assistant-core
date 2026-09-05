@@ -32,7 +32,7 @@ BUTTONS: tuple[BraviaTVButtonDescription, ...] = (
     ),
     BraviaTVButtonDescription(
         key="terminate_apps",
-        REDACTED_VALUE"terminate_apps",
+        translation_key="terminate_apps",
         entity_category=EntityCategory.CONFIG,
         press_action=lambda coordinator: coordinator.async_terminate_apps(),
     ),

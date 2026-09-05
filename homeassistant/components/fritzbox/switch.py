@@ -75,7 +75,7 @@ class FritzboxSwitch(FritzBoxDeviceEntity, SwitchEntity):
         if self.data.lock:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"manual_switching_disabled",
+                translation_key="manual_switching_disabled",
             )
 
 

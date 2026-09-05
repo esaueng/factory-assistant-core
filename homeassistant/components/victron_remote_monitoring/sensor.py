@@ -36,7 +36,7 @@ SENSORS: tuple[VRMForecastsSensorEntityDescription, ...] = (
     # Solar forecast sensors
     VRMForecastsSensorEntityDescription(
         key="energy_production_estimate_yesterday",
-        REDACTED_VALUE"energy_production_estimate_yesterday",
+        translation_key="energy_production_estimate_yesterday",
         value_fn=lambda store: (
             store.solar.yesterday_total if store.solar is not None else None
         ),
@@ -48,7 +48,7 @@ SENSORS: tuple[VRMForecastsSensorEntityDescription, ...] = (
     ),
     VRMForecastsSensorEntityDescription(
         key="energy_production_estimate_today",
-        REDACTED_VALUE"energy_production_estimate_today",
+        translation_key="energy_production_estimate_today",
         value_fn=lambda store: (
             store.solar.today_total if store.solar is not None else None
         ),
@@ -60,7 +60,7 @@ SENSORS: tuple[VRMForecastsSensorEntityDescription, ...] = (
     ),
     VRMForecastsSensorEntityDescription(
         key="energy_production_estimate_today_remaining",
-        REDACTED_VALUE"energy_production_estimate_today_remaining",
+        translation_key="energy_production_estimate_today_remaining",
         value_fn=lambda store: (
             store.solar.today_left_total if store.solar is not None else None
         ),
@@ -72,7 +72,7 @@ SENSORS: tuple[VRMForecastsSensorEntityDescription, ...] = (
     ),
     VRMForecastsSensorEntityDescription(
         key="energy_production_estimate_tomorrow",
-        REDACTED_VALUE"energy_production_estimate_tomorrow",
+        translation_key="energy_production_estimate_tomorrow",
         value_fn=lambda store: (
             store.solar.tomorrow_total if store.solar is not None else None
         ),
@@ -84,7 +84,7 @@ SENSORS: tuple[VRMForecastsSensorEntityDescription, ...] = (
     ),
     VRMForecastsSensorEntityDescription(
         key="power_highest_peak_time_yesterday",
-        REDACTED_VALUE"power_highest_peak_time_yesterday",
+        translation_key="power_highest_peak_time_yesterday",
         value_fn=lambda store: (
             store.solar.yesterday_peak_time if store.solar is not None else None
         ),
@@ -92,7 +92,7 @@ SENSORS: tuple[VRMForecastsSensorEntityDescription, ...] = (
     ),
     VRMForecastsSensorEntityDescription(
         key="power_highest_peak_time_today",
-        REDACTED_VALUE"power_highest_peak_time_today",
+        translation_key="power_highest_peak_time_today",
         value_fn=lambda store: (
             store.solar.today_peak_time if store.solar is not None else None
         ),
@@ -100,7 +100,7 @@ SENSORS: tuple[VRMForecastsSensorEntityDescription, ...] = (
     ),
     VRMForecastsSensorEntityDescription(
         key="power_highest_peak_time_tomorrow",
-        REDACTED_VALUE"power_highest_peak_time_tomorrow",
+        translation_key="power_highest_peak_time_tomorrow",
         value_fn=lambda store: (
             store.solar.tomorrow_peak_time if store.solar is not None else None
         ),
@@ -108,7 +108,7 @@ SENSORS: tuple[VRMForecastsSensorEntityDescription, ...] = (
     ),
     VRMForecastsSensorEntityDescription(
         key="energy_production_current_hour",
-        REDACTED_VALUE"energy_production_current_hour",
+        translation_key="energy_production_current_hour",
         value_fn=lambda store: (
             store.solar.current_hour_total if store.solar is not None else None
         ),
@@ -120,7 +120,7 @@ SENSORS: tuple[VRMForecastsSensorEntityDescription, ...] = (
     ),
     VRMForecastsSensorEntityDescription(
         key="energy_production_next_hour",
-        REDACTED_VALUE"energy_production_next_hour",
+        translation_key="energy_production_next_hour",
         value_fn=lambda store: (
             store.solar.next_hour_total if store.solar is not None else None
         ),
@@ -133,7 +133,7 @@ SENSORS: tuple[VRMForecastsSensorEntityDescription, ...] = (
     # Consumption forecast sensors
     VRMForecastsSensorEntityDescription(
         key="energy_consumption_estimate_yesterday",
-        REDACTED_VALUE"energy_consumption_estimate_yesterday",
+        translation_key="energy_consumption_estimate_yesterday",
         value_fn=lambda store: (
             store.consumption.yesterday_total if store.consumption is not None else None
         ),
@@ -145,7 +145,7 @@ SENSORS: tuple[VRMForecastsSensorEntityDescription, ...] = (
     ),
     VRMForecastsSensorEntityDescription(
         key="energy_consumption_estimate_today",
-        REDACTED_VALUE"energy_consumption_estimate_today",
+        translation_key="energy_consumption_estimate_today",
         value_fn=lambda store: (
             store.consumption.today_total if store.consumption is not None else None
         ),
@@ -157,7 +157,7 @@ SENSORS: tuple[VRMForecastsSensorEntityDescription, ...] = (
     ),
     VRMForecastsSensorEntityDescription(
         key="energy_consumption_estimate_today_remaining",
-        REDACTED_VALUE"energy_consumption_estimate_today_remaining",
+        translation_key="energy_consumption_estimate_today_remaining",
         value_fn=lambda store: (
             store.consumption.today_left_total
             if store.consumption is not None
@@ -171,7 +171,7 @@ SENSORS: tuple[VRMForecastsSensorEntityDescription, ...] = (
     ),
     VRMForecastsSensorEntityDescription(
         key="energy_consumption_estimate_tomorrow",
-        REDACTED_VALUE"energy_consumption_estimate_tomorrow",
+        translation_key="energy_consumption_estimate_tomorrow",
         value_fn=lambda store: (
             store.consumption.tomorrow_total if store.consumption is not None else None
         ),
@@ -183,7 +183,7 @@ SENSORS: tuple[VRMForecastsSensorEntityDescription, ...] = (
     ),
     VRMForecastsSensorEntityDescription(
         key="consumption_highest_peak_time_yesterday",
-        REDACTED_VALUE"consumption_highest_peak_time_yesterday",
+        translation_key="consumption_highest_peak_time_yesterday",
         value_fn=lambda store: (
             store.consumption.yesterday_peak_time
             if store.consumption is not None
@@ -193,7 +193,7 @@ SENSORS: tuple[VRMForecastsSensorEntityDescription, ...] = (
     ),
     VRMForecastsSensorEntityDescription(
         key="consumption_highest_peak_time_today",
-        REDACTED_VALUE"consumption_highest_peak_time_today",
+        translation_key="consumption_highest_peak_time_today",
         value_fn=lambda store: (
             store.consumption.today_peak_time if store.consumption is not None else None
         ),
@@ -201,7 +201,7 @@ SENSORS: tuple[VRMForecastsSensorEntityDescription, ...] = (
     ),
     VRMForecastsSensorEntityDescription(
         key="consumption_highest_peak_time_tomorrow",
-        REDACTED_VALUE"consumption_highest_peak_time_tomorrow",
+        translation_key="consumption_highest_peak_time_tomorrow",
         value_fn=lambda store: (
             store.consumption.tomorrow_peak_time
             if store.consumption is not None
@@ -211,7 +211,7 @@ SENSORS: tuple[VRMForecastsSensorEntityDescription, ...] = (
     ),
     VRMForecastsSensorEntityDescription(
         key="energy_consumption_current_hour",
-        REDACTED_VALUE"energy_consumption_current_hour",
+        translation_key="energy_consumption_current_hour",
         value_fn=lambda store: (
             store.consumption.current_hour_total
             if store.consumption is not None
@@ -225,7 +225,7 @@ SENSORS: tuple[VRMForecastsSensorEntityDescription, ...] = (
     ),
     VRMForecastsSensorEntityDescription(
         key="energy_consumption_next_hour",
-        REDACTED_VALUE"energy_consumption_next_hour",
+        translation_key="energy_consumption_next_hour",
         value_fn=lambda store: (
             store.consumption.next_hour_total if store.consumption is not None else None
         ),

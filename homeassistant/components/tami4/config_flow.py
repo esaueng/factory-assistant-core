@@ -4,7 +4,7 @@ import logging
 import re
 from typing import Any
 
-from REDACTED_VALUE import REDACTED_VALUE, exceptions
+from Tami4EdgeAPI import Tami4EdgeAPI, exceptions
 import voluptuous as vol
 
 from homeassistant.config_entries import ConfigFlow, ConfigFlowResult
@@ -42,11 +42,11 @@ class Tami4ConfigFlow(ConfigFlow, domain=DOMAIN):
                 else:
                     raise InvalidPhoneNumber  # noqa: TRY301
                 await self.hass.async_add_executor_job(
-                    REDACTED_VALUE.request_otp, self.phone
+                    Tami4EdgeAPI.request_otp, self.phone
                 )
             except InvalidPhoneNumber:
                 errors["base"] = "invalid_phone"
-            except exceptions.REDACTED_VALUEException:
+            except exceptions.Tami4EdgeAPIException:
                 errors["base"] = "cannot_connect"
             except Exception:
                 _LOGGER.exception("Unexpected exception")
@@ -67,15 +67,15 @@ class Tami4ConfigFlow(ConfigFlow, domain=DOMAIN):
             otp = user_input["otp"]
             try:
                 refresh_token = await self.hass.async_add_executor_job(
-                    REDACTED_VALUE.submit_otp, self.phone, otp
+                    Tami4EdgeAPI.submit_otp, self.phone, otp
                 )
                 # pylint: disable-next=home-assistant-sequential-executor-jobs
                 api = await self.hass.async_add_executor_job(
-                    REDACTED_VALUE, refresh_token
+                    Tami4EdgeAPI, refresh_token
                 )
             except exceptions.OTPFailedException:
                 errors["base"] = "invalid_auth"
-            except exceptions.REDACTED_VALUEException:
+            except exceptions.Tami4EdgeAPIException:
                 errors["base"] = "cannot_connect"
             except Exception:
                 _LOGGER.exception("Unexpected exception")

@@ -30,14 +30,14 @@ _LOGGER = logging.getLogger(__name__)
 CONNECTION_SENSORS: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="rate_down",
-        REDACTED_VALUE"rate_down",
+        translation_key="rate_down",
         device_class=SensorDeviceClass.DATA_RATE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfDataRate.KILOBYTES_PER_SECOND,
     ),
     SensorEntityDescription(
         key="rate_up",
-        REDACTED_VALUE"rate_up",
+        translation_key="rate_up",
         device_class=SensorDeviceClass.DATA_RATE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfDataRate.KILOBYTES_PER_SECOND,
@@ -47,7 +47,7 @@ CONNECTION_SENSORS: tuple[SensorEntityDescription, ...] = (
 CALL_SENSORS: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="missed",
-        REDACTED_VALUE"missed",
+        translation_key="missed",
         native_unit_of_measurement="calls",
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -57,7 +57,7 @@ CALL_SENSORS: tuple[SensorEntityDescription, ...] = (
 DISK_PARTITION_SENSORS: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="partition_free_space",
-        REDACTED_VALUE"partition_free_space",
+        translation_key="partition_free_space",
         native_unit_of_measurement=PERCENTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),

@@ -32,7 +32,7 @@ async def async_setup_entry(
 
     description = UpdateEntityDescription(
         key="paperless_update",
-        REDACTED_VALUE"paperless_update",
+        translation_key="paperless_update",
         device_class=UpdateDeviceClass.FIRMWARE,
     )
 

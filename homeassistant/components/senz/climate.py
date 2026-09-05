@@ -105,7 +105,7 @@ class SENZClimate(CoordinatorEntity[SENZDataUpdateCoordinator], ClimateEntity):
         except RequestError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_attribute_error",
+                translation_key="set_attribute_error",
                 translation_placeholders={
                     "attribute": "hvac mode",
                 },
@@ -120,7 +120,7 @@ class SENZClimate(CoordinatorEntity[SENZDataUpdateCoordinator], ClimateEntity):
         except RequestError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_attribute_error",
+                translation_key="set_attribute_error",
                 translation_placeholders={
                     "attribute": "target temperature",
                 },

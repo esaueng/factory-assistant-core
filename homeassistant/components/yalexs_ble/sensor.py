@@ -56,7 +56,7 @@ SENSORS: tuple[YaleXSBLESensorEntityDescription, ...] = (
     ),
     YaleXSBLESensorEntityDescription(
         key="battery_voltage",
-        REDACTED_VALUE"battery_voltage",
+        translation_key="battery_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,

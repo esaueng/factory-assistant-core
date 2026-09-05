@@ -57,7 +57,7 @@ def get_extra_state_attributes_players_list(
 SENSOR_DESCRIPTIONS = [
     MinecraftServerSensorEntityDescription(
         key=KEY_VERSION,
-        REDACTED_VALUEKEY_VERSION,
+        translation_key=KEY_VERSION,
         value_fn=lambda data: data.version,
         attributes_fn=None,
         supported_server_types={
@@ -69,7 +69,7 @@ SENSOR_DESCRIPTIONS = [
     ),
     MinecraftServerSensorEntityDescription(
         key=KEY_PROTOCOL_VERSION,
-        REDACTED_VALUEKEY_PROTOCOL_VERSION,
+        translation_key=KEY_PROTOCOL_VERSION,
         value_fn=lambda data: data.protocol_version,
         attributes_fn=None,
         supported_server_types={
@@ -82,7 +82,7 @@ SENSOR_DESCRIPTIONS = [
     ),
     MinecraftServerSensorEntityDescription(
         key=KEY_PLAYERS_MAX,
-        REDACTED_VALUEKEY_PLAYERS_MAX,
+        translation_key=KEY_PLAYERS_MAX,
         native_unit_of_measurement=UNIT_PLAYERS_MAX,
         value_fn=lambda data: data.players_max,
         attributes_fn=None,
@@ -95,7 +95,7 @@ SENSOR_DESCRIPTIONS = [
     ),
     MinecraftServerSensorEntityDescription(
         key=KEY_LATENCY,
-        REDACTED_VALUEKEY_LATENCY,
+        translation_key=KEY_LATENCY,
         native_unit_of_measurement=UnitOfTime.MILLISECONDS,
         suggested_display_precision=0,
         value_fn=lambda data: data.latency,
@@ -109,7 +109,7 @@ SENSOR_DESCRIPTIONS = [
     ),
     MinecraftServerSensorEntityDescription(
         key=KEY_MOTD,
-        REDACTED_VALUEKEY_MOTD,
+        translation_key=KEY_MOTD,
         value_fn=lambda data: data.motd,
         attributes_fn=None,
         supported_server_types={
@@ -120,7 +120,7 @@ SENSOR_DESCRIPTIONS = [
     ),
     MinecraftServerSensorEntityDescription(
         key=KEY_PLAYERS_ONLINE,
-        REDACTED_VALUEKEY_PLAYERS_ONLINE,
+        translation_key=KEY_PLAYERS_ONLINE,
         native_unit_of_measurement=UNIT_PLAYERS_ONLINE,
         value_fn=lambda data: data.players_online,
         attributes_fn=get_extra_state_attributes_players_list,
@@ -132,7 +132,7 @@ SENSOR_DESCRIPTIONS = [
     ),
     MinecraftServerSensorEntityDescription(
         key=KEY_EDITION,
-        REDACTED_VALUEKEY_EDITION,
+        translation_key=KEY_EDITION,
         value_fn=lambda data: data.edition,
         attributes_fn=None,
         supported_server_types={
@@ -143,7 +143,7 @@ SENSOR_DESCRIPTIONS = [
     ),
     MinecraftServerSensorEntityDescription(
         key=KEY_GAME_MODE,
-        REDACTED_VALUEKEY_GAME_MODE,
+        translation_key=KEY_GAME_MODE,
         value_fn=lambda data: data.game_mode,
         attributes_fn=None,
         supported_server_types={
@@ -152,7 +152,7 @@ SENSOR_DESCRIPTIONS = [
     ),
     MinecraftServerSensorEntityDescription(
         key=KEY_MAP_NAME,
-        REDACTED_VALUEKEY_MAP_NAME,
+        translation_key=KEY_MAP_NAME,
         value_fn=lambda data: data.map_name,
         attributes_fn=None,
         supported_server_types={

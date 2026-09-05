@@ -43,7 +43,7 @@ CAPABILITY_TO_SENSORS: dict[
     Capability.ACCELERATION_SENSOR: {
         Attribute.ACCELERATION: SmartThingsBinarySensorEntityDescription(
             key=Attribute.ACCELERATION,
-            REDACTED_VALUE"acceleration",
+            translation_key="acceleration",
             device_class=BinarySensorDeviceClass.MOVING,
             is_on_key="active",
         )
@@ -63,7 +63,7 @@ CAPABILITY_TO_SENSORS: dict[
                 if component == MAIN
                 else True
             ),
-            component_REDACTED_VALUE{
+            component_translation_key={
                 "freezer": "freezer_door",
                 "cooler": "cooler_door",
                 "cvroom": "cool_select_plus_door",
@@ -73,7 +73,7 @@ CAPABILITY_TO_SENSORS: dict[
     Capability.CUSTOM_DRYER_WRINKLE_PREVENT: {
         Attribute.OPERATING_STATE: SmartThingsBinarySensorEntityDescription(
             key=Attribute.OPERATING_STATE,
-            REDACTED_VALUE"dryer_wrinkle_prevent_active",
+            translation_key="dryer_wrinkle_prevent_active",
             is_on_key="running",
             entity_category=EntityCategory.DIAGNOSTIC,
         )
@@ -81,7 +81,7 @@ CAPABILITY_TO_SENSORS: dict[
     Capability.CUSTOM_WATER_FILTER: {
         Attribute.WATER_FILTER_STATUS: SmartThingsBinarySensorEntityDescription(
             key=Attribute.WATER_FILTER_STATUS,
-            REDACTED_VALUE"filter_status",
+            translation_key="filter_status",
             device_class=BinarySensorDeviceClass.PROBLEM,
             is_on_key="replace",
         )
@@ -89,7 +89,7 @@ CAPABILITY_TO_SENSORS: dict[
     Capability.SAMSUNG_CE_STEAM_CLOSET_KEEP_FRESH_MODE: {
         Attribute.OPERATING_STATE: SmartThingsBinarySensorEntityDescription(
             key=Attribute.OPERATING_STATE,
-            REDACTED_VALUE"keep_fresh_mode_active",
+            translation_key="keep_fresh_mode_active",
             is_on_key="running",
             entity_category=EntityCategory.DIAGNOSTIC,
         )
@@ -97,7 +97,7 @@ CAPABILITY_TO_SENSORS: dict[
     Capability.FILTER_STATUS: {
         Attribute.FILTER_STATUS: SmartThingsBinarySensorEntityDescription(
             key=Attribute.FILTER_STATUS,
-            REDACTED_VALUE"filter_status",
+            translation_key="filter_status",
             device_class=BinarySensorDeviceClass.PROBLEM,
             is_on_key="replace",
         )
@@ -105,7 +105,7 @@ CAPABILITY_TO_SENSORS: dict[
     Capability.SAMSUNG_CE_KIDS_LOCK: {
         Attribute.LOCK_STATE: SmartThingsBinarySensorEntityDescription(
             key=Attribute.LOCK_STATE,
-            REDACTED_VALUE"child_lock",
+            translation_key="child_lock",
             is_on_key="locked",
         )
     },
@@ -126,9 +126,9 @@ CAPABILITY_TO_SENSORS: dict[
     Capability.REMOTE_CONTROL_STATUS: {
         Attribute.REMOTE_CONTROL_ENABLED: SmartThingsBinarySensorEntityDescription(
             key=Attribute.REMOTE_CONTROL_ENABLED,
-            REDACTED_VALUE"remote_control",
+            translation_key="remote_control",
             is_on_key="true",
-            component_REDACTED_VALUE{
+            component_translation_key={
                 "sub": "sub_remote_control",
             },
         )
@@ -166,7 +166,7 @@ CAPABILITY_TO_SENSORS: dict[
     Capability.SAMSUNG_CE_DOOR_STATE: {
         Attribute.DOOR_STATE: SmartThingsBinarySensorEntityDescription(
             key=Attribute.DOOR_STATE,
-            REDACTED_VALUE"door",
+            translation_key="door",
             device_class=BinarySensorDeviceClass.OPENING,
             is_on_key="open",
         )
@@ -182,7 +182,7 @@ CAPABILITY_TO_SENSORS: dict[
         Attribute.OVEN_CAVITY_STATUS: SmartThingsBinarySensorEntityDescription(
             key=Attribute.OVEN_CAVITY_STATUS,
             is_on_key="on",
-            component_REDACTED_VALUE{
+            component_translation_key={
                 "cavity-01": "oven_cavity_status",
             },
         )
@@ -191,7 +191,7 @@ CAPABILITY_TO_SENSORS: dict[
         Attribute.STATUS: SmartThingsBinarySensorEntityDescription(
             key=Attribute.STATUS,
             is_on_key="full",
-            component_REDACTED_VALUE{
+            component_translation_key={
                 "station": "robot_cleaner_dust_bag",
             },
             exists_fn=lambda component, _: component == "station",
@@ -201,7 +201,7 @@ CAPABILITY_TO_SENSORS: dict[
     Capability.CUSTOM_COOKTOP_OPERATING_STATE: {
         Attribute.COOKTOP_OPERATING_STATE: SmartThingsBinarySensorEntityDescription(
             key=Attribute.COOKTOP_OPERATING_STATE,
-            REDACTED_VALUE"cooktop_operating_state",
+            translation_key="cooktop_operating_state",
             is_on_key="run",
             supported_states_attributes=Attribute.SUPPORTED_COOKTOP_OPERATING_STATE,
         )
@@ -209,7 +209,7 @@ CAPABILITY_TO_SENSORS: dict[
     Capability.SAMSUNG_CE_CLEAN_STATION_STICK_STATUS: {
         Attribute.STATUS: SmartThingsBinarySensorEntityDescription(
             key=Attribute.STATUS,
-            component_REDACTED_VALUE{
+            component_translation_key={
                 "station": "stick_cleaner_status",
             },
             exists_fn=lambda component, _: component == "station",
@@ -219,7 +219,7 @@ CAPABILITY_TO_SENSORS: dict[
     Capability.SAMSUNG_CE_MICROFIBER_FILTER_STATUS: {
         Attribute.STATUS: SmartThingsBinarySensorEntityDescription(
             key=Attribute.STATUS,
-            REDACTED_VALUE"microfiber_filter_blockage",
+            translation_key="microfiber_filter_blockage",
             is_on_key="blockage",
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -229,7 +229,7 @@ CAPABILITY_TO_SENSORS: dict[
         Attribute.STATUS: SmartThingsBinarySensorEntityDescription(
             key=Attribute.STATUS,
             is_on_key="full",
-            component_REDACTED_VALUE{
+            component_translation_key={
                 "station": "stick_cleaner_dust_bag",
             },
             device_class=BinarySensorDeviceClass.PROBLEM,

@@ -90,10 +90,10 @@ class AirOSUpdateEntity(AirOSEntity, UpdateEntity):
         except AirOSConnectionAuthenticationError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_connection_authentication_error",
+                translation_key="update_connection_authentication_error",
             ) from err
         except AirOSException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_error",
+                translation_key="update_error",
             ) from err

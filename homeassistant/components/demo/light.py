@@ -46,7 +46,7 @@ async def async_setup_entry(
             DemoLight(
                 effect_list=LIGHT_EFFECT_LIST,
                 effect=LIGHT_EFFECT_LIST[0],
-                REDACTED_VALUE"bed_light",
+                translation_key="bed_light",
                 device_name="Bed Light",
                 state=False,
                 unique_id="light_1",

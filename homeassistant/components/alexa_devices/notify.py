@@ -30,14 +30,14 @@ class AmazonNotifyEntityDescription(NotifyEntityDescription):
 NOTIFY: Final = (
     AmazonNotifyEntityDescription(
         key="speak",
-        REDACTED_VALUE"speak",
+        translation_key="speak",
         subkey="AUDIO_PLAYER",
         is_supported=lambda _device: _device.device_family != SPEAKER_GROUP_FAMILY,
         method=lambda api, device, message: api.call_alexa_speak(device, message),
     ),
     AmazonNotifyEntityDescription(
         key="announce",
-        REDACTED_VALUE"announce",
+        translation_key="announce",
         subkey="AUDIO_PLAYER",
         method=lambda api, device, message: api.call_alexa_announcement(
             device, message

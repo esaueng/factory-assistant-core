@@ -134,7 +134,7 @@ class AirobotClimate(AirobotEntity, ClimateEntity):
         except AirobotError as err:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_temperature_failed",
+                translation_key="set_temperature_failed",
                 translation_placeholders={"temperature": str(temperature)},
             ) from err
 
@@ -165,7 +165,7 @@ class AirobotClimate(AirobotEntity, ClimateEntity):
         except AirobotError as err:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_preset_mode_failed",
+                translation_key="set_preset_mode_failed",
                 translation_placeholders={"preset_mode": preset_mode},
             ) from err
 

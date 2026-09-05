@@ -25,7 +25,7 @@ async def async_setup_entry(
 
     description = NumberEntityDescription(
         key="flame_control",
-        REDACTED_VALUE"flame_control",
+        translation_key="flame_control",
     )
 
     async_add_entities(

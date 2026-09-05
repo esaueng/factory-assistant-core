@@ -177,7 +177,7 @@ async def _async_update_special_repair(
             "kitchen_sink_special_repair_issue",
             is_fixable=False,
             severity=IssueSeverity.WARNING,
-            REDACTED_VALUE"special_repair",
+            translation_key="special_repair",
         )
     else:
         async_delete_issue(hass, DOMAIN, "kitchen_sink_special_repair_issue")
@@ -198,7 +198,7 @@ def _create_issues(hass: HomeAssistant) -> None:
         is_fixable=False,
         learn_more_url="https://en.wiktionary.org/wiki/transmogrifier",
         severity=IssueSeverity.WARNING,
-        REDACTED_VALUE"transmogrifier_deprecated",
+        translation_key="transmogrifier_deprecated",
     )
 
     async_create_issue(
@@ -209,7 +209,7 @@ def _create_issues(hass: HomeAssistant) -> None:
         is_fixable=True,
         learn_more_url="https://www.youtube.com/watch?v=b9rntRxLlbU",
         severity=IssueSeverity.CRITICAL,
-        REDACTED_VALUE"out_of_blinker_fluid",
+        translation_key="out_of_blinker_fluid",
     )
 
     async_create_issue(
@@ -219,7 +219,7 @@ def _create_issues(hass: HomeAssistant) -> None:
         is_fixable=False,
         learn_more_url="https://www.youtube.com/watch?v=dQw4w9WgXcQ",
         severity=IssueSeverity.WARNING,
-        REDACTED_VALUE"unfixable_problem",
+        translation_key="unfixable_problem",
     )
 
     async_create_issue(
@@ -229,7 +229,7 @@ def _create_issues(hass: HomeAssistant) -> None:
         is_fixable=True,
         learn_more_url="https://www.youtube.com/watch?v=b9rntRxLlbU",
         severity=IssueSeverity.CRITICAL,
-        REDACTED_VALUE"bad_psu",
+        translation_key="bad_psu",
     )
 
     async_create_issue(
@@ -238,7 +238,7 @@ def _create_issues(hass: HomeAssistant) -> None:
         "cold_tea",
         is_fixable=True,
         severity=IssueSeverity.WARNING,
-        REDACTED_VALUE"cold_tea",
+        translation_key="cold_tea",
     )
 
 

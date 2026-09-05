@@ -41,7 +41,7 @@ ENTITY_DESCRIPTIONS: tuple[EcovacsBinarySensorEntityDescription, ...] = (
         capability_fn=lambda caps: caps.water.mop_attached if caps.water else None,
         value_fn=lambda e: e.value,
         key="water_mop_attached",
-        REDACTED_VALUE"water_mop_attached",
+        translation_key="water_mop_attached",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
 )

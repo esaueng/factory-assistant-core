@@ -43,14 +43,14 @@ class SmInfoEntityDescription(SensorEntityDescription):
 INFO: list[SmInfoEntityDescription] = [
     SmInfoEntityDescription(
         key="device_mode",
-        REDACTED_VALUE"device_mode",
+        translation_key="device_mode",
         device_class=SensorDeviceClass.ENUM,
         options=["eth", "wifi", "usb"],
         value_fn=lambda x, idx: x.coord_mode,
     ),
     SmInfoEntityDescription(
         key="firmware_channel",
-        REDACTED_VALUE"firmware_channel",
+        translation_key="firmware_channel",
         device_class=SensorDeviceClass.ENUM,
         options=["dev", "release"],
         value_fn=lambda x, idx: x.fw_channel,
@@ -59,7 +59,7 @@ INFO: list[SmInfoEntityDescription] = [
 
 RADIO_INFO = SmInfoEntityDescription(
     key="zigbee_type",
-    REDACTED_VALUE"zigbee_type",
+    translation_key="zigbee_type",
     device_class=SensorDeviceClass.ENUM,
     options=["coordinator", "router", "thread"],
     value_fn=lambda x, idx: x.radios[idx].zb_type,
@@ -69,7 +69,7 @@ RADIO_INFO = SmInfoEntityDescription(
 SENSORS: list[SmSensorEntityDescription] = [
     SmSensorEntityDescription(
         key="core_temperature",
-        REDACTED_VALUE"core_temperature",
+        translation_key="core_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -78,7 +78,7 @@ SENSORS: list[SmSensorEntityDescription] = [
     ),
     SmSensorEntityDescription(
         key="zigbee_temperature",
-        REDACTED_VALUE"zigbee_temperature",
+        translation_key="zigbee_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -87,7 +87,7 @@ SENSORS: list[SmSensorEntityDescription] = [
     ),
     SmSensorEntityDescription(
         key="ram_usage",
-        REDACTED_VALUE"ram_usage",
+        translation_key="ram_usage",
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.KILOBYTES,
         entity_registry_enabled_default=False,
@@ -95,7 +95,7 @@ SENSORS: list[SmSensorEntityDescription] = [
     ),
     SmSensorEntityDescription(
         key="fs_usage",
-        REDACTED_VALUE"fs_usage",
+        translation_key="fs_usage",
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.KILOBYTES,
         entity_registry_enabled_default=False,
@@ -106,7 +106,7 @@ SENSORS: list[SmSensorEntityDescription] = [
 
 EXTRA_SENSOR = SmSensorEntityDescription(
     key="zigbee_temperature_2",
-    REDACTED_VALUE"zigbee_temperature",
+    translation_key="zigbee_temperature",
     device_class=SensorDeviceClass.TEMPERATURE,
     native_unit_of_measurement=UnitOfTemperature.CELSIUS,
     state_class=SensorStateClass.MEASUREMENT,
@@ -116,7 +116,7 @@ EXTRA_SENSOR = SmSensorEntityDescription(
 
 PSRAM_SENSOR = SmSensorEntityDescription(
     key="psram_usage",
-    REDACTED_VALUE"psram_usage",
+    translation_key="psram_usage",
     device_class=SensorDeviceClass.DATA_SIZE,
     native_unit_of_measurement=UnitOfInformation.KILOBYTES,
     entity_registry_enabled_default=False,
@@ -126,14 +126,14 @@ PSRAM_SENSOR = SmSensorEntityDescription(
 UPTIME: list[SmSensorEntityDescription] = [
     SmSensorEntityDescription(
         key="core_uptime",
-        REDACTED_VALUE"core_uptime",
+        translation_key="core_uptime",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_registry_enabled_default=False,
         value_fn=lambda x: x.uptime,
     ),
     SmSensorEntityDescription(
         key="socket_uptime",
-        REDACTED_VALUE"socket_uptime",
+        translation_key="socket_uptime",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_registry_enabled_default=False,
         value_fn=lambda x: x.socket_uptime,

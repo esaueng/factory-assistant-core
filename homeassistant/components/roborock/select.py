@@ -103,7 +103,7 @@ class RoborockSelectDescriptionA01(SelectEntityDescription):
 B01_SELECT_DESCRIPTIONS: list[RoborockB01SelectDescription] = [
     RoborockB01SelectDescription(
         key="water_flow",
-        REDACTED_VALUE"water_flow",
+        translation_key="water_flow",
         api_fn=lambda api, value: api.set_water_level(
             WaterLevelMapping.from_value(value)
         ),
@@ -113,7 +113,7 @@ B01_SELECT_DESCRIPTIONS: list[RoborockB01SelectDescription] = [
     ),
     RoborockB01SelectDescription(
         key="cleaning_mode",
-        REDACTED_VALUE"cleaning_mode",
+        translation_key="cleaning_mode",
         api_fn=lambda api, value: api.set_mode(CleanTypeMapping.from_value(value)),
         value_fn=lambda data: data.mode.value if data.mode else None,
         options_lambda=lambda _: list(CleanTypeMapping.keys()),
@@ -121,7 +121,7 @@ B01_SELECT_DESCRIPTIONS: list[RoborockB01SelectDescription] = [
     ),
     RoborockB01SelectDescription(
         key="cleaning_route",
-        REDACTED_VALUE"cleaning_route",
+        translation_key="cleaning_route",
         api_fn=lambda api, value: api.set_clean_path_preference(
             CleanPathPreferenceMapping.from_value(value)
         ),
@@ -135,7 +135,7 @@ B01_SELECT_DESCRIPTIONS: list[RoborockB01SelectDescription] = [
 SELECT_DESCRIPTIONS: list[RoborockSelectDescription] = [
     RoborockSelectDescription(
         key="water_box_mode",
-        REDACTED_VALUE"mop_intensity",
+        translation_key="mop_intensity",
         api_command=RoborockCommand.SET_WATER_BOX_CUSTOM_MODE,
         value_fn=lambda api: api.status.water_mode_name,
         entity_category=EntityCategory.CONFIG,
@@ -150,7 +150,7 @@ SELECT_DESCRIPTIONS: list[RoborockSelectDescription] = [
     ),
     RoborockSelectDescription(
         key="mop_mode",
-        REDACTED_VALUE"mop_mode",
+        translation_key="mop_mode",
         api_command=RoborockCommand.SET_MOP_MODE,
         value_fn=lambda api: api.status.mop_route_name,
         entity_category=EntityCategory.CONFIG,
@@ -165,7 +165,7 @@ SELECT_DESCRIPTIONS: list[RoborockSelectDescription] = [
     ),
     RoborockSelectDescription(
         key="dust_collection_mode",
-        REDACTED_VALUE"dust_collection_mode",
+        translation_key="dust_collection_mode",
         api_command=RoborockCommand.SET_DUST_COLLECTION_MODE,
         value_fn=lambda api: (
             mode.name if (mode := api.dust_collection_mode.mode) is not None else None  # type: ignore[union-attr]
@@ -188,56 +188,56 @@ A01_SELECT_DESCRIPTIONS: list[RoborockSelectDescriptionA01] = [
     RoborockSelectDescriptionA01(
         key="program",
         data_protocol=RoborockZeoProtocol.PROGRAM,
-        REDACTED_VALUE"program",
+        translation_key="program",
         entity_category=EntityCategory.CONFIG,
         enum_class=ZeoProgram,
     ),
     RoborockSelectDescriptionA01(
         key="mode",
         data_protocol=RoborockZeoProtocol.MODE,
-        REDACTED_VALUE"mode",
+        translation_key="mode",
         entity_category=EntityCategory.CONFIG,
         enum_class=ZeoMode,
     ),
     RoborockSelectDescriptionA01(
         key="temperature",
         data_protocol=RoborockZeoProtocol.TEMP,
-        REDACTED_VALUE"temperature",
+        translation_key="temperature",
         entity_category=EntityCategory.CONFIG,
         enum_class=ZeoTemperature,
     ),
     RoborockSelectDescriptionA01(
         key="drying_mode",
         data_protocol=RoborockZeoProtocol.DRYING_MODE,
-        REDACTED_VALUE"drying_mode",
+        translation_key="drying_mode",
         entity_category=EntityCategory.CONFIG,
         enum_class=ZeoDryingMode,
     ),
     RoborockSelectDescriptionA01(
         key="spin_level",
         data_protocol=RoborockZeoProtocol.SPIN_LEVEL,
-        REDACTED_VALUE"spin_level",
+        translation_key="spin_level",
         entity_category=EntityCategory.CONFIG,
         enum_class=ZeoSpin,
     ),
     RoborockSelectDescriptionA01(
         key="rinse_times",
         data_protocol=RoborockZeoProtocol.RINSE_TIMES,
-        REDACTED_VALUE"rinse_times",
+        translation_key="rinse_times",
         entity_category=EntityCategory.CONFIG,
         enum_class=ZeoRinse,
     ),
     RoborockSelectDescriptionA01(
         key="detergent_type",
         data_protocol=RoborockZeoProtocol.DETERGENT_TYPE,
-        REDACTED_VALUE"detergent_type",
+        translation_key="detergent_type",
         entity_category=EntityCategory.CONFIG,
         enum_class=ZeoDetergentType,
     ),
     RoborockSelectDescriptionA01(
         key="softener_type",
         data_protocol=RoborockZeoProtocol.SOFTENER_TYPE,
-        REDACTED_VALUE"softener_type",
+        translation_key="softener_type",
         entity_category=EntityCategory.CONFIG,
         enum_class=ZeoSoftenerType,
     ),
@@ -312,7 +312,7 @@ class RoborockB01SelectEntity(RoborockCoordinatedEntityB01Q7, SelectEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={
                     "command": self.entity_description.key,
                 },
@@ -395,7 +395,7 @@ class RoborockCurrentMapSelectEntity(RoborockCoordinatedEntityV1, SelectEntity):
                 except RoborockException as err:
                     raise HomeAssistantError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"command_failed",
+                        translation_key="command_failed",
                         translation_placeholders={
                             "command": "load_multi_map",
                         },
@@ -408,7 +408,7 @@ class RoborockCurrentMapSelectEntity(RoborockCoordinatedEntityV1, SelectEntity):
                 except RoborockException as err:
                     raise HomeAssistantError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"update_data_fail",
+                        translation_key="update_data_fail",
                     ) from err
                 break
 
@@ -450,7 +450,7 @@ class RoborockSelectEntityA01(RoborockCoordinatedEntityA01, SelectEntity):
         if option not in option_values:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"select_option_failed",
+                translation_key="select_option_failed",
             )
         value = option_values[option]
         try:
@@ -461,7 +461,7 @@ class RoborockSelectEntityA01(RoborockCoordinatedEntityA01, SelectEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={
                     "command": self.entity_description.key,
                 },
@@ -530,13 +530,13 @@ class RoborockQ10CleanModeSelectEntity(RoborockCoordinatedEntityB01Q10, SelectEn
         except ValueError as err:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"select_option_failed",
+                translation_key="select_option_failed",
             ) from err
         try:
             await self.coordinator.api.vacuum.set_clean_mode(mode)
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={"command": "cleaning_mode"},
             ) from err

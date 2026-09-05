@@ -28,7 +28,7 @@ class SimpleFinBinarySensorEntityDescription(BinarySensorEntityDescription):
 SIMPLEFIN_BINARY_SENSORS: tuple[SimpleFinBinarySensorEntityDescription, ...] = (
     SimpleFinBinarySensorEntityDescription(
         key="possible_error",
-        REDACTED_VALUE"possible_error",
+        translation_key="possible_error",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda account: account.possible_error,

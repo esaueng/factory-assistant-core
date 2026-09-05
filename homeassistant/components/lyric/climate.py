@@ -364,7 +364,7 @@ class LyricClimate(LyricDeviceEntity, ClimateEntity):
             except LYRIC_EXCEPTIONS as err:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"failed_to_set_temperature",
+                    translation_key="failed_to_set_temperature",
                 ) from err
             finally:
                 await self.coordinator.async_refresh()
@@ -383,7 +383,7 @@ class LyricClimate(LyricDeviceEntity, ClimateEntity):
             except LYRIC_EXCEPTIONS as err:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"failed_to_set_temperature",
+                    translation_key="failed_to_set_temperature",
                 ) from err
             finally:
                 await self.coordinator.async_refresh()
@@ -400,7 +400,7 @@ class LyricClimate(LyricDeviceEntity, ClimateEntity):
         except LYRIC_EXCEPTIONS as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_to_set_hvac_mode",
+                translation_key="failed_to_set_hvac_mode",
             ) from err
         finally:
             await self.coordinator.async_refresh()
@@ -482,7 +482,7 @@ class LyricClimate(LyricDeviceEntity, ClimateEntity):
         except LYRIC_EXCEPTIONS as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_to_set_preset_mode",
+                translation_key="failed_to_set_preset_mode",
             ) from err
         finally:
             await self.coordinator.async_refresh()
@@ -500,7 +500,7 @@ class LyricClimate(LyricDeviceEntity, ClimateEntity):
         except LYRIC_EXCEPTIONS as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_to_set_hold_time",
+                translation_key="failed_to_set_hold_time",
             ) from err
         finally:
             await self.coordinator.async_refresh()
@@ -511,7 +511,7 @@ class LyricClimate(LyricDeviceEntity, ClimateEntity):
         if fan_mode not in LYRIC_FAN_MODES:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_fan_mode",
+                translation_key="invalid_fan_mode",
                 translation_placeholders={"fan_mode": fan_mode},
             )
         mode = LYRIC_FAN_MODES[fan_mode]
@@ -521,7 +521,7 @@ class LyricClimate(LyricDeviceEntity, ClimateEntity):
         except LYRIC_EXCEPTIONS as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_to_set_fan_mode",
+                translation_key="failed_to_set_fan_mode",
             ) from err
         finally:
             await self.coordinator.async_refresh()

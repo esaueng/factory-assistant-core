@@ -31,7 +31,7 @@ async def _async_get_alerts(call: ServiceCall) -> dict[str, Any]:
     if ec is None:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"not_connected",
+            translation_key="not_connected",
         )
 
     data: dict[str, Any] = ec.alerts

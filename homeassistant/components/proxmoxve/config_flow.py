@@ -53,7 +53,7 @@ BASE_SCHEMA = vol.Schema(
         vol.Required(CONF_AUTH_METHOD, default=DEFAULT_REALM): SelectSelector(
             SelectSelectorConfig(
                 options=AUTH_METHODS,
-                REDACTED_VALUECONF_AUTH_METHOD,
+                translation_key=CONF_AUTH_METHOD,
                 mode=SelectSelectorMode.DROPDOWN,
             )
         ),

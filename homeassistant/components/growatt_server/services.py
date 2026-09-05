@@ -45,7 +45,7 @@ def _get_coordinator(
     if not coordinators:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"no_devices_configured",
+            translation_key="no_devices_configured",
             translation_placeholders={"device_type": device_type.upper()},
         )
 
@@ -55,7 +55,7 @@ def _get_coordinator(
     if not device_entry:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_not_found",
+            translation_key="device_not_found",
             translation_placeholders={"device_id": device_id},
         )
 
@@ -68,14 +68,14 @@ def _get_coordinator(
     if not serial_number:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_not_growatt",
+            translation_key="device_not_growatt",
             translation_placeholders={"device_id": device_id},
         )
 
     if serial_number not in coordinators:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_not_configured",
+            translation_key="device_not_configured",
             translation_placeholders={
                 "device_type": device_type.upper(),
                 "serial_number": serial_number,
@@ -95,7 +95,7 @@ def _parse_time_str(
     if len(parts) not in (2, 3):
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUEtranslation_key,
+            translation_key=translation_key,
             translation_placeholders=translation_placeholders or {},
         )
     try:
@@ -103,7 +103,7 @@ def _parse_time_str(
     except (ValueError, IndexError) as err:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUEtranslation_key,
+            translation_key=translation_key,
             translation_placeholders=translation_placeholders or {},
         ) from err
 
@@ -124,7 +124,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
         if not 1 <= segment_id <= 9:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_segment_id",
+                translation_key="invalid_segment_id",
                 translation_placeholders={"segment_id": str(segment_id)},
             )
 
@@ -136,7 +136,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
         if batt_mode_str not in valid_modes:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_batt_mode",
+                translation_key="invalid_batt_mode",
                 translation_placeholders={
                     "batt_mode": batt_mode_str,
                     "allowed_modes": ", ".join(valid_modes),
@@ -179,13 +179,13 @@ def async_setup_services(hass: HomeAssistant) -> None:
         if not 0 <= charge_power <= 100:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_charge_power",
+                translation_key="invalid_charge_power",
                 translation_placeholders={"value": str(charge_power)},
             )
         if not 0 <= charge_stop_soc <= 100:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_charge_stop_soc",
+                translation_key="invalid_charge_stop_soc",
                 translation_placeholders={"value": str(charge_stop_soc)},
             )
 
@@ -227,13 +227,13 @@ def async_setup_services(hass: HomeAssistant) -> None:
         if not 0 <= discharge_power <= 100:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_discharge_power",
+                translation_key="invalid_discharge_power",
                 translation_placeholders={"value": str(discharge_power)},
             )
         if not 0 <= discharge_stop_soc <= 100:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_discharge_stop_soc",
+                translation_key="invalid_discharge_stop_soc",
                 translation_placeholders={"value": str(discharge_stop_soc)},
             )
 

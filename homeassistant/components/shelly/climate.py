@@ -553,7 +553,7 @@ class BlockSleepingClimate(
             self.coordinator.last_update_success = False
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_communication_action_error",
+                translation_key="device_communication_action_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                     "device": self.coordinator.name,
@@ -637,7 +637,7 @@ class BlockSleepingClimate(
                 is_fixable=False,
                 is_persistent=False,
                 severity=ir.IssueSeverity.ERROR,
-                REDACTED_VALUE"device_not_calibrated",
+                translation_key="device_not_calibrated",
                 translation_placeholders={
                     "device_name": self.coordinator.name,
                     "ip_address": self.coordinator.device.ip_address,

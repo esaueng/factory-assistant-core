@@ -40,7 +40,7 @@ SENSOR_TYPES: tuple[YouLessSensorEntityDescription, ...] = (
     YouLessSensorEntityDescription(
         key="water",
         device_group="water",
-        REDACTED_VALUE"total_water",
+        translation_key="total_water",
         device_class=SensorDeviceClass.WATER,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
@@ -51,7 +51,7 @@ SENSOR_TYPES: tuple[YouLessSensorEntityDescription, ...] = (
     YouLessSensorEntityDescription(
         key="gas",
         device_group="gas",
-        REDACTED_VALUE"total_gas_m3",
+        translation_key="total_gas_m3",
         device_class=SensorDeviceClass.GAS,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
@@ -60,7 +60,7 @@ SENSOR_TYPES: tuple[YouLessSensorEntityDescription, ...] = (
     YouLessSensorEntityDescription(
         key="usage",
         device_group="power",
-        REDACTED_VALUE"active_power_w",
+        translation_key="active_power_w",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -73,7 +73,7 @@ SENSOR_TYPES: tuple[YouLessSensorEntityDescription, ...] = (
     YouLessSensorEntityDescription(
         key="power_low",
         device_group="power",
-        REDACTED_VALUE"total_energy_import_tariff_kwh",
+        translation_key="total_energy_import_tariff_kwh",
         translation_placeholders={"tariff": "1"},
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -85,7 +85,7 @@ SENSOR_TYPES: tuple[YouLessSensorEntityDescription, ...] = (
     YouLessSensorEntityDescription(
         key="power_high",
         device_group="power",
-        REDACTED_VALUE"total_energy_import_tariff_kwh",
+        translation_key="total_energy_import_tariff_kwh",
         translation_placeholders={"tariff": "2"},
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -97,7 +97,7 @@ SENSOR_TYPES: tuple[YouLessSensorEntityDescription, ...] = (
     YouLessSensorEntityDescription(
         key="power_total",
         device_group="power",
-        REDACTED_VALUE"total_energy_import_kwh",
+        translation_key="total_energy_import_kwh",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
@@ -110,7 +110,7 @@ SENSOR_TYPES: tuple[YouLessSensorEntityDescription, ...] = (
     YouLessSensorEntityDescription(
         key="phase_1_power",
         device_group="power",
-        REDACTED_VALUE"active_power_phase_w",
+        translation_key="active_power_phase_w",
         translation_placeholders={"phase": "1"},
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -118,9 +118,9 @@ SENSOR_TYPES: tuple[YouLessSensorEntityDescription, ...] = (
         value_func=lambda device: device.phase1.power.value if device.phase1 else None,
     ),
     YouLessSensorEntityDescription(
-        key="REDACTED_VALUE",
+        key="phase_1_voltage",
         device_group="power",
-        REDACTED_VALUE"active_voltage_phase_v",
+        translation_key="active_voltage_phase_v",
         translation_placeholders={"phase": "1"},
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -132,7 +132,7 @@ SENSOR_TYPES: tuple[YouLessSensorEntityDescription, ...] = (
     YouLessSensorEntityDescription(
         key="phase_1_current",
         device_group="power",
-        REDACTED_VALUE"active_current_phase_a",
+        translation_key="active_current_phase_a",
         translation_placeholders={"phase": "1"},
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -144,7 +144,7 @@ SENSOR_TYPES: tuple[YouLessSensorEntityDescription, ...] = (
     YouLessSensorEntityDescription(
         key="phase_2_power",
         device_group="power",
-        REDACTED_VALUE"active_power_phase_w",
+        translation_key="active_power_phase_w",
         translation_placeholders={"phase": "2"},
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -152,9 +152,9 @@ SENSOR_TYPES: tuple[YouLessSensorEntityDescription, ...] = (
         value_func=lambda device: device.phase2.power.value if device.phase2 else None,
     ),
     YouLessSensorEntityDescription(
-        key="REDACTED_VALUE",
+        key="phase_2_voltage",
         device_group="power",
-        REDACTED_VALUE"active_voltage_phase_v",
+        translation_key="active_voltage_phase_v",
         translation_placeholders={"phase": "2"},
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -166,7 +166,7 @@ SENSOR_TYPES: tuple[YouLessSensorEntityDescription, ...] = (
     YouLessSensorEntityDescription(
         key="phase_2_current",
         device_group="power",
-        REDACTED_VALUE"active_current_phase_a",
+        translation_key="active_current_phase_a",
         translation_placeholders={"phase": "2"},
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -178,7 +178,7 @@ SENSOR_TYPES: tuple[YouLessSensorEntityDescription, ...] = (
     YouLessSensorEntityDescription(
         key="phase_3_power",
         device_group="power",
-        REDACTED_VALUE"active_power_phase_w",
+        translation_key="active_power_phase_w",
         translation_placeholders={"phase": "3"},
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -186,9 +186,9 @@ SENSOR_TYPES: tuple[YouLessSensorEntityDescription, ...] = (
         value_func=lambda device: device.phase3.power.value if device.phase3 else None,
     ),
     YouLessSensorEntityDescription(
-        key="REDACTED_VALUE",
+        key="phase_3_voltage",
         device_group="power",
-        REDACTED_VALUE"active_voltage_phase_v",
+        translation_key="active_voltage_phase_v",
         translation_placeholders={"phase": "3"},
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -200,7 +200,7 @@ SENSOR_TYPES: tuple[YouLessSensorEntityDescription, ...] = (
     YouLessSensorEntityDescription(
         key="phase_3_current",
         device_group="power",
-        REDACTED_VALUE"active_current_phase_a",
+        translation_key="active_current_phase_a",
         translation_placeholders={"phase": "3"},
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -212,7 +212,7 @@ SENSOR_TYPES: tuple[YouLessSensorEntityDescription, ...] = (
     YouLessSensorEntityDescription(
         key="tariff",
         device_group="power",
-        REDACTED_VALUE"active_tariff",
+        translation_key="active_tariff",
         device_class=SensorDeviceClass.ENUM,
         options=["1", "2"],
         value_func=(
@@ -222,7 +222,7 @@ SENSOR_TYPES: tuple[YouLessSensorEntityDescription, ...] = (
     YouLessSensorEntityDescription(
         key="average_peak",
         device_group="power",
-        REDACTED_VALUE"average_peak",
+        translation_key="average_peak",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -233,7 +233,7 @@ SENSOR_TYPES: tuple[YouLessSensorEntityDescription, ...] = (
     YouLessSensorEntityDescription(
         key="month_peak",
         device_group="power",
-        REDACTED_VALUE"month_peak",
+        translation_key="month_peak",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -244,7 +244,7 @@ SENSOR_TYPES: tuple[YouLessSensorEntityDescription, ...] = (
     YouLessSensorEntityDescription(
         key="delivery_low",
         device_group="delivery",
-        REDACTED_VALUE"total_energy_export_tariff_kwh",
+        translation_key="total_energy_export_tariff_kwh",
         translation_placeholders={"tariff": "1"},
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -258,7 +258,7 @@ SENSOR_TYPES: tuple[YouLessSensorEntityDescription, ...] = (
     YouLessSensorEntityDescription(
         key="delivery_high",
         device_group="delivery",
-        REDACTED_VALUE"total_energy_export_tariff_kwh",
+        translation_key="total_energy_export_tariff_kwh",
         translation_placeholders={"tariff": "2"},
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -272,7 +272,7 @@ SENSOR_TYPES: tuple[YouLessSensorEntityDescription, ...] = (
     YouLessSensorEntityDescription(
         key="extra_total",
         device_group="extra",
-        REDACTED_VALUE"total_s0_kwh",
+        translation_key="total_s0_kwh",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
@@ -285,7 +285,7 @@ SENSOR_TYPES: tuple[YouLessSensorEntityDescription, ...] = (
     YouLessSensorEntityDescription(
         key="extra_usage",
         device_group="extra",
-        REDACTED_VALUE"active_s0_w",
+        translation_key="active_s0_w",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.WATT,

@@ -55,7 +55,7 @@ class RoborockBinarySensorDescriptionA01(BinarySensorEntityDescription):
 BINARY_SENSOR_DESCRIPTIONS = [
     RoborockBinarySensorDescription(
         key="dry_status",
-        REDACTED_VALUE"mop_drying_status",
+        translation_key="mop_drying_status",
         device_class=BinarySensorDeviceClass.RUNNING,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.status.dry_status,
@@ -66,7 +66,7 @@ BINARY_SENSOR_DESCRIPTIONS = [
     ),
     RoborockBinarySensorDescription(
         key="water_box_carriage_status",
-        REDACTED_VALUE"mop_attached",
+        translation_key="mop_attached",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.status.water_box_carriage_status,
@@ -74,7 +74,7 @@ BINARY_SENSOR_DESCRIPTIONS = [
     ),
     RoborockBinarySensorDescription(
         key="water_box_status",
-        REDACTED_VALUE"water_box_attached",
+        translation_key="water_box_attached",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.status.water_box_status,
@@ -82,7 +82,7 @@ BINARY_SENSOR_DESCRIPTIONS = [
     ),
     RoborockBinarySensorDescription(
         key="water_shortage",
-        REDACTED_VALUE"water_shortage",
+        translation_key="water_shortage",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.status.water_shortage_status,
@@ -90,7 +90,7 @@ BINARY_SENSOR_DESCRIPTIONS = [
     ),
     RoborockBinarySensorDescription(
         key="dirty_box_full",
-        REDACTED_VALUE"dirty_box_full",
+        translation_key="dirty_box_full",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.status.dirty_water_box_status,
@@ -99,7 +99,7 @@ BINARY_SENSOR_DESCRIPTIONS = [
     ),
     RoborockBinarySensorDescription(
         key="clean_box_empty",
-        REDACTED_VALUE"clean_box_empty",
+        translation_key="clean_box_empty",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.status.clear_water_box_status,
@@ -108,7 +108,7 @@ BINARY_SENSOR_DESCRIPTIONS = [
     ),
     RoborockBinarySensorDescription(
         key="clean_fluid_empty",
-        REDACTED_VALUE"clean_fluid_empty",
+        translation_key="clean_fluid_empty",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: (
@@ -124,7 +124,7 @@ BINARY_SENSOR_DESCRIPTIONS = [
     ),
     RoborockBinarySensorDescription(
         key="in_cleaning",
-        REDACTED_VALUE"in_cleaning",
+        translation_key="in_cleaning",
         device_class=BinarySensorDeviceClass.RUNNING,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.status.in_cleaning,
@@ -146,7 +146,7 @@ ZEO_BINARY_SENSOR_DESCRIPTIONS: list[RoborockBinarySensorDescriptionA01] = [
         key="detergent_empty",
         data_protocol=RoborockZeoProtocol.DETERGENT_EMPTY,
         device_class=BinarySensorDeviceClass.PROBLEM,
-        REDACTED_VALUE"detergent_empty",
+        translation_key="detergent_empty",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=bool,
     ),
@@ -154,7 +154,7 @@ ZEO_BINARY_SENSOR_DESCRIPTIONS: list[RoborockBinarySensorDescriptionA01] = [
         key="softener_empty",
         data_protocol=RoborockZeoProtocol.SOFTENER_EMPTY,
         device_class=BinarySensorDeviceClass.PROBLEM,
-        REDACTED_VALUE"softener_empty",
+        translation_key="softener_empty",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=bool,
     ),

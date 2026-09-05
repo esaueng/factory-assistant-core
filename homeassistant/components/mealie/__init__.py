@@ -51,12 +51,12 @@ async def async_setup_entry(hass: HomeAssistant, entry: MealieConfigEntry) -> bo
     except MealieAuthenticationError as error:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"auth_failed",
+            translation_key="auth_failed",
         ) from error
     except MealieError as error:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"setup_failed",
+            translation_key="setup_failed",
         ) from error
 
     if not version.valid:
@@ -67,7 +67,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: MealieConfigEntry) -> bo
     if version.valid and version < MIN_REQUIRED_MEALIE_VERSION:
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"version_error",
+            translation_key="version_error",
             translation_placeholders={
                 "mealie_version": about.version,
                 "min_version": MIN_REQUIRED_MEALIE_VERSION,

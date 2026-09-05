@@ -38,7 +38,7 @@ MOWER_BINARY_SENSOR_TYPES: tuple[AutomowerBinarySensorEntityDescription, ...] = 
     ),
     AutomowerBinarySensorEntityDescription(
         key="leaving_dock",
-        REDACTED_VALUE"leaving_dock",
+        translation_key="leaving_dock",
         value_fn=lambda data: data.mower.activity == MowerActivities.LEAVING,
     ),
 )

@@ -56,7 +56,7 @@ SENSOR_TYPES: tuple[IskraSensorEntityDescription, ...] = (
     # Power
     IskraSensorEntityDescription(
         key=ATTR_TOTAL_ACTIVE_POWER,
-        REDACTED_VALUE"total_active_power",
+        translation_key="total_active_power",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -64,7 +64,7 @@ SENSOR_TYPES: tuple[IskraSensorEntityDescription, ...] = (
     ),
     IskraSensorEntityDescription(
         key=ATTR_TOTAL_REACTIVE_POWER,
-        REDACTED_VALUE"total_reactive_power",
+        translation_key="total_reactive_power",
         device_class=SensorDeviceClass.REACTIVE_POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfReactivePower.VOLT_AMPERE_REACTIVE,
@@ -72,7 +72,7 @@ SENSOR_TYPES: tuple[IskraSensorEntityDescription, ...] = (
     ),
     IskraSensorEntityDescription(
         key=ATTR_TOTAL_APPARENT_POWER,
-        REDACTED_VALUE"total_apparent_power",
+        translation_key="total_apparent_power",
         device_class=SensorDeviceClass.APPARENT_POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
@@ -80,7 +80,7 @@ SENSOR_TYPES: tuple[IskraSensorEntityDescription, ...] = (
     ),
     IskraSensorEntityDescription(
         key=ATTR_PHASE1_POWER,
-        REDACTED_VALUE"phase1_power",
+        translation_key="phase1_power",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -88,7 +88,7 @@ SENSOR_TYPES: tuple[IskraSensorEntityDescription, ...] = (
     ),
     IskraSensorEntityDescription(
         key=ATTR_PHASE2_POWER,
-        REDACTED_VALUE"phase2_power",
+        translation_key="phase2_power",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -96,7 +96,7 @@ SENSOR_TYPES: tuple[IskraSensorEntityDescription, ...] = (
     ),
     IskraSensorEntityDescription(
         key=ATTR_PHASE3_POWER,
-        REDACTED_VALUE"phase3_power",
+        translation_key="phase3_power",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -105,7 +105,7 @@ SENSOR_TYPES: tuple[IskraSensorEntityDescription, ...] = (
     # Voltage
     IskraSensorEntityDescription(
         key=ATTR_PHASE1_VOLTAGE,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="phase1_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
@@ -113,7 +113,7 @@ SENSOR_TYPES: tuple[IskraSensorEntityDescription, ...] = (
     ),
     IskraSensorEntityDescription(
         key=ATTR_PHASE2_VOLTAGE,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="phase2_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
@@ -121,7 +121,7 @@ SENSOR_TYPES: tuple[IskraSensorEntityDescription, ...] = (
     ),
     IskraSensorEntityDescription(
         key=ATTR_PHASE3_VOLTAGE,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="phase3_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
@@ -130,7 +130,7 @@ SENSOR_TYPES: tuple[IskraSensorEntityDescription, ...] = (
     # Current
     IskraSensorEntityDescription(
         key=ATTR_PHASE1_CURRENT,
-        REDACTED_VALUE"phase1_current",
+        translation_key="phase1_current",
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
@@ -138,7 +138,7 @@ SENSOR_TYPES: tuple[IskraSensorEntityDescription, ...] = (
     ),
     IskraSensorEntityDescription(
         key=ATTR_PHASE2_CURRENT,
-        REDACTED_VALUE"phase2_current",
+        translation_key="phase2_current",
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
@@ -146,7 +146,7 @@ SENSOR_TYPES: tuple[IskraSensorEntityDescription, ...] = (
     ),
     IskraSensorEntityDescription(
         key=ATTR_PHASE3_CURRENT,
-        REDACTED_VALUE"phase3_current",
+        translation_key="phase3_current",
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
@@ -155,7 +155,7 @@ SENSOR_TYPES: tuple[IskraSensorEntityDescription, ...] = (
     # Frequency
     IskraSensorEntityDescription(
         key=ATTR_FREQUENCY,
-        REDACTED_VALUE"frequency",
+        translation_key="frequency",
         device_class=SensorDeviceClass.FREQUENCY,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfFrequency.HERTZ,
@@ -179,7 +179,7 @@ def get_counter_entity_description(
     if entity_name == ATTR_NON_RESETTABLE_COUNTER:
         entity_description = IskraSensorEntityDescription(
             key=key,
-            REDACTED_VALUEkey,
+            translation_key=key,
             state_class=SensorStateClass.TOTAL_INCREASING,
             value_func=lambda device: device.counters.non_resettable[index].value,
             native_unit_of_measurement=counter.units,
@@ -187,7 +187,7 @@ def get_counter_entity_description(
     else:
         entity_description = IskraSensorEntityDescription(
             key=key,
-            REDACTED_VALUEkey,
+            translation_key=key,
             state_class=SensorStateClass.TOTAL_INCREASING,
             value_func=lambda device: device.counters.resettable[index].value,
             native_unit_of_measurement=counter.units,

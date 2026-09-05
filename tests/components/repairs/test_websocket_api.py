@@ -67,7 +67,7 @@ async def create_issues(
             is_persistent=False,
             learn_more_url=issue["learn_more_url"],
             severity=issue["severity"],
-            REDACTED_VALUEissue["translation_key"],
+            translation_key=issue["translation_key"],
             translation_placeholders=issue["translation_placeholders"],
         )
 
@@ -525,7 +525,7 @@ async def test_list_issues(
             is_persistent=False,
             learn_more_url=issue["learn_more_url"],
             severity=issue["severity"],
-            REDACTED_VALUEissue["translation_key"],
+            translation_key=issue["translation_key"],
             translation_placeholders=issue["translation_placeholders"],
         )
 
@@ -656,7 +656,7 @@ async def test_get_issue_data(
             is_persistent=False,
             learn_more_url=issue["learn_more_url"],
             severity=issue["severity"],
-            REDACTED_VALUEissue["translation_key"],
+            translation_key=issue["translation_key"],
             translation_placeholders=issue["translation_placeholders"],
         )
 

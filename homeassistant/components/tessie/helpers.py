@@ -33,12 +33,12 @@ async def handle_command(command: Awaitable[dict[str, Any]]) -> dict[str, Any]:
     except ClientError as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect",
+            translation_key="cannot_connect",
         ) from e
     except TeslaFleetError as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"command_failed",
+            translation_key="command_failed",
             translation_placeholders={"message": e.message},
         ) from e
     _LOGGER.debug("Command result: %s", result)
@@ -52,13 +52,13 @@ async def handle_legacy_command(command: Awaitable[dict[str, Any]], name: str) -
     except ClientError as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect",
+            translation_key="cannot_connect",
         ) from e
     if response["result"] is False:
         reason: str = response.get("reason", "unknown")
         translation_key = TRANSLATED_ERRORS.get(reason, "command_failed")
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUEtranslation_key,
+            translation_key=translation_key,
             translation_placeholders={"name": name, "message": reason},
         )

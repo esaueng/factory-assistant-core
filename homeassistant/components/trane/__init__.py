@@ -31,13 +31,13 @@ async def async_setup_entry(hass: HomeAssistant, entry: TraneConfigEntry) -> boo
         await conn.disconnect()
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect",
+            translation_key="cannot_connect",
         ) from err
     except AuthenticationError as err:
         await conn.disconnect()
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"authentication_failed",
+            translation_key="authentication_failed",
         ) from err
 
     conn.start_background_tasks()
@@ -48,7 +48,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: TraneConfigEntry) -> boo
         config_entry_id=entry.entry_id,
         identifiers={(DOMAIN, entry.entry_id)},
         manufacturer=MANUFACTURER,
-        REDACTED_VALUE"thermostat",
+        translation_key="thermostat",
         translation_placeholders={"host": entry.data[CONF_HOST]},
     )
 

@@ -1,6 +1,6 @@
 """Base entity for Tami4Edge."""
 
-from REDACTED_VALUE import REDACTED_VALUE
+from Tami4EdgeAPI import Tami4EdgeAPI
 
 from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity import Entity, EntityDescription
@@ -14,7 +14,7 @@ class Tami4EdgeBaseEntity(Entity):
     _attr_has_entity_name = True
 
     def __init__(
-        self, api: REDACTED_VALUE, entity_description: EntityDescription
+        self, api: Tami4EdgeAPI, entity_description: EntityDescription
     ) -> None:
         """Initialize the Tami4Edge."""
         self._state = None

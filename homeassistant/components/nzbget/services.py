@@ -27,7 +27,7 @@ def _get_coordinator(call: ServiceCall) -> NZBGetDataUpdateCoordinator:
     if not entries:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_config_entry",
+            translation_key="invalid_config_entry",
         )
     return entries[0].runtime_data
 

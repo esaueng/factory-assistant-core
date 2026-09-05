@@ -57,7 +57,7 @@ class LyricSensorAccessoryEntityDescription(SensorEntityDescription):
 DEVICE_SENSORS: list[LyricSensorEntityDescription] = [
     LyricSensorEntityDescription(
         key="indoor_temperature",
-        REDACTED_VALUE"indoor_temperature",
+        translation_key="indoor_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda device: device.indoor_temperature,
@@ -65,7 +65,7 @@ DEVICE_SENSORS: list[LyricSensorEntityDescription] = [
     ),
     LyricSensorEntityDescription(
         key="indoor_humidity",
-        REDACTED_VALUE"indoor_humidity",
+        translation_key="indoor_humidity",
         device_class=SensorDeviceClass.HUMIDITY,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
@@ -74,7 +74,7 @@ DEVICE_SENSORS: list[LyricSensorEntityDescription] = [
     ),
     LyricSensorEntityDescription(
         key="outdoor_temperature",
-        REDACTED_VALUE"outdoor_temperature",
+        translation_key="outdoor_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda device: device.outdoor_temperature,
@@ -82,7 +82,7 @@ DEVICE_SENSORS: list[LyricSensorEntityDescription] = [
     ),
     LyricSensorEntityDescription(
         key="outdoor_humidity",
-        REDACTED_VALUE"outdoor_humidity",
+        translation_key="outdoor_humidity",
         device_class=SensorDeviceClass.HUMIDITY,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
@@ -91,7 +91,7 @@ DEVICE_SENSORS: list[LyricSensorEntityDescription] = [
     ),
     LyricSensorEntityDescription(
         key="next_period_time",
-        REDACTED_VALUE"next_period_time",
+        translation_key="next_period_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda device: get_datetime_from_future_time(
             device.changeable_values.next_period_time
@@ -102,7 +102,7 @@ DEVICE_SENSORS: list[LyricSensorEntityDescription] = [
     ),
     LyricSensorEntityDescription(
         key="setpoint_status",
-        REDACTED_VALUE"setpoint_status",
+        translation_key="setpoint_status",
         value_fn=lambda device: get_setpoint_status(
             device.changeable_values.thermostat_setpoint_status,
             device.changeable_values.next_period_time,
@@ -117,7 +117,7 @@ DEVICE_SENSORS: list[LyricSensorEntityDescription] = [
 ACCESSORY_SENSORS: list[LyricSensorAccessoryEntityDescription] = [
     LyricSensorAccessoryEntityDescription(
         key="room_temperature",
-        REDACTED_VALUE"room_temperature",
+        translation_key="room_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda _, accessory: accessory.temperature,
@@ -125,7 +125,7 @@ ACCESSORY_SENSORS: list[LyricSensorAccessoryEntityDescription] = [
     ),
     LyricSensorAccessoryEntityDescription(
         key="room_humidity",
-        REDACTED_VALUE"room_humidity",
+        translation_key="room_humidity",
         device_class=SensorDeviceClass.HUMIDITY,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,

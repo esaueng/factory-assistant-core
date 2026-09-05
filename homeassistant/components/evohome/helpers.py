@@ -29,6 +29,6 @@ def async_create_deprecation_issue_once(
         is_persistent=True,
         issue_domain=DOMAIN,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUEtranslation_key or issue_id,
+        translation_key=translation_key or issue_id,
         translation_placeholders=placeholders,
     )

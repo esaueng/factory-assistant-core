@@ -41,7 +41,7 @@ BINARY_SENSOR_ENTITY_DESCRIPTIONS = [
     Eq3BinarySensorEntityDescription(
         value_func=lambda status: status.is_dst,
         key=ENTITY_KEY_DST,
-        REDACTED_VALUEENTITY_KEY_DST,
+        translation_key=ENTITY_KEY_DST,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
 ]

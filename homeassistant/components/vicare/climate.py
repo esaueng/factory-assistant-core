@@ -304,7 +304,7 @@ class ViCareClimate(ViCareEntity, ClimateEntity):
         if target_program is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"program_unknown",
+                translation_key="program_unknown",
                 translation_placeholders={
                     "preset": preset_mode,
                 },
@@ -321,7 +321,7 @@ class ViCareClimate(ViCareEntity, ClimateEntity):
             except PyViCareCommandError as err:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"program_not_deactivated",
+                    translation_key="program_not_deactivated",
                     translation_placeholders={
                         "program": self._current_program,
                     },
@@ -335,7 +335,7 @@ class ViCareClimate(ViCareEntity, ClimateEntity):
             except PyViCareCommandError as err:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"program_not_activated",
+                    translation_key="program_not_activated",
                     translation_placeholders={
                         "program": target_program,
                     },

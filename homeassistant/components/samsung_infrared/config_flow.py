@@ -72,7 +72,7 @@ class SamsungIrConfigFlow(ConfigFlow, domain=DOMAIN):
                             options=[
                                 device_type.value for device_type in SamsungDeviceType
                             ],
-                            REDACTED_VALUECONF_DEVICE_TYPE,
+                            translation_key=CONF_DEVICE_TYPE,
                             mode=SelectSelectorMode.DROPDOWN,
                         )
                     ),

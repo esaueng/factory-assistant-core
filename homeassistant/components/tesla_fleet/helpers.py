@@ -26,7 +26,7 @@ async def wake_up_vehicle(vehicle: TeslaFleetVehicleData) -> None:
             except TeslaFleetError as e:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"wake_up_failed",
+                    translation_key="wake_up_failed",
                 ) from e
             vehicle.coordinator.data["state"] = state
             if state != TeslaFleetState.ONLINE:
@@ -34,7 +34,7 @@ async def wake_up_vehicle(vehicle: TeslaFleetVehicleData) -> None:
                 if times >= 4:  # Give up after 30 seconds total
                     raise HomeAssistantError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"wake_up_timeout",
+                        translation_key="wake_up_timeout",
                     )
                 await asyncio.sleep(times * 5)
 
@@ -46,7 +46,7 @@ async def handle_command(command: Awaitable) -> dict[str, Any]:
     except TeslaFleetError as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"command_failed",
+            translation_key="command_failed",
             translation_placeholders={"message": e.message},
         ) from e
     LOGGER.debug("Command result: %s", result)
@@ -61,12 +61,12 @@ async def handle_vehicle_command(command: Awaitable) -> bool:
             # No response with error
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_error",
+                translation_key="command_error",
                 translation_placeholders={"error": error},
             )
         # No response without error (unexpected)
         raise HomeAssistantError(
-            translation_domain=DOMAIN, REDACTED_VALUE"command_no_response"
+            translation_domain=DOMAIN, translation_key="command_no_response"
         )
     if (result := response.get("result")) is not True:
         if reason := response.get("reason"):
@@ -76,13 +76,13 @@ async def handle_vehicle_command(command: Awaitable) -> bool:
             # Result of false with reason
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_reason",
+                translation_key="command_reason",
                 translation_placeholders={"reason": reason},
             )
         # Result of false without reason (unexpected)
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"command_no_reason",
+            translation_key="command_no_reason",
         )
     # Response with result of true
     return result

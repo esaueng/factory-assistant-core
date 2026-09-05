@@ -54,7 +54,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: MieleConfigEntry) -> boo
     except ImplementationUnavailableError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"oauth2_implementation_unavailable",
+            translation_key="oauth2_implementation_unavailable",
         ) from err
 
     session = OAuth2Session(hass, entry, implementation)
@@ -65,16 +65,16 @@ async def async_setup_entry(hass: HomeAssistant, entry: MieleConfigEntry) -> boo
         if 400 <= err.status < 500:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"config_entry_auth_failed",
+                translation_key="config_entry_auth_failed",
             ) from err
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"config_entry_not_ready",
+            translation_key="config_entry_not_ready",
         ) from err
     except ClientError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"config_entry_not_ready",
+            translation_key="config_entry_not_ready",
         ) from err
 
     # Setup MieleAPI and coordinator for data fetch

@@ -120,13 +120,13 @@ class BSBLanFastCoordinator(BSBLanCoordinator[BSBLanFastData]):
         except BSBLANAuthError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"coordinator_auth_error",
+                translation_key="coordinator_auth_error",
             ) from err
         except BSBLANConnectionError as err:
             host = self.config_entry.data[CONF_HOST]
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"coordinator_connection_error",
+                translation_key="coordinator_connection_error",
                 translation_placeholders={"host": host},
             ) from err
 

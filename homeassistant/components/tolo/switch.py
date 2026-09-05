@@ -25,13 +25,13 @@ class ToloSwitchEntityDescription(SwitchEntityDescription):
 SWITCHES = (
     ToloSwitchEntityDescription(
         key="aroma_therapy_on",
-        REDACTED_VALUE"aroma_therapy_on",
+        translation_key="aroma_therapy_on",
         getter=lambda status: status.aroma_therapy_on,
         setter=lambda client, value: client.set_aroma_therapy_on(value),
     ),
     ToloSwitchEntityDescription(
         key="salt_bath_on",
-        REDACTED_VALUE"salt_bath_on",
+        translation_key="salt_bath_on",
         getter=lambda status: status.salt_bath_on,
         setter=lambda client, value: client.set_salt_bath_on(value),
     ),

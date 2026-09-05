@@ -71,12 +71,12 @@ def _raise_service_error(
         create_routes_api_disabled_issue(hass, entry)
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"permission_denied",
+            translation_key="permission_denied",
         ) from exc
     if isinstance(exc, GoogleAPIError):
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"api_error",
+            translation_key="api_error",
             translation_placeholders={"error": str(exc)},
         ) from exc
     raise exc

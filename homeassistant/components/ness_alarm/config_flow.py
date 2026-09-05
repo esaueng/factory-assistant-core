@@ -55,7 +55,7 @@ ZONE_SCHEMA = vol.Schema(
             selector.SelectSelectorConfig(
                 options=[cls.value for cls in BinarySensorDeviceClass],
                 mode=selector.SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUE"binary_sensor_device_class",
+                translation_key="binary_sensor_device_class",
                 sort=True,
             ),
         ),

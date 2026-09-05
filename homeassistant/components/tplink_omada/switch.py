@@ -208,7 +208,7 @@ async def _wan_connect_disconnect(
 SWITCH_PORT_DETAILS_SWITCHES: list[OmadaSwitchPortSwitchEntityDescription] = [
     OmadaSwitchPortSwitchEntityDescription(
         key="poe",
-        REDACTED_VALUE"poe_control",
+        translation_key="poe_control",
         exists_func=(
             lambda d, p: (
                 d.device_capabilities.supports_poe
@@ -234,14 +234,14 @@ SWITCH_PORT_DETAILS_SWITCHES: list[OmadaSwitchPortSwitchEntityDescription] = [
 GATEWAY_PORT_STATUS_SWITCHES: list[OmadaGatewayPortStatusSwitchEntityDescription] = [
     OmadaGatewayPortStatusSwitchEntityDescription(
         key="wan_connect_ipv4",
-        REDACTED_VALUE"wan_connect_ipv4",
+        translation_key="wan_connect_ipv4",
         exists_func=lambda _, p: p.mode == GatewayPortMode.WAN,
         set_func=partial(_wan_connect_disconnect, ipv6=False),
         update_func=lambda p: p.wan_connected,
     ),
     OmadaGatewayPortStatusSwitchEntityDescription(
         key="wan_connect_ipv6",
-        REDACTED_VALUE"wan_connect_ipv6",
+        translation_key="wan_connect_ipv6",
         exists_func=lambda _, p: p.mode == GatewayPortMode.WAN and p.wan_ipv6_enabled,
         set_func=partial(_wan_connect_disconnect, ipv6=True),
         update_func=lambda p: p.ipv6_wan_connected,
@@ -251,7 +251,7 @@ GATEWAY_PORT_STATUS_SWITCHES: list[OmadaGatewayPortStatusSwitchEntityDescription
 GATEWAY_PORT_CONFIG_SWITCHES: list[OmadaGatewayPortConfigSwitchEntityDescription] = [
     OmadaGatewayPortConfigSwitchEntityDescription(
         key="poe",
-        REDACTED_VALUE"poe_control",
+        translation_key="poe_control",
         exists_func=lambda _, port: port.poe_mode != PoEMode.NONE,
         set_func=lambda client, device, port, enable: client.set_gateway_port_settings(
             port.port_number, GatewayPortSettings(enable_poe=enable), device

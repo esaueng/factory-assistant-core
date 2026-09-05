@@ -30,7 +30,7 @@ def async_handle_api_call[_T: SensiboDeviceBaseEntity, **_P](
         except SENSIBO_ERRORS as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_raised",
+                translation_key="service_raised",
                 translation_placeholders={"error": str(err), "name": entity.name},
             ) from err
 
@@ -38,7 +38,7 @@ def async_handle_api_call[_T: SensiboDeviceBaseEntity, **_P](
         if res is not True:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_result_not_true",
+                translation_key="service_result_not_true",
                 translation_placeholders={"name": entity.name},
             )
         if (

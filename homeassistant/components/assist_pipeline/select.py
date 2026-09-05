@@ -60,7 +60,7 @@ class AssistPipelineSelect(SelectEntity, restore_state.RestoreEntity):
 
     entity_description = SelectEntityDescription(
         key="pipeline",
-        REDACTED_VALUE"pipeline",
+        translation_key="pipeline",
         entity_category=EntityCategory.CONFIG,
     )
 
@@ -80,7 +80,7 @@ class AssistPipelineSelect(SelectEntity, restore_state.RestoreEntity):
             self.entity_description = replace(
                 self.entity_description,
                 key=f"pipeline_{index + 1}",
-                REDACTED_VALUE"pipeline_n",
+                translation_key="pipeline_n",
                 translation_placeholders={"index": str(index + 1)},
             )
 
@@ -144,7 +144,7 @@ class VadSensitivitySelect(SelectEntity, restore_state.RestoreEntity):
 
     entity_description = SelectEntityDescription(
         key="vad_sensitivity",
-        REDACTED_VALUE"vad_sensitivity",
+        translation_key="vad_sensitivity",
         entity_category=EntityCategory.CONFIG,
     )
     _attr_should_poll = False

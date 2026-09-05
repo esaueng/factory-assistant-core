@@ -58,7 +58,7 @@ def _async_get_target(
     if (device := device_registry.async_get(device_id)) is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_target",
+            translation_key="invalid_target",
         )
 
     for entry_id in device.config_entries:
@@ -80,7 +80,7 @@ def _async_get_target(
 
     raise ServiceValidationError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"invalid_target",
+        translation_key="invalid_target",
     )
 
 
@@ -101,7 +101,7 @@ async def async_setup_services(hass: HomeAssistant) -> None:
         except UnifiAccessError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"lock_rule_failed",
+                translation_key="lock_rule_failed",
             ) from err
 
     hass.services.async_register(

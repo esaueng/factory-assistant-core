@@ -111,7 +111,7 @@ def _validate_supported_features(
         if not supported_features or not supported_features & desc.required_feature:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_field_not_supported",
+                translation_key="update_field_not_supported",
                 translation_placeholders={"service_field": desc.service_field},
             )
 
@@ -475,7 +475,7 @@ async def _async_update_todo_item(entity: TodoListEntity, call: ServiceCall) -> 
     if not found:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"item_not_found",
+            translation_key="item_not_found",
             translation_placeholders={"item": item},
         )
 
@@ -507,7 +507,7 @@ async def _async_remove_todo_items(entity: TodoListEntity, call: ServiceCall) ->
         if not found or not found.uid:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"item_not_found",
+                translation_key="item_not_found",
                 translation_placeholders={"item": item},
             )
         uids.append(found.uid)

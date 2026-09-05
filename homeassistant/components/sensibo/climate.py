@@ -261,7 +261,7 @@ class SensiboClimate(SensiboDeviceBaseEntity, ClimateEntity):
         if fan_mode not in AVAILABLE_FAN_MODES:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"fan_mode_not_supported",
+                translation_key="fan_mode_not_supported",
                 translation_placeholders={"fan_mode": fan_mode},
             )
 
@@ -306,7 +306,7 @@ class SensiboClimate(SensiboDeviceBaseEntity, ClimateEntity):
         if swing_mode not in AVAILABLE_SWING_MODES:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"swing_not_supported",
+                translation_key="swing_not_supported",
                 translation_placeholders={"swing_mode": swing_mode},
             )
 
@@ -324,7 +324,7 @@ class SensiboClimate(SensiboDeviceBaseEntity, ClimateEntity):
         if swing_horizontal_mode not in AVAILABLE_HORIZONTAL_SWING_MODES:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"horizontal_swing_not_supported",
+                translation_key="horizontal_swing_not_supported",
                 translation_placeholders={
                     "horizontal_swing_mode": swing_horizontal_mode
                 },
@@ -367,7 +367,7 @@ class SensiboClimate(SensiboDeviceBaseEntity, ClimateEntity):
         ].get(hvac_mode.value)
         if not mode_capabilities:
             raise ServiceValidationError(
-                translation_domain=DOMAIN, REDACTED_VALUE"mode_not_exist"
+                translation_domain=DOMAIN, translation_key="mode_not_exist"
             )
         remote_capabilities: dict[str, Any] = {}
         for active_feature in active_features:

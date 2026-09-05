@@ -36,7 +36,7 @@ class SmLightEntityDescription(LightEntityDescription):
 
 AMBILIGHT = SmLightEntityDescription(
     key="ambilight",
-    REDACTED_VALUE"ambilight",
+    translation_key="ambilight",
     icon="mdi:led-strip",
     effect_list=AMBI_EFFECT_LIST,
 )

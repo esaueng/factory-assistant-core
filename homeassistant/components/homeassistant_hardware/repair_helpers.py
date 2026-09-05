@@ -28,7 +28,7 @@ def async_create_multi_pan_migration_issue(
         is_fixable=True,
         is_persistent=False,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUEISSUE_MULTI_PAN_MIGRATION,
+        translation_key=ISSUE_MULTI_PAN_MIGRATION,
         translation_placeholders={"hardware_name": config_entry.title},
         data={"entry_id": config_entry.entry_id},
     )

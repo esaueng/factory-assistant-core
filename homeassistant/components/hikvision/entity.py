@@ -29,7 +29,7 @@ class HikvisionEntity(Entity):
             self._attr_device_info = DeviceInfo(
                 identifiers={(DOMAIN, f"{self._data.device_id}_{channel}")},
                 via_device=(DOMAIN, self._data.device_id),
-                REDACTED_VALUE"nvr_channel",
+                translation_key="nvr_channel",
                 translation_placeholders={
                     "device_name": self._data.device_name,
                     "channel_number": str(channel),

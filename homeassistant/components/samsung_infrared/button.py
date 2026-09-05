@@ -25,113 +25,113 @@ class SamsungIrButtonEntityDescription(ButtonEntityDescription):
 
 TV_BUTTON_DESCRIPTIONS: tuple[SamsungIrButtonEntityDescription, ...] = (
     SamsungIrButtonEntityDescription(
-        key="power", REDACTED_VALUE"power", command_code=SamsungTVCode.POWER
+        key="power", translation_key="power", command_code=SamsungTVCode.POWER
     ),
     SamsungIrButtonEntityDescription(
-        key="source", REDACTED_VALUE"source", command_code=SamsungTVCode.SOURCE
+        key="source", translation_key="source", command_code=SamsungTVCode.SOURCE
     ),
     SamsungIrButtonEntityDescription(
-        key="settings", REDACTED_VALUE"settings", command_code=SamsungTVCode.SETTINGS
+        key="settings", translation_key="settings", command_code=SamsungTVCode.SETTINGS
     ),
     SamsungIrButtonEntityDescription(
-        key="info", REDACTED_VALUE"info", command_code=SamsungTVCode.INFO
+        key="info", translation_key="info", command_code=SamsungTVCode.INFO
     ),
     SamsungIrButtonEntityDescription(
-        key="exit", REDACTED_VALUE"exit", command_code=SamsungTVCode.EXIT
+        key="exit", translation_key="exit", command_code=SamsungTVCode.EXIT
     ),
     SamsungIrButtonEntityDescription(
-        key="return", REDACTED_VALUE"return", command_code=SamsungTVCode.RETURN
+        key="return", translation_key="return", command_code=SamsungTVCode.RETURN
     ),
     SamsungIrButtonEntityDescription(
-        key="home", REDACTED_VALUE"home", command_code=SamsungTVCode.HOME
+        key="home", translation_key="home", command_code=SamsungTVCode.HOME
     ),
     SamsungIrButtonEntityDescription(
-        key="red", REDACTED_VALUE"red", command_code=SamsungTVCode.RED
+        key="red", translation_key="red", command_code=SamsungTVCode.RED
     ),
     SamsungIrButtonEntityDescription(
-        key="green", REDACTED_VALUE"green", command_code=SamsungTVCode.GREEN
+        key="green", translation_key="green", command_code=SamsungTVCode.GREEN
     ),
     SamsungIrButtonEntityDescription(
-        key="yellow", REDACTED_VALUE"yellow", command_code=SamsungTVCode.YELLOW
+        key="yellow", translation_key="yellow", command_code=SamsungTVCode.YELLOW
     ),
     SamsungIrButtonEntityDescription(
-        key="blue", REDACTED_VALUE"blue", command_code=SamsungTVCode.BLUE
+        key="blue", translation_key="blue", command_code=SamsungTVCode.BLUE
     ),
     SamsungIrButtonEntityDescription(
-        key="up", REDACTED_VALUE"up", command_code=SamsungTVCode.NAV_UP
+        key="up", translation_key="up", command_code=SamsungTVCode.NAV_UP
     ),
     SamsungIrButtonEntityDescription(
-        key="down", REDACTED_VALUE"down", command_code=SamsungTVCode.NAV_DOWN
+        key="down", translation_key="down", command_code=SamsungTVCode.NAV_DOWN
     ),
     SamsungIrButtonEntityDescription(
-        key="left", REDACTED_VALUE"left", command_code=SamsungTVCode.NAV_LEFT
+        key="left", translation_key="left", command_code=SamsungTVCode.NAV_LEFT
     ),
     SamsungIrButtonEntityDescription(
-        key="right", REDACTED_VALUE"right", command_code=SamsungTVCode.NAV_RIGHT
+        key="right", translation_key="right", command_code=SamsungTVCode.NAV_RIGHT
     ),
     SamsungIrButtonEntityDescription(
-        key="ok", REDACTED_VALUE"ok", command_code=SamsungTVCode.OK
+        key="ok", translation_key="ok", command_code=SamsungTVCode.OK
     ),
     SamsungIrButtonEntityDescription(
         key="previous_channel",
-        REDACTED_VALUE"previous_channel",
+        translation_key="previous_channel",
         command_code=SamsungTVCode.PREVIOUS_CHANNEL,
     ),
     SamsungIrButtonEntityDescription(
-        key="num_0", REDACTED_VALUE"num_0", command_code=SamsungTVCode.NUM_0
+        key="num_0", translation_key="num_0", command_code=SamsungTVCode.NUM_0
     ),
     SamsungIrButtonEntityDescription(
-        key="num_1", REDACTED_VALUE"num_1", command_code=SamsungTVCode.NUM_1
+        key="num_1", translation_key="num_1", command_code=SamsungTVCode.NUM_1
     ),
     SamsungIrButtonEntityDescription(
-        key="num_2", REDACTED_VALUE"num_2", command_code=SamsungTVCode.NUM_2
+        key="num_2", translation_key="num_2", command_code=SamsungTVCode.NUM_2
     ),
     SamsungIrButtonEntityDescription(
-        key="num_3", REDACTED_VALUE"num_3", command_code=SamsungTVCode.NUM_3
+        key="num_3", translation_key="num_3", command_code=SamsungTVCode.NUM_3
     ),
     SamsungIrButtonEntityDescription(
-        key="num_4", REDACTED_VALUE"num_4", command_code=SamsungTVCode.NUM_4
+        key="num_4", translation_key="num_4", command_code=SamsungTVCode.NUM_4
     ),
     SamsungIrButtonEntityDescription(
-        key="num_5", REDACTED_VALUE"num_5", command_code=SamsungTVCode.NUM_5
+        key="num_5", translation_key="num_5", command_code=SamsungTVCode.NUM_5
     ),
     SamsungIrButtonEntityDescription(
-        key="num_6", REDACTED_VALUE"num_6", command_code=SamsungTVCode.NUM_6
+        key="num_6", translation_key="num_6", command_code=SamsungTVCode.NUM_6
     ),
     SamsungIrButtonEntityDescription(
-        key="num_7", REDACTED_VALUE"num_7", command_code=SamsungTVCode.NUM_7
+        key="num_7", translation_key="num_7", command_code=SamsungTVCode.NUM_7
     ),
     SamsungIrButtonEntityDescription(
-        key="num_8", REDACTED_VALUE"num_8", command_code=SamsungTVCode.NUM_8
+        key="num_8", translation_key="num_8", command_code=SamsungTVCode.NUM_8
     ),
     SamsungIrButtonEntityDescription(
-        key="num_9", REDACTED_VALUE"num_9", command_code=SamsungTVCode.NUM_9
+        key="num_9", translation_key="num_9", command_code=SamsungTVCode.NUM_9
     ),
     SamsungIrButtonEntityDescription(
         key="fast_forward",
-        REDACTED_VALUE"fast_forward",
+        translation_key="fast_forward",
         command_code=SamsungTVCode.FAST_FORWARD,
     ),
     SamsungIrButtonEntityDescription(
-        key="rewind", REDACTED_VALUE"rewind", command_code=SamsungTVCode.REWIND
+        key="rewind", translation_key="rewind", command_code=SamsungTVCode.REWIND
     ),
     SamsungIrButtonEntityDescription(
-        key="record", REDACTED_VALUE"record", command_code=SamsungTVCode.RECORD
+        key="record", translation_key="record", command_code=SamsungTVCode.RECORD
     ),
     SamsungIrButtonEntityDescription(
-        key="tools", REDACTED_VALUE"tools", command_code=SamsungTVCode.TOOLS
+        key="tools", translation_key="tools", command_code=SamsungTVCode.TOOLS
     ),
     SamsungIrButtonEntityDescription(
-        key="browser", REDACTED_VALUE"browser", command_code=SamsungTVCode.BROWSER
+        key="browser", translation_key="browser", command_code=SamsungTVCode.BROWSER
     ),
     SamsungIrButtonEntityDescription(
         key="ad_subtitle",
-        REDACTED_VALUE"ad_subtitle",
+        translation_key="ad_subtitle",
         command_code=SamsungTVCode.AD_SUBTITLE,
     ),
     SamsungIrButtonEntityDescription(
         key="e_manual",
-        REDACTED_VALUE"e_manual",
+        translation_key="e_manual",
         command_code=SamsungTVCode.E_MANUAL,
     ),
 )

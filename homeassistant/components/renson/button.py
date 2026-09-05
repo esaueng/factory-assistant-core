@@ -29,7 +29,7 @@ ENTITY_DESCRIPTIONS: tuple[RensonButtonEntityDescription, ...] = (
     RensonButtonEntityDescription(
         key="sync_time",
         entity_category=EntityCategory.CONFIG,
-        REDACTED_VALUE"sync_time",
+        translation_key="sync_time",
         action_fn=lambda api: api.sync_time(),
     ),
     RensonButtonEntityDescription(
@@ -40,7 +40,7 @@ ENTITY_DESCRIPTIONS: tuple[RensonButtonEntityDescription, ...] = (
     ),
     RensonButtonEntityDescription(
         key="reset_filter",
-        REDACTED_VALUE"reset_filter",
+        translation_key="reset_filter",
         entity_category=EntityCategory.CONFIG,
         action_fn=lambda api: api.reset_filter(),
     ),

@@ -59,7 +59,7 @@ class RadioMediaSource(MediaSource):
         if self.entry.state is not ConfigEntryState.LOADED:
             raise Unresolvable(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"config_entry_not_ready",
+                translation_key="config_entry_not_ready",
             )
         radios = self.radios
         try:
@@ -67,7 +67,7 @@ class RadioMediaSource(MediaSource):
         except (DNSError, RadioBrowserError) as e:
             raise Unresolvable(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"radio_browser_error",
+                translation_key="radio_browser_error",
             ) from e
         if not station:
             raise Unresolvable("Radio station is no longer available")
@@ -89,7 +89,7 @@ class RadioMediaSource(MediaSource):
         if self.entry.state is not ConfigEntryState.LOADED:
             raise BrowseError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"config_entry_not_ready",
+                translation_key="config_entry_not_ready",
             )
         radios = self.radios
 
@@ -114,7 +114,7 @@ class RadioMediaSource(MediaSource):
         except (DNSError, RadioBrowserError) as e:
             raise BrowseError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"radio_browser_error",
+                translation_key="radio_browser_error",
             ) from e
 
     @callback

@@ -92,7 +92,7 @@ class VelbusClimate(VelbusEntity, ClimateEntity):
         if hvac_mode not in self._attr_hvac_modes:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_hvac_mode",
+                translation_key="invalid_hvac_mode",
                 translation_placeholders={"hvac_mode": str(hvac_mode)},
             )
         await self._channel.set_mode(hvac_mode)

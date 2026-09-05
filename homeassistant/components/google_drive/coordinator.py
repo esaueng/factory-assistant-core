@@ -69,6 +69,6 @@ class GoogleDriveDataUpdateCoordinator(DataUpdateCoordinator[SensorData]):
         except GoogleDriveApiError as error:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_response_google_drive_error",
+                translation_key="invalid_response_google_drive_error",
                 translation_placeholders={"error": str(error)},
             ) from error

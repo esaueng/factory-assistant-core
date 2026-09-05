@@ -175,7 +175,7 @@ def _get_entity_descriptions(
                 dataclasses.replace(
                     entity_description,
                     key=f"{key}-birthdays",
-                    REDACTED_VALUE"birthdays",
+                    translation_key="birthdays",
                     event_type=EventTypeEnum.BIRTHDAY,
                     name=None,
                     entity_id=None,
@@ -186,7 +186,7 @@ def _get_entity_descriptions(
                 dataclasses.replace(
                     entity_description,
                     key=f"{key}-work-location",
-                    REDACTED_VALUE"working_location",
+                    translation_key="working_location",
                     event_type=EventTypeEnum.WORKING_LOCATION,
                     name=None,
                     entity_id=None,

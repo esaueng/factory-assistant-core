@@ -91,7 +91,7 @@ async def _get_options_dict(handler: SchemaCommonFlowHandler | None) -> dict:
         vol.Required(CONF_SOURCE_SENSOR): entity_selector,
         vol.Required(CONF_METHOD, default=METHOD_TRAPEZOIDAL): selector.SelectSelector(
             selector.SelectSelectorConfig(
-                options=INTEGRATION_METHODS, REDACTED_VALUECONF_METHOD
+                options=INTEGRATION_METHODS, translation_key=CONF_METHOD
             ),
         ),
         vol.Optional(CONF_ROUND_DIGITS): selector.NumberSelector(
@@ -125,7 +125,7 @@ async def _get_config_schema(handler: SchemaCommonFlowHandler) -> vol.Schema:
                 selector.SelectSelectorConfig(
                     options=TIME_UNITS,
                     mode=selector.SelectSelectorMode.DROPDOWN,
-                    REDACTED_VALUECONF_UNIT_TIME,
+                    translation_key=CONF_UNIT_TIME,
                 ),
             ),
             **options,

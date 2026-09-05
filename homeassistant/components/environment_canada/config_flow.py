@@ -181,7 +181,7 @@ class OptionsFlowHandler(OptionsFlowWithReload):
                 ): SelectSelector(
                     SelectSelectorConfig(
                         options=RADAR_LAYERS,
-                        REDACTED_VALUE"radar_layer",
+                        translation_key="radar_layer",
                     )
                 ),
                 vol.Required(

@@ -184,7 +184,7 @@ class YotoMediaPlayer(YotoPlayerEntity, MediaPlayerEntity):
         except ValueError as err:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_media_id",
+                translation_key="invalid_media_id",
                 translation_placeholders={"media_id": media_id},
             ) from err
 
@@ -193,7 +193,7 @@ class YotoMediaPlayer(YotoPlayerEntity, MediaPlayerEntity):
         if card is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unknown_card",
+                translation_key="unknown_card",
                 translation_placeholders={"card_id": card_id},
             )
 
@@ -205,7 +205,7 @@ class YotoMediaPlayer(YotoPlayerEntity, MediaPlayerEntity):
                 except YotoError as err:
                     raise HomeAssistantError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"card_detail_failed",
+                        translation_key="card_detail_failed",
                         translation_placeholders={"error": str(err)},
                     ) from err
 
@@ -213,7 +213,7 @@ class YotoMediaPlayer(YotoPlayerEntity, MediaPlayerEntity):
             if chapter is None:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"unknown_chapter",
+                    translation_key="unknown_chapter",
                     translation_placeholders={
                         "chapter_key": chapter_key,
                         "card_id": card_id,
@@ -222,7 +222,7 @@ class YotoMediaPlayer(YotoPlayerEntity, MediaPlayerEntity):
             if track_key is not None and track_key not in chapter.tracks:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"unknown_track",
+                    translation_key="unknown_track",
                     translation_placeholders={
                         "track_key": track_key,
                         "card_id": card_id,
@@ -245,7 +245,7 @@ class YotoMediaPlayer(YotoPlayerEntity, MediaPlayerEntity):
         except YotoError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"play_failed",
+                translation_key="play_failed",
                 translation_placeholders={"error": str(err)},
             ) from err
 
@@ -265,14 +265,14 @@ class YotoMediaPlayer(YotoPlayerEntity, MediaPlayerEntity):
             except ValueError as err:
                 raise BrowseError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"invalid_media_id",
+                    translation_key="invalid_media_id",
                     translation_placeholders={"media_id": media_content_id},
                 ) from err
             group = client.groups.get(group_id)
             if group is None:
                 raise BrowseError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"unknown_group",
+                    translation_key="unknown_group",
                     translation_placeholders={"group_id": group_id},
                 )
             return self._browse_group(group)
@@ -282,7 +282,7 @@ class YotoMediaPlayer(YotoPlayerEntity, MediaPlayerEntity):
         except ValueError as err:
             raise BrowseError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_media_id",
+                translation_key="invalid_media_id",
                 translation_placeholders={"media_id": media_content_id},
             ) from err
 
@@ -290,7 +290,7 @@ class YotoMediaPlayer(YotoPlayerEntity, MediaPlayerEntity):
         if card is None:
             raise BrowseError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unknown_card",
+                translation_key="unknown_card",
                 translation_placeholders={"card_id": card_id},
             )
 
@@ -300,7 +300,7 @@ class YotoMediaPlayer(YotoPlayerEntity, MediaPlayerEntity):
             except YotoError as err:
                 raise BrowseError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"card_detail_failed",
+                    translation_key="card_detail_failed",
                     translation_placeholders={"error": str(err)},
                 ) from err
 
@@ -309,7 +309,7 @@ class YotoMediaPlayer(YotoPlayerEntity, MediaPlayerEntity):
             if chapter is None:
                 raise BrowseError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"unknown_chapter",
+                    translation_key="unknown_chapter",
                     translation_placeholders={
                         "chapter_key": chapter_key,
                         "card_id": card_id,
@@ -440,7 +440,7 @@ class YotoMediaPlayer(YotoPlayerEntity, MediaPlayerEntity):
         except YotoError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={"error": str(err)},
             ) from err
 

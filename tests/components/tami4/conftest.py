@@ -5,9 +5,9 @@ from datetime import datetime
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
-from REDACTED_VALUE.device import Device
-from REDACTED_VALUE.device_metadata import DeviceMetadata
-from REDACTED_VALUE.water_quality import UV, Filter, WaterQuality
+from Tami4EdgeAPI.device import Device
+from Tami4EdgeAPI.device_metadata import DeviceMetadata
+from Tami4EdgeAPI.water_quality import UV, Filter, WaterQuality
 
 from homeassistant.components.tami4.const import CONF_REFRESH_TOKEN, DOMAIN
 from homeassistant.core import HomeAssistant
@@ -145,7 +145,7 @@ def mock_request_otp(
     side_effect = getattr(request, "param", None)
 
     with patch(
-        "homeassistant.components.tami4.config_flow.REDACTED_VALUE.request_otp",
+        "homeassistant.components.tami4.config_flow.Tami4EdgeAPI.request_otp",
         return_value=None,
         side_effect=side_effect,
     ) as mock_request_otp:
@@ -159,7 +159,7 @@ def mock_submit_otp(request: pytest.FixtureRequest) -> Generator[MagicMock]:
     side_effect = getattr(request, "param", None)
 
     with patch(
-        "homeassistant.components.tami4.config_flow.REDACTED_VALUE.submit_otp",
+        "homeassistant.components.tami4.config_flow.Tami4EdgeAPI.submit_otp",
         return_value="refresh_token",
         side_effect=side_effect,
     ) as mock_submit_otp:

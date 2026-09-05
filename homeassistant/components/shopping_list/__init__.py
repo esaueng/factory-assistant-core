@@ -76,7 +76,7 @@ async def _async_setup(hass: HomeAssistant) -> None:
         is_fixable=False,
         issue_domain=DOMAIN,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"deprecated_yaml",
+        translation_key="deprecated_yaml",
         translation_placeholders={
             "domain": DOMAIN,
             "integration_title": "Shopping List",

@@ -100,7 +100,7 @@ async def async_send_command(service_call: ServiceCall) -> None:
     if not homeworks_data:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_controller_id",
+            translation_key="invalid_controller_id",
             translation_placeholders={
                 "controller_id": service_call.data[CONF_CONTROLLER_ID],
                 "controller_ids": ",".join(get_controller_ids()),

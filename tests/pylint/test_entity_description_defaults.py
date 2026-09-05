@@ -145,7 +145,7 @@ EntityDescription(
 
 EntityDescription(
     key="temperature",
-    REDACTED_VALUENone,
+    translation_key=None,
 )
 """,
             id="translation_key_none",

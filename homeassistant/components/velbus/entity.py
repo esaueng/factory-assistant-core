@@ -88,7 +88,7 @@ def api_call[_T: VelbusEntity, **_P](
             entity_name = self.name if isinstance(self.name, str) else "Unknown"
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_call_failed",
+                translation_key="api_call_failed",
                 translation_placeholders={
                     "entity": entity_name,
                 },

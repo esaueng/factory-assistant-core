@@ -55,7 +55,7 @@ async def _async_set_guest_wifi_password(service_call: ServiceCall) -> None:
     if not target_entries:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"config_entry_not_found",
+            translation_key="config_entry_not_found",
             translation_placeholders={"service": service_call.service},
         )
 
@@ -69,11 +69,11 @@ async def _async_set_guest_wifi_password(service_call: ServiceCall) -> None:
             )
         except (FritzServiceError, FritzActionError) as ex:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"service_parameter_unknown"
+                translation_domain=DOMAIN, translation_key="service_parameter_unknown"
             ) from ex
         except FritzConnectionException as ex:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"service_not_supported"
+                translation_domain=DOMAIN, translation_key="service_not_supported"
             ) from ex
 
 
@@ -91,7 +91,7 @@ async def _async_dial(service_call: ServiceCall) -> None:
     if not target_entries:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"config_entry_not_found",
+            translation_key="config_entry_not_found",
             translation_placeholders={"service": service_call.service},
         )
 
@@ -105,15 +105,15 @@ async def _async_dial(service_call: ServiceCall) -> None:
             )
         except (FritzServiceError, FritzActionError) as ex:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"service_parameter_unknown"
+                translation_domain=DOMAIN, translation_key="service_parameter_unknown"
             ) from ex
         except FritzActionFailedError as ex:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"service_dial_failed"
+                translation_domain=DOMAIN, translation_key="service_dial_failed"
             ) from ex
         except FritzConnectionException as ex:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"service_not_supported"
+                translation_domain=DOMAIN, translation_key="service_not_supported"
             ) from ex
 
 

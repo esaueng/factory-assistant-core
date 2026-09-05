@@ -101,7 +101,7 @@ class ProtectNVRAlarmControlPanel(ProtectNVREntity, AlarmControlPanelEntity):
         except GlobalAlarmManagerError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"global_alarm_manager",
+                translation_key="global_alarm_manager",
             ) from err
 
     @async_ufp_instance_command
@@ -112,5 +112,5 @@ class ProtectNVRAlarmControlPanel(ProtectNVREntity, AlarmControlPanelEntity):
         except GlobalAlarmManagerError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"global_alarm_manager",
+                translation_key="global_alarm_manager",
             ) from err

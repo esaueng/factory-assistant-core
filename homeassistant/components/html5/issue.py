@@ -26,7 +26,7 @@ def deprecated_notify_action_call(
         breaks_in_ha_version="2026.11.0",
         is_fixable=False,
         severity=IssueSeverity.WARNING,
-        REDACTED_VALUE"deprecated_notify_action",
+        translation_key="deprecated_notify_action",
         translation_placeholders={
             "action": action,
             "new_action_1": "notify.send_message",
@@ -46,7 +46,7 @@ def deprecated_dismiss_action_call(hass: HomeAssistant) -> None:
         breaks_in_ha_version="2026.11.0",
         is_fixable=False,
         severity=IssueSeverity.WARNING,
-        REDACTED_VALUE"deprecated_dismiss_action",
+        translation_key="deprecated_dismiss_action",
         translation_placeholders={
             "action": "html5.dismiss",
             "new_action": "html5.dismiss_message",

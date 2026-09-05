@@ -32,11 +32,11 @@ HA_STATE_TO_COMPIT = {value: key for key, value in COMPIT_GEAR_TO_HA.items()}
 DEVICE_DEFINITIONS: dict[int, FanEntityDescription] = {
     223: FanEntityDescription(
         key="Nano Color 2",
-        REDACTED_VALUE"ventilation",
+        translation_key="ventilation",
     ),
     12: FanEntityDescription(
         key="Nano Color",
-        REDACTED_VALUE"ventilation",
+        translation_key="ventilation",
     ),
 }
 

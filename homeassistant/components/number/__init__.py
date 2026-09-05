@@ -103,7 +103,7 @@ async def async_set_value(entity: NumberEntity, service_call: ServiceCall) -> No
     if value < entity.min_value or value > entity.max_value:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"out_of_range",
+            translation_key="out_of_range",
             translation_placeholders={
                 "value": value,
                 "entity_id": entity.entity_id,

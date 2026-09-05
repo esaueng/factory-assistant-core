@@ -49,7 +49,7 @@ ZONE_BINARY_SENSOR_TYPES: Final[tuple[AirzoneBinarySensorEntityDescription, ...]
     AirzoneBinarySensorEntityDescription(
         device_class=BinarySensorDeviceClass.RUNNING,
         key=AZD_AIR_DEMAND,
-        REDACTED_VALUE"air_demand",
+        translation_key="air_demand",
     ),
     AirzoneBinarySensorEntityDescription(
         device_class=BinarySensorDeviceClass.BATTERY,
@@ -58,7 +58,7 @@ ZONE_BINARY_SENSOR_TYPES: Final[tuple[AirzoneBinarySensorEntityDescription, ...]
     AirzoneBinarySensorEntityDescription(
         device_class=BinarySensorDeviceClass.RUNNING,
         key=AZD_FLOOR_DEMAND,
-        REDACTED_VALUE"floor_demand",
+        translation_key="floor_demand",
     ),
     AirzoneBinarySensorEntityDescription(
         attributes={

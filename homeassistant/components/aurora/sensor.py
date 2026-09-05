@@ -20,7 +20,7 @@ async def async_setup_entry(
         [
             AuroraSensor(
                 coordinator=entry.runtime_data,
-                REDACTED_VALUE"visibility",
+                translation_key="visibility",
             )
         ]
     )

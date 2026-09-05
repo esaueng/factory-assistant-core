@@ -32,7 +32,7 @@ OPTIONS_SCHEMA = {
                 HumidifierDeviceClass.HUMIDIFIER,
                 HumidifierDeviceClass.DEHUMIDIFIER,
             ],
-            REDACTED_VALUECONF_DEVICE_CLASS,
+            translation_key=CONF_DEVICE_CLASS,
             mode=selector.SelectSelectorMode.DROPDOWN,
         ),
     ),

@@ -30,7 +30,7 @@ ZONE_ENTITY_DESCRIPTIONS = [
     MelnorSwitchEntityDescription(
         device_class=SwitchDeviceClass.SWITCH,
         key="manual",
-        REDACTED_VALUE"manual",
+        translation_key="manual",
         name=None,
         on_off_fn=lambda valve, bool: valve.set_is_watering(bool),
         state_fn=lambda valve: valve.is_watering,
@@ -38,7 +38,7 @@ ZONE_ENTITY_DESCRIPTIONS = [
     MelnorSwitchEntityDescription(
         device_class=SwitchDeviceClass.SWITCH,
         key="frequency",
-        REDACTED_VALUE"frequency",
+        translation_key="frequency",
         on_off_fn=lambda valve, bool: valve.set_frequency_enabled(bool),
         state_fn=lambda valve: valve.schedule_enabled,
     ),

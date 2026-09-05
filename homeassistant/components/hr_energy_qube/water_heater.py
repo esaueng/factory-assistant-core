@@ -92,12 +92,12 @@ class QubeWaterHeater(QubeEntity, WaterHeaterEntity):
         except (ConnectionError, TimeoutError, OSError) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_temperature_failed",
+                translation_key="set_temperature_failed",
             ) from err
         if not success:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_temperature_failed",
+                translation_key="set_temperature_failed",
             )
         await self.coordinator.async_request_refresh()
 
@@ -109,11 +109,11 @@ class QubeWaterHeater(QubeEntity, WaterHeaterEntity):
         except (ConnectionError, TimeoutError, OSError) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"switch_command_failed",
+                translation_key="switch_command_failed",
             ) from err
         if not success:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"switch_command_failed",
+                translation_key="switch_command_failed",
             )
         await self.coordinator.async_request_refresh()

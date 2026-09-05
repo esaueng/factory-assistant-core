@@ -100,7 +100,7 @@ def async_process_deprecated(
                 is_fixable=False,
                 is_persistent=False,
                 severity=IssueSeverity.WARNING,
-                REDACTED_VALUE"deprecated_entity",
+                translation_key="deprecated_entity",
                 translation_placeholders={
                     "entity": entity_id,
                     "info": item,

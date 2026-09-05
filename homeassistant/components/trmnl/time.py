@@ -40,7 +40,7 @@ class TRMNLTimeEntityDescription(TimeEntityDescription):
 TIME_DESCRIPTIONS: tuple[TRMNLTimeEntityDescription, ...] = (
     TRMNLTimeEntityDescription(
         key="sleep_start_time",
-        REDACTED_VALUE"sleep_start_time",
+        translation_key="sleep_start_time",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda device: _minutes_to_time(device.sleep_start_time),
         set_value_fn=lambda coordinator, device_id, value: (
@@ -51,7 +51,7 @@ TIME_DESCRIPTIONS: tuple[TRMNLTimeEntityDescription, ...] = (
     ),
     TRMNLTimeEntityDescription(
         key="sleep_end_time",
-        REDACTED_VALUE"sleep_end_time",
+        translation_key="sleep_end_time",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda device: _minutes_to_time(device.sleep_end_time),
         set_value_fn=lambda coordinator, device_id, value: (

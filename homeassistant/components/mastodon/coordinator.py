@@ -59,12 +59,12 @@ class MastodonCoordinator(DataUpdateCoordinator[Account]):
         except MastodonUnauthorizedError as error:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_failed",
+                translation_key="auth_failed",
             ) from error
         except MastodonError as ex:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
+                translation_key="update_failed",
             ) from ex
 
         return account

@@ -26,7 +26,7 @@ class NRGkickBinarySensorEntityDescription(BinarySensorEntityDescription):
 BINARY_SENSORS: tuple[NRGkickBinarySensorEntityDescription, ...] = (
     NRGkickBinarySensorEntityDescription(
         key="charge_permitted",
-        REDACTED_VALUE"charge_permitted",
+        translation_key="charge_permitted",
         is_on_fn=lambda data: (
             bool(value)
             if (

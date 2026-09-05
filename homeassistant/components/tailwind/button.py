@@ -67,5 +67,5 @@ class TailwindButtonEntity(TailwindEntity, ButtonEntity):
         except TailwindError as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
             ) from exc

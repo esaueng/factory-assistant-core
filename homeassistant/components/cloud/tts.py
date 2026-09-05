@@ -250,7 +250,7 @@ def _deprecated_platform(value: str) -> str:
             breaks_in_ha_version="2024.9.0",
             is_fixable=False,
             severity=IssueSeverity.WARNING,
-            REDACTED_VALUE"deprecated_tts_platform_config",
+            translation_key="deprecated_tts_platform_config",
         )
     return value
 
@@ -581,7 +581,7 @@ def handle_deprecated_gender(
         is_persistent=True,
         severity=IssueSeverity.WARNING,
         breaks_in_ha_version="2024.10.0",
-        REDACTED_VALUE"deprecated_gender",
+        translation_key="deprecated_gender",
         translation_placeholders={
             "integration_name": "Home Assistant Cloud",
             "deprecated_option": "gender",
@@ -612,7 +612,7 @@ def handle_deprecated_voice(
             is_persistent=True,
             severity=IssueSeverity.WARNING,
             breaks_in_ha_version="2024.8.0",
-            REDACTED_VALUE"deprecated_voice",
+            translation_key="deprecated_voice",
             translation_placeholders={
                 "deprecated_voice": original_voice,
                 "replacement_voice": voice,

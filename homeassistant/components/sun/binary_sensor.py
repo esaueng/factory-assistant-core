@@ -31,7 +31,7 @@ class SunBinarySensorEntityDescription(BinarySensorEntityDescription):
 BINARY_SENSOR_TYPES: tuple[SunBinarySensorEntityDescription, ...] = (
     SunBinarySensorEntityDescription(
         key="solar_rising",
-        REDACTED_VALUE"solar_rising",
+        translation_key="solar_rising",
         value_fn=lambda data: data.rising,
         entity_registry_enabled_default=False,
         signal=SIGNAL_EVENTS_CHANGED,

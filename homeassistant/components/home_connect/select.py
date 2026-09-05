@@ -97,41 +97,41 @@ class HomeConnectSelectEntityDescription(SelectEntityDescription):
 PROGRAM_SELECT_ENTITY_DESCRIPTIONS = (
     HomeConnectProgramSelectEntityDescription(
         key=EventKey.BSH_COMMON_ROOT_ACTIVE_PROGRAM,
-        REDACTED_VALUE"active_program",
+        translation_key="active_program",
         allowed_executions=(Execution.SELECT_AND_START, Execution.START_ONLY),
         set_program_fn=lambda client, ha_id, program_key: client.start_program(
             ha_id, program_key=program_key
         ),
-        error_REDACTED_VALUE"start_program",
+        error_translation_key="start_program",
     ),
     HomeConnectProgramSelectEntityDescription(
         key=EventKey.BSH_COMMON_ROOT_SELECTED_PROGRAM,
-        REDACTED_VALUE"selected_program",
+        translation_key="selected_program",
         allowed_executions=(Execution.SELECT_AND_START, Execution.SELECT_ONLY),
         set_program_fn=lambda client, ha_id, program_key: client.set_selected_program(
             ha_id, program_key=program_key
         ),
-        error_REDACTED_VALUE"select_program",
+        error_translation_key="select_program",
     ),
 )
 
 SELECT_ENTITY_DESCRIPTIONS = (
     HomeConnectSelectEntityDescription(
         key=SettingKey.CONSUMER_PRODUCTS_CLEANING_ROBOT_CURRENT_MAP,
-        REDACTED_VALUE"current_map",
+        translation_key="current_map",
         options=list(AVAILABLE_MAPS_ENUM),
         translation_key_values=AVAILABLE_MAPS_ENUM,
-        values_REDACTED_VALUE{
+        values_translation_key={
             value: translation_key
             for translation_key, value in AVAILABLE_MAPS_ENUM.items()
         },
     ),
     HomeConnectSelectEntityDescription(
         key=SettingKey.COOKING_HOOD_COLOR_TEMPERATURE,
-        REDACTED_VALUE"functional_light_color_temperature",
+        translation_key="functional_light_color_temperature",
         options=list(FUNCTIONAL_LIGHT_COLOR_TEMPERATURE_ENUM),
         translation_key_values=FUNCTIONAL_LIGHT_COLOR_TEMPERATURE_ENUM,
-        values_REDACTED_VALUE{
+        values_translation_key={
             value: translation_key
             for translation_key, value in (
                 FUNCTIONAL_LIGHT_COLOR_TEMPERATURE_ENUM.items()
@@ -140,10 +140,10 @@ SELECT_ENTITY_DESCRIPTIONS = (
     ),
     HomeConnectSelectEntityDescription(
         key=SettingKey.BSH_COMMON_AMBIENT_LIGHT_COLOR,
-        REDACTED_VALUE"ambient_light_color",
+        translation_key="ambient_light_color",
         options=list(AMBIENT_LIGHT_COLOR_TEMPERATURE_ENUM),
         translation_key_values=AMBIENT_LIGHT_COLOR_TEMPERATURE_ENUM,
-        values_REDACTED_VALUE{
+        values_translation_key={
             value: translation_key
             for translation_key, value in AMBIENT_LIGHT_COLOR_TEMPERATURE_ENUM.items()
         },
@@ -153,179 +153,179 @@ SELECT_ENTITY_DESCRIPTIONS = (
 PROGRAM_SELECT_OPTION_ENTITY_DESCRIPTIONS = (
     HomeConnectSelectEntityDescription(
         key=OptionKey.CONSUMER_PRODUCTS_CLEANING_ROBOT_REFERENCE_MAP_ID,
-        REDACTED_VALUE"reference_map_id",
+        translation_key="reference_map_id",
         options=list(AVAILABLE_MAPS_ENUM),
         translation_key_values=AVAILABLE_MAPS_ENUM,
-        values_REDACTED_VALUE{
+        values_translation_key={
             value: translation_key
             for translation_key, value in AVAILABLE_MAPS_ENUM.items()
         },
     ),
     HomeConnectSelectEntityDescription(
         key=OptionKey.CONSUMER_PRODUCTS_CLEANING_ROBOT_CLEANING_MODE,
-        REDACTED_VALUE"cleaning_mode",
+        translation_key="cleaning_mode",
         options=list(CLEANING_MODE_OPTIONS),
         translation_key_values=CLEANING_MODE_OPTIONS,
-        values_REDACTED_VALUE{
+        values_translation_key={
             value: translation_key
             for translation_key, value in CLEANING_MODE_OPTIONS.items()
         },
     ),
     HomeConnectSelectEntityDescription(
         key=OptionKey.CONSUMER_PRODUCTS_CLEANING_ROBOT_SUCTION_POWER,
-        REDACTED_VALUE"suction_power",
+        translation_key="suction_power",
         options=list(SUCTION_POWER_OPTIONS),
         translation_key_values=SUCTION_POWER_OPTIONS,
-        values_REDACTED_VALUE{
+        values_translation_key={
             value: translation_key
             for translation_key, value in SUCTION_POWER_OPTIONS.items()
         },
     ),
     HomeConnectSelectEntityDescription(
         key=OptionKey.CONSUMER_PRODUCTS_COFFEE_MAKER_BEAN_AMOUNT,
-        REDACTED_VALUE"bean_amount",
+        translation_key="bean_amount",
         options=list(BEAN_AMOUNT_OPTIONS),
         translation_key_values=BEAN_AMOUNT_OPTIONS,
-        values_REDACTED_VALUE{
+        values_translation_key={
             value: translation_key
             for translation_key, value in BEAN_AMOUNT_OPTIONS.items()
         },
     ),
     HomeConnectSelectEntityDescription(
         key=OptionKey.CONSUMER_PRODUCTS_COFFEE_MAKER_COFFEE_TEMPERATURE,
-        REDACTED_VALUE"coffee_temperature",
+        translation_key="coffee_temperature",
         options=list(COFFEE_TEMPERATURE_OPTIONS),
         translation_key_values=COFFEE_TEMPERATURE_OPTIONS,
-        values_REDACTED_VALUE{
+        values_translation_key={
             value: translation_key
             for translation_key, value in COFFEE_TEMPERATURE_OPTIONS.items()
         },
     ),
     HomeConnectSelectEntityDescription(
         key=OptionKey.CONSUMER_PRODUCTS_COFFEE_MAKER_BEAN_CONTAINER_SELECTION,
-        REDACTED_VALUE"bean_container",
+        translation_key="bean_container",
         options=list(BEAN_CONTAINER_OPTIONS),
         translation_key_values=BEAN_CONTAINER_OPTIONS,
-        values_REDACTED_VALUE{
+        values_translation_key={
             value: translation_key
             for translation_key, value in BEAN_CONTAINER_OPTIONS.items()
         },
     ),
     HomeConnectSelectEntityDescription(
         key=OptionKey.CONSUMER_PRODUCTS_COFFEE_MAKER_FLOW_RATE,
-        REDACTED_VALUE"flow_rate",
+        translation_key="flow_rate",
         options=list(FLOW_RATE_OPTIONS),
         translation_key_values=FLOW_RATE_OPTIONS,
-        values_REDACTED_VALUE{
+        values_translation_key={
             value: translation_key
             for translation_key, value in FLOW_RATE_OPTIONS.items()
         },
     ),
     HomeConnectSelectEntityDescription(
         key=OptionKey.CONSUMER_PRODUCTS_COFFEE_MAKER_COFFEE_MILK_RATIO,
-        REDACTED_VALUE"coffee_milk_ratio",
+        translation_key="coffee_milk_ratio",
         options=list(COFFEE_MILK_RATIO_OPTIONS),
         translation_key_values=COFFEE_MILK_RATIO_OPTIONS,
-        values_REDACTED_VALUE{
+        values_translation_key={
             value: translation_key
             for translation_key, value in FLOW_RATE_OPTIONS.items()
         },
     ),
     HomeConnectSelectEntityDescription(
         key=OptionKey.CONSUMER_PRODUCTS_COFFEE_MAKER_HOT_WATER_TEMPERATURE,
-        REDACTED_VALUE"hot_water_temperature",
+        translation_key="hot_water_temperature",
         options=list(HOT_WATER_TEMPERATURE_OPTIONS),
         translation_key_values=HOT_WATER_TEMPERATURE_OPTIONS,
-        values_REDACTED_VALUE{
+        values_translation_key={
             value: translation_key
             for translation_key, value in HOT_WATER_TEMPERATURE_OPTIONS.items()
         },
     ),
     HomeConnectSelectEntityDescription(
         key=OptionKey.LAUNDRY_CARE_DRYER_DRYING_TARGET,
-        REDACTED_VALUE"drying_target",
+        translation_key="drying_target",
         options=list(DRYING_TARGET_OPTIONS),
         translation_key_values=DRYING_TARGET_OPTIONS,
-        values_REDACTED_VALUE{
+        values_translation_key={
             value: translation_key
             for translation_key, value in DRYING_TARGET_OPTIONS.items()
         },
     ),
     HomeConnectSelectEntityDescription(
         key=OptionKey.COOKING_COMMON_HOOD_VENTING_LEVEL,
-        REDACTED_VALUE"venting_level",
+        translation_key="venting_level",
         options=list(VENTING_LEVEL_OPTIONS),
         translation_key_values=VENTING_LEVEL_OPTIONS,
-        values_REDACTED_VALUE{
+        values_translation_key={
             value: translation_key
             for translation_key, value in VENTING_LEVEL_OPTIONS.items()
         },
     ),
     HomeConnectSelectEntityDescription(
         key=OptionKey.COOKING_COMMON_HOOD_INTENSIVE_LEVEL,
-        REDACTED_VALUE"intensive_level",
+        translation_key="intensive_level",
         options=list(INTENSIVE_LEVEL_OPTIONS),
         translation_key_values=INTENSIVE_LEVEL_OPTIONS,
-        values_REDACTED_VALUE{
+        values_translation_key={
             value: translation_key
             for translation_key, value in INTENSIVE_LEVEL_OPTIONS.items()
         },
     ),
     HomeConnectSelectEntityDescription(
         key=OptionKey.COOKING_OVEN_WARMING_LEVEL,
-        REDACTED_VALUE"warming_level",
+        translation_key="warming_level",
         options=list(WARMING_LEVEL_OPTIONS),
         translation_key_values=WARMING_LEVEL_OPTIONS,
-        values_REDACTED_VALUE{
+        values_translation_key={
             value: translation_key
             for translation_key, value in WARMING_LEVEL_OPTIONS.items()
         },
     ),
     HomeConnectSelectEntityDescription(
         key=OptionKey.LAUNDRY_CARE_WASHER_RINSE_PLUS,
-        REDACTED_VALUE"rinse_plus",
+        translation_key="rinse_plus",
         options=list(RINSE_PLUS_OPTIONS),
         translation_key_values=RINSE_PLUS_OPTIONS,
-        values_REDACTED_VALUE{
+        values_translation_key={
             value: translation_key
             for translation_key, value in RINSE_PLUS_OPTIONS.items()
         },
     ),
     HomeConnectSelectEntityDescription(
         key=OptionKey.LAUNDRY_CARE_WASHER_TEMPERATURE,
-        REDACTED_VALUE"washer_temperature",
+        translation_key="washer_temperature",
         options=list(TEMPERATURE_OPTIONS),
         translation_key_values=TEMPERATURE_OPTIONS,
-        values_REDACTED_VALUE{
+        values_translation_key={
             value: translation_key
             for translation_key, value in TEMPERATURE_OPTIONS.items()
         },
     ),
     HomeConnectSelectEntityDescription(
         key=OptionKey.LAUNDRY_CARE_WASHER_SPIN_SPEED,
-        REDACTED_VALUE"spin_speed",
+        translation_key="spin_speed",
         options=list(SPIN_SPEED_OPTIONS),
         translation_key_values=SPIN_SPEED_OPTIONS,
-        values_REDACTED_VALUE{
+        values_translation_key={
             value: translation_key
             for translation_key, value in SPIN_SPEED_OPTIONS.items()
         },
     ),
     HomeConnectSelectEntityDescription(
         key=OptionKey.LAUNDRY_CARE_WASHER_STAINS,
-        REDACTED_VALUE"auto_stain",
+        translation_key="auto_stain",
         options=list(STAINS_OPTIONS),
         translation_key_values=STAINS_OPTIONS,
-        values_REDACTED_VALUE{
+        values_translation_key={
             value: translation_key for translation_key, value in STAINS_OPTIONS.items()
         },
     ),
     HomeConnectSelectEntityDescription(
         key=OptionKey.LAUNDRY_CARE_COMMON_VARIO_PERFECT,
-        REDACTED_VALUE"vario_perfect",
+        translation_key="vario_perfect",
         options=list(VARIO_PERFECT_OPTIONS),
         translation_key_values=VARIO_PERFECT_OPTIONS,
-        values_REDACTED_VALUE{
+        values_translation_key={
             value: translation_key
             for translation_key, value in VARIO_PERFECT_OPTIONS.items()
         },
@@ -467,7 +467,7 @@ class HomeConnectProgramSelectEntity(HomeConnectEntity, SelectEntity):
         except HomeConnectError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUEself.entity_description.error_translation_key,
+                translation_key=self.entity_description.error_translation_key,
                 translation_placeholders={
                     **get_dict_from_home_connect_error(err),
                     "program": program_key.value,
@@ -505,7 +505,7 @@ class HomeConnectSelectEntity(HomeConnectEntity, SelectEntity):
         except HomeConnectError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_setting_entity",
+                translation_key="set_setting_entity",
                 translation_placeholders={
                     **get_dict_from_home_connect_error(err),
                     "entity_id": self.entity_id,

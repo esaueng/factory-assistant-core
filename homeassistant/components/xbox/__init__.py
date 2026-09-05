@@ -50,7 +50,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: XboxConfigEntry) -> bool
     except ImplementationUnavailableError as e:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"oauth2_implementation_unavailable",
+            translation_key="oauth2_implementation_unavailable",
         ) from e
 
     session = OAuth2Session(hass, entry, implementation)
@@ -97,7 +97,7 @@ async def async_migrate_entry(hass: HomeAssistant, entry: XboxConfigEntry) -> bo
         except ImplementationUnavailableError as e:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"oauth2_implementation_unavailable",
+                translation_key="oauth2_implementation_unavailable",
             ) from e
         session = OAuth2Session(hass, entry, implementation)
         async_session = get_async_client(hass)
@@ -113,13 +113,13 @@ async def async_migrate_entry(hass: HomeAssistant, entry: XboxConfigEntry) -> bo
             except TimeoutException as e:
                 raise ConfigEntryNotReady(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"timeout_exception",
+                    translation_key="timeout_exception",
                 ) from e
             except (RequestError, HTTPStatusError) as e:
                 _LOGGER.debug("Xbox exception:", exc_info=True)
                 raise ConfigEntryNotReady(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"request_exception",
+                    translation_key="request_exception",
                 ) from e
 
             hass.config_entries.async_update_entry(
@@ -139,13 +139,13 @@ async def async_migrate_entry(hass: HomeAssistant, entry: XboxConfigEntry) -> bo
             except TimeoutException as e:
                 raise ConfigEntryNotReady(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"timeout_exception",
+                    translation_key="timeout_exception",
                 ) from e
             except (RequestError, HTTPStatusError) as e:
                 _LOGGER.debug("Xbox exception:", exc_info=True)
                 raise ConfigEntryNotReady(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"request_exception",
+                    translation_key="request_exception",
                 ) from e
 
             dev_reg = dr.async_get(hass)

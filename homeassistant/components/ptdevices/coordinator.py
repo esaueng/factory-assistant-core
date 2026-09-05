@@ -60,13 +60,13 @@ class PTDevicesCoordinator(DataUpdateCoordinator[PTDevicesResponseData]):
         except aioptdevices.PTDevicesRequestError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except aioptdevices.PTDevicesUnauthorizedError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_access_token",
+                translation_key="invalid_access_token",
                 translation_placeholders={"error": repr(err)},
             ) from err
 

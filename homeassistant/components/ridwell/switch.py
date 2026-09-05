@@ -15,7 +15,7 @@ from .entity import RidwellEntity
 
 SWITCH_DESCRIPTION = SwitchEntityDescription(
     key="opt_in",
-    REDACTED_VALUE"opt_in",
+    translation_key="opt_in",
 )
 
 

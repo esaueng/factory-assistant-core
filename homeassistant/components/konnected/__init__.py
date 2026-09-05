@@ -45,7 +45,7 @@ def _create_issue(hass: HomeAssistant) -> None:
         DOMAIN,
         is_fixable=False,
         severity=ir.IssueSeverity.ERROR,
-        REDACTED_VALUE"integration_removed",
+        translation_key="integration_removed",
         translation_placeholders={
             "entries": "/config/integrations/integration/konnected",
             "kb_page_url": "https://support.konnected.io/migrating-from-konnected-legacy-home-assistant-integration-to-esphome",

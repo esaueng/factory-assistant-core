@@ -50,7 +50,7 @@ REEFLEX_DESCRIPTIONS: tuple[
 ] = (
     EheimDigitalNumberDescription[EheimDigitalReeflexUV](
         key="daily_burn_time",
-        REDACTED_VALUE"daily_burn_time",
+        translation_key="daily_burn_time",
         entity_category=EntityCategory.CONFIG,
         native_step=PRECISION_WHOLE,
         native_unit_of_measurement=UnitOfTime.MINUTES,
@@ -62,7 +62,7 @@ REEFLEX_DESCRIPTIONS: tuple[
     ),
     EheimDigitalNumberDescription[EheimDigitalReeflexUV](
         key="booster_time",
-        REDACTED_VALUE"booster_time",
+        translation_key="booster_time",
         entity_category=EntityCategory.CONFIG,
         native_step=PRECISION_WHOLE,
         native_unit_of_measurement=UnitOfTime.MINUTES,
@@ -74,7 +74,7 @@ REEFLEX_DESCRIPTIONS: tuple[
     ),
     EheimDigitalNumberDescription[EheimDigitalReeflexUV](
         key="pause_time",
-        REDACTED_VALUE"pause_time",
+        translation_key="pause_time",
         entity_category=EntityCategory.CONFIG,
         native_step=PRECISION_WHOLE,
         native_unit_of_measurement=UnitOfTime.MINUTES,
@@ -89,7 +89,7 @@ REEFLEX_DESCRIPTIONS: tuple[
 FILTER_DESCRIPTIONS: tuple[EheimDigitalNumberDescription[EheimDigitalFilter], ...] = (
     EheimDigitalNumberDescription[EheimDigitalFilter](
         key="high_pulse_time",
-        REDACTED_VALUE"high_pulse_time",
+        translation_key="high_pulse_time",
         entity_category=EntityCategory.CONFIG,
         native_step=PRECISION_WHOLE,
         native_unit_of_measurement=UnitOfTime.SECONDS,
@@ -101,7 +101,7 @@ FILTER_DESCRIPTIONS: tuple[EheimDigitalNumberDescription[EheimDigitalFilter], ..
     ),
     EheimDigitalNumberDescription[EheimDigitalFilter](
         key="low_pulse_time",
-        REDACTED_VALUE"low_pulse_time",
+        translation_key="low_pulse_time",
         entity_category=EntityCategory.CONFIG,
         native_step=PRECISION_WHOLE,
         native_unit_of_measurement=UnitOfTime.SECONDS,
@@ -119,7 +119,7 @@ CLASSICVARIO_DESCRIPTIONS: tuple[
 ] = (
     EheimDigitalNumberDescription[EheimDigitalClassicVario](
         key="manual_speed",
-        REDACTED_VALUE"manual_speed",
+        translation_key="manual_speed",
         entity_category=EntityCategory.CONFIG,
         native_step=PRECISION_WHOLE,
         native_unit_of_measurement=PERCENTAGE,
@@ -128,7 +128,7 @@ CLASSICVARIO_DESCRIPTIONS: tuple[
     ),
     EheimDigitalNumberDescription[EheimDigitalClassicVario](
         key="day_speed",
-        REDACTED_VALUE"day_speed",
+        translation_key="day_speed",
         entity_category=EntityCategory.CONFIG,
         native_step=PRECISION_WHOLE,
         native_unit_of_measurement=PERCENTAGE,
@@ -137,7 +137,7 @@ CLASSICVARIO_DESCRIPTIONS: tuple[
     ),
     EheimDigitalNumberDescription[EheimDigitalClassicVario](
         key="night_speed",
-        REDACTED_VALUE"night_speed",
+        translation_key="night_speed",
         entity_category=EntityCategory.CONFIG,
         native_step=PRECISION_WHOLE,
         native_unit_of_measurement=PERCENTAGE,
@@ -149,7 +149,7 @@ CLASSICVARIO_DESCRIPTIONS: tuple[
 HEATER_DESCRIPTIONS: tuple[EheimDigitalNumberDescription[EheimDigitalHeater], ...] = (
     EheimDigitalNumberDescription[EheimDigitalHeater](
         key="temperature_offset",
-        REDACTED_VALUE"temperature_offset",
+        translation_key="temperature_offset",
         entity_category=EntityCategory.CONFIG,
         native_min_value=-3,
         native_max_value=3,
@@ -165,7 +165,7 @@ HEATER_DESCRIPTIONS: tuple[EheimDigitalNumberDescription[EheimDigitalHeater], ..
     ),
     EheimDigitalNumberDescription[EheimDigitalHeater](
         key="night_temperature_offset",
-        REDACTED_VALUE"night_temperature_offset",
+        translation_key="night_temperature_offset",
         entity_category=EntityCategory.CONFIG,
         native_min_value=-5,
         native_max_value=5,
@@ -184,7 +184,7 @@ HEATER_DESCRIPTIONS: tuple[EheimDigitalNumberDescription[EheimDigitalHeater], ..
 GENERAL_DESCRIPTIONS: tuple[EheimDigitalNumberDescription[EheimDigitalDevice], ...] = (
     EheimDigitalNumberDescription[EheimDigitalDevice](
         key="system_led",
-        REDACTED_VALUE"system_led",
+        translation_key="system_led",
         entity_category=EntityCategory.CONFIG,
         native_min_value=0,
         native_max_value=100,

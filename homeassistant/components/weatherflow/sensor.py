@@ -73,7 +73,7 @@ class WeatherFlowSensorEntityDescription(SensorEntityDescription):
 SENSORS: tuple[WeatherFlowSensorEntityDescription, ...] = (
     WeatherFlowSensorEntityDescription(
         key="air_density",
-        REDACTED_VALUE"air_density",
+        translation_key="air_density",
         native_unit_of_measurement="kg/m³",
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=5,
@@ -89,7 +89,7 @@ SENSORS: tuple[WeatherFlowSensorEntityDescription, ...] = (
     ),
     WeatherFlowSensorEntityDescription(
         key="dew_point_temperature",
-        REDACTED_VALUE"dew_point",
+        translation_key="dew_point",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -98,7 +98,7 @@ SENSORS: tuple[WeatherFlowSensorEntityDescription, ...] = (
     ),
     WeatherFlowSensorEntityDescription(
         key="feels_like_temperature",
-        REDACTED_VALUE"feels_like",
+        translation_key="feels_like",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -107,7 +107,7 @@ SENSORS: tuple[WeatherFlowSensorEntityDescription, ...] = (
     ),
     WeatherFlowSensorEntityDescription(
         key="wet_bulb_temperature",
-        REDACTED_VALUE"wet_bulb_temperature",
+        translation_key="wet_bulb_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -116,7 +116,7 @@ SENSORS: tuple[WeatherFlowSensorEntityDescription, ...] = (
     ),
     WeatherFlowSensorEntityDescription(
         key="battery",
-        REDACTED_VALUE"battery_voltage",
+        translation_key="battery_voltage",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -143,19 +143,19 @@ SENSORS: tuple[WeatherFlowSensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.DISTANCE,
         native_unit_of_measurement=UnitOfLength.KILOMETERS,
-        REDACTED_VALUE"lightning_average_distance",
+        translation_key="lightning_average_distance",
         suggested_display_precision=2,
         raw_data_conv_fn=lambda raw_data: raw_data.magnitude,
     ),
     WeatherFlowSensorEntityDescription(
         key="lightning_strike_count",
-        REDACTED_VALUE"lightning_count",
+        translation_key="lightning_count",
         state_class=SensorStateClass.TOTAL,
         raw_data_conv_fn=lambda raw_data: raw_data,
     ),
     WeatherFlowSensorEntityDescription(
         key="precipitation_type",
-        REDACTED_VALUE"precipitation_type",
+        translation_key="precipitation_type",
         device_class=SensorDeviceClass.ENUM,
         options=["none", "rain", "hail", "rain_hail", "unknown"],
         raw_data_conv_fn=precipitation_raw_conversion_fn,
@@ -194,7 +194,7 @@ SENSORS: tuple[WeatherFlowSensorEntityDescription, ...] = (
     ),
     WeatherFlowSensorEntityDescription(
         key="station_pressure",
-        REDACTED_VALUE"station_pressure",
+        translation_key="station_pressure",
         native_unit_of_measurement=UnitOfPressure.MBAR,
         device_class=SensorDeviceClass.PRESSURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -211,7 +211,7 @@ SENSORS: tuple[WeatherFlowSensorEntityDescription, ...] = (
     ),
     WeatherFlowSensorEntityDescription(
         key="up_since",
-        REDACTED_VALUE"uptime",
+        translation_key="uptime",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -220,14 +220,14 @@ SENSORS: tuple[WeatherFlowSensorEntityDescription, ...] = (
     ),
     WeatherFlowSensorEntityDescription(
         key="uv",
-        REDACTED_VALUE"uv_index",
+        translation_key="uv_index",
         native_unit_of_measurement=UV_INDEX,
         state_class=SensorStateClass.MEASUREMENT,
         raw_data_conv_fn=lambda raw_data: raw_data,
     ),
     WeatherFlowSensorEntityDescription(
         key="vapor_pressure",
-        REDACTED_VALUE"vapor_pressure",
+        translation_key="vapor_pressure",
         native_unit_of_measurement=UnitOfPressure.MBAR,
         device_class=SensorDeviceClass.PRESSURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -238,7 +238,7 @@ SENSORS: tuple[WeatherFlowSensorEntityDescription, ...] = (
     ## Wind Sensors
     WeatherFlowSensorEntityDescription(
         key="wind_gust",
-        REDACTED_VALUE"wind_gust",
+        translation_key="wind_gust",
         device_class=SensorDeviceClass.WIND_SPEED,
         native_unit_of_measurement=UnitOfSpeed.METERS_PER_SECOND,
         state_class=SensorStateClass.MEASUREMENT,
@@ -247,7 +247,7 @@ SENSORS: tuple[WeatherFlowSensorEntityDescription, ...] = (
     ),
     WeatherFlowSensorEntityDescription(
         key="wind_lull",
-        REDACTED_VALUE"wind_lull",
+        translation_key="wind_lull",
         device_class=SensorDeviceClass.WIND_SPEED,
         native_unit_of_measurement=UnitOfSpeed.METERS_PER_SECOND,
         state_class=SensorStateClass.MEASUREMENT,
@@ -265,7 +265,7 @@ SENSORS: tuple[WeatherFlowSensorEntityDescription, ...] = (
     ),
     WeatherFlowSensorEntityDescription(
         key="wind_average",
-        REDACTED_VALUE"wind_speed_average",
+        translation_key="wind_speed_average",
         device_class=SensorDeviceClass.WIND_SPEED,
         native_unit_of_measurement=UnitOfSpeed.METERS_PER_SECOND,
         state_class=SensorStateClass.MEASUREMENT,
@@ -274,7 +274,7 @@ SENSORS: tuple[WeatherFlowSensorEntityDescription, ...] = (
     ),
     WeatherFlowSensorEntityDescription(
         key="wind_direction",
-        REDACTED_VALUE"wind_direction",
+        translation_key="wind_direction",
         device_class=SensorDeviceClass.WIND_DIRECTION,
         state_class=SensorStateClass.MEASUREMENT_ANGLE,
         native_unit_of_measurement=DEGREE,
@@ -283,7 +283,7 @@ SENSORS: tuple[WeatherFlowSensorEntityDescription, ...] = (
     ),
     WeatherFlowSensorEntityDescription(
         key="wind_direction_average",
-        REDACTED_VALUE"wind_direction_average",
+        translation_key="wind_direction_average",
         device_class=SensorDeviceClass.WIND_DIRECTION,
         native_unit_of_measurement=DEGREE,
         raw_data_conv_fn=lambda raw_data: raw_data.magnitude,

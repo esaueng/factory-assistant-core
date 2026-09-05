@@ -96,7 +96,7 @@ DATA_SCHEMA_SETUP = vol.Schema(
             SelectSelectorConfig(
                 options=FILTERS,
                 mode=SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUECONF_FILTER_NAME,
+                translation_key=CONF_FILTER_NAME,
             )
         ),
     }
@@ -108,7 +108,7 @@ BASE_OPTIONS_SCHEMA = {
         SelectSelectorConfig(
             options=FILTERS,
             mode=SelectSelectorMode.DROPDOWN,
-            REDACTED_VALUECONF_FILTER_NAME,
+            translation_key=CONF_FILTER_NAME,
             read_only=True,
         )
     ),
@@ -162,7 +162,7 @@ TIME_SMA_SCHEMA = vol.Schema(
             SelectSelectorConfig(
                 options=[TIME_SMA_LAST],
                 mode=SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUECONF_TIME_SMA_TYPE,
+                translation_key=CONF_TIME_SMA_TYPE,
             )
         ),
         vol.Required(CONF_FILTER_WINDOW_SIZE): DurationSelector(

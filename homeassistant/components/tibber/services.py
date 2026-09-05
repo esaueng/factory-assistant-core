@@ -40,7 +40,7 @@ async def __get_prices(call: ServiceCall) -> ServiceResponse:
     if not entries:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"no_config_entry",
+            translation_key="no_config_entry",
         )
     tibber_connection = await entries[0].runtime_data.async_get_client(call.hass)
 
@@ -76,12 +76,12 @@ async def __get_prices(call: ServiceCall) -> ServiceResponse:
             except TimeoutError as err:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"get_prices_timeout",
+                    translation_key="get_prices_timeout",
                 ) from err
             except tibber.InvalidLoginError as err:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"get_prices_invalid_login",
+                    translation_key="get_prices_invalid_login",
                 ) from err
             except (
                 tibber.RetryableHttpExceptionError,
@@ -89,13 +89,13 @@ async def __get_prices(call: ServiceCall) -> ServiceResponse:
             ) as err:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"get_prices_communication_failed",
+                    translation_key="get_prices_communication_failed",
                     translation_placeholders={"detail": str(err.status)},
                 ) from err
             except aiohttp.ClientError as err:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"get_prices_communication_failed",
+                    translation_key="get_prices_communication_failed",
                     translation_placeholders={"detail": str(err)},
                 ) from err
         home_nickname = tibber_home.name
@@ -132,7 +132,7 @@ def __get_date(date_input: str | None, mode: str | None) -> datetime:
 
     raise ServiceValidationError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"invalid_date",
+        translation_key="invalid_date",
         translation_placeholders={
             "date": date_input,
         },

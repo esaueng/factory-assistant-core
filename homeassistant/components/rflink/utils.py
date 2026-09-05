@@ -39,7 +39,7 @@ def create_issue_yaml_migration(hass: HomeAssistant, platform: str) -> None:
         issue_domain=DOMAIN,
         learn_more_url="https://www.home-assistant.io/integrations/rflink/#migrating-from-legacy-configuration-format",
         severity=IssueSeverity.WARNING,
-        REDACTED_VALUE"yaml_migration",
+        translation_key="yaml_migration",
         translation_placeholders={
             "platform": platform,
         },

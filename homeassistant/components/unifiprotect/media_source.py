@@ -107,7 +107,7 @@ def _get_month_start_end(start: datetime) -> tuple[datetime, datetime]:
 def _bad_identifier(identifier: str, err: Exception | None = None) -> NoReturn:
     exc = BrowseError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"unexpected_identifier",
+        translation_key="unexpected_identifier",
         translation_placeholders={"identifier": identifier},
     )
     if err is None:
@@ -383,7 +383,7 @@ class ProtectMediaSource(MediaSource):
         if event.start is None or event.end is None:
             raise BrowseError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"event_ongoing",
+                translation_key="event_ongoing",
             )
 
         return await self._build_event(data, event, thumbnail_only)
@@ -796,7 +796,7 @@ class ProtectMediaSource(MediaSource):
             if camera is None:
                 raise BrowseError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"unknown_camera_id",
+                    translation_key="unknown_camera_id",
                     translation_placeholders={"camera_id": camera_id},
                 )
             name = camera.name or camera.market_name or camera.type

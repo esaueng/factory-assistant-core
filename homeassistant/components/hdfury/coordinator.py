@@ -57,7 +57,7 @@ class HDFuryCoordinator(DataUpdateCoordinator[HDFuryData]):
         except HDFuryError as error:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
             ) from error
 
         return HDFuryData(

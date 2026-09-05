@@ -73,7 +73,7 @@ async def test_load_save_issues(hass: HomeAssistant) -> None:
             is_persistent=issue["is_persistent"],
             learn_more_url=issue["learn_more_url"],
             severity=issue["severity"],
-            REDACTED_VALUEissue["translation_key"],
+            translation_key=issue["translation_key"],
             translation_placeholders=issue["translation_placeholders"],
         )
 
@@ -122,7 +122,7 @@ async def test_load_save_issues(hass: HomeAssistant) -> None:
         is_persistent=issues[2]["is_persistent"],
         learn_more_url=issues[2]["learn_more_url"],
         severity=issues[2]["severity"],
-        REDACTED_VALUEissues[2]["translation_key"],
+        translation_key=issues[2]["translation_key"],
         translation_placeholders=issues[2]["translation_placeholders"],
     )
     await hass.async_block_till_done()
@@ -139,7 +139,7 @@ async def test_load_save_issues(hass: HomeAssistant) -> None:
         is_persistent=issues[2]["is_persistent"],
         learn_more_url="https://www.example.com/something_changed",
         severity=issues[2]["severity"],
-        REDACTED_VALUEissues[2]["translation_key"],
+        translation_key=issues[2]["translation_key"],
         translation_placeholders=issues[2]["translation_placeholders"],
     )
     await hass.async_block_till_done()
@@ -187,7 +187,7 @@ async def test_load_save_issues(hass: HomeAssistant) -> None:
         issue_id=issue1.issue_id,
         learn_more_url=None,
         severity=None,
-        REDACTED_VALUENone,
+        translation_key=None,
         translation_placeholders=None,
     )
     issue2_registry2 = registry2.async_get_issue("test", "issue_2")
@@ -204,7 +204,7 @@ async def test_load_save_issues(hass: HomeAssistant) -> None:
         issue_id=issue2.issue_id,
         learn_more_url=None,
         severity=None,
-        REDACTED_VALUENone,
+        translation_key=None,
         translation_placeholders=None,
     )
     issue4_registry2 = registry2.async_get_issue("test", "issue_4")
@@ -259,7 +259,7 @@ async def test_load_save_issues_read_only(
             is_persistent=issue["is_persistent"],
             learn_more_url=issue["learn_more_url"],
             severity=issue["severity"],
-            REDACTED_VALUEissue["translation_key"],
+            translation_key=issue["translation_key"],
             translation_placeholders=issue["translation_placeholders"],
         )
 
@@ -379,7 +379,7 @@ async def test_get_or_create_thread_safety(
                 "any",
                 is_fixable=True,
                 severity="error",
-                REDACTED_VALUE"any",
+                translation_key="any",
             )
         )
 
@@ -394,7 +394,7 @@ async def test_async_delete_issue_thread_safety(
         "any",
         is_fixable=True,
         severity="error",
-        REDACTED_VALUE"any",
+        translation_key="any",
     )
 
     with pytest.raises(
@@ -419,7 +419,7 @@ async def test_async_ignore_issue_thread_safety(
         "any",
         is_fixable=True,
         severity="error",
-        REDACTED_VALUE"any",
+        translation_key="any",
     )
 
     with pytest.raises(

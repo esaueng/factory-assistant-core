@@ -44,7 +44,7 @@ async def async_setup_entry(
     desc = HuaweiSelectEntityDescription(
         key=KEY_NET_NET_MODE,
         entity_category=EntityCategory.CONFIG,
-        REDACTED_VALUE"preferred_network_mode",
+        translation_key="preferred_network_mode",
         options=[
             NetworkModeEnum.MODE_AUTO.value,
             NetworkModeEnum.MODE_4G_3G_AUTO.value,

@@ -32,7 +32,7 @@ class LektricoNumberEntityDescription(NumberEntityDescription):
 NUMBERS: tuple[LektricoNumberEntityDescription, ...] = (
     LektricoNumberEntityDescription(
         key="led_max_brightness",
-        REDACTED_VALUE"led_max_brightness",
+        translation_key="led_max_brightness",
         entity_category=EntityCategory.CONFIG,
         native_min_value=0,
         native_max_value=100,
@@ -43,7 +43,7 @@ NUMBERS: tuple[LektricoNumberEntityDescription, ...] = (
     ),
     LektricoNumberEntityDescription(
         key="dynamic_limit",
-        REDACTED_VALUE"dynamic_limit",
+        translation_key="dynamic_limit",
         entity_category=EntityCategory.CONFIG,
         native_min_value=0,
         native_max_value=32,

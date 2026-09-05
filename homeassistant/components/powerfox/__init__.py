@@ -38,13 +38,13 @@ async def async_setup_entry(hass: HomeAssistant, entry: PowerfoxConfigEntry) -> 
         await client.close()
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"auth_failed",
+            translation_key="auth_failed",
         ) from err
     except PowerfoxConnectionError as err:
         await client.close()
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"connection_error",
+            translation_key="connection_error",
         ) from err
 
     coordinators: list[

@@ -35,7 +35,7 @@ class AirobotNumberEntityDescription(NumberEntityDescription):
 NUMBERS: tuple[AirobotNumberEntityDescription, ...] = (
     AirobotNumberEntityDescription(
         key="hysteresis_band",
-        REDACTED_VALUE"hysteresis_band",
+        translation_key="hysteresis_band",
         device_class=NumberDeviceClass.TEMPERATURE,
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
@@ -90,7 +90,7 @@ class AirobotNumber(AirobotEntity, NumberEntity):
         except AirobotError as err:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_value_failed",
+                translation_key="set_value_failed",
             ) from err
         else:
             await self.coordinator.async_request_refresh()

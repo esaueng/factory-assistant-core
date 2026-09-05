@@ -661,7 +661,7 @@ async def test_sensor_name(
         .sensor(
             attribute_name="product_label",  # doesn't matter for this test
             cluster_id=general.Basic.cluster_id,
-            REDACTED_VALUEtranslation_key,
+            translation_key=translation_key,
             fallback_name=fallback_name,
             device_class=device_class,
             unit=unit,

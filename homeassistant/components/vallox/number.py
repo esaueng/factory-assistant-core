@@ -62,7 +62,7 @@ class ValloxNumberEntityDescription(NumberEntityDescription):
 NUMBER_ENTITIES: tuple[ValloxNumberEntityDescription, ...] = (
     ValloxNumberEntityDescription(
         key="supply_air_target_home",
-        REDACTED_VALUE"supply_air_target_home",
+        translation_key="supply_air_target_home",
         metric_key="A_CYC_HOME_AIR_TEMP_TARGET",
         device_class=NumberDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -72,7 +72,7 @@ NUMBER_ENTITIES: tuple[ValloxNumberEntityDescription, ...] = (
     ),
     ValloxNumberEntityDescription(
         key="supply_air_target_away",
-        REDACTED_VALUE"supply_air_target_away",
+        translation_key="supply_air_target_away",
         metric_key="A_CYC_AWAY_AIR_TEMP_TARGET",
         device_class=NumberDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -82,7 +82,7 @@ NUMBER_ENTITIES: tuple[ValloxNumberEntityDescription, ...] = (
     ),
     ValloxNumberEntityDescription(
         key="supply_air_target_boost",
-        REDACTED_VALUE"supply_air_target_boost",
+        translation_key="supply_air_target_boost",
         metric_key="A_CYC_BOOST_AIR_TEMP_TARGET",
         device_class=NumberDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,

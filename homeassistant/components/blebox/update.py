@@ -89,7 +89,7 @@ class BleBoxUpdateEntity(BleBoxEntity[blebox_uniapi.update.Update], UpdateEntity
         except Error as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
+                translation_key="update_failed",
                 translation_placeholders={"error": str(ex)},
             ) from ex
         self._sync_sw_version()
@@ -128,7 +128,7 @@ class BleBoxUpdateEntity(BleBoxEntity[blebox_uniapi.update.Update], UpdateEntity
             self._reset_progress()
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"install_failed",
+                translation_key="install_failed",
                 translation_placeholders={"error": str(ex)},
             ) from ex
         self._poll_cancel = async_call_later(

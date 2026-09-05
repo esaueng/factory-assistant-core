@@ -80,7 +80,7 @@ def _convert_time_slots_to_day_schedule(
         if end_time <= start_time:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"end_time_before_start_time",
+                translation_key="end_time_before_start_time",
                 translation_placeholders={
                     "start_time": start_time.strftime("%H:%M"),
                     "end_time": end_time.strftime("%H:%M"),
@@ -109,7 +109,7 @@ async def set_hot_water_schedule(service_call: ServiceCall) -> None:
     if device_entry is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_device_id",
+            translation_key="invalid_device_id",
             translation_placeholders={"device_id": device_id},
         )
 
@@ -123,7 +123,7 @@ async def set_hot_water_schedule(service_call: ServiceCall) -> None:
     if not matching_entries:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"no_config_entry_for_device",
+            translation_key="no_config_entry_for_device",
             translation_placeholders={"device_id": device_entry.name or device_id},
         )
 
@@ -133,7 +133,7 @@ async def set_hot_water_schedule(service_call: ServiceCall) -> None:
     if entry.state is not ConfigEntryState.LOADED:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"config_entry_not_loaded",
+            translation_key="config_entry_not_loaded",
             translation_placeholders={"device_name": device_entry.name or device_id},
         )
 
@@ -191,7 +191,7 @@ async def set_hot_water_schedule(service_call: ServiceCall) -> None:
     except BSBLANError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"set_schedule_failed",
+            translation_key="set_schedule_failed",
             translation_placeholders={"error": str(err)},
         ) from err
 
@@ -210,7 +210,7 @@ async def async_sync_time(service_call: ServiceCall) -> None:
     if device_entry is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_device_id",
+            translation_key="invalid_device_id",
             translation_placeholders={"device_id": device_id},
         )
 
@@ -224,7 +224,7 @@ async def async_sync_time(service_call: ServiceCall) -> None:
     if not matching_entries:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"no_config_entry_for_device",
+            translation_key="no_config_entry_for_device",
             translation_placeholders={"device_id": device_entry.name or device_id},
         )
 
@@ -234,7 +234,7 @@ async def async_sync_time(service_call: ServiceCall) -> None:
     if entry.state is not ConfigEntryState.LOADED:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"config_entry_not_loaded",
+            translation_key="config_entry_not_loaded",
             translation_placeholders={"device_name": device_entry.name or device_id},
         )
 

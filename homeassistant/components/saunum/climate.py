@@ -163,7 +163,7 @@ class LeilSaunaClimate(LeilSaunaEntity, ClimateEntity):
         if hvac_mode == HVACMode.HEAT and self.coordinator.data.door_open:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"door_open",
+                translation_key="door_open",
             )
 
         try:
@@ -174,7 +174,7 @@ class LeilSaunaClimate(LeilSaunaEntity, ClimateEntity):
         except SaunumException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_hvac_mode_failed",
+                translation_key="set_hvac_mode_failed",
                 translation_placeholders={"hvac_mode": hvac_mode},
             ) from err
 
@@ -193,7 +193,7 @@ class LeilSaunaClimate(LeilSaunaEntity, ClimateEntity):
         except SaunumException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_temperature_failed",
+                translation_key="set_temperature_failed",
                 translation_placeholders={"temperature": str(kwargs[ATTR_TEMPERATURE])},
             ) from err
 
@@ -204,7 +204,7 @@ class LeilSaunaClimate(LeilSaunaEntity, ClimateEntity):
         if not self.coordinator.data.session_active:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"session_not_active",
+                translation_key="session_not_active",
             )
 
         try:
@@ -214,7 +214,7 @@ class LeilSaunaClimate(LeilSaunaEntity, ClimateEntity):
         except SaunumException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_fan_mode_failed",
+                translation_key="set_fan_mode_failed",
             ) from err
 
         await self.coordinator.async_request_refresh()
@@ -224,7 +224,7 @@ class LeilSaunaClimate(LeilSaunaEntity, ClimateEntity):
         if self.coordinator.data.session_active:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"preset_session_active",
+                translation_key="preset_session_active",
             )
 
         # Find the sauna type value from the preset name
@@ -239,7 +239,7 @@ class LeilSaunaClimate(LeilSaunaEntity, ClimateEntity):
         except SaunumException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_preset_failed",
+                translation_key="set_preset_failed",
                 translation_placeholders={"preset_mode": preset_mode},
             ) from err
 
@@ -255,7 +255,7 @@ class LeilSaunaClimate(LeilSaunaEntity, ClimateEntity):
         if self.coordinator.data.door_open:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"door_open",
+                translation_key="door_open",
             )
 
         try:
@@ -273,7 +273,7 @@ class LeilSaunaClimate(LeilSaunaEntity, ClimateEntity):
         except SaunumException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"start_session_failed",
+                translation_key="start_session_failed",
             ) from err
 
         await self.coordinator.async_request_refresh()

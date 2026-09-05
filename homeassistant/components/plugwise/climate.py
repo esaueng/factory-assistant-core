@@ -32,7 +32,7 @@ def _check_for_schedule(active: bool, last_active: str | None) -> None:
     if not active and last_active is None:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUEERROR_NO_SCHEDULE,
+            translation_key=ERROR_NO_SCHEDULE,
         )
 
 

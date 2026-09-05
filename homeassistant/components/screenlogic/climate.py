@@ -56,7 +56,7 @@ async def async_setup_entry(
                 subscription_code=CODE.STATUS_CHANGED,
                 data_root=(DEVICE.BODY,),
                 key=body_index,
-                REDACTED_VALUEf"body_{body_index}",
+                translation_key=f"body_{body_index}",
             ),
         )
         for body_index in gateway.get_data(DEVICE.BODY)

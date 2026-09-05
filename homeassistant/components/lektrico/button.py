@@ -29,19 +29,19 @@ class LektricoButtonEntityDescription(ButtonEntityDescription):
 BUTTONS_FOR_CHARGERS: tuple[LektricoButtonEntityDescription, ...] = (
     LektricoButtonEntityDescription(
         key="charge_start",
-        REDACTED_VALUE"charge_start",
+        translation_key="charge_start",
         entity_category=EntityCategory.CONFIG,
         press_fn=lambda device: device.send_charge_start(),
     ),
     LektricoButtonEntityDescription(
         key="charge_stop",
-        REDACTED_VALUE"charge_stop",
+        translation_key="charge_stop",
         entity_category=EntityCategory.CONFIG,
         press_fn=lambda device: device.send_charge_stop(),
     ),
     LektricoButtonEntityDescription(
         key="charging_schedule_override",
-        REDACTED_VALUE"charging_schedule_override",
+        translation_key="charging_schedule_override",
         entity_category=EntityCategory.CONFIG,
         press_fn=lambda device: device.send_charge_schedule_override(),
     ),

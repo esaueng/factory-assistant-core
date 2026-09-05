@@ -459,7 +459,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
             breaks_in_ha_version="2026.7.0",
             issue_domain=DOMAIN,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"deprecated_service_join",
+            translation_key="deprecated_service_join",
             translation_placeholders={
                 "name": slugify(self.sync_status.name),
             },
@@ -483,7 +483,7 @@ class BluesoundPlayer(CoordinatorEntity[BluesoundCoordinator], MediaPlayerEntity
             breaks_in_ha_version="2026.7.0",
             issue_domain=DOMAIN,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"deprecated_service_unjoin",
+            translation_key="deprecated_service_unjoin",
             translation_placeholders={
                 "name": slugify(self.sync_status.name),
             },

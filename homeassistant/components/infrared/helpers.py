@@ -47,7 +47,7 @@ async def async_send_command(
     if component is None:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"component_not_loaded",
+            translation_key="component_not_loaded",
         )
 
     ent_reg = er.async_get(hass)
@@ -56,7 +56,7 @@ async def async_send_command(
     if entity is None or not isinstance(entity, InfraredEmitterEntity):
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"entity_not_found",
+            translation_key="entity_not_found",
             translation_placeholders={"entity_id": entity_id},
         )
 
@@ -81,7 +81,7 @@ def async_subscribe_receiver(
     if component is None:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"component_not_loaded",
+            translation_key="component_not_loaded",
         )
 
     ent_reg = er.async_get(hass)
@@ -90,7 +90,7 @@ def async_subscribe_receiver(
     except vol.Invalid as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"receiver_not_found",
+            translation_key="receiver_not_found",
             translation_placeholders={"entity_id": entity_id_or_uuid},
         ) from err
 
@@ -98,7 +98,7 @@ def async_subscribe_receiver(
     if entity is None or not isinstance(entity, InfraredReceiverEntity):
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"receiver_not_found",
+            translation_key="receiver_not_found",
             translation_placeholders={"entity_id": entity_id},
         )
 

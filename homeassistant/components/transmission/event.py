@@ -33,7 +33,7 @@ async def async_setup_entry(
 
     description = EventEntityDescription(
         key="torrent",
-        REDACTED_VALUE"torrent",
+        translation_key="torrent",
         event_types=[
             EVENT_TYPE_STARTED,
             EVENT_TYPE_DOWNLOADED,

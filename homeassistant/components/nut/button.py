@@ -41,7 +41,7 @@ async def async_setup_entry(
         valid_button_types |= {
             f"outlet.{outlet_num_str}.load.cycle": ButtonEntityDescription(
                 key=f"outlet.{outlet_num_str}.load.cycle",
-                REDACTED_VALUE"outlet_number_load_cycle",
+                translation_key="outlet_number_load_cycle",
                 translation_placeholders={"outlet_name": outlet_name},
                 device_class=ButtonDeviceClass.RESTART,
             ),

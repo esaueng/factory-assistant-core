@@ -108,13 +108,13 @@ class DevoloSwitchEntity[_DataT: _DataType](
             self.entry.async_start_reauth(self.hass)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"password_protected",
+                translation_key="password_protected",
                 translation_placeholders={"title": self.entry.title},
             ) from ex
         except DeviceUnavailable as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_response",
+                translation_key="no_response",
                 translation_placeholders={"title": self.entry.title},
             ) from ex
         finally:
@@ -128,13 +128,13 @@ class DevoloSwitchEntity[_DataT: _DataType](
             self.entry.async_start_reauth(self.hass)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"password_protected",
+                translation_key="password_protected",
                 translation_placeholders={"title": self.entry.title},
             ) from ex
         except DeviceUnavailable as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_response",
+                translation_key="no_response",
                 translation_placeholders={"title": self.entry.title},
             ) from ex
         finally:

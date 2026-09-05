@@ -70,14 +70,14 @@ class IstaSensorEntity(StrEnum):
 SENSOR_DESCRIPTIONS: tuple[IstaSensorEntityDescription, ...] = (
     IstaSensorEntityDescription(
         key=IstaSensorEntity.HEATING,
-        REDACTED_VALUEIstaSensorEntity.HEATING,
+        translation_key=IstaSensorEntity.HEATING,
         suggested_display_precision=0,
         consumption_type=IstaConsumptionType.HEATING,
         state_class=SensorStateClass.TOTAL,
     ),
     IstaSensorEntityDescription(
         key=IstaSensorEntity.HEATING_ENERGY,
-        REDACTED_VALUEIstaSensorEntity.HEATING_ENERGY,
+        translation_key=IstaSensorEntity.HEATING_ENERGY,
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL,
@@ -88,7 +88,7 @@ SENSOR_DESCRIPTIONS: tuple[IstaSensorEntityDescription, ...] = (
     ),
     IstaSensorEntityDescription(
         key=IstaSensorEntity.HEATING_COST,
-        REDACTED_VALUEIstaSensorEntity.HEATING_COST,
+        translation_key=IstaSensorEntity.HEATING_COST,
         device_class=SensorDeviceClass.MONETARY,
         native_unit_of_measurement="EUR",
         state_class=SensorStateClass.TOTAL,
@@ -99,7 +99,7 @@ SENSOR_DESCRIPTIONS: tuple[IstaSensorEntityDescription, ...] = (
     ),
     IstaSensorEntityDescription(
         key=IstaSensorEntity.HOT_WATER,
-        REDACTED_VALUEIstaSensorEntity.HOT_WATER,
+        translation_key=IstaSensorEntity.HOT_WATER,
         device_class=SensorDeviceClass.WATER,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         state_class=SensorStateClass.TOTAL,
@@ -109,7 +109,7 @@ SENSOR_DESCRIPTIONS: tuple[IstaSensorEntityDescription, ...] = (
     ),
     IstaSensorEntityDescription(
         key=IstaSensorEntity.HOT_WATER_ENERGY,
-        REDACTED_VALUEIstaSensorEntity.HOT_WATER_ENERGY,
+        translation_key=IstaSensorEntity.HOT_WATER_ENERGY,
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL,
@@ -120,7 +120,7 @@ SENSOR_DESCRIPTIONS: tuple[IstaSensorEntityDescription, ...] = (
     ),
     IstaSensorEntityDescription(
         key=IstaSensorEntity.HOT_WATER_COST,
-        REDACTED_VALUEIstaSensorEntity.HOT_WATER_COST,
+        translation_key=IstaSensorEntity.HOT_WATER_COST,
         device_class=SensorDeviceClass.MONETARY,
         native_unit_of_measurement="EUR",
         state_class=SensorStateClass.TOTAL,
@@ -131,7 +131,7 @@ SENSOR_DESCRIPTIONS: tuple[IstaSensorEntityDescription, ...] = (
     ),
     IstaSensorEntityDescription(
         key=IstaSensorEntity.WATER,
-        REDACTED_VALUEIstaSensorEntity.WATER,
+        translation_key=IstaSensorEntity.WATER,
         device_class=SensorDeviceClass.WATER,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         state_class=SensorStateClass.TOTAL,
@@ -142,7 +142,7 @@ SENSOR_DESCRIPTIONS: tuple[IstaSensorEntityDescription, ...] = (
     ),
     IstaSensorEntityDescription(
         key=IstaSensorEntity.WATER_COST,
-        REDACTED_VALUEIstaSensorEntity.WATER_COST,
+        translation_key=IstaSensorEntity.WATER_COST,
         device_class=SensorDeviceClass.MONETARY,
         native_unit_of_measurement="EUR",
         state_class=SensorStateClass.TOTAL,

@@ -48,7 +48,7 @@ TYPE_FREEZE_PROTECTION_TEMPERATURE = "freeze_protection_temperature"
 SELECT_DESCRIPTIONS = (
     FreezeProtectionSelectDescription(
         key=TYPE_FREEZE_PROTECTION_TEMPERATURE,
-        REDACTED_VALUETYPE_FREEZE_PROTECTION_TEMPERATURE,
+        translation_key=TYPE_FREEZE_PROTECTION_TEMPERATURE,
         entity_category=EntityCategory.CONFIG,
         api_category=DATA_RESTRICTIONS_UNIVERSAL,
         data_key="freezeProtectTemp",

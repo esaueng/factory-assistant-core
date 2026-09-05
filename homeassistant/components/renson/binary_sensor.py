@@ -36,43 +36,43 @@ class RensonBinarySensorEntityDescription(BinarySensorEntityDescription):
 
 BINARY_SENSORS: tuple[RensonBinarySensorEntityDescription, ...] = (
     RensonBinarySensorEntityDescription(
-        REDACTED_VALUE"frost_protection_active",
+        translation_key="frost_protection_active",
         key="FROST_PROTECTION_FIELD",
         field=FROST_PROTECTION_FIELD,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     RensonBinarySensorEntityDescription(
         key="BREEZE_ENABLE_FIELD",
-        REDACTED_VALUE"breeze",
+        translation_key="breeze",
         field=BREEZE_ENABLE_FIELD,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     RensonBinarySensorEntityDescription(
         key="BREEZE_MET_FIELD",
-        REDACTED_VALUE"breeze_conditions_met",
+        translation_key="breeze_conditions_met",
         field=BREEZE_MET_FIELD,
     ),
     RensonBinarySensorEntityDescription(
         key="HUMIDITY_CONTROL_FIELD",
-        REDACTED_VALUE"humidity_control",
+        translation_key="humidity_control",
         field=HUMIDITY_CONTROL_FIELD,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     RensonBinarySensorEntityDescription(
         key="AIR_QUALITY_CONTROL_FIELD",
-        REDACTED_VALUE"air_quality_control",
+        translation_key="air_quality_control",
         field=AIR_QUALITY_CONTROL_FIELD,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     RensonBinarySensorEntityDescription(
         key="CO2_CONTROL_FIELD",
-        REDACTED_VALUE"co2_control",
+        translation_key="co2_control",
         field=CO2_CONTROL_FIELD,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     RensonBinarySensorEntityDescription(
         key="PREHEATER_FIELD",
-        REDACTED_VALUE"preheater",
+        translation_key="preheater",
         field=PREHEATER_FIELD,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),

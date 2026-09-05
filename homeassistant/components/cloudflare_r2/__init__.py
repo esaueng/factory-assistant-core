@@ -48,23 +48,23 @@ async def async_setup_entry(hass: HomeAssistant, entry: R2ConfigEntry) -> bool:
     except ClientError as err:
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_credentials",
+            translation_key="invalid_credentials",
         ) from err
     except ParamValidationError as err:
         if "Invalid bucket name" in str(err):
             raise ConfigEntryError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_bucket_name",
+                translation_key="invalid_bucket_name",
             ) from err
     except ValueError as err:
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_endpoint_url",
+            translation_key="invalid_endpoint_url",
         ) from err
     except (ConnectionError, EndpointConnectionError) as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect",
+            translation_key="cannot_connect",
         ) from err
 
     entry.runtime_data = client

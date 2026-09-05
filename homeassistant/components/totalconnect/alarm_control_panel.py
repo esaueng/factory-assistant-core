@@ -128,12 +128,12 @@ class TotalConnectAlarm(TotalConnectLocationEntity, AlarmControlPanelEntity):
             self.coordinator.config_entry.async_start_reauth(self.hass)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"disarm_invalid_code",
+                translation_key="disarm_invalid_code",
             ) from error
         except BadResultCodeError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"disarm_failed",
+                translation_key="disarm_failed",
                 translation_placeholders={"device": self.device.name},
             ) from error
         await self.coordinator.async_request_refresh()
@@ -151,12 +151,12 @@ class TotalConnectAlarm(TotalConnectLocationEntity, AlarmControlPanelEntity):
             self.coordinator.config_entry.async_start_reauth(self.hass)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"arm_home_invalid_code",
+                translation_key="arm_home_invalid_code",
             ) from error
         except BadResultCodeError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"arm_home_failed",
+                translation_key="arm_home_failed",
                 translation_placeholders={"device": self.device.name},
             ) from error
         await self.coordinator.async_request_refresh()
@@ -174,12 +174,12 @@ class TotalConnectAlarm(TotalConnectLocationEntity, AlarmControlPanelEntity):
             self.coordinator.config_entry.async_start_reauth(self.hass)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"arm_away_invalid_code",
+                translation_key="arm_away_invalid_code",
             ) from error
         except BadResultCodeError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"arm_away_failed",
+                translation_key="arm_away_failed",
                 translation_placeholders={"device": self.device.name},
             ) from error
         await self.coordinator.async_request_refresh()
@@ -197,12 +197,12 @@ class TotalConnectAlarm(TotalConnectLocationEntity, AlarmControlPanelEntity):
             self.coordinator.config_entry.async_start_reauth(self.hass)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"arm_night_invalid_code",
+                translation_key="arm_night_invalid_code",
             ) from error
         except BadResultCodeError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"arm_night_failed",
+                translation_key="arm_night_failed",
                 translation_placeholders={"device": self.device.name},
             ) from error
         await self.coordinator.async_request_refresh()
@@ -219,12 +219,12 @@ class TotalConnectAlarm(TotalConnectLocationEntity, AlarmControlPanelEntity):
             self.coordinator.config_entry.async_start_reauth(self.hass)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"arm_home_instant_invalid_code",
+                translation_key="arm_home_instant_invalid_code",
             ) from error
         except BadResultCodeError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"arm_home_instant_failed",
+                translation_key="arm_home_instant_failed",
                 translation_placeholders={"device": self.device.name},
             ) from error
         await self.coordinator.async_request_refresh()
@@ -241,12 +241,12 @@ class TotalConnectAlarm(TotalConnectLocationEntity, AlarmControlPanelEntity):
             self.coordinator.config_entry.async_start_reauth(self.hass)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"arm_away_instant_invalid_code",
+                translation_key="arm_away_instant_invalid_code",
             ) from error
         except BadResultCodeError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"arm_away_instant_failed",
+                translation_key="arm_away_instant_failed",
                 translation_placeholders={"device": self.device.name},
             ) from error
         await self.coordinator.async_request_refresh()
@@ -262,5 +262,5 @@ class TotalConnectAlarm(TotalConnectLocationEntity, AlarmControlPanelEntity):
             and self.coordinator.client.usercodes[self._location.location_id] != code
         ):
             raise ServiceValidationError(
-                translation_domain=DOMAIN, REDACTED_VALUE"invalid_pin"
+                translation_domain=DOMAIN, translation_key="invalid_pin"
             )

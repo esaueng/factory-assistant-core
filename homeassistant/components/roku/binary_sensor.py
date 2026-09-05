@@ -30,24 +30,24 @@ class RokuBinarySensorEntityDescription(BinarySensorEntityDescription):
 BINARY_SENSORS: tuple[RokuBinarySensorEntityDescription, ...] = (
     RokuBinarySensorEntityDescription(
         key="headphones_connected",
-        REDACTED_VALUE"headphones_connected",
+        translation_key="headphones_connected",
         value_fn=lambda device: device.info.headphones_connected,
     ),
     RokuBinarySensorEntityDescription(
         key="supports_airplay",
-        REDACTED_VALUE"supports_airplay",
+        translation_key="supports_airplay",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda device: device.info.supports_airplay,
     ),
     RokuBinarySensorEntityDescription(
         key="supports_ethernet",
-        REDACTED_VALUE"supports_ethernet",
+        translation_key="supports_ethernet",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda device: device.info.ethernet_support,
     ),
     RokuBinarySensorEntityDescription(
         key="supports_find_remote",
-        REDACTED_VALUE"supports_find_remote",
+        translation_key="supports_find_remote",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda device: device.info.supports_find_remote,
     ),

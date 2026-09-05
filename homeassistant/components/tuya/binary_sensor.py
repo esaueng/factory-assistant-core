@@ -78,7 +78,7 @@ BINARY_SENSORS: dict[DeviceCategory, tuple[TuyaBinarySensorEntityDescription, ..
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             bitmap_key="water_full",
-            REDACTED_VALUE"tankfull",
+            translation_key="tankfull",
         ),
         TuyaBinarySensorEntityDescription(
             key="tankfull",
@@ -86,7 +86,7 @@ BINARY_SENSORS: dict[DeviceCategory, tuple[TuyaBinarySensorEntityDescription, ..
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             bitmap_key="tankfull",
-            REDACTED_VALUE"tankfull",
+            translation_key="tankfull",
         ),
         TuyaBinarySensorEntityDescription(
             key=f"{DPCode.FAULT}_FULL",
@@ -94,7 +94,7 @@ BINARY_SENSORS: dict[DeviceCategory, tuple[TuyaBinarySensorEntityDescription, ..
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             bitmap_key="FULL",
-            REDACTED_VALUE"tankfull",
+            translation_key="tankfull",
         ),
         TuyaBinarySensorEntityDescription(
             key="defrost",
@@ -102,7 +102,7 @@ BINARY_SENSORS: dict[DeviceCategory, tuple[TuyaBinarySensorEntityDescription, ..
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             bitmap_key="defrost",
-            REDACTED_VALUE"defrost",
+            translation_key="defrost",
         ),
         TuyaBinarySensorEntityDescription(
             key=f"{DPCode.FAULT}_COIL",
@@ -110,7 +110,7 @@ BINARY_SENSORS: dict[DeviceCategory, tuple[TuyaBinarySensorEntityDescription, ..
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             bitmap_key="COIL",
-            REDACTED_VALUE"coil_freeze",
+            translation_key="coil_freeze",
         ),
         TuyaBinarySensorEntityDescription(
             key="wet",
@@ -118,7 +118,7 @@ BINARY_SENSORS: dict[DeviceCategory, tuple[TuyaBinarySensorEntityDescription, ..
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             bitmap_key="wet",
-            REDACTED_VALUE"wet",
+            translation_key="wet",
         ),
         TuyaBinarySensorEntityDescription(
             key=f"{DPCode.FAULT}_Cleaning",
@@ -126,7 +126,7 @@ BINARY_SENSORS: dict[DeviceCategory, tuple[TuyaBinarySensorEntityDescription, ..
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             bitmap_key="Cleaning",
-            REDACTED_VALUE"filter_cleaning",
+            translation_key="filter_cleaning",
         ),
         TuyaBinarySensorEntityDescription(
             key=f"{DPCode.FAULT}_E1",
@@ -134,7 +134,7 @@ BINARY_SENSORS: dict[DeviceCategory, tuple[TuyaBinarySensorEntityDescription, ..
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             bitmap_key="E1",
-            REDACTED_VALUE"temp_error",
+            translation_key="temp_error",
         ),
         TuyaBinarySensorEntityDescription(
             key=f"{DPCode.FAULT}_CL",
@@ -142,7 +142,7 @@ BINARY_SENSORS: dict[DeviceCategory, tuple[TuyaBinarySensorEntityDescription, ..
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             bitmap_key="CL",
-            REDACTED_VALUE"low_temp",
+            translation_key="low_temp",
         ),
         TuyaBinarySensorEntityDescription(
             key=f"{DPCode.FAULT}_CH",
@@ -150,7 +150,7 @@ BINARY_SENSORS: dict[DeviceCategory, tuple[TuyaBinarySensorEntityDescription, ..
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             bitmap_key="CH",
-            REDACTED_VALUE"high_temp",
+            translation_key="high_temp",
         ),
         TuyaBinarySensorEntityDescription(
             key=f"{DPCode.FAULT}_LO",
@@ -158,7 +158,7 @@ BINARY_SENSORS: dict[DeviceCategory, tuple[TuyaBinarySensorEntityDescription, ..
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             bitmap_key="LO",
-            REDACTED_VALUE"low_humidity",
+            translation_key="low_humidity",
         ),
         TuyaBinarySensorEntityDescription(
             key=f"{DPCode.FAULT}_MOTOR",
@@ -166,13 +166,13 @@ BINARY_SENSORS: dict[DeviceCategory, tuple[TuyaBinarySensorEntityDescription, ..
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             bitmap_key="MOTOR",
-            REDACTED_VALUE"motor_fault",
+            translation_key="motor_fault",
         ),
     ),
     DeviceCategory.CWWSQ: (
         TuyaBinarySensorEntityDescription(
             key=DPCode.FEED_STATE,
-            REDACTED_VALUE"feeding",
+            translation_key="feeding",
             on_value="feeding",
         ),
         TuyaBinarySensorEntityDescription(
@@ -189,37 +189,37 @@ BINARY_SENSORS: dict[DeviceCategory, tuple[TuyaBinarySensorEntityDescription, ..
         ),
         TuyaBinarySensorEntityDescription(
             key=DPCode.CH4_SENSOR_STATE,
-            REDACTED_VALUE"methane",
+            translation_key="methane",
             device_class=BinarySensorDeviceClass.GAS,
             on_value="alarm",
         ),
         TuyaBinarySensorEntityDescription(
             key=DPCode.VOC_STATE,
-            REDACTED_VALUE"voc",
+            translation_key="voc",
             device_class=BinarySensorDeviceClass.SAFETY,
             on_value="alarm",
         ),
         TuyaBinarySensorEntityDescription(
             key=DPCode.PM25_STATE,
-            REDACTED_VALUE"pm25",
+            translation_key="pm25",
             device_class=BinarySensorDeviceClass.SAFETY,
             on_value="alarm",
         ),
         TuyaBinarySensorEntityDescription(
             key=DPCode.CO_STATE,
-            REDACTED_VALUE"carbon_monoxide",
+            translation_key="carbon_monoxide",
             device_class=BinarySensorDeviceClass.SAFETY,
             on_value="alarm",
         ),
         TuyaBinarySensorEntityDescription(
             key=DPCode.CO2_STATE,
-            REDACTED_VALUE"carbon_dioxide",
+            translation_key="carbon_dioxide",
             device_class=BinarySensorDeviceClass.SAFETY,
             on_value="alarm",
         ),
         TuyaBinarySensorEntityDescription(
             key=DPCode.CH2O_STATE,
-            REDACTED_VALUE"formaldehyde",
+            translation_key="formaldehyde",
             device_class=BinarySensorDeviceClass.SAFETY,
             on_value="alarm",
         ),
@@ -234,7 +234,7 @@ BINARY_SENSORS: dict[DeviceCategory, tuple[TuyaBinarySensorEntityDescription, ..
         ),
         TuyaBinarySensorEntityDescription(
             key=DPCode.PRESSURE_STATE,
-            REDACTED_VALUE"pressure",
+            translation_key="pressure",
             on_value="alarm",
         ),
         TuyaBinarySensorEntityDescription(
@@ -300,7 +300,7 @@ BINARY_SENSORS: dict[DeviceCategory, tuple[TuyaBinarySensorEntityDescription, ..
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             bitmap_key="full_fault",
-            REDACTED_VALUE"bag_full",
+            translation_key="bag_full",
         ),
         TuyaBinarySensorEntityDescription(
             key=f"{DPCode.FAULT}_box_out",
@@ -308,7 +308,7 @@ BINARY_SENSORS: dict[DeviceCategory, tuple[TuyaBinarySensorEntityDescription, ..
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             bitmap_key="box_out",
-            REDACTED_VALUE"cover_off",
+            translation_key="cover_off",
         ),
     ),
     DeviceCategory.PIR: (
@@ -387,7 +387,7 @@ BINARY_SENSORS: dict[DeviceCategory, tuple[TuyaBinarySensorEntityDescription, ..
     DeviceCategory.WK: (
         TuyaBinarySensorEntityDescription(
             key=DPCode.VALVE_STATE,
-            REDACTED_VALUE"valve",
+            translation_key="valve",
             on_value="open",
         ),
     ),
@@ -429,13 +429,13 @@ BINARY_SENSORS: dict[DeviceCategory, tuple[TuyaBinarySensorEntityDescription, ..
         TuyaBinarySensorEntityDescription(
             key=f"{DPCode.SHOCK_STATE}_drop",
             dpcode=DPCode.SHOCK_STATE,
-            REDACTED_VALUE"drop",
+            translation_key="drop",
             on_value="drop",
         ),
         TuyaBinarySensorEntityDescription(
             key=f"{DPCode.SHOCK_STATE}_tilt",
             dpcode=DPCode.SHOCK_STATE,
-            REDACTED_VALUE"tilt",
+            translation_key="tilt",
             on_value="tilt",
         ),
     ),

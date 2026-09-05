@@ -45,7 +45,7 @@ async def async_validate_trigger_config(
         except ValueError as err:
             raise InvalidDeviceAutomationConfig(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_device",
+                translation_key="invalid_device",
                 translation_placeholders={"device_id": device_id},
             ) from err
 
@@ -80,6 +80,6 @@ async def async_attach_trigger(
 
     raise HomeAssistantError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"unhandled_trigger_type",
+        translation_key="unhandled_trigger_type",
         translation_placeholders={"trigger_type": trigger_type},
     )

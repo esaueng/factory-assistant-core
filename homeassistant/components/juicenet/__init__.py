@@ -16,7 +16,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         DOMAIN,
         is_fixable=False,
         severity=ir.IssueSeverity.ERROR,
-        REDACTED_VALUE"integration_removed",
+        translation_key="integration_removed",
         translation_placeholders={
             "entries": "/config/integrations/integration/juicenet",
         },

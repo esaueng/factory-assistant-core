@@ -198,7 +198,7 @@ class ReolinkUpdateBaseEntity(CoordinatorEntity[ReolinkCoordinator], UpdateEntit
                 raise
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"firmware_install_error",
+                translation_key="firmware_install_error",
                 translation_placeholders={"err": str(err)},
             ) from err
         finally:

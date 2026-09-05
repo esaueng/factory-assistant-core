@@ -96,7 +96,7 @@ def _data_secure_group_key_issue_handler(
         is_fixable=True,
         is_persistent=True,
         severity=ir.IssueSeverity.ERROR,
-        REDACTED_VALUEREPAIR_ISSUE_DATA_SECURE_GROUP_KEY,
+        translation_key=REPAIR_ISSUE_DATA_SECURE_GROUP_KEY,
         translation_placeholders={
             "addresses": "\n".join(
                 f"`{ga}` from {ias}" for ga, ias in new_data.items()
@@ -173,7 +173,7 @@ def async_create_telegram_storage_issue(hass: HomeAssistant) -> None:
         REPAIR_ISSUE_TELEGRAM_BACKEND_ERROR,
         is_fixable=False,
         severity=ir.IssueSeverity.ERROR,
-        REDACTED_VALUE"telegram_storage_error",
+        translation_key="telegram_storage_error",
     )
 
 

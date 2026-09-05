@@ -585,7 +585,7 @@ def async_create_issue_unsupported_firmware(
         is_fixable=False,
         is_persistent=False,
         severity=ir.IssueSeverity.ERROR,
-        REDACTED_VALUE"unsupported_firmware",
+        translation_key="unsupported_firmware",
         translation_placeholders={
             "device_name": entry.title,
             "ip_address": entry.data[CONF_HOST],
@@ -1069,7 +1069,7 @@ async def async_manage_coiot_issues_task(
             is_persistent=False,
             severity=ir.IssueSeverity.ERROR,
             learn_more_url="https://www.home-assistant.io/integrations/shelly/#shelly-device-configuration-generation-1",
-            REDACTED_VALUE"push_update_failure",
+            translation_key="push_update_failure",
             translation_placeholders={
                 "device_name": device.name,
                 "ip_address": device.ip_address,
@@ -1086,7 +1086,7 @@ async def async_manage_coiot_issues_task(
         is_fixable=True,
         is_persistent=False,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"coiot_unconfigured",
+        translation_key="coiot_unconfigured",
         translation_placeholders={
             "device_name": device.name,
             "ip_address": device.ip_address,

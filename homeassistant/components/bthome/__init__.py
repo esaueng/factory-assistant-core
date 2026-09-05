@@ -56,7 +56,7 @@ def _async_create_encryption_downgrade_issue(
         is_fixable=True,
         is_persistent=True,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"encryption_removed",
+        translation_key="encryption_removed",
         translation_placeholders={"name": entry.title},
         data={"entry_id": entry.entry_id},
     )

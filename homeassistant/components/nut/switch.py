@@ -39,7 +39,7 @@ async def async_setup_entry(
     switch_descriptions = [
         SwitchEntityDescription(
             key=f"outlet.{outlet_num!s}.load.poweronoff",
-            REDACTED_VALUE"outlet_number_load_poweronoff",
+            translation_key="outlet_number_load_poweronoff",
             translation_placeholders={
                 "outlet_name": status.get(f"outlet.{outlet_num!s}.name")
                 or str(outlet_num)

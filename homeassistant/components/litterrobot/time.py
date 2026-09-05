@@ -34,7 +34,7 @@ def _as_local_time(start: datetime | None) -> time | None:
 
 LITTER_ROBOT_3_SLEEP_START = RobotTimeEntityDescription[LitterRobot3](
     key="sleep_mode_start_time",
-    REDACTED_VALUE"sleep_mode_start_time",
+    translation_key="sleep_mode_start_time",
     entity_category=EntityCategory.CONFIG,
     value_fn=lambda robot: _as_local_time(robot.sleep_mode_start_time),
     set_fn=(

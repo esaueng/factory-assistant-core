@@ -144,7 +144,7 @@ async def test_home_assistant_error_subclass(hass: HomeAssistant) -> None:
         ) -> None:
             super().__init__(
                 translation_domain=translation_domain,
-                REDACTED_VALUEtranslation_key,
+                translation_key=translation_key,
                 translation_placeholders=translation_placeholders,
             )
             self.custom_arg = custom_arg
@@ -163,7 +163,7 @@ async def test_home_assistant_error_subclass(hass: HomeAssistant) -> None:
         ) -> None:
             super().__init__(
                 translation_domain=translation_domain,
-                REDACTED_VALUEtranslation_key,
+                translation_key=translation_key,
                 translation_placeholders=translation_placeholders,
             )
             self.custom_arg = custom_arg
@@ -189,7 +189,7 @@ async def test_home_assistant_error_subclass(hass: HomeAssistant) -> None:
         with pytest.raises(HomeAssistantError) as exc:
             raise _SubExceptionDefault(
                 translation_domain="test",
-                REDACTED_VALUE"bla",
+                translation_key="bla",
                 translation_placeholders={"bla": "Bla"},
             )
         assert str(exc.value) == "Bla from cache"
@@ -211,7 +211,7 @@ async def test_home_assistant_error_subclass(hass: HomeAssistant) -> None:
             raise _SubExceptionConstructor(
                 "custom arg",
                 translation_domain="test",
-                REDACTED_VALUE"bla",
+                translation_key="bla",
                 translation_placeholders={"bla": "Bla"},
             )
         assert str(exc.value) == "Bla from cache"
@@ -233,7 +233,7 @@ async def test_home_assistant_error_subclass(hass: HomeAssistant) -> None:
             raise _SubExceptionConstructorGenerate(
                 "custom arg",
                 translation_domain="test",
-                REDACTED_VALUE"bla",
+                translation_key="bla",
                 translation_placeholders={"bla": "Bla"},
             )
         assert str(exc.value) == "Bla from cache"
@@ -247,7 +247,7 @@ async def test_home_assistant_error_subclass(hass: HomeAssistant) -> None:
             raise _SubExceptionDefault(
                 ValueError("wrong value"),
                 translation_domain="test",
-                REDACTED_VALUE"bla",
+                translation_key="bla",
                 translation_placeholders={"bla": "Bla"},
             )
         assert str(exc.value) == "wrong value"
@@ -261,7 +261,7 @@ async def test_home_assistant_error_subclass(hass: HomeAssistant) -> None:
             raise _SubExceptionGenerate(
                 ValueError("wrong value"),
                 translation_domain="test",
-                REDACTED_VALUE"bla",
+                translation_key="bla",
                 translation_placeholders={"bla": "Bla"},
             )
         assert str(exc.value) == "Bla from cache"
@@ -277,7 +277,7 @@ async def test_home_assistant_error_subclass(hass: HomeAssistant) -> None:
                 "group message",
                 [ValueError("wrong value"), TypeError("wrong type")],
                 translation_domain="test",
-                REDACTED_VALUE"bla",
+                translation_key="bla",
                 translation_placeholders={"bla": "Bla"},
             )
         assert str(exc.value) == "group message (2 sub-exceptions)"
@@ -303,7 +303,7 @@ async def test_home_assistant_error_subclass(hass: HomeAssistant) -> None:
                 "group message",
                 [ValueError("wrong value"), TypeError("wrong type")],
                 translation_domain="test",
-                REDACTED_VALUE"bla",
+                translation_key="bla",
                 translation_placeholders={"bla": "Bla"},
             )
         assert str(exc.value) == "Bla from cache"

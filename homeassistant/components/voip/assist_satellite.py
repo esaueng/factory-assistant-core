@@ -228,7 +228,7 @@ class VoipAssistSatellite(VoIPEntity, AssistSatelliteEntity, RtpDatagramProtocol
         if announcement.media_id_source != "tts":
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"non_tts_announcement",
+                translation_key="non_tts_announcement",
             )
 
         self._call_end_future = asyncio.Future()

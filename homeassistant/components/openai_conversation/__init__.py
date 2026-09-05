@@ -94,7 +94,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
             breaks_in_ha_version="2026.9.0",
             is_fixable=False,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"deprecated_generate_image",
+            translation_key="deprecated_generate_image",
         )
 
         entry_id = call.data["config_entry"]
@@ -103,7 +103,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         if entry is None or entry.domain != DOMAIN:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_config_entry",
+                translation_key="invalid_config_entry",
                 translation_placeholders={"config_entry": entry_id},
             )
 
@@ -145,7 +145,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
             breaks_in_ha_version="2026.9.0",
             is_fixable=False,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"deprecated_generate_content",
+            translation_key="deprecated_generate_content",
         )
 
         entry_id = call.data["config_entry"]
@@ -154,7 +154,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         if entry is None or entry.domain != DOMAIN:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_config_entry",
+                translation_key="invalid_config_entry",
                 translation_placeholders={"config_entry": entry_id},
             )
 

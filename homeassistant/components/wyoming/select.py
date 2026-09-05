@@ -71,7 +71,7 @@ class WyomingSatelliteNoiseSuppressionLevelSelect(
 
     entity_description = SelectEntityDescription(
         key="noise_suppression_level",
-        REDACTED_VALUE"noise_suppression_level",
+        translation_key="noise_suppression_level",
         entity_category=EntityCategory.CONFIG,
     )
     _attr_should_poll = False

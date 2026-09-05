@@ -69,7 +69,7 @@ async def _async_get_requests(call: ServiceCall) -> ServiceResponse:
     except OverseerrConnectionError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"connection_error",
+            translation_key="connection_error",
             translation_placeholders={"error": str(err)},
         ) from err
     result: list[dict[str, Any]] = []

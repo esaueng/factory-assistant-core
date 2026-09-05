@@ -45,7 +45,7 @@ def get_config_entry(
         if len(entries := hass.config_entries.async_entries(DOMAIN)) != 1:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"entry_not_selected",
+                translation_key="entry_not_selected",
             )
         entry_id = entries[0].entry_id
 
@@ -68,7 +68,7 @@ async def update_domain_service(call: ServiceCall) -> None:
         ):
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
+                translation_key="update_failed",
                 translation_placeholders={
                     CONF_DOMAIN: entry.data[CONF_DOMAIN],
                 },
@@ -76,7 +76,7 @@ async def update_domain_service(call: ServiceCall) -> None:
     except ClientError as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"connection_error",
+            translation_key="connection_error",
             translation_placeholders={
                 CONF_DOMAIN: entry.data[CONF_DOMAIN],
             },

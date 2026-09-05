@@ -13,7 +13,7 @@ from .entity import SchlageEntity
 _DESCRIPTIONS = (
     SelectEntityDescription(
         key="auto_lock_time",
-        REDACTED_VALUE"auto_lock_time",
+        translation_key="auto_lock_time",
         entity_category=EntityCategory.CONFIG,
         options=[str(n) for n in AUTO_LOCK_TIMES],
     ),

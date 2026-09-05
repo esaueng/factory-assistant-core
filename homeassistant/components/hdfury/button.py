@@ -38,7 +38,7 @@ BUTTONS: tuple[HDFuryButtonEntityDescription, ...] = (
     ),
     HDFuryButtonEntityDescription(
         key="issue_hotplug",
-        REDACTED_VALUE"issue_hotplug",
+        translation_key="issue_hotplug",
         entity_category=EntityCategory.CONFIG,
         press_fn=lambda client: client.issue_hotplug(),
     ),
@@ -72,5 +72,5 @@ class HDFuryButton(HDFuryEntity, ButtonEntity):
         except HDFuryError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
             ) from error

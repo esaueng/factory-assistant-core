@@ -218,7 +218,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
                     except (JSONDecodeError, AttributeError) as err:
                         raise HomeAssistantError(
                             translation_domain=DOMAIN,
-                            REDACTED_VALUE"decoding_error",
+                            translation_key="decoding_error",
                             translation_placeholders={
                                 "request_url": request_url,
                                 "decoding_type": "JSON",
@@ -228,7 +228,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
                     except UnicodeDecodeError as err:
                         raise HomeAssistantError(
                             translation_domain=DOMAIN,
-                            REDACTED_VALUE"decoding_error",
+                            translation_key="decoding_error",
                             translation_placeholders={
                                 "request_url": request_url,
                                 "decoding_type": "text",
@@ -247,7 +247,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
             except TimeoutError as err:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"timeout",
+                    translation_key="timeout",
                     translation_placeholders={"request_url": request_url},
                 ) from err
 
@@ -255,7 +255,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
                 _LOGGER.error("Error fetching data: %s", err)
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"client_error",
+                    translation_key="client_error",
                     translation_placeholders={"request_url": request_url},
                 ) from err
 

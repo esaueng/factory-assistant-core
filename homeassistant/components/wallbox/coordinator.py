@@ -112,7 +112,7 @@ def _validate(wallbox: Wallbox) -> None:
     except requests.exceptions.HTTPError as wallbox_connection_error:
         if wallbox_connection_error.response.status_code == 403:
             raise InvalidAuth(
-                translation_domain=DOMAIN, REDACTED_VALUE"invalid_auth"
+                translation_domain=DOMAIN, translation_key="invalid_auth"
             ) from wallbox_connection_error
         raise ConnectionError from wallbox_connection_error
 
@@ -157,10 +157,10 @@ class WallboxCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                     == HTTPStatus.FORBIDDEN
                 ):
                     raise ConfigEntryAuthFailed(
-                        translation_domain=DOMAIN, REDACTED_VALUE"invalid_auth"
+                        translation_domain=DOMAIN, translation_key="invalid_auth"
                     ) from wallbox_connection_error
                 raise HomeAssistantError(
-                    translation_domain=DOMAIN, REDACTED_VALUE"api_failed"
+                    translation_domain=DOMAIN, translation_key="api_failed"
                 ) from wallbox_connection_error
             else:
                 data[CHARGER_JWT_TOKEN] = self._wallbox.jwtToken
@@ -229,10 +229,10 @@ class WallboxCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         except requests.exceptions.HTTPError as wallbox_connection_error:
             if wallbox_connection_error.response.status_code == 429:
                 raise UpdateFailed(
-                    translation_domain=DOMAIN, REDACTED_VALUE"too_many_requests"
+                    translation_domain=DOMAIN, translation_key="too_many_requests"
                 ) from wallbox_connection_error
             raise UpdateFailed(
-                translation_domain=DOMAIN, REDACTED_VALUE"api_failed"
+                translation_domain=DOMAIN, translation_key="api_failed"
             ) from wallbox_connection_error
 
     @_require_authentication
@@ -262,15 +262,15 @@ class WallboxCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             if wallbox_connection_error.response.status_code == 403:
                 raise InsufficientRights(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"insufficient_rights",
+                    translation_key="insufficient_rights",
                     hass=self.hass,
                 ) from wallbox_connection_error
             if wallbox_connection_error.response.status_code == 429:
                 raise HomeAssistantError(
-                    translation_domain=DOMAIN, REDACTED_VALUE"too_many_requests"
+                    translation_domain=DOMAIN, translation_key="too_many_requests"
                 ) from wallbox_connection_error
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"api_failed"
+                translation_domain=DOMAIN, translation_key="api_failed"
             ) from wallbox_connection_error
 
     @_require_authentication
@@ -292,15 +292,15 @@ class WallboxCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             if wallbox_connection_error.response.status_code == 403:
                 raise InsufficientRights(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"insufficient_rights",
+                    translation_key="insufficient_rights",
                     hass=self.hass,
                 ) from wallbox_connection_error
             if wallbox_connection_error.response.status_code == 429:
                 raise HomeAssistantError(
-                    translation_domain=DOMAIN, REDACTED_VALUE"too_many_requests"
+                    translation_domain=DOMAIN, translation_key="too_many_requests"
                 ) from wallbox_connection_error
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"api_failed"
+                translation_domain=DOMAIN, translation_key="api_failed"
             ) from wallbox_connection_error
 
     @_require_authentication
@@ -321,10 +321,10 @@ class WallboxCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         except requests.exceptions.HTTPError as wallbox_connection_error:
             if wallbox_connection_error.response.status_code == 429:
                 raise HomeAssistantError(
-                    translation_domain=DOMAIN, REDACTED_VALUE"too_many_requests"
+                    translation_domain=DOMAIN, translation_key="too_many_requests"
                 ) from wallbox_connection_error
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"api_failed"
+                translation_domain=DOMAIN, translation_key="api_failed"
             ) from wallbox_connection_error
 
     @_require_authentication
@@ -351,15 +351,15 @@ class WallboxCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             if wallbox_connection_error.response.status_code == 403:
                 raise InsufficientRights(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"insufficient_rights",
+                    translation_key="insufficient_rights",
                     hass=self.hass,
                 ) from wallbox_connection_error
             if wallbox_connection_error.response.status_code == 429:
                 raise HomeAssistantError(
-                    translation_domain=DOMAIN, REDACTED_VALUE"too_many_requests"
+                    translation_domain=DOMAIN, translation_key="too_many_requests"
                 ) from wallbox_connection_error
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"api_failed"
+                translation_domain=DOMAIN, translation_key="api_failed"
             ) from wallbox_connection_error
 
     @_require_authentication
@@ -378,10 +378,10 @@ class WallboxCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         except requests.exceptions.HTTPError as wallbox_connection_error:
             if wallbox_connection_error.response.status_code == 429:
                 raise HomeAssistantError(
-                    translation_domain=DOMAIN, REDACTED_VALUE"too_many_requests"
+                    translation_domain=DOMAIN, translation_key="too_many_requests"
                 ) from wallbox_connection_error
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"api_failed"
+                translation_domain=DOMAIN, translation_key="api_failed"
             ) from wallbox_connection_error
 
     @_require_authentication
@@ -398,15 +398,15 @@ class WallboxCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             if wallbox_connection_error.response.status_code == 403:
                 raise InsufficientRights(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"insufficient_rights",
+                    translation_key="insufficient_rights",
                     hass=self.hass,
                 ) from wallbox_connection_error
             if wallbox_connection_error.response.status_code == 429:
                 raise HomeAssistantError(
-                    translation_domain=DOMAIN, REDACTED_VALUE"too_many_requests"
+                    translation_domain=DOMAIN, translation_key="too_many_requests"
                 ) from wallbox_connection_error
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"api_failed"
+                translation_domain=DOMAIN, translation_key="api_failed"
             ) from wallbox_connection_error
 
     @_require_authentication
@@ -427,10 +427,10 @@ class WallboxCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         except requests.exceptions.HTTPError as wallbox_connection_error:
             if wallbox_connection_error.response.status_code == 429:
                 raise HomeAssistantError(
-                    translation_domain=DOMAIN, REDACTED_VALUE"too_many_requests"
+                    translation_domain=DOMAIN, translation_key="too_many_requests"
                 ) from wallbox_connection_error
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"api_failed"
+                translation_domain=DOMAIN, translation_key="api_failed"
             ) from wallbox_connection_error
 
     @_require_authentication
@@ -472,5 +472,5 @@ class InsufficientRights(HomeAssistantError):
             is_fixable=False,
             severity=ir.IssueSeverity.ERROR,
             learn_more_url="https://www.home-assistant.io/integrations/wallbox/#troubleshooting",
-            REDACTED_VALUE"insufficient_rights",
+            translation_key="insufficient_rights",
         )

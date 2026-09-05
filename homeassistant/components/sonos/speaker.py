@@ -1274,7 +1274,7 @@ class SonosSpeaker:
             )
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUEf"timeout_{action}",
+                translation_key=f"timeout_{action}",
                 translation_placeholders={
                     "group_description": group_description,
                 },

@@ -192,7 +192,7 @@ def setup(hass: HomeAssistant, base_config: ConfigType) -> bool:  # noqa: C901
             hass.bus.fire(EVENT_HDMI_CEC_UNAVAILABLE)
             adapter.init()
 
-    _adapter_watchdog_job = HassJob(_adapter_watchdog, REDACTED_VALUE)
+    _adapter_watchdog_job = HassJob(_adapter_watchdog, cancel_on_shutdown=True)
 
     @callback
     def _async_initialized_callback(*_: Any):

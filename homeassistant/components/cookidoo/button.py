@@ -26,7 +26,7 @@ class CookidooButtonEntityDescription(ButtonEntityDescription):
 
 TODO_CLEAR = CookidooButtonEntityDescription(
     key="todo_clear",
-    REDACTED_VALUE"todo_clear",
+    translation_key="todo_clear",
     press_fn=lambda client: client.clear_shopping_list(),
     entity_registry_enabled_default=False,
 )
@@ -66,6 +66,6 @@ class CookidooButton(CookidooBaseEntity, ButtonEntity):
         except CookidooException as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"button_clear_todo_failed",
+                translation_key="button_clear_todo_failed",
             ) from e
         await self.coordinator.async_refresh()

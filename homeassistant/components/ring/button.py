@@ -15,7 +15,7 @@ from .entity import RingEntity, exception_wrap
 PARALLEL_UPDATES = 1
 
 BUTTON_DESCRIPTION = ButtonEntityDescription(
-    key="open_door", REDACTED_VALUE"open_door"
+    key="open_door", translation_key="open_door"
 )
 
 

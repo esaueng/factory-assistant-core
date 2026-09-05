@@ -126,7 +126,7 @@ class OpenThermGatewayHub:
             },
             manufacturer="Schelte Bron",
             model="OpenTherm Gateway",
-            REDACTED_VALUE"gateway_device",
+            translation_key="gateway_device",
             sw_version=self.gw_version,
         )
         if gw_dev.sw_version != self.gw_version:
@@ -135,14 +135,14 @@ class OpenThermGatewayHub:
         boiler_device = dev_reg.async_get_or_create(
             config_entry_id=self.config_entry_id,
             identifiers={(DOMAIN, f"{self.hub_id}-{OpenThermDeviceIdentifier.BOILER}")},
-            REDACTED_VALUE"boiler_device",
+            translation_key="boiler_device",
         )
         thermostat_device = dev_reg.async_get_or_create(
             config_entry_id=self.config_entry_id,
             identifiers={
                 (DOMAIN, f"{self.hub_id}-{OpenThermDeviceIdentifier.THERMOSTAT}")
             },
-            REDACTED_VALUE"thermostat_device",
+            translation_key="thermostat_device",
         )
 
         self.hass.bus.async_listen(EVENT_HOMEASSISTANT_STOP, self.cleanup)

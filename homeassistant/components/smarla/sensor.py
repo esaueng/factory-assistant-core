@@ -38,7 +38,7 @@ class SmarlaSensorEntityDescription[_VT](
 SENSORS: list[SmarlaSensorEntityDescription[Any]] = [
     SmarlaSensorEntityDescription[list[int]](
         key="amplitude",
-        REDACTED_VALUE"amplitude",
+        translation_key="amplitude",
         service="analyser",
         property="oscillation",
         device_class=SensorDeviceClass.DISTANCE,
@@ -48,7 +48,7 @@ SENSORS: list[SmarlaSensorEntityDescription[Any]] = [
     ),
     SmarlaSensorEntityDescription[list[int]](
         key="period",
-        REDACTED_VALUE"period",
+        translation_key="period",
         service="analyser",
         property="oscillation",
         device_class=SensorDeviceClass.DURATION,
@@ -58,21 +58,21 @@ SENSORS: list[SmarlaSensorEntityDescription[Any]] = [
     ),
     SmarlaSensorEntityDescription[int](
         key="activity",
-        REDACTED_VALUE"activity",
+        translation_key="activity",
         service="analyser",
         property="activity",
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SmarlaSensorEntityDescription[int](
         key="swing_count",
-        REDACTED_VALUE"swing_count",
+        translation_key="swing_count",
         service="analyser",
         property="swing_count",
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     SmarlaSensorEntityDescription[int](
         key="total_swing_time",
-        REDACTED_VALUE"total_swing_time",
+        translation_key="total_swing_time",
         service="info",
         property="total_swing_time",
         device_class=SensorDeviceClass.DURATION,
@@ -82,7 +82,7 @@ SENSORS: list[SmarlaSensorEntityDescription[Any]] = [
     ),
     SmarlaSensorEntityDescription[SpringStatus](
         key="spring_status",
-        REDACTED_VALUE"spring_status",
+        translation_key="spring_status",
         service="analyser",
         property="spring_status",
         device_class=SensorDeviceClass.ENUM,

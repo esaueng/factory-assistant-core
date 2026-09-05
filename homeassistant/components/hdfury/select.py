@@ -27,13 +27,13 @@ class HDFurySelectEntityDescription(SelectEntityDescription):
 SELECT_PORTS: tuple[HDFurySelectEntityDescription, ...] = (
     HDFurySelectEntityDescription(
         key="portseltx0",
-        REDACTED_VALUE"portseltx0",
+        translation_key="portseltx0",
         options=list(TX0_INPUT_PORTS.keys()),
         set_value_fn=lambda coordinator, value: _set_ports(coordinator),
     ),
     HDFurySelectEntityDescription(
         key="portseltx1",
-        REDACTED_VALUE"portseltx1",
+        translation_key="portseltx1",
         options=list(TX1_INPUT_PORTS.keys()),
         set_value_fn=lambda coordinator, value: _set_ports(coordinator),
     ),
@@ -42,7 +42,7 @@ SELECT_PORTS: tuple[HDFurySelectEntityDescription, ...] = (
 
 SELECT_OPERATION_MODE: HDFurySelectEntityDescription = HDFurySelectEntityDescription(
     key="opmode",
-    REDACTED_VALUE"opmode",
+    translation_key="opmode",
     options=list(OPERATION_MODES.keys()),
     set_value_fn=lambda coordinator, value: coordinator.client.set_operation_mode(
         value
@@ -57,7 +57,7 @@ async def _set_ports(coordinator: HDFuryCoordinator) -> None:
     if tx0 is None or tx1 is None:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"tx_state_error",
+            translation_key="tx_state_error",
             translation_placeholders={"details": f"tx0={tx0}, tx1={tx1}"},
         )
 
@@ -109,7 +109,7 @@ class HDFurySelect(HDFuryEntity, SelectEntity):
         except HDFuryError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
             ) from error
 
         # Trigger HA coordinator refresh

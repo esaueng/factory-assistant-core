@@ -168,7 +168,7 @@ class ComelitHumidifierEntity(ComelitBridgeBaseEntity, HumidifierEntity):
         if not self._attr_is_on:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"humidity_while_off",
+                translation_key="humidity_while_off",
             )
 
         await self.coordinator.api.set_humidity_status(

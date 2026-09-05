@@ -47,7 +47,7 @@ class DaikinSensorEntityDescription(SensorEntityDescription):
 SENSOR_TYPES: tuple[DaikinSensorEntityDescription, ...] = (
     DaikinSensorEntityDescription(
         key=ATTR_INSIDE_TEMPERATURE,
-        REDACTED_VALUE"inside_temperature",
+        translation_key="inside_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -55,7 +55,7 @@ SENSOR_TYPES: tuple[DaikinSensorEntityDescription, ...] = (
     ),
     DaikinSensorEntityDescription(
         key=ATTR_OUTSIDE_TEMPERATURE,
-        REDACTED_VALUE"outside_temperature",
+        translation_key="outside_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -70,7 +70,7 @@ SENSOR_TYPES: tuple[DaikinSensorEntityDescription, ...] = (
     ),
     DaikinSensorEntityDescription(
         key=ATTR_TARGET_HUMIDITY,
-        REDACTED_VALUE"target_humidity",
+        translation_key="target_humidity",
         device_class=SensorDeviceClass.HUMIDITY,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
@@ -78,7 +78,7 @@ SENSOR_TYPES: tuple[DaikinSensorEntityDescription, ...] = (
     ),
     DaikinSensorEntityDescription(
         key=ATTR_TOTAL_POWER,
-        REDACTED_VALUE"compressor_estimated_power_consumption",
+        translation_key="compressor_estimated_power_consumption",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.KILO_WATT,
@@ -86,7 +86,7 @@ SENSOR_TYPES: tuple[DaikinSensorEntityDescription, ...] = (
     ),
     DaikinSensorEntityDescription(
         key=ATTR_COOL_ENERGY,
-        REDACTED_VALUE"cool_energy_consumption",
+        translation_key="cool_energy_consumption",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         entity_registry_enabled_default=False,
@@ -94,7 +94,7 @@ SENSOR_TYPES: tuple[DaikinSensorEntityDescription, ...] = (
     ),
     DaikinSensorEntityDescription(
         key=ATTR_HEAT_ENERGY,
-        REDACTED_VALUE"heat_energy_consumption",
+        translation_key="heat_energy_consumption",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         entity_registry_enabled_default=False,
@@ -102,7 +102,7 @@ SENSOR_TYPES: tuple[DaikinSensorEntityDescription, ...] = (
     ),
     DaikinSensorEntityDescription(
         key=ATTR_ENERGY_TODAY,
-        REDACTED_VALUE"energy_consumption",
+        translation_key="energy_consumption",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
@@ -110,7 +110,7 @@ SENSOR_TYPES: tuple[DaikinSensorEntityDescription, ...] = (
     ),
     DaikinSensorEntityDescription(
         key=ATTR_COMPRESSOR_FREQUENCY,
-        REDACTED_VALUE"compressor_frequency",
+        translation_key="compressor_frequency",
         device_class=SensorDeviceClass.FREQUENCY,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfFrequency.HERTZ,
@@ -119,7 +119,7 @@ SENSOR_TYPES: tuple[DaikinSensorEntityDescription, ...] = (
     ),
     DaikinSensorEntityDescription(
         key=ATTR_TOTAL_ENERGY_TODAY,
-        REDACTED_VALUE"compressor_energy_consumption",
+        translation_key="compressor_energy_consumption",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,

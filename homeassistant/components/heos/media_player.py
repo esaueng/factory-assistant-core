@@ -149,7 +149,7 @@ def catch_action_error[**_P, _R](
             except (HeosError, ValueError) as ex:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"action_error",
+                    translation_key="action_error",
                     translation_placeholders={"action": action, "error": str(ex)},
                 ) from ex
 
@@ -377,7 +377,7 @@ class HeosMediaPlayer(CoordinatorEntity[HeosCoordinator], MediaPlayerEntity):
 
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unknown_source",
+            translation_key="unknown_source",
             translation_placeholders={"source": source},
         )
 
@@ -404,7 +404,7 @@ class HeosMediaPlayer(CoordinatorEntity[HeosCoordinator], MediaPlayerEntity):
         if self._player.group_id is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"entity_not_grouped",
+                translation_key="entity_not_grouped",
                 translation_placeholders={"entity_id": self.entity_id},
             )
         await self.coordinator.heos.set_group_volume(
@@ -417,7 +417,7 @@ class HeosMediaPlayer(CoordinatorEntity[HeosCoordinator], MediaPlayerEntity):
         if self._player.group_id is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"entity_not_grouped",
+                translation_key="entity_not_grouped",
                 translation_placeholders={"entity_id": self.entity_id},
             )
         await self.coordinator.heos.group_volume_down(self._player.group_id)
@@ -428,7 +428,7 @@ class HeosMediaPlayer(CoordinatorEntity[HeosCoordinator], MediaPlayerEntity):
         if self._player.group_id is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"entity_not_grouped",
+                translation_key="entity_not_grouped",
                 translation_placeholders={"entity_id": self.entity_id},
             )
         await self.coordinator.heos.group_volume_up(self._player.group_id)
@@ -444,13 +444,13 @@ class HeosMediaPlayer(CoordinatorEntity[HeosCoordinator], MediaPlayerEntity):
             if entity_entry is None:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"entity_not_found",
+                    translation_key="entity_not_found",
                     translation_placeholders={"entity_id": entity_id},
                 )
             if entity_entry.platform != DOMAIN:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"not_heos_media_player",
+                    translation_key="not_heos_media_player",
                     translation_placeholders={"entity_id": entity_id},
                 )
             player_id = int(entity_entry.unique_id)
@@ -647,7 +647,7 @@ class HeosMediaPlayer(CoordinatorEntity[HeosCoordinator], MediaPlayerEntity):
             return await self._async_browse_media_source(media_content_id)
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unsupported_media_content_id",
+            translation_key="unsupported_media_content_id",
             translation_placeholders={"media_content_id": media_content_id},
         )
 

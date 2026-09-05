@@ -32,7 +32,7 @@ class LinkPlayButtonEntityDescription(ButtonEntityDescription):
 BUTTON_TYPES: tuple[LinkPlayButtonEntityDescription, ...] = (
     LinkPlayButtonEntityDescription(
         key="timesync",
-        REDACTED_VALUE"timesync",
+        translation_key="timesync",
         remote_function=lambda linkplay_bridge: linkplay_bridge.device.timesync(),
         entity_category=EntityCategory.CONFIG,
     ),

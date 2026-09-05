@@ -39,13 +39,13 @@ async def async_setup_entry(hass: HomeAssistant, entry: NAMConfigEntry) -> bool:
     except (ApiError, ClientError) as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_communication_error",
+            translation_key="device_communication_error",
             translation_placeholders={"device": entry.title},
         ) from err
     except AuthFailedError as err:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"auth_error",
+            translation_key="auth_error",
             translation_placeholders={"device": entry.title},
         ) from err
 

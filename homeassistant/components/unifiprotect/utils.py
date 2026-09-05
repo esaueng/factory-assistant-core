@@ -160,12 +160,12 @@ def async_ufp_instance_command[_EntityT, **_P](
         except NotAuthorized as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"not_authorized",
+                translation_key="not_authorized",
             ) from err
         except ClientError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_error",
+                translation_key="command_error",
                 translation_placeholders={"error": str(err)},
             ) from err
 

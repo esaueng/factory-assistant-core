@@ -40,14 +40,14 @@ class SpeedtestSensorEntityDescription(SensorEntityDescription):
 SENSOR_TYPES: tuple[SpeedtestSensorEntityDescription, ...] = (
     SpeedtestSensorEntityDescription(
         key="ping",
-        REDACTED_VALUE"ping",
+        translation_key="ping",
         native_unit_of_measurement=UnitOfTime.MILLISECONDS,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.DURATION,
     ),
     SpeedtestSensorEntityDescription(
         key="download",
-        REDACTED_VALUE"download",
+        translation_key="download",
         native_unit_of_measurement=UnitOfDataRate.MEGABITS_PER_SECOND,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.DATA_RATE,
@@ -55,7 +55,7 @@ SENSOR_TYPES: tuple[SpeedtestSensorEntityDescription, ...] = (
     ),
     SpeedtestSensorEntityDescription(
         key="upload",
-        REDACTED_VALUE"upload",
+        translation_key="upload",
         native_unit_of_measurement=UnitOfDataRate.MEGABITS_PER_SECOND,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.DATA_RATE,

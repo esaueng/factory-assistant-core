@@ -88,7 +88,7 @@ class MyUplinkSelect(MyUplinkEntity, SelectEntity):
         except ClientError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_select_error",
+                translation_key="set_select_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                     "option": self.options_rev[option],

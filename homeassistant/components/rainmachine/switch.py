@@ -154,14 +154,14 @@ TYPE_RESTRICTIONS_HOT_DAYS_EXTRA_WATERING = "hot_days_extra_watering"
 RESTRICTIONS_SWITCH_DESCRIPTIONS = (
     RainMachineRestrictionSwitchDescription(
         key=TYPE_RESTRICTIONS_FREEZE_PROTECT_ENABLED,
-        REDACTED_VALUETYPE_RESTRICTIONS_FREEZE_PROTECT_ENABLED,
+        translation_key=TYPE_RESTRICTIONS_FREEZE_PROTECT_ENABLED,
         icon="mdi:snowflake-alert",
         api_category=DATA_RESTRICTIONS_UNIVERSAL,
         data_key="freezeProtectEnabled",
     ),
     RainMachineRestrictionSwitchDescription(
         key=TYPE_RESTRICTIONS_HOT_DAYS_EXTRA_WATERING,
-        REDACTED_VALUETYPE_RESTRICTIONS_HOT_DAYS_EXTRA_WATERING,
+        translation_key=TYPE_RESTRICTIONS_HOT_DAYS_EXTRA_WATERING,
         icon="mdi:heat-wave",
         api_category=DATA_RESTRICTIONS_UNIVERSAL,
         data_key="hotDaysExtraWatering",

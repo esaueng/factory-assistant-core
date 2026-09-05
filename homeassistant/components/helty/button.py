@@ -42,6 +42,6 @@ class HeltyResetFilterButton(HeltyEntity, ButtonEntity):
         except HeltyError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"reset_filter_failed",
+                translation_key="reset_filter_failed",
             ) from err
         await self.coordinator.async_request_refresh()

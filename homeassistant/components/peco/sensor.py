@@ -31,14 +31,14 @@ PARALLEL_UPDATES: Final = 0
 SENSOR_LIST: tuple[PECOSensorEntityDescription, ...] = (
     PECOSensorEntityDescription(
         key="customers_out",
-        REDACTED_VALUE"customers_out",
+        translation_key="customers_out",
         value_fn=lambda data: int(data.outages.customers_out),
         attribute_fn=lambda data: {},
         state_class=SensorStateClass.MEASUREMENT,
     ),
     PECOSensorEntityDescription(
         key="percent_customers_out",
-        REDACTED_VALUE"percent_customers_out",
+        translation_key="percent_customers_out",
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda data: int(data.outages.percent_customers_out),
         attribute_fn=lambda data: {},
@@ -46,21 +46,21 @@ SENSOR_LIST: tuple[PECOSensorEntityDescription, ...] = (
     ),
     PECOSensorEntityDescription(
         key="outage_count",
-        REDACTED_VALUE"outage_count",
+        translation_key="outage_count",
         value_fn=lambda data: int(data.outages.outage_count),
         attribute_fn=lambda data: {},
         state_class=SensorStateClass.MEASUREMENT,
     ),
     PECOSensorEntityDescription(
         key="customers_served",
-        REDACTED_VALUE"customers_served",
+        translation_key="customers_served",
         value_fn=lambda data: int(data.outages.customers_served),
         attribute_fn=lambda data: {},
         state_class=SensorStateClass.MEASUREMENT,
     ),
     PECOSensorEntityDescription(
         key="map_alert",
-        REDACTED_VALUE"map_alert",
+        translation_key="map_alert",
         value_fn=lambda data: str(data.alerts.alert_title),
         attribute_fn=lambda data: {ATTR_CONTENT: data.alerts.alert_content},
     ),

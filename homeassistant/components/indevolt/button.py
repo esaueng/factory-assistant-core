@@ -26,7 +26,7 @@ class IndevoltButtonEntityDescription(ButtonEntityDescription):
 BUTTONS: Final = (
     IndevoltButtonEntityDescription(
         key="stop",
-        REDACTED_VALUE"stop",
+        translation_key="stop",
     ),
 )
 

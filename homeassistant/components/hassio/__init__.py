@@ -199,7 +199,7 @@ def _check_deprecated_setup(hass: HomeAssistant) -> None:
             learn_more_url=DEPRECATION_URL,
             is_fixable=False,
             severity=IssueSeverity.WARNING,
-            REDACTED_VALUEissue_id,
+            translation_key=issue_id,
             translation_placeholders={
                 "installation_guide": "https://www.home-assistant.io/installation/",
             },
@@ -221,7 +221,7 @@ def _check_deprecated_setup(hass: HomeAssistant) -> None:
             learn_more_url=DEPRECATION_URL,
             is_fixable=False,
             severity=IssueSeverity.WARNING,
-            REDACTED_VALUEissue_id,
+            translation_key=issue_id,
             translation_placeholders={
                 "installation_type": "OS" if is_haos else "Supervised",
                 "arch": arch,
@@ -299,7 +299,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     except SupervisorError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"supervisor_not_connected",
+            translation_key="supervisor_not_connected",
         ) from err
 
     # During onboarding, Supervisor may be out of date. Attempt an update now
@@ -316,12 +316,12 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         except SupervisorError as err:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"supervisor_not_connected",
+                translation_key="supervisor_not_connected",
             ) from err
         else:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"supervisor_update_pending",
+                translation_key="supervisor_update_pending",
             )
 
     # Get or create a refresh token for the Supervisor user

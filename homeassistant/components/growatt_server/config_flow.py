@@ -192,7 +192,7 @@ class GrowattServerConfigFlow(ConfigFlow, domain=DOMAIN):
                     vol.Required(CONF_REGION, default=current_region): SelectSelector(
                         SelectSelectorConfig(
                             options=list(SERVER_URLS_NAMES.keys()),
-                            REDACTED_VALUE"region",
+                            translation_key="region",
                         )
                     ),
                 }
@@ -204,7 +204,7 @@ class GrowattServerConfigFlow(ConfigFlow, domain=DOMAIN):
                     vol.Required(CONF_REGION, default=current_region): SelectSelector(
                         SelectSelectorConfig(
                             options=list(SERVER_URLS_NAMES.keys()),
-                            REDACTED_VALUE"region",
+                            translation_key="region",
                         )
                     ),
                 }
@@ -327,7 +327,7 @@ class GrowattServerConfigFlow(ConfigFlow, domain=DOMAIN):
                 vol.Required(CONF_REGION, default=DEFAULT_URL): SelectSelector(
                     SelectSelectorConfig(
                         options=list(SERVER_URLS_NAMES.keys()),
-                        REDACTED_VALUE"region",
+                        translation_key="region",
                     )
                 ),
             }
@@ -348,7 +348,7 @@ class GrowattServerConfigFlow(ConfigFlow, domain=DOMAIN):
                 vol.Required(CONF_REGION, default=DEFAULT_URL): SelectSelector(
                     SelectSelectorConfig(
                         options=list(SERVER_URLS_NAMES.keys()),
-                        REDACTED_VALUE"region",
+                        translation_key="region",
                     )
                 ),
             }

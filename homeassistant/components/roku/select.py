@@ -87,7 +87,7 @@ class RokuSelectEntityDescription(SelectEntityDescription):
 ENTITIES: tuple[RokuSelectEntityDescription, ...] = (
     RokuSelectEntityDescription(
         key="application",
-        REDACTED_VALUE"application",
+        translation_key="application",
         set_fn=_launch_application,
         value_fn=_get_application_name,
         options_fn=_get_applications,
@@ -97,7 +97,7 @@ ENTITIES: tuple[RokuSelectEntityDescription, ...] = (
 
 CHANNEL_ENTITY = RokuSelectEntityDescription(
     key="channel",
-    REDACTED_VALUE"channel",
+    translation_key="channel",
     set_fn=_tune_channel,
     value_fn=_get_channel_name,
     options_fn=_get_channels,

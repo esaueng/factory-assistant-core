@@ -27,17 +27,17 @@ class OSOEnergyBinarySensorEntityDescription(BinarySensorEntityDescription):
 SENSOR_TYPES: dict[str, OSOEnergyBinarySensorEntityDescription] = {
     "power_save": OSOEnergyBinarySensorEntityDescription(
         key="power_save",
-        REDACTED_VALUE"power_save",
+        translation_key="power_save",
         value_fn=lambda entity_data: entity_data.state,
     ),
     "extra_energy": OSOEnergyBinarySensorEntityDescription(
         key="extra_energy",
-        REDACTED_VALUE"extra_energy",
+        translation_key="extra_energy",
         value_fn=lambda entity_data: entity_data.state,
     ),
     "heater_state": OSOEnergyBinarySensorEntityDescription(
         key="heating",
-        REDACTED_VALUE"heating",
+        translation_key="heating",
         value_fn=lambda entity_data: entity_data.state,
     ),
 }

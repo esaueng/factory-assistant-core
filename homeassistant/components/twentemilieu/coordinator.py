@@ -54,10 +54,10 @@ class TwenteMilieuDataUpdateCoordinator(
         except TwenteMilieuConnectionError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
             ) from err
         except TwenteMilieuError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unknown_error",
+                translation_key="unknown_error",
             ) from err

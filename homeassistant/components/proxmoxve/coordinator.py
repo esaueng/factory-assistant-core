@@ -107,41 +107,41 @@ class ProxmoxCoordinator(DataUpdateCoordinator[dict[str, ProxmoxNodeData]]):
         except AuthenticationError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_auth",
+                translation_key="invalid_auth",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except SSLError as err:
             raise ConfigEntryError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"ssl_error",
+                translation_key="ssl_error",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except ConnectTimeout as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"timeout_connect",
+                translation_key="timeout_connect",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except ProxmoxServerError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_error_details",
+                translation_key="api_error_details",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except ProxmoxPermissionsError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"permissions_error",
+                translation_key="permissions_error",
             ) from err
         except ProxmoxNodesNotFoundError as err:
             raise ConfigEntryError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_nodes_found",
+                translation_key="no_nodes_found",
             ) from err
         except requests.exceptions.ConnectionError as err:
             raise ConfigEntryError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
                 translation_placeholders={"error": repr(err)},
             ) from err
 
@@ -153,30 +153,30 @@ class ProxmoxCoordinator(DataUpdateCoordinator[dict[str, ProxmoxNodeData]]):
         except AuthenticationError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_auth",
+                translation_key="invalid_auth",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except SSLError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"ssl_error",
+                translation_key="ssl_error",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except ConnectTimeout as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"timeout_connect",
+                translation_key="timeout_connect",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except ResourceException as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_nodes_found",
+                translation_key="no_nodes_found",
             ) from err
         except requests.exceptions.ConnectionError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
                 translation_placeholders={"error": repr(err)},
             ) from err
 

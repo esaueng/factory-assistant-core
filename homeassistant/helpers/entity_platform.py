@@ -111,7 +111,7 @@ def async_create_platform_config_not_supported_issue(
         issue_domain=integration_domain,
         learn_more_url=learn_more_url,
         severity=IssueSeverity.ERROR,
-        REDACTED_VALUEf"platform_{'config' if yaml_config_under_integration_supported else 'setup'}_not_supported",
+        translation_key=f"platform_{'config' if yaml_config_under_integration_supported else 'setup'}_not_supported",
         translation_placeholders={
             "platform_domain": platform_domain,
             "integration_domain": integration_domain,
@@ -977,7 +977,7 @@ class EntityPlatform:
                 original_name=entity_name,
                 suggested_object_id=suggested_object_id,
                 supported_features=entity.supported_features,
-                REDACTED_VALUEentity.translation_key,
+                translation_key=entity.translation_key,
                 unit_of_measurement=entity.unit_of_measurement,
             )
 

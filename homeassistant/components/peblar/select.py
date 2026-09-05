@@ -29,7 +29,7 @@ class PeblarSelectEntityDescription(SelectEntityDescription):
 DESCRIPTIONS = [
     PeblarSelectEntityDescription(
         key="smart_charging",
-        REDACTED_VALUE"smart_charging",
+        translation_key="smart_charging",
         entity_category=EntityCategory.CONFIG,
         options=[
             "default",

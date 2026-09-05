@@ -28,13 +28,13 @@ ENTITY_DESCRIPTIONS: tuple[RensonTimeEntityDescription, ...] = (
     RensonTimeEntityDescription(
         key="day_time",
         entity_category=EntityCategory.CONFIG,
-        REDACTED_VALUE"day_time",
+        translation_key="day_time",
         action_fn=lambda api, time: api.set_day_time(time),
         field=DAYTIME_FIELD,
     ),
     RensonTimeEntityDescription(
         key="night_time",
-        REDACTED_VALUE"night_time",
+        translation_key="night_time",
         entity_category=EntityCategory.CONFIG,
         action_fn=lambda api, time: api.set_night_time(time),
         field=NIGHTTIME_FIELD,

@@ -34,7 +34,7 @@ USER_SCHEMA = vol.Schema(
             SelectSelectorConfig(
                 options=OPTION_TYPES,
                 mode=SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUE"display_options",
+                translation_key="display_options",
             )
         ),
     }

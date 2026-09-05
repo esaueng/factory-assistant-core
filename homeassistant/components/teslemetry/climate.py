@@ -395,7 +395,7 @@ class TeslemetryCabinOverheatProtectionEntity(TeslemetryRootEntity, ClimateEntit
             if (cop_mode := COP_TEMPERATURES.get(temp)) is None:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"invalid_cop_temp",
+                    translation_key="invalid_cop_temp",
                 )
             self.raise_for_scope(Scope.VEHICLE_CMDS)
 

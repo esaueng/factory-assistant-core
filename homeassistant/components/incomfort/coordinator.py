@@ -106,28 +106,28 @@ class InComfortDataCoordinator(DataUpdateCoordinator[InComfortData]):
         except InvalidGateway as exc:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_auth",
+                translation_key="invalid_auth",
             ) from exc
         except TimeoutError as exc:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"timeout_error",
+                translation_key="timeout_error",
             ) from exc
         except ClientResponseError as exc:
             if exc.status == HTTPStatus.UNAUTHORIZED:
                 raise ConfigEntryAuthFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"invalid_auth",
+                    translation_key="invalid_auth",
                 ) from exc
             _LOGGER.exception("Error communicating with InComfort gateway")
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unknown",
+                translation_key="unknown",
             ) from exc
         except InvalidHeaterList as exc:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_heaters",
+                translation_key="no_heaters",
             ) from exc
 
         incomfort_data = InComfortData(

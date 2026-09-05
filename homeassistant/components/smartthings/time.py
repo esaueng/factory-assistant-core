@@ -25,13 +25,13 @@ class SmartThingsTimeEntityDescription(TimeEntityDescription):
 DND_ENTITIES = [
     SmartThingsTimeEntityDescription(
         key=Attribute.START_TIME,
-        REDACTED_VALUE"do_not_disturb_start_time",
+        translation_key="do_not_disturb_start_time",
         attribute=Attribute.START_TIME,
         entity_category=EntityCategory.CONFIG,
     ),
     SmartThingsTimeEntityDescription(
         key=Attribute.END_TIME,
-        REDACTED_VALUE"do_not_disturb_end_time",
+        translation_key="do_not_disturb_end_time",
         attribute=Attribute.END_TIME,
         entity_category=EntityCategory.CONFIG,
     ),

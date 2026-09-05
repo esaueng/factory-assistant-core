@@ -163,7 +163,7 @@ RELAY_SWITCH_2PM_ELECTRICITY_DESCRIPTION = SwitchbotCloudSensorEntityDescription
 
 LIGHTLEVEL_DESCRIPTION = SwitchbotCloudSensorEntityDescription(
     key="lightLevel",
-    REDACTED_VALUE"light_level",
+    translation_key="light_level",
     state_class=SensorStateClass.MEASUREMENT,
 )
 
@@ -171,7 +171,7 @@ LIGHTLEVEL_DESCRIPTION = SwitchbotCloudSensorEntityDescription(
 LOCK_SENSOR_TYPE_LOCK_STATE_DESCRIPTION = SwitchbotCloudSensorEntityDescription(
     key=LOCK_SENSOR_TYPE_LOCK_STATE,
     device_class=SensorDeviceClass.ENUM,
-    REDACTED_VALUE"lock_state",
+    translation_key="lock_state",
     options=[
         value.name.lower() for value in SwitchbotCloudDeviceLockState.get_states()
     ],

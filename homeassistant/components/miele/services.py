@@ -69,7 +69,7 @@ async def _extract_config_entry(service_call: ServiceCall) -> MieleConfigEntry:
     if not target_entries:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_target",
+            translation_key="invalid_target",
         )
     return target_entries[0]
 
@@ -91,7 +91,7 @@ async def _get_serial_number(call: ServiceCall) -> str:
     if serial_number is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_target",
+            translation_key="invalid_target",
         )
     return serial_number
 
@@ -110,7 +110,7 @@ async def set_program(call: ServiceCall) -> None:
     except ClientResponseError as ex:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"set_program_error",
+            translation_key="set_program_error",
             translation_placeholders={
                 "status": str(ex.status),
                 "message": ex.message,
@@ -140,7 +140,7 @@ async def set_program_oven(call: ServiceCall) -> None:
     except ClientResponseError as ex:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"set_program_oven_error",
+            translation_key="set_program_oven_error",
             translation_placeholders={
                 "status": str(ex.status),
                 "message": ex.message,
@@ -160,7 +160,7 @@ async def get_programs(call: ServiceCall) -> ServiceResponse:
     except ClientResponseError as ex:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"get_programs_error",
+            translation_key="get_programs_error",
             translation_placeholders={
                 "status": str(ex.status),
                 "message": ex.message,

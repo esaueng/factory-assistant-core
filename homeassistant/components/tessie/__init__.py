@@ -79,7 +79,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: TessieConfigEntry) -> bo
     except TeslaFleetError as e:
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect",
+            translation_key="cannot_connect",
         ) from e
 
     vehicles: list[TessieVehicleData] = []

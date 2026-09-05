@@ -222,7 +222,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: Go2RtcConfigEntry) -> bo
                 is_fixable=False,
                 is_persistent=False,
                 severity=ir.IssueSeverity.WARNING,
-                REDACTED_VALUE"recommended_version",
+                translation_key="recommended_version",
                 translation_placeholders={
                     "recommended_version": RECOMMENDED_VERSION,
                     "current_version": str(version),

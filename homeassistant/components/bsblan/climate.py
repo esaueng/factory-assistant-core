@@ -185,6 +185,6 @@ class BSBLANClimate(BSBLanCircuitEntity, ClimateEntity):
         except BSBLANError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_data_error",
+                translation_key="set_data_error",
             ) from err
         await self.coordinator.async_request_refresh()

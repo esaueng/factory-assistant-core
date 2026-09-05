@@ -120,7 +120,7 @@ class UnifiLightEntityDescription[HandlerT: APIHandler, ApiItemT: ApiItem](
 ENTITY_DESCRIPTIONS: tuple[UnifiLightEntityDescription, ...] = (
     UnifiLightEntityDescription[Devices, Device](
         key="LED control",
-        REDACTED_VALUE"led_control",
+        translation_key="led_control",
         entity_category=EntityCategory.CONFIG,
         allowed_fn=lambda hub, obj_id: True,
         api_handler_fn=lambda api: api.devices,
@@ -180,7 +180,7 @@ class UnifiLightEntity[HandlerT: APIHandler, ApiItemT: ApiItem](
         except AiounifiException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"action_request_failed",
+                translation_key="action_request_failed",
             ) from err
 
     async def async_turn_off(self, **kwargs: Any) -> None:
@@ -192,7 +192,7 @@ class UnifiLightEntity[HandlerT: APIHandler, ApiItemT: ApiItem](
         except AiounifiException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"action_request_failed",
+                translation_key="action_request_failed",
             ) from err
 
     @callback

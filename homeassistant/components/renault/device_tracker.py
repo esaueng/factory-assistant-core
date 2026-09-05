@@ -62,6 +62,6 @@ DEVICE_TRACKER_TYPES: tuple[RenaultTrackerEntityDescription, ...] = (
     RenaultTrackerEntityDescription(
         key="location",
         coordinator="location",
-        REDACTED_VALUE"location",
+        translation_key="location",
     ),
 )

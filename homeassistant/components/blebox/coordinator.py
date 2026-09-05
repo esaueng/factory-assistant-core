@@ -46,6 +46,6 @@ class BleBoxCoordinator(DataUpdateCoordinator[None]):
         except Error as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"data_update_failed",
+                translation_key="data_update_failed",
                 translation_placeholders={"error": str(err)},
             ) from err

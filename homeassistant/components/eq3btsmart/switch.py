@@ -46,19 +46,19 @@ class Eq3SwitchEntityDescription(SwitchEntityDescription):
 SWITCH_ENTITY_DESCRIPTIONS = [
     Eq3SwitchEntityDescription(
         key=ENTITY_KEY_LOCK,
-        REDACTED_VALUEENTITY_KEY_LOCK,
+        translation_key=ENTITY_KEY_LOCK,
         toggle_func=lambda thermostat: thermostat.async_set_locked,
         value_func=lambda status: status.is_locked,
     ),
     Eq3SwitchEntityDescription(
         key=ENTITY_KEY_BOOST,
-        REDACTED_VALUEENTITY_KEY_BOOST,
+        translation_key=ENTITY_KEY_BOOST,
         toggle_func=lambda thermostat: thermostat.async_set_boost,
         value_func=lambda status: status.is_boost,
     ),
     Eq3SwitchEntityDescription(
         key=ENTITY_KEY_AWAY,
-        REDACTED_VALUEENTITY_KEY_AWAY,
+        translation_key=ENTITY_KEY_AWAY,
         toggle_func=lambda thermostat: partial(async_set_away, thermostat),
         value_func=lambda status: status.is_away,
     ),

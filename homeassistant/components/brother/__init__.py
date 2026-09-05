@@ -38,7 +38,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: BrotherConfigEntry) -> b
     except (ConnectionError, SnmpError, TimeoutError) as error:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect",
+            translation_key="cannot_connect",
             translation_placeholders={
                 "device": entry.title,
                 "error": repr(error),
@@ -51,7 +51,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: BrotherConfigEntry) -> b
     if brother.serial.lower() != entry.unique_id:
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"serial_mismatch",
+            translation_key="serial_mismatch",
             translation_placeholders={
                 "device": entry.title,
             },

@@ -31,7 +31,7 @@ class ZimiSensorEntityDescription(SensorEntityDescription):
 GARAGE_SENSOR_DESCRIPTIONS: tuple[ZimiSensorEntityDescription, ...] = (
     ZimiSensorEntityDescription(
         key="door_temperature",
-        REDACTED_VALUE"door_temperature",
+        translation_key="door_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         value_fn=lambda device: device.door_temp,

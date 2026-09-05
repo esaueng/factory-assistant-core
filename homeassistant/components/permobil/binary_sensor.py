@@ -30,7 +30,7 @@ BINARY_SENSOR_DESCRIPTIONS: tuple[PermobilBinarySensorEntityDescription, ...] = 
         is_on_fn=lambda data: data.battery[BATTERY_CHARGING[0]],
         available_fn=lambda data: BATTERY_CHARGING[0] in data.battery,
         key="is_charging",
-        REDACTED_VALUE"is_charging",
+        translation_key="is_charging",
     ),
 )
 

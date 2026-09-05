@@ -50,12 +50,12 @@ class UptimeRobotDataUpdateCoordinator(
         except UptimeRobotAuthenticationException as exception:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_authentication_exception",
+                translation_key="api_authentication_exception",
             ) from exception
         except UptimeRobotException as exception:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_generic_exception",
+                translation_key="api_generic_exception",
                 translation_placeholders={"error": "Generic UptimeRobot exception"},
             ) from exception
 

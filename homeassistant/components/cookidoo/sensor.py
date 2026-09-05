@@ -44,7 +44,7 @@ class CookidooSensor(StrEnum):
 SENSOR_DESCRIPTIONS: tuple[CookidooSensorEntityDescription, ...] = (
     CookidooSensorEntityDescription(
         key=CookidooSensor.SUBSCRIPTION,
-        REDACTED_VALUECookidooSensor.SUBSCRIPTION,
+        translation_key=CookidooSensor.SUBSCRIPTION,
         value_fn=(
             lambda data: (
                 SUBSCRIPTION_MAP[data.subscription.type]
@@ -58,7 +58,7 @@ SENSOR_DESCRIPTIONS: tuple[CookidooSensorEntityDescription, ...] = (
     ),
     CookidooSensorEntityDescription(
         key=CookidooSensor.EXPIRES,
-        REDACTED_VALUECookidooSensor.EXPIRES,
+        translation_key=CookidooSensor.EXPIRES,
         value_fn=(
             lambda data: (
                 dt_util.parse_datetime(data.subscription.expires)

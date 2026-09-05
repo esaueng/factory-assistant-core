@@ -75,16 +75,16 @@ class DataGrandLyonTclCoordinator(DataUpdateCoordinator[dict[str, list[TclPassag
             if err.status in (401, 403):
                 raise ConfigEntryAuthFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"auth_failed",
+                    translation_key="auth_failed",
                 ) from err
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed_tcl",
+                translation_key="update_failed_tcl",
             ) from err
         except (ClientError, TimeoutError) as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed_tcl",
+                translation_key="update_failed_tcl",
             ) from err
 
         lines_stops = [
@@ -141,16 +141,16 @@ class DataGrandLyonVelovCoordinator(DataUpdateCoordinator[dict[str, VelovStation
             if err.status in (401, 403):
                 raise ConfigEntryAuthFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"auth_failed",
+                    translation_key="auth_failed",
                 ) from err
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed_velov",
+                translation_key="update_failed_velov",
             ) from err
         except (ClientError, TimeoutError) as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed_velov",
+                translation_key="update_failed_velov",
             ) from err
 
         station_ids = [subentry.data[CONF_STATION_ID] for subentry in velov_subentries]

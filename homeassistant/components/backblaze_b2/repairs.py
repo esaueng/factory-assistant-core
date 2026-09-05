@@ -36,7 +36,7 @@ def _create_issue(
         is_fixable=False,
         issue_domain=DOMAIN,
         severity=ir.IssueSeverity.ERROR,
-        REDACTED_VALUEissue_type,
+        translation_key=issue_type,
         translation_placeholders={
             "brand_name": "Backblaze B2",
             "title": entry.title,

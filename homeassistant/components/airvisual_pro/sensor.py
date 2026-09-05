@@ -51,7 +51,7 @@ SENSOR_DESCRIPTIONS = (
                 f"Outdoor {'AQI(US)' if settings['is_aqi_usa'] else 'AQI(CN)'}", -1
             )
         ),
-        REDACTED_VALUE"outdoor_air_quality_index",
+        translation_key="outdoor_air_quality_index",
     ),
     AirVisualProMeasurementDescription(
         key="battery_level",
@@ -79,7 +79,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     AirVisualProMeasurementDescription(
         key="particulate_matter_0_1",
-        REDACTED_VALUE"pm01",
+        translation_key="pm01",
         native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda settings, status, measurements, history: measurements["pm0_1"],

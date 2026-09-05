@@ -232,21 +232,21 @@ async def _async_setup_block_entry(
                 await device.shutdown()
                 raise ConfigEntryNotReady(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"firmware_unsupported",
+                    translation_key="firmware_unsupported",
                     translation_placeholders={"device": entry.title},
                 )
         except (DeviceConnectionError, MacAddressMismatchError) as err:
             await device.shutdown()
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_communication_error",
+                translation_key="device_communication_error",
                 translation_placeholders={"device": entry.title},
             ) from err
         except InvalidAuthError as err:
             await device.shutdown()
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_error",
+                translation_key="auth_error",
                 translation_placeholders={"device": entry.title},
             ) from err
 
@@ -336,7 +336,7 @@ async def _async_setup_rpc_entry(hass: HomeAssistant, entry: ShellyConfigEntry) 
                 await device.shutdown()
                 raise ConfigEntryNotReady(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"firmware_unsupported",
+                    translation_key="firmware_unsupported",
                     translation_placeholders={"device": entry.title},
                 )
             runtime_data.rpc_zigbee_firmware = device.zigbee_firmware
@@ -350,14 +350,14 @@ async def _async_setup_rpc_entry(hass: HomeAssistant, entry: ShellyConfigEntry) 
             await device.shutdown()
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_communication_error",
+                translation_key="device_communication_error",
                 translation_placeholders={"device": entry.title},
             ) from err
         except InvalidAuthError as err:
             await device.shutdown()
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_error",
+                translation_key="auth_error",
                 translation_placeholders={"device": entry.title},
             ) from err
 

@@ -34,7 +34,7 @@ async def async_setup_entry(
 
     entity_description = BinarySensorEntityDescription(
         key=PinecilBinarySensor.TIP_CONNECTED,
-        REDACTED_VALUEPinecilBinarySensor.TIP_CONNECTED,
+        translation_key=PinecilBinarySensor.TIP_CONNECTED,
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
     )
 

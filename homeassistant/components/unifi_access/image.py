@@ -78,7 +78,7 @@ class UnifiAccessDoorImageEntity(UnifiAccessEntity, ImageEntity):
             except UnifiAccessError as err:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"fetch_thumbnail_failed",
+                    translation_key="fetch_thumbnail_failed",
                 ) from err
         return None
 

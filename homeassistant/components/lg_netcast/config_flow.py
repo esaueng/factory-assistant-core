@@ -123,7 +123,7 @@ class LGNetCast(config_entries.ConfigFlow, domain=DOMAIN):
             self.hass,
             self.async_display_access_token,
             DISPLAY_ACCESS_TOKEN_INTERVAL,
-            REDACTED_VALUE,
+            cancel_on_shutdown=True,
         )
 
         return self.async_show_form(

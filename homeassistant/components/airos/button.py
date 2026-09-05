@@ -59,11 +59,11 @@ class AirOSRebootButton(AirOSEntity, ButtonEntity):
         except AirOSException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
             ) from err
 
         if not result:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"reboot_failed",
+                translation_key="reboot_failed",
             ) from None

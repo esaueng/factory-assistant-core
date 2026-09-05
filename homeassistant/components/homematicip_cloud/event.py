@@ -32,7 +32,7 @@ class HmipEventEntityDescription(EventEntityDescription):
 EVENT_DESCRIPTIONS: tuple[HmipEventEntityDescription, ...] = (
     HmipEventEntityDescription(
         key="doorbell",
-        REDACTED_VALUE"doorbell",
+        translation_key="doorbell",
         device_class=EventDeviceClass.DOORBELL,
         event_types=["ring"],
         event_type_map={"DOOR_BELL_SENSOR_EVENT": "ring"},
@@ -45,7 +45,7 @@ EVENT_DESCRIPTIONS: tuple[HmipEventEntityDescription, ...] = (
     # (no separate initial_press fires for the hold sequence either).
     HmipEventEntityDescription(
         key="button",
-        REDACTED_VALUE"button",
+        translation_key="button",
         device_class=EventDeviceClass.BUTTON,
         event_types=["short_release", "long_press", "long_release"],
         event_type_map={

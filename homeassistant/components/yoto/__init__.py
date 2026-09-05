@@ -29,7 +29,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: YotoConfigEntry) -> bool
     except ImplementationUnavailableError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"oauth2_implementation_unavailable",
+            translation_key="oauth2_implementation_unavailable",
         ) from err
     session = OAuth2Session(hass, entry, implementation)
 
@@ -38,7 +38,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: YotoConfigEntry) -> bool
     except OAuth2TokenRequestReauthError as err:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"authentication_failed",
+            translation_key="authentication_failed",
         ) from err
     except (aiohttp.ClientError, OAuth2TokenRequestError) as err:
         raise ConfigEntryNotReady from err

@@ -361,7 +361,7 @@ class ProtectDeviceVehicleEventEntity(
 EVENT_DESCRIPTIONS: tuple[ProtectEventEntityDescription, ...] = (
     ProtectEventEntityDescription(
         key="doorbell",
-        REDACTED_VALUE"doorbell",
+        translation_key="doorbell",
         device_class=EventDeviceClass.DOORBELL,
         ufp_required_field="feature_flags.is_doorbell",
         ufp_event_obj="last_ring_event",
@@ -370,7 +370,7 @@ EVENT_DESCRIPTIONS: tuple[ProtectEventEntityDescription, ...] = (
     ),
     ProtectEventEntityDescription(
         key="nfc",
-        REDACTED_VALUE"nfc",
+        translation_key="nfc",
         ufp_required_field="feature_flags.support_nfc",
         ufp_event_obj="last_nfc_card_scanned_event",
         event_types=[EVENT_TYPE_NFC_SCANNED],
@@ -378,7 +378,7 @@ EVENT_DESCRIPTIONS: tuple[ProtectEventEntityDescription, ...] = (
     ),
     ProtectEventEntityDescription(
         key="fingerprint",
-        REDACTED_VALUE"fingerprint",
+        translation_key="fingerprint",
         ufp_required_field="feature_flags.has_fingerprint_sensor",
         ufp_event_obj="last_fingerprint_identified_event",
         event_types=[
@@ -389,7 +389,7 @@ EVENT_DESCRIPTIONS: tuple[ProtectEventEntityDescription, ...] = (
     ),
     ProtectEventEntityDescription(
         key="vehicle",
-        REDACTED_VALUE"vehicle",
+        translation_key="vehicle",
         ufp_required_field="feature_flags.has_smart_detect",
         ufp_event_obj="last_smart_detect_event",
         event_types=[EVENT_TYPE_VEHICLE_DETECTED],

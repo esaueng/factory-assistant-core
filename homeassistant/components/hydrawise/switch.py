@@ -35,7 +35,7 @@ class HydrawiseSwitchEntityDescription(SwitchEntityDescription):
 SWITCH_TYPES: tuple[HydrawiseSwitchEntityDescription, ...] = (
     HydrawiseSwitchEntityDescription(
         key="auto_watering",
-        REDACTED_VALUE"auto_watering",
+        translation_key="auto_watering",
         device_class=SwitchDeviceClass.SWITCH,
         value_fn=lambda zone: zone.status.suspended_until is None,
         turn_on_fn=lambda api, zone: api.resume_zone(zone),
@@ -45,7 +45,7 @@ SWITCH_TYPES: tuple[HydrawiseSwitchEntityDescription, ...] = (
     ),
     HydrawiseSwitchEntityDescription(
         key="manual_watering",
-        REDACTED_VALUE"manual_watering",
+        translation_key="manual_watering",
         device_class=SwitchDeviceClass.SWITCH,
         value_fn=lambda zone: zone.scheduled_runs.current_run is not None,
         turn_on_fn=lambda api, zone: api.start_zone(

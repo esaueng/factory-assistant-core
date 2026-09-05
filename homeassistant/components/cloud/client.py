@@ -188,7 +188,7 @@ class CloudClient(Interface):
             except alexa_errors.NoTokenAvailable, alexa_errors.RequireRelink:
                 pass
 
-        enable_alexa_job = HassJob(enable_alexa, REDACTED_VALUE)
+        enable_alexa_job = HassJob(enable_alexa, cancel_on_shutdown=True)
 
         async def enable_google(_: datetime) -> None:
             """Enable Google."""
@@ -426,7 +426,7 @@ class CloudClient(Interface):
             hass=self._hass,
             domain=DOMAIN,
             issue_id=identifier,
-            REDACTED_VALUEtranslation_key,
+            translation_key=translation_key,
             translation_placeholders=placeholders,
             severity=IssueSeverity(severity),
             is_fixable=False,

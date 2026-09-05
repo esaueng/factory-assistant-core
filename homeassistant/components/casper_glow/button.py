@@ -26,12 +26,12 @@ class CasperGlowButtonEntityDescription(ButtonEntityDescription):
 BUTTON_DESCRIPTIONS: tuple[CasperGlowButtonEntityDescription, ...] = (
     CasperGlowButtonEntityDescription(
         key="pause",
-        REDACTED_VALUE"pause",
+        translation_key="pause",
         press_fn=lambda device: device.pause(),
     ),
     CasperGlowButtonEntityDescription(
         key="resume",
-        REDACTED_VALUE"resume",
+        translation_key="resume",
         press_fn=lambda device: device.resume(),
     ),
 )

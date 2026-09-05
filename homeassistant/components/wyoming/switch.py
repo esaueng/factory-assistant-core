@@ -33,7 +33,7 @@ class WyomingSatelliteMuteSwitch(
 
     entity_description = SwitchEntityDescription(
         key="mute",
-        REDACTED_VALUE"mute",
+        translation_key="mute",
         entity_category=EntityCategory.CONFIG,
     )
 

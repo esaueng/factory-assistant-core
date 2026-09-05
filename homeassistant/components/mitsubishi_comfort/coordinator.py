@@ -52,7 +52,7 @@ class MitsubishiComfortCoordinator(DataUpdateCoordinator[IndoorUnit | KumoStatio
             )
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
                 translation_placeholders={"device_name": self.device.name},
             ) from err
         if not success:
@@ -61,7 +61,7 @@ class MitsubishiComfortCoordinator(DataUpdateCoordinator[IndoorUnit | KumoStatio
             )
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
+                translation_key="update_failed",
                 translation_placeholders={"device_name": self.device.name},
             )
         return self.device

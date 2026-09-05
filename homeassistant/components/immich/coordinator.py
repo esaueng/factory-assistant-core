@@ -85,12 +85,12 @@ class ImmichDataUpdateCoordinator(DataUpdateCoordinator[ImmichData]):
         except ImmichUnauthorizedError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_error",
+                translation_key="auth_error",
             ) from err
         except CONNECT_ERRORS as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
             ) from err
 
         self.is_admin = user_info.is_admin
@@ -113,12 +113,12 @@ class ImmichDataUpdateCoordinator(DataUpdateCoordinator[ImmichData]):
         except ImmichUnauthorizedError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_error",
+                translation_key="auth_error",
             ) from err
         except CONNECT_ERRORS as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_error",
+                translation_key="update_error",
                 translation_placeholders={"error": str(err)},
             ) from err
 

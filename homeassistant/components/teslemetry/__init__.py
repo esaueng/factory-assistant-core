@@ -91,21 +91,21 @@ async def _get_access_token(oauth_session: OAuth2Session) -> str:
         if err.status == 401:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_failed",
+                translation_key="auth_failed",
             ) from err
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"not_ready_connection_error",
+            translation_key="not_ready_connection_error",
         ) from err
     except (KeyError, TypeError) as err:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"token_data_malformed",
+            translation_key="token_data_malformed",
         ) from err
     except ClientError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"not_ready_connection_error",
+            translation_key="not_ready_connection_error",
         ) from err
     return cast(str, oauth_session.token[CONF_ACCESS_TOKEN])
 
@@ -171,7 +171,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: TeslemetryConfigEntry) -
     if "token" not in entry.data:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"token_data_malformed",
+            translation_key="token_data_malformed",
         )
 
     try:
@@ -179,7 +179,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: TeslemetryConfigEntry) -
     except ImplementationUnavailableError as err:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"oauth_implementation_not_available",
+            translation_key="oauth_implementation_not_available",
         ) from err
     oauth_session = OAuth2Session(hass, entry, implementation)
 
@@ -199,17 +199,17 @@ async def async_setup_entry(hass: HomeAssistant, entry: TeslemetryConfigEntry) -
     except InvalidToken as e:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"auth_failed_invalid_token",
+            translation_key="auth_failed_invalid_token",
         ) from e
     except SubscriptionRequired as e:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"auth_failed_subscription_required",
+            translation_key="auth_failed_subscription_required",
         ) from e
     except TeslaFleetError as e:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"not_ready_api_error",
+            translation_key="not_ready_api_error",
         ) from e
 
     scopes = calls[0]["scopes"]
@@ -335,22 +335,22 @@ async def async_setup_entry(hass: HomeAssistant, entry: TeslemetryConfigEntry) -
             except InvalidToken as e:
                 raise ConfigEntryAuthFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"auth_failed_invalid_token",
+                    translation_key="auth_failed_invalid_token",
                 ) from e
             except SubscriptionRequired as e:
                 raise ConfigEntryAuthFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"auth_failed_subscription_required",
+                    translation_key="auth_failed_subscription_required",
                 ) from e
             except Forbidden as e:
                 raise ConfigEntryAuthFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"auth_failed_invalid_token",
+                    translation_key="auth_failed_invalid_token",
                 ) from e
             except TeslaFleetError as e:
                 raise ConfigEntryNotReady(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"not_ready_api_error",
+                    translation_key="not_ready_api_error",
                 ) from e
 
             energysites.append(
@@ -466,7 +466,7 @@ async def async_migrate_entry(
         except (ClientError, TypeError) as e:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_failed_migration",
+                translation_key="auth_failed_migration",
             ) from e
 
         # Add auth_implementation for OAuth2 flow compatibility

@@ -143,7 +143,7 @@ class MealieShoppingListTodoListEntity(MealieEntity, TodoListEntity):
         except MealieError as exception:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"add_item_error",
+                translation_key="add_item_error",
                 translation_placeholders={
                     "shopping_list_name": self.shopping_list.name
                 },
@@ -194,7 +194,7 @@ class MealieShoppingListTodoListEntity(MealieEntity, TodoListEntity):
         except MealieError as exception:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_item_error",
+                translation_key="update_item_error",
                 translation_placeholders={
                     "shopping_list_name": self.shopping_list.name
                 },
@@ -210,7 +210,7 @@ class MealieShoppingListTodoListEntity(MealieEntity, TodoListEntity):
         except MealieError as exception:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"delete_item_error",
+                translation_key="delete_item_error",
                 translation_placeholders={
                     "shopping_list_name": self.shopping_list.name
                 },
@@ -230,13 +230,13 @@ class MealieShoppingListTodoListEntity(MealieEntity, TodoListEntity):
         if uid not in item_idx:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"item_not_found_error",
+                translation_key="item_not_found_error",
                 translation_placeholders={"shopping_list_item": uid},
             )
         if previous_uid and previous_uid not in item_idx:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"item_not_found_error",
+                translation_key="item_not_found_error",
                 translation_placeholders={"shopping_list_item": previous_uid},
             )
         dst_idx = item_idx[previous_uid] + 1 if previous_uid else 0
@@ -280,7 +280,7 @@ class MealieShoppingListTodoListEntity(MealieEntity, TodoListEntity):
         except MealieConnectionError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connection_error",
+                translation_key="connection_error",
             ) from err
         return {
             "name": self.shopping_list.name,

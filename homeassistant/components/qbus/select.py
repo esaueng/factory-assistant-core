@@ -71,7 +71,7 @@ class QbusStepper(QbusEntity, SelectEntity):
         if value is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_option",
+                translation_key="invalid_option",
                 translation_placeholders={
                     "option": option,
                     "options": ", ".join(self._attr_options),

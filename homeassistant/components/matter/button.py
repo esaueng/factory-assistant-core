@@ -69,7 +69,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BUTTON,
         entity_description=MatterButtonEntityDescription(
             key="OperationalStatePauseButton",
-            REDACTED_VALUE"pause",
+            translation_key="pause",
             command=clusters.OperationalState.Commands.Pause,
         ),
         entity_class=MatterCommandButton,
@@ -81,7 +81,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BUTTON,
         entity_description=MatterButtonEntityDescription(
             key="OperationalStateResumeButton",
-            REDACTED_VALUE"resume",
+            translation_key="resume",
             command=clusters.OperationalState.Commands.Resume,
         ),
         entity_class=MatterCommandButton,
@@ -93,7 +93,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BUTTON,
         entity_description=MatterButtonEntityDescription(
             key="OperationalStateStartButton",
-            REDACTED_VALUE"start",
+            translation_key="start",
             command=clusters.OperationalState.Commands.Start,
         ),
         entity_class=MatterCommandButton,
@@ -105,7 +105,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BUTTON,
         entity_description=MatterButtonEntityDescription(
             key="OperationalStateStopButton",
-            REDACTED_VALUE"stop",
+            translation_key="stop",
             command=clusters.OperationalState.Commands.Stop,
         ),
         entity_class=MatterCommandButton,
@@ -117,7 +117,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BUTTON,
         entity_description=MatterButtonEntityDescription(
             key="HepaFilterMonitoringResetButton",
-            REDACTED_VALUE"reset_filter_condition",
+            translation_key="reset_filter_condition",
             command=clusters.HepaFilterMonitoring.Commands.ResetCondition,
         ),
         entity_class=MatterCommandButton,
@@ -131,7 +131,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BUTTON,
         entity_description=MatterButtonEntityDescription(
             key="ActivatedCarbonFilterMonitoringResetButton",
-            REDACTED_VALUE"reset_filter_condition",
+            translation_key="reset_filter_condition",
             command=clusters.ActivatedCarbonFilterMonitoring.Commands.ResetCondition,
         ),
         entity_class=MatterCommandButton,
@@ -145,7 +145,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BUTTON,
         entity_description=MatterButtonEntityDescription(
             key="SmokeCoAlarmSelfTestRequest",
-            REDACTED_VALUE"self_test_request",
+            translation_key="self_test_request",
             entity_category=EntityCategory.DIAGNOSTIC,
             command=clusters.SmokeCoAlarm.Commands.SelfTestRequest,
         ),
@@ -157,7 +157,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BUTTON,
         entity_description=MatterButtonEntityDescription(
             key="WaterHeaterManagementCancelBoost",
-            REDACTED_VALUE"cancel_boost",
+            translation_key="cancel_boost",
             command=clusters.WaterHeaterManagement.Commands.CancelBoost,
         ),
         entity_class=MatterCommandButton,
@@ -171,7 +171,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BUTTON,
         entity_description=MatterButtonEntityDescription(
             key="HeimanSmokeCoAlarmTemporaryMuteRequest",
-            REDACTED_VALUE"temporary_mute_request",
+            translation_key="temporary_mute_request",
             command=HeimanCluster.Commands.MutingSensor,
         ),
         entity_class=MatterCommandButton,

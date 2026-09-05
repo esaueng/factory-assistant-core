@@ -61,7 +61,7 @@ class AnthropicTaskEntity(
 
         if not isinstance(chat_log.content[-1], conversation.AssistantContent):
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"response_not_found"
+                translation_domain=DOMAIN, translation_key="response_not_found"
             )
 
         text = chat_log.content[-1].content or ""
@@ -80,7 +80,7 @@ class AnthropicTaskEntity(
                 text,
             )
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"json_parse_error"
+                translation_domain=DOMAIN, translation_key="json_parse_error"
             ) from err
 
         return ai_task.GenDataTaskResult(

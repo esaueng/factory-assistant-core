@@ -56,7 +56,7 @@ COVERS: dict[DeviceCategory, tuple[TuyaCoverEntityDescription, ...]] = {
     DeviceCategory.CKMKZQ: (
         TuyaCoverEntityDescription(
             key=DPCode.SWITCH_1,
-            REDACTED_VALUE"indexed_door",
+            translation_key="indexed_door",
             translation_placeholders={"index": "1"},
             current_state=DPCode.DOORCONTACT_STATE,
             current_state_wrapper=DPCodeInvertedBooleanWrapper,
@@ -64,7 +64,7 @@ COVERS: dict[DeviceCategory, tuple[TuyaCoverEntityDescription, ...]] = {
         ),
         TuyaCoverEntityDescription(
             key=DPCode.SWITCH_2,
-            REDACTED_VALUE"indexed_door",
+            translation_key="indexed_door",
             translation_placeholders={"index": "2"},
             current_state=DPCode.DOORCONTACT_STATE_2,
             current_state_wrapper=DPCodeInvertedBooleanWrapper,
@@ -72,7 +72,7 @@ COVERS: dict[DeviceCategory, tuple[TuyaCoverEntityDescription, ...]] = {
         ),
         TuyaCoverEntityDescription(
             key=DPCode.SWITCH_3,
-            REDACTED_VALUE"indexed_door",
+            translation_key="indexed_door",
             translation_placeholders={"index": "3"},
             current_state=DPCode.DOORCONTACT_STATE_3,
             current_state_wrapper=DPCodeInvertedBooleanWrapper,
@@ -82,7 +82,7 @@ COVERS: dict[DeviceCategory, tuple[TuyaCoverEntityDescription, ...]] = {
     DeviceCategory.CL: (
         TuyaCoverEntityDescription(
             key=DPCode.CONTROL,
-            REDACTED_VALUE"curtain",
+            translation_key="curtain",
             current_state=(DPCode.SITUATION_SET, DPCode.CONTROL),
             current_position=(DPCode.PERCENT_STATE, DPCode.PERCENT_CONTROL),
             set_position=DPCode.PERCENT_CONTROL,
@@ -90,7 +90,7 @@ COVERS: dict[DeviceCategory, tuple[TuyaCoverEntityDescription, ...]] = {
         ),
         TuyaCoverEntityDescription(
             key=DPCode.CONTROL_2,
-            REDACTED_VALUE"indexed_curtain",
+            translation_key="indexed_curtain",
             translation_placeholders={"index": "2"},
             current_position=DPCode.PERCENT_STATE_2,
             set_position=DPCode.PERCENT_CONTROL_2,
@@ -98,7 +98,7 @@ COVERS: dict[DeviceCategory, tuple[TuyaCoverEntityDescription, ...]] = {
         ),
         TuyaCoverEntityDescription(
             key=DPCode.CONTROL_3,
-            REDACTED_VALUE"indexed_curtain",
+            translation_key="indexed_curtain",
             translation_placeholders={"index": "3"},
             current_position=DPCode.PERCENT_STATE_3,
             set_position=DPCode.PERCENT_CONTROL_3,
@@ -106,7 +106,7 @@ COVERS: dict[DeviceCategory, tuple[TuyaCoverEntityDescription, ...]] = {
         ),
         TuyaCoverEntityDescription(
             key=DPCode.MACH_OPERATE,
-            REDACTED_VALUE"curtain",
+            translation_key="curtain",
             current_position=DPCode.POSITION,
             set_position=DPCode.POSITION,
             device_class=CoverDeviceClass.CURTAIN,
@@ -116,7 +116,7 @@ COVERS: dict[DeviceCategory, tuple[TuyaCoverEntityDescription, ...]] = {
         # It is used by the Kogan Smart Blinds Driver
         TuyaCoverEntityDescription(
             key=DPCode.SWITCH_1,
-            REDACTED_VALUE"blind",
+            translation_key="blind",
             current_position=DPCode.PERCENT_CONTROL,
             set_position=DPCode.PERCENT_CONTROL,
             device_class=CoverDeviceClass.BLIND,
@@ -125,7 +125,7 @@ COVERS: dict[DeviceCategory, tuple[TuyaCoverEntityDescription, ...]] = {
     DeviceCategory.CLKG: (
         TuyaCoverEntityDescription(
             key=DPCode.CONTROL,
-            REDACTED_VALUE"curtain",
+            translation_key="curtain",
             current_position=DPCode.PERCENT_CONTROL,
             position_wrapper=ControlBackModePercentageMappingWrapper,
             set_position=DPCode.PERCENT_CONTROL,
@@ -133,7 +133,7 @@ COVERS: dict[DeviceCategory, tuple[TuyaCoverEntityDescription, ...]] = {
         ),
         TuyaCoverEntityDescription(
             key=DPCode.CONTROL_2,
-            REDACTED_VALUE"indexed_curtain",
+            translation_key="indexed_curtain",
             translation_placeholders={"index": "2"},
             current_position=DPCode.PERCENT_CONTROL_2,
             position_wrapper=ControlBackModePercentageMappingWrapper,
@@ -144,7 +144,7 @@ COVERS: dict[DeviceCategory, tuple[TuyaCoverEntityDescription, ...]] = {
     DeviceCategory.JDCLJQR: (
         TuyaCoverEntityDescription(
             key=DPCode.CONTROL,
-            REDACTED_VALUE"curtain",
+            translation_key="curtain",
             current_position=DPCode.PERCENT_STATE,
             set_position=DPCode.PERCENT_CONTROL,
             device_class=CoverDeviceClass.CURTAIN,

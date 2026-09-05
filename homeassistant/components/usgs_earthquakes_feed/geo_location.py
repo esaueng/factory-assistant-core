@@ -167,7 +167,7 @@ class UsgsEarthquakesFeedEntityManager:
 
         # Trigger updates at regular intervals.
         async_track_time_interval(
-            self._hass, update, self._scan_interval, REDACTED_VALUE
+            self._hass, update, self._scan_interval, cancel_on_shutdown=True
         )
         _LOGGER.debug("Feed entity manager initialized")
 

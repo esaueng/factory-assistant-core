@@ -32,7 +32,7 @@ class AutarcoBatterySensorEntityDescription(SensorEntityDescription):
 SENSORS_BATTERY: tuple[AutarcoBatterySensorEntityDescription, ...] = (
     AutarcoBatterySensorEntityDescription(
         key="flow_now",
-        REDACTED_VALUE"flow_now",
+        translation_key="flow_now",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -40,7 +40,7 @@ SENSORS_BATTERY: tuple[AutarcoBatterySensorEntityDescription, ...] = (
     ),
     AutarcoBatterySensorEntityDescription(
         key="state_of_charge",
-        REDACTED_VALUE"state_of_charge",
+        translation_key="state_of_charge",
         native_unit_of_measurement=PERCENTAGE,
         device_class=SensorDeviceClass.BATTERY,
         state_class=SensorStateClass.MEASUREMENT,
@@ -48,7 +48,7 @@ SENSORS_BATTERY: tuple[AutarcoBatterySensorEntityDescription, ...] = (
     ),
     AutarcoBatterySensorEntityDescription(
         key="discharged_today",
-        REDACTED_VALUE"discharged_today",
+        translation_key="discharged_today",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL,
@@ -56,7 +56,7 @@ SENSORS_BATTERY: tuple[AutarcoBatterySensorEntityDescription, ...] = (
     ),
     AutarcoBatterySensorEntityDescription(
         key="discharged_month",
-        REDACTED_VALUE"discharged_month",
+        translation_key="discharged_month",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL,
@@ -64,7 +64,7 @@ SENSORS_BATTERY: tuple[AutarcoBatterySensorEntityDescription, ...] = (
     ),
     AutarcoBatterySensorEntityDescription(
         key="discharged_total",
-        REDACTED_VALUE"discharged_total",
+        translation_key="discharged_total",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -72,7 +72,7 @@ SENSORS_BATTERY: tuple[AutarcoBatterySensorEntityDescription, ...] = (
     ),
     AutarcoBatterySensorEntityDescription(
         key="charged_today",
-        REDACTED_VALUE"charged_today",
+        translation_key="charged_today",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL,
@@ -80,7 +80,7 @@ SENSORS_BATTERY: tuple[AutarcoBatterySensorEntityDescription, ...] = (
     ),
     AutarcoBatterySensorEntityDescription(
         key="charged_month",
-        REDACTED_VALUE"charged_month",
+        translation_key="charged_month",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL,
@@ -88,7 +88,7 @@ SENSORS_BATTERY: tuple[AutarcoBatterySensorEntityDescription, ...] = (
     ),
     AutarcoBatterySensorEntityDescription(
         key="charged_total",
-        REDACTED_VALUE"charged_total",
+        translation_key="charged_total",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -107,7 +107,7 @@ class AutarcoSolarSensorEntityDescription(SensorEntityDescription):
 SENSORS_SOLAR: tuple[AutarcoSolarSensorEntityDescription, ...] = (
     AutarcoSolarSensorEntityDescription(
         key="power_production",
-        REDACTED_VALUE"power_production",
+        translation_key="power_production",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -115,7 +115,7 @@ SENSORS_SOLAR: tuple[AutarcoSolarSensorEntityDescription, ...] = (
     ),
     AutarcoSolarSensorEntityDescription(
         key="energy_production_today",
-        REDACTED_VALUE"energy_production_today",
+        translation_key="energy_production_today",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL,
@@ -123,7 +123,7 @@ SENSORS_SOLAR: tuple[AutarcoSolarSensorEntityDescription, ...] = (
     ),
     AutarcoSolarSensorEntityDescription(
         key="energy_production_month",
-        REDACTED_VALUE"energy_production_month",
+        translation_key="energy_production_month",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL,
@@ -131,7 +131,7 @@ SENSORS_SOLAR: tuple[AutarcoSolarSensorEntityDescription, ...] = (
     ),
     AutarcoSolarSensorEntityDescription(
         key="energy_production_total",
-        REDACTED_VALUE"energy_production_total",
+        translation_key="energy_production_total",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -150,7 +150,7 @@ class AutarcoInverterSensorEntityDescription(SensorEntityDescription):
 SENSORS_INVERTER: tuple[AutarcoInverterSensorEntityDescription, ...] = (
     AutarcoInverterSensorEntityDescription(
         key="out_ac_power",
-        REDACTED_VALUE"out_ac_power",
+        translation_key="out_ac_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -158,7 +158,7 @@ SENSORS_INVERTER: tuple[AutarcoInverterSensorEntityDescription, ...] = (
     ),
     AutarcoInverterSensorEntityDescription(
         key="out_ac_energy_total",
-        REDACTED_VALUE"out_ac_energy_total",
+        translation_key="out_ac_energy_total",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,

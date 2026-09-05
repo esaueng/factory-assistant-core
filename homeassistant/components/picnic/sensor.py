@@ -56,41 +56,41 @@ class PicnicSensorEntityDescription(SensorEntityDescription):
 SENSOR_TYPES: tuple[PicnicSensorEntityDescription, ...] = (
     PicnicSensorEntityDescription(
         key=SENSOR_CART_ITEMS_COUNT,
-        REDACTED_VALUESENSOR_CART_ITEMS_COUNT,
+        translation_key=SENSOR_CART_ITEMS_COUNT,
         data_type="cart_data",
         value_fn=lambda cart: cart.get("total_count", 0),
     ),
     PicnicSensorEntityDescription(
         key=SENSOR_CART_TOTAL_PRICE,
-        REDACTED_VALUESENSOR_CART_TOTAL_PRICE,
+        translation_key=SENSOR_CART_TOTAL_PRICE,
         native_unit_of_measurement=CURRENCY_EURO,
         data_type="cart_data",
         value_fn=lambda cart: cart.get("total_price", 0) / 100,
     ),
     PicnicSensorEntityDescription(
         key=SENSOR_SELECTED_SLOT_START,
-        REDACTED_VALUESENSOR_SELECTED_SLOT_START,
+        translation_key=SENSOR_SELECTED_SLOT_START,
         device_class=SensorDeviceClass.TIMESTAMP,
         data_type="slot_data",
         value_fn=lambda slot: dt_util.parse_datetime(str(slot.get("window_start"))),
     ),
     PicnicSensorEntityDescription(
         key=SENSOR_SELECTED_SLOT_END,
-        REDACTED_VALUESENSOR_SELECTED_SLOT_END,
+        translation_key=SENSOR_SELECTED_SLOT_END,
         device_class=SensorDeviceClass.TIMESTAMP,
         data_type="slot_data",
         value_fn=lambda slot: dt_util.parse_datetime(str(slot.get("window_end"))),
     ),
     PicnicSensorEntityDescription(
         key=SENSOR_SELECTED_SLOT_MAX_ORDER_TIME,
-        REDACTED_VALUESENSOR_SELECTED_SLOT_MAX_ORDER_TIME,
+        translation_key=SENSOR_SELECTED_SLOT_MAX_ORDER_TIME,
         device_class=SensorDeviceClass.TIMESTAMP,
         data_type="slot_data",
         value_fn=lambda slot: dt_util.parse_datetime(str(slot.get("cut_off_time"))),
     ),
     PicnicSensorEntityDescription(
         key=SENSOR_SELECTED_SLOT_MIN_ORDER_VALUE,
-        REDACTED_VALUESENSOR_SELECTED_SLOT_MIN_ORDER_VALUE,
+        translation_key=SENSOR_SELECTED_SLOT_MIN_ORDER_VALUE,
         native_unit_of_measurement=CURRENCY_EURO,
         data_type="slot_data",
         value_fn=lambda slot: (
@@ -101,7 +101,7 @@ SENSOR_TYPES: tuple[PicnicSensorEntityDescription, ...] = (
     ),
     PicnicSensorEntityDescription(
         key=SENSOR_LAST_ORDER_SLOT_START,
-        REDACTED_VALUESENSOR_LAST_ORDER_SLOT_START,
+        translation_key=SENSOR_LAST_ORDER_SLOT_START,
         device_class=SensorDeviceClass.TIMESTAMP,
         data_type="last_order_data",
         value_fn=lambda last_order: dt_util.parse_datetime(
@@ -110,7 +110,7 @@ SENSOR_TYPES: tuple[PicnicSensorEntityDescription, ...] = (
     ),
     PicnicSensorEntityDescription(
         key=SENSOR_LAST_ORDER_SLOT_END,
-        REDACTED_VALUESENSOR_LAST_ORDER_SLOT_END,
+        translation_key=SENSOR_LAST_ORDER_SLOT_END,
         device_class=SensorDeviceClass.TIMESTAMP,
         data_type="last_order_data",
         value_fn=lambda last_order: dt_util.parse_datetime(
@@ -119,13 +119,13 @@ SENSOR_TYPES: tuple[PicnicSensorEntityDescription, ...] = (
     ),
     PicnicSensorEntityDescription(
         key=SENSOR_LAST_ORDER_STATUS,
-        REDACTED_VALUESENSOR_LAST_ORDER_STATUS,
+        translation_key=SENSOR_LAST_ORDER_STATUS,
         data_type="last_order_data",
         value_fn=lambda last_order: last_order.get("status"),
     ),
     PicnicSensorEntityDescription(
         key=SENSOR_LAST_ORDER_MAX_ORDER_TIME,
-        REDACTED_VALUESENSOR_LAST_ORDER_MAX_ORDER_TIME,
+        translation_key=SENSOR_LAST_ORDER_MAX_ORDER_TIME,
         device_class=SensorDeviceClass.TIMESTAMP,
         data_type="last_order_data",
         value_fn=lambda last_order: dt_util.parse_datetime(
@@ -134,7 +134,7 @@ SENSOR_TYPES: tuple[PicnicSensorEntityDescription, ...] = (
     ),
     PicnicSensorEntityDescription(
         key=SENSOR_LAST_ORDER_DELIVERY_TIME,
-        REDACTED_VALUESENSOR_LAST_ORDER_DELIVERY_TIME,
+        translation_key=SENSOR_LAST_ORDER_DELIVERY_TIME,
         device_class=SensorDeviceClass.TIMESTAMP,
         data_type="last_order_data",
         value_fn=lambda last_order: dt_util.parse_datetime(
@@ -143,14 +143,14 @@ SENSOR_TYPES: tuple[PicnicSensorEntityDescription, ...] = (
     ),
     PicnicSensorEntityDescription(
         key=SENSOR_LAST_ORDER_TOTAL_PRICE,
-        REDACTED_VALUESENSOR_LAST_ORDER_TOTAL_PRICE,
+        translation_key=SENSOR_LAST_ORDER_TOTAL_PRICE,
         native_unit_of_measurement=CURRENCY_EURO,
         data_type="last_order_data",
         value_fn=lambda last_order: last_order.get("total_price", 0) / 100,
     ),
     PicnicSensorEntityDescription(
         key=SENSOR_NEXT_DELIVERY_ETA_START,
-        REDACTED_VALUESENSOR_NEXT_DELIVERY_ETA_START,
+        translation_key=SENSOR_NEXT_DELIVERY_ETA_START,
         device_class=SensorDeviceClass.TIMESTAMP,
         data_type="next_delivery_data",
         value_fn=lambda next_delivery: dt_util.parse_datetime(
@@ -159,7 +159,7 @@ SENSOR_TYPES: tuple[PicnicSensorEntityDescription, ...] = (
     ),
     PicnicSensorEntityDescription(
         key=SENSOR_NEXT_DELIVERY_ETA_END,
-        REDACTED_VALUESENSOR_NEXT_DELIVERY_ETA_END,
+        translation_key=SENSOR_NEXT_DELIVERY_ETA_END,
         device_class=SensorDeviceClass.TIMESTAMP,
         data_type="next_delivery_data",
         value_fn=lambda next_delivery: dt_util.parse_datetime(
@@ -168,7 +168,7 @@ SENSOR_TYPES: tuple[PicnicSensorEntityDescription, ...] = (
     ),
     PicnicSensorEntityDescription(
         key=SENSOR_NEXT_DELIVERY_SLOT_START,
-        REDACTED_VALUESENSOR_NEXT_DELIVERY_SLOT_START,
+        translation_key=SENSOR_NEXT_DELIVERY_SLOT_START,
         device_class=SensorDeviceClass.TIMESTAMP,
         data_type="next_delivery_data",
         value_fn=lambda next_delivery: dt_util.parse_datetime(
@@ -177,7 +177,7 @@ SENSOR_TYPES: tuple[PicnicSensorEntityDescription, ...] = (
     ),
     PicnicSensorEntityDescription(
         key=SENSOR_NEXT_DELIVERY_SLOT_END,
-        REDACTED_VALUESENSOR_NEXT_DELIVERY_SLOT_END,
+        translation_key=SENSOR_NEXT_DELIVERY_SLOT_END,
         device_class=SensorDeviceClass.TIMESTAMP,
         data_type="next_delivery_data",
         value_fn=lambda next_delivery: dt_util.parse_datetime(

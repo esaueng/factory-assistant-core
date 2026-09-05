@@ -106,13 +106,13 @@ def _get_config_entry_from_service_data(call: ServiceCall) -> SonarrConfigEntry:
     if not (entry := call.hass.config_entries.async_get_entry(config_entry_id)):
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"integration_not_found",
+            translation_key="integration_not_found",
             translation_placeholders={"target": config_entry_id},
         )
     if entry.state is not ConfigEntryState.LOADED:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"not_loaded",
+            translation_key="not_loaded",
             translation_placeholders={"target": entry.title},
         )
     return cast(SonarrConfigEntry, entry)

@@ -46,7 +46,7 @@ SERVICE_GET_PACKAGES_SCHEMA: Final = vol.Schema(
                     for value in PACKAGE_STATUS_MAP.values()
                 ],
                 mode=selector.SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUEATTR_PACKAGE_STATE,
+                translation_key=ATTR_PACKAGE_STATE,
             )
         ),
     }

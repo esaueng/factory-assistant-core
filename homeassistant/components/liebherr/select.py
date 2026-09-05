@@ -69,7 +69,7 @@ def _bio_fresh_plus_options(control: SelectControl) -> list[str]:
 SELECT_TYPES: list[LiebherrSelectEntityDescription] = [
     LiebherrSelectEntityDescription(
         key="ice_maker",
-        REDACTED_VALUE"ice_maker",
+        translation_key="ice_maker",
         control_type=IceMakerControl,
         mode_enum=IceMakerMode,
         current_mode_fn=lambda c: c.ice_maker_mode,  # type: ignore[union-attr]
@@ -82,7 +82,7 @@ SELECT_TYPES: list[LiebherrSelectEntityDescription] = [
     ),
     LiebherrSelectEntityDescription(
         key="hydro_breeze",
-        REDACTED_VALUE"hydro_breeze",
+        translation_key="hydro_breeze",
         control_type=HydroBreezeControl,
         mode_enum=HydroBreezeMode,
         current_mode_fn=lambda c: c.current_mode,  # type: ignore[union-attr]
@@ -95,7 +95,7 @@ SELECT_TYPES: list[LiebherrSelectEntityDescription] = [
     ),
     LiebherrSelectEntityDescription(
         key="bio_fresh_plus",
-        REDACTED_VALUE"bio_fresh_plus",
+        translation_key="bio_fresh_plus",
         control_type=BioFreshPlusControl,
         mode_enum=BioFreshPlusMode,
         current_mode_fn=lambda c: c.current_mode,  # type: ignore[union-attr]

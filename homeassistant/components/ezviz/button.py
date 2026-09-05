@@ -30,7 +30,7 @@ class EzvizButtonEntityDescription(ButtonEntityDescription):
 BUTTON_ENTITIES = (
     EzvizButtonEntityDescription(
         key="ptz_up",
-        REDACTED_VALUE"ptz_up",
+        translation_key="ptz_up",
         method=lambda pyezviz_client, serial, run: pyezviz_client.ptz_control(
             "UP", serial, run
         ),
@@ -38,7 +38,7 @@ BUTTON_ENTITIES = (
     ),
     EzvizButtonEntityDescription(
         key="ptz_down",
-        REDACTED_VALUE"ptz_down",
+        translation_key="ptz_down",
         method=lambda pyezviz_client, serial, run: pyezviz_client.ptz_control(
             "DOWN", serial, run
         ),
@@ -46,7 +46,7 @@ BUTTON_ENTITIES = (
     ),
     EzvizButtonEntityDescription(
         key="ptz_left",
-        REDACTED_VALUE"ptz_left",
+        translation_key="ptz_left",
         method=lambda pyezviz_client, serial, run: pyezviz_client.ptz_control(
             "LEFT", serial, run
         ),
@@ -54,7 +54,7 @@ BUTTON_ENTITIES = (
     ),
     EzvizButtonEntityDescription(
         key="ptz_right",
-        REDACTED_VALUE"ptz_right",
+        translation_key="ptz_right",
         method=lambda pyezviz_client, serial, run: pyezviz_client.ptz_control(
             "RIGHT", serial, run
         ),

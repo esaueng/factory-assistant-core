@@ -74,7 +74,7 @@ PARTITION_SCHEMA = vol.Schema(
                 selector.SelectSelectorConfig(
                     options=ARM_HOME_MODE_OPTIONS,
                     mode=selector.SelectSelectorMode.DROPDOWN,
-                    REDACTED_VALUE"arm_home_mode",
+                    translation_key="arm_home_mode",
                 )
             ),
             vol.Coerce(int),
@@ -91,7 +91,7 @@ ZONE_AND_OUTPUT_SCHEMA = vol.Schema(
             selector.SelectSelectorConfig(
                 options=[cls.value for cls in BinarySensorDeviceClass],
                 mode=selector.SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUE"binary_sensor_device_class",
+                translation_key="binary_sensor_device_class",
                 sort=True,
             ),
         ),

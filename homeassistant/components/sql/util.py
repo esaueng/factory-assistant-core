@@ -157,7 +157,7 @@ def validate_query(
             hass,
             DOMAIN,
             f"entity_id_query_does_full_table_scan_{issue_key}",
-            REDACTED_VALUE"entity_id_query_does_full_table_scan",
+            translation_key="entity_id_query_does_full_table_scan",
             translation_placeholders={"query": redacted_query},
             is_fixable=False,
             severity=ir.IssueSeverity.ERROR,

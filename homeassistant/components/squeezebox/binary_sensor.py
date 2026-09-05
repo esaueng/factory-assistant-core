@@ -42,16 +42,16 @@ SERVER_SENSORS: tuple[BinarySensorEntityDescription, ...] = (
 PLAYER_SENSORS: tuple[BinarySensorEntityDescription, ...] = (
     BinarySensorEntityDescription(
         key=PLAYER_SENSOR_ALARM_UPCOMING,
-        REDACTED_VALUEPLAYER_SENSOR_ALARM_UPCOMING,
+        translation_key=PLAYER_SENSOR_ALARM_UPCOMING,
     ),
     BinarySensorEntityDescription(
         key=PLAYER_SENSOR_ALARM_ACTIVE,
-        REDACTED_VALUEPLAYER_SENSOR_ALARM_ACTIVE,
+        translation_key=PLAYER_SENSOR_ALARM_ACTIVE,
         device_class=BinarySensorDeviceClass.RUNNING,
     ),
     BinarySensorEntityDescription(
         key=PLAYER_SENSOR_ALARM_SNOOZE,
-        REDACTED_VALUEPLAYER_SENSOR_ALARM_SNOOZE,
+        translation_key=PLAYER_SENSOR_ALARM_SNOOZE,
         device_class=BinarySensorDeviceClass.RUNNING,
     ),
 )

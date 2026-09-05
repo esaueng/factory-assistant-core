@@ -56,7 +56,7 @@ async def async_setup_platform(
             is_fixable=False,
             issue_domain=DOMAIN,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"deprecated_yaml_import_issue",
+            translation_key="deprecated_yaml_import_issue",
             translation_placeholders={
                 "domain": DOMAIN,
                 "integration_title": "London Underground",
@@ -71,7 +71,7 @@ async def async_setup_platform(
         is_fixable=False,
         issue_domain=DOMAIN,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"deprecated_yaml",
+        translation_key="deprecated_yaml",
         translation_placeholders={
             "domain": DOMAIN,
             "integration_title": "London Underground",

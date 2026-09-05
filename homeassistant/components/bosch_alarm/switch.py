@@ -29,21 +29,21 @@ class BoschAlarmSwitchEntityDescription(SwitchEntityDescription):
 DOOR_SWITCH_TYPES: list[BoschAlarmSwitchEntityDescription] = [
     BoschAlarmSwitchEntityDescription(
         key="locked",
-        REDACTED_VALUE"locked",
+        translation_key="locked",
         value_fn=lambda door: door.is_locked(),
         on_fn=lambda panel, door_id: panel.door_relock(door_id),
         off_fn=lambda panel, door_id: panel.door_unlock(door_id),
     ),
     BoschAlarmSwitchEntityDescription(
         key="secured",
-        REDACTED_VALUE"secured",
+        translation_key="secured",
         value_fn=lambda door: door.is_secured(),
         on_fn=lambda panel, door_id: panel.door_secure(door_id),
         off_fn=lambda panel, door_id: panel.door_unsecure(door_id),
     ),
     BoschAlarmSwitchEntityDescription(
         key="cycling",
-        REDACTED_VALUE"cycling",
+        translation_key="cycling",
         value_fn=lambda door: door.is_cycling(),
         on_fn=lambda panel, door_id: panel.door_cycle(door_id),
         off_fn=lambda panel, door_id: panel.door_relock(door_id),
@@ -111,7 +111,7 @@ class PanelDoorEntity(BoschAlarmDoorEntity, SwitchEntity):
         # any other commands until it is done
         if self._door.is_cycling():
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"incorrect_door_state"
+                translation_domain=DOMAIN, translation_key="incorrect_door_state"
             )
         await self.entity_description.on_fn(self.panel, self._door_id)
 
@@ -121,7 +121,7 @@ class PanelDoorEntity(BoschAlarmDoorEntity, SwitchEntity):
         # any other commands until it is done
         if self._door.is_cycling():
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"incorrect_door_state"
+                translation_domain=DOMAIN, translation_key="incorrect_door_state"
             )
         await self.entity_description.off_fn(self.panel, self._door_id)
 

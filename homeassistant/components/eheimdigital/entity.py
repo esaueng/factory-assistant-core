@@ -71,7 +71,7 @@ def exception_handler[_EntityT: EheimDigitalEntity[EheimDigitalDevice], **_P](
         except EheimDigitalClientError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
                 translation_placeholders={"error": str(error)},
             ) from error
 

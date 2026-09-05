@@ -56,7 +56,7 @@ def exception_handler[_EntityT: TRMNLEntity, **_P](
         except TRMNLError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"action_error",
+                translation_key="action_error",
                 translation_placeholders={"error": str(error)},
             ) from error
 

@@ -323,7 +323,7 @@ class EsphomeClimateEntity(EsphomeEntity[ClimateInfo, ClimateState], ClimateEnti
                 else:
                     raise ServiceValidationError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"action_call_failed",
+                        translation_key="action_call_failed",
                         translation_placeholders={
                             "call_name": "climate.set_temperature",
                             "device_name": self._static_info.name,

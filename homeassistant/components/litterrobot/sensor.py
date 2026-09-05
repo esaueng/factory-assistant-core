@@ -50,7 +50,7 @@ ROBOT_SENSOR_MAP: dict[
     LitterRobot: [
         RobotSensorEntityDescription[LitterRobot](
             key="waste_drawer_level",
-            REDACTED_VALUE"waste_drawer",
+            translation_key="waste_drawer",
             native_unit_of_measurement=PERCENTAGE,
             icon_fn=lambda state: icon_for_gauge_level(state, 10),
             state_class=SensorStateClass.MEASUREMENT,
@@ -58,7 +58,7 @@ ROBOT_SENSOR_MAP: dict[
         ),
         RobotSensorEntityDescription[LitterRobot](
             key="sleep_mode_start_time",
-            REDACTED_VALUE"sleep_mode_start_time",
+            translation_key="sleep_mode_start_time",
             device_class=SensorDeviceClass.TIMESTAMP,
             value_fn=(
                 lambda robot: (
@@ -68,7 +68,7 @@ ROBOT_SENSOR_MAP: dict[
         ),
         RobotSensorEntityDescription[LitterRobot](
             key="sleep_mode_end_time",
-            REDACTED_VALUE"sleep_mode_end_time",
+            translation_key="sleep_mode_end_time",
             device_class=SensorDeviceClass.TIMESTAMP,
             value_fn=(
                 lambda robot: (
@@ -78,14 +78,14 @@ ROBOT_SENSOR_MAP: dict[
         ),
         RobotSensorEntityDescription[LitterRobot](
             key="last_seen",
-            REDACTED_VALUE"last_seen",
+            translation_key="last_seen",
             device_class=SensorDeviceClass.TIMESTAMP,
             entity_category=EntityCategory.DIAGNOSTIC,
             value_fn=lambda robot: robot.last_seen,
         ),
         RobotSensorEntityDescription[LitterRobot](
             key="status_code",
-            REDACTED_VALUE"status_code",
+            translation_key="status_code",
             entity_category=EntityCategory.DIAGNOSTIC,
             device_class=SensorDeviceClass.ENUM,
             options=[
@@ -121,7 +121,7 @@ ROBOT_SENSOR_MAP: dict[
         ),
         RobotSensorEntityDescription[LitterRobot](
             key="total_cycles",
-            REDACTED_VALUE"total_cycles",
+            translation_key="total_cycles",
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
             state_class=SensorStateClass.TOTAL_INCREASING,
@@ -131,7 +131,7 @@ ROBOT_SENSOR_MAP: dict[
     LitterRobot4: [
         RobotSensorEntityDescription[LitterRobot4](
             key="hopper_status",
-            REDACTED_VALUE"hopper_status",
+            translation_key="hopper_status",
             device_class=SensorDeviceClass.ENUM,
             options=[
                 "enabled",
@@ -151,7 +151,7 @@ ROBOT_SENSOR_MAP: dict[
     (LitterRobot4, LitterRobot5): [
         RobotSensorEntityDescription[LitterRobot4 | LitterRobot5](
             key="litter_level",
-            REDACTED_VALUE"litter_level",
+            translation_key="litter_level",
             native_unit_of_measurement=PERCENTAGE,
             icon_fn=lambda state: icon_for_gauge_level(state, 10),
             state_class=SensorStateClass.MEASUREMENT,
@@ -159,7 +159,7 @@ ROBOT_SENSOR_MAP: dict[
         ),
         RobotSensorEntityDescription[LitterRobot4 | LitterRobot5](
             key="pet_weight",
-            REDACTED_VALUE"pet_weight",
+            translation_key="pet_weight",
             native_unit_of_measurement=UnitOfMass.POUNDS,
             device_class=SensorDeviceClass.WEIGHT,
             state_class=SensorStateClass.MEASUREMENT,
@@ -169,14 +169,14 @@ ROBOT_SENSOR_MAP: dict[
     LitterRobot5: [
         RobotSensorEntityDescription[LitterRobot5](
             key="scoops_saved_count",
-            REDACTED_VALUE"scoops_saved_count",
+            translation_key="scoops_saved_count",
             entity_category=EntityCategory.DIAGNOSTIC,
             state_class=SensorStateClass.TOTAL_INCREASING,
             value_fn=lambda robot: robot.scoops_saved_count,
         ),
         RobotSensorEntityDescription[LitterRobot5](
             key="next_filter_replacement",
-            REDACTED_VALUE"next_filter_replacement",
+            translation_key="next_filter_replacement",
             device_class=SensorDeviceClass.TIMESTAMP,
             entity_category=EntityCategory.DIAGNOSTIC,
             value_fn=lambda robot: robot.next_filter_replacement_date,
@@ -185,7 +185,7 @@ ROBOT_SENSOR_MAP: dict[
     FeederRobot: [
         RobotSensorEntityDescription[FeederRobot](
             key="food_dispensed_today",
-            REDACTED_VALUE"food_dispensed_today",
+            translation_key="food_dispensed_today",
             state_class=SensorStateClass.TOTAL,
             last_reset_fn=dt_util.start_of_local_day,
             value_fn=(
@@ -196,7 +196,7 @@ ROBOT_SENSOR_MAP: dict[
         ),
         RobotSensorEntityDescription[FeederRobot](
             key="food_level",
-            REDACTED_VALUE"food_level",
+            translation_key="food_level",
             native_unit_of_measurement=PERCENTAGE,
             icon_fn=lambda state: icon_for_gauge_level(state, 10),
             state_class=SensorStateClass.MEASUREMENT,
@@ -204,7 +204,7 @@ ROBOT_SENSOR_MAP: dict[
         ),
         RobotSensorEntityDescription[FeederRobot](
             key="last_feeding",
-            REDACTED_VALUE"last_feeding",
+            translation_key="last_feeding",
             device_class=SensorDeviceClass.TIMESTAMP,
             value_fn=(
                 lambda robot: (
@@ -214,7 +214,7 @@ ROBOT_SENSOR_MAP: dict[
         ),
         RobotSensorEntityDescription[FeederRobot](
             key="next_feeding",
-            REDACTED_VALUE"next_feeding",
+            translation_key="next_feeding",
             device_class=SensorDeviceClass.TIMESTAMP,
             value_fn=lambda robot: robot.next_feeding,
         ),
@@ -231,7 +231,7 @@ PET_SENSORS: list[RobotSensorEntityDescription] = [
     ),
     RobotSensorEntityDescription[Pet](
         key="visits_today",
-        REDACTED_VALUE"visits_today",
+        translation_key="visits_today",
         state_class=SensorStateClass.TOTAL,
         last_reset_fn=dt_util.start_of_local_day,
         value_fn=lambda pet: pet.get_visits_since(dt_util.start_of_local_day()),

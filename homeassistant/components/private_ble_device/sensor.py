@@ -46,7 +46,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     PrivateDeviceSensorEntityDescription(
         key="power",
-        REDACTED_VALUE"power",
+        translation_key="power",
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         entity_registry_enabled_default=False,
@@ -56,7 +56,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     PrivateDeviceSensorEntityDescription(
         key="estimated_distance",
-        REDACTED_VALUE"estimated_distance",
+        translation_key="estimated_distance",
         native_unit_of_measurement=UnitOfLength.METERS,
         value_fn=lambda _, service_info: (
             service_info.advertisement
@@ -72,7 +72,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     PrivateDeviceSensorEntityDescription(
         key="estimated_broadcast_interval",
-        REDACTED_VALUE"estimated_broadcast_interval",
+        translation_key="estimated_broadcast_interval",
         native_unit_of_measurement=UnitOfTime.SECONDS,
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.DIAGNOSTIC,

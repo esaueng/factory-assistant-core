@@ -30,19 +30,19 @@ class SmartyBinarySensorEntityDescription(BinarySensorEntityDescription):
 ENTITIES: tuple[SmartyBinarySensorEntityDescription, ...] = (
     SmartyBinarySensorEntityDescription(
         key="alarm",
-        REDACTED_VALUE"alarm",
+        translation_key="alarm",
         device_class=BinarySensorDeviceClass.PROBLEM,
         value_fn=lambda smarty: smarty.alarm,
     ),
     SmartyBinarySensorEntityDescription(
         key="warning",
-        REDACTED_VALUE"warning",
+        translation_key="warning",
         device_class=BinarySensorDeviceClass.PROBLEM,
         value_fn=lambda smarty: smarty.warning,
     ),
     SmartyBinarySensorEntityDescription(
         key="boost",
-        REDACTED_VALUE"boost_state",
+        translation_key="boost_state",
         value_fn=lambda smarty: smarty.boost,
     ),
 )

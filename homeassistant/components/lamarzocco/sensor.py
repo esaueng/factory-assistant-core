@@ -49,7 +49,7 @@ class LaMarzoccoSensorEntityDescription(
 ENTITIES: tuple[LaMarzoccoSensorEntityDescription, ...] = (
     LaMarzoccoSensorEntityDescription(
         key="coffee_boiler_ready_time",
-        REDACTED_VALUE"coffee_boiler_ready_time",
+        translation_key="coffee_boiler_ready_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=(
             lambda config: (
@@ -69,7 +69,7 @@ ENTITIES: tuple[LaMarzoccoSensorEntityDescription, ...] = (
     ),
     LaMarzoccoSensorEntityDescription(
         key="steam_boiler_ready_time",
-        REDACTED_VALUE"steam_boiler_ready_time",
+        translation_key="steam_boiler_ready_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=(
             lambda config: (
@@ -99,7 +99,7 @@ ENTITIES: tuple[LaMarzoccoSensorEntityDescription, ...] = (
     ),
     LaMarzoccoSensorEntityDescription(
         key="brewing_start_time",
-        REDACTED_VALUE"brewing_start_time",
+        translation_key="brewing_start_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=(
             lambda config: (
@@ -122,7 +122,7 @@ ENTITIES: tuple[LaMarzoccoSensorEntityDescription, ...] = (
     ),
     LaMarzoccoSensorEntityDescription(
         key="steam_boiler_ready_time",
-        REDACTED_VALUE"steam_boiler_ready_time",
+        translation_key="steam_boiler_ready_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=(
             lambda config: (
@@ -142,7 +142,7 @@ ENTITIES: tuple[LaMarzoccoSensorEntityDescription, ...] = (
     ),
     LaMarzoccoSensorEntityDescription(
         key="last_cleaning_time",
-        REDACTED_VALUE"last_cleaning_time",
+        translation_key="last_cleaning_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=(
             lambda config: (
@@ -166,7 +166,7 @@ ENTITIES: tuple[LaMarzoccoSensorEntityDescription, ...] = (
 STATISTIC_ENTITIES: tuple[LaMarzoccoSensorEntityDescription, ...] = (
     LaMarzoccoSensorEntityDescription(
         key="drink_stats_coffee",
-        REDACTED_VALUE"total_coffees_made",
+        translation_key="total_coffees_made",
         state_class=SensorStateClass.TOTAL_INCREASING,
         value_fn=(
             lambda statistics: (
@@ -180,7 +180,7 @@ STATISTIC_ENTITIES: tuple[LaMarzoccoSensorEntityDescription, ...] = (
     ),
     LaMarzoccoSensorEntityDescription(
         key="drink_stats_flushing",
-        REDACTED_VALUE"total_flushes_done",
+        translation_key="total_flushes_done",
         state_class=SensorStateClass.TOTAL_INCREASING,
         value_fn=(
             lambda statistics: (

@@ -107,7 +107,7 @@ def _async_get_ufp_instance(hass: HomeAssistant, device_id: str) -> ProtectApiCl
     if not (device_entry := device_registry.async_get(device_id)):
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_not_found",
+            translation_key="device_not_found",
             translation_placeholders={"device_id": device_id},
         )
 
@@ -120,7 +120,7 @@ def _async_get_ufp_instance(hass: HomeAssistant, device_id: str) -> ProtectApiCl
 
     raise HomeAssistantError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"device_not_found",
+        translation_key="device_not_found",
         translation_placeholders={"device_id": device_id},
     )
 
@@ -165,7 +165,7 @@ async def _async_service_call_nvr(
         _LOGGER.debug("Error calling UniFi Protect service: %s", err)
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"service_error",
+            translation_key="service_error",
         ) from err
 
 
@@ -196,7 +196,7 @@ async def remove_privacy_zone(call: ServiceCall) -> None:
     if remove_index is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"privacy_zone_not_found",
+            translation_key="privacy_zone_not_found",
             translation_placeholders={
                 "zone_name": name,
                 "camera_name": camera.display_name,
@@ -262,7 +262,7 @@ def _async_get_ptz_camera(call: ServiceCall) -> Camera:
     if not camera.feature_flags.is_ptz:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"not_ptz_camera",
+            translation_key="not_ptz_camera",
             translation_placeholders={"camera_name": camera.display_name},
         )
     return camera
@@ -278,7 +278,7 @@ async def _async_ptz_command(
         _LOGGER.debug("Error calling UniFi Protect PTZ command: %s", err)
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"service_error",
+            translation_key="service_error",
         ) from err
 
 
@@ -300,7 +300,7 @@ async def ptz_goto_preset(call: ServiceCall) -> None:
 
     raise ServiceValidationError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"ptz_preset_not_found",
+        translation_key="ptz_preset_not_found",
         translation_placeholders={
             "preset_name": preset_name,
             "camera_name": camera.display_name,
@@ -315,7 +315,7 @@ async def get_user_keyring_info(call: ServiceCall) -> ServiceResponse:
     if not ulp_users:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"no_users_found",
+            translation_key="no_users_found",
         )
 
     user_keyrings: list[JsonValueType] = [

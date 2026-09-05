@@ -38,7 +38,7 @@ class VoIPCallAllowedSwitch(VoIPEntity, restore_state.RestoreEntity, SwitchEntit
 
     entity_description = SwitchEntityDescription(
         key="allow_call",
-        REDACTED_VALUE"allow_call",
+        translation_key="allow_call",
         entity_category=EntityCategory.CONFIG,
     )
 

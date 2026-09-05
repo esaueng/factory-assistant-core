@@ -58,7 +58,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         await _update_freedns(hass, session, url, auth_token)
 
     async_track_time_interval(
-        hass, update_domain_callback, update_interval, REDACTED_VALUE
+        hass, update_domain_callback, update_interval, cancel_on_shutdown=True
     )
 
     return True

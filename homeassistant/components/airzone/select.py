@@ -91,7 +91,7 @@ SYSTEM_SELECT_TYPES: Final[tuple[AirzoneSelectDescription, ...]] = (
         key=AZD_Q_ADAPT,
         options=list(Q_ADAPT_DICT),
         options_dict=Q_ADAPT_DICT,
-        REDACTED_VALUE"q_adapt",
+        translation_key="q_adapt",
     ),
 )
 
@@ -102,7 +102,7 @@ MAIN_ZONE_SELECT_TYPES: Final[tuple[AirzoneSelectDescription, ...]] = (
         key=AZD_MODE,
         options_dict=MODE_DICT,
         options_fn=main_zone_options,
-        REDACTED_VALUE"modes",
+        translation_key="modes",
     ),
 )
 
@@ -114,7 +114,7 @@ ZONE_SELECT_TYPES: Final[tuple[AirzoneSelectDescription, ...]] = (
         key=AZD_COLD_ANGLE,
         options=list(GRILLE_ANGLE_DICT),
         options_dict=GRILLE_ANGLE_DICT,
-        REDACTED_VALUE"grille_angles",
+        translation_key="grille_angles",
     ),
     AirzoneSelectDescription(
         api_param=API_HEAT_ANGLE,
@@ -122,7 +122,7 @@ ZONE_SELECT_TYPES: Final[tuple[AirzoneSelectDescription, ...]] = (
         key=AZD_HEAT_ANGLE,
         options=list(GRILLE_ANGLE_DICT),
         options_dict=GRILLE_ANGLE_DICT,
-        REDACTED_VALUE"heat_angles",
+        translation_key="heat_angles",
     ),
     AirzoneSelectDescription(
         api_param=API_SLEEP,
@@ -130,7 +130,7 @@ ZONE_SELECT_TYPES: Final[tuple[AirzoneSelectDescription, ...]] = (
         key=AZD_SLEEP,
         options=list(SLEEP_DICT),
         options_dict=SLEEP_DICT,
-        REDACTED_VALUE"sleep_times",
+        translation_key="sleep_times",
     ),
 )
 

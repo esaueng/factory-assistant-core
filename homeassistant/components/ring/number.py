@@ -54,7 +54,7 @@ class RingNumberEntityDescription(NumberEntityDescription, Generic[RingDeviceT])
 NUMBER_TYPES: tuple[RingNumberEntityDescription[Any], ...] = (
     RingNumberEntityDescription[RingChime](
         key="volume",
-        REDACTED_VALUE"volume",
+        translation_key="volume",
         mode=NumberMode.SLIDER,
         native_min_value=ring_doorbell.const.CHIME_VOL_MIN,
         native_max_value=ring_doorbell.const.CHIME_VOL_MAX,
@@ -65,7 +65,7 @@ NUMBER_TYPES: tuple[RingNumberEntityDescription[Any], ...] = (
     ),
     RingNumberEntityDescription[RingDoorBell](
         key="volume",
-        REDACTED_VALUE"volume",
+        translation_key="volume",
         mode=NumberMode.SLIDER,
         native_min_value=ring_doorbell.const.DOORBELL_VOL_MIN,
         native_max_value=ring_doorbell.const.DOORBELL_VOL_MAX,
@@ -76,7 +76,7 @@ NUMBER_TYPES: tuple[RingNumberEntityDescription[Any], ...] = (
     ),
     RingNumberEntityDescription[RingOther](
         key="doorbell_volume",
-        REDACTED_VALUE"doorbell_volume",
+        translation_key="doorbell_volume",
         mode=NumberMode.SLIDER,
         native_min_value=ring_doorbell.const.OTHER_DOORBELL_VOL_MIN,
         native_max_value=ring_doorbell.const.OTHER_DOORBELL_VOL_MAX,
@@ -87,7 +87,7 @@ NUMBER_TYPES: tuple[RingNumberEntityDescription[Any], ...] = (
     ),
     RingNumberEntityDescription[RingOther](
         key="mic_volume",
-        REDACTED_VALUE"mic_volume",
+        translation_key="mic_volume",
         mode=NumberMode.SLIDER,
         native_min_value=ring_doorbell.const.MIC_VOL_MIN,
         native_max_value=ring_doorbell.const.MIC_VOL_MAX,
@@ -98,7 +98,7 @@ NUMBER_TYPES: tuple[RingNumberEntityDescription[Any], ...] = (
     ),
     RingNumberEntityDescription[RingOther](
         key="voice_volume",
-        REDACTED_VALUE"voice_volume",
+        translation_key="voice_volume",
         mode=NumberMode.SLIDER,
         native_min_value=ring_doorbell.const.VOICE_VOL_MIN,
         native_max_value=ring_doorbell.const.VOICE_VOL_MAX,

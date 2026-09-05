@@ -26,12 +26,12 @@ SENSORS: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="id_1",
         entity_registry_enabled_default=False,
-        REDACTED_VALUE"mppt_id_1",
+        translation_key="mppt_id_1",
     ),
     SensorEntityDescription(
         key="id_2",
         entity_registry_enabled_default=False,
-        REDACTED_VALUE"mppt_id_2",
+        translation_key="mppt_id_2",
     ),
     SensorEntityDescription(
         key="input_voltage_1",
@@ -39,7 +39,7 @@ SENSORS: tuple[SensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.VOLTAGE,
         suggested_display_precision=2,
-        REDACTED_VALUE"input_voltage_1",
+        translation_key="input_voltage_1",
     ),
     SensorEntityDescription(
         key="input_voltage_2",
@@ -47,7 +47,7 @@ SENSORS: tuple[SensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.VOLTAGE,
         suggested_display_precision=2,
-        REDACTED_VALUE"input_voltage_2",
+        translation_key="input_voltage_2",
     ),
     SensorEntityDescription(
         key="power_1",
@@ -55,7 +55,7 @@ SENSORS: tuple[SensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.POWER,
         suggested_display_precision=0,
-        REDACTED_VALUE"power_1",
+        translation_key="power_1",
     ),
     SensorEntityDescription(
         key="power_2",
@@ -63,7 +63,7 @@ SENSORS: tuple[SensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.POWER,
         suggested_display_precision=0,
-        REDACTED_VALUE"power_2",
+        translation_key="power_2",
     ),
     SensorEntityDescription(
         key="current_1",
@@ -71,7 +71,7 @@ SENSORS: tuple[SensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.CURRENT,
         suggested_display_precision=2,
-        REDACTED_VALUE"current_1",
+        translation_key="current_1",
     ),
     SensorEntityDescription(
         key="current_2",
@@ -79,7 +79,7 @@ SENSORS: tuple[SensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.CURRENT,
         suggested_display_precision=2,
-        REDACTED_VALUE"current_2",
+        translation_key="current_2",
     ),
     SensorEntityDescription(
         key="ac_frequency_1",
@@ -87,7 +87,7 @@ SENSORS: tuple[SensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.FREQUENCY,
         suggested_display_precision=1,
-        REDACTED_VALUE"ac_frequency_1",
+        translation_key="ac_frequency_1",
     ),
     SensorEntityDescription(
         key="ac_frequency_2",
@@ -95,7 +95,7 @@ SENSORS: tuple[SensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.FREQUENCY,
         suggested_display_precision=1,
-        REDACTED_VALUE"ac_frequency_2",
+        translation_key="ac_frequency_2",
     ),
     SensorEntityDescription(
         key="ac_voltage_1",
@@ -103,7 +103,7 @@ SENSORS: tuple[SensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.VOLTAGE,
         suggested_display_precision=0,
-        REDACTED_VALUE"ac_voltage_1",
+        translation_key="ac_voltage_1",
     ),
     SensorEntityDescription(
         key="ac_voltage_2",
@@ -111,7 +111,7 @@ SENSORS: tuple[SensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.VOLTAGE,
         suggested_display_precision=0,
-        REDACTED_VALUE"ac_voltage_2",
+        translation_key="ac_voltage_2",
     ),
     SensorEntityDescription(
         key="temperature_1",
@@ -119,7 +119,7 @@ SENSORS: tuple[SensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.TEMPERATURE,
         suggested_display_precision=1,
-        REDACTED_VALUE"temperature_1",
+        translation_key="temperature_1",
     ),
     SensorEntityDescription(
         key="temperature_2",
@@ -127,7 +127,7 @@ SENSORS: tuple[SensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.TEMPERATURE,
         suggested_display_precision=1,
-        REDACTED_VALUE"temperature_2",
+        translation_key="temperature_2",
     ),
     SensorEntityDescription(
         key="total_energy_1",
@@ -135,7 +135,7 @@ SENSORS: tuple[SensorEntityDescription, ...] = (
         state_class=SensorStateClass.TOTAL,
         device_class=SensorDeviceClass.ENERGY,
         suggested_display_precision=2,
-        REDACTED_VALUE"total_energy_1",
+        translation_key="total_energy_1",
     ),
     SensorEntityDescription(
         key="total_energy_2",
@@ -143,7 +143,7 @@ SENSORS: tuple[SensorEntityDescription, ...] = (
         state_class=SensorStateClass.TOTAL,
         device_class=SensorDeviceClass.ENERGY,
         suggested_display_precision=2,
-        REDACTED_VALUE"total_energy_2",
+        translation_key="total_energy_2",
     ),
 )
 

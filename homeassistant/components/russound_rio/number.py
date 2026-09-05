@@ -27,7 +27,7 @@ class RussoundZoneNumberEntityDescription(NumberEntityDescription):
 CONTROL_ENTITIES: tuple[RussoundZoneNumberEntityDescription, ...] = (
     RussoundZoneNumberEntityDescription(
         key="balance",
-        REDACTED_VALUE"balance",
+        translation_key="balance",
         native_min_value=-10,
         native_max_value=10,
         native_step=1,
@@ -37,7 +37,7 @@ CONTROL_ENTITIES: tuple[RussoundZoneNumberEntityDescription, ...] = (
     ),
     RussoundZoneNumberEntityDescription(
         key="bass",
-        REDACTED_VALUE"bass",
+        translation_key="bass",
         native_min_value=-10,
         native_max_value=10,
         native_step=1,
@@ -47,7 +47,7 @@ CONTROL_ENTITIES: tuple[RussoundZoneNumberEntityDescription, ...] = (
     ),
     RussoundZoneNumberEntityDescription(
         key="treble",
-        REDACTED_VALUE"treble",
+        translation_key="treble",
         native_min_value=-10,
         native_max_value=10,
         native_step=1,
@@ -57,7 +57,7 @@ CONTROL_ENTITIES: tuple[RussoundZoneNumberEntityDescription, ...] = (
     ),
     RussoundZoneNumberEntityDescription(
         key="turn_on_volume",
-        REDACTED_VALUE"turn_on_volume",
+        translation_key="turn_on_volume",
         native_min_value=0,
         native_max_value=100,
         native_step=2,

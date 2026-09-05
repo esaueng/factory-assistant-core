@@ -31,7 +31,7 @@ class PooldoseSelectEntityDescription(SelectEntityDescription):
 SELECT_DESCRIPTIONS: tuple[PooldoseSelectEntityDescription, ...] = (
     PooldoseSelectEntityDescription(
         key="water_meter_unit",
-        REDACTED_VALUE"water_meter_unit",
+        translation_key="water_meter_unit",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         options=[UnitOfVolume.LITERS, UnitOfVolume.CUBIC_METERS],
@@ -39,7 +39,7 @@ SELECT_DESCRIPTIONS: tuple[PooldoseSelectEntityDescription, ...] = (
     ),
     PooldoseSelectEntityDescription(
         key="flow_rate_unit",
-        REDACTED_VALUE"flow_rate_unit",
+        translation_key="flow_rate_unit",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         options=[
@@ -50,41 +50,41 @@ SELECT_DESCRIPTIONS: tuple[PooldoseSelectEntityDescription, ...] = (
     ),
     PooldoseSelectEntityDescription(
         key="ph_type_dosing_set",
-        REDACTED_VALUE"ph_type_dosing_set",
+        translation_key="ph_type_dosing_set",
         entity_category=EntityCategory.CONFIG,
         options=["alcalyne", "acid"],
     ),
     PooldoseSelectEntityDescription(
         key="ph_type_dosing_method",
-        REDACTED_VALUE"ph_type_dosing_method",
+        translation_key="ph_type_dosing_method",
         entity_category=EntityCategory.CONFIG,
         options=["off", "proportional", "on_off", "timed"],
         entity_registry_enabled_default=False,
     ),
     PooldoseSelectEntityDescription(
         key="orp_type_dosing_set",
-        REDACTED_VALUE"orp_type_dosing_set",
+        translation_key="orp_type_dosing_set",
         entity_category=EntityCategory.CONFIG,
         options=["low", "high"],
         entity_registry_enabled_default=False,
     ),
     PooldoseSelectEntityDescription(
         key="orp_type_dosing_method",
-        REDACTED_VALUE"orp_type_dosing_method",
+        translation_key="orp_type_dosing_method",
         entity_category=EntityCategory.CONFIG,
         options=["off", "proportional", "on_off", "timed"],
         entity_registry_enabled_default=False,
     ),
     PooldoseSelectEntityDescription(
         key="cl_type_dosing_set",
-        REDACTED_VALUE"cl_type_dosing_set",
+        translation_key="cl_type_dosing_set",
         entity_category=EntityCategory.CONFIG,
         options=["low", "high"],
         entity_registry_enabled_default=False,
     ),
     PooldoseSelectEntityDescription(
         key="cl_type_dosing_method",
-        REDACTED_VALUE"cl_type_dosing_method",
+        translation_key="cl_type_dosing_method",
         entity_category=EntityCategory.CONFIG,
         options=["off", "proportional", "on_off", "timed"],
         entity_registry_enabled_default=False,

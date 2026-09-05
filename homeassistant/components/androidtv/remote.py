@@ -70,6 +70,6 @@ class AndroidTVRemote(AndroidTVEntity, RemoteEntity):
                 except UnicodeDecodeError as ex:
                     raise ServiceValidationError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"failed_send",
+                        translation_key="failed_send",
                         translation_placeholders={"cmd": cmd},
                     ) from ex

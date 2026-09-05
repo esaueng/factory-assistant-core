@@ -34,7 +34,7 @@ CONFIG_FLOW = {
                 vol.Optional(CONF_INVERT, default=False): selector.BooleanSelector(),
                 vol.Required(CONF_TARGET_DOMAIN): selector.SelectSelector(
                     selector.SelectSelectorConfig(
-                        options=TARGET_DOMAIN_OPTIONS, REDACTED_VALUE"target_domain"
+                        options=TARGET_DOMAIN_OPTIONS, translation_key="target_domain"
                     ),
                 ),
             }

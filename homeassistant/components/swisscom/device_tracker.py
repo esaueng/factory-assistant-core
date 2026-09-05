@@ -38,7 +38,7 @@ async def async_setup_scanner(
         is_persistent=False,
         issue_domain=DOMAIN,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"deprecated_yaml_import_issue_credentials_required",
+        translation_key="deprecated_yaml_import_issue_credentials_required",
         translation_placeholders={
             "domain": DOMAIN,
             "integration_title": "Swisscom Internet-Box",

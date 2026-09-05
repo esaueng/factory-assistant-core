@@ -82,12 +82,12 @@ class PlayStationNetworkBaseCoordinator[_DataT](DataUpdateCoordinator[_DataT]):
         except PSNAWPAuthenticationError as error:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"not_ready",
+                translation_key="not_ready",
             ) from error
         except (PSNAWPServerError, PSNAWPClientError) as error:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
+                translation_key="update_failed",
             ) from error
 
 
@@ -106,12 +106,12 @@ class PlaystationNetworkUserDataCoordinator(
         except PSNAWPAuthenticationError as error:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"not_ready",
+                translation_key="not_ready",
             ) from error
         except (PSNAWPServerError, PSNAWPClientError) as error:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
+                translation_key="update_failed",
             ) from error
 
     async def update_data(self) -> PlaystationNetworkData:
@@ -179,7 +179,7 @@ class PlaystationNetworkGroupsUpdateCoordinator(
                 is_fixable=False,
                 issue_domain=DOMAIN,
                 severity=ir.IssueSeverity.ERROR,
-                REDACTED_VALUE"group_chat_forbidden",
+                translation_key="group_chat_forbidden",
                 translation_placeholders={
                     CONF_NAME: self.config_entry.title,
                     "error_message": e.message or "",
@@ -229,21 +229,21 @@ class PlaystationNetworkFriendDataCoordinator(
         except PSNAWPNotFoundError as error:
             raise ConfigEntryError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"user_not_found",
+                translation_key="user_not_found",
                 translation_placeholders={"user": self.subentry.title},
             ) from error
 
         except PSNAWPAuthenticationError as error:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"not_ready",
+                translation_key="not_ready",
             ) from error
 
         except (PSNAWPServerError, PSNAWPClientError) as error:
             _LOGGER.debug("Update failed", exc_info=True)
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
+                translation_key="update_failed",
             ) from error
 
     def _update_data(self) -> PlaystationNetworkData:
@@ -253,7 +253,7 @@ class PlaystationNetworkFriendDataCoordinator(
         except PSNAWPForbiddenError as error:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"user_profile_private",
+                translation_key="user_profile_private",
                 translation_placeholders={"user": self.subentry.title},
             ) from error
         except PSNAWPError:

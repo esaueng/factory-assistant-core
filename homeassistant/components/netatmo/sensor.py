@@ -350,7 +350,7 @@ PUBLIC_WEATHER_STATION_TYPES: tuple[
     ),
     NetatmoPublicWeatherSensorEntityDescription(
         key="sum_rain_1",
-        REDACTED_VALUE"sum_rain_1",
+        translation_key="sum_rain_1",
         entity_registry_enabled_default=False,
         native_unit_of_measurement=UnitOfPrecipitationDepth.MILLIMETERS,
         device_class=SensorDeviceClass.PRECIPITATION,
@@ -360,7 +360,7 @@ PUBLIC_WEATHER_STATION_TYPES: tuple[
     ),
     NetatmoPublicWeatherSensorEntityDescription(
         key="sum_rain_24",
-        REDACTED_VALUE"sum_rain_24",
+        translation_key="sum_rain_24",
         native_unit_of_measurement=UnitOfPrecipitationDepth.MILLIMETERS,
         device_class=SensorDeviceClass.PRECIPITATION,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -383,7 +383,7 @@ PUBLIC_WEATHER_STATION_TYPES: tuple[
     ),
     NetatmoPublicWeatherSensorEntityDescription(
         key="gustangle_value",
-        REDACTED_VALUE"gust_angle",
+        translation_key="gust_angle",
         entity_registry_enabled_default=False,
         native_unit_of_measurement=DEGREE,
         state_class=SensorStateClass.MEASUREMENT_ANGLE,
@@ -392,7 +392,7 @@ PUBLIC_WEATHER_STATION_TYPES: tuple[
     ),
     NetatmoPublicWeatherSensorEntityDescription(
         key="guststrength",
-        REDACTED_VALUE"gust_strength",
+        translation_key="gust_strength",
         entity_registry_enabled_default=False,
         native_unit_of_measurement=UnitOfSpeed.KILOMETERS_PER_HOUR,
         device_class=SensorDeviceClass.WIND_SPEED,

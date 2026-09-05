@@ -54,7 +54,7 @@ class RingSwitchEntityDescription(
 SWITCHES: Sequence[RingSwitchEntityDescription[Any]] = (
     RingSwitchEntityDescription[RingStickUpCam](
         key="siren",
-        REDACTED_VALUE"siren",
+        translation_key="siren",
         exists_fn=lambda device: device.has_capability(RingCapability.SIREN),
         is_on_fn=lambda device: device.siren > 0,
         turn_on_fn=lambda device: device.async_set_siren(1),
@@ -65,7 +65,7 @@ SWITCHES: Sequence[RingSwitchEntityDescription[Any]] = (
     ),
     RingSwitchEntityDescription[RingDoorBell](
         key="in_home_chime",
-        REDACTED_VALUE"in_home_chime",
+        translation_key="in_home_chime",
         exists_fn=lambda device: (
             device.family == "doorbots"
             and device.existing_doorbell_type in IN_HOME_CHIME_IS_PRESENT
@@ -78,7 +78,7 @@ SWITCHES: Sequence[RingSwitchEntityDescription[Any]] = (
     ),
     RingSwitchEntityDescription[RingDoorBell](
         key="motion_detection",
-        REDACTED_VALUE"motion_detection",
+        translation_key="motion_detection",
         exists_fn=lambda device: device.has_capability(RingCapability.MOTION_DETECTION),
         is_on_fn=lambda device: device.motion_detection,
         turn_on_fn=lambda device: device.async_set_motion_detection(True),

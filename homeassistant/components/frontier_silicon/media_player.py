@@ -54,14 +54,14 @@ def fs_command_exception_wrap[
             command = func.__name__.removeprefix("async_")
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connection_error",
+                translation_key="connection_error",
                 translation_placeholders={"command": command},
             ) from err
         except FSApiError as err:
             command = func.__name__.removeprefix("async_")
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_error",
+                translation_key="api_error",
                 translation_placeholders={"command": command, "message": str(err)},
             ) from err
 

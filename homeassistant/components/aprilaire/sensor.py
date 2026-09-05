@@ -120,7 +120,7 @@ class AprilaireStatusSensorDescription(AprilaireSensorDescription):
 HUMIDITY_SENSORS: tuple[AprilaireSensorDescription, ...] = (
     AprilaireSensorDescription(
         key="indoor_humidity_controlling_sensor",
-        REDACTED_VALUE"indoor_humidity_controlling_sensor",
+        translation_key="indoor_humidity_controlling_sensor",
         device_class=SensorDeviceClass.HUMIDITY,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
@@ -129,7 +129,7 @@ HUMIDITY_SENSORS: tuple[AprilaireSensorDescription, ...] = (
     ),
     AprilaireSensorDescription(
         key="outdoor_humidity_controlling_sensor",
-        REDACTED_VALUE"outdoor_humidity_controlling_sensor",
+        translation_key="outdoor_humidity_controlling_sensor",
         device_class=SensorDeviceClass.HUMIDITY,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
@@ -141,7 +141,7 @@ HUMIDITY_SENSORS: tuple[AprilaireSensorDescription, ...] = (
 TEMPERATURE_SENSORS: tuple[AprilaireSensorDescription, ...] = (
     AprilaireSensorDescription(
         key="indoor_temperature_controlling_sensor",
-        REDACTED_VALUE"indoor_temperature_controlling_sensor",
+        translation_key="indoor_temperature_controlling_sensor",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -150,7 +150,7 @@ TEMPERATURE_SENSORS: tuple[AprilaireSensorDescription, ...] = (
     ),
     AprilaireSensorDescription(
         key="outdoor_temperature_controlling_sensor",
-        REDACTED_VALUE"outdoor_temperature_controlling_sensor",
+        translation_key="outdoor_temperature_controlling_sensor",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -162,7 +162,7 @@ TEMPERATURE_SENSORS: tuple[AprilaireSensorDescription, ...] = (
 STATUS_SENSORS: tuple[AprilaireSensorDescription, ...] = (
     AprilaireStatusSensorDescription(
         key="dehumidification_status",
-        REDACTED_VALUE"dehumidification_status",
+        translation_key="dehumidification_status",
         device_class=SensorDeviceClass.ENUM,
         status_key=Attribute.DEHUMIDIFICATION_AVAILABLE,
         value_key=Attribute.DEHUMIDIFICATION_STATUS,
@@ -171,7 +171,7 @@ STATUS_SENSORS: tuple[AprilaireSensorDescription, ...] = (
     ),
     AprilaireStatusSensorDescription(
         key="humidification_status",
-        REDACTED_VALUE"humidification_status",
+        translation_key="humidification_status",
         device_class=SensorDeviceClass.ENUM,
         status_key=Attribute.HUMIDIFICATION_AVAILABLE,
         value_key=Attribute.HUMIDIFICATION_STATUS,
@@ -180,7 +180,7 @@ STATUS_SENSORS: tuple[AprilaireSensorDescription, ...] = (
     ),
     AprilaireStatusSensorDescription(
         key="ventilation_status",
-        REDACTED_VALUE"ventilation_status",
+        translation_key="ventilation_status",
         device_class=SensorDeviceClass.ENUM,
         status_key=Attribute.VENTILATION_AVAILABLE,
         value_key=Attribute.VENTILATION_STATUS,
@@ -189,7 +189,7 @@ STATUS_SENSORS: tuple[AprilaireSensorDescription, ...] = (
     ),
     AprilaireStatusSensorDescription(
         key="air_cleaning_status",
-        REDACTED_VALUE"air_cleaning_status",
+        translation_key="air_cleaning_status",
         device_class=SensorDeviceClass.ENUM,
         status_key=Attribute.AIR_CLEANING_AVAILABLE,
         value_key=Attribute.AIR_CLEANING_STATUS,
@@ -198,7 +198,7 @@ STATUS_SENSORS: tuple[AprilaireSensorDescription, ...] = (
     ),
     AprilaireStatusSensorDescription(
         key="fan_status",
-        REDACTED_VALUE"fan_status",
+        translation_key="fan_status",
         device_class=SensorDeviceClass.ENUM,
         status_key=None,
         value_key=Attribute.FAN_STATUS,

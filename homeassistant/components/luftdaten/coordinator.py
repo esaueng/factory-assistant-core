@@ -48,18 +48,18 @@ class LuftdatenDataUpdateCoordinator(DataUpdateCoordinator[dict[str, float | int
         except LuftdatenConnectionError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
             ) from err
         except LuftdatenError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unknown_error",
+                translation_key="unknown_error",
             ) from err
 
         if not self._sensor_community.values:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_data_received",
+                translation_key="no_data_received",
             )
 
         data: dict[str, float | int] = self._sensor_community.values

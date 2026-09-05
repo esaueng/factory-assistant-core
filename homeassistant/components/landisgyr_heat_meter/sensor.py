@@ -89,13 +89,13 @@ HEAT_METER_SENSOR_TYPES = (
         value_fn=lambda res: res.heat_previous_year_gj,
     ),
     HeatMeterSensorEntityDescription(
-        key="REDACTED_VALUE",
+        key="volume_previous_year_m3",
         icon="mdi:fire",
         name="Volume usage previous year",
         device_class=SensorDeviceClass.VOLUME,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         entity_category=EntityCategory.DIAGNOSTIC,
-        value_fn=lambda res: res.REDACTED_VALUE,
+        value_fn=lambda res: res.volume_previous_year_m3,
     ),
     HeatMeterSensorEntityDescription(
         key="ownership_number",

@@ -44,7 +44,7 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="state",
-        REDACTED_VALUE"battery_state",
+        translation_key="battery_state",
     ),
 )
 

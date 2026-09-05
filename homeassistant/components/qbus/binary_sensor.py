@@ -40,12 +40,12 @@ _WEATHER_DESCRIPTIONS = (
     QbusWeatherDescription(
         key="raining",
         property="raining",
-        REDACTED_VALUE"raining",
+        translation_key="raining",
     ),
     QbusWeatherDescription(
         key="twilight",
         property="twilight",
-        REDACTED_VALUE"twilight",
+        translation_key="twilight",
     ),
 )
 

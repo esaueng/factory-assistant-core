@@ -131,7 +131,7 @@ class AlertEntity(Entity):
         self._cancel = async_track_point_in_time(
             self.hass,
             HassJob(
-                self._notify, name="Schedule notify alert", REDACTED_VALUE
+                self._notify, name="Schedule notify alert", cancel_on_shutdown=True
             ),
             next_msg,
         )

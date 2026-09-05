@@ -93,7 +93,7 @@ def add_province_and_language_to_schema(
                 SelectSelectorConfig(
                     options=province_options,
                     mode=SelectSelectorMode.DROPDOWN,
-                    REDACTED_VALUECONF_PROVINCE,
+                    translation_key=CONF_PROVINCE,
                 )
             ),
         }
@@ -108,7 +108,7 @@ def add_province_and_language_to_schema(
                     options=_categories,
                     mode=SelectSelectorMode.DROPDOWN,
                     multiple=True,
-                    REDACTED_VALUECONF_CATEGORY,
+                    translation_key=CONF_CATEGORY,
                 )
             ),
         }
@@ -174,7 +174,7 @@ DATA_SCHEMA_OPT = vol.Schema(
                 options=ALLOWED_DAYS,
                 multiple=True,
                 mode=SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUE"days",
+                translation_key="days",
             )
         ),
         vol.Optional(CONF_EXCLUDES, default=DEFAULT_EXCLUDES): SelectSelector(
@@ -182,7 +182,7 @@ DATA_SCHEMA_OPT = vol.Schema(
                 options=ALLOWED_DAYS,
                 multiple=True,
                 mode=SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUE"days",
+                translation_key="days",
             )
         ),
         vol.Optional(CONF_OFFSET, default=DEFAULT_OFFSET): NumberSelector(

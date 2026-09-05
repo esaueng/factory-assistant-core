@@ -560,7 +560,7 @@ async def _async_send_telegram_message(service: ServiceCall) -> ServiceResponse:
             raise errors[0][0]
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"action_failed",
+            translation_key="action_failed",
             translation_placeholders={"error": str(errors[0][0])},
         ) from errors[0][0]
 
@@ -572,7 +572,7 @@ async def _async_send_telegram_message(service: ServiceCall) -> ServiceResponse:
 
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"multiple_errors",
+            translation_key="multiple_errors",
             translation_placeholders={"errors": "\n".join(error_messages)},
         )
 
@@ -668,7 +668,7 @@ def _deprecate_timeout(service: ServiceCall) -> None:
         is_fixable=True,
         is_persistent=True,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"deprecated_timeout_parameter",
+        translation_key="deprecated_timeout_parameter",
         translation_placeholders={
             "integration_title": "Telegram Bot",
             "action": f"{DOMAIN}.{service.service}",
@@ -737,7 +737,7 @@ def _build_targets(
         if not entity_entry:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_notify_entity",
+                translation_key="invalid_notify_entity",
                 translation_placeholders={ATTR_ENTITY_ID: notify_entity_id},
             )
         assert entity_entry.config_entry_id is not None
@@ -788,7 +788,7 @@ def _build_targets(
             if not subentries:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"missing_allowed_chat_ids",
+                    translation_key="missing_allowed_chat_ids",
                     translation_placeholders={
                         "bot_name": config_entry.title,
                     },
@@ -809,7 +809,7 @@ def _build_targets(
             if config_entry.state is not ConfigEntryState.LOADED:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"entry_not_loaded",
+                    translation_key="entry_not_loaded",
                     translation_placeholders={"telegram_bot": config_entry.title},
                 )
 
@@ -827,7 +827,7 @@ def _build_targets(
         if invalid_chat_ids:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_chat_ids",
+                translation_key="invalid_chat_ids",
                 translation_placeholders={
                     "chat_ids": ", ".join(str(chat_id) for chat_id in invalid_chat_ids),
                     "bot_name": config_entry.title,
@@ -841,7 +841,7 @@ def _build_targets(
     # can't determine default since multiple config entries exist
     raise ServiceValidationError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"missing_notify_entities",
+        translation_key="missing_notify_entities",
     )
 
 
@@ -875,7 +875,7 @@ def _warn_chat_id_migration(service: ServiceCall) -> set[int]:
         is_fixable=True,
         is_persistent=True,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"migrate_chat_ids_in_target",
+        translation_key="migrate_chat_ids_in_target",
         translation_placeholders={
             "integration_title": "Telegram Bot",
             "action": f"{DOMAIN}.{service.service}",

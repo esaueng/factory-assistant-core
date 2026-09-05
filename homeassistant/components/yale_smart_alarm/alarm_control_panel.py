@@ -81,7 +81,7 @@ class YaleAlarmDevice(YaleAlarmEntity, AlarmControlPanelEntity):
         except YALE_ALL_ERRORS as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_alarm",
+                translation_key="set_alarm",
                 translation_placeholders={
                     "name": self.coordinator.config_entry.title,
                     "error": str(error),
@@ -94,7 +94,7 @@ class YaleAlarmDevice(YaleAlarmEntity, AlarmControlPanelEntity):
             return
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"could_not_change_alarm",
+            translation_key="could_not_change_alarm",
         )
 
     @property

@@ -37,15 +37,15 @@ class HomeConnectBinarySensorEntityDescription(BinarySensorEntityDescription):
 BINARY_SENSORS = (
     HomeConnectBinarySensorEntityDescription(
         key=StatusKey.BSH_COMMON_REMOTE_CONTROL_ACTIVE,
-        REDACTED_VALUE"remote_control",
+        translation_key="remote_control",
     ),
     HomeConnectBinarySensorEntityDescription(
         key=StatusKey.BSH_COMMON_REMOTE_CONTROL_START_ALLOWED,
-        REDACTED_VALUE"remote_start",
+        translation_key="remote_start",
     ),
     HomeConnectBinarySensorEntityDescription(
         key=StatusKey.BSH_COMMON_LOCAL_CONTROL_ACTIVE,
-        REDACTED_VALUE"local_control",
+        translation_key="local_control",
     ),
     HomeConnectBinarySensorEntityDescription(
         key=StatusKey.BSH_COMMON_BATTERY_CHARGING_STATE,
@@ -54,7 +54,7 @@ BINARY_SENSORS = (
             "BSH.Common.EnumType.BatteryChargingState.Charging": True,
             "BSH.Common.EnumType.BatteryChargingState.Discharging": False,
         },
-        REDACTED_VALUE"battery_charging_state",
+        translation_key="battery_charging_state",
     ),
     HomeConnectBinarySensorEntityDescription(
         key=StatusKey.BSH_COMMON_CHARGING_CONNECTION,
@@ -63,78 +63,78 @@ BINARY_SENSORS = (
             "BSH.Common.EnumType.ChargingConnection.Connected": True,
             "BSH.Common.EnumType.ChargingConnection.Disconnected": False,
         },
-        REDACTED_VALUE"charging_connection",
+        translation_key="charging_connection",
     ),
     HomeConnectBinarySensorEntityDescription(
         key=StatusKey.BSH_COMMON_INTERIOR_ILLUMINATION_ACTIVE,
-        REDACTED_VALUE"interior_illumination_active",
+        translation_key="interior_illumination_active",
         device_class=BinarySensorDeviceClass.LIGHT,
     ),
     HomeConnectBinarySensorEntityDescription(
         key=StatusKey.CONSUMER_PRODUCTS_CLEANING_ROBOT_DUST_BOX_INSERTED,
-        REDACTED_VALUE"dust_box_inserted",
+        translation_key="dust_box_inserted",
     ),
     HomeConnectBinarySensorEntityDescription(
         key=StatusKey.CONSUMER_PRODUCTS_CLEANING_ROBOT_LIFTED,
-        REDACTED_VALUE"lifted",
+        translation_key="lifted",
     ),
     HomeConnectBinarySensorEntityDescription(
         key=StatusKey.CONSUMER_PRODUCTS_CLEANING_ROBOT_LOST,
-        REDACTED_VALUE"lost",
+        translation_key="lost",
     ),
     HomeConnectBinarySensorEntityDescription(
         key=StatusKey.REFRIGERATION_COMMON_DOOR_BOTTLE_COOLER,
         boolean_map=REFRIGERATION_DOOR_BOOLEAN_MAP,
         device_class=BinarySensorDeviceClass.DOOR,
-        REDACTED_VALUE"bottle_cooler_door",
+        translation_key="bottle_cooler_door",
     ),
     HomeConnectBinarySensorEntityDescription(
         key=StatusKey.REFRIGERATION_COMMON_DOOR_CHILLER_COMMON,
         boolean_map=REFRIGERATION_DOOR_BOOLEAN_MAP,
         device_class=BinarySensorDeviceClass.DOOR,
-        REDACTED_VALUE"common_chiller_door",
+        translation_key="common_chiller_door",
     ),
     HomeConnectBinarySensorEntityDescription(
         key=StatusKey.REFRIGERATION_COMMON_DOOR_CHILLER,
         boolean_map=REFRIGERATION_DOOR_BOOLEAN_MAP,
         device_class=BinarySensorDeviceClass.DOOR,
-        REDACTED_VALUE"chiller_door",
+        translation_key="chiller_door",
     ),
     HomeConnectBinarySensorEntityDescription(
         key=StatusKey.REFRIGERATION_COMMON_DOOR_CHILLER_LEFT,
         boolean_map=REFRIGERATION_DOOR_BOOLEAN_MAP,
         device_class=BinarySensorDeviceClass.DOOR,
-        REDACTED_VALUE"left_chiller_door",
+        translation_key="left_chiller_door",
     ),
     HomeConnectBinarySensorEntityDescription(
         key=StatusKey.REFRIGERATION_COMMON_DOOR_CHILLER_RIGHT,
         boolean_map=REFRIGERATION_DOOR_BOOLEAN_MAP,
         device_class=BinarySensorDeviceClass.DOOR,
-        REDACTED_VALUE"right_chiller_door",
+        translation_key="right_chiller_door",
     ),
     HomeConnectBinarySensorEntityDescription(
         key=StatusKey.REFRIGERATION_COMMON_DOOR_FLEX_COMPARTMENT,
         boolean_map=REFRIGERATION_DOOR_BOOLEAN_MAP,
         device_class=BinarySensorDeviceClass.DOOR,
-        REDACTED_VALUE"flex_compartment_door",
+        translation_key="flex_compartment_door",
     ),
     HomeConnectBinarySensorEntityDescription(
         key=StatusKey.REFRIGERATION_COMMON_DOOR_FREEZER,
         boolean_map=REFRIGERATION_DOOR_BOOLEAN_MAP,
         device_class=BinarySensorDeviceClass.DOOR,
-        REDACTED_VALUE"freezer_door",
+        translation_key="freezer_door",
     ),
     HomeConnectBinarySensorEntityDescription(
         key=StatusKey.REFRIGERATION_COMMON_DOOR_REFRIGERATOR,
         boolean_map=REFRIGERATION_DOOR_BOOLEAN_MAP,
         device_class=BinarySensorDeviceClass.DOOR,
-        REDACTED_VALUE"refrigerator_door",
+        translation_key="refrigerator_door",
     ),
     HomeConnectBinarySensorEntityDescription(
         key=StatusKey.REFRIGERATION_COMMON_DOOR_WINE_COMPARTMENT,
         boolean_map=REFRIGERATION_DOOR_BOOLEAN_MAP,
         device_class=BinarySensorDeviceClass.DOOR,
-        REDACTED_VALUE"wine_compartment_door",
+        translation_key="wine_compartment_door",
     ),
 )
 

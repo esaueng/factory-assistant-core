@@ -67,12 +67,12 @@ class OneDriveForBusinessUpdateCoordinator(DataUpdateCoordinator[Drive]):
             drive = await self._client.get_drive()
         except AuthenticationError as err:
             raise ConfigEntryAuthFailed(
-                translation_domain=DOMAIN, REDACTED_VALUE"authentication_failed"
+                translation_domain=DOMAIN, translation_key="authentication_failed"
             ) from err
         except OneDriveException as err:
             _LOGGER.debug("Failed to fetch drive data: %s", err, exc_info=True)
             raise UpdateFailed(
-                translation_domain=DOMAIN, REDACTED_VALUE"update_failed"
+                translation_domain=DOMAIN, translation_key="update_failed"
             ) from err
 
         # create an issue if the drive is almost full
@@ -91,7 +91,7 @@ class OneDriveForBusinessUpdateCoordinator(DataUpdateCoordinator[Drive]):
                     if state is DriveState.EXCEEDED
                     else ir.IssueSeverity.WARNING
                 ),
-                REDACTED_VALUEkey,
+                translation_key=key,
                 translation_placeholders={
                     "total": f"{drive.quota.total / (1024**3):.2f}",
                     "used": f"{drive.quota.used / (1024**3):.2f}",

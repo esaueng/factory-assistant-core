@@ -48,19 +48,19 @@ class AutomowerButtonEntityDescription(ButtonEntityDescription):
 MOWER_BUTTON_TYPES: tuple[AutomowerButtonEntityDescription, ...] = (
     AutomowerButtonEntityDescription(
         key="confirm_error",
-        REDACTED_VALUE"confirm_error",
+        translation_key="confirm_error",
         available_fn=lambda data: data.mower.is_error_confirmable,
         exists_fn=lambda data: data.capabilities.can_confirm_error,
         press_fn=lambda session, mower_id: session.commands.error_confirm(mower_id),
     ),
     AutomowerButtonEntityDescription(
         key="sync_clock",
-        REDACTED_VALUE"sync_clock",
+        translation_key="sync_clock",
         press_fn=lambda session, mower_id: session.commands.set_datetime(mower_id),
     ),
     AutomowerButtonEntityDescription(
         key="reset_cutting_blade_usage_time",
-        REDACTED_VALUE"reset_cutting_blade_usage_time",
+        translation_key="reset_cutting_blade_usage_time",
         available_fn=reset_cutting_blade_usage_time_availability,
         exists_fn=lambda data: data.statistics.cutting_blade_usage_time is not None,
         press_fn=async_reset_cutting_blade_usage_time,

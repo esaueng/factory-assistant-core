@@ -29,12 +29,12 @@ class KioskerBinarySensorEntityDescription(BinarySensorEntityDescription):
 BINARY_SENSORS: tuple[KioskerBinarySensorEntityDescription, ...] = (
     KioskerBinarySensorEntityDescription(
         key="blackoutState",
-        REDACTED_VALUE"blackout_state",
+        translation_key="blackout_state",
         value_fn=lambda x: x.blackout.visible if x.blackout else False,
     ),
     KioskerBinarySensorEntityDescription(
         key="screensaverState",
-        REDACTED_VALUE"screensaver_state",
+        translation_key="screensaver_state",
         value_fn=lambda x: x.screensaver.visible if x.screensaver else False,
     ),
     KioskerBinarySensorEntityDescription(

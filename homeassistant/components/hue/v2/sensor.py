@@ -244,7 +244,7 @@ class HueZigbeeConnectivitySensor(HueSensorBase):
         device_class=SensorDeviceClass.ENUM,
         has_entity_name=True,
         entity_category=EntityCategory.DIAGNOSTIC,
-        REDACTED_VALUE"zigbee_connectivity",
+        translation_key="zigbee_connectivity",
         options=[
             "connected",
             "disconnected",

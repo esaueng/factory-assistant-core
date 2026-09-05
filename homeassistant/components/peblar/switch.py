@@ -47,7 +47,7 @@ def _async_peblar_charge(
 DESCRIPTIONS = [
     PeblarSwitchEntityDescription(
         key="force_single_phase",
-        REDACTED_VALUE"force_single_phase",
+        translation_key="force_single_phase",
         entity_category=EntityCategory.CONFIG,
         has_fn=lambda x: (
             x.data_coordinator.data.system.force_single_phase_allowed
@@ -58,7 +58,7 @@ DESCRIPTIONS = [
     ),
     PeblarSwitchEntityDescription(
         key="charge",
-        REDACTED_VALUE"charge",
+        translation_key="charge",
         entity_category=EntityCategory.CONFIG,
         is_on_fn=lambda x: x.ev.charge_current_limit >= 6000,
         set_fn=_async_peblar_charge,

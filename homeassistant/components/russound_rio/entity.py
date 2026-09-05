@@ -28,7 +28,7 @@ def command[_EntityT: RussoundBaseEntity, **_P](
         except RUSSOUND_RIO_EXCEPTIONS as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_error",
+                translation_key="command_error",
                 translation_placeholders={
                     "function_name": func.__name__,
                     "entity_id": self.entity_id,

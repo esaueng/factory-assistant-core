@@ -53,14 +53,14 @@ CIPHER_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=list(SSLCipherList),
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUECONF_SSL_CIPHER_LIST,
+        translation_key=CONF_SSL_CIPHER_LIST,
     )
 )
 TEMPLATE_SELECTOR = TemplateSelector(TemplateSelectorConfig())
 EVENT_MESSAGE_DATA_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=MESSAGE_DATA_OPTIONS,
-        REDACTED_VALUECONF_EVENT_MESSAGE_DATA,
+        translation_key=CONF_EVENT_MESSAGE_DATA,
         multiple=True,
     )
 )

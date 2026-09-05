@@ -29,13 +29,13 @@ class UnifiAccessSwitchEntityDescription(SwitchEntityDescription):
 SWITCH_DESCRIPTIONS: tuple[UnifiAccessSwitchEntityDescription, ...] = (
     UnifiAccessSwitchEntityDescription(
         key="evacuation",
-        REDACTED_VALUE"evacuation",
+        translation_key="evacuation",
         value_fn=lambda s: s.evacuation,
         set_fn=lambda s, v: EmergencyStatus(evacuation=v, lockdown=s.lockdown),
     ),
     UnifiAccessSwitchEntityDescription(
         key="lockdown",
-        REDACTED_VALUE"lockdown",
+        translation_key="lockdown",
         value_fn=lambda s: s.lockdown,
         set_fn=lambda s, v: EmergencyStatus(evacuation=s.evacuation, lockdown=v),
     ),
@@ -93,7 +93,7 @@ class UnifiAccessEmergencySwitch(UnifiAccessHubEntity, SwitchEntity):
         except UnifiAccessError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"emergency_failed",
+                translation_key="emergency_failed",
             ) from err
         # Optimistically update state; the WebSocket confirmation via
         # access.data.setting.update typically arrives ~200ms later.

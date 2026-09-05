@@ -42,7 +42,7 @@ class OpenEVSENumberDescription(NumberEntityDescription):
 NUMBER_TYPES: tuple[OpenEVSENumberDescription, ...] = (
     OpenEVSENumberDescription(
         key="charge_rate",
-        REDACTED_VALUE"charge_rate",
+        translation_key="charge_rate",
         value_fn=lambda ev: ev.max_current_soft or 0,
         min_value_fn=lambda ev: ev.min_amps or 0,
         max_value_fn=lambda ev: ev.max_amps or 0,

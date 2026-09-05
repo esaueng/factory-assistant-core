@@ -74,7 +74,7 @@ SENSOR_DESCRIPTIONS = {
     ),
     "HeatIndex": LaCrosseSensorEntityDescription(
         key="HeatIndex",
-        REDACTED_VALUE"heat_index",
+        translation_key="heat_index",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=get_value,
@@ -99,7 +99,7 @@ SENSOR_DESCRIPTIONS = {
     ),
     "WindHeading": LaCrosseSensorEntityDescription(
         key="WindHeading",
-        REDACTED_VALUE"wind_heading",
+        translation_key="wind_heading",
         value_fn=get_value,
         native_unit_of_measurement=DEGREE,
         suggested_display_precision=2,
@@ -108,17 +108,17 @@ SENSOR_DESCRIPTIONS = {
     ),
     "WetDry": LaCrosseSensorEntityDescription(
         key="WetDry",
-        REDACTED_VALUE"wet_dry",
+        translation_key="wet_dry",
         value_fn=get_value,
     ),
     "Flex": LaCrosseSensorEntityDescription(
         key="Flex",
-        REDACTED_VALUE"flex",
+        translation_key="flex",
         value_fn=get_value,
     ),
     "BarometricPressure": LaCrosseSensorEntityDescription(
         key="BarometricPressure",
-        REDACTED_VALUE"barometric_pressure",
+        translation_key="barometric_pressure",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=get_value,
         device_class=SensorDeviceClass.ATMOSPHERIC_PRESSURE,
@@ -127,7 +127,7 @@ SENSOR_DESCRIPTIONS = {
     ),
     "FeelsLike": LaCrosseSensorEntityDescription(
         key="FeelsLike",
-        REDACTED_VALUE"feels_like",
+        translation_key="feels_like",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=get_value,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -136,7 +136,7 @@ SENSOR_DESCRIPTIONS = {
     ),
     "WindChill": LaCrosseSensorEntityDescription(
         key="WindChill",
-        REDACTED_VALUE"wind_chill",
+        translation_key="wind_chill",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=get_value,
         device_class=SensorDeviceClass.TEMPERATURE,

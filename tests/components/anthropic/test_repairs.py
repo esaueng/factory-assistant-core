@@ -113,7 +113,7 @@ async def test_repair_flow_iterates_subentries(
         is_fixable=True,
         is_persistent=False,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"model_deprecated",
+        translation_key="model_deprecated",
     )
 
     await _setup_repairs(hass)
@@ -209,7 +209,7 @@ async def test_repair_flow_no_deprecated_models(
         is_fixable=True,
         is_persistent=False,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"model_deprecated",
+        translation_key="model_deprecated",
     )
 
     await _setup_repairs(hass)

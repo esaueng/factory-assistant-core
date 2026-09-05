@@ -53,7 +53,7 @@ class NtfyEventEntity(NtfyBaseEntity, EventEntity):
 
     entity_description = EventEntityDescription(
         key="subscribe",
-        REDACTED_VALUE"subscribe",
+        translation_key="subscribe",
         name=None,
         event_types=["triggered"],
     )
@@ -115,7 +115,7 @@ class NtfyEventEntity(NtfyBaseEntity, EventEntity):
                     f"topic_protected_{self.topic}",
                     is_fixable=True,
                     severity=ir.IssueSeverity.ERROR,
-                    REDACTED_VALUE"topic_protected",
+                    translation_key="topic_protected",
                     translation_placeholders={CONF_TOPIC: self.topic},
                     data={"entity_id": self.entity_id, "topic": self.topic},
                 )

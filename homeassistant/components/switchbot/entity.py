@@ -106,7 +106,7 @@ def exception_handler[_EntityT: SwitchbotEntity, **_P](
         except SwitchbotOperationError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"operation_error",
+                translation_key="operation_error",
                 translation_placeholders={"error": str(error)},
             ) from error
 

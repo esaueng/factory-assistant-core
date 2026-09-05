@@ -38,7 +38,7 @@ class PVOutputSensorEntityDescription(SensorEntityDescription):
 SENSORS: tuple[PVOutputSensorEntityDescription, ...] = (
     PVOutputSensorEntityDescription(
         key="energy_consumption",
-        REDACTED_VALUE"energy_consumption",
+        translation_key="energy_consumption",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -46,7 +46,7 @@ SENSORS: tuple[PVOutputSensorEntityDescription, ...] = (
     ),
     PVOutputSensorEntityDescription(
         key="energy_generation",
-        REDACTED_VALUE"energy_generation",
+        translation_key="energy_generation",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -54,7 +54,7 @@ SENSORS: tuple[PVOutputSensorEntityDescription, ...] = (
     ),
     PVOutputSensorEntityDescription(
         key="normalized_output",
-        REDACTED_VALUE"efficiency",
+        translation_key="efficiency",
         native_unit_of_measurement=(
             f"{UnitOfEnergy.KILO_WATT_HOUR}/{UnitOfPower.KILO_WATT}"
         ),
@@ -63,7 +63,7 @@ SENSORS: tuple[PVOutputSensorEntityDescription, ...] = (
     ),
     PVOutputSensorEntityDescription(
         key="power_consumption",
-        REDACTED_VALUE"power_consumption",
+        translation_key="power_consumption",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -71,7 +71,7 @@ SENSORS: tuple[PVOutputSensorEntityDescription, ...] = (
     ),
     PVOutputSensorEntityDescription(
         key="power_generation",
-        REDACTED_VALUE"power_generation",
+        translation_key="power_generation",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,

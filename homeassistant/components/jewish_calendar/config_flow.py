@@ -65,7 +65,7 @@ OPTIONS_SCHEMA = vol.Schema(
                 options=list(DailyCalendarEventType),
                 multiple=True,
                 mode=SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUECONF_DAILY_EVENTS,
+                translation_key=CONF_DAILY_EVENTS,
             )
         ),
         vol.Optional(
@@ -76,7 +76,7 @@ OPTIONS_SCHEMA = vol.Schema(
                 options=list(LearningScheduleEventType),
                 multiple=True,
                 mode=SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUECONF_LEARNING_SCHEDULE,
+                translation_key=CONF_LEARNING_SCHEDULE,
             )
         ),
         vol.Optional(
@@ -87,7 +87,7 @@ OPTIONS_SCHEMA = vol.Schema(
                 options=list(YearlyCalendarEventType),
                 multiple=True,
                 mode=SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUECONF_YEARLY_EVENTS,
+                translation_key=CONF_YEARLY_EVENTS,
             )
         ),
     }

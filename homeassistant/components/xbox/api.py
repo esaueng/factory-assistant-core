@@ -37,12 +37,12 @@ class AsyncConfigEntryAuth(AuthenticationManager):
             except OAuth2TokenRequestReauthError as e:
                 raise ConfigEntryAuthFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"auth_exception",
+                    translation_key="auth_exception",
                 ) from e
             except (OAuth2TokenRequestTransientError, ClientError) as e:
                 raise ConfigEntryNotReady(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"request_exception",
+                    translation_key="request_exception",
                 ) from e
             self.oauth = self._get_oauth_token()
 
@@ -52,12 +52,12 @@ class AsyncConfigEntryAuth(AuthenticationManager):
         except AuthenticationException as e:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_exception",
+                translation_key="auth_exception",
             ) from e
         except (RequestError, HTTPStatusError) as e:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"request_exception",
+                translation_key="request_exception",
             ) from e
 
     def _get_oauth_token(self) -> OAuth2TokenResponse:

@@ -56,7 +56,7 @@ class PlaystationNetworkSensor(StrEnum):
 SENSOR_DESCRIPTIONS: tuple[PlaystationNetworkSensorEntityDescription, ...] = (
     PlaystationNetworkSensorEntityDescription(
         key=PlaystationNetworkSensor.TROPHY_LEVEL,
-        REDACTED_VALUEPlaystationNetworkSensor.TROPHY_LEVEL,
+        translation_key=PlaystationNetworkSensor.TROPHY_LEVEL,
         value_fn=(
             lambda psn: psn.trophy_summary.trophy_level if psn.trophy_summary else None
         ),
@@ -64,7 +64,7 @@ SENSOR_DESCRIPTIONS: tuple[PlaystationNetworkSensorEntityDescription, ...] = (
     ),
     PlaystationNetworkSensorEntityDescription(
         key=PlaystationNetworkSensor.TROPHY_LEVEL_PROGRESS,
-        REDACTED_VALUEPlaystationNetworkSensor.TROPHY_LEVEL_PROGRESS,
+        translation_key=PlaystationNetworkSensor.TROPHY_LEVEL_PROGRESS,
         value_fn=(
             lambda psn: psn.trophy_summary.progress if psn.trophy_summary else None
         ),
@@ -73,7 +73,7 @@ SENSOR_DESCRIPTIONS: tuple[PlaystationNetworkSensorEntityDescription, ...] = (
     ),
     PlaystationNetworkSensorEntityDescription(
         key=PlaystationNetworkSensor.EARNED_TROPHIES_PLATINUM,
-        REDACTED_VALUEPlaystationNetworkSensor.EARNED_TROPHIES_PLATINUM,
+        translation_key=PlaystationNetworkSensor.EARNED_TROPHIES_PLATINUM,
         value_fn=(
             lambda psn: (
                 psn.trophy_summary.earned_trophies.platinum
@@ -85,7 +85,7 @@ SENSOR_DESCRIPTIONS: tuple[PlaystationNetworkSensorEntityDescription, ...] = (
     ),
     PlaystationNetworkSensorEntityDescription(
         key=PlaystationNetworkSensor.EARNED_TROPHIES_GOLD,
-        REDACTED_VALUEPlaystationNetworkSensor.EARNED_TROPHIES_GOLD,
+        translation_key=PlaystationNetworkSensor.EARNED_TROPHIES_GOLD,
         value_fn=(
             lambda psn: (
                 psn.trophy_summary.earned_trophies.gold if psn.trophy_summary else None
@@ -95,7 +95,7 @@ SENSOR_DESCRIPTIONS: tuple[PlaystationNetworkSensorEntityDescription, ...] = (
     ),
     PlaystationNetworkSensorEntityDescription(
         key=PlaystationNetworkSensor.EARNED_TROPHIES_SILVER,
-        REDACTED_VALUEPlaystationNetworkSensor.EARNED_TROPHIES_SILVER,
+        translation_key=PlaystationNetworkSensor.EARNED_TROPHIES_SILVER,
         value_fn=(
             lambda psn: (
                 psn.trophy_summary.earned_trophies.silver
@@ -107,7 +107,7 @@ SENSOR_DESCRIPTIONS: tuple[PlaystationNetworkSensorEntityDescription, ...] = (
     ),
     PlaystationNetworkSensorEntityDescription(
         key=PlaystationNetworkSensor.EARNED_TROPHIES_BRONZE,
-        REDACTED_VALUEPlaystationNetworkSensor.EARNED_TROPHIES_BRONZE,
+        translation_key=PlaystationNetworkSensor.EARNED_TROPHIES_BRONZE,
         value_fn=(
             lambda psn: (
                 psn.trophy_summary.earned_trophies.bronze
@@ -119,12 +119,12 @@ SENSOR_DESCRIPTIONS: tuple[PlaystationNetworkSensorEntityDescription, ...] = (
     ),
     PlaystationNetworkSensorEntityDescription(
         key=PlaystationNetworkSensor.ONLINE_ID,
-        REDACTED_VALUEPlaystationNetworkSensor.ONLINE_ID,
+        translation_key=PlaystationNetworkSensor.ONLINE_ID,
         value_fn=lambda psn: psn.username,
     ),
     PlaystationNetworkSensorEntityDescription(
         key=PlaystationNetworkSensor.LAST_ONLINE,
-        REDACTED_VALUEPlaystationNetworkSensor.LAST_ONLINE,
+        translation_key=PlaystationNetworkSensor.LAST_ONLINE,
         value_fn=(
             lambda psn: dt_util.parse_datetime(
                 psn.presence["basicPresence"]["lastAvailableDate"]
@@ -135,7 +135,7 @@ SENSOR_DESCRIPTIONS: tuple[PlaystationNetworkSensorEntityDescription, ...] = (
     ),
     PlaystationNetworkSensorEntityDescription(
         key=PlaystationNetworkSensor.ONLINE_STATUS,
-        REDACTED_VALUEPlaystationNetworkSensor.ONLINE_STATUS,
+        translation_key=PlaystationNetworkSensor.ONLINE_STATUS,
         value_fn=(
             lambda psn: (
                 psn.presence["basicPresence"]["availability"]
@@ -148,7 +148,7 @@ SENSOR_DESCRIPTIONS: tuple[PlaystationNetworkSensorEntityDescription, ...] = (
     ),
     PlaystationNetworkSensorEntityDescription(
         key=PlaystationNetworkSensor.NOW_PLAYING,
-        REDACTED_VALUEPlaystationNetworkSensor.NOW_PLAYING,
+        translation_key=PlaystationNetworkSensor.NOW_PLAYING,
         value_fn=lambda psn: get_game_title_info(psn.presence).get("titleName"),
     ),
 )

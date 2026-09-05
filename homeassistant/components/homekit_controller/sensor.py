@@ -320,7 +320,7 @@ SIMPLE_SENSOR: dict[str, HomeKitSensorEntityDescription] = {
             "router_eligible",
             "sleepy",
         ],
-        REDACTED_VALUE"thread_node_capabilities",
+        translation_key="thread_node_capabilities",
     ),
     CharacteristicsTypes.THREAD_STATUS: HomeKitSensorEntityDescription(
         key=CharacteristicsTypes.THREAD_STATUS,
@@ -337,7 +337,7 @@ SIMPLE_SENSOR: dict[str, HomeKitSensorEntityDescription] = {
             "leader",
             "router",
         ],
-        REDACTED_VALUE"thread_status",
+        translation_key="thread_status",
     ),
     CharacteristicsTypes.AIR_PURIFIER_STATE_CURRENT: HomeKitSensorEntityDescription(
         key=CharacteristicsTypes.AIR_PURIFIER_STATE_CURRENT,
@@ -349,7 +349,7 @@ SIMPLE_SENSOR: dict[str, HomeKitSensorEntityDescription] = {
             CurrentAirPurifierStateValues.IDLE: "idle",
             CurrentAirPurifierStateValues.ACTIVE: "purifying",
         },
-        REDACTED_VALUE"air_purifier_state_current",
+        translation_key="air_purifier_state_current",
     ),
     CharacteristicsTypes.VENDOR_NETATMO_NOISE: HomeKitSensorEntityDescription(
         key=CharacteristicsTypes.VENDOR_NETATMO_NOISE,
@@ -367,7 +367,7 @@ SIMPLE_SENSOR: dict[str, HomeKitSensorEntityDescription] = {
     CharacteristicsTypes.WATER_LEVEL: HomeKitSensorEntityDescription(
         key=CharacteristicsTypes.WATER_LEVEL,
         name="Water level",
-        REDACTED_VALUE"water_level",
+        translation_key="water_level",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
@@ -375,7 +375,7 @@ SIMPLE_SENSOR: dict[str, HomeKitSensorEntityDescription] = {
         HomeKitSensorEntityDescription(
             key=CharacteristicsTypes.VENDOR_EVE_THERMO_VALVE_POSITION,
             name="Valve position",
-            REDACTED_VALUE"valve_position",
+            translation_key="valve_position",
             entity_category=EntityCategory.DIAGNOSTIC,
             state_class=SensorStateClass.MEASUREMENT,
             native_unit_of_measurement=PERCENTAGE,

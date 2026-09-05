@@ -55,7 +55,7 @@ def deprecate_entity(
             breaks_in_ha_version=version,
             is_fixable=False,
             severity=IssueSeverity.WARNING,
-            REDACTED_VALUEtranslation_key,
+            translation_key=translation_key,
             translation_placeholders=placeholders,
         )
         return True

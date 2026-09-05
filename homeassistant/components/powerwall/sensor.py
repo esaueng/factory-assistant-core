@@ -69,7 +69,7 @@ def _get_meter_average_voltage(meter: MeterResponse) -> float:
 POWERWALL_INSTANT_SENSORS = (
     PowerwallSensorEntityDescription[MeterResponse, float](
         key="instant_power",
-        REDACTED_VALUE"instant_power",
+        translation_key="instant_power",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.KILO_WATT,
@@ -77,7 +77,7 @@ POWERWALL_INSTANT_SENSORS = (
     ),
     PowerwallSensorEntityDescription[MeterResponse, float](
         key="instant_frequency",
-        REDACTED_VALUE"instant_frequency",
+        translation_key="instant_frequency",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.FREQUENCY,
         native_unit_of_measurement=UnitOfFrequency.HERTZ,
@@ -86,7 +86,7 @@ POWERWALL_INSTANT_SENSORS = (
     ),
     PowerwallSensorEntityDescription[MeterResponse, float](
         key="instant_current",
-        REDACTED_VALUE"instant_current",
+        translation_key="instant_current",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.CURRENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
@@ -95,7 +95,7 @@ POWERWALL_INSTANT_SENSORS = (
     ),
     PowerwallSensorEntityDescription[MeterResponse, float](
         key="instant_voltage",
-        REDACTED_VALUE"instant_voltage",
+        translation_key="instant_voltage",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
@@ -123,7 +123,7 @@ def _get_instant_current(battery: BatteryResponse) -> float | None:
 BATTERY_INSTANT_SENSORS: list[PowerwallSensorEntityDescription] = [
     PowerwallSensorEntityDescription[BatteryResponse, int](
         key="battery_capacity",
-        REDACTED_VALUE"battery_capacity",
+        translation_key="battery_capacity",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.ENERGY_STORAGE,
@@ -134,7 +134,7 @@ BATTERY_INSTANT_SENSORS: list[PowerwallSensorEntityDescription] = [
     ),
     PowerwallSensorEntityDescription[BatteryResponse, float | None](
         key="battery_instant_voltage",
-        REDACTED_VALUE"battery_instant_voltage",
+        translation_key="battery_instant_voltage",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.VOLTAGE,
@@ -143,7 +143,7 @@ BATTERY_INSTANT_SENSORS: list[PowerwallSensorEntityDescription] = [
     ),
     PowerwallSensorEntityDescription[BatteryResponse, float | None](
         key="instant_frequency",
-        REDACTED_VALUE"instant_frequency",
+        translation_key="instant_frequency",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.FREQUENCY,
@@ -153,7 +153,7 @@ BATTERY_INSTANT_SENSORS: list[PowerwallSensorEntityDescription] = [
     ),
     PowerwallSensorEntityDescription[BatteryResponse, float | None](
         key="instant_current",
-        REDACTED_VALUE"instant_current",
+        translation_key="instant_current",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.CURRENT,
@@ -163,7 +163,7 @@ BATTERY_INSTANT_SENSORS: list[PowerwallSensorEntityDescription] = [
     ),
     PowerwallSensorEntityDescription[BatteryResponse, int | None](
         key="instant_power",
-        REDACTED_VALUE"instant_power",
+        translation_key="instant_power",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.POWER,
@@ -172,7 +172,7 @@ BATTERY_INSTANT_SENSORS: list[PowerwallSensorEntityDescription] = [
     ),
     PowerwallSensorEntityDescription[BatteryResponse, float | None](
         key="battery_export",
-        REDACTED_VALUE"battery_export",
+        translation_key="battery_export",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL_INCREASING,
         device_class=SensorDeviceClass.ENERGY,
@@ -183,7 +183,7 @@ BATTERY_INSTANT_SENSORS: list[PowerwallSensorEntityDescription] = [
     ),
     PowerwallSensorEntityDescription[BatteryResponse, float | None](
         key="battery_import",
-        REDACTED_VALUE"battery_import",
+        translation_key="battery_import",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL_INCREASING,
         device_class=SensorDeviceClass.ENERGY,
@@ -194,7 +194,7 @@ BATTERY_INSTANT_SENSORS: list[PowerwallSensorEntityDescription] = [
     ),
     PowerwallSensorEntityDescription[BatteryResponse, int](
         key="battery_remaining",
-        REDACTED_VALUE"battery_remaining",
+        translation_key="battery_remaining",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.ENERGY_STORAGE,
@@ -205,7 +205,7 @@ BATTERY_INSTANT_SENSORS: list[PowerwallSensorEntityDescription] = [
     ),
     PowerwallSensorEntityDescription[BatteryResponse, str](
         key="grid_state",
-        REDACTED_VALUE"grid_state",
+        translation_key="grid_state",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.ENUM,
         options=[state.value.lower() for state in GridState],

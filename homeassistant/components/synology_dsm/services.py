@@ -29,7 +29,7 @@ async def _service_handler(call: ServiceCall) -> None:
         if not entry:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"serial_not_found",
+                translation_key="serial_not_found",
                 translation_placeholders={"serial": serial},
             )
         dsm_device = entry.runtime_data
@@ -39,14 +39,14 @@ async def _service_handler(call: ServiceCall) -> None:
     else:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"missing_serial",
+            translation_key="missing_serial",
             translation_placeholders={"serials": ", ".join(sorted(dsm_devices))},
         )
 
     if not dsm_device:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"serial_not_found",
+            translation_key="serial_not_found",
             translation_placeholders={"serial": serial},
         )
 
@@ -54,7 +54,7 @@ async def _service_handler(call: ServiceCall) -> None:
         if serial not in dsm_devices:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"serial_not_found",
+                translation_key="serial_not_found",
                 translation_placeholders={"serial": serial},
             )
         LOGGER.debug("%s DSM with serial %s", call.service, serial)
@@ -72,7 +72,7 @@ async def _service_handler(call: ServiceCall) -> None:
         except SynologyDSMException as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"execution_error",
+                translation_key="execution_error",
                 translation_placeholders={
                     "action": call.service,
                     "serial": serial,

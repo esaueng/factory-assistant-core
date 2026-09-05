@@ -208,13 +208,13 @@ class HomeConnectRuntimeData:
         except UnauthorizedError as error:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_error",
+                translation_key="auth_error",
                 translation_placeholders=get_dict_from_home_connect_error(error),
             ) from error
         except HomeConnectError as error:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"fetch_api_error",
+                translation_key="fetch_api_error",
                 translation_placeholders=get_dict_from_home_connect_error(error),
             ) from error
 
@@ -418,13 +418,13 @@ class HomeConnectApplianceCoordinator(DataUpdateCoordinator[HomeConnectAppliance
                 self._config_entry.async_start_reauth(self.hass)
                 raise ConfigEntryAuthFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"auth_error",
+                    translation_key="auth_error",
                     translation_placeholders=get_dict_from_home_connect_error(error),
                 ) from error
             except HomeConnectError as error:
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"fetch_api_error",
+                    translation_key="fetch_api_error",
                     translation_placeholders=get_dict_from_home_connect_error(error),
                 ) from error
             else:
@@ -454,7 +454,7 @@ class HomeConnectApplianceCoordinator(DataUpdateCoordinator[HomeConnectAppliance
             self.data.update(HomeConnectApplianceData.empty(appliance))
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"appliance_disconnected",
+                translation_key="appliance_disconnected",
                 translation_placeholders={
                     "appliance_name": appliance.name,
                     "ha_id": appliance.ha_id,

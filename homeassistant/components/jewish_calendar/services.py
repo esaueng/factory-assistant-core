@@ -51,7 +51,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
         event_date = get_astral_event_date(hass, SUN_EVENT_SUNSET, today)
         if event_date is None:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"sunset_event"
+                translation_domain=DOMAIN, translation_key="sunset_event"
             )
         sunset = dt_util.as_local(event_date)
         _LOGGER.debug("Now: %s Sunset: %s", now, sunset)

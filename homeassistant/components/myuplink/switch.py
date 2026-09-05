@@ -20,21 +20,21 @@ CATEGORY_BASED_DESCRIPTIONS: dict[str, dict[str, SwitchEntityDescription]] = {
     F_SERIES: {
         "50004": SwitchEntityDescription(
             key="temporary_lux",
-            REDACTED_VALUE"temporary_lux",
+            translation_key="temporary_lux",
         ),
         "50005": SwitchEntityDescription(
             key="boost_ventilation",
-            REDACTED_VALUE"boost_ventilation",
+            translation_key="boost_ventilation",
         ),
     },
     "NIBEF": {
         "50004": SwitchEntityDescription(
             key="temporary_lux",
-            REDACTED_VALUE"temporary_lux",
+            translation_key="temporary_lux",
         ),
         "50005": SwitchEntityDescription(
             key="boost_ventilation",
-            REDACTED_VALUE"boost_ventilation",
+            translation_key="boost_ventilation",
         ),
     },
 }
@@ -130,7 +130,7 @@ class MyUplinkDevicePointSwitch(MyUplinkEntity, SwitchEntity):
         except aiohttp.ClientError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_switch_error",
+                translation_key="set_switch_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                 },

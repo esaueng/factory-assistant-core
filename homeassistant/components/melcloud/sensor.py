@@ -40,7 +40,7 @@ class MelcloudSensorEntityDescription(SensorEntityDescription):
 ATA_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     MelcloudSensorEntityDescription(
         key="room_temperature",
-        REDACTED_VALUE"room_temperature",
+        translation_key="room_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -49,7 +49,7 @@ ATA_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     ),
     MelcloudSensorEntityDescription(
         key="energy",
-        REDACTED_VALUE"energy_consumed",
+        translation_key="energy_consumed",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -58,7 +58,7 @@ ATA_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     ),
     MelcloudSensorEntityDescription(
         key="outside_temperature",
-        REDACTED_VALUE"outside_temperature",
+        translation_key="outside_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -69,7 +69,7 @@ ATA_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
 ATW_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     MelcloudSensorEntityDescription(
         key="outside_temperature",
-        REDACTED_VALUE"outside_temperature",
+        translation_key="outside_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -78,7 +78,7 @@ ATW_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     ),
     MelcloudSensorEntityDescription(
         key="tank_temperature",
-        REDACTED_VALUE"tank_temperature",
+        translation_key="tank_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -87,7 +87,7 @@ ATW_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     ),
     MelcloudSensorEntityDescription(
         key="system_flow_temperature",
-        REDACTED_VALUE"flow_temperature",
+        translation_key="flow_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -97,7 +97,7 @@ ATW_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     ),
     MelcloudSensorEntityDescription(
         key="system_return_temperature",
-        REDACTED_VALUE"return_temperature",
+        translation_key="return_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -107,7 +107,7 @@ ATW_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     ),
     MelcloudSensorEntityDescription(
         key="flow_temperature_boiler",
-        REDACTED_VALUE"flow_temperature_boiler",
+        translation_key="flow_temperature_boiler",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -117,7 +117,7 @@ ATW_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     ),
     MelcloudSensorEntityDescription(
         key="return_temperature_boiler",
-        REDACTED_VALUE"return_temperature_boiler",
+        translation_key="return_temperature_boiler",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -127,7 +127,7 @@ ATW_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     ),
     MelcloudSensorEntityDescription(
         key="mixing_tank_temperature",
-        REDACTED_VALUE"mixing_tank_temperature",
+        translation_key="mixing_tank_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -137,7 +137,7 @@ ATW_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     ),
     MelcloudSensorEntityDescription(
         key="condensing_temperature",
-        REDACTED_VALUE"condensing_temperature",
+        translation_key="condensing_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -147,7 +147,7 @@ ATW_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     ),
     MelcloudSensorEntityDescription(
         key="fan_frequency",
-        REDACTED_VALUE"fan_frequency",
+        translation_key="fan_frequency",
         native_unit_of_measurement=UnitOfFrequency.HERTZ,
         device_class=SensorDeviceClass.FREQUENCY,
         state_class=SensorStateClass.MEASUREMENT,
@@ -156,7 +156,7 @@ ATW_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     ),
     MelcloudSensorEntityDescription(
         key="demand_percentage",
-        REDACTED_VALUE"demand_percentage",
+        translation_key="demand_percentage",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=0,
@@ -174,7 +174,7 @@ ATW_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     ),
     MelcloudSensorEntityDescription(
         key="energy_produced",
-        REDACTED_VALUE"energy_produced",
+        translation_key="energy_produced",
         native_unit_of_measurement=UnitOfPower.KILO_WATT,
         device_class=SensorDeviceClass.POWER,
         value_fn=lambda data: data.device.get_device_prop("CurrentEnergyProduced"),
@@ -182,7 +182,7 @@ ATW_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     ),
     MelcloudSensorEntityDescription(
         key="daily_heating_energy_consumed",
-        REDACTED_VALUE"daily_heating_energy_consumed",
+        translation_key="daily_heating_energy_consumed",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -192,7 +192,7 @@ ATW_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     ),
     MelcloudSensorEntityDescription(
         key="daily_heating_energy_produced",
-        REDACTED_VALUE"daily_heating_energy_produced",
+        translation_key="daily_heating_energy_produced",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -203,7 +203,7 @@ ATW_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     ),
     MelcloudSensorEntityDescription(
         key="daily_cooling_energy_consumed",
-        REDACTED_VALUE"daily_cooling_energy_consumed",
+        translation_key="daily_cooling_energy_consumed",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -214,7 +214,7 @@ ATW_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     ),
     MelcloudSensorEntityDescription(
         key="daily_cooling_energy_produced",
-        REDACTED_VALUE"daily_cooling_energy_produced",
+        translation_key="daily_cooling_energy_produced",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -225,7 +225,7 @@ ATW_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     ),
     MelcloudSensorEntityDescription(
         key="daily_hot_water_energy_consumed",
-        REDACTED_VALUE"daily_hot_water_energy_consumed",
+        translation_key="daily_hot_water_energy_consumed",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -235,7 +235,7 @@ ATW_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     ),
     MelcloudSensorEntityDescription(
         key="daily_hot_water_energy_produced",
-        REDACTED_VALUE"daily_hot_water_energy_produced",
+        translation_key="daily_hot_water_energy_produced",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -248,7 +248,7 @@ ATW_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
 ATW_ZONE_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     MelcloudSensorEntityDescription(
         key="room_temperature",
-        REDACTED_VALUE"room_temperature",
+        translation_key="room_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -257,7 +257,7 @@ ATW_ZONE_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     ),
     MelcloudSensorEntityDescription(
         key="flow_temperature",
-        REDACTED_VALUE"flow_temperature",
+        translation_key="flow_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -266,7 +266,7 @@ ATW_ZONE_SENSORS: tuple[MelcloudSensorEntityDescription, ...] = (
     ),
     MelcloudSensorEntityDescription(
         key="return_temperature",
-        REDACTED_VALUE"return_temperature",
+        translation_key="return_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,

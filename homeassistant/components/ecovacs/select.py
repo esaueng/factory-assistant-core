@@ -50,7 +50,7 @@ ENTITY_DESCRIPTIONS: tuple[EcovacsSelectEntityDescription, ...] = (
         current_option_fn=lambda e: get_name_key(e.value),
         options_fn=lambda water: [get_name_key(amount) for amount in water.types],
         key="water_amount",
-        REDACTED_VALUE"water_amount",
+        translation_key="water_amount",
         entity_category=EntityCategory.CONFIG,
     ),
     EcovacsSelectEntityDescription[WorkModeEvent](
@@ -58,7 +58,7 @@ ENTITY_DESCRIPTIONS: tuple[EcovacsSelectEntityDescription, ...] = (
         current_option_fn=lambda e: get_name_key(e.mode),
         options_fn=lambda cap: [get_name_key(mode) for mode in cap.types],
         key="work_mode",
-        REDACTED_VALUE"work_mode",
+        translation_key="work_mode",
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.CONFIG,
     ),
@@ -68,7 +68,7 @@ ENTITY_DESCRIPTIONS: tuple[EcovacsSelectEntityDescription, ...] = (
         options_fn=lambda cap: [get_name_key(freq) for freq in cap.types],
         set_option_fn=lambda cap, option: cap.set(None, option),
         key="auto_empty",
-        REDACTED_VALUE"auto_empty",
+        translation_key="auto_empty",
     ),
 )
 
@@ -139,7 +139,7 @@ class EcovacsActiveMapSelectEntity(
 
     entity_description = SelectEntityDescription(
         key="active_map",
-        REDACTED_VALUE"active_map",
+        translation_key="active_map",
         entity_category=EntityCategory.CONFIG,
     )
 

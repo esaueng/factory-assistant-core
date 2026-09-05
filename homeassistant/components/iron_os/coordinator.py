@@ -188,7 +188,7 @@ class IronOSSettingsCoordinator(IronOSBaseCoordinator[SettingsDataResponse]):
         except CommunicationError as e:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"submit_setting_failed",
+                translation_key="submit_setting_failed",
             ) from e
 
         # prevent switch bouncing while waiting for coordinator to finish refresh
@@ -221,5 +221,5 @@ class IronOSFirmwareUpdateCoordinator(DataUpdateCoordinator[LatestRelease]):
         except UpdateException as e:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_check_failed",
+                translation_key="update_check_failed",
             ) from e

@@ -66,7 +66,7 @@ class NAMDataUpdateCoordinator(DataUpdateCoordinator[NAMSensors]):
         except (ApiError, InvalidSensorDataError, RetryError) as error:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_error",
+                translation_key="update_error",
                 translation_placeholders={"device": self.config_entry.title},
             ) from error
 

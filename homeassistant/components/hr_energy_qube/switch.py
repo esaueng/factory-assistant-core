@@ -27,23 +27,23 @@ class QubeSwitchEntityDescription(SwitchEntityDescription):
 SWITCH_TYPES: tuple[QubeSwitchEntityDescription, ...] = (
     QubeSwitchEntityDescription(
         key="summer_mode",
-        REDACTED_VALUE"summer_mode",
+        translation_key="summer_mode",
         register_key="bms_summerwinter",
     ),
     QubeSwitchEntityDescription(
         key="anti_legionella_cycle",
-        REDACTED_VALUE"anti_legionella_cycle",
+        translation_key="anti_legionella_cycle",
         register_key="antilegionella_frcstart_ant",
     ),
     QubeSwitchEntityDescription(
         key="heating_curve",
-        REDACTED_VALUE"heating_curve",
+        translation_key="heating_curve",
         entity_category=EntityCategory.CONFIG,
         register_key="en_plantsetp_compens",
     ),
     QubeSwitchEntityDescription(
         key="heating_demand",
-        REDACTED_VALUE"heating_demand",
+        translation_key="heating_demand",
         register_key="modbus_demand",
     ),
 )
@@ -99,12 +99,12 @@ class QubeSwitch(QubeEntity, SwitchEntity):
         except (ConnectionError, TimeoutError, OSError) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"switch_command_failed",
+                translation_key="switch_command_failed",
             ) from err
         if not success:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"switch_command_failed",
+                translation_key="switch_command_failed",
             )
         await self.coordinator.async_request_refresh()
 

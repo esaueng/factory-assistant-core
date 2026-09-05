@@ -377,7 +377,7 @@ async def build_item_response(
     if children is None:
         raise BrowseError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"browse_media_not_found",
+            translation_key="browse_media_not_found",
             translation_placeholders={
                 "type": str(search_type),
                 "id": str(search_id),
@@ -467,7 +467,7 @@ async def generate_playlist(
     if media_type not in browse_media.squeezebox_id_by_type:
         raise BrowseError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"browse_media_type_not_supported",
+            translation_key="browse_media_type_not_supported",
             translation_placeholders={
                 "media_type": str(media_type),
             },
@@ -487,7 +487,7 @@ async def generate_playlist(
         return items
     raise BrowseError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"browse_media_not_found",
+        translation_key="browse_media_not_found",
         translation_placeholders={
             "type": str(media_type),
             "id": str(media_id),

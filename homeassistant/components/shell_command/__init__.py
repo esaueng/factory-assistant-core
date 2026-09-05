@@ -107,7 +107,7 @@ def _make_handler(
 
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"timeout",
+                translation_key="timeout",
                 translation_placeholders={
                     "command": cmd,
                     "timeout": str(COMMAND_TIMEOUT),
@@ -150,7 +150,7 @@ def _make_handler(
                 )
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"non_utf8_output",
+                    translation_key="non_utf8_output",
                     translation_placeholders={"command": cmd},
                 ) from err
             return service_response
@@ -173,7 +173,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
                 f"reserved_{SERVICE_RELOAD}",
                 is_fixable=False,
                 severity=ir.IssueSeverity.ERROR,
-                REDACTED_VALUE"reserved_reload_name",
+                translation_key="reserved_reload_name",
                 translation_placeholders={"name": name},
             )
             _LOGGER.warning("Skipping shell_command entry '%s': name is reserved", name)
@@ -213,7 +213,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
                     f"reserved_{SERVICE_RELOAD}",
                     is_fixable=False,
                     severity=ir.IssueSeverity.ERROR,
-                    REDACTED_VALUE"reserved_reload_name",
+                    translation_key="reserved_reload_name",
                     translation_placeholders={"name": name},
                 )
                 _LOGGER.warning(

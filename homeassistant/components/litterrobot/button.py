@@ -29,7 +29,7 @@ ROBOT_BUTTON_MAP: dict[tuple[type[Robot], ...], RobotButtonEntityDescription] = 
         LitterRobot3 | LitterRobot5
     ](
         key="reset_waste_drawer",
-        REDACTED_VALUE"reset_waste_drawer",
+        translation_key="reset_waste_drawer",
         entity_category=EntityCategory.CONFIG,
         press_fn=lambda robot: robot.reset_waste_drawer(),
     ),
@@ -37,19 +37,19 @@ ROBOT_BUTTON_MAP: dict[tuple[type[Robot], ...], RobotButtonEntityDescription] = 
         LitterRobot4 | LitterRobot5
     ](
         key="reset",
-        REDACTED_VALUE"reset",
+        translation_key="reset",
         entity_category=EntityCategory.CONFIG,
         press_fn=lambda robot: robot.reset(),
     ),
     (LitterRobot5,): RobotButtonEntityDescription[LitterRobot5](
         key="change_filter",
-        REDACTED_VALUE"change_filter",
+        translation_key="change_filter",
         entity_category=EntityCategory.CONFIG,
         press_fn=lambda robot: robot.change_filter(),
     ),
     (FeederRobot,): RobotButtonEntityDescription[FeederRobot](
         key="give_snack",
-        REDACTED_VALUE"give_snack",
+        translation_key="give_snack",
         press_fn=lambda robot: robot.give_snack(),
     ),
 }

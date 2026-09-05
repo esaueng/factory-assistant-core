@@ -103,7 +103,7 @@ def warn_if_topic_duplicated(
             is_fixable=False,
             learn_more_url=MQTT_TOPIC_URL,
             severity=ir.IssueSeverity.ERROR,
-            REDACTED_VALUE"topic_duplicated",
+            translation_key="topic_duplicated",
             translation_placeholders={
                 "topic": command_topic,
                 "offenders": "\n\n* " + "\n\n* ".join(offender_strings),
@@ -213,7 +213,7 @@ async def async_start(  # noqa: C901
                 is_fixable=False,
                 learn_more_url=MQTT_TOPIC_URL,
                 severity=ir.IssueSeverity.ERROR,
-                REDACTED_VALUE"topic_no_prefix",
+                translation_key="topic_no_prefix",
                 translation_placeholders={
                     "name": tasmota_device_config[tasmota_const.CONF_NAME],
                     "ip": tasmota_device_config[tasmota_const.CONF_IP],

@@ -34,7 +34,7 @@ class PureEnergieSensorEntityDescription(SensorEntityDescription):
 SENSORS: tuple[PureEnergieSensorEntityDescription, ...] = (
     PureEnergieSensorEntityDescription(
         key="power_flow",
-        REDACTED_VALUE"power_flow",
+        translation_key="power_flow",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -42,7 +42,7 @@ SENSORS: tuple[PureEnergieSensorEntityDescription, ...] = (
     ),
     PureEnergieSensorEntityDescription(
         key="energy_consumption_total",
-        REDACTED_VALUE"energy_consumption_total",
+        translation_key="energy_consumption_total",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -50,7 +50,7 @@ SENSORS: tuple[PureEnergieSensorEntityDescription, ...] = (
     ),
     PureEnergieSensorEntityDescription(
         key="energy_production_total",
-        REDACTED_VALUE"energy_production_total",
+        translation_key="energy_production_total",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,

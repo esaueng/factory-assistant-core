@@ -973,7 +973,7 @@ class _TemplateCameraEntity:
             breaks_in_ha_version="2025.6.0",
             is_fixable=True,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"deprecated_filename_template",
+            translation_key="deprecated_filename_template",
             translation_placeholders={
                 "entity_id": self._entity_id,
                 "service": f"{DOMAIN}.{self._service}",

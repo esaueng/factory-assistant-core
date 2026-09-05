@@ -19,7 +19,7 @@ DATA_SCHEMA = vol.Schema(
     {
         vol.Required(CONF_CONNECTION_TYPE, default=HTTP): SelectSelector(
             SelectSelectorConfig(
-                options=ALLOWED_CONNECTION_TYPE, REDACTED_VALUE"connection_type"
+                options=ALLOWED_CONNECTION_TYPE, translation_key="connection_type"
             )
         ),
         vol.Required(CONF_HOST): str,

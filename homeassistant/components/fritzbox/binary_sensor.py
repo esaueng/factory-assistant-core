@@ -35,14 +35,14 @@ class FritzBinarySensorEntityDescription(
 BINARY_SENSOR_TYPES: Final[tuple[FritzBinarySensorEntityDescription, ...]] = (
     FritzBinarySensorEntityDescription(
         key="alarm",
-        REDACTED_VALUE"alarm",
+        translation_key="alarm",
         device_class=BinarySensorDeviceClass.WINDOW,
         suitable=lambda device: device.has_alarm,
         is_on=lambda device: device.alert_state,
     ),
     FritzBinarySensorEntityDescription(
         key="lock",
-        REDACTED_VALUE"lock",
+        translation_key="lock",
         device_class=BinarySensorDeviceClass.LOCK,
         entity_category=EntityCategory.DIAGNOSTIC,
         suitable=lambda device: device.lock is not None,
@@ -50,7 +50,7 @@ BINARY_SENSOR_TYPES: Final[tuple[FritzBinarySensorEntityDescription, ...]] = (
     ),
     FritzBinarySensorEntityDescription(
         key="device_lock",
-        REDACTED_VALUE"device_lock",
+        translation_key="device_lock",
         device_class=BinarySensorDeviceClass.LOCK,
         entity_category=EntityCategory.DIAGNOSTIC,
         suitable=lambda device: device.device_lock is not None,
@@ -66,19 +66,19 @@ BINARY_SENSOR_TYPES: Final[tuple[FritzBinarySensorEntityDescription, ...]] = (
     ),
     FritzBinarySensorEntityDescription(
         key="holiday_active",
-        REDACTED_VALUE"holiday_active",
+        translation_key="holiday_active",
         suitable=lambda device: device.holiday_active is not None,
         is_on=lambda device: device.holiday_active,
     ),
     FritzBinarySensorEntityDescription(
         key="summer_active",
-        REDACTED_VALUE"summer_active",
+        translation_key="summer_active",
         suitable=lambda device: device.summer_active is not None,
         is_on=lambda device: device.summer_active,
     ),
     FritzBinarySensorEntityDescription(
         key="window_open",
-        REDACTED_VALUE"window_open",
+        translation_key="window_open",
         suitable=lambda device: device.window_open is not None,
         is_on=lambda device: device.window_open,
     ),

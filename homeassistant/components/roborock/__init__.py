@@ -97,28 +97,28 @@ async def async_setup_entry(hass: HomeAssistant, entry: RoborockConfigEntry) -> 
     except RoborockInvalidCredentials as err:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_credentials",
+            translation_key="invalid_credentials",
         ) from err
     except RoborockInvalidUserAgreement as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_user_agreement",
+            translation_key="invalid_user_agreement",
         ) from err
     except RoborockNoUserAgreement as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"no_user_agreement",
+            translation_key="no_user_agreement",
         ) from err
     except MqttSessionUnauthorized as err:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"mqtt_unauthorized",
+            translation_key="mqtt_unauthorized",
         ) from err
     except RoborockException as err:
         _LOGGER.debug("Failed to get Roborock home data: %s", err)
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"home_data_fail",
+            translation_key="home_data_fail",
         ) from err
 
     async def shutdown_roborock(_: Event | None = None) -> None:
@@ -196,7 +196,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: RoborockConfigEntry) -> 
     ):
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"no_coordinators",
+            translation_key="no_coordinators",
         )
     entry.runtime_data = RoborockCoordinators(
         v1_coords, a01_coords, b01_q7_coords, b01_q10_coords

@@ -83,7 +83,7 @@ class CookidooCalendarEntity(CookidooBaseEntity, CalendarEntity):
             except (CookidooAuthException, CookidooRequestException) as exc:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"calendar_fetch_failed",
+                    translation_key="calendar_fetch_failed",
                 ) from exc
             return await self.coordinator.cookidoo.get_recipes_in_calendar_week(
                 week_day
@@ -91,7 +91,7 @@ class CookidooCalendarEntity(CookidooBaseEntity, CalendarEntity):
         except CookidooException as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"calendar_fetch_failed",
+                translation_key="calendar_fetch_failed",
             ) from e
 
     async def async_get_events(

@@ -14,7 +14,7 @@ _LOGGER = logging.getLogger(__name__)
 SELECT_TYPES: tuple[SelectEntityDescription, ...] = (
     SelectEntityDescription(
         key="hubMode",
-        REDACTED_VALUE"hub_mode",
+        translation_key="hub_mode",
         options=["auto", "manual", "planning"],
     ),
 )

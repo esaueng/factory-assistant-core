@@ -207,7 +207,7 @@ class SupervisorIssues:
                 is_fixable=False,
                 learn_more_url=f"{INFO_URL_UNHEALTHY}/{unhealthy}",
                 severity=IssueSeverity.CRITICAL,
-                REDACTED_VALUEtranslation_key,
+                translation_key=translation_key,
                 translation_placeholders=translation_placeholders,
             )
 
@@ -239,7 +239,7 @@ class SupervisorIssues:
                 is_fixable=False,
                 learn_more_url=f"{INFO_URL_UNSUPPORTED}/{unsupported}",
                 severity=IssueSeverity.WARNING,
-                REDACTED_VALUEtranslation_key,
+                translation_key=translation_key,
                 translation_placeholders=translation_placeholders,
             )
 
@@ -299,7 +299,7 @@ class SupervisorIssues:
                 issue.uuid.hex,
                 is_fixable=bool(issue.suggestions),
                 severity=IssueSeverity.WARNING,
-                REDACTED_VALUEissue.key,
+                translation_key=issue.key,
                 translation_placeholders=placeholders or None,
             )
 
@@ -387,7 +387,7 @@ class SupervisorIssues:
             self._cancel_update_retry = async_call_later(
                 self._hass,
                 REQUEST_REFRESH_DELAY,
-                HassJob(self._update, REDACTED_VALUE),
+                HassJob(self._update, cancel_on_shutdown=True),
             )
             return
         self._cancel_update_retry = None

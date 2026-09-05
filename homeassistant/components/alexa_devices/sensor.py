@@ -122,7 +122,7 @@ SENSORS: Final = (
         key="VOC",
         # No device class as this is an index not a concentration
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"voc_index",
+        translation_key="voc_index",
     ),
     AmazonSensorEntityDescription(
         key="Air Quality",
@@ -133,17 +133,17 @@ SENSORS: Final = (
 NOTIFICATIONS: Final = (
     AmazonNotificationEntityDescription(
         key=NOTIFICATION_ALARM,
-        REDACTED_VALUE"alarm",
+        translation_key="alarm",
         device_class=SensorDeviceClass.TIMESTAMP,
     ),
     AmazonNotificationEntityDescription(
         key=NOTIFICATION_REMINDER,
-        REDACTED_VALUE"reminder",
+        translation_key="reminder",
         device_class=SensorDeviceClass.TIMESTAMP,
     ),
     AmazonNotificationEntityDescription(
         key=NOTIFICATION_TIMER,
-        REDACTED_VALUE"timer",
+        translation_key="timer",
         device_class=SensorDeviceClass.TIMESTAMP,
     ),
 )

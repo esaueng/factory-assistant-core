@@ -319,7 +319,7 @@ class OnkyoMediaPlayer(MediaPlayerEntity):
         if source not in self._rev_source_mapping:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_source",
+                translation_key="invalid_source",
                 translation_placeholders={
                     "invalid_source": source,
                     "entity_id": self.entity_id,
@@ -334,7 +334,7 @@ class OnkyoMediaPlayer(MediaPlayerEntity):
         if sound_mode not in self._rev_sound_mode_mapping:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_sound_mode",
+                translation_key="invalid_sound_mode",
                 translation_placeholders={
                     "invalid_sound_mode": sound_mode,
                     "entity_id": self.entity_id,

@@ -32,7 +32,7 @@ class BSBLanSensorEntityDescription(SensorEntityDescription):
 SENSOR_TYPES: tuple[BSBLanSensorEntityDescription, ...] = (
     BSBLanSensorEntityDescription(
         key="current_temperature",
-        REDACTED_VALUE"current_temperature",
+        translation_key="current_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -45,7 +45,7 @@ SENSOR_TYPES: tuple[BSBLanSensorEntityDescription, ...] = (
     ),
     BSBLanSensorEntityDescription(
         key="outside_temperature",
-        REDACTED_VALUE"outside_temperature",
+        translation_key="outside_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -58,7 +58,7 @@ SENSOR_TYPES: tuple[BSBLanSensorEntityDescription, ...] = (
     ),
     BSBLanSensorEntityDescription(
         key="total_energy",
-        REDACTED_VALUE"total_energy",
+        translation_key="total_energy",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,

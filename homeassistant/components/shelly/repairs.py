@@ -63,7 +63,7 @@ def async_manage_ble_scanner_firmware_unsupported_issue(
                 is_fixable=True,
                 is_persistent=True,
                 severity=ir.IssueSeverity.WARNING,
-                REDACTED_VALUE"ble_scanner_firmware_unsupported",
+                translation_key="ble_scanner_firmware_unsupported",
                 translation_placeholders={
                     "device_name": device.name,
                     "ip_address": device.ip_address,
@@ -103,7 +103,7 @@ def async_manage_deprecated_firmware_issue(
                 is_fixable=True,
                 is_persistent=True,
                 severity=ir.IssueSeverity.WARNING,
-                REDACTED_VALUE"deprecated_firmware",
+                translation_key="deprecated_firmware",
                 translation_placeholders={
                     "device_name": device.name,
                     "ip_address": device.ip_address,
@@ -147,7 +147,7 @@ def async_manage_outbound_websocket_incorrectly_enabled_issue(
             is_fixable=True,
             is_persistent=True,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"outbound_websocket_incorrectly_enabled",
+            translation_key="outbound_websocket_incorrectly_enabled",
             translation_placeholders={
                 "device_name": device.name,
                 "ip_address": device.ip_address,
@@ -189,7 +189,7 @@ def async_manage_open_wifi_ap_issue(
             is_fixable=True,
             is_persistent=False,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"open_wifi_ap",
+            translation_key="open_wifi_ap",
             translation_placeholders={
                 "device_name": device.name,
                 "ip_address": device.ip_address,

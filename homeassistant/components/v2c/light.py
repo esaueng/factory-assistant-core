@@ -36,14 +36,14 @@ class V2CLightEntityDescription(LightEntityDescription):
 TRYDAN_LIGHTS = (
     V2CLightEntityDescription(
         key="light_led",
-        REDACTED_VALUE"light_led",
+        translation_key="light_led",
         entity_registry_enabled_default=False,
         value_fn=lambda evse_data: evse_data.light_led,
         update_fn=lambda evse, value: evse.light_led(value),
     ),
     V2CLightEntityDescription(
         key="logo_led",
-        REDACTED_VALUE"logo_led",
+        translation_key="logo_led",
         supports_brightness=True,
         value_fn=lambda evse_data: evse_data.logo_led,
         update_fn=lambda evse, value: evse.logo_led(value),

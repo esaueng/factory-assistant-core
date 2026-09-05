@@ -27,11 +27,11 @@ class SabnzbdSensorEntityDescription(SensorEntityDescription):
 SENSOR_TYPES: tuple[SabnzbdSensorEntityDescription, ...] = (
     SabnzbdSensorEntityDescription(
         key="status",
-        REDACTED_VALUE"status",
+        translation_key="status",
     ),
     SabnzbdSensorEntityDescription(
         key="kbpersec",
-        REDACTED_VALUE"speed",
+        translation_key="speed",
         device_class=SensorDeviceClass.DATA_RATE,
         native_unit_of_measurement=UnitOfDataRate.KILOBYTES_PER_SECOND,
         suggested_unit_of_measurement=UnitOfDataRate.MEGABYTES_PER_SECOND,
@@ -40,41 +40,41 @@ SENSOR_TYPES: tuple[SabnzbdSensorEntityDescription, ...] = (
     ),
     SabnzbdSensorEntityDescription(
         key="mb",
-        REDACTED_VALUE"queue",
+        translation_key="queue",
         native_unit_of_measurement=UnitOfInformation.MEGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SabnzbdSensorEntityDescription(
         key="mbleft",
-        REDACTED_VALUE"left",
+        translation_key="left",
         native_unit_of_measurement=UnitOfInformation.MEGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SabnzbdSensorEntityDescription(
         key="diskspacetotal1",
-        REDACTED_VALUE"total_disk_space",
+        translation_key="total_disk_space",
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SabnzbdSensorEntityDescription(
         key="diskspace1",
-        REDACTED_VALUE"free_disk_space",
+        translation_key="free_disk_space",
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SabnzbdSensorEntityDescription(
         key="noofslots_total",
-        REDACTED_VALUE"queue_count",
+        translation_key="queue_count",
         state_class=SensorStateClass.TOTAL,
         suggested_display_precision=2,
     ),
     SabnzbdSensorEntityDescription(
         key="day_size",
-        REDACTED_VALUE"daily_total",
+        translation_key="daily_total",
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         entity_registry_enabled_default=False,
@@ -83,7 +83,7 @@ SENSOR_TYPES: tuple[SabnzbdSensorEntityDescription, ...] = (
     ),
     SabnzbdSensorEntityDescription(
         key="week_size",
-        REDACTED_VALUE"weekly_total",
+        translation_key="weekly_total",
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         entity_registry_enabled_default=False,
@@ -92,7 +92,7 @@ SENSOR_TYPES: tuple[SabnzbdSensorEntityDescription, ...] = (
     ),
     SabnzbdSensorEntityDescription(
         key="month_size",
-        REDACTED_VALUE"monthly_total",
+        translation_key="monthly_total",
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         entity_registry_enabled_default=False,
@@ -101,7 +101,7 @@ SENSOR_TYPES: tuple[SabnzbdSensorEntityDescription, ...] = (
     ),
     SabnzbdSensorEntityDescription(
         key="total_size",
-        REDACTED_VALUE"overall_total",
+        translation_key="overall_total",
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         state_class=SensorStateClass.TOTAL_INCREASING,

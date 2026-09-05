@@ -54,7 +54,7 @@ def _max_electrolysis(coordinator: VistapoolDataUpdateCoordinator) -> float:
 NUMBER_DESCRIPTIONS: tuple[VistapoolNumberEntityDescription, ...] = (
     VistapoolNumberEntityDescription(
         key="redox_setpoint",
-        REDACTED_VALUE"redox_setpoint",
+        translation_key="redox_setpoint",
         entity_category=EntityCategory.CONFIG,
         native_min_value=500,
         native_max_value=800,
@@ -65,7 +65,7 @@ NUMBER_DESCRIPTIONS: tuple[VistapoolNumberEntityDescription, ...] = (
     ),
     VistapoolNumberEntityDescription(
         key="ph_minimum",
-        REDACTED_VALUE"ph_minimum",
+        translation_key="ph_minimum",
         device_class=NumberDeviceClass.PH,
         entity_category=EntityCategory.CONFIG,
         native_min_value=6,
@@ -77,7 +77,7 @@ NUMBER_DESCRIPTIONS: tuple[VistapoolNumberEntityDescription, ...] = (
     ),
     VistapoolNumberEntityDescription(
         key="ph_maximum",
-        REDACTED_VALUE"ph_maximum",
+        translation_key="ph_maximum",
         device_class=NumberDeviceClass.PH,
         entity_category=EntityCategory.CONFIG,
         native_min_value=6,
@@ -89,7 +89,7 @@ NUMBER_DESCRIPTIONS: tuple[VistapoolNumberEntityDescription, ...] = (
     ),
     VistapoolNumberEntityDescription(
         key="intel_temperature",
-        REDACTED_VALUE"intel_temperature",
+        translation_key="intel_temperature",
         device_class=NumberDeviceClass.TEMPERATURE,
         entity_category=EntityCategory.CONFIG,
         native_min_value=_TEMP_MIN,
@@ -101,7 +101,7 @@ NUMBER_DESCRIPTIONS: tuple[VistapoolNumberEntityDescription, ...] = (
     *(
         VistapoolNumberEntityDescription(
             key=key,
-            REDACTED_VALUEkey,
+            translation_key=key,
             device_class=NumberDeviceClass.TEMPERATURE,
             entity_category=EntityCategory.CONFIG,
             native_min_value=_TEMP_MIN,
@@ -168,7 +168,7 @@ async def async_setup_entry(
                     coordinator,
                     VistapoolNumberEntityDescription(
                         key=key,
-                        REDACTED_VALUEkey,
+                        translation_key=key,
                         entity_category=EntityCategory.CONFIG,
                         native_min_value=0,
                         native_max_value=50.0,
@@ -230,6 +230,6 @@ class VistapoolNumber(VistapoolEntity, NumberEntity):
         except AquariteError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_failed",
+                translation_key="set_failed",
                 translation_placeholders={"entity": self.entity_id},
             ) from err

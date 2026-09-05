@@ -79,19 +79,19 @@ class TessieStateUpdateCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         except TeslaFleetError as e:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
             ) from e
         except ClientResponseError as e:
             if e.status == HTTPStatus.UNAUTHORIZED:
                 raise ConfigEntryAuthFailed from e
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
             ) from e
         except ClientError as e:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
             ) from e
         return flatten(vehicle)
 
@@ -134,7 +134,7 @@ class TessieEnergySiteLiveCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         except TeslaFleetError as e:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
             ) from e
 
         # Convert Wall Connectors from array to dict
@@ -173,7 +173,7 @@ class TessieEnergySiteInfoCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         except TeslaFleetError as e:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
             ) from e
 
         return flatten(data)
@@ -209,12 +209,12 @@ class TessieEnergyHistoryCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         except (InvalidToken, MissingToken) as e:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_failed",
+                translation_key="auth_failed",
             ) from e
         except TeslaFleetError as e:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
             ) from e
 
         if (

@@ -50,12 +50,12 @@ async def async_get_config_entry_diagnostics(
     except DucoConnectionError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"connection_error",
+            translation_key="connection_error",
         ) from err
     except DucoError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"api_error",
+            translation_key="api_error",
             translation_placeholders={"error": repr(err)},
         ) from err
 

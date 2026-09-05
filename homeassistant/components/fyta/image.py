@@ -35,12 +35,12 @@ class FytaImageEntityDescription(ImageEntityDescription):
 IMAGES: Final[list[FytaImageEntityDescription]] = [
     FytaImageEntityDescription(
         key="plant_image",
-        REDACTED_VALUE"plant_image",
+        translation_key="plant_image",
         url_fn=lambda plant: plant.plant_origin_path,
     ),
     FytaImageEntityDescription(
         key="plant_image_user",
-        REDACTED_VALUE"plant_image_user",
+        translation_key="plant_image_user",
         url_fn=lambda plant: plant.user_picture_path,
     ),
 ]

@@ -500,7 +500,7 @@ class BaseScannerEntity(BaseTrackerEntity):
             self._associated_zone_issue_id,
             is_fixable=False,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"associated_zone_missing",
+            translation_key="associated_zone_missing",
             translation_placeholders={
                 "entity_id": self.entity_id,
                 "zone": self._scanner_option_associated_zone,

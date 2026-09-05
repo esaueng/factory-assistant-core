@@ -225,7 +225,7 @@ class OPNsenseConfigFlow(ConfigFlow, domain=DOMAIN):
             is_fixable=False,
             issue_domain=DOMAIN,
             severity=IssueSeverity.WARNING,
-            REDACTED_VALUE"deprecated_yaml",
+            translation_key="deprecated_yaml",
             translation_placeholders={
                 "domain": DOMAIN,
                 "integration_title": "OPNsense",
@@ -265,7 +265,7 @@ class OPNsenseConfigFlow(ConfigFlow, domain=DOMAIN):
                         breaks_in_ha_version="2026.12.0",
                         is_fixable=False,
                         severity=IssueSeverity.ERROR,
-                        REDACTED_VALUE"import_failed_missing_interfaces",
+                        translation_key="import_failed_missing_interfaces",
                         translation_placeholders={
                             "missing": ", ".join(missing),
                             "found": ", ".join(known_interfaces),
@@ -301,7 +301,7 @@ class OPNsenseConfigFlow(ConfigFlow, domain=DOMAIN):
             breaks_in_ha_version="2026.12.0",
             is_fixable=False,
             severity=IssueSeverity.ERROR,
-            REDACTED_VALUEf"import_failed_{reason}",
+            translation_key=f"import_failed_{reason}",
             translation_placeholders={
                 "domain": DOMAIN,
                 "integration_title": "OPNsense",

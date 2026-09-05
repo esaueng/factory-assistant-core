@@ -215,7 +215,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
             breaks_in_ha_version="2026.6.0",
             is_fixable=False,
             severity=ir.IssueSeverity.ERROR,
-            REDACTED_VALUEissue_id,
+            translation_key=issue_id,
         )
 
     server_host = conf.get(CONF_SERVER_HOST, _DEFAULT_BIND)
@@ -325,7 +325,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
                     "ssl_configured_without_configured_urls",
                     is_fixable=False,
                     severity=ir.IssueSeverity.ERROR,
-                    REDACTED_VALUE"ssl_configured_without_configured_urls",
+                    translation_key="ssl_configured_without_configured_urls",
                 )
 
     hass.bus.async_listen_once(EVENT_HOMEASSISTANT_START, _async_check_ssl_issue)

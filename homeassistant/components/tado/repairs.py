@@ -29,5 +29,5 @@ def manage_water_heater_fallback_issue(
                 is_fixable=False,
                 is_persistent=False,
                 severity=ir.IssueSeverity.WARNING,
-                REDACTED_VALUEWATER_HEATER_FALLBACK_REPAIR,
+                translation_key=WATER_HEATER_FALLBACK_REPAIR,
             )

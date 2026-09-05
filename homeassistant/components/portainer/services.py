@@ -60,7 +60,7 @@ async def _extract_config_entry(service_call: ServiceCall) -> PortainerConfigEnt
     if not target_entries:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_target",
+            translation_key="invalid_target",
         )
     return target_entries[0]
 
@@ -77,7 +77,7 @@ async def _get_endpoint_id(
     if device is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_target",
+            translation_key="invalid_target",
         )
 
     coordinator = config_entry.runtime_data
@@ -91,7 +91,7 @@ async def _get_endpoint_id(
 
     raise ServiceValidationError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"invalid_target",
+        translation_key="invalid_target",
     )
 
 
@@ -105,7 +105,7 @@ async def _get_container_and_endpoint_ids(
     if device is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_target",
+            translation_key="invalid_target",
         )
 
     config_entry: PortainerConfigEntry | None = None
@@ -117,7 +117,7 @@ async def _get_container_and_endpoint_ids(
     if config_entry is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_target",
+            translation_key="invalid_target",
         )
 
     coordinator = config_entry.runtime_data
@@ -131,7 +131,7 @@ async def _get_container_and_endpoint_ids(
 
     raise ServiceValidationError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"invalid_target",
+        translation_key="invalid_target",
     )
 
 
@@ -150,17 +150,17 @@ async def prune_images(call: ServiceCall) -> None:
     except PortainerAuthenticationError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_auth_no_details",
+            translation_key="invalid_auth_no_details",
         ) from err
     except PortainerConnectionError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect_no_details",
+            translation_key="cannot_connect_no_details",
         ) from err
     except PortainerTimeoutError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"timeout_connect_no_details",
+            translation_key="timeout_connect_no_details",
         ) from err
 
 
@@ -182,17 +182,17 @@ async def recreate_container(call: ServiceCall) -> None:
     except PortainerAuthenticationError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_auth_no_details",
+            translation_key="invalid_auth_no_details",
         ) from err
     except PortainerConnectionError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect_no_details",
+            translation_key="cannot_connect_no_details",
         ) from err
     except PortainerTimeoutError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"timeout_connect_no_details",
+            translation_key="timeout_connect_no_details",
         ) from err
 
     await coordinator.async_request_refresh()

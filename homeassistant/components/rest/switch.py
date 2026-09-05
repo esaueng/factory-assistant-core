@@ -168,14 +168,14 @@ class RestSwitch(ManualTriggerEntity, SwitchEntity):
         except (TimeoutError, httpx.RequestError) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"error_communicating",
+                translation_key="error_communicating",
                 translation_placeholders={"resource": self._resource},
             ) from err
 
         if not HTTPStatus.OK <= req.status_code < HTTPStatus.MULTIPLE_CHOICES:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"turn_on_failed",
+                translation_key="turn_on_failed",
                 translation_placeholders={"resource": self._resource},
             )
 
@@ -190,14 +190,14 @@ class RestSwitch(ManualTriggerEntity, SwitchEntity):
         except (TimeoutError, httpx.RequestError) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"error_communicating",
+                translation_key="error_communicating",
                 translation_placeholders={"resource": self._resource},
             ) from err
 
         if not HTTPStatus.OK <= req.status_code < HTTPStatus.MULTIPLE_CHOICES:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"turn_off_failed",
+                translation_key="turn_off_failed",
                 translation_placeholders={"resource": self._resource},
             )
 

@@ -91,7 +91,7 @@ class RainforestRavenConfigFlow(ConfigFlow, domain=DOMAIN):
                         options=sorted(self._meter_macs),
                         mode=SelectSelectorMode.DROPDOWN,
                         multiple=True,
-                        REDACTED_VALUECONF_MAC,
+                        translation_key=CONF_MAC,
                     )
                 ),
             }

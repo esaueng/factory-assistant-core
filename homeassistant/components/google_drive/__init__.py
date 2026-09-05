@@ -34,7 +34,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: GoogleDriveConfigEntry) 
     except ImplementationUnavailableError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"oauth2_implementation_unavailable",
+            translation_key="oauth2_implementation_unavailable",
         ) from err
 
     auth = AsyncConfigEntryAuth(
@@ -54,7 +54,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: GoogleDriveConfigEntry) 
     except GoogleDriveApiError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"failed_to_get_folder",
+            translation_key="failed_to_get_folder",
             translation_placeholders={"folder": "Home Assistant"},
         ) from err
 

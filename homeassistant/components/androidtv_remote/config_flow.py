@@ -296,7 +296,7 @@ class AndroidTVRemoteOptionsFlowHandler(OptionsFlowWithReload):
                         SelectSelectorConfig(
                             options=apps,
                             mode=SelectSelectorMode.DROPDOWN,
-                            REDACTED_VALUE"apps",
+                            translation_key="apps",
                         )
                     ),
                     vol.Required(

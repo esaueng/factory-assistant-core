@@ -127,7 +127,7 @@ class IrmKmiOptionFlow(OptionsFlowWithReload):
                         SelectSelectorConfig(
                             options=CONF_LANGUAGE_OVERRIDE_OPTIONS,
                             mode=SelectSelectorMode.DROPDOWN,
-                            REDACTED_VALUECONF_LANGUAGE_OVERRIDE,
+                            translation_key=CONF_LANGUAGE_OVERRIDE,
                         )
                     )
                 }

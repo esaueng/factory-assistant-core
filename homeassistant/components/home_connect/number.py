@@ -31,92 +31,92 @@ NUMBERS = (
     NumberEntityDescription(
         key=SettingKey.BSH_COMMON_ALARM_CLOCK,
         device_class=NumberDeviceClass.DURATION,
-        REDACTED_VALUE"alarm_clock",
+        translation_key="alarm_clock",
     ),
     NumberEntityDescription(
         key=SettingKey.REFRIGERATION_FRIDGE_FREEZER_SETPOINT_TEMPERATURE_REFRIGERATOR,
         device_class=NumberDeviceClass.TEMPERATURE,
-        REDACTED_VALUE"refrigerator_setpoint_temperature",
+        translation_key="refrigerator_setpoint_temperature",
     ),
     NumberEntityDescription(
         key=SettingKey.REFRIGERATION_FRIDGE_FREEZER_SETPOINT_TEMPERATURE_FREEZER,
         device_class=NumberDeviceClass.TEMPERATURE,
-        REDACTED_VALUE"freezer_setpoint_temperature",
+        translation_key="freezer_setpoint_temperature",
     ),
     NumberEntityDescription(
         key=SettingKey.REFRIGERATION_COMMON_BOTTLE_COOLER_SETPOINT_TEMPERATURE,
         device_class=NumberDeviceClass.TEMPERATURE,
-        REDACTED_VALUE"bottle_cooler_setpoint_temperature",
+        translation_key="bottle_cooler_setpoint_temperature",
     ),
     NumberEntityDescription(
         key=SettingKey.REFRIGERATION_COMMON_CHILLER_LEFT_SETPOINT_TEMPERATURE,
         device_class=NumberDeviceClass.TEMPERATURE,
-        REDACTED_VALUE"chiller_left_setpoint_temperature",
+        translation_key="chiller_left_setpoint_temperature",
     ),
     NumberEntityDescription(
         key=SettingKey.REFRIGERATION_COMMON_CHILLER_COMMON_SETPOINT_TEMPERATURE,
         device_class=NumberDeviceClass.TEMPERATURE,
-        REDACTED_VALUE"chiller_setpoint_temperature",
+        translation_key="chiller_setpoint_temperature",
     ),
     NumberEntityDescription(
         key=SettingKey.REFRIGERATION_COMMON_CHILLER_RIGHT_SETPOINT_TEMPERATURE,
         device_class=NumberDeviceClass.TEMPERATURE,
-        REDACTED_VALUE"chiller_right_setpoint_temperature",
+        translation_key="chiller_right_setpoint_temperature",
     ),
     NumberEntityDescription(
         key=SettingKey.REFRIGERATION_COMMON_WINE_COMPARTMENT_SETPOINT_TEMPERATURE,
         device_class=NumberDeviceClass.TEMPERATURE,
-        REDACTED_VALUE"wine_compartment_setpoint_temperature",
+        translation_key="wine_compartment_setpoint_temperature",
     ),
     NumberEntityDescription(
         key=SettingKey.REFRIGERATION_COMMON_WINE_COMPARTMENT_2_SETPOINT_TEMPERATURE,
         device_class=NumberDeviceClass.TEMPERATURE,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="wine_compartment_2_setpoint_temperature",
     ),
     NumberEntityDescription(
         key=SettingKey.REFRIGERATION_COMMON_WINE_COMPARTMENT_3_SETPOINT_TEMPERATURE,
         device_class=NumberDeviceClass.TEMPERATURE,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="wine_compartment_3_setpoint_temperature",
     ),
     NumberEntityDescription(
         key=SettingKey.COOKING_HOOD_COLOR_TEMPERATURE_PERCENT,
-        REDACTED_VALUE"color_temperature_percent",
+        translation_key="color_temperature_percent",
         native_unit_of_measurement=PERCENTAGE,
     ),
     NumberEntityDescription(
         key=SettingKey.LAUNDRY_CARE_WASHER_I_DOS_1_BASE_LEVEL,
         device_class=NumberDeviceClass.VOLUME,
-        REDACTED_VALUE"washer_i_dos_1_base_level",
+        translation_key="washer_i_dos_1_base_level",
     ),
     NumberEntityDescription(
         key=SettingKey.LAUNDRY_CARE_WASHER_I_DOS_2_BASE_LEVEL,
         device_class=NumberDeviceClass.VOLUME,
-        REDACTED_VALUE"washer_i_dos_2_base_level",
+        translation_key="washer_i_dos_2_base_level",
     ),
 )
 
 NUMBER_OPTIONS = (
     NumberEntityDescription(
         key=OptionKey.BSH_COMMON_DURATION,
-        REDACTED_VALUE"duration",
+        translation_key="duration",
     ),
     NumberEntityDescription(
         key=OptionKey.BSH_COMMON_FINISH_IN_RELATIVE,
-        REDACTED_VALUE"finish_in_relative",
+        translation_key="finish_in_relative",
     ),
     NumberEntityDescription(
         key=OptionKey.BSH_COMMON_START_IN_RELATIVE,
-        REDACTED_VALUE"start_in_relative",
+        translation_key="start_in_relative",
     ),
     NumberEntityDescription(
         key=OptionKey.CONSUMER_PRODUCTS_COFFEE_MAKER_FILL_QUANTITY,
-        REDACTED_VALUE"fill_quantity",
+        translation_key="fill_quantity",
         device_class=NumberDeviceClass.VOLUME,
         native_step=1,
     ),
     NumberEntityDescription(
         key=OptionKey.COOKING_OVEN_SETPOINT_TEMPERATURE,
-        REDACTED_VALUE"setpoint_temperature",
+        translation_key="setpoint_temperature",
         device_class=NumberDeviceClass.TEMPERATURE,
     ),
 )
@@ -182,7 +182,7 @@ class HomeConnectNumberEntity(HomeConnectEntity, NumberEntity):
         except HomeConnectError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_setting_entity",
+                translation_key="set_setting_entity",
                 translation_placeholders={
                     **get_dict_from_home_connect_error(err),
                     "entity_id": self.entity_id,

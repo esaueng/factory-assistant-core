@@ -63,7 +63,7 @@ class InvalidUser(HomeAssistantError):
         super().__init__(
             *args,
             translation_domain="auth",
-            REDACTED_VALUEtranslation_key,
+            translation_key=translation_key,
             translation_placeholders=translation_placeholders,
         )
 
@@ -138,7 +138,7 @@ class Data:
                 breaks_in_ha_version="2026.7.0",
                 is_fixable=False,
                 severity=ir.IssueSeverity.WARNING,
-                REDACTED_VALUE"homeassistant_provider_not_normalized_usernames",
+                translation_key="homeassistant_provider_not_normalized_usernames",
                 translation_placeholders={
                     "usernames": (
                         f'- "{'"\n- "'.join(sorted(not_normalized_usernames))}"'
@@ -223,7 +223,7 @@ class Data:
                 break
 
         if index is None:
-            raise InvalidUser(REDACTED_VALUE"user_not_found")
+            raise InvalidUser(translation_key="user_not_found")
 
         self.users.pop(index)
 
@@ -239,7 +239,7 @@ class Data:
                 user["password"] = self.hash_password(new_password, True).decode()
                 break
         else:
-            raise InvalidUser(REDACTED_VALUE"user_not_found")
+            raise InvalidUser(translation_key="user_not_found")
 
     @callback
     def _validate_new_username(self, new_username: str) -> None:
@@ -252,7 +252,7 @@ class Data:
         )
         if normalized_username != new_username:
             raise InvalidUsername(
-                REDACTED_VALUE"username_not_normalized",
+                translation_key="username_not_normalized",
                 translation_placeholders={"new_username": new_username},
             )
 
@@ -261,7 +261,7 @@ class Data:
             for user in self.users
         ):
             raise InvalidUsername(
-                REDACTED_VALUE"username_already_exists",
+                translation_key="username_already_exists",
                 translation_placeholders={"username": new_username},
             )
 
@@ -282,7 +282,7 @@ class Data:
                 self._async_check_for_not_normalized_usernames(self._data)
                 break
         else:
-            raise InvalidUser(REDACTED_VALUE"user_not_found")
+            raise InvalidUser(translation_key="user_not_found")
 
     async def async_save(self) -> None:
         """Save data."""

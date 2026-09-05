@@ -63,53 +63,53 @@ def _line_connection(
 SENSOR_TYPES: Final = (
     VodafoneStationEntityDescription(
         key="wan_ip4_addr",
-        REDACTED_VALUE"external_ipv4",
+        translation_key="external_ipv4",
         is_suitable=lambda info: info["wan_ip4_addr"] not in NOT_AVAILABLE,
     ),
     VodafoneStationEntityDescription(
         key="wan_ip6_addr",
-        REDACTED_VALUE"external_ipv6",
+        translation_key="external_ipv6",
         is_suitable=lambda info: info["wan_ip6_addr"] not in NOT_AVAILABLE,
     ),
     VodafoneStationEntityDescription(
         key="vf_internet_key_ip_addr",
-        REDACTED_VALUE"external_ip_key",
+        translation_key="external_ip_key",
         is_suitable=lambda info: info["vf_internet_key_ip_addr"] not in NOT_AVAILABLE,
     ),
     VodafoneStationEntityDescription(
         key="inter_ip_address",
-        REDACTED_VALUE"active_connection",
+        translation_key="active_connection",
         device_class=SensorDeviceClass.ENUM,
         options=LINE_TYPES,
         value=_line_connection,
     ),
     VodafoneStationEntityDescription(
         key="down_str",
-        REDACTED_VALUE"down_stream",
+        translation_key="down_stream",
         device_class=SensorDeviceClass.DATA_RATE,
         native_unit_of_measurement=UnitOfDataRate.KILOBYTES_PER_SECOND,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     VodafoneStationEntityDescription(
         key="up_str",
-        REDACTED_VALUE"up_stream",
+        translation_key="up_stream",
         device_class=SensorDeviceClass.DATA_RATE,
         native_unit_of_measurement=UnitOfDataRate.KILOBYTES_PER_SECOND,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     VodafoneStationEntityDescription(
         key="fw_version",
-        REDACTED_VALUE"fw_version",
+        translation_key="fw_version",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     VodafoneStationEntityDescription(
         key="phone_num1",
-        REDACTED_VALUE"phone_num1",
+        translation_key="phone_num1",
         is_suitable=lambda info: info["phone_num1"] != "",
     ),
     VodafoneStationEntityDescription(
         key="phone_num2",
-        REDACTED_VALUE"phone_num2",
+        translation_key="phone_num2",
         is_suitable=lambda info: info["phone_num2"] != "",
     ),
     VodafoneStationEntityDescription(
@@ -122,7 +122,7 @@ SENSOR_TYPES: Final = (
     ),
     VodafoneStationEntityDescription(
         key="sys_cpu_usage",
-        REDACTED_VALUE"sys_cpu_usage",
+        translation_key="sys_cpu_usage",
         native_unit_of_measurement=PERCENTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
         value=lambda coordinator, last_value, key: float(
@@ -131,7 +131,7 @@ SENSOR_TYPES: Final = (
     ),
     VodafoneStationEntityDescription(
         key="sys_memory_usage",
-        REDACTED_VALUE"sys_memory_usage",
+        translation_key="sys_memory_usage",
         native_unit_of_measurement=PERCENTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
         value=lambda coordinator, last_value, key: float(
@@ -140,7 +140,7 @@ SENSOR_TYPES: Final = (
     ),
     VodafoneStationEntityDescription(
         key="sys_reboot_cause",
-        REDACTED_VALUE"sys_reboot_cause",
+        translation_key="sys_reboot_cause",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
 )

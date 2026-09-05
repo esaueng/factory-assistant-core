@@ -48,7 +48,7 @@ uptime_to_stable_datetime = ignore_variance(
 SENSOR_TYPES: tuple[AirobotSensorEntityDescription, ...] = (
     AirobotSensorEntityDescription(
         key="air_temperature",
-        REDACTED_VALUE"air_temperature",
+        translation_key="air_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -64,7 +64,7 @@ SENSOR_TYPES: tuple[AirobotSensorEntityDescription, ...] = (
     ),
     AirobotSensorEntityDescription(
         key="floor_temperature",
-        REDACTED_VALUE"floor_temperature",
+        translation_key="floor_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -88,7 +88,7 @@ SENSOR_TYPES: tuple[AirobotSensorEntityDescription, ...] = (
     ),
     AirobotSensorEntityDescription(
         key="heating_uptime",
-        REDACTED_VALUE"heating_uptime",
+        translation_key="heating_uptime",
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.SECONDS,
         suggested_unit_of_measurement=UnitOfTime.HOURS,
@@ -99,14 +99,14 @@ SENSOR_TYPES: tuple[AirobotSensorEntityDescription, ...] = (
     ),
     AirobotSensorEntityDescription(
         key="errors",
-        REDACTED_VALUE"errors",
+        translation_key="errors",
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda status: status.errors,
     ),
     AirobotSensorEntityDescription(
         key="device_uptime",
-        REDACTED_VALUE"device_uptime",
+        translation_key="device_uptime",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda status: uptime_to_stable_datetime(status.device_uptime),

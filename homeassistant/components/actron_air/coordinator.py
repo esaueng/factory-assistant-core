@@ -67,12 +67,12 @@ class ActronAirSystemCoordinator(DataUpdateCoordinator[ActronAirStatus]):
         except ActronAirAuthError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_error",
+                translation_key="auth_error",
             ) from err
         except ActronAirAPIError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_error",
+                translation_key="update_error",
                 translation_placeholders={"error": repr(err)},
             ) from err
 
@@ -80,7 +80,7 @@ class ActronAirSystemCoordinator(DataUpdateCoordinator[ActronAirStatus]):
         if status is None:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_error",
+                translation_key="update_error",
                 translation_placeholders={"error": "Status not available"},
             )
         self.status = status

@@ -44,7 +44,7 @@ SENSORS: dict[str, tuple[RefossSensorEntityDescription, ...]] = {
     SENSOR_EM: (
         RefossSensorEntityDescription(
             key="power",
-            REDACTED_VALUE"power",
+            translation_key="power",
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT,
             native_unit_of_measurement=UnitOfPower.WATT,
@@ -54,7 +54,7 @@ SENSORS: dict[str, tuple[RefossSensorEntityDescription, ...]] = {
         ),
         RefossSensorEntityDescription(
             key="voltage",
-            REDACTED_VALUE"voltage",
+            translation_key="voltage",
             device_class=SensorDeviceClass.VOLTAGE,
             state_class=SensorStateClass.MEASUREMENT,
             native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
@@ -64,7 +64,7 @@ SENSORS: dict[str, tuple[RefossSensorEntityDescription, ...]] = {
         ),
         RefossSensorEntityDescription(
             key="current",
-            REDACTED_VALUE"current",
+            translation_key="current",
             device_class=SensorDeviceClass.CURRENT,
             state_class=SensorStateClass.MEASUREMENT,
             native_unit_of_measurement=UnitOfElectricCurrent.MILLIAMPERE,
@@ -74,7 +74,7 @@ SENSORS: dict[str, tuple[RefossSensorEntityDescription, ...]] = {
         ),
         RefossSensorEntityDescription(
             key="factor",
-            REDACTED_VALUE"power_factor",
+            translation_key="power_factor",
             device_class=SensorDeviceClass.POWER_FACTOR,
             state_class=SensorStateClass.MEASUREMENT,
             suggested_display_precision=2,
@@ -82,7 +82,7 @@ SENSORS: dict[str, tuple[RefossSensorEntityDescription, ...]] = {
         ),
         RefossSensorEntityDescription(
             key="energy",
-            REDACTED_VALUE"this_month_energy",
+            translation_key="this_month_energy",
             device_class=SensorDeviceClass.ENERGY,
             state_class=SensorStateClass.TOTAL_INCREASING,
             native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
@@ -92,7 +92,7 @@ SENSORS: dict[str, tuple[RefossSensorEntityDescription, ...]] = {
         ),
         RefossSensorEntityDescription(
             key="energy_returned",
-            REDACTED_VALUE"this_month_energy_returned",
+            translation_key="this_month_energy_returned",
             device_class=SensorDeviceClass.ENERGY,
             state_class=SensorStateClass.TOTAL_INCREASING,
             native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,

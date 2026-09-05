@@ -696,20 +696,20 @@ class HTML5NotifyEntity(HTML5Entity, NotifyEntity):
                 self.async_write_ha_state()
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"channel_expired",
+                    translation_key="channel_expired",
                     translation_placeholders={"target": self.target},
                 ) from e
 
             _LOGGER.debug("Full exception", exc_info=True)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"request_error",
+                translation_key="request_error",
                 translation_placeholders={"target": self.target},
             ) from e
         except ClientError as e:
             _LOGGER.debug("Full exception", exc_info=True)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connection_error",
+                translation_key="connection_error",
                 translation_placeholders={"target": self.target},
             ) from e

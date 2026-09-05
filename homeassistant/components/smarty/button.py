@@ -27,7 +27,7 @@ class SmartyButtonDescription(ButtonEntityDescription):
 ENTITIES: tuple[SmartyButtonDescription, ...] = (
     SmartyButtonDescription(
         key="reset_filters_timer",
-        REDACTED_VALUE"reset_filters_timer",
+        translation_key="reset_filters_timer",
         press_fn=lambda smarty: smarty.reset_filters_timer(),
     ),
 )

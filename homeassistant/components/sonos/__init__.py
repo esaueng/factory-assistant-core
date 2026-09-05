@@ -200,7 +200,7 @@ class SonosDiscoveryManager:
                 f"{UPNP_ISSUE_ID}_{ip_address}",
                 is_fixable=False,
                 severity=ir.IssueSeverity.ERROR,
-                REDACTED_VALUE"upnp_disabled",
+                translation_key="upnp_disabled",
                 translation_placeholders={
                     "device_ip": ip_address,
                     "documentation_url": UPNP_DOCUMENTATION_URL,
@@ -283,7 +283,7 @@ class SonosDiscoveryManager:
                 SUB_FAIL_ISSUE_ID,
                 is_fixable=False,
                 severity=ir.IssueSeverity.ERROR,
-                REDACTED_VALUE"subscriptions_failed",
+                translation_key="subscriptions_failed",
                 translation_placeholders={
                     "device_ip": ip_address,
                     "listener_address": listener_address,

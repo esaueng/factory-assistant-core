@@ -79,7 +79,7 @@ SELECT_DESCRIPTIONS: list[VeSyncSelectEntityDescription] = [
     # night_light for humidifier
     VeSyncSelectEntityDescription(
         key="night_light_level",
-        REDACTED_VALUE"night_light_level",
+        translation_key="night_light_level",
         options=list(VS_TO_HA_HUMIDIFIER_NIGHT_LIGHT_LEVEL_MAP.values()),
         icon="mdi:brightness-6",
         exists_fn=lambda device: is_humidifier(device) and device.supports_nightlight,
@@ -97,7 +97,7 @@ SELECT_DESCRIPTIONS: list[VeSyncSelectEntityDescription] = [
     # night_light for air purifiers
     VeSyncSelectEntityDescription(
         key="night_light_level",
-        REDACTED_VALUE"night_light_level",
+        translation_key="night_light_level",
         options=[
             PURIFIER_NIGHT_LIGHT_LEVEL_OFF,
             PURIFIER_NIGHT_LIGHT_LEVEL_DIM,
@@ -111,7 +111,7 @@ SELECT_DESCRIPTIONS: list[VeSyncSelectEntityDescription] = [
     # night_light for outlets
     VeSyncSelectEntityDescription(
         key="night_light_level",
-        REDACTED_VALUE"night_light_level",
+        translation_key="night_light_level",
         options=[
             OUTLET_NIGHT_LIGHT_LEVEL_OFF,
             OUTLET_NIGHT_LIGHT_LEVEL_ON,

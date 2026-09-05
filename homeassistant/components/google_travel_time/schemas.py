@@ -39,7 +39,7 @@ LANGUAGE_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=sorted(ALL_LANGUAGES),
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUECONF_LANGUAGE,
+        translation_key=CONF_LANGUAGE,
     )
 )
 
@@ -48,7 +48,7 @@ AVOID_SELECTOR = SelectSelector(
         options=AVOID_OPTIONS,
         sort=True,
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUECONF_AVOID,
+        translation_key=CONF_AVOID,
     )
 )
 
@@ -57,7 +57,7 @@ TRAFFIC_MODEL_SELECTOR = SelectSelector(
         options=TRAFFIC_MODELS,
         sort=True,
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUECONF_TRAFFIC_MODEL,
+        translation_key=CONF_TRAFFIC_MODEL,
     )
 )
 
@@ -66,7 +66,7 @@ TRANSIT_MODE_SELECTOR = SelectSelector(
         options=TRANSPORT_TYPES,
         sort=True,
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUECONF_TRANSIT_MODE,
+        translation_key=CONF_TRANSIT_MODE,
     )
 )
 
@@ -75,7 +75,7 @@ TRANSIT_ROUTING_PREFERENCE_SELECTOR = SelectSelector(
         options=TRANSIT_PREFS,
         sort=True,
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUECONF_TRANSIT_ROUTING_PREFERENCE,
+        translation_key=CONF_TRANSIT_ROUTING_PREFERENCE,
     )
 )
 
@@ -84,7 +84,7 @@ UNITS_SELECTOR = SelectSelector(
         options=UNITS,
         sort=True,
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUECONF_UNITS,
+        translation_key=CONF_UNITS,
     )
 )
 
@@ -93,7 +93,7 @@ TIME_TYPE_SELECTOR = SelectSelector(
         options=TIME_TYPES,
         sort=True,
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUECONF_TIME_TYPE,
+        translation_key=CONF_TIME_TYPE,
     )
 )
 
@@ -116,7 +116,7 @@ SERVICE_GET_TRAVEL_TIMES_SCHEMA = _SERVICE_BASE_SCHEMA.extend(
                 options=TRAVEL_MODES_WITHOUT_TRANSIT,
                 sort=True,
                 mode=SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUECONF_MODE,
+                translation_key=CONF_MODE,
             )
         ),
         vol.Optional(CONF_AVOID): AVOID_SELECTOR,

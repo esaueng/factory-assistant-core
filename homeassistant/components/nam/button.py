@@ -67,7 +67,7 @@ class NAMButton(CoordinatorEntity[NAMDataUpdateCoordinator], ButtonEntity):
         except (ApiError, ClientError) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_communication_action_error",
+                translation_key="device_communication_action_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                     "device": self.coordinator.config_entry.title,

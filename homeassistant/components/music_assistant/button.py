@@ -36,7 +36,7 @@ class MusicAssistantFavoriteButton(MusicAssistantEntity, ButtonEntity):
 
     entity_description = ButtonEntityDescription(
         key="favorite_now_playing",
-        REDACTED_VALUE"favorite_now_playing",
+        translation_key="favorite_now_playing",
     )
 
     @catch_musicassistant_error

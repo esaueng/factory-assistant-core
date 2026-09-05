@@ -36,7 +36,7 @@ async def async_setup_entry(
     if not coordinator.last_update_success:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"initial_update_failed",
+            translation_key="initial_update_failed",
             translation_placeholders={"error": str(coordinator.last_exception)},
         )
     config_entry.runtime_data = coordinator

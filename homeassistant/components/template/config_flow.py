@@ -181,7 +181,7 @@ def generate_schema(domain: str, flow_type: str) -> vol.Schema:
                 selector.SelectSelectorConfig(
                     options=[e.name for e in TemplateCodeFormat],
                     mode=selector.SelectSelectorMode.DROPDOWN,
-                    REDACTED_VALUE"alarm_control_panel_code_format",
+                    translation_key="alarm_control_panel_code_format",
                 )
             ),
         }
@@ -192,7 +192,7 @@ def generate_schema(domain: str, flow_type: str) -> vol.Schema:
                 selector.SelectSelectorConfig(
                     options=[cls.value for cls in BinarySensorDeviceClass],
                     mode=selector.SelectSelectorMode.DROPDOWN,
-                    REDACTED_VALUE"binary_sensor_device_class",
+                    translation_key="binary_sensor_device_class",
                     sort=True,
                 ),
             ),
@@ -208,7 +208,7 @@ def generate_schema(domain: str, flow_type: str) -> vol.Schema:
                     selector.SelectSelectorConfig(
                         options=[cls.value for cls in ButtonDeviceClass],
                         mode=selector.SelectSelectorMode.DROPDOWN,
-                        REDACTED_VALUE"button_device_class",
+                        translation_key="button_device_class",
                         sort=True,
                     ),
                 )
@@ -228,7 +228,7 @@ def generate_schema(domain: str, flow_type: str) -> vol.Schema:
                     selector.SelectSelectorConfig(
                         options=[cls.value for cls in CoverDeviceClass],
                         mode=selector.SelectSelectorMode.DROPDOWN,
-                        REDACTED_VALUE"cover_device_class",
+                        translation_key="cover_device_class",
                         sort=True,
                     ),
                 )
@@ -256,7 +256,7 @@ def generate_schema(domain: str, flow_type: str) -> vol.Schema:
                     selector.SelectSelectorConfig(
                         options=[cls.value for cls in EventDeviceClass],
                         mode=selector.SelectSelectorMode.DROPDOWN,
-                        REDACTED_VALUE"event_device_class",
+                        translation_key="event_device_class",
                         sort=True,
                     ),
                 )
@@ -307,7 +307,7 @@ def generate_schema(domain: str, flow_type: str) -> vol.Schema:
                 selector.SelectSelectorConfig(
                     options=[cls.value for cls in NumberDeviceClass],
                     mode=selector.SelectSelectorMode.DROPDOWN,
-                    REDACTED_VALUE"number_device_class",
+                    translation_key="number_device_class",
                     sort=True,
                 ),
             ),
@@ -348,7 +348,7 @@ def generate_schema(domain: str, flow_type: str) -> vol.Schema:
                         }
                     ),
                     mode=selector.SelectSelectorMode.DROPDOWN,
-                    REDACTED_VALUE"sensor_unit_of_measurement",
+                    translation_key="sensor_unit_of_measurement",
                     custom_value=True,
                     sort=True,
                 ),
@@ -361,7 +361,7 @@ def generate_schema(domain: str, flow_type: str) -> vol.Schema:
                         if cls != SensorDeviceClass.ENUM
                     ],
                     mode=selector.SelectSelectorMode.DROPDOWN,
-                    REDACTED_VALUE"sensor_device_class",
+                    translation_key="sensor_device_class",
                     sort=True,
                 ),
             ),
@@ -369,7 +369,7 @@ def generate_schema(domain: str, flow_type: str) -> vol.Schema:
                 selector.SelectSelectorConfig(
                     options=[cls.value for cls in SensorStateClass],
                     mode=selector.SelectSelectorMode.DROPDOWN,
-                    REDACTED_VALUE"sensor_state_class",
+                    translation_key="sensor_state_class",
                     sort=True,
                 ),
             ),
@@ -401,7 +401,7 @@ def generate_schema(domain: str, flow_type: str) -> vol.Schema:
                     selector.SelectSelectorConfig(
                         options=[cls.value for cls in UpdateDeviceClass],
                         mode=selector.SelectSelectorMode.DROPDOWN,
-                        REDACTED_VALUE"update_device_class",
+                        translation_key="update_device_class",
                         sort=True,
                     ),
                 ),

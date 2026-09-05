@@ -43,7 +43,7 @@ BUTTON_TYPES: tuple[AirobotButtonEntityDescription, ...] = (
     ),
     AirobotButtonEntityDescription(
         key="recalibrate_co2",
-        REDACTED_VALUE"recalibrate_co2",
+        translation_key="recalibrate_co2",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         press_fn=lambda coordinator: coordinator.client.recalibrate_co2_sensor(),
@@ -90,6 +90,6 @@ class AirobotButton(AirobotEntity, ButtonEntity):
         except AirobotError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"button_press_failed",
+                translation_key="button_press_failed",
                 translation_placeholders={"button": self.entity_description.key},
             ) from err

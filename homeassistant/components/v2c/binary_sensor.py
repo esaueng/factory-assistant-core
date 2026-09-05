@@ -27,19 +27,19 @@ class V2CBinarySensorEntityDescription(BinarySensorEntityDescription):
 TRYDAN_SENSORS = (
     V2CBinarySensorEntityDescription(
         key="connected",
-        REDACTED_VALUE"connected",
+        translation_key="connected",
         device_class=BinarySensorDeviceClass.PLUG,
         value_fn=lambda evse: evse.connected,
     ),
     V2CBinarySensorEntityDescription(
         key="charging",
-        REDACTED_VALUE"charging",
+        translation_key="charging",
         device_class=BinarySensorDeviceClass.BATTERY_CHARGING,
         value_fn=lambda evse: evse.charging,
     ),
     V2CBinarySensorEntityDescription(
         key="ready",
-        REDACTED_VALUE"ready",
+        translation_key="ready",
         value_fn=lambda evse: evse.ready,
     ),
 )

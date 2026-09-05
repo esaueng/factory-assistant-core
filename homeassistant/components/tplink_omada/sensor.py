@@ -93,7 +93,7 @@ class OmadaDeviceSensorEntityDescription(SensorEntityDescription):
 OMADA_DEVICE_SENSORS: list[OmadaDeviceSensorEntityDescription] = [
     OmadaDeviceSensorEntityDescription(
         key="device_status",
-        REDACTED_VALUE"device_status",
+        translation_key="device_status",
         device_class=SensorDeviceClass.ENUM,
         entity_category=EntityCategory.DIAGNOSTIC,
         update_func=_map_device_status,
@@ -101,7 +101,7 @@ OMADA_DEVICE_SENSORS: list[OmadaDeviceSensorEntityDescription] = [
     ),
     OmadaDeviceSensorEntityDescription(
         key="cpu_usage",
-        REDACTED_VALUE"cpu_usage",
+        translation_key="cpu_usage",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
@@ -109,7 +109,7 @@ OMADA_DEVICE_SENSORS: list[OmadaDeviceSensorEntityDescription] = [
     ),
     OmadaDeviceSensorEntityDescription(
         key="mem_usage",
-        REDACTED_VALUE"mem_usage",
+        translation_key="mem_usage",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,

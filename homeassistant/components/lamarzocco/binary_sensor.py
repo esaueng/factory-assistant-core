@@ -37,7 +37,7 @@ class LaMarzoccoBinarySensorEntityDescription(
 ENTITIES: tuple[LaMarzoccoBinarySensorEntityDescription, ...] = (
     LaMarzoccoBinarySensorEntityDescription(
         key="water_tank",
-        REDACTED_VALUE"water_tank",
+        translation_key="water_tank",
         device_class=BinarySensorDeviceClass.PROBLEM,
         is_on_fn=(
             lambda machine: (
@@ -51,7 +51,7 @@ ENTITIES: tuple[LaMarzoccoBinarySensorEntityDescription, ...] = (
     ),
     LaMarzoccoBinarySensorEntityDescription(
         key="brew_active",
-        REDACTED_VALUE"brew_active",
+        translation_key="brew_active",
         device_class=BinarySensorDeviceClass.RUNNING,
         is_on_fn=(
             lambda machine: (
@@ -67,7 +67,7 @@ ENTITIES: tuple[LaMarzoccoBinarySensorEntityDescription, ...] = (
     ),
     LaMarzoccoBinarySensorEntityDescription(
         key="backflush_enabled",
-        REDACTED_VALUE"backflush_enabled",
+        translation_key="backflush_enabled",
         device_class=BinarySensorDeviceClass.RUNNING,
         is_on_fn=(
             lambda machine: (
@@ -87,7 +87,7 @@ ENTITIES: tuple[LaMarzoccoBinarySensorEntityDescription, ...] = (
     ),
     LaMarzoccoBinarySensorEntityDescription(
         key="websocket_connected",
-        REDACTED_VALUE"websocket_connected",
+        translation_key="websocket_connected",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         is_on_fn=(lambda machine: machine.websocket.connected),
         entity_category=EntityCategory.DIAGNOSTIC,

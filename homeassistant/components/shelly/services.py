@@ -51,7 +51,7 @@ def async_get_config_entry_for_service_call(
     if (device_entry := device_registry.async_get(device_id)) is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_device_id",
+            translation_key="invalid_device_id",
             translation_placeholders={"device_id": device_id},
         )
 
@@ -66,26 +66,26 @@ def async_get_config_entry_for_service_call(
         if config_entry.state is not ConfigEntryState.LOADED:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"entry_not_loaded",
+                translation_key="entry_not_loaded",
                 translation_placeholders={"device": config_entry.title},
             )
         if get_device_entry_gen(config_entry) not in RPC_GENERATIONS:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"kvs_not_supported",
+                translation_key="kvs_not_supported",
                 translation_placeholders={"device": config_entry.title},
             )
         if config_entry.data.get(CONF_SLEEP_PERIOD, 0) > 0:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"kvs_not_supported",
+                translation_key="kvs_not_supported",
                 translation_placeholders={"device": config_entry.title},
             )
         return config_entry
 
     raise ServiceValidationError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"config_entry_not_found",
+        translation_key="config_entry_not_found",
         translation_placeholders={"device_id": device_id},
     )
 
@@ -101,7 +101,7 @@ async def _async_execute_action(
     if not runtime_data.rpc:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_not_initialized",
+            translation_key="device_not_initialized",
             translation_placeholders={"device": config_entry.title},
         )
 
@@ -112,13 +112,13 @@ async def _async_execute_action(
     except RpcCallError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"rpc_call_error",
+            translation_key="rpc_call_error",
             translation_placeholders={"device": config_entry.title},
         ) from err
     except DeviceConnectionError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_communication_error",
+            translation_key="device_communication_error",
             translation_placeholders={"device": config_entry.title},
         ) from err
     else:

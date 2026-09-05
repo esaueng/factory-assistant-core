@@ -30,13 +30,13 @@ class RDWSensorEntityDescription(SensorEntityDescription):
 SENSORS: tuple[RDWSensorEntityDescription, ...] = (
     RDWSensorEntityDescription(
         key="apk_expiration",
-        REDACTED_VALUE"apk_expiration",
+        translation_key="apk_expiration",
         device_class=SensorDeviceClass.DATE,
         value_fn=lambda vehicle: vehicle.apk_expiration,
     ),
     RDWSensorEntityDescription(
         key="ascription_date",
-        REDACTED_VALUE"ascription_date",
+        translation_key="ascription_date",
         device_class=SensorDeviceClass.DATE,
         value_fn=lambda vehicle: vehicle.ascription_date,
     ),

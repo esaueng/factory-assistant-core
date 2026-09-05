@@ -26,7 +26,7 @@ class AsekoBinarySensorEntityDescription(BinarySensorEntityDescription):
 BINARY_SENSORS: tuple[AsekoBinarySensorEntityDescription, ...] = (
     AsekoBinarySensorEntityDescription(
         key="water_flow",
-        REDACTED_VALUE"water_flow_to_probes",
+        translation_key="water_flow_to_probes",
         value_fn=lambda unit: unit.water_flow_to_probes,
     ),
 )

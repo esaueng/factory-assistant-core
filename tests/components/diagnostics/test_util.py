@@ -74,7 +74,7 @@ def test_entity_entry_as_dict() -> None:
         object_id_base=None,
         suggested_object_id=None,
         supported_features=0,
-        REDACTED_VALUENone,
+        translation_key=None,
         unit_of_measurement=None,
     )
 

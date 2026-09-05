@@ -29,7 +29,7 @@ class TRMNLSwitchEntityDescription(SwitchEntityDescription):
 SWITCH_DESCRIPTIONS: tuple[TRMNLSwitchEntityDescription, ...] = (
     TRMNLSwitchEntityDescription(
         key="sleep_mode",
-        REDACTED_VALUE"sleep_mode",
+        translation_key="sleep_mode",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda device: device.sleep_mode_enabled,
         set_value_fn=lambda coordinator, device_id, value: (

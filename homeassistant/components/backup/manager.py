@@ -1488,7 +1488,7 @@ class BackupManager:
             is_persistent=True,
             learn_more_url="homeassistant://config/backup",
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUEtranslation_key,
+            translation_key=translation_key,
             translation_placeholders=translation_placeholders,
         )
 

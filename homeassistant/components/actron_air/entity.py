@@ -31,7 +31,7 @@ def actron_air_command[_EntityT: ActronAirEntity, **_P](
         except ActronAirAPIError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_error",
+                translation_key="api_error",
                 translation_placeholders={"error": str(err)},
             ) from err
         self.coordinator.async_set_updated_data(self.coordinator.data)

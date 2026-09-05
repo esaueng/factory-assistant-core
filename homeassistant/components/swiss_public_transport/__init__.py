@@ -79,7 +79,7 @@ async def async_setup_entry(
     except OpendataTransportConnectionError as e:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"request_timeout",
+            translation_key="request_timeout",
             translation_placeholders={
                 "config_title": entry.title,
                 "error": str(e),
@@ -89,7 +89,7 @@ async def async_setup_entry(
         # pylint: disable-next=home-assistant-exception-placeholder-mismatch
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_data",
+            translation_key="invalid_data",
             translation_placeholders={
                 **PLACEHOLDERS,
                 "config_title": entry.title,

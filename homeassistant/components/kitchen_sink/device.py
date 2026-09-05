@@ -20,6 +20,6 @@ def async_create_device(
         config_entry_id=config_entry_id,
         identifiers={(DOMAIN, unique_id)},
         name=device_name,
-        REDACTED_VALUEdevice_translation_key,
+        translation_key=device_translation_key,
         translation_placeholders=device_translation_placeholders,
     )

@@ -175,7 +175,7 @@ class AndroidTVRemoteMediaPlayerEntity(AndroidTVRemoteBaseEntity, MediaPlayerEnt
             if not media_id.isnumeric():
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"invalid_channel",
+                    translation_key="invalid_channel",
                     translation_placeholders={"media_id": media_id},
                 )
             if self._channel_set_task:
@@ -192,7 +192,7 @@ class AndroidTVRemoteMediaPlayerEntity(AndroidTVRemoteBaseEntity, MediaPlayerEnt
 
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_media_type",
+            translation_key="invalid_media_type",
             translation_placeholders={"media_type": media_type},
         )
 
@@ -239,5 +239,5 @@ class AndroidTVRemoteMediaPlayerEntity(AndroidTVRemoteBaseEntity, MediaPlayerEnt
                 await asyncio.sleep(delay_secs)
         except ConnectionClosed as exc:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"connection_closed"
+                translation_domain=DOMAIN, translation_key="connection_closed"
             ) from exc

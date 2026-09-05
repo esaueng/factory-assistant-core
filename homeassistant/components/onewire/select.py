@@ -29,7 +29,7 @@ ENTITY_DESCRIPTIONS: dict[str, tuple[SelectEntityDescription, ...]] = {
             key="tempres",
             entity_category=EntityCategory.CONFIG,
             options=["9", "10", "11", "12"],
-            REDACTED_VALUE"tempres",
+            translation_key="tempres",
             entity_registry_enabled_default=False,
         ),
     ),

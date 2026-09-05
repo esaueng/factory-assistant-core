@@ -47,19 +47,19 @@ LIGHTS: tuple[HomeConnectLightEntityDescription, ...] = (
         key=SettingKey.REFRIGERATION_COMMON_LIGHT_INTERNAL_POWER,
         brightness_key=SettingKey.REFRIGERATION_COMMON_LIGHT_INTERNAL_BRIGHTNESS,
         brightness_scale=(1.0, 100.0),
-        REDACTED_VALUE"internal_light",
+        translation_key="internal_light",
     ),
     HomeConnectLightEntityDescription(
         key=SettingKey.REFRIGERATION_COMMON_LIGHT_EXTERNAL_POWER,
         brightness_key=SettingKey.REFRIGERATION_COMMON_LIGHT_EXTERNAL_BRIGHTNESS,
         brightness_scale=(1.0, 100.0),
-        REDACTED_VALUE"external_light",
+        translation_key="external_light",
     ),
     HomeConnectLightEntityDescription(
         key=SettingKey.COOKING_COMMON_LIGHTING,
         brightness_key=SettingKey.COOKING_COMMON_LIGHTING_BRIGHTNESS,
         brightness_scale=(10.0, 100.0),
-        REDACTED_VALUE"cooking_lighting",
+        translation_key="cooking_lighting",
     ),
     HomeConnectLightEntityDescription(
         key=SettingKey.BSH_COMMON_AMBIENT_LIGHT_ENABLED,
@@ -68,7 +68,7 @@ LIGHTS: tuple[HomeConnectLightEntityDescription, ...] = (
         enable_custom_color_value_key=BSH_AMBIENT_LIGHT_COLOR_CUSTOM_COLOR,
         custom_color_key=SettingKey.BSH_COMMON_AMBIENT_LIGHT_CUSTOM_COLOR,
         brightness_scale=(10.0, 100.0),
-        REDACTED_VALUE"ambient_light",
+        translation_key="ambient_light",
     ),
 )
 
@@ -152,7 +152,7 @@ class HomeConnectLight(HomeConnectEntity, LightEntity):
         except HomeConnectError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"turn_on_light",
+                translation_key="turn_on_light",
                 translation_placeholders={
                     **get_dict_from_home_connect_error(err),
                     "entity_id": self.entity_id,
@@ -171,7 +171,7 @@ class HomeConnectLight(HomeConnectEntity, LightEntity):
                 except HomeConnectError as err:
                     raise HomeAssistantError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"select_light_custom_color",
+                        translation_key="select_light_custom_color",
                         translation_placeholders={
                             **get_dict_from_home_connect_error(err),
                             "entity_id": self.entity_id,
@@ -189,7 +189,7 @@ class HomeConnectLight(HomeConnectEntity, LightEntity):
                 except HomeConnectError as err:
                     raise HomeAssistantError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"set_light_color",
+                        translation_key="set_light_color",
                         translation_placeholders={
                             **get_dict_from_home_connect_error(err),
                             "entity_id": self.entity_id,
@@ -221,7 +221,7 @@ class HomeConnectLight(HomeConnectEntity, LightEntity):
                 except HomeConnectError as err:
                     raise HomeAssistantError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"set_light_color",
+                        translation_key="set_light_color",
                         translation_placeholders={
                             **get_dict_from_home_connect_error(err),
                             "entity_id": self.entity_id,
@@ -244,7 +244,7 @@ class HomeConnectLight(HomeConnectEntity, LightEntity):
             except HomeConnectError as err:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"set_light_brightness",
+                    translation_key="set_light_brightness",
                     translation_placeholders={
                         **get_dict_from_home_connect_error(err),
                         "entity_id": self.entity_id,
@@ -262,7 +262,7 @@ class HomeConnectLight(HomeConnectEntity, LightEntity):
         except HomeConnectError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"turn_off_light",
+                translation_key="turn_off_light",
                 translation_placeholders={
                     **get_dict_from_home_connect_error(err),
                     "entity_id": self.entity_id,

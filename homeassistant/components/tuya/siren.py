@@ -27,13 +27,13 @@ SIRENS: dict[DeviceCategory, tuple[SirenEntityDescription, ...]] = {
         SirenEntityDescription(
             key=DPCode.ALARM_SWITCH,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"siren",
+            translation_key="siren",
         ),
     ),
     DeviceCategory.DGNBJ: (
         SirenEntityDescription(
             key=DPCode.ALARM_SWITCH,
-            REDACTED_VALUE"siren",
+            translation_key="siren",
         ),
     ),
     DeviceCategory.SGBJ: (
@@ -45,7 +45,7 @@ SIRENS: dict[DeviceCategory, tuple[SirenEntityDescription, ...]] = {
     DeviceCategory.SP: (
         SirenEntityDescription(
             key=DPCode.SIREN_SWITCH,
-            REDACTED_VALUE"siren",
+            translation_key="siren",
         ),
     ),
 }

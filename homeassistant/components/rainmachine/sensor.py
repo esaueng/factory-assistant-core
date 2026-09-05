@@ -64,7 +64,7 @@ class RainMachineSensorCompletionTimerDescription(
 SENSOR_DESCRIPTIONS = (
     RainMachineSensorDataDescription(
         key=TYPE_FLOW_SENSOR_CLICK_M3,
-        REDACTED_VALUETYPE_FLOW_SENSOR_CLICK_M3,
+        translation_key=TYPE_FLOW_SENSOR_CLICK_M3,
         native_unit_of_measurement=f"clicks/{UnitOfVolume.CUBIC_METERS}",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -74,7 +74,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     RainMachineSensorDataDescription(
         key=TYPE_FLOW_SENSOR_CONSUMED_LITERS,
-        REDACTED_VALUETYPE_FLOW_SENSOR_CONSUMED_LITERS,
+        translation_key=TYPE_FLOW_SENSOR_CONSUMED_LITERS,
         device_class=SensorDeviceClass.WATER,
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfVolume.LITERS,
@@ -85,7 +85,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     RainMachineSensorDataDescription(
         key=TYPE_FLOW_SENSOR_LEAK_CLICKS,
-        REDACTED_VALUETYPE_FLOW_SENSOR_LEAK_CLICKS,
+        translation_key=TYPE_FLOW_SENSOR_LEAK_CLICKS,
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement="clicks",
         entity_registry_enabled_default=False,
@@ -95,7 +95,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     RainMachineSensorDataDescription(
         key=TYPE_FLOW_SENSOR_LEAK_VOLUME,
-        REDACTED_VALUETYPE_FLOW_SENSOR_LEAK_VOLUME,
+        translation_key=TYPE_FLOW_SENSOR_LEAK_VOLUME,
         device_class=SensorDeviceClass.WATER,
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfVolume.LITERS,
@@ -106,7 +106,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     RainMachineSensorDataDescription(
         key=TYPE_FLOW_SENSOR_START_INDEX,
-        REDACTED_VALUETYPE_FLOW_SENSOR_START_INDEX,
+        translation_key=TYPE_FLOW_SENSOR_START_INDEX,
         icon="mdi:water-pump",
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement="index",
@@ -116,7 +116,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     RainMachineSensorDataDescription(
         key=TYPE_FLOW_SENSOR_WATERING_CLICKS,
-        REDACTED_VALUETYPE_FLOW_SENSOR_WATERING_CLICKS,
+        translation_key=TYPE_FLOW_SENSOR_WATERING_CLICKS,
         icon="mdi:water-pump",
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement="clicks",
@@ -127,7 +127,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     RainMachineSensorDataDescription(
         key=TYPE_LAST_LEAK_DETECTED,
-        REDACTED_VALUETYPE_LAST_LEAK_DETECTED,
+        translation_key=TYPE_LAST_LEAK_DETECTED,
         icon="mdi:pipe-leak",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -137,7 +137,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     RainMachineSensorDataDescription(
         key=TYPE_RAIN_SENSOR_RAIN_START,
-        REDACTED_VALUETYPE_RAIN_SENSOR_RAIN_START,
+        translation_key=TYPE_RAIN_SENSOR_RAIN_START,
         icon="mdi:weather-pouring",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,

@@ -28,7 +28,7 @@ PARALLEL_UPDATES = 0
 SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="power_delivered",
-        REDACTED_VALUE"power_imported",
+        translation_key="power_imported",
         native_unit_of_measurement=UnitOfPower.KILO_WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -36,7 +36,7 @@ SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="power_returned",
-        REDACTED_VALUE"power_exported",
+        translation_key="power_exported",
         native_unit_of_measurement=UnitOfPower.KILO_WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -44,7 +44,7 @@ SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="voltage_l1",
-        REDACTED_VALUE"voltage_l1",
+        translation_key="voltage_l1",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -52,7 +52,7 @@ SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="current_l1",
-        REDACTED_VALUE"current_l1",
+        translation_key="current_l1",
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -60,7 +60,7 @@ SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="energy_delivered_tariff1",
-        REDACTED_VALUE"energy_imported_tariff1",
+        translation_key="energy_imported_tariff1",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -68,7 +68,7 @@ SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="energy_delivered_tariff2",
-        REDACTED_VALUE"energy_imported_tariff2",
+        translation_key="energy_imported_tariff2",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -76,7 +76,7 @@ SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="energy_returned_tariff1",
-        REDACTED_VALUE"energy_exported_tariff1",
+        translation_key="energy_exported_tariff1",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -84,7 +84,7 @@ SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="energy_returned_tariff2",
-        REDACTED_VALUE"energy_exported_tariff2",
+        translation_key="energy_exported_tariff2",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -92,7 +92,7 @@ SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="gas_delivered",
-        REDACTED_VALUE"gas_consumed",
+        translation_key="gas_consumed",
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         device_class=SensorDeviceClass.GAS,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -100,7 +100,7 @@ SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="wifiRSSI",
-        REDACTED_VALUE"wifi_rssi",
+        translation_key="wifi_rssi",
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         state_class=SensorStateClass.MEASUREMENT,

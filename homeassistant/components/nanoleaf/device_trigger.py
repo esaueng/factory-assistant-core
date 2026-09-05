@@ -68,7 +68,7 @@ async def async_attach_trigger(
         is_fixable=False,
         breaks_in_ha_version="2025.1.0",
         severity=IssueSeverity.WARNING,
-        REDACTED_VALUE"deprecated_device_trigger",
+        translation_key="deprecated_device_trigger",
     )
     event_config = event_trigger.TRIGGER_SCHEMA(
         {

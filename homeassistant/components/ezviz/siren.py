@@ -26,7 +26,7 @@ OFF_DELAY = timedelta(seconds=60)  # Camera firmware has hard coded turn off.
 
 SIREN_ENTITY_TYPE = SirenEntityDescription(
     key="siren",
-    REDACTED_VALUE"siren",
+    translation_key="siren",
 )
 
 

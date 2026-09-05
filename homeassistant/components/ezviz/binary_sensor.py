@@ -20,11 +20,11 @@ BINARY_SENSOR_TYPES: dict[str, BinarySensorEntityDescription] = {
     ),
     "alarm_schedules_enabled": BinarySensorEntityDescription(
         key="alarm_schedules_enabled",
-        REDACTED_VALUE"alarm_schedules_enabled",
+        translation_key="alarm_schedules_enabled",
     ),
     "encrypted": BinarySensorEntityDescription(
         key="encrypted",
-        REDACTED_VALUE"encrypted",
+        translation_key="encrypted",
     ),
 }
 

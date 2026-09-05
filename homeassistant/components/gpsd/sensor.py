@@ -71,7 +71,7 @@ class GpsdSensorDescription(SensorEntityDescription):
 SENSOR_TYPES: tuple[GpsdSensorDescription, ...] = (
     GpsdSensorDescription(
         key=ATTR_MODE,
-        REDACTED_VALUEATTR_MODE,
+        translation_key=ATTR_MODE,
         name=None,
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.ENUM,
@@ -80,21 +80,21 @@ SENSOR_TYPES: tuple[GpsdSensorDescription, ...] = (
     ),
     GpsdSensorDescription(
         key=ATTR_LATITUDE,
-        REDACTED_VALUEATTR_LATITUDE,
+        translation_key=ATTR_LATITUDE,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda agps_thread: agps_thread.data_stream.lat,
         entity_registry_enabled_default=False,
     ),
     GpsdSensorDescription(
         key=ATTR_LONGITUDE,
-        REDACTED_VALUEATTR_LONGITUDE,
+        translation_key=ATTR_LONGITUDE,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda agps_thread: agps_thread.data_stream.lon,
         entity_registry_enabled_default=False,
     ),
     GpsdSensorDescription(
         key=ATTR_ELEVATION,
-        REDACTED_VALUEATTR_ELEVATION,
+        translation_key=ATTR_ELEVATION,
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.DISTANCE,
         native_unit_of_measurement=UnitOfLength.METERS,
@@ -104,7 +104,7 @@ SENSOR_TYPES: tuple[GpsdSensorDescription, ...] = (
     ),
     GpsdSensorDescription(
         key=ATTR_TIME,
-        REDACTED_VALUEATTR_TIME,
+        translation_key=ATTR_TIME,
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda agps_thread: dt_util.parse_datetime(
@@ -114,7 +114,7 @@ SENSOR_TYPES: tuple[GpsdSensorDescription, ...] = (
     ),
     GpsdSensorDescription(
         key=ATTR_SPEED,
-        REDACTED_VALUEATTR_SPEED,
+        translation_key=ATTR_SPEED,
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.SPEED,
         native_unit_of_measurement=UnitOfSpeed.METERS_PER_SECOND,
@@ -124,7 +124,7 @@ SENSOR_TYPES: tuple[GpsdSensorDescription, ...] = (
     ),
     GpsdSensorDescription(
         key=ATTR_CLIMB,
-        REDACTED_VALUEATTR_CLIMB,
+        translation_key=ATTR_CLIMB,
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.SPEED,
         native_unit_of_measurement=UnitOfSpeed.METERS_PER_SECOND,
@@ -134,7 +134,7 @@ SENSOR_TYPES: tuple[GpsdSensorDescription, ...] = (
     ),
     GpsdSensorDescription(
         key=ATTR_TOTAL_SATELLITES,
-        REDACTED_VALUEATTR_TOTAL_SATELLITES,
+        translation_key=ATTR_TOTAL_SATELLITES,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=count_total_satellites_fn,
@@ -142,7 +142,7 @@ SENSOR_TYPES: tuple[GpsdSensorDescription, ...] = (
     ),
     GpsdSensorDescription(
         key=ATTR_USED_SATELLITES,
-        REDACTED_VALUEATTR_USED_SATELLITES,
+        translation_key=ATTR_USED_SATELLITES,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=count_used_satellites_fn,

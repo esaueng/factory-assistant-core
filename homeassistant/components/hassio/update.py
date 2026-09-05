@@ -29,7 +29,7 @@ from .jobs import JobSubscription
 from .update_helper import update_addon, update_core, update_os
 
 ENTITY_DESCRIPTION = UpdateEntityDescription(
-    REDACTED_VALUE"update",
+    translation_key="update",
     key=ATTR_VERSION_LATEST,
 )
 

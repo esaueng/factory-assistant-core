@@ -19,7 +19,7 @@ ATTR_EK_HOP_SELECT = "hop_select"
 HOP_SELECT = SelectEntityDescription(
     entity_category=EntityCategory.CONFIG,
     key=ATTR_EK_HOP_SELECT,
-    REDACTED_VALUE"hop_selector",
+    translation_key="hop_selector",
 )
 
 

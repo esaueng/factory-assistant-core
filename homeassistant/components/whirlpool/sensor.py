@@ -173,14 +173,14 @@ DRYER_STATE_OPTIONS = [
 WASHER_SENSORS: tuple[WhirlpoolSensorEntityDescription, ...] = (
     WhirlpoolSensorEntityDescription(
         key="state",
-        REDACTED_VALUE"washer_state",
+        translation_key="washer_state",
         device_class=SensorDeviceClass.ENUM,
         options=WASHER_STATE_OPTIONS,
         value_fn=washer_state,
     ),
     WhirlpoolSensorEntityDescription(
         key="DispenseLevel",
-        REDACTED_VALUE"whirlpool_tank",
+        translation_key="whirlpool_tank",
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.ENUM,
         options=[value for value in WASHER_TANK_FILL.values() if value],
@@ -191,7 +191,7 @@ WASHER_SENSORS: tuple[WhirlpoolSensorEntityDescription, ...] = (
 DRYER_SENSORS: tuple[WhirlpoolSensorEntityDescription, ...] = (
     WhirlpoolSensorEntityDescription(
         key="state",
-        REDACTED_VALUE"dryer_state",
+        translation_key="dryer_state",
         device_class=SensorDeviceClass.ENUM,
         options=DRYER_STATE_OPTIONS,
         value_fn=dryer_state,
@@ -201,7 +201,7 @@ DRYER_SENSORS: tuple[WhirlpoolSensorEntityDescription, ...] = (
 WASHER_DRYER_TIME_SENSORS: tuple[SensorEntityDescription] = (
     SensorEntityDescription(
         key="timeremaining",
-        REDACTED_VALUE"end_time",
+        translation_key="end_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         icon="mdi:progress-clock",
     ),
@@ -218,7 +218,7 @@ class WhirlpoolOvenCavitySensorEntityDescription(SensorEntityDescription):
 OVEN_CAVITY_SENSORS: tuple[WhirlpoolOvenCavitySensorEntityDescription, ...] = (
     WhirlpoolOvenCavitySensorEntityDescription(
         key="oven_state",
-        REDACTED_VALUE"oven_state",
+        translation_key="oven_state",
         device_class=SensorDeviceClass.ENUM,
         options=list(OVEN_CAVITY_STATE.values()),
         value_fn=lambda oven, cavity: (
@@ -229,7 +229,7 @@ OVEN_CAVITY_SENSORS: tuple[WhirlpoolOvenCavitySensorEntityDescription, ...] = (
     ),
     WhirlpoolOvenCavitySensorEntityDescription(
         key="oven_cook_mode",
-        REDACTED_VALUE"oven_cook_mode",
+        translation_key="oven_cook_mode",
         device_class=SensorDeviceClass.ENUM,
         options=list(OVEN_COOK_MODE.values()),
         value_fn=lambda oven, cavity: (
@@ -240,7 +240,7 @@ OVEN_CAVITY_SENSORS: tuple[WhirlpoolOvenCavitySensorEntityDescription, ...] = (
     ),
     WhirlpoolOvenCavitySensorEntityDescription(
         key="oven_current_temperature",
-        REDACTED_VALUE"oven_current_temperature",
+        translation_key="oven_current_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -248,7 +248,7 @@ OVEN_CAVITY_SENSORS: tuple[WhirlpoolOvenCavitySensorEntityDescription, ...] = (
     ),
     WhirlpoolOvenCavitySensorEntityDescription(
         key="oven_target_temperature",
-        REDACTED_VALUE"oven_target_temperature",
+        translation_key="oven_target_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,

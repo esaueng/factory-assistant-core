@@ -41,12 +41,12 @@ ATTR_VOLUME_SIZE = "Volume Size"
 _SYSTEM_MON_COND: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="status",
-        REDACTED_VALUE"status",
+        translation_key="status",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     SensorEntityDescription(
         key="system_temp",
-        REDACTED_VALUE"system_temp",
+        translation_key="system_temp",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -54,7 +54,7 @@ _SYSTEM_MON_COND: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="uptime",
-        REDACTED_VALUE"uptime",
+        translation_key="uptime",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -63,7 +63,7 @@ _SYSTEM_MON_COND: tuple[SensorEntityDescription, ...] = (
 _CPU_MON_COND: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="cpu_temp",
-        REDACTED_VALUE"cpu_temp",
+        translation_key="cpu_temp",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -72,7 +72,7 @@ _CPU_MON_COND: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="cpu_usage",
-        REDACTED_VALUE"cpu_usage",
+        translation_key="cpu_usage",
         native_unit_of_measurement=PERCENTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
@@ -82,7 +82,7 @@ _CPU_MON_COND: tuple[SensorEntityDescription, ...] = (
 _MEMORY_MON_COND: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="memory_size",
-        REDACTED_VALUE"memory_size",
+        translation_key="memory_size",
         native_unit_of_measurement=UnitOfInformation.MEBIBYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -93,7 +93,7 @@ _MEMORY_MON_COND: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="memory_free",
-        REDACTED_VALUE"memory_free",
+        translation_key="memory_free",
         native_unit_of_measurement=UnitOfInformation.MEBIBYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -104,7 +104,7 @@ _MEMORY_MON_COND: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="memory_used",
-        REDACTED_VALUE"memory_used",
+        translation_key="memory_used",
         native_unit_of_measurement=UnitOfInformation.MEBIBYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -115,7 +115,7 @@ _MEMORY_MON_COND: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="memory_percent_used",
-        REDACTED_VALUE"memory_percent_used",
+        translation_key="memory_percent_used",
         native_unit_of_measurement=PERCENTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
@@ -125,12 +125,12 @@ _MEMORY_MON_COND: tuple[SensorEntityDescription, ...] = (
 _NETWORK_MON_COND: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="network_link_status",
-        REDACTED_VALUE"network_link_status",
+        translation_key="network_link_status",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     SensorEntityDescription(
         key="network_tx",
-        REDACTED_VALUE"network_tx",
+        translation_key="network_tx",
         native_unit_of_measurement=UnitOfDataRate.BITS_PER_SECOND,
         device_class=SensorDeviceClass.DATA_RATE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -141,7 +141,7 @@ _NETWORK_MON_COND: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="network_rx",
-        REDACTED_VALUE"network_rx",
+        translation_key="network_rx",
         native_unit_of_measurement=UnitOfDataRate.BITS_PER_SECOND,
         device_class=SensorDeviceClass.DATA_RATE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -152,14 +152,14 @@ _NETWORK_MON_COND: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="network_err",
-        REDACTED_VALUE"network_err",
+        translation_key="network_err",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="network_max_speed",
-        REDACTED_VALUE"network_max_speed",
+        translation_key="network_max_speed",
         native_unit_of_measurement=UnitOfDataRate.MEGABITS_PER_SECOND,
         device_class=SensorDeviceClass.DATA_RATE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -170,13 +170,13 @@ _NETWORK_MON_COND: tuple[SensorEntityDescription, ...] = (
 _DRIVE_MON_COND: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="drive_smart_status",
-        REDACTED_VALUE"drive_smart_status",
+        translation_key="drive_smart_status",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="drive_temp",
-        REDACTED_VALUE"drive_temp",
+        translation_key="drive_temp",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -187,7 +187,7 @@ _DRIVE_MON_COND: tuple[SensorEntityDescription, ...] = (
 _VOLUME_MON_COND: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="volume_size_total",
-        REDACTED_VALUE"volume_size_total",
+        translation_key="volume_size_total",
         native_unit_of_measurement=UnitOfInformation.BYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -198,7 +198,7 @@ _VOLUME_MON_COND: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="volume_size_used",
-        REDACTED_VALUE"volume_size_used",
+        translation_key="volume_size_used",
         native_unit_of_measurement=UnitOfInformation.BYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -209,7 +209,7 @@ _VOLUME_MON_COND: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="volume_size_free",
-        REDACTED_VALUE"volume_size_free",
+        translation_key="volume_size_free",
         native_unit_of_measurement=UnitOfInformation.BYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -220,7 +220,7 @@ _VOLUME_MON_COND: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="volume_percentage_used",
-        REDACTED_VALUE"volume_percentage_used",
+        translation_key="volume_percentage_used",
         native_unit_of_measurement=PERCENTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,

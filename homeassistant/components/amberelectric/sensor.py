@@ -205,7 +205,7 @@ async def async_setup_entry(
             name=f"{entry.title} - {friendly_channel_type(channel_type)} Price",
             native_unit_of_measurement=UNIT,
             state_class=SensorStateClass.MEASUREMENT,
-            REDACTED_VALUEchannel_type,
+            translation_key=channel_type,
         )
         entities.append(AmberPriceSensor(coordinator, description, channel_type))
 
@@ -216,7 +216,7 @@ async def async_setup_entry(
                 f"{entry.title} - {friendly_channel_type(channel_type)} Price"
                 " Descriptor"
             ),
-            REDACTED_VALUEchannel_type,
+            translation_key=channel_type,
         )
         entities.append(
             AmberPriceDescriptorSensor(coordinator, description, channel_type)
@@ -228,7 +228,7 @@ async def async_setup_entry(
             name=f"{entry.title} - {friendly_channel_type(channel_type)} Forecast",
             native_unit_of_measurement=UNIT,
             state_class=SensorStateClass.MEASUREMENT,
-            REDACTED_VALUEchannel_type,
+            translation_key=channel_type,
         )
         entities.append(AmberForecastSensor(coordinator, description, channel_type))
 
@@ -237,7 +237,7 @@ async def async_setup_entry(
         name=f"{entry.title} - Renewables",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"renewables",
+        translation_key="renewables",
     )
     entities.append(AmberGridSensor(coordinator, renewables_description))
 

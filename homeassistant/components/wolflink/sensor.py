@@ -98,7 +98,7 @@ SENSOR_DESCRIPTIONS = [
     ),
     WolflinkSensorEntityDescription(
         key="list_item",
-        REDACTED_VALUE"state",
+        translation_key="state",
         supported_fn=lambda param: isinstance(param, ListItemParameter),
         value_fn=get_listitem_resolve_state,
     ),

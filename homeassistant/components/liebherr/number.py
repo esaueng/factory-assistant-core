@@ -38,7 +38,7 @@ class LiebherrNumberEntityDescription(NumberEntityDescription):
 NUMBER_TYPES: tuple[LiebherrNumberEntityDescription, ...] = (
     LiebherrNumberEntityDescription(
         key="setpoint_temperature",
-        REDACTED_VALUE"setpoint_temperature",
+        translation_key="setpoint_temperature",
         device_class=NumberDeviceClass.TEMPERATURE,
         native_step=1,
         value_fn=lambda control: control.target,

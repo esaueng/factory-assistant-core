@@ -207,7 +207,7 @@ async def _warn_on_channel_collision(
         is_fixable=False,
         is_persistent=False,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"otbr_zha_channel_collision",
+        translation_key="otbr_zha_channel_collision",
         translation_placeholders={
             "otbr_channel": str(channel),
             "zha_channel": str(allowed_channel),
@@ -248,7 +248,7 @@ def _warn_on_default_network_settings(
             is_fixable=False,
             is_persistent=False,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"insecure_thread_network",
+            translation_key="insecure_thread_network",
         )
     else:
         ir.async_delete_issue(

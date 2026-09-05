@@ -91,7 +91,7 @@ class LaMarzoccoUpdateCoordinator(DataUpdateCoordinator[None]):
             _LOGGER.debug("Authentication failed", exc_info=True)
             self.update_success = False
             raise ConfigEntryAuthFailed(
-                translation_domain=DOMAIN, REDACTED_VALUE"authentication_failed"
+                translation_domain=DOMAIN, translation_key="authentication_failed"
             ) from ex
         except RequestNotSuccessful as ex:
             _LOGGER.debug(ex, exc_info=True)
@@ -100,13 +100,13 @@ class LaMarzoccoUpdateCoordinator(DataUpdateCoordinator[None]):
             # otherwise, bluetooth may still work
             if not self.device.bluetooth_client_available:
                 raise UpdateFailed(
-                    translation_domain=DOMAIN, REDACTED_VALUE"api_error"
+                    translation_domain=DOMAIN, translation_key="api_error"
                 ) from ex
         except BluetoothConnectionFailed as err:
             self.update_success = False
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"bluetooth_connection_failed",
+                translation_key="bluetooth_connection_failed",
             ) from err
         else:
             self.update_success = True

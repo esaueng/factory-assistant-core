@@ -104,6 +104,6 @@ class RobotUpdateEntity(LitterRobotEntity[LitterRobot4], UpdateEntity):
             if not await self.robot.update_firmware():
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"firmware_update_failed",
+                    translation_key="firmware_update_failed",
                     translation_placeholders={"name": self.robot.name},
                 )

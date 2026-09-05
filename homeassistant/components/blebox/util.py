@@ -25,7 +25,7 @@ def blebox_command[_BleBoxEntityT: BleBoxEntity, **_P, _R](
         except Error as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={"error": str(err)},
             ) from err
         finally:

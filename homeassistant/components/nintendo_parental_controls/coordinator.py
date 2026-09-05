@@ -55,12 +55,12 @@ class NintendoUpdateCoordinator(DataUpdateCoordinator[None]):
             # pylint: disable-next=home-assistant-exception-translation-key-missing
             raise ConfigEntryError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_auth",
+                translation_key="invalid_auth",
             ) from err
         except NoDevicesFoundException as err:
             raise ConfigEntryError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_devices_found",
+                translation_key="no_devices_found",
             ) from err
         except InvalidSessionTokenException as err:
             _LOGGER.debug("Session token invalid, will renew on next update")
@@ -69,6 +69,6 @@ class NintendoUpdateCoordinator(DataUpdateCoordinator[None]):
             if err.error_code == "update_required":
                 raise ConfigEntryError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"update_required",
+                    translation_key="update_required",
                 ) from err
             raise UpdateFailed(retry_after=900) from err

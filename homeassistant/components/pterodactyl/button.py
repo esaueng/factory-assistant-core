@@ -34,22 +34,22 @@ class PterodactylButtonEntityDescription(ButtonEntityDescription):
 BUTTON_DESCRIPTIONS = [
     PterodactylButtonEntityDescription(
         key=KEY_START_SERVER,
-        REDACTED_VALUEKEY_START_SERVER,
+        translation_key=KEY_START_SERVER,
         command=PterodactylCommand.START_SERVER,
     ),
     PterodactylButtonEntityDescription(
         key=KEY_STOP_SERVER,
-        REDACTED_VALUEKEY_STOP_SERVER,
+        translation_key=KEY_STOP_SERVER,
         command=PterodactylCommand.STOP_SERVER,
     ),
     PterodactylButtonEntityDescription(
         key=KEY_RESTART_SERVER,
-        REDACTED_VALUEKEY_RESTART_SERVER,
+        translation_key=KEY_RESTART_SERVER,
         command=PterodactylCommand.RESTART_SERVER,
     ),
     PterodactylButtonEntityDescription(
         key=KEY_FORCE_STOP_SERVER,
-        REDACTED_VALUEKEY_FORCE_STOP_SERVER,
+        translation_key=KEY_FORCE_STOP_SERVER,
         command=PterodactylCommand.FORCE_STOP_SERVER,
         entity_registry_enabled_default=False,
     ),

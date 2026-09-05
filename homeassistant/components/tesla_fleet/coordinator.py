@@ -313,7 +313,7 @@ class TeslaFleetEnergySiteHistoryCoordinator(DataUpdateCoordinator[dict[str, Any
         ):
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_data",
+                translation_key="invalid_data",
             )
 
         # Add all time periods together

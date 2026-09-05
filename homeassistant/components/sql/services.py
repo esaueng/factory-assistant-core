@@ -61,13 +61,13 @@ async def _async_query_service(
     except ValueError as err:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"query_not_allowed",
+            translation_key="query_not_allowed",
             translation_placeholders={"error": str(err)},
         ) from err
     if sessmaker is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"db_connection_failed",
+            translation_key="db_connection_failed",
             translation_placeholders={"db_url": redact_credentials(db_url)},
         )
 
@@ -106,7 +106,7 @@ async def _async_query_service(
     except SQLAlchemyError as err:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"query_execution_error",
+            translation_key="query_execution_error",
             translation_placeholders={"error": redact_credentials(str(err))},
         ) from err
 

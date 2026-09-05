@@ -28,7 +28,7 @@ class OpenThermSwitchEntityDescription(
 SWITCH_DESCRIPTIONS: tuple[OpenThermSwitchEntityDescription, ...] = (
     OpenThermSwitchEntityDescription(
         key="central_heating_1_override",
-        REDACTED_VALUE"central_heating_override_n",
+        translation_key="central_heating_override_n",
         translation_placeholders={"circuit_number": "1"},
         device_description=GATEWAY_DEVICE_DESCRIPTION,
         turn_off_action=lambda hub: hub.gateway.set_ch_enable_bit(0),
@@ -36,7 +36,7 @@ SWITCH_DESCRIPTIONS: tuple[OpenThermSwitchEntityDescription, ...] = (
     ),
     OpenThermSwitchEntityDescription(
         key="central_heating_2_override",
-        REDACTED_VALUE"central_heating_override_n",
+        translation_key="central_heating_override_n",
         translation_placeholders={"circuit_number": "2"},
         device_description=GATEWAY_DEVICE_DESCRIPTION,
         turn_off_action=lambda hub: hub.gateway.set_ch2_enable_bit(0),

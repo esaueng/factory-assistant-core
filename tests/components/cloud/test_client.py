@@ -510,7 +510,7 @@ async def test_async_create_repair_issue_known(
     identifier = f"test_identifier_{translation_key}"
     await cloud.client.async_create_repair_issue(
         identifier=identifier,
-        REDACTED_VALUEtranslation_key,
+        translation_key=translation_key,
         placeholders={
             "account_url": "http://example.org",
             "custom_domains": "example.com",
@@ -531,7 +531,7 @@ async def test_async_create_repair_issue_unknown(
     identifier = "abc123"
     await cloud.client.async_create_repair_issue(
         identifier=identifier,
-        REDACTED_VALUE"unknown_translation_key",
+        translation_key="unknown_translation_key",
         placeholders={"custom_domains": "example.com"},
         severity="error",
     )
@@ -563,7 +563,7 @@ async def test_async_delete_repair_issue(
         issue_id=identifier,
         learn_more_url=None,
         severity="warning",
-        REDACTED_VALUE"test_translation_key",
+        translation_key="test_translation_key",
         translation_placeholders=None,
     )
 

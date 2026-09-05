@@ -131,7 +131,7 @@ class OctoPrintTemperatureNumber(
         except Exception as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"error_setting_temperature",
+                translation_key="error_setting_temperature",
                 translation_placeholders={
                     "tool": self._api_tool,
                 },

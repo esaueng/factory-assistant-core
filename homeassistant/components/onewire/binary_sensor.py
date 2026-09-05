@@ -33,14 +33,14 @@ DEVICE_BINARY_SENSORS: dict[str, tuple[BinarySensorEntityDescription, ...]] = {
         BinarySensorEntityDescription(
             key="sensed",
             entity_registry_enabled_default=False,
-            REDACTED_VALUE"sensed",
+            translation_key="sensed",
         ),
     ),
     "12": tuple(
         BinarySensorEntityDescription(
             key=f"sensed.{device_key}",
             entity_registry_enabled_default=False,
-            REDACTED_VALUE"sensed_id",
+            translation_key="sensed_id",
             translation_placeholders={"id": str(device_key)},
         )
         for device_key in DEVICE_KEYS_A_B
@@ -49,7 +49,7 @@ DEVICE_BINARY_SENSORS: dict[str, tuple[BinarySensorEntityDescription, ...]] = {
         BinarySensorEntityDescription(
             key=f"sensed.{device_key}",
             entity_registry_enabled_default=False,
-            REDACTED_VALUE"sensed_id",
+            translation_key="sensed_id",
             translation_placeholders={"id": str(device_key)},
         )
         for device_key in DEVICE_KEYS_0_7
@@ -58,7 +58,7 @@ DEVICE_BINARY_SENSORS: dict[str, tuple[BinarySensorEntityDescription, ...]] = {
         BinarySensorEntityDescription(
             key=f"sensed.{device_key}",
             entity_registry_enabled_default=False,
-            REDACTED_VALUE"sensed_id",
+            translation_key="sensed_id",
             translation_placeholders={"id": str(device_key)},
         )
         for device_key in DEVICE_KEYS_A_B
@@ -74,7 +74,7 @@ HOBBYBOARD_EF: dict[str, tuple[BinarySensorEntityDescription, ...]] = {
             entity_registry_enabled_default=False,
             entity_category=EntityCategory.DIAGNOSTIC,
             device_class=BinarySensorDeviceClass.PROBLEM,
-            REDACTED_VALUE"hub_short_id",
+            translation_key="hub_short_id",
             translation_placeholders={"id": str(device_key)},
         )
         for device_key in DEVICE_KEYS_0_3

@@ -85,13 +85,13 @@ class AccuWeatherObservationDataUpdateCoordinator(
         except EXCEPTIONS as error:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"current_conditions_update_error",
+                translation_key="current_conditions_update_error",
                 translation_placeholders={"error": repr(error)},
             ) from error
         except InvalidApiKeyError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_error",
+                translation_key="auth_error",
                 translation_placeholders={"entry": self.config_entry.title},
             ) from err
 
@@ -143,13 +143,13 @@ class AccuWeatherForecastDataUpdateCoordinator(
         except EXCEPTIONS as error:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"forecast_update_error",
+                translation_key="forecast_update_error",
                 translation_placeholders={"error": repr(error)},
             ) from error
         except InvalidApiKeyError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_error",
+                translation_key="auth_error",
                 translation_placeholders={"entry": self.config_entry.title},
             ) from err
 

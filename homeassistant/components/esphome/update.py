@@ -220,7 +220,7 @@ class ESPHomeDashboardUpdateEntity(
         if self._install_lock.locked():
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"ota_in_progress",
+                translation_key="ota_in_progress",
                 translation_placeholders={
                     "configuration": self._device_info.name,
                 },
@@ -238,7 +238,7 @@ class ESPHomeDashboardUpdateEntity(
                 if not await api.compile(configuration):
                     raise HomeAssistantError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"error_compiling",
+                        translation_key="error_compiling",
                         translation_placeholders={
                             "configuration": configuration,
                         },
@@ -257,7 +257,7 @@ class ESPHomeDashboardUpdateEntity(
                     if attempt == attempts:
                         raise HomeAssistantError(
                             translation_domain=DOMAIN,
-                            REDACTED_VALUE"error_uploading",
+                            translation_key="error_uploading",
                             translation_placeholders={
                                 "configuration": configuration,
                             },

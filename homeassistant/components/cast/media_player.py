@@ -721,7 +721,7 @@ class CastMediaPlayerEntity(CastDevice, MediaPlayerEntity):
             except NotImplementedError as err:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"app_not_supported",
+                    translation_key="app_not_supported",
                     translation_placeholders={"app_name": app_name},
                 ) from err
             return

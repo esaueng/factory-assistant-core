@@ -34,7 +34,7 @@ class EcovacsLastJobEventEntity(
 
     entity_description = EventEntityDescription(
         key="stats_report",
-        REDACTED_VALUE"last_job",
+        translation_key="last_job",
         entity_category=EntityCategory.DIAGNOSTIC,
         event_types=["finished", "finished_with_warnings", "manually_stopped"],
     )

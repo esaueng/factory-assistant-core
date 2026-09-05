@@ -35,7 +35,7 @@ SENSOR_BRIDGE_TYPES: Final = (
 SENSOR_VEDO_TYPES: Final = (
     SensorEntityDescription(
         key="human_status",
-        REDACTED_VALUE"zone_status",
+        translation_key="zone_status",
         name=None,
         device_class=SensorDeviceClass.ENUM,
         options=[zone_state.value for zone_state in AlarmZoneState],

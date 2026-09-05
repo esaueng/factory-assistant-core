@@ -30,50 +30,50 @@ class NinaSensorEntityDescription(SensorEntityDescription):
 SENSOR_TYPES: tuple[NinaSensorEntityDescription, ...] = (
     NinaSensorEntityDescription(
         key=SENSOR_SUFFIXES[0],
-        REDACTED_VALUE"headline",
+        translation_key="headline",
         value_fn=lambda data: data.headline,
     ),
     NinaSensorEntityDescription(
         key=SENSOR_SUFFIXES[1],
-        REDACTED_VALUE"sender",
+        translation_key="sender",
         value_fn=lambda data: data.sender,
     ),
     NinaSensorEntityDescription(
         key=SENSOR_SUFFIXES[2],
         options=SEVERITY_VALUES,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUE"severity",
+        translation_key="severity",
         value_fn=lambda data: (
             data.severity.lower() if data.severity is not None else None
         ),
     ),
     NinaSensorEntityDescription(
         key=SENSOR_SUFFIXES[3],
-        REDACTED_VALUE"affected_areas",
+        translation_key="affected_areas",
         value_fn=lambda data: data.affected_areas_short,
     ),
     NinaSensorEntityDescription(
         key=SENSOR_SUFFIXES[4],
-        REDACTED_VALUE"more_info_url",
+        translation_key="more_info_url",
         value_fn=lambda data: data.more_info_url,
     ),
     NinaSensorEntityDescription(
         key=SENSOR_SUFFIXES[5],
-        REDACTED_VALUE"sent",
+        translation_key="sent",
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda data: data.sent,
     ),
     NinaSensorEntityDescription(
         key=SENSOR_SUFFIXES[6],
-        REDACTED_VALUE"start",
+        translation_key="start",
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda data: data.start,
     ),
     NinaSensorEntityDescription(
         key=SENSOR_SUFFIXES[7],
-        REDACTED_VALUE"expires",
+        translation_key="expires",
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda data: data.expires,

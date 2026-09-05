@@ -183,7 +183,7 @@ def get_vehicle_proxy(service_call: ServiceCall) -> RenaultVehicleProxy:
     if device_entry is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_device_id",
+            translation_key="invalid_device_id",
             translation_placeholders={"device_id": device_id},
         )
 
@@ -198,7 +198,7 @@ def get_vehicle_proxy(service_call: ServiceCall) -> RenaultVehicleProxy:
                 return vehicle
     raise ServiceValidationError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"no_config_entry_for_device",
+        translation_key="no_config_entry_for_device",
         translation_placeholders={"device_id": device_entry.name or device_id},
     )
 

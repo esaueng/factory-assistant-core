@@ -1247,7 +1247,7 @@ def _no_yaml_config_schema(
                 is_fixable=False,
                 issue_domain=domain,
                 severity=IssueSeverity.ERROR,
-                REDACTED_VALUEtranslation_key,
+                translation_key=translation_key,
                 translation_placeholders={"domain": domain} | translation_placeholders,
             )
 

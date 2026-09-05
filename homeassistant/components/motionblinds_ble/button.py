@@ -31,19 +31,19 @@ class MotionblindsBLEButtonEntityDescription(ButtonEntityDescription):
 BUTTON_TYPES: list[MotionblindsBLEButtonEntityDescription] = [
     MotionblindsBLEButtonEntityDescription(
         key=ATTR_CONNECT,
-        REDACTED_VALUEATTR_CONNECT,
+        translation_key=ATTR_CONNECT,
         entity_category=EntityCategory.CONFIG,
         command=lambda device: device.connect(),
     ),
     MotionblindsBLEButtonEntityDescription(
         key=ATTR_DISCONNECT,
-        REDACTED_VALUEATTR_DISCONNECT,
+        translation_key=ATTR_DISCONNECT,
         entity_category=EntityCategory.CONFIG,
         command=lambda device: device.disconnect(),
     ),
     MotionblindsBLEButtonEntityDescription(
         key=ATTR_FAVORITE,
-        REDACTED_VALUEATTR_FAVORITE,
+        translation_key=ATTR_FAVORITE,
         entity_category=EntityCategory.CONFIG,
         command=lambda device: device.favorite(),
     ),

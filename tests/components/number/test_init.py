@@ -877,7 +877,7 @@ async def test_translated_unit(
         )
         entity0.entity_description = NumberEntityDescription(
             "test",
-            REDACTED_VALUE"test_translation_key",
+            translation_key="test_translation_key",
         )
         setup_test_component_platform(hass, DOMAIN, [entity0])
 
@@ -910,7 +910,7 @@ async def test_translated_unit_with_native_unit_raises(
         )
         entity0.entity_description = NumberEntityDescription(
             "test",
-            REDACTED_VALUE"test_translation_key",
+            translation_key="test_translation_key",
             native_unit_of_measurement="bad_unit",
         )
         setup_test_component_platform(hass, DOMAIN, [entity0])

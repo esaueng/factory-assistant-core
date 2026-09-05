@@ -59,7 +59,7 @@ async def async_reconnect_client(hass: HomeAssistant, data: Mapping[str, Any]) -
     if device_entry is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"reconnect_client_device_not_found",
+            translation_key="reconnect_client_device_not_found",
         )
 
     mac = ""
@@ -71,7 +71,7 @@ async def async_reconnect_client(hass: HomeAssistant, data: Mapping[str, Any]) -
     if mac == "":
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"reconnect_client_no_mac",
+            translation_key="reconnect_client_no_mac",
         )
 
     for config_entry in hass.config_entries.async_loaded_entries(DOMAIN):
@@ -87,7 +87,7 @@ async def async_reconnect_client(hass: HomeAssistant, data: Mapping[str, Any]) -
         except aiounifi.AiounifiException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"reconnect_client_request_failed",
+                translation_key="reconnect_client_request_failed",
             ) from err
 
 
@@ -123,5 +123,5 @@ async def async_remove_clients(hass: HomeAssistant, data: Mapping[str, Any]) -> 
             except aiounifi.AiounifiException as err:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"remove_clients_request_failed",
+                    translation_key="remove_clients_request_failed",
                 ) from err
