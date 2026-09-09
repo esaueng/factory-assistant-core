@@ -57,7 +57,7 @@ From the file paths, extract the **integration domain** from `homeassistant/comp
 - `TESTS_CHANGED`: true if test files were added or modified
 - `MANIFEST_CHANGED`: true if manifest.json was modified
 
-**If no suitable dev reference is available, STOP and tell the user to fetch `upstream/dev`, `origin/dev`, or a local `dev` branch before continuing.**
+**If no suitable dev reference is available, fetch an existing `dev` branch from a configured remote and retry. If no suitable reference exists or access is unavailable, report the specific blocker and continue independent work. Do not invent a base branch.**
 
 ## Step 2: Run Code Quality Checks
 
@@ -70,7 +70,7 @@ prek run --from-ref "$BASE_SHA" --to-ref HEAD
 **Track results:**
 - `PREK_PASSED`: true if `prek run` exits with code 0
 
-**If `prek` fails or is not available, STOP and report the failure to the user. Do not proceed with PR creation. If the failure appears to be an environment setup issue (e.g., missing tools, command not found, venv not activated), also point the user to https://developers.home-assistant.io/docs/development_environment.**
+**If `prek` is unavailable or fails because of environment setup, follow https://developers.home-assistant.io/docs/development_environment to install the documented tools or activate the environment, then retry. Diagnose and fix in-scope quality failures. If checks still fail, report the specific blocker and continue independent work; do not bypass checks or claim they passed.**
 
 ## Step 3: Stage Any Changes from Checks
 
