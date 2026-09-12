@@ -67,7 +67,7 @@ MAIN_ZONE_SELECT_TYPES: Final[tuple[AirzoneSelectDescription, ...]] = (
         key=AZD_MODE,
         options_dict=MODE_MAP,
         options_fn=main_zone_options,
-        REDACTED_VALUE"modes",
+        translation_key="modes",
     ),
 )
 
@@ -79,7 +79,7 @@ ZONE_SELECT_TYPES: Final[tuple[AirzoneSelectDescription, ...]] = (
         key=AZD_AQ_MODE_CONF,
         options=list(AIR_QUALITY_MAP),
         options_dict=AIR_QUALITY_MAP,
-        REDACTED_VALUE"air_quality",
+        translation_key="air_quality",
     ),
 )
 

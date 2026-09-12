@@ -16,7 +16,7 @@ PARALLEL_UPDATES = 0
 EVENTS: Final = {
     EventEntityDescription(
         key="voice_event",
-        REDACTED_VALUE"voice_event",
+        translation_key="voice_event",
     ),
 }
 

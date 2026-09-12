@@ -30,7 +30,7 @@ class ElgatoSwitchEntityDescription(SwitchEntityDescription):
 SWITCHES = [
     ElgatoSwitchEntityDescription(
         key="bypass",
-        REDACTED_VALUE"bypass",
+        translation_key="bypass",
         entity_category=EntityCategory.CONFIG,
         has_fn=lambda x: x.battery is not None,
         is_on_fn=lambda x: x.settings.battery.bypass if x.settings.battery else None,
@@ -38,7 +38,7 @@ SWITCHES = [
     ),
     ElgatoSwitchEntityDescription(
         key="energy_saving",
-        REDACTED_VALUE"energy_saving",
+        translation_key="energy_saving",
         entity_category=EntityCategory.CONFIG,
         has_fn=lambda x: x.battery is not None,
         is_on_fn=lambda x: (

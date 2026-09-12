@@ -39,7 +39,7 @@ class PowerviewSelectDescription(
 DROPDOWNS: Final = [
     PowerviewSelectDescription(
         key="powersource",
-        REDACTED_VALUE"power_source",
+        translation_key="power_source",
         icon="mdi:power-plug-outline",
         current_fn=lambda shade: shade.get_power_source(),
         options_fn=lambda shade: shade.supported_power_sources(),

@@ -58,5 +58,5 @@ class UnifiAccessUnlockButton(UnifiAccessEntity, ButtonEntity):
         except UnifiAccessError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unlock_failed",
+                translation_key="unlock_failed",
             ) from err

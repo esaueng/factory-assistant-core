@@ -177,7 +177,7 @@ class RpcBluTrvExtTempNumber(RpcBluTrvNumber):
 BLOCK_NUMBERS: dict[tuple[str, str], BlockNumberDescription] = {
     ("device", "valvePos"): BlockNumberDescription(
         key="device|valvepos",
-        REDACTED_VALUE"valve_position",
+        translation_key="valve_position",
         native_unit_of_measurement=PERCENTAGE,
         available=lambda block: cast(int, block.valveError) != 1,
         entity_category=EntityCategory.CONFIG,
@@ -193,7 +193,7 @@ RPC_NUMBERS: Final = {
     "external_temperature": RpcNumberDescription(
         key="blutrv",
         sub_key="current_C",
-        REDACTED_VALUE"external_temperature",
+        translation_key="external_temperature",
         native_min_value=-50,
         native_max_value=50,
         native_step=0.1,
@@ -223,7 +223,7 @@ RPC_NUMBERS: Final = {
     "number_current_limit": RpcNumberDescription(
         key="number",
         sub_key="value",
-        REDACTED_VALUE"current_limit",
+        translation_key="current_limit",
         device_class=NumberDeviceClass.CURRENT,
         max_fn=lambda config: config["max"],
         min_fn=lambda config: config["min"],
@@ -237,7 +237,7 @@ RPC_NUMBERS: Final = {
     "number_position": RpcNumberDescription(
         key="number",
         sub_key="value",
-        REDACTED_VALUE"valve_position",
+        translation_key="valve_position",
         entity_registry_enabled_default=False,
         max_fn=lambda config: config["max"],
         min_fn=lambda config: config["min"],
@@ -251,7 +251,7 @@ RPC_NUMBERS: Final = {
     "number_target_humidity": RpcNumberDescription(
         key="number",
         sub_key="value",
-        REDACTED_VALUE"target_humidity",
+        translation_key="target_humidity",
         device_class=NumberDeviceClass.HUMIDITY,
         entity_registry_enabled_default=False,
         max_fn=lambda config: config["max"],
@@ -266,7 +266,7 @@ RPC_NUMBERS: Final = {
     "number_target_temperature": RpcNumberDescription(
         key="number",
         sub_key="value",
-        REDACTED_VALUE"target_temperature",
+        translation_key="target_temperature",
         device_class=NumberDeviceClass.TEMPERATURE,
         entity_registry_enabled_default=False,
         max_fn=lambda config: config["max"],
@@ -281,7 +281,7 @@ RPC_NUMBERS: Final = {
     "valve_position": RpcNumberDescription(
         key="blutrv",
         sub_key="pos",
-        REDACTED_VALUE"valve_position",
+        translation_key="valve_position",
         native_min_value=0,
         native_max_value=100,
         native_step=1,
@@ -296,7 +296,7 @@ RPC_NUMBERS: Final = {
     "left_slot_intensity": RpcNumberDescription(
         key="cury",
         sub_key="slots",
-        REDACTED_VALUE"left_slot_intensity",
+        translation_key="left_slot_intensity",
         value=lambda status, _: status["left"]["intensity"],
         native_min_value=0,
         native_max_value=100,
@@ -314,7 +314,7 @@ RPC_NUMBERS: Final = {
     "right_slot_intensity": RpcNumberDescription(
         key="cury",
         sub_key="slots",
-        REDACTED_VALUE"right_slot_intensity",
+        translation_key="right_slot_intensity",
         value=lambda status, _: status["right"]["intensity"],
         native_min_value=0,
         native_max_value=100,
@@ -434,7 +434,7 @@ class BlockSleepingNumber(ShellySleepingBlockAttributeEntity, RestoreNumber):
             self.coordinator.last_update_success = False
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_communication_action_error",
+                translation_key="device_communication_action_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                     "device": self.coordinator.name,

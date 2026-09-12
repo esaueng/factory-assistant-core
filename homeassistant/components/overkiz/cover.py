@@ -745,7 +745,7 @@ class OverkizCover(OverkizDescriptiveEntity, CoverEntity):
         if not self.executor.has_command(OverkizCommand.SET_CLOSURE_AND_ORIENTATION):
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unsupported_set_position_and_tilt",
+                translation_key="unsupported_set_position_and_tilt",
             )
 
         position = kwargs[ATTR_POSITION]

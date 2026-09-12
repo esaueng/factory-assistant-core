@@ -22,17 +22,17 @@ PARALLEL_UPDATES = 1
 SWITCH_DESCRIPTIONS: tuple[SwitchEntityDescription, ...] = (
     SwitchEntityDescription(
         key="pause_dosing",
-        REDACTED_VALUE"pause_dosing",
+        translation_key="pause_dosing",
         entity_category=EntityCategory.CONFIG,
     ),
     SwitchEntityDescription(
         key="pump_monitoring",
-        REDACTED_VALUE"pump_monitoring",
+        translation_key="pump_monitoring",
         entity_category=EntityCategory.CONFIG,
     ),
     SwitchEntityDescription(
         key="frequency_input",
-        REDACTED_VALUE"frequency_input",
+        translation_key="frequency_input",
         entity_category=EntityCategory.CONFIG,
     ),
 )

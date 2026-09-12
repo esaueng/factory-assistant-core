@@ -17,5 +17,5 @@ def action_called_without_config_entry(hass: HomeAssistant) -> None:
         is_fixable=False,
         issue_domain=DOMAIN,
         severity=IssueSeverity.WARNING,
-        REDACTED_VALUE"deprecated_call_without_config_entry",
+        translation_key="deprecated_call_without_config_entry",
     )

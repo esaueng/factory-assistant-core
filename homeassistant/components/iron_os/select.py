@@ -63,7 +63,7 @@ def enum_to_str(enum: Enum | None) -> str | None:
 PINECIL_SELECT_DESCRIPTIONS: tuple[IronOSSelectEntityDescription, ...] = (
     IronOSSelectEntityDescription(
         key=PinecilSelect.MIN_DC_VOLTAGE_CELLS,
-        REDACTED_VALUEPinecilSelect.MIN_DC_VOLTAGE_CELLS,
+        translation_key=PinecilSelect.MIN_DC_VOLTAGE_CELLS,
         characteristic=CharSetting.MIN_DC_VOLTAGE_CELLS,
         value_fn=lambda x: enum_to_str(x.get("min_dc_voltage_cells")),
         raw_value_fn=lambda value: BatteryType[value.upper()],
@@ -73,7 +73,7 @@ PINECIL_SELECT_DESCRIPTIONS: tuple[IronOSSelectEntityDescription, ...] = (
     ),
     IronOSSelectEntityDescription(
         key=PinecilSelect.ORIENTATION_MODE,
-        REDACTED_VALUEPinecilSelect.ORIENTATION_MODE,
+        translation_key=PinecilSelect.ORIENTATION_MODE,
         characteristic=CharSetting.ORIENTATION_MODE,
         value_fn=lambda x: enum_to_str(x.get("orientation_mode")),
         raw_value_fn=lambda value: ScreenOrientationMode[value.upper()],
@@ -82,7 +82,7 @@ PINECIL_SELECT_DESCRIPTIONS: tuple[IronOSSelectEntityDescription, ...] = (
     ),
     IronOSSelectEntityDescription(
         key=PinecilSelect.ANIMATION_SPEED,
-        REDACTED_VALUEPinecilSelect.ANIMATION_SPEED,
+        translation_key=PinecilSelect.ANIMATION_SPEED,
         characteristic=CharSetting.ANIMATION_SPEED,
         value_fn=lambda x: enum_to_str(x.get("animation_speed")),
         raw_value_fn=lambda value: AnimationSpeed[value.upper()],
@@ -92,7 +92,7 @@ PINECIL_SELECT_DESCRIPTIONS: tuple[IronOSSelectEntityDescription, ...] = (
     ),
     IronOSSelectEntityDescription(
         key=PinecilSelect.AUTOSTART_MODE,
-        REDACTED_VALUEPinecilSelect.AUTOSTART_MODE,
+        translation_key=PinecilSelect.AUTOSTART_MODE,
         characteristic=CharSetting.AUTOSTART_MODE,
         value_fn=lambda x: enum_to_str(x.get("autostart_mode")),
         raw_value_fn=lambda value: AutostartMode[value.upper()],
@@ -101,7 +101,7 @@ PINECIL_SELECT_DESCRIPTIONS: tuple[IronOSSelectEntityDescription, ...] = (
     ),
     IronOSSelectEntityDescription(
         key=PinecilSelect.TEMP_UNIT,
-        REDACTED_VALUEPinecilSelect.TEMP_UNIT,
+        translation_key=PinecilSelect.TEMP_UNIT,
         characteristic=CharSetting.TEMP_UNIT,
         value_fn=lambda x: enum_to_str(x.get("temp_unit")),
         raw_value_fn=lambda value: TempUnit[value.upper()],
@@ -111,7 +111,7 @@ PINECIL_SELECT_DESCRIPTIONS: tuple[IronOSSelectEntityDescription, ...] = (
     ),
     IronOSSelectEntityDescription(
         key=PinecilSelect.DESC_SCROLL_SPEED,
-        REDACTED_VALUEPinecilSelect.DESC_SCROLL_SPEED,
+        translation_key=PinecilSelect.DESC_SCROLL_SPEED,
         characteristic=CharSetting.DESC_SCROLL_SPEED,
         value_fn=lambda x: enum_to_str(x.get("desc_scroll_speed")),
         raw_value_fn=lambda value: ScrollSpeed[value.upper()],
@@ -121,7 +121,7 @@ PINECIL_SELECT_DESCRIPTIONS: tuple[IronOSSelectEntityDescription, ...] = (
     ),
     IronOSSelectEntityDescription(
         key=PinecilSelect.LOCKING_MODE,
-        REDACTED_VALUEPinecilSelect.LOCKING_MODE,
+        translation_key=PinecilSelect.LOCKING_MODE,
         characteristic=CharSetting.LOCKING_MODE,
         value_fn=lambda x: enum_to_str(x.get("locking_mode")),
         raw_value_fn=lambda value: LockingMode[value.upper()],
@@ -130,7 +130,7 @@ PINECIL_SELECT_DESCRIPTIONS: tuple[IronOSSelectEntityDescription, ...] = (
     ),
     IronOSSelectEntityDescription(
         key=PinecilSelect.LOGO_DURATION,
-        REDACTED_VALUEPinecilSelect.LOGO_DURATION,
+        translation_key=PinecilSelect.LOGO_DURATION,
         characteristic=CharSetting.LOGO_DURATION,
         value_fn=lambda x: enum_to_str(x.get("logo_duration")),
         raw_value_fn=lambda value: LogoDuration[value.upper()],
@@ -142,7 +142,7 @@ PINECIL_SELECT_DESCRIPTIONS: tuple[IronOSSelectEntityDescription, ...] = (
 PINECIL_SELECT_DESCRIPTIONS_V222: tuple[IronOSSelectEntityDescription, ...] = (
     IronOSSelectEntityDescription(
         key=PinecilSelect.USB_PD_MODE,
-        REDACTED_VALUEPinecilSelect.USB_PD_MODE,
+        translation_key=PinecilSelect.USB_PD_MODE,
         characteristic=CharSetting.USB_PD_MODE,
         value_fn=lambda x: enum_to_str(x.get("usb_pd_mode")),
         raw_value_fn=lambda value: USBPDMode[value.upper()],
@@ -154,7 +154,7 @@ PINECIL_SELECT_DESCRIPTIONS_V222: tuple[IronOSSelectEntityDescription, ...] = (
 PINECIL_SELECT_DESCRIPTIONS_V223: tuple[IronOSSelectEntityDescription, ...] = (
     IronOSSelectEntityDescription(
         key=PinecilSelect.USB_PD_MODE,
-        REDACTED_VALUEPinecilSelect.USB_PD_MODE,
+        translation_key=PinecilSelect.USB_PD_MODE,
         characteristic=CharSetting.USB_PD_MODE,
         value_fn=lambda x: enum_to_str(x.get("usb_pd_mode")),
         raw_value_fn=lambda value: USBPDMode[value.upper()],
@@ -164,7 +164,7 @@ PINECIL_SELECT_DESCRIPTIONS_V223: tuple[IronOSSelectEntityDescription, ...] = (
     ),
     IronOSSelectEntityDescription(
         key=PinecilSelect.TIP_TYPE,
-        REDACTED_VALUEPinecilSelect.TIP_TYPE,
+        translation_key=PinecilSelect.TIP_TYPE,
         characteristic=CharSetting.TIP_TYPE,
         value_fn=lambda x: enum_to_str(x.get("tip_type")),
         raw_value_fn=lambda value: TipType[value.upper()],

@@ -23,7 +23,7 @@ from .services import handle_fressnapf_tracker_exception
 PARALLEL_UPDATES = 1
 
 LIGHT_ENTITY_DESCRIPTION = LightEntityDescription(
-    REDACTED_VALUE"led",
+    translation_key="led",
     entity_category=EntityCategory.CONFIG,
     key="led_brightness_value",
 )
@@ -93,7 +93,7 @@ class FressnapfTrackerLight(FressnapfTrackerEntity, LightEntity):
         if error_type is not None:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUEerror_type,
+                translation_key=error_type,
             )
 
     @property

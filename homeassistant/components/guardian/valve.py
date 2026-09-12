@@ -92,7 +92,7 @@ def is_opening(data: dict[str, Any]) -> bool:
 VALVE_CONTROLLER_DESCRIPTIONS = (
     ValveControllerValveDescription(
         key=VALVE_KIND_VALVE,
-        REDACTED_VALUE"valve_controller",
+        translation_key="valve_controller",
         device_class=ValveDeviceClass.WATER,
         api_category=API_VALVE_STATUS,
         is_closed_fn=lambda data: data["state"] == GuardianValveState.CLOSED,

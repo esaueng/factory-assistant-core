@@ -35,7 +35,7 @@ class SmButtonDescription(ButtonEntityDescription):
 
 CORE_BUTTON = SmButtonDescription(
     key="core_restart",
-    REDACTED_VALUE"core_restart",
+    translation_key="core_restart",
     device_class=ButtonDeviceClass.RESTART,
     press_fn=lambda cmd, idx: cmd.reboot(),
 )
@@ -43,13 +43,13 @@ CORE_BUTTON = SmButtonDescription(
 RADIO_BUTTONS: list[SmButtonDescription] = [
     SmButtonDescription(
         key="zigbee_restart",
-        REDACTED_VALUE"zigbee_restart",
+        translation_key="zigbee_restart",
         device_class=ButtonDeviceClass.RESTART,
         press_fn=lambda cmd, idx: cmd.zb_restart(idx=idx),
     ),
     SmButtonDescription(
         key="zigbee_flash_mode",
-        REDACTED_VALUE"zigbee_flash_mode",
+        translation_key="zigbee_flash_mode",
         entity_registry_enabled_default=False,
         press_fn=lambda cmd, idx: cmd.zb_bootloader(idx=idx),
     ),
@@ -57,7 +57,7 @@ RADIO_BUTTONS: list[SmButtonDescription] = [
 
 ROUTER = SmButtonDescription(
     key="reconnect_zigbee_router",
-    REDACTED_VALUE"reconnect_zigbee_router",
+    translation_key="reconnect_zigbee_router",
     entity_registry_enabled_default=False,
     press_fn=lambda cmd, idx: cmd.zb_router(idx=idx),
 )

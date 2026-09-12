@@ -34,7 +34,7 @@ LB_MODE_OPTIONS = [
 SELECTS: tuple[LektricoSelectEntityDescription, ...] = (
     LektricoSelectEntityDescription(
         key="load_balancing_mode",
-        REDACTED_VALUE"load_balancing_mode",
+        translation_key="load_balancing_mode",
         options=LB_MODE_OPTIONS,
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda data: LB_MODE_OPTIONS[data["lb_mode"]],

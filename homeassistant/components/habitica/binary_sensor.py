@@ -46,7 +46,7 @@ def get_scroll_image_for_pending_quest_invitation(user: UserData) -> str | None:
 BINARY_SENSOR_DESCRIPTIONS: tuple[HabiticaBinarySensorEntityDescription, ...] = (
     HabiticaBinarySensorEntityDescription(
         key=HabiticaBinarySensor.PENDING_QUEST,
-        REDACTED_VALUEHabiticaBinarySensor.PENDING_QUEST,
+        translation_key=HabiticaBinarySensor.PENDING_QUEST,
         value_fn=lambda user: user.party.quest.RSVPNeeded,
         entity_picture=get_scroll_image_for_pending_quest_invitation,
     ),
@@ -104,7 +104,7 @@ class HabiticaPartyBinarySensorEntity(HabiticaPartyBase, BinarySensorEntity):
 
     entity_description = BinarySensorEntityDescription(
         key=HabiticaBinarySensor.QUEST_RUNNING,
-        REDACTED_VALUEHabiticaBinarySensor.QUEST_RUNNING,
+        translation_key=HabiticaBinarySensor.QUEST_RUNNING,
     )
 
     def __init__(

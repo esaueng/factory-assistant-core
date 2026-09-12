@@ -70,7 +70,7 @@ class YotoConfigEntity(YotoEntity):
         except YotoError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"config_update_failed",
+                translation_key="config_update_failed",
                 translation_placeholders={"error": str(err)},
             ) from err
         self.coordinator.async_set_updated_data(client.players)

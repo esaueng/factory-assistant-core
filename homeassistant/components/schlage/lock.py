@@ -84,7 +84,7 @@ class SchlageLockEntity(SchlageEntity, LockEntity):
         ):
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"schlage_name_exists",
+                translation_key="schlage_name_exists",
                 translation_placeholders={"name": name},
             )
 
@@ -97,7 +97,7 @@ class SchlageLockEntity(SchlageEntity, LockEntity):
         ):
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"schlage_code_exists",
+                translation_key="schlage_code_exists",
             )
 
     async def _async_fetch_access_codes(self) -> dict[str, AccessCode] | None:
@@ -107,7 +107,7 @@ class SchlageLockEntity(SchlageEntity, LockEntity):
         except SchlageError as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"schlage_refresh_failed",
+                translation_key="schlage_refresh_failed",
             ) from ex
         return self._lock.access_codes
 
@@ -126,7 +126,7 @@ class SchlageLockEntity(SchlageEntity, LockEntity):
         except SchlageError as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"schlage_add_code_failed",
+                translation_key="schlage_add_code_failed",
             ) from ex
         await self.coordinator.async_request_refresh()
 
@@ -155,7 +155,7 @@ class SchlageLockEntity(SchlageEntity, LockEntity):
         except SchlageError as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"schlage_delete_code_failed",
+                translation_key="schlage_delete_code_failed",
             ) from ex
         await self.coordinator.async_request_refresh()
 

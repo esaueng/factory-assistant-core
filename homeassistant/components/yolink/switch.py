@@ -44,7 +44,7 @@ DEVICE_TYPES: tuple[YoLinkSwitchEntityDescription, ...] = (
     ),
     YoLinkSwitchEntityDescription(
         key="manipulator_state",
-        REDACTED_VALUE"manipulator_state",
+        translation_key="manipulator_state",
         name=None,
         exists_fn=lambda device: device.device_type == ATTR_DEVICE_MANIPULATOR,
     ),
@@ -56,7 +56,7 @@ DEVICE_TYPES: tuple[YoLinkSwitchEntityDescription, ...] = (
     ),
     YoLinkSwitchEntityDescription(
         key="multi_outlet_usb_ports",
-        REDACTED_VALUE"usb_ports",
+        translation_key="usb_ports",
         device_class=SwitchDeviceClass.OUTLET,
         exists_fn=lambda device: (
             device.device_type == ATTR_DEVICE_MULTI_OUTLET
@@ -66,7 +66,7 @@ DEVICE_TYPES: tuple[YoLinkSwitchEntityDescription, ...] = (
     ),
     YoLinkSwitchEntityDescription(
         key="multi_outlet_plug_1",
-        REDACTED_VALUE"plug_1",
+        translation_key="plug_1",
         device_class=SwitchDeviceClass.OUTLET,
         exists_fn=lambda device: device.device_type == ATTR_DEVICE_MULTI_OUTLET,
         plug_index_fn=lambda device: (
@@ -77,7 +77,7 @@ DEVICE_TYPES: tuple[YoLinkSwitchEntityDescription, ...] = (
     ),
     YoLinkSwitchEntityDescription(
         key="multi_outlet_plug_2",
-        REDACTED_VALUE"plug_2",
+        translation_key="plug_2",
         device_class=SwitchDeviceClass.OUTLET,
         exists_fn=lambda device: device.device_type == ATTR_DEVICE_MULTI_OUTLET,
         plug_index_fn=lambda device: (
@@ -88,7 +88,7 @@ DEVICE_TYPES: tuple[YoLinkSwitchEntityDescription, ...] = (
     ),
     YoLinkSwitchEntityDescription(
         key="multi_outlet_plug_3",
-        REDACTED_VALUE"plug_3",
+        translation_key="plug_3",
         device_class=SwitchDeviceClass.OUTLET,
         exists_fn=lambda device: (
             device.device_type == ATTR_DEVICE_MULTI_OUTLET
@@ -98,7 +98,7 @@ DEVICE_TYPES: tuple[YoLinkSwitchEntityDescription, ...] = (
     ),
     YoLinkSwitchEntityDescription(
         key="multi_outlet_plug_4",
-        REDACTED_VALUE"plug_4",
+        translation_key="plug_4",
         device_class=SwitchDeviceClass.OUTLET,
         exists_fn=lambda device: (
             device.device_type == ATTR_DEVICE_MULTI_OUTLET

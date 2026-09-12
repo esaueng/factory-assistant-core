@@ -17,7 +17,7 @@ from .helpers import find_matching_platform, skip_entity, transform_model_series
 DEVICE_POINT_UNIT_DESCRIPTIONS: dict[str, NumberEntityDescription] = {
     "DM": NumberEntityDescription(
         key="degree_minutes",
-        REDACTED_VALUE"degree_minutes",
+        translation_key="degree_minutes",
         native_unit_of_measurement="DM",
     ),
 }
@@ -26,14 +26,14 @@ CATEGORY_BASED_DESCRIPTIONS: dict[str, dict[str, NumberEntityDescription]] = {
     F_SERIES: {
         "40940": NumberEntityDescription(
             key="degree_minutes",
-            REDACTED_VALUE"degree_minutes",
+            translation_key="degree_minutes",
             native_unit_of_measurement="DM",
         ),
     },
     "NIBEF": {
         "40940": NumberEntityDescription(
             key="degree_minutes",
-            REDACTED_VALUE"degree_minutes",
+            translation_key="degree_minutes",
             native_unit_of_measurement="DM",
         ),
     },
@@ -132,7 +132,7 @@ class MyUplinkNumber(MyUplinkEntity, NumberEntity):
         except ClientError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_number_error",
+                translation_key="set_number_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                     "point": self.point_id,

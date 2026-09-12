@@ -28,13 +28,13 @@ class IdasenDeskButtonDescription(ButtonEntityDescription):
 BUTTONS: Final = [
     IdasenDeskButtonDescription(
         key="connect",
-        REDACTED_VALUE"connect",
+        translation_key="connect",
         entity_category=EntityCategory.CONFIG,
         press_action=lambda coordinator: coordinator.async_connect,
     ),
     IdasenDeskButtonDescription(
         key="disconnect",
-        REDACTED_VALUE"disconnect",
+        translation_key="disconnect",
         entity_category=EntityCategory.CONFIG,
         press_action=lambda coordinator: coordinator.async_disconnect,
     ),

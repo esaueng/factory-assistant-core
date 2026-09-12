@@ -49,7 +49,7 @@ class PortainerButtonDescription(ButtonEntityDescription):
 ENDPOINT_BUTTONS: tuple[PortainerButtonDescription, ...] = (
     PortainerButtonDescription(
         key="images_prune",
-        REDACTED_VALUE"images_prune",
+        translation_key="images_prune",
         device_class=ButtonDeviceClass.RESTART,
         entity_category=EntityCategory.CONFIG,
         press_action=(
@@ -60,7 +60,7 @@ ENDPOINT_BUTTONS: tuple[PortainerButtonDescription, ...] = (
     ),
     PortainerButtonDescription(
         key="volumes_prune",
-        REDACTED_VALUE"volumes_prune",
+        translation_key="volumes_prune",
         entity_category=EntityCategory.CONFIG,
         press_action=(
             lambda portainer, endpoint_id, _: portainer.prune_volumes(endpoint_id)
@@ -71,7 +71,7 @@ ENDPOINT_BUTTONS: tuple[PortainerButtonDescription, ...] = (
 CONTAINER_BUTTONS: tuple[PortainerButtonDescription, ...] = (
     PortainerButtonDescription(
         key="restart",
-        REDACTED_VALUE"restart_container",
+        translation_key="restart_container",
         device_class=ButtonDeviceClass.RESTART,
         entity_category=EntityCategory.CONFIG,
         press_action=(
@@ -82,7 +82,7 @@ CONTAINER_BUTTONS: tuple[PortainerButtonDescription, ...] = (
     ),
     PortainerButtonDescription(
         key="pause",
-        REDACTED_VALUE"pause_container",
+        translation_key="pause_container",
         entity_category=EntityCategory.CONFIG,
         press_action=(
             lambda portainer, endpoint_id, container_id: portainer.pause_container(
@@ -92,7 +92,7 @@ CONTAINER_BUTTONS: tuple[PortainerButtonDescription, ...] = (
     ),
     PortainerButtonDescription(
         key="resume",
-        REDACTED_VALUE"resume_container",
+        translation_key="resume_container",
         entity_category=EntityCategory.CONFIG,
         press_action=(
             lambda portainer, endpoint_id, container_id: portainer.unpause_container(
@@ -102,7 +102,7 @@ CONTAINER_BUTTONS: tuple[PortainerButtonDescription, ...] = (
     ),
     PortainerButtonDescription(
         key="recreate",
-        REDACTED_VALUE"recreate_container",
+        translation_key="recreate_container",
         entity_category=EntityCategory.CONFIG,
         press_action=(
             lambda portainer, endpoint_id, container_id: portainer.container_recreate(
@@ -115,7 +115,7 @@ CONTAINER_BUTTONS: tuple[PortainerButtonDescription, ...] = (
     ),
     PortainerButtonDescription(
         key="kill",
-        REDACTED_VALUE"kill_container",
+        translation_key="kill_container",
         entity_category=EntityCategory.CONFIG,
         press_action=(
             lambda portainer, endpoint_id, container_id: portainer.kill_container(
@@ -200,17 +200,17 @@ class PortainerBaseButton(ButtonEntity):
         except PortainerConnectionError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect_no_details",
+                translation_key="cannot_connect_no_details",
             ) from err
         except PortainerAuthenticationError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_auth_no_details",
+                translation_key="invalid_auth_no_details",
             ) from err
         except PortainerTimeoutError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"timeout_connect_no_details",
+                translation_key="timeout_connect_no_details",
             ) from err
 
         await self.coordinator.async_request_refresh()

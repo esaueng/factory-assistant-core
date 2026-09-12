@@ -68,6 +68,6 @@ class VistapoolLight(VistapoolEntity, LightEntity):
         except AquariteError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_failed",
+                translation_key="set_failed",
                 translation_placeholders={"entity": self.entity_id},
             ) from err

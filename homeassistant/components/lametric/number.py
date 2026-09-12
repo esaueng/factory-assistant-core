@@ -29,7 +29,7 @@ class LaMetricNumberEntityDescription(NumberEntityDescription):
 NUMBERS = [
     LaMetricNumberEntityDescription(
         key="brightness",
-        REDACTED_VALUE"brightness",
+        translation_key="brightness",
         entity_category=EntityCategory.CONFIG,
         native_step=1,
         range_fn=lambda device: device.display.brightness_limit,
@@ -39,7 +39,7 @@ NUMBERS = [
     ),
     LaMetricNumberEntityDescription(
         key="volume",
-        REDACTED_VALUE"volume",
+        translation_key="volume",
         entity_category=EntityCategory.CONFIG,
         native_step=1,
         range_fn=lambda device: device.audio.volume_range if device.audio else None,

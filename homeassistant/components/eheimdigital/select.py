@@ -43,7 +43,7 @@ REEFLEX_DESCRIPTIONS: tuple[
 ] = (
     EheimDigitalSelectDescription[EheimDigitalReeflexUV](
         key="mode",
-        REDACTED_VALUE"mode",
+        translation_key="mode",
         value_fn=lambda device: device.mode.name.lower(),
         set_value_fn=(
             lambda device, value: device.set_mode(ReeflexMode[value.upper()])
@@ -55,7 +55,7 @@ REEFLEX_DESCRIPTIONS: tuple[
 FILTER_DESCRIPTIONS: tuple[EheimDigitalSelectDescription[EheimDigitalFilter], ...] = (
     EheimDigitalSelectDescription[EheimDigitalFilter](
         key="filter_mode",
-        REDACTED_VALUE"filter_mode",
+        translation_key="filter_mode",
         entity_category=EntityCategory.CONFIG,
         options=[item.lower() for item in FilterModeProf._member_names_],
         value_fn=lambda device: device.filter_mode.name.lower(),
@@ -65,7 +65,7 @@ FILTER_DESCRIPTIONS: tuple[EheimDigitalSelectDescription[EheimDigitalFilter], ..
     ),
     EheimDigitalSelectDescription[EheimDigitalFilter](
         key="manual_speed",
-        REDACTED_VALUE"manual_speed",
+        translation_key="manual_speed",
         entity_category=EntityCategory.CONFIG,
         unit_of_measurement=UnitOfFrequency.HERTZ,
         options_fn=lambda device: [str(i) for i in device.filter_manual_values],
@@ -74,7 +74,7 @@ FILTER_DESCRIPTIONS: tuple[EheimDigitalSelectDescription[EheimDigitalFilter], ..
     ),
     EheimDigitalSelectDescription[EheimDigitalFilter](
         key="const_flow_speed",
-        REDACTED_VALUE"const_flow_speed",
+        translation_key="const_flow_speed",
         entity_category=EntityCategory.CONFIG,
         use_api_unit=True,
         unit_of_measurement=UnitOfVolumeFlowRate.LITERS_PER_HOUR,
@@ -88,7 +88,7 @@ FILTER_DESCRIPTIONS: tuple[EheimDigitalSelectDescription[EheimDigitalFilter], ..
     ),
     EheimDigitalSelectDescription[EheimDigitalFilter](
         key="day_speed",
-        REDACTED_VALUE"day_speed",
+        translation_key="day_speed",
         entity_category=EntityCategory.CONFIG,
         use_api_unit=True,
         unit_of_measurement=UnitOfVolumeFlowRate.LITERS_PER_HOUR,
@@ -102,7 +102,7 @@ FILTER_DESCRIPTIONS: tuple[EheimDigitalSelectDescription[EheimDigitalFilter], ..
     ),
     EheimDigitalSelectDescription[EheimDigitalFilter](
         key="night_speed",
-        REDACTED_VALUE"night_speed",
+        translation_key="night_speed",
         entity_category=EntityCategory.CONFIG,
         use_api_unit=True,
         unit_of_measurement=UnitOfVolumeFlowRate.LITERS_PER_HOUR,
@@ -118,7 +118,7 @@ FILTER_DESCRIPTIONS: tuple[EheimDigitalSelectDescription[EheimDigitalFilter], ..
     ),
     EheimDigitalSelectDescription[EheimDigitalFilter](
         key="high_pulse_speed",
-        REDACTED_VALUE"high_pulse_speed",
+        translation_key="high_pulse_speed",
         entity_category=EntityCategory.CONFIG,
         use_api_unit=True,
         unit_of_measurement=UnitOfVolumeFlowRate.LITERS_PER_HOUR,
@@ -134,7 +134,7 @@ FILTER_DESCRIPTIONS: tuple[EheimDigitalSelectDescription[EheimDigitalFilter], ..
     ),
     EheimDigitalSelectDescription[EheimDigitalFilter](
         key="low_pulse_speed",
-        REDACTED_VALUE"low_pulse_speed",
+        translation_key="low_pulse_speed",
         entity_category=EntityCategory.CONFIG,
         use_api_unit=True,
         unit_of_measurement=UnitOfVolumeFlowRate.LITERS_PER_HOUR,
@@ -156,7 +156,7 @@ CLASSICVARIO_DESCRIPTIONS: tuple[
 ] = (
     EheimDigitalSelectDescription[EheimDigitalClassicVario](
         key="filter_mode",
-        REDACTED_VALUE"filter_mode",
+        translation_key="filter_mode",
         value_fn=lambda device: device.filter_mode.name.lower(),
         set_value_fn=(
             lambda device, value: device.set_filter_mode(FilterMode[value.upper()])

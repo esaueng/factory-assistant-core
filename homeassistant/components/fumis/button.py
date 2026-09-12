@@ -28,7 +28,7 @@ class FumisButtonEntityDescription(ButtonEntityDescription):
 BUTTONS: tuple[FumisButtonEntityDescription, ...] = (
     FumisButtonEntityDescription(
         key="sync_clock",
-        REDACTED_VALUE"sync_clock",
+        translation_key="sync_clock",
         entity_category=EntityCategory.DIAGNOSTIC,
         press_fn=lambda client: client.set_clock(),
     ),

@@ -115,7 +115,7 @@ VACUUM_TYPES: Final[tuple[MieleVacuumDefinition, ...]] = (
             key="vacuum",
             on_value=14,
             name=None,
-            REDACTED_VALUE"vacuum",
+            translation_key="vacuum",
         ),
     ),
 )
@@ -192,7 +192,7 @@ class MieleVacuum(MieleEntity, StateVacuumEntity):
             _LOGGER.debug("Error setting vacuum state for %s: %s", self.entity_id, err)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_state_error",
+                translation_key="set_state_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                 },

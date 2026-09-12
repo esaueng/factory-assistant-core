@@ -33,20 +33,20 @@ def peblar_exception_handler[_PeblarEntityT: PeblarEntity, **_P](
             )
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"authentication_error",
+                translation_key="authentication_error",
             ) from error
 
         except PeblarConnectionError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
                 translation_placeholders={"error": str(error)},
             ) from error
 
         except PeblarError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unknown_error",
+                translation_key="unknown_error",
                 translation_placeholders={"error": str(error)},
             ) from error
 

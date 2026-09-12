@@ -369,12 +369,12 @@ class AppleTvMediaPlayer(
             else:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"streaming_not_supported",
+                    translation_key="streaming_not_supported",
                 )
         except exceptions.NotSupportedError as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"streaming_not_supported",
+                translation_key="streaming_not_supported",
             ) from ex
         except (
             exceptions.BlockedStateError,
@@ -386,7 +386,7 @@ class AppleTvMediaPlayer(
         ) as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"stream_failed",
+                translation_key="stream_failed",
             ) from ex
 
     @property

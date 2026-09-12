@@ -30,7 +30,7 @@ class FullySwitchEntityDescription(SwitchEntityDescription):
 SWITCHES: tuple[FullySwitchEntityDescription, ...] = (
     FullySwitchEntityDescription(
         key="screensaver",
-        REDACTED_VALUE"screensaver",
+        translation_key="screensaver",
         on_action=lambda fully: fully.startScreensaver(),
         off_action=lambda fully: fully.stopScreensaver(),
         is_on_fn=lambda data: data.get("isInScreensaver"),
@@ -39,7 +39,7 @@ SWITCHES: tuple[FullySwitchEntityDescription, ...] = (
     ),
     FullySwitchEntityDescription(
         key="maintenance",
-        REDACTED_VALUE"maintenance",
+        translation_key="maintenance",
         entity_category=EntityCategory.CONFIG,
         on_action=lambda fully: fully.enableLockedMode(),
         off_action=lambda fully: fully.disableLockedMode(),
@@ -49,7 +49,7 @@ SWITCHES: tuple[FullySwitchEntityDescription, ...] = (
     ),
     FullySwitchEntityDescription(
         key="kiosk",
-        REDACTED_VALUE"kiosk",
+        translation_key="kiosk",
         entity_category=EntityCategory.CONFIG,
         on_action=lambda fully: fully.lockKiosk(),
         off_action=lambda fully: fully.unlockKiosk(),
@@ -59,7 +59,7 @@ SWITCHES: tuple[FullySwitchEntityDescription, ...] = (
     ),
     FullySwitchEntityDescription(
         key="motion-detection",
-        REDACTED_VALUE"motion_detection",
+        translation_key="motion_detection",
         entity_category=EntityCategory.CONFIG,
         on_action=lambda fully: fully.enableMotionDetection(),
         off_action=lambda fully: fully.disableMotionDetection(),
@@ -69,7 +69,7 @@ SWITCHES: tuple[FullySwitchEntityDescription, ...] = (
     ),
     FullySwitchEntityDescription(
         key="screenOn",
-        REDACTED_VALUE"screen_on",
+        translation_key="screen_on",
         on_action=lambda fully: fully.screenOn(),
         off_action=lambda fully: fully.screenOff(),
         is_on_fn=lambda data: data.get("screenOn"),

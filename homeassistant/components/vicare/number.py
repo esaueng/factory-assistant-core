@@ -49,7 +49,7 @@ class ViCareNumberEntityDescription(NumberEntityDescription, ViCareRequiredKeysM
 DEVICE_ENTITY_DESCRIPTIONS: tuple[ViCareNumberEntityDescription, ...] = (
     ViCareNumberEntityDescription(
         key="dhw_temperature",
-        REDACTED_VALUE"dhw_temperature",
+        translation_key="dhw_temperature",
         entity_category=EntityCategory.CONFIG,
         device_class=NumberDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -62,7 +62,7 @@ DEVICE_ENTITY_DESCRIPTIONS: tuple[ViCareNumberEntityDescription, ...] = (
     ),
     ViCareNumberEntityDescription(
         key="dhw_secondary_temperature",
-        REDACTED_VALUE"dhw_secondary_temperature",
+        translation_key="dhw_secondary_temperature",
         entity_category=EntityCategory.CONFIG,
         device_class=NumberDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -76,7 +76,7 @@ DEVICE_ENTITY_DESCRIPTIONS: tuple[ViCareNumberEntityDescription, ...] = (
     ),
     ViCareNumberEntityDescription(
         key="dhw_hysteresis_switch_on",
-        REDACTED_VALUE"dhw_hysteresis_switch_on",
+        translation_key="dhw_hysteresis_switch_on",
         entity_category=EntityCategory.CONFIG,
         device_class=NumberDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.KELVIN,
@@ -91,7 +91,7 @@ DEVICE_ENTITY_DESCRIPTIONS: tuple[ViCareNumberEntityDescription, ...] = (
     ),
     ViCareNumberEntityDescription(
         key="dhw_hysteresis_switch_off",
-        REDACTED_VALUE"dhw_hysteresis_switch_off",
+        translation_key="dhw_hysteresis_switch_off",
         entity_category=EntityCategory.CONFIG,
         device_class=NumberDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.KELVIN,
@@ -112,7 +112,7 @@ DEVICE_ENTITY_DESCRIPTIONS: tuple[ViCareNumberEntityDescription, ...] = (
 CIRCUIT_ENTITY_DESCRIPTIONS: tuple[ViCareNumberEntityDescription, ...] = (
     ViCareNumberEntityDescription(
         key="heating curve shift",
-        REDACTED_VALUE"heating_curve_shift",
+        translation_key="heating_curve_shift",
         entity_category=EntityCategory.CONFIG,
         device_class=NumberDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -130,7 +130,7 @@ CIRCUIT_ENTITY_DESCRIPTIONS: tuple[ViCareNumberEntityDescription, ...] = (
     ),
     ViCareNumberEntityDescription(
         key="heating curve slope",
-        REDACTED_VALUE"heating_curve_slope",
+        translation_key="heating_curve_slope",
         entity_category=EntityCategory.CONFIG,
         mode=NumberMode.BOX,
         value_getter=lambda api: api.getHeatingCurveSlope(),
@@ -146,7 +146,7 @@ CIRCUIT_ENTITY_DESCRIPTIONS: tuple[ViCareNumberEntityDescription, ...] = (
     ),
     ViCareNumberEntityDescription(
         key="normal_temperature",
-        REDACTED_VALUE"normal_temperature",
+        translation_key="normal_temperature",
         entity_category=EntityCategory.CONFIG,
         device_class=NumberDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -167,7 +167,7 @@ CIRCUIT_ENTITY_DESCRIPTIONS: tuple[ViCareNumberEntityDescription, ...] = (
     ),
     ViCareNumberEntityDescription(
         key="reduced_temperature",
-        REDACTED_VALUE"reduced_temperature",
+        translation_key="reduced_temperature",
         entity_category=EntityCategory.CONFIG,
         device_class=NumberDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -188,7 +188,7 @@ CIRCUIT_ENTITY_DESCRIPTIONS: tuple[ViCareNumberEntityDescription, ...] = (
     ),
     ViCareNumberEntityDescription(
         key="comfort_temperature",
-        REDACTED_VALUE"comfort_temperature",
+        translation_key="comfort_temperature",
         entity_category=EntityCategory.CONFIG,
         device_class=NumberDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -209,7 +209,7 @@ CIRCUIT_ENTITY_DESCRIPTIONS: tuple[ViCareNumberEntityDescription, ...] = (
     ),
     ViCareNumberEntityDescription(
         key="normal_heating_temperature",
-        REDACTED_VALUE"normal_heating_temperature",
+        translation_key="normal_heating_temperature",
         entity_category=EntityCategory.CONFIG,
         device_class=NumberDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -232,7 +232,7 @@ CIRCUIT_ENTITY_DESCRIPTIONS: tuple[ViCareNumberEntityDescription, ...] = (
     ),
     ViCareNumberEntityDescription(
         key="reduced_heating_temperature",
-        REDACTED_VALUE"reduced_heating_temperature",
+        translation_key="reduced_heating_temperature",
         entity_category=EntityCategory.CONFIG,
         device_class=NumberDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -255,7 +255,7 @@ CIRCUIT_ENTITY_DESCRIPTIONS: tuple[ViCareNumberEntityDescription, ...] = (
     ),
     ViCareNumberEntityDescription(
         key="comfort_heating_temperature",
-        REDACTED_VALUE"comfort_heating_temperature",
+        translation_key="comfort_heating_temperature",
         entity_category=EntityCategory.CONFIG,
         device_class=NumberDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -278,7 +278,7 @@ CIRCUIT_ENTITY_DESCRIPTIONS: tuple[ViCareNumberEntityDescription, ...] = (
     ),
     ViCareNumberEntityDescription(
         key="normal_cooling_temperature",
-        REDACTED_VALUE"normal_cooling_temperature",
+        translation_key="normal_cooling_temperature",
         entity_category=EntityCategory.CONFIG,
         device_class=NumberDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -301,7 +301,7 @@ CIRCUIT_ENTITY_DESCRIPTIONS: tuple[ViCareNumberEntityDescription, ...] = (
     ),
     ViCareNumberEntityDescription(
         key="reduced_cooling_temperature",
-        REDACTED_VALUE"reduced_cooling_temperature",
+        translation_key="reduced_cooling_temperature",
         entity_category=EntityCategory.CONFIG,
         device_class=NumberDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -324,7 +324,7 @@ CIRCUIT_ENTITY_DESCRIPTIONS: tuple[ViCareNumberEntityDescription, ...] = (
     ),
     ViCareNumberEntityDescription(
         key="comfort_cooling_temperature",
-        REDACTED_VALUE"comfort_cooling_temperature",
+        translation_key="comfort_cooling_temperature",
         entity_category=EntityCategory.CONFIG,
         device_class=NumberDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,

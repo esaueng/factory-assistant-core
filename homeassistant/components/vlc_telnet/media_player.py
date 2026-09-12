@@ -74,7 +74,7 @@ def catch_vlc_errors[_VlcDeviceT: VlcDevice, **_P](
                 else:
                     raise HomeAssistantError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"command_error",
+                        translation_key="command_error",
                         translation_placeholders={"error": str(err)},
                     ) from err
             except ConnectError as err:
@@ -87,7 +87,7 @@ def catch_vlc_errors[_VlcDeviceT: VlcDevice, **_P](
                     self.async_write_ha_state()
                     raise HomeAssistantError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"connect_error",
+                        translation_key="connect_error",
                         translation_placeholders={"error": str(err)},
                     ) from err
 

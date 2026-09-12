@@ -69,18 +69,18 @@ class SwitchBotCloudEntity(CoordinatorEntity[SwitchBotCoordinator]):
         except SwitchBotDeviceOfflineError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_offline",
+                translation_key="device_offline",
             ) from err
         except SwitchBotConnectionError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connection_error",
+                translation_key="connection_error",
                 translation_placeholders={"error": str(err)},
             ) from err
         except SwitchBotError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={"error": str(err)},
             ) from err
 

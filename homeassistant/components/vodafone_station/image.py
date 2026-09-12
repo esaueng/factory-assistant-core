@@ -22,11 +22,11 @@ PARALLEL_UPDATES = 0
 IMAGE_TYPES: Final = (
     ImageEntityDescription(
         key="guest",
-        REDACTED_VALUE"guest",
+        translation_key="guest",
     ),
     ImageEntityDescription(
         key="guest_5g",
-        REDACTED_VALUE"guest_5g",
+        translation_key="guest_5g",
     ),
 )
 

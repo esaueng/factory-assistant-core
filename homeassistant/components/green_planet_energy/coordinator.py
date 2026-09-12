@@ -46,12 +46,12 @@ class GreenPlanetEnergyUpdateCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         except GreenPlanetEnergyConnectionError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connection_error",
+                translation_key="connection_error",
                 translation_placeholders={"error": str(err)},
             ) from err
         except GreenPlanetEnergyAPIError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_error",
+                translation_key="api_error",
                 translation_placeholders={"error": str(err)},
             ) from err

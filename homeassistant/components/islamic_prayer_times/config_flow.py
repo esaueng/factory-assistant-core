@@ -110,7 +110,7 @@ class IslamicPrayerOptionsFlowHandler(OptionsFlow):
                 SelectSelectorConfig(
                     options=CALC_METHODS,
                     mode=SelectSelectorMode.DROPDOWN,
-                    REDACTED_VALUECONF_CALC_METHOD,
+                    translation_key=CONF_CALC_METHOD,
                 )
             ),
             vol.Optional(
@@ -122,7 +122,7 @@ class IslamicPrayerOptionsFlowHandler(OptionsFlow):
                 SelectSelectorConfig(
                     options=LAT_ADJ_METHODS,
                     mode=SelectSelectorMode.DROPDOWN,
-                    REDACTED_VALUECONF_LAT_ADJ_METHOD,
+                    translation_key=CONF_LAT_ADJ_METHOD,
                 )
             ),
             vol.Optional(
@@ -134,7 +134,7 @@ class IslamicPrayerOptionsFlowHandler(OptionsFlow):
                 SelectSelectorConfig(
                     options=MIDNIGHT_MODES,
                     mode=SelectSelectorMode.DROPDOWN,
-                    REDACTED_VALUECONF_MIDNIGHT_MODE,
+                    translation_key=CONF_MIDNIGHT_MODE,
                 )
             ),
             vol.Optional(
@@ -144,7 +144,7 @@ class IslamicPrayerOptionsFlowHandler(OptionsFlow):
                 SelectSelectorConfig(
                     options=SCHOOLS,
                     mode=SelectSelectorMode.DROPDOWN,
-                    REDACTED_VALUECONF_SCHOOL,
+                    translation_key=CONF_SCHOOL,
                 )
             ),
         }

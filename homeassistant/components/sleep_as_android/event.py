@@ -42,7 +42,7 @@ class SleepAsAndroidEvent(StrEnum):
 EVENT_DESCRIPTIONS: tuple[SleepAsAndroidEventEntityDescription, ...] = (
     SleepAsAndroidEventEntityDescription(
         key=SleepAsAndroidEvent.SLEEP_TRACKING,
-        REDACTED_VALUESleepAsAndroidEvent.SLEEP_TRACKING,
+        translation_key=SleepAsAndroidEvent.SLEEP_TRACKING,
         device_class=EventDeviceClass.BUTTON,
         event_types=[
             "paused",
@@ -53,7 +53,7 @@ EVENT_DESCRIPTIONS: tuple[SleepAsAndroidEventEntityDescription, ...] = (
     ),
     SleepAsAndroidEventEntityDescription(
         key=SleepAsAndroidEvent.ALARM_CLOCK,
-        REDACTED_VALUESleepAsAndroidEvent.ALARM_CLOCK,
+        translation_key=SleepAsAndroidEvent.ALARM_CLOCK,
         event_types=[
             "alert_dismiss",
             "alert_start",
@@ -65,7 +65,7 @@ EVENT_DESCRIPTIONS: tuple[SleepAsAndroidEventEntityDescription, ...] = (
     ),
     SleepAsAndroidEventEntityDescription(
         key=SleepAsAndroidEvent.SMART_WAKEUP,
-        REDACTED_VALUESleepAsAndroidEvent.SMART_WAKEUP,
+        translation_key=SleepAsAndroidEvent.SMART_WAKEUP,
         event_types=[
             "before_smart_period",
             "smart_period",
@@ -73,7 +73,7 @@ EVENT_DESCRIPTIONS: tuple[SleepAsAndroidEventEntityDescription, ...] = (
     ),
     SleepAsAndroidEventEntityDescription(
         key=SleepAsAndroidEvent.USER_NOTIFICATION,
-        REDACTED_VALUESleepAsAndroidEvent.USER_NOTIFICATION,
+        translation_key=SleepAsAndroidEvent.USER_NOTIFICATION,
         event_types=[
             "wake_up_check",
             "show_skip_next_alarm",
@@ -82,7 +82,7 @@ EVENT_DESCRIPTIONS: tuple[SleepAsAndroidEventEntityDescription, ...] = (
     ),
     SleepAsAndroidEventEntityDescription(
         key=SleepAsAndroidEvent.SLEEP_PHASE,
-        REDACTED_VALUESleepAsAndroidEvent.SLEEP_PHASE,
+        translation_key=SleepAsAndroidEvent.SLEEP_PHASE,
         event_types=[
             "awake",
             "deep_sleep",
@@ -93,7 +93,7 @@ EVENT_DESCRIPTIONS: tuple[SleepAsAndroidEventEntityDescription, ...] = (
     ),
     SleepAsAndroidEventEntityDescription(
         key=SleepAsAndroidEvent.SOUND_EVENT,
-        REDACTED_VALUESleepAsAndroidEvent.SOUND_EVENT,
+        translation_key=SleepAsAndroidEvent.SOUND_EVENT,
         event_types=[
             "baby",
             "cough",
@@ -104,7 +104,7 @@ EVENT_DESCRIPTIONS: tuple[SleepAsAndroidEventEntityDescription, ...] = (
     ),
     SleepAsAndroidEventEntityDescription(
         key=SleepAsAndroidEvent.LULLABY,
-        REDACTED_VALUESleepAsAndroidEvent.LULLABY,
+        translation_key=SleepAsAndroidEvent.LULLABY,
         event_types=[
             "start",
             "stop",
@@ -113,7 +113,7 @@ EVENT_DESCRIPTIONS: tuple[SleepAsAndroidEventEntityDescription, ...] = (
     ),
     SleepAsAndroidEventEntityDescription(
         key=SleepAsAndroidEvent.SLEEP_HEALTH,
-        REDACTED_VALUESleepAsAndroidEvent.SLEEP_HEALTH,
+        translation_key=SleepAsAndroidEvent.SLEEP_HEALTH,
         event_types=[
             "antisnoring",
             "apnea_alarm",
@@ -121,7 +121,7 @@ EVENT_DESCRIPTIONS: tuple[SleepAsAndroidEventEntityDescription, ...] = (
     ),
     SleepAsAndroidEventEntityDescription(
         key=SleepAsAndroidEvent.JET_LAG_PREVENTION,
-        REDACTED_VALUESleepAsAndroidEvent.JET_LAG_PREVENTION,
+        translation_key=SleepAsAndroidEvent.JET_LAG_PREVENTION,
         event_types=[
             "jet_lag_start",
             "jet_lag_stop",

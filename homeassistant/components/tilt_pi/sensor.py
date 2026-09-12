@@ -43,7 +43,7 @@ SENSOR_TYPES: Final[list[TiltEntityDescription]] = [
     ),
     TiltEntityDescription(
         key=ATTR_GRAVITY,
-        REDACTED_VALUE"gravity",
+        translation_key="gravity",
         native_unit_of_measurement="SG",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data.gravity,

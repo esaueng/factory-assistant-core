@@ -31,7 +31,7 @@ class WyomingSatelliteAssistInProgress(WyomingSatelliteEntity, BinarySensorEntit
     entity_description = BinarySensorEntityDescription(
         entity_registry_enabled_default=False,
         key="assist_in_progress",
-        REDACTED_VALUE"assist_in_progress",
+        translation_key="assist_in_progress",
     )
     _attr_is_on = False
 

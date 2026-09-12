@@ -23,14 +23,14 @@ _LOGGER = logging.getLogger(__name__)
 SENSOR_TYPES = (
     SensorEntityDescription(
         key="file",
-        REDACTED_VALUE"size",
+        translation_key="size",
         native_unit_of_measurement=UnitOfInformation.MEGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="bytes",
-        REDACTED_VALUE"size_bytes",
+        translation_key="size_bytes",
         entity_registry_enabled_default=False,
         native_unit_of_measurement=UnitOfInformation.BYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -39,14 +39,14 @@ SENSOR_TYPES = (
     ),
     SensorEntityDescription(
         key="last_updated",
-        REDACTED_VALUE"last_updated",
+        translation_key="last_updated",
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     SensorEntityDescription(
         key="created",
-        REDACTED_VALUE"created",
+        translation_key="created",
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,

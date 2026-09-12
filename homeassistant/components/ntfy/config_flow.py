@@ -130,7 +130,7 @@ TOPIC_FILTER_SCHEMA = vol.Schema(
                 multiple=True,
                 options=["5", "4", "3", "2", "1"],
                 mode=SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUE"priority",
+                translation_key="priority",
             )
         ),
         vol.Optional(CONF_TAGS): TextSelector(

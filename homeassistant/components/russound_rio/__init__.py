@@ -57,7 +57,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: RussoundConfigEntry) -> 
     except RUSSOUND_RIO_EXCEPTIONS as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"entry_cannot_connect",
+            translation_key="entry_cannot_connect",
             translation_placeholders={
                 "host": host or device,
                 "port": port or baudrate,

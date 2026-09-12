@@ -38,17 +38,17 @@ ENTITY_DESCRIPTIONS = (
     ),
     RitualsSensorEntityDescription(
         key="fill",
-        REDACTED_VALUE"fill",
+        translation_key="fill",
         value_fn=lambda diffuser: diffuser.fill,
     ),
     RitualsSensorEntityDescription(
         key="perfume",
-        REDACTED_VALUE"perfume",
+        translation_key="perfume",
         value_fn=lambda diffuser: diffuser.perfume,
     ),
     RitualsSensorEntityDescription(
         key="wifi_percentage",
-        REDACTED_VALUE"wifi_percentage",
+        translation_key="wifi_percentage",
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda diffuser: diffuser.wifi_percentage,
     ),

@@ -63,7 +63,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: FritzConfigEntry) -> boo
     except FRITZ_EXCEPTIONS as ex:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"error_connecting",
+            translation_key="error_connecting",
             translation_placeholders={"error": str(ex)},
         ) from ex
 
@@ -73,7 +73,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: FritzConfigEntry) -> boo
     ):
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"error_upnp_disabled",
+            translation_key="error_upnp_disabled",
         )
 
     await avm_wrapper.async_config_entry_first_refresh()

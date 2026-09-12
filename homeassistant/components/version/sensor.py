@@ -29,7 +29,7 @@ async def async_setup_entry(
             entity_description=SensorEntityDescription(
                 key=str(entry.data[CONF_SOURCE]),
                 name=entity_name,
-                REDACTED_VALUE"version",
+                translation_key="version",
             ),
         )
     ]

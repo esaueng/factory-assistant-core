@@ -26,7 +26,7 @@ class AndroidIPWebcamSwitchEntityDescription(SwitchEntityDescription):
 SWITCH_TYPES: tuple[AndroidIPWebcamSwitchEntityDescription, ...] = (
     AndroidIPWebcamSwitchEntityDescription(
         key="exposure_lock",
-        REDACTED_VALUE"exposure_lock",
+        translation_key="exposure_lock",
         name="Exposure lock",
         entity_category=EntityCategory.CONFIG,
         on_func=lambda ipcam: ipcam.change_setting("exposure_lock", True),
@@ -34,7 +34,7 @@ SWITCH_TYPES: tuple[AndroidIPWebcamSwitchEntityDescription, ...] = (
     ),
     AndroidIPWebcamSwitchEntityDescription(
         key="ffc",
-        REDACTED_VALUE"ffc",
+        translation_key="ffc",
         name="Front-facing camera",
         entity_category=EntityCategory.CONFIG,
         on_func=lambda ipcam: ipcam.change_setting("ffc", True),
@@ -42,7 +42,7 @@ SWITCH_TYPES: tuple[AndroidIPWebcamSwitchEntityDescription, ...] = (
     ),
     AndroidIPWebcamSwitchEntityDescription(
         key="focus",
-        REDACTED_VALUE"focus",
+        translation_key="focus",
         name="Focus",
         entity_category=EntityCategory.CONFIG,
         on_func=lambda ipcam: ipcam.focus(activate=True),
@@ -50,7 +50,7 @@ SWITCH_TYPES: tuple[AndroidIPWebcamSwitchEntityDescription, ...] = (
     ),
     AndroidIPWebcamSwitchEntityDescription(
         key="gps_active",
-        REDACTED_VALUE"gps_active",
+        translation_key="gps_active",
         name="GPS active",
         entity_category=EntityCategory.CONFIG,
         on_func=lambda ipcam: ipcam.change_setting("gps_active", True),
@@ -58,7 +58,7 @@ SWITCH_TYPES: tuple[AndroidIPWebcamSwitchEntityDescription, ...] = (
     ),
     AndroidIPWebcamSwitchEntityDescription(
         key="motion_detect",
-        REDACTED_VALUE"motion_detect",
+        translation_key="motion_detect",
         name="Motion detection",
         entity_category=EntityCategory.CONFIG,
         on_func=lambda ipcam: ipcam.change_setting("motion_detect", True),
@@ -66,7 +66,7 @@ SWITCH_TYPES: tuple[AndroidIPWebcamSwitchEntityDescription, ...] = (
     ),
     AndroidIPWebcamSwitchEntityDescription(
         key="night_vision",
-        REDACTED_VALUE"night_vision",
+        translation_key="night_vision",
         name="Night vision",
         entity_category=EntityCategory.CONFIG,
         on_func=lambda ipcam: ipcam.change_setting("night_vision", True),
@@ -74,7 +74,7 @@ SWITCH_TYPES: tuple[AndroidIPWebcamSwitchEntityDescription, ...] = (
     ),
     AndroidIPWebcamSwitchEntityDescription(
         key="overlay",
-        REDACTED_VALUE"overlay",
+        translation_key="overlay",
         name="Overlay",
         entity_category=EntityCategory.CONFIG,
         on_func=lambda ipcam: ipcam.change_setting("overlay", True),
@@ -82,7 +82,7 @@ SWITCH_TYPES: tuple[AndroidIPWebcamSwitchEntityDescription, ...] = (
     ),
     AndroidIPWebcamSwitchEntityDescription(
         key="torch",
-        REDACTED_VALUE"torch",
+        translation_key="torch",
         name="Torch",
         entity_category=EntityCategory.CONFIG,
         on_func=lambda ipcam: ipcam.torch(activate=True),
@@ -90,7 +90,7 @@ SWITCH_TYPES: tuple[AndroidIPWebcamSwitchEntityDescription, ...] = (
     ),
     AndroidIPWebcamSwitchEntityDescription(
         key="whitebalance_lock",
-        REDACTED_VALUE"whitebalance_lock",
+        translation_key="whitebalance_lock",
         name="White balance lock",
         entity_category=EntityCategory.CONFIG,
         on_func=lambda ipcam: ipcam.change_setting("whitebalance_lock", True),
@@ -98,7 +98,7 @@ SWITCH_TYPES: tuple[AndroidIPWebcamSwitchEntityDescription, ...] = (
     ),
     AndroidIPWebcamSwitchEntityDescription(
         key="video_recording",
-        REDACTED_VALUE"video_recording",
+        translation_key="video_recording",
         name="Video recording",
         entity_category=EntityCategory.CONFIG,
         on_func=lambda ipcam: ipcam.record(record=True),

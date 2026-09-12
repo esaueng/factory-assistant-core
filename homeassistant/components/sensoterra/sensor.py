@@ -44,13 +44,13 @@ SENSORS: dict[ProbeSensorType, SensorEntityDescription] = {
         suggested_display_precision=0,
         device_class=SensorDeviceClass.MOISTURE,
         native_unit_of_measurement=PERCENTAGE,
-        REDACTED_VALUE"soil_moisture_at_cm",
+        translation_key="soil_moisture_at_cm",
     ),
     ProbeSensorType.SI: SensorEntityDescription(
         key=ProbeSensorType.SI,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
-        REDACTED_VALUE"si_at_cm",
+        translation_key="si_at_cm",
     ),
     ProbeSensorType.TEMPERATURE: SensorEntityDescription(
         key=ProbeSensorType.TEMPERATURE,

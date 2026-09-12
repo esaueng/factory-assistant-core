@@ -294,7 +294,7 @@ class OptionsFlowHandler(OptionsFlowWithReload):
                 vol.Required(CONF_OVERRIDE_TYPE, default=override_type): SelectSelector(
                     SelectSelectorConfig(
                         options=[OVERRIDE_TYPE_CONSTANT, OVERRIDE_TYPE_NOW],
-                        REDACTED_VALUECONF_OVERRIDE_TYPE,
+                        translation_key=CONF_OVERRIDE_TYPE,
                     )
                 ),
             }

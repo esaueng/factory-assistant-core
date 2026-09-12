@@ -29,18 +29,18 @@ class FiveMSensorEntityDescription(SensorEntityDescription, FiveMEntityDescripti
 SENSORS: tuple[FiveMSensorEntityDescription, ...] = (
     FiveMSensorEntityDescription(
         key=NAME_PLAYERS_MAX,
-        REDACTED_VALUE"max_players",
+        translation_key="max_players",
         native_unit_of_measurement=UNIT_PLAYERS_MAX,
     ),
     FiveMSensorEntityDescription(
         key=NAME_PLAYERS_ONLINE,
-        REDACTED_VALUE"online_players",
+        translation_key="online_players",
         native_unit_of_measurement=UNIT_PLAYERS_ONLINE,
         extra_attrs=[ATTR_PLAYERS_LIST],
     ),
     FiveMSensorEntityDescription(
         key=NAME_RESOURCES,
-        REDACTED_VALUE"resources",
+        translation_key="resources",
         native_unit_of_measurement=UNIT_RESOURCES,
         extra_attrs=[ATTR_RESOURCES_LIST],
     ),

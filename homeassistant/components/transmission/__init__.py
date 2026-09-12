@@ -105,7 +105,7 @@ async def async_setup_entry(
     if version.valid and version < MIN_REQUIRED_TRANSMISSION_VERSION:
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"version_error",
+            translation_key="version_error",
             translation_placeholders={
                 "transmission_version": api.server_version,
                 "min_version": MIN_REQUIRED_TRANSMISSION_VERSION,

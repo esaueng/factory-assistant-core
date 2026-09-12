@@ -127,7 +127,7 @@ def _validate_mealplan_type(version: AwesomeVersion, entry_type: str) -> None:
     ):
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_mealplan_entry_type",
+            translation_key="invalid_mealplan_entry_type",
             translation_placeholders={"mealplan_type": entry_type},
         )
 
@@ -142,7 +142,7 @@ async def _async_get_mealplan(call: ServiceCall) -> ServiceResponse:
     if end_date < start_date:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"end_date_before_start_date",
+            translation_key="end_date_before_start_date",
         )
     client = entry.runtime_data.client
     try:
@@ -150,7 +150,7 @@ async def _async_get_mealplan(call: ServiceCall) -> ServiceResponse:
     except MealieConnectionError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"connection_error",
+            translation_key="connection_error",
         ) from err
     return {"mealplan": [asdict(x) for x in mealplans.items]}
 
@@ -167,12 +167,12 @@ async def _async_get_recipe(call: ServiceCall) -> ServiceResponse:
     except MealieConnectionError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"connection_error",
+            translation_key="connection_error",
         ) from err
     except MealieNotFoundError as err:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"recipe_not_found",
+            translation_key="recipe_not_found",
             translation_placeholders={"recipe_id": recipe_id},
         ) from err
     return {"recipe": asdict(recipe)}
@@ -191,12 +191,12 @@ async def _async_get_recipes(call: ServiceCall) -> ServiceResponse:
     except MealieConnectionError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"connection_error",
+            translation_key="connection_error",
         ) from err
     except MealieNotFoundError as err:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"no_recipes_found",
+            translation_key="no_recipes_found",
         ) from err
     return {"recipes": asdict(recipes)}
 
@@ -214,12 +214,12 @@ async def _async_import_recipe(call: ServiceCall) -> ServiceResponse:
     except MealieValidationError as err:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"could_not_import_recipe",
+            translation_key="could_not_import_recipe",
         ) from err
     except MealieConnectionError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"connection_error",
+            translation_key="connection_error",
         ) from err
     if call.return_response:
         return {"recipe": asdict(recipe)}
@@ -242,7 +242,7 @@ async def _async_set_random_mealplan(call: ServiceCall) -> ServiceResponse:
     except MealieConnectionError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"connection_error",
+            translation_key="connection_error",
         ) from err
     if call.return_response:
         return {"mealplan": asdict(mealplan)}
@@ -271,7 +271,7 @@ async def _async_set_mealplan(call: ServiceCall) -> ServiceResponse:
     except MealieConnectionError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"connection_error",
+            translation_key="connection_error",
         ) from err
     if call.return_response:
         return {"mealplan": asdict(mealplan)}

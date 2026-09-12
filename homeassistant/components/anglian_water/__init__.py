@@ -49,7 +49,7 @@ async def async_setup_entry(
         await _aw.validate_smart_meter(entry.data[CONF_ACCOUNT_NUMBER])
     except SmartMeterUnavailableError as err:
         raise ConfigEntryError(
-            translation_domain=DOMAIN, REDACTED_VALUE"smart_meter_unavailable"
+            translation_domain=DOMAIN, translation_key="smart_meter_unavailable"
         ) from err
 
     hass.config_entries.async_update_entry(

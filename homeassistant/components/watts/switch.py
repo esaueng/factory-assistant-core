@@ -95,7 +95,7 @@ class WattsVisionSwitch(WattsVisionEntity[SwitchDevice], SwitchEntity):
         except RuntimeError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_switch_state_error",
+                translation_key="set_switch_state_error",
             ) from err
 
         _LOGGER.debug(
@@ -114,7 +114,7 @@ class WattsVisionSwitch(WattsVisionEntity[SwitchDevice], SwitchEntity):
         except RuntimeError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_switch_state_error",
+                translation_key="set_switch_state_error",
             ) from err
 
         _LOGGER.debug(

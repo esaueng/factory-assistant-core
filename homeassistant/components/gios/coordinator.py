@@ -68,7 +68,7 @@ class GiosDataUpdateCoordinator(DataUpdateCoordinator[GiosSensors]):
         except (GiosError, ClientConnectorError) as error:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_error",
+                translation_key="update_error",
                 translation_placeholders={
                     "entry": self.config_entry.title,
                     "error": repr(error),

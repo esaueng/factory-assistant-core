@@ -96,5 +96,5 @@ class UnifiAccessDoorLockRuleSelectEntity(UnifiAccessEntity, SelectEntity):
         except UnifiAccessError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"lock_rule_failed",
+                translation_key="lock_rule_failed",
             ) from err

@@ -355,6 +355,6 @@ class ProximityDataUpdateCoordinator(DataUpdateCoordinator[ProximityData]):
             is_fixable=True,
             is_persistent=True,
             severity=IssueSeverity.WARNING,
-            REDACTED_VALUE"tracked_entity_removed",
+            translation_key="tracked_entity_removed",
             translation_placeholders={"entity_id": entity_id, "name": self.name},
         )

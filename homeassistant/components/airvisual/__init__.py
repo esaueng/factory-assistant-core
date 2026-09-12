@@ -328,7 +328,7 @@ async def async_migrate_entry(hass: HomeAssistant, entry: AirVisualConfigEntry) 
                     is_fixable=False,
                     is_persistent=True,
                     severity=IssueSeverity.WARNING,
-                    REDACTED_VALUE"airvisual_pro_migration",
+                    translation_key="airvisual_pro_migration",
                     translation_placeholders={
                         "ip_address": ip_address,
                         "old_device_id": old_device_entry.id,

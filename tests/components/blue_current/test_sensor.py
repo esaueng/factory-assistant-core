@@ -38,9 +38,9 @@ charge_point_status_timestamps = {
 }
 
 charge_point_entity_ids = {
-    "REDACTED_VALUE": "actual_v1",
-    "REDACTED_VALUE": "actual_v2",
-    "REDACTED_VALUE": "actual_v3",
+    "voltage_phase_1": "actual_v1",
+    "voltage_phase_2": "actual_v2",
+    "voltage_phase_3": "actual_v3",
     "current_phase_1": "actual_p1",
     "current_phase_2": "actual_p2",
     "current_phase_3": "actual_p3",

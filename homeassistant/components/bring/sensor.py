@@ -44,22 +44,22 @@ class BringSensor(StrEnum):
 SENSOR_DESCRIPTIONS: tuple[BringSensorEntityDescription, ...] = (
     BringSensorEntityDescription(
         key=BringSensor.URGENT,
-        REDACTED_VALUEBringSensor.URGENT,
+        translation_key=BringSensor.URGENT,
         value_fn=lambda lst, _: sum_attributes(lst, "urgent"),
     ),
     BringSensorEntityDescription(
         key=BringSensor.CONVENIENT,
-        REDACTED_VALUEBringSensor.CONVENIENT,
+        translation_key=BringSensor.CONVENIENT,
         value_fn=lambda lst, _: sum_attributes(lst, "convenient"),
     ),
     BringSensorEntityDescription(
         key=BringSensor.DISCOUNTED,
-        REDACTED_VALUEBringSensor.DISCOUNTED,
+        translation_key=BringSensor.DISCOUNTED,
         value_fn=lambda lst, _: sum_attributes(lst, "discounted"),
     ),
     BringSensorEntityDescription(
         key=BringSensor.LIST_LANGUAGE,
-        REDACTED_VALUEBringSensor.LIST_LANGUAGE,
+        translation_key=BringSensor.LIST_LANGUAGE,
         value_fn=(
             lambda lst, settings: (
                 x.lower() if (x := list_language(lst.lst.listUuid, settings)) else None
@@ -71,7 +71,7 @@ SENSOR_DESCRIPTIONS: tuple[BringSensorEntityDescription, ...] = (
     ),
     BringSensorEntityDescription(
         key=BringSensor.LIST_ACCESS,
-        REDACTED_VALUEBringSensor.LIST_ACCESS,
+        translation_key=BringSensor.LIST_ACCESS,
         value_fn=lambda lst, _: lst.content.status.value.lower(),
         entity_category=EntityCategory.DIAGNOSTIC,
         options=["registered", "shared", "invitation"],

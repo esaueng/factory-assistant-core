@@ -105,7 +105,7 @@ class DenonRS232ConfigFlow(ConfigFlow, domain=DOMAIN):
                                     for key, name in MODEL_OPTIONS
                                 ],
                                 mode=SelectSelectorMode.DROPDOWN,
-                                REDACTED_VALUE"model",
+                                translation_key="model",
                             )
                         ),
                         vol.Required(CONF_DEVICE): SerialPortSelector(),

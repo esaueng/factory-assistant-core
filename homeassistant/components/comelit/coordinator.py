@@ -109,18 +109,18 @@ class ComelitBaseCoordinator(DataUpdateCoordinator[T]):
         except (CannotConnect, CannotRetrieveData) as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
+                translation_key="update_failed",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except CannotAuthenticate as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_authenticate",
+                translation_key="cannot_authenticate",
             ) from err
         except DeviceStorageFailureError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_storage_failure",
+                translation_key="device_storage_failure",
             ) from err
 
     @abstractmethod

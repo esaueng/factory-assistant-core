@@ -26,19 +26,19 @@ class HomeConnectCommandButtonEntityDescription(ButtonEntityDescription):
 COMMAND_BUTTONS = (
     HomeConnectCommandButtonEntityDescription(
         key=CommandKey.BSH_COMMON_OPEN_DOOR,
-        REDACTED_VALUE"open_door",
+        translation_key="open_door",
     ),
     HomeConnectCommandButtonEntityDescription(
         key=CommandKey.BSH_COMMON_PARTLY_OPEN_DOOR,
-        REDACTED_VALUE"partly_open_door",
+        translation_key="partly_open_door",
     ),
     HomeConnectCommandButtonEntityDescription(
         key=CommandKey.BSH_COMMON_PAUSE_PROGRAM,
-        REDACTED_VALUE"pause_program",
+        translation_key="pause_program",
     ),
     HomeConnectCommandButtonEntityDescription(
         key=CommandKey.BSH_COMMON_RESUME_PROGRAM,
-        REDACTED_VALUE"resume_program",
+        translation_key="resume_program",
     ),
 )
 
@@ -107,7 +107,7 @@ class HomeConnectCommandButtonEntity(HomeConnectButtonEntity):
         except HomeConnectError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"execute_command",
+                translation_key="execute_command",
                 translation_placeholders={
                     **get_dict_from_home_connect_error(error),
                     "command": self.entity_description.key,
@@ -124,7 +124,7 @@ class HomeConnectStopProgramButtonEntity(HomeConnectButtonEntity):
             appliance_coordinator,
             ButtonEntityDescription(
                 key="StopProgram",
-                REDACTED_VALUE"stop_program",
+                translation_key="stop_program",
             ),
         )
 
@@ -135,6 +135,6 @@ class HomeConnectStopProgramButtonEntity(HomeConnectButtonEntity):
         except HomeConnectError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"stop_program",
+                translation_key="stop_program",
                 translation_placeholders=get_dict_from_home_connect_error(error),
             ) from error

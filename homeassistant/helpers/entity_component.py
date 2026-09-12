@@ -357,7 +357,7 @@ class EntityComponent[_EntityT: entity.Entity = entity.Entity]:
         except ConfigValidationError as err:
             raise ServiceValidationError(
                 translation_domain=err.translation_domain,
-                REDACTED_VALUEerr.translation_key,
+                translation_key=err.translation_key,
                 translation_placeholders=err.translation_placeholders,
             ) from err
 

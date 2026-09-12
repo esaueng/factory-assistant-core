@@ -61,7 +61,7 @@ def _make_integration(
 {_HA_IMPORTS}
 raise HomeAssistantError(
     translation_domain=DOMAIN,
-    REDACTED_VALUE"some_error",
+    translation_key="some_error",
 )
 """,
             id="translated_no_placeholders",
@@ -71,7 +71,7 @@ raise HomeAssistantError(
 {_HA_IMPORTS}
 raise HomeAssistantError(
     translation_domain=DOMAIN,
-    REDACTED_VALUE"error_with_name",
+    translation_key="error_with_name",
     translation_placeholders={{"name": device_name}},
 )
 """,
@@ -82,7 +82,7 @@ raise HomeAssistantError(
 {_HA_IMPORTS}
 raise ServiceValidationError(
     translation_domain=DOMAIN,
-    REDACTED_VALUE"invalid_input",
+    translation_key="invalid_input",
 )
 """,
             id="service_validation_error_translated",
@@ -92,7 +92,7 @@ raise ServiceValidationError(
 {_HA_IMPORTS}
 raise ConfigEntryAuthFailed(
     translation_domain=DOMAIN,
-    REDACTED_VALUE"invalid_api_key",
+    translation_key="invalid_api_key",
 )
 """,
             id="config_entry_auth_failed_translated",
@@ -181,7 +181,7 @@ def test_hardcoded_string_flagged(
             f"""
 {_HA_IMPORTS}
 raise HomeAssistantError(
-    REDACTED_VALUE"some_error",
+    translation_key="some_error",
 )
 """,
             id="key_without_domain",
@@ -242,7 +242,7 @@ def test_message_with_translation_key_flagged(
 raise HomeAssistantError(
     "This should not be here",
     translation_domain=DOMAIN,
-    REDACTED_VALUE"some_error",
+    translation_key="some_error",
 )
 """,
         "homeassistant.components.test_int.coordinator",
@@ -273,7 +273,7 @@ def test_missing_translation_key_flagged(
 {_HA_IMPORTS}
 raise HomeAssistantError(
     translation_domain=DOMAIN,
-    REDACTED_VALUE"nonexistent_key",
+    translation_key="nonexistent_key",
 )
 """,
         "homeassistant.components.test_int.coordinator",
@@ -305,7 +305,7 @@ def test_existing_translation_key_ok(
 {_HA_IMPORTS}
 raise HomeAssistantError(
     translation_domain=DOMAIN,
-    REDACTED_VALUE"some_error",
+    translation_key="some_error",
 )
 """,
         "homeassistant.components.test_int.coordinator",
@@ -336,7 +336,7 @@ def test_extra_placeholders_flagged(
 {_HA_IMPORTS}
 raise HomeAssistantError(
     translation_domain=DOMAIN,
-    REDACTED_VALUE"some_error",
+    translation_key="some_error",
     translation_placeholders={{"extra": "value"}},
 )
 """,
@@ -370,7 +370,7 @@ def test_placeholder_mismatch_flagged(
 {_HA_IMPORTS}
 raise HomeAssistantError(
     translation_domain=DOMAIN,
-    REDACTED_VALUE"some_error",
+    translation_key="some_error",
     translation_placeholders={{"device_name": name, "wrong_key": "value"}},
 )
 """,
@@ -404,7 +404,7 @@ def test_placeholder_match_ok(
 {_HA_IMPORTS}
 raise HomeAssistantError(
     translation_domain=DOMAIN,
-    REDACTED_VALUE"some_error",
+    translation_key="some_error",
     translation_placeholders={{"device_name": name, "error": str(err)}},
 )
 """,
@@ -437,7 +437,7 @@ def test_placeholder_variable_resolved(
 placeholders = {{"device_name": name, "error": str(err)}}
 raise HomeAssistantError(
     translation_domain=DOMAIN,
-    REDACTED_VALUE"some_error",
+    translation_key="some_error",
     translation_placeholders=placeholders,
 )
 """,
@@ -470,7 +470,7 @@ def test_placeholder_variable_mismatch_flagged(
 placeholders = {{"wrong": name}}
 raise HomeAssistantError(
     translation_domain=DOMAIN,
-    REDACTED_VALUE"some_error",
+    translation_key="some_error",
     translation_placeholders=placeholders,
 )
 """,
@@ -505,7 +505,7 @@ def test_dict_unpacking_placeholders_ok(
 base = {{"name": device_name}}
 raise HomeAssistantError(
     translation_domain=DOMAIN,
-    REDACTED_VALUE"some_error",
+    translation_key="some_error",
     translation_placeholders={{**base, "reason": str(err)}},
 )
 """,
@@ -538,7 +538,7 @@ def test_constant_placeholder_keys_ok(
 ATTR_NAME = "name"
 raise HomeAssistantError(
     translation_domain=DOMAIN,
-    REDACTED_VALUE"some_error",
+    translation_key="some_error",
     translation_placeholders={{ATTR_NAME: device_name}},
 )
 """,
@@ -580,7 +580,7 @@ def test_key_reference_resolution(
 {_HA_IMPORTS}
 raise HomeAssistantError(
     translation_domain=DOMAIN,
-    REDACTED_VALUE"some_error",
+    translation_key="some_error",
     translation_placeholders={{"device": device_name}},
 )
 """,
@@ -607,7 +607,7 @@ def test_no_strings_json_flags_missing_key(
 {_HA_IMPORTS}
 raise HomeAssistantError(
     translation_domain=DOMAIN,
-    REDACTED_VALUE"some_error",
+    translation_key="some_error",
 )
 """,
         "homeassistant.components.test_int.coordinator",
@@ -640,7 +640,7 @@ def test_missing_placeholders_flagged(
 {_HA_IMPORTS}
 raise HomeAssistantError(
     translation_domain=DOMAIN,
-    REDACTED_VALUE"some_error",
+    translation_key="some_error",
 )
 """,
         "homeassistant.components.test_int.coordinator",
@@ -675,7 +675,7 @@ def test_custom_integration_en_json(
 {_HA_IMPORTS}
 raise HomeAssistantError(
     translation_domain=DOMAIN,
-    REDACTED_VALUE"missing_key",
+    translation_key="missing_key",
 )
 """,
         "homeassistant.components.test_int.coordinator",

@@ -60,7 +60,7 @@ class ShellyRpcEventDescription(EventEntityDescription):
 
 BLOCK_EVENT: Final = ShellyBlockEventDescription(
     key="input",
-    REDACTED_VALUE"input",
+    translation_key="input",
     device_class=EventDeviceClass.BUTTON,
     removal_condition=lambda settings, block: (
         not is_block_momentary_input(settings, block, True)
@@ -68,7 +68,7 @@ BLOCK_EVENT: Final = ShellyBlockEventDescription(
 )
 RPC_EVENT: Final = ShellyRpcEventDescription(
     key="input",
-    REDACTED_VALUE"input",
+    translation_key="input",
     device_class=EventDeviceClass.BUTTON,
     event_types=list(RPC_INPUTS_EVENTS_TYPES),
     removal_condition=lambda config, status, key: (
@@ -77,7 +77,7 @@ RPC_EVENT: Final = ShellyRpcEventDescription(
 )
 SCRIPT_EVENT: Final = ShellyRpcEventDescription(
     key="script",
-    REDACTED_VALUE"script",
+    translation_key="script",
     entity_registry_enabled_default=False,
 )
 

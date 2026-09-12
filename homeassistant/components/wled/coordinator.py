@@ -151,13 +151,13 @@ class WLEDDataUpdateCoordinator(DataUpdateCoordinator[WLEDDevice]):
             # better to show that to user, but it is not translatable.
             raise ConfigEntryError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unsupported_version",
+                translation_key="unsupported_version",
                 translation_placeholders={"error": str(error)},
             ) from error
         except WLEDError as error:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_response_wled_error",
+                translation_key="invalid_response_wled_error",
                 translation_placeholders={"error": str(error)},
             ) from error
 
@@ -165,7 +165,7 @@ class WLEDDataUpdateCoordinator(DataUpdateCoordinator[WLEDDevice]):
         if device_mac_address != self.config_mac_address:
             raise ConfigEntryError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"mac_address_mismatch",
+                translation_key="mac_address_mismatch",
                 translation_placeholders={
                     "expected_mac": format_mac(self.config_mac_address).upper(),
                     "actual_mac": format_mac(device_mac_address).upper(),
@@ -204,6 +204,6 @@ class WLEDReleasesDataUpdateCoordinator(DataUpdateCoordinator[Releases]):
         except WLEDError as error:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_response_github_error",
+                translation_key="invalid_response_github_error",
                 translation_placeholders={"error": str(error)},
             ) from error

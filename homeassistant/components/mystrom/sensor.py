@@ -68,7 +68,7 @@ SENSOR_TYPES_PIR: tuple[MyStromSensorEntityDescription[MyStromPir], ...] = (
 SENSOR_TYPES_SWITCH: tuple[MyStromSensorEntityDescription[MyStromSwitch], ...] = (
     MyStromSensorEntityDescription(
         key="avg_consumption",
-        REDACTED_VALUE"avg_consumption",
+        translation_key="avg_consumption",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
         value_fn=lambda device: device.consumedWs,
@@ -82,7 +82,7 @@ SENSOR_TYPES_SWITCH: tuple[MyStromSensorEntityDescription[MyStromSwitch], ...] =
     ),
     MyStromSensorEntityDescription(
         key="energy_since_boot",
-        REDACTED_VALUE"energy_since_boot",
+        translation_key="energy_since_boot",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.JOULE,
@@ -187,7 +187,7 @@ class MyStromSwitchUptimeSensor(MyStromSensorBase):
         key="time_since_boot",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
-        REDACTED_VALUE"time_since_boot",
+        translation_key="time_since_boot",
     )
 
     def __init__(

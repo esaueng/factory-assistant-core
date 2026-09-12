@@ -65,19 +65,19 @@ class UptimeKumaDataUpdateCoordinator(
         except UptimeKumaAuthenticationException as e:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_failed_exception",
+                translation_key="auth_failed_exception",
             ) from e
         except UptimeKumaParseException as e:
             _LOGGER.debug("Full exception", exc_info=True)
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"parsing_failed_exception",
+                translation_key="parsing_failed_exception",
             ) from e
         except UptimeKumaException as e:
             _LOGGER.debug("Full exception", exc_info=True)
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"request_failed_exception",
+                translation_key="request_failed_exception",
             ) from e
         else:
             async_migrate_entities_unique_ids(self.hass, self, metrics)
@@ -171,5 +171,5 @@ class UptimeKumaSoftwareUpdateCoordinator(DataUpdateCoordinator[LatestRelease]):
         except UpdateException as e:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_check_failed",
+                translation_key="update_check_failed",
             ) from e

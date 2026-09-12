@@ -96,7 +96,7 @@ async def _get_onedrive_client(
         except ImplementationUnavailableError as err:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"oauth2_implementation_unavailable",
+                translation_key="oauth2_implementation_unavailable",
             ) from err
     session = OAuth2Session(hass, entry, implementation)
 
@@ -117,11 +117,11 @@ async def _handle_item_operation[T](func: Callable[[], Awaitable[T]], folder: st
         raise
     except AuthenticationError as err:
         raise ConfigEntryAuthFailed(
-            translation_domain=DOMAIN, REDACTED_VALUE"authentication_failed"
+            translation_domain=DOMAIN, translation_key="authentication_failed"
         ) from err
     except (OneDriveException, TimeoutError) as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"failed_to_get_folder",
+            translation_key="failed_to_get_folder",
             translation_placeholders={"folder": folder},
         ) from err

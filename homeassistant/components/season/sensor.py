@@ -109,7 +109,7 @@ class SeasonSensorEntity(SensorEntity):
         self.hemisphere = hemisphere
         self.type = entry.data[CONF_TYPE]
         self._attr_device_info = DeviceInfo(
-            REDACTED_VALUE"season",
+            translation_key="season",
             identifiers={(DOMAIN, entry.entry_id)},
             entry_type=DeviceEntryType.SERVICE,
         )

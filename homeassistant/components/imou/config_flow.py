@@ -70,7 +70,7 @@ class ImouConfigFlow(ConfigFlow, domain=DOMAIN):
                     vol.Required(CONF_API_URL, default="sg"): SelectSelector(
                         SelectSelectorConfig(
                             options=list(API_URLS),
-                            REDACTED_VALUE"api_url",
+                            translation_key="api_url",
                             mode=SelectSelectorMode.DROPDOWN,
                         )
                     ),

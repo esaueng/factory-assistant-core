@@ -86,7 +86,7 @@ class ElmaxArea(ElmaxEntity, AlarmControlPanelEntity):
         except ElmaxApiError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"alarm_operation_failed_generic",
+                translation_key="alarm_operation_failed_generic",
                 translation_placeholders={"operation": "arm"},
             ) from err
         finally:
@@ -110,11 +110,11 @@ class ElmaxArea(ElmaxEntity, AlarmControlPanelEntity):
         except ElmaxApiError as err:
             if err.status_code == 403:
                 raise HomeAssistantError(
-                    translation_domain=DOMAIN, REDACTED_VALUE"invalid_disarm_code"
+                    translation_domain=DOMAIN, translation_key="invalid_disarm_code"
                 ) from err
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"alarm_operation_failed_generic",
+                translation_key="alarm_operation_failed_generic",
                 translation_placeholders={"operation": "disarm"},
             ) from err
         finally:

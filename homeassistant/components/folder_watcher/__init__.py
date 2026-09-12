@@ -45,7 +45,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             is_fixable=False,
             is_persistent=False,
             severity=IssueSeverity.ERROR,
-            REDACTED_VALUE"setup_not_allowed_path",
+            translation_key="setup_not_allowed_path",
             translation_placeholders={
                 "path": path,
                 "config_variable": "allowlist_external_dirs",

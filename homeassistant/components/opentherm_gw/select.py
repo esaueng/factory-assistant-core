@@ -146,7 +146,7 @@ class OpenThermSelectEntityDescription(
 SELECT_DESCRIPTIONS: tuple[OpenThermSelectEntityDescription, ...] = (
     OpenThermSelectEntityDescription(
         key=OTGW_GPIO_A,
-        REDACTED_VALUE"gpio_mode_n",
+        translation_key="gpio_mode_n",
         translation_placeholders={"gpio_id": "A"},
         device_description=GATEWAY_DEVICE_DESCRIPTION,
         options=[
@@ -165,7 +165,7 @@ SELECT_DESCRIPTIONS: tuple[OpenThermSelectEntityDescription, ...] = (
     ),
     OpenThermSelectEntityDescription(
         key=OTGW_GPIO_B,
-        REDACTED_VALUE"gpio_mode_n",
+        translation_key="gpio_mode_n",
         translation_placeholders={"gpio_id": "B"},
         device_description=GATEWAY_DEVICE_DESCRIPTION,
         options=list(OpenThermSelectGPIOMode),
@@ -180,7 +180,7 @@ SELECT_DESCRIPTIONS: tuple[OpenThermSelectEntityDescription, ...] = (
     ),
     OpenThermSelectEntityDescription(
         key=OTGW_LED_A,
-        REDACTED_VALUE"led_mode_n",
+        translation_key="led_mode_n",
         translation_placeholders={"led_id": "A"},
         device_description=GATEWAY_DEVICE_DESCRIPTION,
         options=list(OpenThermSelectLEDMode),
@@ -189,7 +189,7 @@ SELECT_DESCRIPTIONS: tuple[OpenThermSelectEntityDescription, ...] = (
     ),
     OpenThermSelectEntityDescription(
         key=OTGW_LED_B,
-        REDACTED_VALUE"led_mode_n",
+        translation_key="led_mode_n",
         translation_placeholders={"led_id": "B"},
         device_description=GATEWAY_DEVICE_DESCRIPTION,
         options=list(OpenThermSelectLEDMode),
@@ -198,7 +198,7 @@ SELECT_DESCRIPTIONS: tuple[OpenThermSelectEntityDescription, ...] = (
     ),
     OpenThermSelectEntityDescription(
         key=OTGW_LED_C,
-        REDACTED_VALUE"led_mode_n",
+        translation_key="led_mode_n",
         translation_placeholders={"led_id": "C"},
         device_description=GATEWAY_DEVICE_DESCRIPTION,
         options=list(OpenThermSelectLEDMode),
@@ -207,7 +207,7 @@ SELECT_DESCRIPTIONS: tuple[OpenThermSelectEntityDescription, ...] = (
     ),
     OpenThermSelectEntityDescription(
         key=OTGW_LED_D,
-        REDACTED_VALUE"led_mode_n",
+        translation_key="led_mode_n",
         translation_placeholders={"led_id": "D"},
         device_description=GATEWAY_DEVICE_DESCRIPTION,
         options=list(OpenThermSelectLEDMode),
@@ -216,7 +216,7 @@ SELECT_DESCRIPTIONS: tuple[OpenThermSelectEntityDescription, ...] = (
     ),
     OpenThermSelectEntityDescription(
         key=OTGW_LED_E,
-        REDACTED_VALUE"led_mode_n",
+        translation_key="led_mode_n",
         translation_placeholders={"led_id": "E"},
         device_description=GATEWAY_DEVICE_DESCRIPTION,
         options=list(OpenThermSelectLEDMode),
@@ -225,7 +225,7 @@ SELECT_DESCRIPTIONS: tuple[OpenThermSelectEntityDescription, ...] = (
     ),
     OpenThermSelectEntityDescription(
         key=OTGW_LED_F,
-        REDACTED_VALUE"led_mode_n",
+        translation_key="led_mode_n",
         translation_placeholders={"led_id": "F"},
         device_description=GATEWAY_DEVICE_DESCRIPTION,
         options=list(OpenThermSelectLEDMode),

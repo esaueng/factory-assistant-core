@@ -108,7 +108,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: WattsVisionConfigEntry) 
     except config_entry_oauth2_flow.ImplementationUnavailableError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"oauth_implementation_unavailable",
+            translation_key="oauth_implementation_unavailable",
         ) from err
 
     oauth_session = config_entry_oauth2_flow.OAuth2Session(hass, entry, implementation)
@@ -119,16 +119,16 @@ async def async_setup_entry(hass: HomeAssistant, entry: WattsVisionConfigEntry) 
         if HTTPStatus.BAD_REQUEST <= err.status < HTTPStatus.INTERNAL_SERVER_ERROR:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"oauth_session_not_valid",
+                translation_key="oauth_session_not_valid",
             ) from err
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"temporary_connection_error",
+            translation_key="temporary_connection_error",
         ) from err
     except ClientError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"network_issue",
+            translation_key="network_issue",
         ) from err
 
     session = aiohttp_client.async_get_clientsession(hass)

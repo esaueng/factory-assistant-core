@@ -42,7 +42,7 @@ async def async_setup_entry(
                 descriptions.append(
                     OpenDisplayEventEntityDescription(
                         key=f"button_{bi.instance_number}_{button_id}",
-                        REDACTED_VALUE"button",
+                        translation_key="button",
                         translation_placeholders={"number": str(button_number)},
                         device_class=EventDeviceClass.BUTTON,
                         event_types=["button_down", "button_up"],

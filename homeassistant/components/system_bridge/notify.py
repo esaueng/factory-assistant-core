@@ -62,7 +62,7 @@ class SystemBridgeNotifyEntity(SystemBridgeEntity, NotifyEntity):
         except ConnectionClosedException as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"send_message_failed",
+                translation_key="send_message_failed",
                 translation_placeholders={
                     "title": self.coordinator.config_entry.title,
                     "host": self.coordinator.config_entry.data[CONF_HOST],

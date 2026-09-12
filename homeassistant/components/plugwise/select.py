@@ -34,30 +34,30 @@ class PlugwiseSelectEntityDescription(SelectEntityDescription):
 SELECT_TYPES = (
     PlugwiseSelectEntityDescription(
         key=SELECT_SCHEDULE,
-        REDACTED_VALUESELECT_SCHEDULE,
+        translation_key=SELECT_SCHEDULE,
         options_key="available_schedules",
     ),
     PlugwiseSelectEntityDescription(
         key=SELECT_REGULATION_MODE,
-        REDACTED_VALUESELECT_REGULATION_MODE,
+        translation_key=SELECT_REGULATION_MODE,
         entity_category=EntityCategory.CONFIG,
         options_key="regulation_modes",
     ),
     PlugwiseSelectEntityDescription(
         key=SELECT_DHW_MODE,
-        REDACTED_VALUESELECT_DHW_MODE,
+        translation_key=SELECT_DHW_MODE,
         entity_category=EntityCategory.CONFIG,
         options_key="dhw_modes",
     ),
     PlugwiseSelectEntityDescription(
         key=SELECT_GATEWAY_MODE,
-        REDACTED_VALUESELECT_GATEWAY_MODE,
+        translation_key=SELECT_GATEWAY_MODE,
         entity_category=EntityCategory.CONFIG,
         options_key="gateway_modes",
     ),
     PlugwiseSelectEntityDescription(
         key=SELECT_ZONE_PROFILE,
-        REDACTED_VALUESELECT_ZONE_PROFILE,
+        translation_key=SELECT_ZONE_PROFILE,
         entity_category=EntityCategory.CONFIG,
         options_key="zone_profiles",
     ),

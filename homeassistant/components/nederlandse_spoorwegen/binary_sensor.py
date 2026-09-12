@@ -40,7 +40,7 @@ def get_delay(planned: datetime | None, actual: datetime | None) -> bool:
 BINARY_SENSOR_DESCRIPTIONS = [
     NSBinarySensorEntityDescription(
         key="is_departure_delayed",
-        REDACTED_VALUE"is_departure_delayed",
+        translation_key="is_departure_delayed",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda trip: get_delay(
             trip.departure_time_planned, trip.departure_time_actual
@@ -49,7 +49,7 @@ BINARY_SENSOR_DESCRIPTIONS = [
     ),
     NSBinarySensorEntityDescription(
         key="is_arrival_delayed",
-        REDACTED_VALUE"is_arrival_delayed",
+        translation_key="is_arrival_delayed",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda trip: get_delay(
             trip.arrival_time_planned, trip.arrival_time_actual
@@ -58,7 +58,7 @@ BINARY_SENSOR_DESCRIPTIONS = [
     ),
     NSBinarySensorEntityDescription(
         key="is_going",
-        REDACTED_VALUE"is_going",
+        translation_key="is_going",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda trip: trip.going,
         entity_registry_enabled_default=False,

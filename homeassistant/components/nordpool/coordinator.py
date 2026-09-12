@@ -115,7 +115,7 @@ class NordPoolDataUpdateCoordinator(DataUpdateCoordinator[DeliveryPeriodsData]):
             # Empty response, use cache
             LOGGER.debug("No data entries received")
             return self.data
-        raise UpdateFailed(translation_domain=DOMAIN, REDACTED_VALUE"no_day_data")
+        raise UpdateFailed(translation_domain=DOMAIN, translation_key="no_day_data")
 
     async def _async_update_data(self) -> DeliveryPeriodsData:
         """Fetch the latest data from the source."""
@@ -145,7 +145,7 @@ class NordPoolDataUpdateCoordinator(DataUpdateCoordinator[DeliveryPeriodsData]):
                 self.async_set_update_error(  # type: ignore[unreachable]
                     UpdateFailed(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"could_not_fetch_data",
+                        translation_key="could_not_fetch_data",
                         translation_placeholders={"error": str(error)},
                     )
                 )

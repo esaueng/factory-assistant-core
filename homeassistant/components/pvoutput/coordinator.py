@@ -47,15 +47,15 @@ class PVOutputDataUpdateCoordinator(DataUpdateCoordinator[Status]):
         except PVOutputNoDataError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_data_available",
+                translation_key="no_data_available",
             ) from err
         except PVOutputConnectionError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
             ) from err
         except PVOutputError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unknown_error",
+                translation_key="unknown_error",
             ) from err

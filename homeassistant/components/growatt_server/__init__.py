@@ -239,7 +239,7 @@ def _login_classic_api(
     except (RequestException, JSONDecodeError) as ex:
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"communication_error",
+            translation_key="communication_error",
             translation_placeholders={"error": str(ex)},
         ) from ex
 
@@ -249,11 +249,11 @@ def _login_classic_api(
         if msg == LOGIN_INVALID_AUTH_CODE:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_credentials",
+                translation_key="invalid_credentials",
             )
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"login_failed",
+            translation_key="login_failed",
             translation_placeholders={"message": msg},
         )
 
@@ -276,18 +276,18 @@ def get_device_list_v1(
         if e.error_code == GrowattV1ApiErrorCode.NO_PRIVILEGE:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_failed",
+                translation_key="auth_failed",
                 translation_placeholders={"error": e.error_msg or str(e)},
             ) from e
         if e.error_code == GrowattV1ApiErrorCode.RATE_LIMITED:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"rate_limited",
+                translation_key="rate_limited",
                 translation_placeholders={"error": e.error_msg or str(e)},
             ) from e
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"api_error_with_code",
+            translation_key="api_error_with_code",
             translation_placeholders={
                 "error": e.error_msg or str(e),
                 "code": str(e.error_code),
@@ -366,13 +366,13 @@ async def async_setup_entry(
         except (RequestException, JSONDecodeError) as ex:
             raise ConfigEntryError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
                 translation_placeholders={"error": str(ex)},
             ) from ex
     else:
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unknown_auth_type",
+            translation_key="unknown_auth_type",
         )
 
     # Create a coordinator for the total sensors

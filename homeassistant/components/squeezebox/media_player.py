@@ -411,7 +411,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
     async def async_turn_off(self) -> None:
         """Turn off media player."""
         await safe_library_call(
-            self._player.async_set_power, False, REDACTED_VALUE"turn_off_failed"
+            self._player.async_set_power, False, translation_key="turn_off_failed"
         )
         await self.coordinator.async_refresh()
 
@@ -421,7 +421,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
         await safe_library_call(
             self._player.async_set_volume,
             volume_percent,
-            REDACTED_VALUE"set_volume_failed",
+            translation_key="set_volume_failed",
             translation_placeholders={"volume": volume_percent},
         )
         await self.coordinator.async_refresh()
@@ -431,7 +431,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
         await safe_library_call(
             self._player.async_set_muting,
             mute,
-            REDACTED_VALUE"set_mute_failed",
+            translation_key="set_mute_failed",
         )
         await self.coordinator.async_refresh()
 
@@ -439,7 +439,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
         """Send stop command to media player."""
         await safe_library_call(
             self._player.async_stop,
-            REDACTED_VALUE"stop_failed",
+            translation_key="stop_failed",
         )
         await self.coordinator.async_refresh()
 
@@ -447,7 +447,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
         """Send pause/play toggle command to media player."""
         await safe_library_call(
             self._player.async_toggle_pause,
-            REDACTED_VALUE"play_pause_failed",
+            translation_key="play_pause_failed",
         )
         await self.coordinator.async_refresh()
 
@@ -455,7 +455,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
         """Send play command to media player."""
         await safe_library_call(
             self._player.async_play,
-            REDACTED_VALUE"play_failed",
+            translation_key="play_failed",
         )
         await self.coordinator.async_refresh()
 
@@ -463,7 +463,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
         """Send pause command to media player."""
         await safe_library_call(
             self._player.async_pause,
-            REDACTED_VALUE"pause_failed",
+            translation_key="pause_failed",
         )
         await self.coordinator.async_refresh()
 
@@ -472,7 +472,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
         await safe_library_call(
             self._player.async_index,
             "+1",
-            REDACTED_VALUE"next_track_failed",
+            translation_key="next_track_failed",
         )
         await self.coordinator.async_refresh()
 
@@ -481,7 +481,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
         await safe_library_call(
             self._player.async_index,
             "-1",
-            REDACTED_VALUE"previous_track_failed",
+            translation_key="previous_track_failed",
         )
         await self.coordinator.async_refresh()
 
@@ -490,7 +490,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
         await safe_library_call(
             self._player.async_time,
             position,
-            REDACTED_VALUE"seek_failed",
+            translation_key="seek_failed",
             translation_placeholders={"position": position},
         )
         await self.coordinator.async_refresh()
@@ -500,7 +500,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
         await safe_library_call(
             self._player.async_set_power,
             True,
-            REDACTED_VALUE"turn_on_failed",
+            translation_key="turn_on_failed",
         )
         await self.coordinator.async_refresh()
 
@@ -539,7 +539,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
             if media_type not in MediaType.MUSIC:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"invalid_announce_media_type",
+                    translation_key="invalid_announce_media_type",
                     translation_placeholders={"media_type": str(media_type)},
                 )
 
@@ -550,7 +550,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
             except ValueError:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"invalid_announce_volume",
+                    translation_key="invalid_announce_volume",
                     translation_placeholders={"announce_volume": ATTR_ANNOUNCE_VOLUME},
                 ) from None
             else:
@@ -561,7 +561,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
             except ValueError:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"invalid_announce_timeout",
+                    translation_key="invalid_announce_timeout",
                     translation_placeholders={
                         "announce_timeout": ATTR_ANNOUNCE_TIMEOUT
                     },
@@ -577,7 +577,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
                 self._player.async_load_url,
                 media_id,
                 cmd,
-                REDACTED_VALUE"load_url_failed",
+                translation_key="load_url_failed",
                 translation_placeholders={"media_id": media_id, "cmd": cmd},
             )
             return
@@ -609,7 +609,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
             self._player.async_load_playlist,
             playlist,
             cmd,
-            REDACTED_VALUE"load_playlist_failed",
+            translation_key="load_playlist_failed",
             translation_placeholders={"cmd": cmd},
         )
 
@@ -643,7 +643,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
 
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_search_media_content_type",
+                translation_key="invalid_search_media_content_type",
                 translation_placeholders={
                     "media_content_type": ", ".join(_valid_type_list)
                 },
@@ -698,7 +698,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
         await safe_library_call(
             self._player.async_set_repeat,
             repeat_mode,
-            REDACTED_VALUE"set_repeat_failed",
+            translation_key="set_repeat_failed",
         )
         await self.coordinator.async_refresh()
 
@@ -708,7 +708,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
         await safe_library_call(
             self._player.async_set_shuffle,
             shuffle_mode,
-            REDACTED_VALUE"set_shuffle_failed",
+            translation_key="set_shuffle_failed",
         )
         await self.coordinator.async_refresh()
 
@@ -716,7 +716,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
         """Send the media player the command to clear the playlist."""
         await safe_library_call(
             self._player.async_clear_playlist,
-            REDACTED_VALUE"clear_playlist_failed",
+            translation_key="clear_playlist_failed",
         )
         await self.coordinator.async_refresh()
 
@@ -735,7 +735,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
         await safe_library_call(
             self._player.async_query,
             *all_params,
-            REDACTED_VALUE"call_method_failed",
+            translation_key="call_method_failed",
             translation_placeholders={"command": command},
         )
 
@@ -754,7 +754,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
         self._query_result = await safe_library_call(
             self._player.async_query,
             *all_params,
-            REDACTED_VALUE"call_query_failed",
+            translation_key="call_query_failed",
             translation_placeholders={"command": command},
         )
         _LOGGER.debug("call_query got result %s", self._query_result)
@@ -772,7 +772,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
             if other_player is None:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"join_cannot_find_other_player",
+                    translation_key="join_cannot_find_other_player",
                     translation_placeholders={
                         "other_player_entity_id": str(other_player_entity_id)
                     },
@@ -782,7 +782,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
             else:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"join_cannot_join_unknown_player",
+                    translation_key="join_cannot_join_unknown_player",
                     translation_placeholders={
                         "other_player_entity_id": str(other_player_entity_id)
                     },
@@ -792,7 +792,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
         """Unsync this Squeezebox player."""
         await safe_library_call(
             self._player.async_unsync,
-            REDACTED_VALUE"unjoin_failed",
+            translation_key="unjoin_failed",
         )
         await self.coordinator.async_refresh()
 
@@ -865,7 +865,7 @@ class SqueezeBoxMediaPlayerEntity(SqueezeboxEntity, MediaPlayerEntity):
             image_url = await safe_library_call(
                 self._player.generate_image_url_from_track_id,
                 media_image_id,
-                REDACTED_VALUE"generate_image_url_failed",
+                translation_key="generate_image_url_failed",
                 translation_placeholders={"track_id": media_image_id},
             )
 

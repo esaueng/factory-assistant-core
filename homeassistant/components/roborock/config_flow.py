@@ -103,7 +103,7 @@ class RoborockFlowHandler(ConfigFlow, domain=DOMAIN):
                         SelectSelectorConfig(
                             options=REGION_OPTIONS,
                             mode=SelectSelectorMode.DROPDOWN,
-                            REDACTED_VALUE"region",
+                            translation_key="region",
                         )
                     ),
                 }

@@ -703,7 +703,7 @@ class OpenAIBaseLLMEntity(Entity):
                         is_persistent=False,
                         learn_more_url="https://help.openai.com/en/articles/10910291-api-organization-verification",
                         severity=ir.IssueSeverity.WARNING,
-                        REDACTED_VALUE"organization_verification_required",
+                        translation_key="organization_verification_required",
                         translation_placeholders={
                             "platform_settings": "https://platform.openai.com/settings/organization/general"
                         },

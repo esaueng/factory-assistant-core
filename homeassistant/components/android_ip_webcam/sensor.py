@@ -31,7 +31,7 @@ class AndroidIPWebcamSensorEntityDescription(SensorEntityDescription):
 SENSOR_TYPES: tuple[AndroidIPWebcamSensorEntityDescription, ...] = (
     AndroidIPWebcamSensorEntityDescription(
         key="audio_connections",
-        REDACTED_VALUE"audio_connections",
+        translation_key="audio_connections",
         name="Audio connections",
         state_class=SensorStateClass.TOTAL,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -48,7 +48,7 @@ SENSOR_TYPES: tuple[AndroidIPWebcamSensorEntityDescription, ...] = (
     ),
     AndroidIPWebcamSensorEntityDescription(
         key="battery_temp",
-        REDACTED_VALUE"battery_temperature",
+        translation_key="battery_temperature",
         name="Battery temperature",
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -65,7 +65,7 @@ SENSOR_TYPES: tuple[AndroidIPWebcamSensorEntityDescription, ...] = (
     ),
     AndroidIPWebcamSensorEntityDescription(
         key="light",
-        REDACTED_VALUE"light",
+        translation_key="light",
         name="Light level",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda ipcam: ipcam.get_sensor_value("light"),
@@ -73,7 +73,7 @@ SENSOR_TYPES: tuple[AndroidIPWebcamSensorEntityDescription, ...] = (
     ),
     AndroidIPWebcamSensorEntityDescription(
         key="motion",
-        REDACTED_VALUE"motion",
+        translation_key="motion",
         name="Motion",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda ipcam: ipcam.get_sensor_value("motion"),
@@ -81,7 +81,7 @@ SENSOR_TYPES: tuple[AndroidIPWebcamSensorEntityDescription, ...] = (
     ),
     AndroidIPWebcamSensorEntityDescription(
         key="pressure",
-        REDACTED_VALUE"pressure",
+        translation_key="pressure",
         name="Pressure",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda ipcam: ipcam.get_sensor_value("pressure"),
@@ -89,7 +89,7 @@ SENSOR_TYPES: tuple[AndroidIPWebcamSensorEntityDescription, ...] = (
     ),
     AndroidIPWebcamSensorEntityDescription(
         key="proximity",
-        REDACTED_VALUE"proximity",
+        translation_key="proximity",
         name="Proximity",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda ipcam: ipcam.get_sensor_value("proximity"),
@@ -97,7 +97,7 @@ SENSOR_TYPES: tuple[AndroidIPWebcamSensorEntityDescription, ...] = (
     ),
     AndroidIPWebcamSensorEntityDescription(
         key="sound",
-        REDACTED_VALUE"sound",
+        translation_key="sound",
         name="Sound",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda ipcam: ipcam.get_sensor_value("sound"),
@@ -105,7 +105,7 @@ SENSOR_TYPES: tuple[AndroidIPWebcamSensorEntityDescription, ...] = (
     ),
     AndroidIPWebcamSensorEntityDescription(
         key="video_connections",
-        REDACTED_VALUE"video_connections",
+        translation_key="video_connections",
         name="Video connections",
         state_class=SensorStateClass.TOTAL,
         entity_category=EntityCategory.DIAGNOSTIC,

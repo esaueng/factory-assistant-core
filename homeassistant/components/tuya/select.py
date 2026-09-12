@@ -23,30 +23,30 @@ SELECTS: dict[DeviceCategory, tuple[SelectEntityDescription, ...]] = {
         SelectEntityDescription(
             key=DPCode.TEMP_SETTING_QUICK_C,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"quick_heat_temperature",
+            translation_key="quick_heat_temperature",
         ),
         SelectEntityDescription(
             key=DPCode.WORK_TYPE,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"kettle_work_mode",
+            translation_key="kettle_work_mode",
         ),
     ),
     DeviceCategory.CL: (
         SelectEntityDescription(
             key=DPCode.CONTROL_BACK_MODE,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"curtain_motor_mode",
+            translation_key="curtain_motor_mode",
         ),
         SelectEntityDescription(
             key=DPCode.MODE,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"curtain_mode",
+            translation_key="curtain_mode",
         ),
     ),
     DeviceCategory.CO2BJ: (
         SelectEntityDescription(
             key=DPCode.ALARM_VOLUME,
-            REDACTED_VALUE"volume",
+            translation_key="volume",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
@@ -54,11 +54,11 @@ SELECTS: dict[DeviceCategory, tuple[SelectEntityDescription, ...]] = {
         SelectEntityDescription(
             key=DPCode.COUNTDOWN_SET,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"countdown",
+            translation_key="countdown",
         ),
         SelectEntityDescription(
             key=DPCode.DEHUMIDITY_SET_ENUM,
-            REDACTED_VALUE"target_humidity",
+            translation_key="target_humidity",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
@@ -66,13 +66,13 @@ SELECTS: dict[DeviceCategory, tuple[SelectEntityDescription, ...]] = {
         SelectEntityDescription(
             key=DPCode.WORK_MODE,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"odor_elimination_mode",
+            translation_key="odor_elimination_mode",
         ),
     ),
     DeviceCategory.DGNBJ: (
         SelectEntityDescription(
             key=DPCode.ALARM_VOLUME,
-            REDACTED_VALUE"volume",
+            translation_key="volume",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
@@ -80,18 +80,18 @@ SELECTS: dict[DeviceCategory, tuple[SelectEntityDescription, ...]] = {
         SelectEntityDescription(
             key=DPCode.LEVEL,
             icon="mdi:thermometer-lines",
-            REDACTED_VALUE"blanket_level",
+            translation_key="blanket_level",
         ),
         SelectEntityDescription(
             key=DPCode.LEVEL_1,
             icon="mdi:thermometer-lines",
-            REDACTED_VALUE"indexed_blanket_level",
+            translation_key="indexed_blanket_level",
             translation_placeholders={"index": "1"},
         ),
         SelectEntityDescription(
             key=DPCode.LEVEL_2,
             icon="mdi:thermometer-lines",
-            REDACTED_VALUE"indexed_blanket_level",
+            translation_key="indexed_blanket_level",
             translation_placeholders={"index": "2"},
         ),
     ),
@@ -99,152 +99,152 @@ SELECTS: dict[DeviceCategory, tuple[SelectEntityDescription, ...]] = {
         SelectEntityDescription(
             key=DPCode.FAN_VERTICAL,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"vertical_fan_angle",
+            translation_key="vertical_fan_angle",
         ),
         SelectEntityDescription(
             key=DPCode.FAN_HORIZONTAL,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"horizontal_fan_angle",
+            translation_key="horizontal_fan_angle",
         ),
         SelectEntityDescription(
             key=DPCode.COUNTDOWN,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"countdown",
+            translation_key="countdown",
         ),
         SelectEntityDescription(
             key=DPCode.COUNTDOWN_SET,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"countdown",
+            translation_key="countdown",
         ),
     ),
     DeviceCategory.JSQ: (
         SelectEntityDescription(
             key=DPCode.SPRAY_MODE,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"humidifier_spray_mode",
+            translation_key="humidifier_spray_mode",
         ),
         SelectEntityDescription(
             key=DPCode.LEVEL,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"humidifier_level",
+            translation_key="humidifier_level",
         ),
         SelectEntityDescription(
             key=DPCode.MOODLIGHTING,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"humidifier_moodlighting",
+            translation_key="humidifier_moodlighting",
         ),
         SelectEntityDescription(
             key=DPCode.COUNTDOWN,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"countdown",
+            translation_key="countdown",
         ),
         SelectEntityDescription(
             key=DPCode.COUNTDOWN_SET,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"countdown",
+            translation_key="countdown",
         ),
     ),
     DeviceCategory.KFJ: (
         SelectEntityDescription(
             key=DPCode.CUP_NUMBER,
-            REDACTED_VALUE"cups",
+            translation_key="cups",
         ),
         SelectEntityDescription(
             key=DPCode.CONCENTRATION_SET,
-            REDACTED_VALUE"concentration",
+            translation_key="concentration",
             entity_category=EntityCategory.CONFIG,
         ),
         SelectEntityDescription(
             key=DPCode.MATERIAL,
-            REDACTED_VALUE"material",
+            translation_key="material",
             entity_category=EntityCategory.CONFIG,
         ),
         SelectEntityDescription(
             key=DPCode.MODE,
-            REDACTED_VALUE"mode",
+            translation_key="mode",
         ),
     ),
     DeviceCategory.KG: (
         SelectEntityDescription(
             key=DPCode.RELAY_STATUS,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"relay_status",
+            translation_key="relay_status",
         ),
         SelectEntityDescription(
             key=DPCode.LIGHT_MODE,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"light_mode",
+            translation_key="light_mode",
         ),
     ),
     DeviceCategory.KJ: (
         SelectEntityDescription(
             key=DPCode.COUNTDOWN,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"countdown",
+            translation_key="countdown",
         ),
         SelectEntityDescription(
             key=DPCode.COUNTDOWN_SET,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"countdown",
+            translation_key="countdown",
         ),
     ),
     DeviceCategory.QN: (
         SelectEntityDescription(
             key=DPCode.LEVEL,
-            REDACTED_VALUE"temperature_level",
+            translation_key="temperature_level",
         ),
     ),
     DeviceCategory.SD: (
         SelectEntityDescription(
             key=DPCode.CISTERN,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"vacuum_cistern",
+            translation_key="vacuum_cistern",
         ),
         SelectEntityDescription(
             key=DPCode.COLLECTION_MODE,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"vacuum_collection",
+            translation_key="vacuum_collection",
         ),
         SelectEntityDescription(
             key=DPCode.MODE,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"vacuum_mode",
+            translation_key="vacuum_mode",
         ),
     ),
     DeviceCategory.SFKZQ: (
         # Irrigation will not be run within this set delay period
         SelectEntityDescription(
             key=DPCode.WEATHER_DELAY,
-            REDACTED_VALUE"weather_delay",
+            translation_key="weather_delay",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.SGBJ: (
         SelectEntityDescription(
             key=DPCode.ALARM_STATE,
-            REDACTED_VALUE"siren_mode",
+            translation_key="siren_mode",
             entity_category=EntityCategory.CONFIG,
         ),
         SelectEntityDescription(
             key=DPCode.ALARM_VOLUME,
-            REDACTED_VALUE"volume",
+            translation_key="volume",
             entity_category=EntityCategory.CONFIG,
         ),
         SelectEntityDescription(
             key=DPCode.BRIGHT_STATE,
-            REDACTED_VALUE"brightness",
+            translation_key="brightness",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
     DeviceCategory.SJZ: (
         SelectEntityDescription(
             key=DPCode.LEVEL,
-            REDACTED_VALUE"desk_level",
+            translation_key="desk_level",
             entity_category=EntityCategory.CONFIG,
         ),
         SelectEntityDescription(
             key=DPCode.UP_DOWN,
-            REDACTED_VALUE"desk_up_down",
+            translation_key="desk_up_down",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
@@ -252,80 +252,80 @@ SELECTS: dict[DeviceCategory, tuple[SelectEntityDescription, ...]] = {
         SelectEntityDescription(
             key=DPCode.IPC_WORK_MODE,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"ipc_work_mode",
+            translation_key="ipc_work_mode",
         ),
         SelectEntityDescription(
             key=DPCode.DECIBEL_SENSITIVITY,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"decibel_sensitivity",
+            translation_key="decibel_sensitivity",
         ),
         SelectEntityDescription(
             key=DPCode.RECORD_MODE,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"record_mode",
+            translation_key="record_mode",
         ),
         SelectEntityDescription(
             key=DPCode.BASIC_NIGHTVISION,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"basic_nightvision",
+            translation_key="basic_nightvision",
         ),
         SelectEntityDescription(
             key=DPCode.BASIC_ANTI_FLICKER,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"basic_anti_flicker",
+            translation_key="basic_anti_flicker",
         ),
         SelectEntityDescription(
             key=DPCode.MOTION_SENSITIVITY,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"motion_sensitivity",
+            translation_key="motion_sensitivity",
         ),
     ),
     DeviceCategory.SZJQR: (
         SelectEntityDescription(
             key=DPCode.MODE,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"fingerbot_mode",
+            translation_key="fingerbot_mode",
         ),
     ),
     DeviceCategory.TDQ: (
         SelectEntityDescription(
             key=DPCode.RELAY_STATUS,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"relay_status",
+            translation_key="relay_status",
         ),
         SelectEntityDescription(
             key=DPCode.LIGHT_MODE,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"light_mode",
+            translation_key="light_mode",
         ),
     ),
     DeviceCategory.TGKG: (
         SelectEntityDescription(
             key=DPCode.RELAY_STATUS,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"relay_status",
+            translation_key="relay_status",
         ),
         SelectEntityDescription(
             key=DPCode.LIGHT_MODE,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"light_mode",
+            translation_key="light_mode",
         ),
         SelectEntityDescription(
             key=DPCode.LED_TYPE_1,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"indexed_led_type",
+            translation_key="indexed_led_type",
             translation_placeholders={"index": "1"},
         ),
         SelectEntityDescription(
             key=DPCode.LED_TYPE_2,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"indexed_led_type",
+            translation_key="indexed_led_type",
             translation_placeholders={"index": "2"},
         ),
         SelectEntityDescription(
             key=DPCode.LED_TYPE_3,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"indexed_led_type",
+            translation_key="indexed_led_type",
             translation_placeholders={"index": "3"},
         ),
     ),
@@ -333,20 +333,20 @@ SELECTS: dict[DeviceCategory, tuple[SelectEntityDescription, ...]] = {
         SelectEntityDescription(
             key=DPCode.LED_TYPE_1,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"indexed_led_type",
+            translation_key="indexed_led_type",
             translation_placeholders={"index": "1"},
         ),
         SelectEntityDescription(
             key=DPCode.LED_TYPE_2,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"indexed_led_type",
+            translation_key="indexed_led_type",
             translation_placeholders={"index": "2"},
         ),
     ),
     DeviceCategory.XNYJCN: (
         SelectEntityDescription(
             key=DPCode.WORK_MODE,
-            REDACTED_VALUE"inverter_work_mode",
+            translation_key="inverter_work_mode",
             entity_category=EntityCategory.CONFIG,
         ),
     ),

@@ -35,28 +35,28 @@ BINARY_SENSORS: Final[list[FytaBinarySensorEntityDescription]] = [
     ),
     FytaBinarySensorEntityDescription(
         key="notification_light",
-        REDACTED_VALUE"notification_light",
+        translation_key="notification_light",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda plant: plant.notification_light,
     ),
     FytaBinarySensorEntityDescription(
         key="notification_nutrition",
-        REDACTED_VALUE"notification_nutrition",
+        translation_key="notification_nutrition",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda plant: plant.notification_nutrition,
     ),
     FytaBinarySensorEntityDescription(
         key="notification_temperature",
-        REDACTED_VALUE"notification_temperature",
+        translation_key="notification_temperature",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda plant: plant.notification_temperature,
     ),
     FytaBinarySensorEntityDescription(
         key="notification_water",
-        REDACTED_VALUE"notification_water",
+        translation_key="notification_water",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda plant: plant.notification_water,
@@ -69,12 +69,12 @@ BINARY_SENSORS: Final[list[FytaBinarySensorEntityDescription]] = [
     ),
     FytaBinarySensorEntityDescription(
         key="productive_plant",
-        REDACTED_VALUE"productive_plant",
+        translation_key="productive_plant",
         value_fn=lambda plant: plant.productive_plant,
     ),
     FytaBinarySensorEntityDescription(
         key="repotted",
-        REDACTED_VALUE"repotted",
+        translation_key="repotted",
         value_fn=lambda plant: plant.repotted,
     ),
 ]

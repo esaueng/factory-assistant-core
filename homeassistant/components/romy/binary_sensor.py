@@ -14,21 +14,21 @@ from .entity import RomyEntity
 BINARY_SENSORS: list[BinarySensorEntityDescription] = [
     BinarySensorEntityDescription(
         key="dustbin",
-        REDACTED_VALUE"dustbin_present",
+        translation_key="dustbin_present",
     ),
     BinarySensorEntityDescription(
         key="dock",
-        REDACTED_VALUE"docked",
+        translation_key="docked",
         device_class=BinarySensorDeviceClass.PLUG,
     ),
     BinarySensorEntityDescription(
         key="water_tank",
-        REDACTED_VALUE"water_tank_present",
+        translation_key="water_tank_present",
         device_class=BinarySensorDeviceClass.MOISTURE,
     ),
     BinarySensorEntityDescription(
         key="water_tank_empty",
-        REDACTED_VALUE"water_tank_empty",
+        translation_key="water_tank_empty",
         device_class=BinarySensorDeviceClass.PROBLEM,
     ),
 ]

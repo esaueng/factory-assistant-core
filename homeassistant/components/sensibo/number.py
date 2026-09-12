@@ -33,7 +33,7 @@ class SensiboNumberEntityDescription(NumberEntityDescription):
 DEVICE_NUMBER_TYPES = (
     SensiboNumberEntityDescription(
         key="calibration_temp",
-        REDACTED_VALUE"calibration_temperature",
+        translation_key="calibration_temperature",
         device_class=NumberDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         remote_key="temperature",
@@ -46,7 +46,7 @@ DEVICE_NUMBER_TYPES = (
     ),
     SensiboNumberEntityDescription(
         key="calibration_hum",
-        REDACTED_VALUE"calibration_humidity",
+        translation_key="calibration_humidity",
         device_class=NumberDeviceClass.HUMIDITY,
         native_unit_of_measurement=PERCENTAGE,
         remote_key="humidity",

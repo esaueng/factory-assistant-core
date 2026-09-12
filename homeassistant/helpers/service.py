@@ -1380,7 +1380,7 @@ def async_get_config_entry(
     if not config_entry:
         raise ServiceValidationError(
             translation_domain=HOMEASSISTANT_DOMAIN,
-            REDACTED_VALUE"service_config_entry_not_found",
+            translation_key="service_config_entry_not_found",
             translation_placeholders={
                 "domain": domain,
                 "entry_id": entry_id,
@@ -1389,7 +1389,7 @@ def async_get_config_entry(
     if config_entry.domain != domain:
         raise ServiceValidationError(
             translation_domain=HOMEASSISTANT_DOMAIN,
-            REDACTED_VALUE"service_config_entry_wrong_domain",
+            translation_key="service_config_entry_wrong_domain",
             translation_placeholders={
                 "domain": domain,
                 "entry_title": config_entry.title,
@@ -1398,7 +1398,7 @@ def async_get_config_entry(
     if config_entry.state is not ConfigEntryState.LOADED:
         raise ServiceValidationError(
             translation_domain=HOMEASSISTANT_DOMAIN,
-            REDACTED_VALUE"service_config_entry_not_loaded",
+            translation_key="service_config_entry_not_loaded",
             translation_placeholders={
                 "domain": domain,
                 "entry_title": config_entry.title,

@@ -238,13 +238,13 @@ class RoborockVacuum(RoborockCoordinatedEntityV1, StateVacuumEntity):
         if self.coordinator.data is None:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_options_failed",
+                translation_key="update_options_failed",
             )
         code_mapping = {v: k for k, v in self._status_trait.fan_speed_mapping.items()}
         if (fan_speed_code := code_mapping.get(fan_speed)) is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_fan_speed",
+                translation_key="invalid_fan_speed",
                 translation_placeholders={
                     "fan_speed": fan_speed,
                 },
@@ -328,16 +328,16 @@ class RoborockVacuum(RoborockCoordinatedEntityV1, StateVacuumEntity):
             _LOGGER.debug("Failed to refresh map content: %s", err)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"map_failure",
+                translation_key="map_failure",
             ) from err
         if map_content_trait.map_data is None:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"map_failure",
+                translation_key="map_failure",
             )
         if (robot_position := map_content_trait.map_data.vacuum_position) is None:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"position_not_found"
+                translation_domain=DOMAIN, translation_key="position_not_found"
             )
 
         return {
@@ -399,7 +399,7 @@ class RoborockQ7Vacuum(RoborockCoordinatedEntityB01Q7, StateVacuumEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={
                     "command": "start_clean",
                 },
@@ -412,7 +412,7 @@ class RoborockQ7Vacuum(RoborockCoordinatedEntityB01Q7, StateVacuumEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={
                     "command": "pause_clean",
                 },
@@ -425,7 +425,7 @@ class RoborockQ7Vacuum(RoborockCoordinatedEntityB01Q7, StateVacuumEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={
                     "command": "stop_clean",
                 },
@@ -438,7 +438,7 @@ class RoborockQ7Vacuum(RoborockCoordinatedEntityB01Q7, StateVacuumEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={
                     "command": "return_to_dock",
                 },
@@ -451,7 +451,7 @@ class RoborockQ7Vacuum(RoborockCoordinatedEntityB01Q7, StateVacuumEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={
                     "command": "find_me",
                 },
@@ -464,7 +464,7 @@ class RoborockQ7Vacuum(RoborockCoordinatedEntityB01Q7, StateVacuumEntity):
         except ValueError as err:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_fan_speed",
+                translation_key="invalid_fan_speed",
                 translation_placeholders={
                     "fan_speed": fan_speed,
                 },
@@ -474,7 +474,7 @@ class RoborockQ7Vacuum(RoborockCoordinatedEntityB01Q7, StateVacuumEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={
                     "command": "set_fan_speed",
                 },
@@ -492,7 +492,7 @@ class RoborockQ7Vacuum(RoborockCoordinatedEntityB01Q7, StateVacuumEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={
                     "command": command,
                 },
@@ -570,7 +570,7 @@ class RoborockQ10Vacuum(RoborockCoordinatedEntityB01Q10, StateVacuumEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={
                     "command": "start_clean",
                 },
@@ -583,7 +583,7 @@ class RoborockQ10Vacuum(RoborockCoordinatedEntityB01Q10, StateVacuumEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={
                     "command": "pause_clean",
                 },
@@ -596,7 +596,7 @@ class RoborockQ10Vacuum(RoborockCoordinatedEntityB01Q10, StateVacuumEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={
                     "command": "stop_clean",
                 },
@@ -609,7 +609,7 @@ class RoborockQ10Vacuum(RoborockCoordinatedEntityB01Q10, StateVacuumEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={
                     "command": "return_to_dock",
                 },
@@ -622,7 +622,7 @@ class RoborockQ10Vacuum(RoborockCoordinatedEntityB01Q10, StateVacuumEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={
                     "command": "find_me",
                 },
@@ -635,7 +635,7 @@ class RoborockQ10Vacuum(RoborockCoordinatedEntityB01Q10, StateVacuumEntity):
         except ValueError as err:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_fan_speed",
+                translation_key="invalid_fan_speed",
                 translation_placeholders={
                     "fan_speed": fan_speed,
                 },
@@ -645,7 +645,7 @@ class RoborockQ10Vacuum(RoborockCoordinatedEntityB01Q10, StateVacuumEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={
                     "command": "set_fan_speed",
                 },
@@ -665,7 +665,7 @@ class RoborockQ10Vacuum(RoborockCoordinatedEntityB01Q10, StateVacuumEntity):
         if (dp_command := B01_Q10_DP.from_any_optional(command)) is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_command",
+                translation_key="invalid_command",
                 translation_placeholders={
                     "command": command,
                 },
@@ -675,7 +675,7 @@ class RoborockQ10Vacuum(RoborockCoordinatedEntityB01Q10, StateVacuumEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={
                     "command": command,
                 },

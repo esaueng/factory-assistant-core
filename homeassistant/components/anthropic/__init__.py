@@ -47,7 +47,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: AnthropicConfigEntry) ->
                 is_persistent=False,
                 learn_more_url="https://platform.claude.com/docs/en/about-claude/model-deprecations",
                 severity=ir.IssueSeverity.WARNING,
-                REDACTED_VALUE"model_deprecated",
+                translation_key="model_deprecated",
             )
             break
 

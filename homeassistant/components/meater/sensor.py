@@ -66,7 +66,7 @@ SENSOR_TYPES = (
     # Ambient temperature
     MeaterSensorEntityDescription(
         key="ambient",
-        REDACTED_VALUE"ambient",
+        translation_key="ambient",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -75,7 +75,7 @@ SENSOR_TYPES = (
     # Internal temperature (probe tip)
     MeaterSensorEntityDescription(
         key="internal",
-        REDACTED_VALUE"internal",
+        translation_key="internal",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -84,13 +84,13 @@ SENSOR_TYPES = (
     # Name of selected meat in user language or user given custom name
     MeaterSensorEntityDescription(
         key="cook_name",
-        REDACTED_VALUE"cook_name",
+        translation_key="cook_name",
         unavailable_when_not_cooking=True,
         value=lambda probe: probe.cook.name if probe.cook else None,
     ),
     MeaterSensorEntityDescription(
         key="cook_state",
-        REDACTED_VALUE"cook_state",
+        translation_key="cook_state",
         unavailable_when_not_cooking=True,
         device_class=SensorDeviceClass.ENUM,
         options=list(COOK_STATES.values()),
@@ -99,7 +99,7 @@ SENSOR_TYPES = (
     # Target temperature
     MeaterSensorEntityDescription(
         key="cook_target_temp",
-        REDACTED_VALUE"cook_target_temp",
+        translation_key="cook_target_temp",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -115,7 +115,7 @@ SENSOR_TYPES = (
     # Peak temperature
     MeaterSensorEntityDescription(
         key="cook_peak_temp",
-        REDACTED_VALUE"cook_peak_temp",
+        translation_key="cook_peak_temp",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -133,7 +133,7 @@ SENSOR_TYPES = (
     # current time + remaining time.
     MeaterSensorEntityDescription(
         key="cook_time_remaining",
-        REDACTED_VALUE"cook_time_remaining",
+        translation_key="cook_time_remaining",
         device_class=SensorDeviceClass.TIMESTAMP,
         unavailable_when_not_cooking=True,
         value=_remaining_time_to_timestamp,
@@ -142,7 +142,7 @@ SENSOR_TYPES = (
     # where the timestamp is current time - elapsed time.
     MeaterSensorEntityDescription(
         key="cook_time_elapsed",
-        REDACTED_VALUE"cook_time_elapsed",
+        translation_key="cook_time_elapsed",
         device_class=SensorDeviceClass.TIMESTAMP,
         unavailable_when_not_cooking=True,
         value=_elapsed_time_to_timestamp,

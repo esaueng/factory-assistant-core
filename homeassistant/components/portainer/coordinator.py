@@ -130,19 +130,19 @@ class PortainerBaseCoordinator[_DataT](DataUpdateCoordinator[_DataT]):
         except PortainerAuthenticationError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_auth",
+                translation_key="invalid_auth",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except PortainerConnectionError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except PortainerTimeoutError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"timeout_connect",
+                translation_key="timeout_connect",
                 translation_placeholders={"error": repr(err)},
             ) from err
 
@@ -157,19 +157,19 @@ class PortainerBaseCoordinator[_DataT](DataUpdateCoordinator[_DataT]):
         except PortainerAuthenticationError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_auth",
+                translation_key="invalid_auth",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except PortainerConnectionError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except PortainerTimeoutError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"timeout_connect",
+                translation_key="timeout_connect",
                 translation_placeholders={"error": repr(err)},
             ) from err
 
@@ -195,13 +195,13 @@ class PortainerCoordinator(
             _LOGGER.error("Authentication error: %s", repr(err))
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_auth",
+                translation_key="invalid_auth",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except PortainerConnectionError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
                 translation_placeholders={"error": repr(err)},
             ) from err
 

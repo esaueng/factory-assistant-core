@@ -100,7 +100,7 @@ async def _create_webhook(
             "https_webhook",
             is_fixable=False,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"https_webhook",
+            translation_key="https_webhook",
             translation_placeholders={
                 "base_url": hass_url,
                 "network_link": "https://my.home-assistant.io/redirect/network/",

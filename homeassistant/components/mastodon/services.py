@@ -195,7 +195,7 @@ async def _async_account_lookup(
     except MastodonNotFoundError:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"account_not_found",
+            translation_key="account_not_found",
             translation_placeholders={"account_name": account_name},
         ) from None
     return account
@@ -215,7 +215,7 @@ async def _async_get_account(call: ServiceCall) -> ServiceResponse:
     except MastodonAPIError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unable_to_get_account",
+            translation_key="unable_to_get_account",
             translation_placeholders={"account_name": account_name},
         ) from err
 
@@ -239,7 +239,7 @@ async def _async_mute_account(call: ServiceCall) -> ServiceResponse:
         if not isfinite(duration_seconds) or duration_seconds > MAX_DURATION_SECONDS:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"mute_duration_too_long",
+                translation_key="mute_duration_too_long",
             )
 
         duration = int(duration_seconds)
@@ -257,7 +257,7 @@ async def _async_mute_account(call: ServiceCall) -> ServiceResponse:
     except MastodonAPIError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unable_to_mute_account",
+            translation_key="unable_to_mute_account",
             translation_placeholders={"account_name": account_name},
         ) from err
 
@@ -281,7 +281,7 @@ async def _async_unmute_account(call: ServiceCall) -> ServiceResponse:
     except MastodonAPIError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unable_to_unmute_account",
+            translation_key="unable_to_unmute_account",
             translation_placeholders={"account_name": account_name},
         ) from err
 
@@ -317,7 +317,7 @@ async def _async_post(call: ServiceCall) -> ServiceResponse:
     if idempotency_key and len(idempotency_key) < 4:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"idempotency_key_too_short",
+            translation_key="idempotency_key_too_short",
         )
 
     await call.hass.async_add_executor_job(
@@ -350,7 +350,7 @@ def _post(hass: HomeAssistant, client: Mastodon, **kwargs: Any) -> None:
         if not hass.config.is_allowed_path(media_path):
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"not_whitelisted_directory",
+                translation_key="not_whitelisted_directory",
                 translation_placeholders={"media": media_path},
             )
 
@@ -366,7 +366,7 @@ def _post(hass: HomeAssistant, client: Mastodon, **kwargs: Any) -> None:
         except MastodonAPIError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unable_to_upload_image",
+                translation_key="unable_to_upload_image",
                 translation_placeholders={"media_path": media_path},
             ) from err
 
@@ -381,7 +381,7 @@ def _post(hass: HomeAssistant, client: Mastodon, **kwargs: Any) -> None:
     except MastodonAPIError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unable_to_send_message",
+            translation_key="unable_to_send_message",
         ) from err
 
 
@@ -428,13 +428,13 @@ async def _async_update_profile(call: ServiceCall) -> ServiceResponse | None:
         entry.async_start_reauth(call.hass)
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"auth_failed",
+            translation_key="auth_failed",
         ) from error
     except MastodonAPIError as err:
         LOGGER.debug("Full exception:", exc_info=err)
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unable_to_update_profile",
+            translation_key="unable_to_update_profile",
         ) from err
     if call.return_response:
         return response
@@ -461,7 +461,7 @@ async def _resolve_media(
     if media.path is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"media_source_not_supported",
+            translation_key="media_source_not_supported",
             translation_placeholders={"media_content_id": media_content_id},
         )
 

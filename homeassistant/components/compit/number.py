@@ -36,7 +36,7 @@ class CompitDeviceDescription:
 DESCRIPTIONS: dict[CompitParameter, NumberEntityDescription] = {
     CompitParameter.TARGET_TEMPERATURE_COMFORT: NumberEntityDescription(
         key=CompitParameter.TARGET_TEMPERATURE_COMFORT.value,
-        REDACTED_VALUE"target_temperature_comfort",
+        translation_key="target_temperature_comfort",
         native_min_value=0,
         native_max_value=40,
         native_step=0.1,
@@ -47,7 +47,7 @@ DESCRIPTIONS: dict[CompitParameter, NumberEntityDescription] = {
     ),
     CompitParameter.TARGET_TEMPERATURE_ECO_WINTER: NumberEntityDescription(
         key=CompitParameter.TARGET_TEMPERATURE_ECO_WINTER.value,
-        REDACTED_VALUE"target_temperature_eco_winter",
+        translation_key="target_temperature_eco_winter",
         native_min_value=0,
         native_max_value=40,
         native_step=0.1,
@@ -58,7 +58,7 @@ DESCRIPTIONS: dict[CompitParameter, NumberEntityDescription] = {
     ),
     CompitParameter.TARGET_TEMPERATURE_ECO_COOLING: NumberEntityDescription(
         key=CompitParameter.TARGET_TEMPERATURE_ECO_COOLING.value,
-        REDACTED_VALUE"target_temperature_eco_cooling",
+        translation_key="target_temperature_eco_cooling",
         native_min_value=0,
         native_max_value=40,
         native_step=0.1,
@@ -69,7 +69,7 @@ DESCRIPTIONS: dict[CompitParameter, NumberEntityDescription] = {
     ),
     CompitParameter.TARGET_TEMPERATURE_OUT_OF_HOME: NumberEntityDescription(
         key=CompitParameter.TARGET_TEMPERATURE_OUT_OF_HOME.value,
-        REDACTED_VALUE"target_temperature_out_of_home",
+        translation_key="target_temperature_out_of_home",
         native_min_value=0,
         native_max_value=40,
         native_step=0.1,
@@ -80,7 +80,7 @@ DESCRIPTIONS: dict[CompitParameter, NumberEntityDescription] = {
     ),
     CompitParameter.TARGET_TEMPERATURE_ECO: NumberEntityDescription(
         key=CompitParameter.TARGET_TEMPERATURE_ECO.value,
-        REDACTED_VALUE"target_temperature_eco",
+        translation_key="target_temperature_eco",
         native_min_value=0,
         native_max_value=40,
         native_step=0.1,
@@ -91,7 +91,7 @@ DESCRIPTIONS: dict[CompitParameter, NumberEntityDescription] = {
     ),
     CompitParameter.TARGET_TEMPERATURE_HOLIDAY: NumberEntityDescription(
         key=CompitParameter.TARGET_TEMPERATURE_HOLIDAY.value,
-        REDACTED_VALUE"target_temperature_holiday",
+        translation_key="target_temperature_holiday",
         native_min_value=0,
         native_max_value=40,
         native_step=0.1,
@@ -102,7 +102,7 @@ DESCRIPTIONS: dict[CompitParameter, NumberEntityDescription] = {
     ),
     CompitParameter.TARGET_TEMPERATURE_CONST: NumberEntityDescription(
         key=CompitParameter.TARGET_TEMPERATURE_CONST.value,
-        REDACTED_VALUE"target_temperature_const",
+        translation_key="target_temperature_const",
         native_min_value=0,
         native_max_value=95,
         native_step=0.1,
@@ -113,7 +113,7 @@ DESCRIPTIONS: dict[CompitParameter, NumberEntityDescription] = {
     ),
     CompitParameter.HEATING_TARGET_TEMPERATURE_CONST: NumberEntityDescription(
         key=CompitParameter.HEATING_TARGET_TEMPERATURE_CONST.value,
-        REDACTED_VALUE"heating_target_temperature_const",
+        translation_key="heating_target_temperature_const",
         native_min_value=0,
         native_max_value=95,
         native_step=0.1,
@@ -124,7 +124,7 @@ DESCRIPTIONS: dict[CompitParameter, NumberEntityDescription] = {
     ),
     CompitParameter.MIXER_TARGET_TEMPERATURE: NumberEntityDescription(
         key=CompitParameter.MIXER_TARGET_TEMPERATURE.value,
-        REDACTED_VALUE"mixer_target_temperature",
+        translation_key="mixer_target_temperature",
         native_min_value=0,
         native_max_value=90,
         native_step=0.1,
@@ -135,7 +135,7 @@ DESCRIPTIONS: dict[CompitParameter, NumberEntityDescription] = {
     ),
     CompitParameter.MIXER1_TARGET_TEMPERATURE: NumberEntityDescription(
         key=CompitParameter.MIXER1_TARGET_TEMPERATURE.value,
-        REDACTED_VALUE"mixer_target_temperature_zone",
+        translation_key="mixer_target_temperature_zone",
         native_min_value=0,
         native_max_value=95,
         native_step=0.1,
@@ -147,7 +147,7 @@ DESCRIPTIONS: dict[CompitParameter, NumberEntityDescription] = {
     ),
     CompitParameter.MIXER2_TARGET_TEMPERATURE: NumberEntityDescription(
         key=CompitParameter.MIXER2_TARGET_TEMPERATURE.value,
-        REDACTED_VALUE"mixer_target_temperature_zone",
+        translation_key="mixer_target_temperature_zone",
         native_min_value=0,
         native_max_value=95,
         native_step=0.1,
@@ -159,7 +159,7 @@ DESCRIPTIONS: dict[CompitParameter, NumberEntityDescription] = {
     ),
     CompitParameter.BOILER_TARGET_TEMPERATURE: NumberEntityDescription(
         key=CompitParameter.BOILER_TARGET_TEMPERATURE.value,
-        REDACTED_VALUE"boiler_target_temperature",
+        translation_key="boiler_target_temperature",
         native_min_value=0,
         native_max_value=95,
         native_step=0.1,
@@ -170,7 +170,7 @@ DESCRIPTIONS: dict[CompitParameter, NumberEntityDescription] = {
     ),
     CompitParameter.BOILER_TARGET_TEMPERATURE_CONST: NumberEntityDescription(
         key=CompitParameter.BOILER_TARGET_TEMPERATURE_CONST.value,
-        REDACTED_VALUE"boiler_target_temperature_const",
+        translation_key="boiler_target_temperature_const",
         native_min_value=0,
         native_max_value=90,
         native_step=0.1,

@@ -252,7 +252,7 @@ ENTITY_DESCRIPTIONS: tuple[DeconzSensorDescription, ...] = (
         suggested_display_precision=1,
     ),
     DeconzSensorDescription[ParticulateMatter](
-        key="REDACTED_VALUE",
+        key="particulate_matter_pm2_5",
         supported_fn=lambda device: device.measured_value is not None,
         update_key="measured_value",
         value_fn=lambda device: device.measured_value,

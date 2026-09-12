@@ -32,12 +32,12 @@ class SubaruButtonEntityDescription(ButtonEntityDescription):
 REMOTE_BUTTONS = [
     SubaruButtonEntityDescription(
         key=SERVICE_REMOTE_START,
-        REDACTED_VALUE"remote_start",
+        translation_key="remote_start",
         arg=lambda _: "Auto",
     ),
     SubaruButtonEntityDescription(
         key=SERVICE_REMOTE_STOP,
-        REDACTED_VALUE"remote_stop",
+        translation_key="remote_stop",
     ),
 ]
 

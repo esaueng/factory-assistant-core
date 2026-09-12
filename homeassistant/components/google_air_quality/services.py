@@ -61,7 +61,7 @@ def _get_config_entry_and_subentry_id(
 
     raise ServiceValidationError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"device_not_found",
+        translation_key="device_not_found",
     )
 
 
@@ -82,7 +82,7 @@ async def _async_get_forecast(call: ServiceCall) -> ServiceResponse:
     except GoogleAirQualityApiError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unable_to_fetch",
+            translation_key="unable_to_fetch",
         ) from err
 
     return cast(

@@ -30,7 +30,7 @@ class OhmeSelectDescription(OhmeEntityDescription, SelectEntityDescription):
 
 MODE_SELECT_DESCRIPTION: Final[OhmeSelectDescription] = OhmeSelectDescription(
     key="charge_mode",
-    REDACTED_VALUE"charge_mode",
+    translation_key="charge_mode",
     select_fn=lambda client, mode: client.async_set_mode(mode),
     options=[e.value for e in ChargerMode],
     current_option_fn=lambda client: client.mode.value if client.mode else None,
@@ -39,7 +39,7 @@ MODE_SELECT_DESCRIPTION: Final[OhmeSelectDescription] = OhmeSelectDescription(
 
 VEHICLE_SELECT_DESCRIPTION: Final[OhmeSelectDescription] = OhmeSelectDescription(
     key="vehicle",
-    REDACTED_VALUE"vehicle",
+    translation_key="vehicle",
     select_fn=lambda client, selection: client.async_set_vehicle(selection),
     options_fn=lambda client: client.vehicles,
     current_option_fn=lambda client: client.current_vehicle or None,
@@ -74,7 +74,7 @@ class OhmeSelect(OhmeEntity, SelectEntity):
             await self.entity_description.select_fn(self.coordinator.client, option)
         except ApiException as e:
             raise HomeAssistantError(
-                REDACTED_VALUE"api_failed", translation_domain=DOMAIN
+                translation_key="api_failed", translation_domain=DOMAIN
             ) from e
         await self.coordinator.async_request_refresh()
 

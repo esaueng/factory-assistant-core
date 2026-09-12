@@ -32,13 +32,13 @@ class AirGradientButtonEntityDescription(ButtonEntityDescription):
 
 CO2_CALIBRATION = AirGradientButtonEntityDescription(
     key="co2_calibration",
-    REDACTED_VALUE"co2_calibration",
+    translation_key="co2_calibration",
     entity_category=EntityCategory.CONFIG,
     press_fn=lambda client: client.request_co2_calibration(),
 )
 LED_BAR_TEST = AirGradientButtonEntityDescription(
     key="led_bar_test",
-    REDACTED_VALUE"led_bar_test",
+    translation_key="led_bar_test",
     entity_category=EntityCategory.CONFIG,
     press_fn=lambda client: client.request_led_bar_test(),
 )

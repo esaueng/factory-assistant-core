@@ -38,7 +38,7 @@ class KioskerSwitchEntityDescription(SwitchEntityDescription):
 SWITCHES: tuple[KioskerSwitchEntityDescription, ...] = (
     KioskerSwitchEntityDescription(
         key="disableScreensaver",
-        REDACTED_VALUE"disable_screensaver",
+        translation_key="disable_screensaver",
         set_state_fn=lambda api, disabled: api.screensaver_set_disabled_state(disabled),
         is_on_fn=lambda x: x.screensaver.disabled if x.screensaver else None,
     ),

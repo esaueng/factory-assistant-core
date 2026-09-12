@@ -46,7 +46,7 @@ STOOKWIJZER_SENSORS = [
     ),
     StookwijzerSensorDescription(
         key="advice",
-        REDACTED_VALUE"advice",
+        translation_key="advice",
         device_class=SensorDeviceClass.ENUM,
         value_fn=lambda client: client.advice,
         options=["code_yellow", "code_orange", "code_red"],

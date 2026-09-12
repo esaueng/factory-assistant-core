@@ -490,7 +490,7 @@ async def test_read_time_segments_api_error(
             "homeassistant.components.growatt_server.coordinator.GrowattCoordinator.read_time_segments",
             side_effect=HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_error",
+                translation_key="api_error",
                 translation_placeholders={"error": "API connection failed"},
             ),
         ),

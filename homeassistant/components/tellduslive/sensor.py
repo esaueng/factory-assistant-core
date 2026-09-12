@@ -66,25 +66,25 @@ SENSOR_TYPES: dict[str, SensorEntityDescription] = {
     ),
     SENSOR_TYPE_WINDDIRECTION: SensorEntityDescription(
         key=SENSOR_TYPE_WINDDIRECTION,
-        REDACTED_VALUE"wind_direction",
+        translation_key="wind_direction",
     ),
     SENSOR_TYPE_WINDAVERAGE: SensorEntityDescription(
         key=SENSOR_TYPE_WINDAVERAGE,
-        REDACTED_VALUE"wind_average",
+        translation_key="wind_average",
         native_unit_of_measurement=UnitOfSpeed.METERS_PER_SECOND,
         device_class=SensorDeviceClass.WIND_SPEED,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SENSOR_TYPE_WINDGUST: SensorEntityDescription(
         key=SENSOR_TYPE_WINDGUST,
-        REDACTED_VALUE"wind_gust",
+        translation_key="wind_gust",
         native_unit_of_measurement=UnitOfSpeed.METERS_PER_SECOND,
         device_class=SensorDeviceClass.WIND_SPEED,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SENSOR_TYPE_UV: SensorEntityDescription(
         key=SENSOR_TYPE_UV,
-        REDACTED_VALUE"uv",
+        translation_key="uv",
         native_unit_of_measurement=UV_INDEX,
         state_class=SensorStateClass.MEASUREMENT,
     ),
@@ -102,7 +102,7 @@ SENSOR_TYPES: dict[str, SensorEntityDescription] = {
     ),
     SENSOR_TYPE_DEW_POINT: SensorEntityDescription(
         key=SENSOR_TYPE_DEW_POINT,
-        REDACTED_VALUE"dew_point",
+        translation_key="dew_point",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,

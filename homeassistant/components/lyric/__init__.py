@@ -35,7 +35,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: LyricConfigEntry) -> boo
     except config_entry_oauth2_flow.ImplementationUnavailableError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"oauth2_implementation_unavailable",
+            translation_key="oauth2_implementation_unavailable",
         ) from err
     if not isinstance(implementation, LyricLocalOAuth2Implementation):
         raise TypeError("Unexpected auth implementation; can't find oauth client id")

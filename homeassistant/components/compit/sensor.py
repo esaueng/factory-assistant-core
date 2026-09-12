@@ -34,7 +34,7 @@ NO_SENSOR = "no_sensor"
 DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     CompitParameter.ACTUAL_BUFFER_TEMP: SensorEntityDescription(
         key=CompitParameter.ACTUAL_BUFFER_TEMP.value,
-        REDACTED_VALUE"actual_buffer_temp",
+        translation_key="actual_buffer_temp",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -42,7 +42,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.ACTUAL_DHW_TEMP: SensorEntityDescription(
         key=CompitParameter.ACTUAL_DHW_TEMP.value,
-        REDACTED_VALUE"actual_dhw_temp",
+        translation_key="actual_dhw_temp",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -50,7 +50,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.ACTUAL_HC1_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.ACTUAL_HC1_TEMPERATURE.value,
-        REDACTED_VALUE"actual_hc_temperature_zone",
+        translation_key="actual_hc_temperature_zone",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -59,7 +59,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.ACTUAL_HC2_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.ACTUAL_HC2_TEMPERATURE.value,
-        REDACTED_VALUE"actual_hc_temperature_zone",
+        translation_key="actual_hc_temperature_zone",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -68,7 +68,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.ACTUAL_HC3_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.ACTUAL_HC3_TEMPERATURE.value,
-        REDACTED_VALUE"actual_hc_temperature_zone",
+        translation_key="actual_hc_temperature_zone",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -77,7 +77,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.ACTUAL_HC4_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.ACTUAL_HC4_TEMPERATURE.value,
-        REDACTED_VALUE"actual_hc_temperature_zone",
+        translation_key="actual_hc_temperature_zone",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -86,7 +86,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.ACTUAL_UPPER_SOURCE_TEMP: SensorEntityDescription(
         key=CompitParameter.ACTUAL_UPPER_SOURCE_TEMP.value,
-        REDACTED_VALUE"actual_upper_source_temp",
+        translation_key="actual_upper_source_temp",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -94,7 +94,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.ALARM_CODE: SensorEntityDescription(
         key=CompitParameter.ALARM_CODE.value,
-        REDACTED_VALUE"alarm_code",
+        translation_key="alarm_code",
         device_class=SensorDeviceClass.ENUM,
         entity_category=EntityCategory.DIAGNOSTIC,
         options=[
@@ -120,7 +120,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.BOILER_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.BOILER_TEMPERATURE.value,
-        REDACTED_VALUE"boiler_temperature",
+        translation_key="boiler_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -128,7 +128,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.BUFFER_RETURN_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.BUFFER_RETURN_TEMPERATURE.value,
-        REDACTED_VALUE"buffer_return_temperature",
+        translation_key="buffer_return_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -136,7 +136,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.BUFFER_SET_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.BUFFER_SET_TEMPERATURE.value,
-        REDACTED_VALUE"buffer_set_temperature",
+        translation_key="buffer_set_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -144,7 +144,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.CALCULATED_BUFFER_TEMP: SensorEntityDescription(
         key=CompitParameter.CALCULATED_BUFFER_TEMP.value,
-        REDACTED_VALUE"calculated_buffer_temp",
+        translation_key="calculated_buffer_temp",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -152,7 +152,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.CALCULATED_DHW_TEMP: SensorEntityDescription(
         key=CompitParameter.CALCULATED_DHW_TEMP.value,
-        REDACTED_VALUE"calculated_dhw_temp",
+        translation_key="calculated_dhw_temp",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -160,7 +160,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.CALCULATED_HEATING_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.CALCULATED_HEATING_TEMPERATURE.value,
-        REDACTED_VALUE"calculated_heating_temperature",
+        translation_key="calculated_heating_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -168,7 +168,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.CALCULATED_TARGET_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.CALCULATED_TARGET_TEMPERATURE.value,
-        REDACTED_VALUE"calculated_target_temperature",
+        translation_key="calculated_target_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -176,7 +176,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.CALCULATED_UPPER_SOURCE_TEMP: SensorEntityDescription(
         key=CompitParameter.CALCULATED_UPPER_SOURCE_TEMP.value,
-        REDACTED_VALUE"calculated_upper_source_temp",
+        translation_key="calculated_upper_source_temp",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -184,7 +184,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.CHARGING_POWER: SensorEntityDescription(
         key=CompitParameter.CHARGING_POWER.value,
-        REDACTED_VALUE"charging_power",
+        translation_key="charging_power",
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -192,7 +192,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.CIRCUIT_TARGET_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.CIRCUIT_TARGET_TEMPERATURE.value,
-        REDACTED_VALUE"circuit_target_temperature",
+        translation_key="circuit_target_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -207,14 +207,14 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.CO2_PERCENT: SensorEntityDescription(
         key=CompitParameter.CO2_PERCENT.value,
-        REDACTED_VALUE"co2_percent",
+        translation_key="co2_percent",
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=PERCENTAGE,
     ),
     CompitParameter.COLLECTOR_POWER: SensorEntityDescription(
         key=CompitParameter.COLLECTOR_POWER.value,
-        REDACTED_VALUE"collector_power",
+        translation_key="collector_power",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -222,7 +222,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.COLLECTOR_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.COLLECTOR_TEMPERATURE.value,
-        REDACTED_VALUE"collector_temperature",
+        translation_key="collector_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -230,7 +230,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.DHW_MEASURED_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.DHW_MEASURED_TEMPERATURE.value,
-        REDACTED_VALUE"dhw_measured_temperature",
+        translation_key="dhw_measured_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -238,7 +238,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.DHW_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.DHW_TEMPERATURE.value,
-        REDACTED_VALUE"dhw_temperature",
+        translation_key="dhw_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -246,7 +246,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.ENERGY_CONSUMPTION: SensorEntityDescription(
         key=CompitParameter.ENERGY_CONSUMPTION.value,
-        REDACTED_VALUE"energy_consumption",
+        translation_key="energy_consumption",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.MEGA_WATT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -254,7 +254,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.ENERGY_SGREADY_YESTERDAY: SensorEntityDescription(
         key=CompitParameter.ENERGY_SGREADY_YESTERDAY.value,
-        REDACTED_VALUE"energy_smart_grid_yesterday",
+        translation_key="energy_smart_grid_yesterday",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -262,7 +262,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.ENERGY_TODAY: SensorEntityDescription(
         key=CompitParameter.ENERGY_TODAY.value,
-        REDACTED_VALUE"energy_today",
+        translation_key="energy_today",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -270,7 +270,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.ENERGY_TOTAL: SensorEntityDescription(
         key=CompitParameter.ENERGY_TOTAL.value,
-        REDACTED_VALUE"energy_total",
+        translation_key="energy_total",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -278,7 +278,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.ENERGY_YESTERDAY: SensorEntityDescription(
         key=CompitParameter.ENERGY_YESTERDAY.value,
-        REDACTED_VALUE"energy_yesterday",
+        translation_key="energy_yesterday",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -286,14 +286,14 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.FUEL_LEVEL: SensorEntityDescription(
         key=CompitParameter.FUEL_LEVEL.value,
-        REDACTED_VALUE"fuel_level",
+        translation_key="fuel_level",
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=PERCENTAGE,
     ),
     CompitParameter.HEATING1_TARGET_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.HEATING1_TARGET_TEMPERATURE.value,
-        REDACTED_VALUE"heating_target_temperature_zone",
+        translation_key="heating_target_temperature_zone",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -302,7 +302,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.HEATING2_TARGET_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.HEATING2_TARGET_TEMPERATURE.value,
-        REDACTED_VALUE"heating_target_temperature_zone",
+        translation_key="heating_target_temperature_zone",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -311,7 +311,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.HEATING3_TARGET_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.HEATING3_TARGET_TEMPERATURE.value,
-        REDACTED_VALUE"heating_target_temperature_zone",
+        translation_key="heating_target_temperature_zone",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -320,7 +320,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.HEATING4_TARGET_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.HEATING4_TARGET_TEMPERATURE.value,
-        REDACTED_VALUE"heating_target_temperature_zone",
+        translation_key="heating_target_temperature_zone",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -336,7 +336,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.LOWER_SOURCE_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.LOWER_SOURCE_TEMPERATURE.value,
-        REDACTED_VALUE"lower_source_temperature",
+        translation_key="lower_source_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -344,7 +344,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.MIXER_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.MIXER_TEMPERATURE.value,
-        REDACTED_VALUE"mixer_temperature",
+        translation_key="mixer_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -352,7 +352,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.MIXER1_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.MIXER1_TEMPERATURE.value,
-        REDACTED_VALUE"mixer_temperature_zone",
+        translation_key="mixer_temperature_zone",
         translation_placeholders={"zone": "1"},
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -361,7 +361,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.MIXER2_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.MIXER2_TEMPERATURE.value,
-        REDACTED_VALUE"mixer_temperature_zone",
+        translation_key="mixer_temperature_zone",
         translation_placeholders={"zone": "2"},
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -370,7 +370,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.OUTDOOR_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.OUTDOOR_TEMPERATURE.value,
-        REDACTED_VALUE"outdoor_temperature",
+        translation_key="outdoor_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -378,7 +378,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.PK1_FUNCTION: SensorEntityDescription(
         key=CompitParameter.PK1_FUNCTION.value,
-        REDACTED_VALUE"pk1_function",
+        translation_key="pk1_function",
         device_class=SensorDeviceClass.ENUM,
         entity_category=EntityCategory.DIAGNOSTIC,
         options=[
@@ -411,7 +411,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.PM10_LEVEL: SensorEntityDescription(
         key=CompitParameter.PM10_LEVEL.value,
-        REDACTED_VALUE"pm10_level",
+        translation_key="pm10_level",
         device_class=SensorDeviceClass.ENUM,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -425,7 +425,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.PM25_LEVEL: SensorEntityDescription(
         key=CompitParameter.PM25_LEVEL.value,
-        REDACTED_VALUE"pm25_level",
+        translation_key="pm25_level",
         device_class=SensorDeviceClass.ENUM,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -439,7 +439,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.PROTECTION_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.PROTECTION_TEMPERATURE.value,
-        REDACTED_VALUE"protection_temperature",
+        translation_key="protection_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -447,7 +447,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.RETURN_CIRCUIT_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.RETURN_CIRCUIT_TEMPERATURE.value,
-        REDACTED_VALUE"return_circuit_temperature",
+        translation_key="return_circuit_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -455,7 +455,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.TANK_BOTTOM_T2_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.TANK_BOTTOM_T2_TEMPERATURE.value,
-        REDACTED_VALUE"tank_temperature_t2",
+        translation_key="tank_temperature_t2",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -463,7 +463,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.TANK_T4_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.TANK_T4_TEMPERATURE.value,
-        REDACTED_VALUE"tank_temperature_t4",
+        translation_key="tank_temperature_t4",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -472,7 +472,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.TANK_TOP_T3_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.TANK_TOP_T3_TEMPERATURE.value,
-        REDACTED_VALUE"tank_temperature_t3",
+        translation_key="tank_temperature_t3",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -480,7 +480,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.TARGET_HEATING_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.TARGET_HEATING_TEMPERATURE.value,
-        REDACTED_VALUE"target_heating_temperature",
+        translation_key="target_heating_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -488,7 +488,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.UPPER_SOURCE_TEMPERATURE: SensorEntityDescription(
         key=CompitParameter.UPPER_SOURCE_TEMPERATURE.value,
-        REDACTED_VALUE"upper_source_temperature",
+        translation_key="upper_source_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -496,7 +496,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.VENTILATION_ALARM: SensorEntityDescription(
         key=CompitParameter.VENTILATION_ALARM.value,
-        REDACTED_VALUE"ventilation_alarm",
+        translation_key="ventilation_alarm",
         device_class=SensorDeviceClass.ENUM,
         entity_category=EntityCategory.DIAGNOSTIC,
         options=[
@@ -511,7 +511,7 @@ DESCRIPTIONS: dict[CompitParameter, SensorEntityDescription] = {
     ),
     CompitParameter.VENTILATION_GEAR: SensorEntityDescription(
         key=CompitParameter.VENTILATION_GEAR.value,
-        REDACTED_VALUE"ventilation_gear",
+        translation_key="ventilation_gear",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
 }

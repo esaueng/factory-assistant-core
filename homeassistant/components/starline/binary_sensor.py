@@ -16,51 +16,51 @@ from .entity import StarlineEntity
 BINARY_SENSOR_TYPES: tuple[BinarySensorEntityDescription, ...] = (
     BinarySensorEntityDescription(
         key="hbrake",
-        REDACTED_VALUE"hand_brake",
+        translation_key="hand_brake",
     ),
     BinarySensorEntityDescription(
         key="hood",
-        REDACTED_VALUE"hood",
+        translation_key="hood",
         device_class=BinarySensorDeviceClass.DOOR,
     ),
     BinarySensorEntityDescription(
         key="trunk",
-        REDACTED_VALUE"trunk",
+        translation_key="trunk",
         device_class=BinarySensorDeviceClass.DOOR,
     ),
     BinarySensorEntityDescription(
         key="alarm",
-        REDACTED_VALUE"alarm",
+        translation_key="alarm",
         device_class=BinarySensorDeviceClass.PROBLEM,
     ),
     BinarySensorEntityDescription(
         key="door",
-        REDACTED_VALUE"doors",
+        translation_key="doors",
         device_class=BinarySensorDeviceClass.LOCK,
     ),
     BinarySensorEntityDescription(
         key="run",
-        REDACTED_VALUE"ignition",
+        translation_key="ignition",
         entity_registry_enabled_default=False,
     ),
     BinarySensorEntityDescription(
         key="r_start",
-        REDACTED_VALUE"autostart",
+        translation_key="autostart",
         entity_registry_enabled_default=False,
     ),
     BinarySensorEntityDescription(
         key="hfree",
-        REDACTED_VALUE"handsfree",
+        translation_key="handsfree",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     BinarySensorEntityDescription(
         key="neutral",
-        REDACTED_VALUE"neutral",
+        translation_key="neutral",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     BinarySensorEntityDescription(
         key="arm_moving_pb",
-        REDACTED_VALUE"moving_ban",
+        translation_key="moving_ban",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
 )

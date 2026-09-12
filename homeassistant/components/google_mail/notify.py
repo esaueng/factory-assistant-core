@@ -62,7 +62,7 @@ class GMailNotificationService(BaseNotificationService):
             if email_from == ATTR_ME:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"missing_from_for_alias",
+                    translation_key="missing_from_for_alias",
                 )
             email["From"] = formataddr((alias, email_from))
         else:

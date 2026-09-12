@@ -52,7 +52,7 @@ class LaMarzoccoNumberEntityDescription(
 ENTITIES: tuple[LaMarzoccoNumberEntityDescription, ...] = (
     LaMarzoccoNumberEntityDescription(
         key="coffee_temp",
-        REDACTED_VALUE"coffee_temp",
+        translation_key="coffee_temp",
         device_class=NumberDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         native_step=PRECISION_TENTHS,
@@ -70,7 +70,7 @@ ENTITIES: tuple[LaMarzoccoNumberEntityDescription, ...] = (
     ),
     LaMarzoccoNumberEntityDescription(
         key="steam_temp",
-        REDACTED_VALUE"steam_temp",
+        translation_key="steam_temp",
         device_class=NumberDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         native_step=PRECISION_TENTHS,
@@ -95,7 +95,7 @@ ENTITIES: tuple[LaMarzoccoNumberEntityDescription, ...] = (
     ),
     LaMarzoccoNumberEntityDescription(
         key="smart_standby_time",
-        REDACTED_VALUE"smart_standby_time",
+        translation_key="smart_standby_time",
         device_class=NumberDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.MINUTES,
         native_step=PRECISION_WHOLE,
@@ -116,7 +116,7 @@ ENTITIES: tuple[LaMarzoccoNumberEntityDescription, ...] = (
     ),
     LaMarzoccoNumberEntityDescription(
         key="preinfusion_off",
-        REDACTED_VALUE"preinfusion_time",
+        translation_key="preinfusion_time",
         device_class=NumberDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.SECONDS,
         native_step=PRECISION_TENTHS,
@@ -158,7 +158,7 @@ ENTITIES: tuple[LaMarzoccoNumberEntityDescription, ...] = (
     ),
     LaMarzoccoNumberEntityDescription(
         key="prebrew_on",
-        REDACTED_VALUE"prebrew_time_on",
+        translation_key="prebrew_time_on",
         device_class=NumberDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.SECONDS,
         native_step=PRECISION_TENTHS,
@@ -202,7 +202,7 @@ ENTITIES: tuple[LaMarzoccoNumberEntityDescription, ...] = (
     ),
     LaMarzoccoNumberEntityDescription(
         key="prebrew_off",
-        REDACTED_VALUE"prebrew_time_off",
+        translation_key="prebrew_time_off",
         device_class=NumberDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.SECONDS,
         native_step=PRECISION_TENTHS,
@@ -248,7 +248,7 @@ ENTITIES: tuple[LaMarzoccoNumberEntityDescription, ...] = (
     ),
     LaMarzoccoNumberEntityDescription(
         key="bbw_dose_1",
-        REDACTED_VALUE"bbw_dose",
+        translation_key="bbw_dose",
         translation_placeholders={"dose": "1"},
         device_class=NumberDeviceClass.WEIGHT,
         native_unit_of_measurement=UnitOfMass.GRAMS,
@@ -287,7 +287,7 @@ ENTITIES: tuple[LaMarzoccoNumberEntityDescription, ...] = (
     ),
     LaMarzoccoNumberEntityDescription(
         key="bbw_dose_2",
-        REDACTED_VALUE"bbw_dose",
+        translation_key="bbw_dose",
         translation_placeholders={"dose": "2"},
         device_class=NumberDeviceClass.WEIGHT,
         native_unit_of_measurement=UnitOfMass.GRAMS,
@@ -364,7 +364,7 @@ class LaMarzoccoNumberEntity(LaMarzoccoEntity, NumberEntity):
             except RequestNotSuccessful as exc:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"number_exception",
+                    translation_key="number_exception",
                     translation_placeholders={
                         "key": self.entity_description.key,
                         "value": str(value),

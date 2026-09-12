@@ -33,7 +33,7 @@ class TeslemetryRootEntity(Entity):
         if not self.scoped:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"missing_scope",
+                translation_key="missing_scope",
                 translation_placeholders={"scope": scope},
             )
 

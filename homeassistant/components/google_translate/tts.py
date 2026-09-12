@@ -85,7 +85,7 @@ class GoogleTTSEntity(TextToSpeechEntity):
             identifiers={(DOMAIN, config_entry.entry_id)},
             manufacturer="Google",
             model="Google Translate TTS",
-            REDACTED_VALUE"google_translate",
+            translation_key="google_translate",
             translation_placeholders={"lang": self._lang, "tld": self._tld},
         )
         self._attr_default_language = self._lang

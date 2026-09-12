@@ -48,25 +48,25 @@ CONNECTIVITY_MODE_MAP = {
 SENSORS_MAPPING_TEMPLATE: dict[str, SensorEntityDescription] = {
     "radon_1day_avg": SensorEntityDescription(
         key="radon_1day_avg",
-        REDACTED_VALUE"radon_1day_avg",
+        translation_key="radon_1day_avg",
         native_unit_of_measurement=VOLUME_BECQUEREL,
         suggested_display_precision=0,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     "radon_longterm_avg": SensorEntityDescription(
         key="radon_longterm_avg",
-        REDACTED_VALUE"radon_longterm_avg",
+        translation_key="radon_longterm_avg",
         native_unit_of_measurement=VOLUME_BECQUEREL,
         suggested_display_precision=0,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     "radon_1day_level": SensorEntityDescription(
         key="radon_1day_level",
-        REDACTED_VALUE"radon_1day_level",
+        translation_key="radon_1day_level",
     ),
     "radon_longterm_level": SensorEntityDescription(
         key="radon_longterm_level",
-        REDACTED_VALUE"radon_longterm_level",
+        translation_key="radon_longterm_level",
     ),
     "temperature": SensorEntityDescription(
         key="temperature",
@@ -113,7 +113,7 @@ SENSORS_MAPPING_TEMPLATE: dict[str, SensorEntityDescription] = {
     ),
     "illuminance": SensorEntityDescription(
         key="illuminance",
-        REDACTED_VALUE"illuminance",
+        translation_key="illuminance",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=0,
@@ -127,7 +127,7 @@ SENSORS_MAPPING_TEMPLATE: dict[str, SensorEntityDescription] = {
     ),
     "noise": SensorEntityDescription(
         key="noise",
-        REDACTED_VALUE"ambient_noise",
+        translation_key="ambient_noise",
         device_class=SensorDeviceClass.SOUND_PRESSURE,
         native_unit_of_measurement=UnitOfSoundPressure.WEIGHTED_DECIBEL_A,
         state_class=SensorStateClass.MEASUREMENT,
@@ -135,7 +135,7 @@ SENSORS_MAPPING_TEMPLATE: dict[str, SensorEntityDescription] = {
     ),
     "connectivity_mode": SensorEntityDescription(
         key="connectivity_mode",
-        REDACTED_VALUE"connectivity_mode",
+        translation_key="connectivity_mode",
         device_class=SensorDeviceClass.ENUM,
         options=list(CONNECTIVITY_MODE_MAP.values()),
         entity_category=EntityCategory.DIAGNOSTIC,

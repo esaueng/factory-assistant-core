@@ -47,7 +47,7 @@ async def async_setup_entry(
     except (InvalidSessionTokenException, InvalidOAuthConfigurationException) as err:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"auth_expired",
+            translation_key="auth_expired",
         ) from err
     entry.runtime_data = coordinator = NintendoUpdateCoordinator(
         hass, nintendo_auth, entry

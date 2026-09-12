@@ -375,7 +375,7 @@ class SamsungTVLegacyBridge(SamsungTVBridge):
             # We got a response so it's on.
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"error_sending_command",
+                translation_key="error_sending_command",
                 translation_placeholders={"error": repr(err), "host": self.host},
             ) from err
         except OSError:

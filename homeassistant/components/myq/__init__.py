@@ -15,7 +15,7 @@ async def async_setup_entry(hass: HomeAssistant, _: ConfigEntry) -> bool:
         DOMAIN,
         is_fixable=False,
         severity=ir.IssueSeverity.ERROR,
-        REDACTED_VALUE"integration_removed",
+        translation_key="integration_removed",
         translation_placeholders={
             "blog": "https://www.home-assistant.io/blog/2023/11/06/removal-of-myq-integration/",
             "entries": "/config/integrations/integration/myQ",

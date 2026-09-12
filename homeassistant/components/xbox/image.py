@@ -37,17 +37,17 @@ class XboxImageEntityDescription(XboxBaseEntityDescription, ImageEntityDescripti
 IMAGE_DESCRIPTIONS: tuple[XboxImageEntityDescription, ...] = (
     XboxImageEntityDescription(
         key=XboxImage.GAMERPIC,
-        REDACTED_VALUEXboxImage.GAMERPIC,
+        translation_key=XboxImage.GAMERPIC,
         image_url_fn=profile_pic,
     ),
     XboxImageEntityDescription(
         key=XboxImage.NOW_PLAYING,
-        REDACTED_VALUEXboxImage.NOW_PLAYING,
+        translation_key=XboxImage.NOW_PLAYING,
         image_url_fn=lambda _, title: title.display_image if title else None,
     ),
     XboxImageEntityDescription(
         key=XboxImage.AVATAR,
-        REDACTED_VALUEXboxImage.AVATAR,
+        translation_key=XboxImage.AVATAR,
         image_url_fn=(
             lambda person, _: (
                 f"https://avatar-ssl.xboxlive.com/avatar/{person.gamertag}/avatar-body.png"

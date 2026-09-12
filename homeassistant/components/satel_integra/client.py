@@ -88,17 +88,17 @@ class SatelClient:
         except SatelConnectFailedError as ex:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
             ) from ex
         except SatelPanelBusyError as ex:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"panel_busy",
+                translation_key="panel_busy",
             ) from ex
         except SatelConnectionInitializationError as ex:
             raise ConfigEntryError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connection_initialization_failed",
+                translation_key="connection_initialization_failed",
             ) from ex
 
         self.controller.register_callbacks(

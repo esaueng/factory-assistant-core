@@ -119,7 +119,7 @@ class OpenWeatherMapWeather(SingleCoordinatorWeatherEntity[OWMUpdateCoordinator]
             return self.coordinator.data[ATTR_API_MINUTE_FORECAST]
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"service_minute_forecast_mode",
+            translation_key="service_minute_forecast_mode",
             translation_placeholders={"name": DEFAULT_NAME},
         )
 

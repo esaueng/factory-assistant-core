@@ -29,12 +29,12 @@ class SleepAsAndroidSensor(StrEnum):
 SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key=SleepAsAndroidSensor.NEXT_ALARM,
-        REDACTED_VALUESleepAsAndroidSensor.NEXT_ALARM,
+        translation_key=SleepAsAndroidSensor.NEXT_ALARM,
         device_class=SensorDeviceClass.TIMESTAMP,
     ),
     SensorEntityDescription(
         key=SleepAsAndroidSensor.ALARM_LABEL,
-        REDACTED_VALUESleepAsAndroidSensor.ALARM_LABEL,
+        translation_key=SleepAsAndroidSensor.ALARM_LABEL,
     ),
 )
 

@@ -42,7 +42,7 @@ NUMBERS = (
     # Export limit in W
     GoodweNumberEntityDescription(
         key="grid_export_limit",
-        REDACTED_VALUE"grid_export_limit",
+        translation_key="grid_export_limit",
         entity_category=EntityCategory.CONFIG,
         device_class=NumberDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -56,7 +56,7 @@ NUMBERS = (
     # Export limit in %
     GoodweNumberEntityDescription(
         key="grid_export_limit",
-        REDACTED_VALUE"grid_export_limit",
+        translation_key="grid_export_limit",
         entity_category=EntityCategory.CONFIG,
         native_unit_of_measurement=PERCENTAGE,
         native_step=1,
@@ -68,7 +68,7 @@ NUMBERS = (
     ),
     GoodweNumberEntityDescription(
         key="battery_discharge_depth",
-        REDACTED_VALUE"battery_discharge_depth",
+        translation_key="battery_discharge_depth",
         icon="mdi:battery-arrow-down",
         entity_category=EntityCategory.CONFIG,
         native_unit_of_measurement=PERCENTAGE,

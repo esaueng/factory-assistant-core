@@ -19,7 +19,7 @@ PARALLEL_UPDATES = 1
 
 CLEAR_LOGS_BUTTON = ButtonEntityDescription(
     key="clear_logs",
-    REDACTED_VALUE"clear_logs",
+    translation_key="clear_logs",
     entity_category=EntityCategory.CONFIG,
 )
 
@@ -50,7 +50,7 @@ class NextDnsButton(NextDnsEntity, ButtonEntity):
         ) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"method_error",
+                translation_key="method_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                     "error": repr(err),

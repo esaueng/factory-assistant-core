@@ -73,7 +73,7 @@ async def async_send_text_commands(
     if not entries:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"entry_not_loaded",
+            translation_key="entry_not_loaded",
         )
     entry: GoogleAssistantSDKConfigEntry = entries[0]
 
@@ -100,7 +100,7 @@ async def async_send_text_commands(
                     err,
                 )
                 raise HomeAssistantError(
-                    translation_domain=DOMAIN, REDACTED_VALUE"grpc_error"
+                    translation_domain=DOMAIN, translation_key="grpc_error"
                 ) from err
             text_response = resp[0]
             _LOGGER.debug("command: %s\nresponse: %s", command, text_response)

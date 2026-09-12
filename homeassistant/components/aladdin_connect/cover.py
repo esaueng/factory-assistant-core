@@ -59,7 +59,7 @@ class AladdinCoverEntity(AladdinConnectEntity, CoverEntity):
         except aiohttp.ClientError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"open_door_failed",
+                translation_key="open_door_failed",
             ) from err
 
     async def async_close_cover(self, **kwargs: Any) -> None:
@@ -69,7 +69,7 @@ class AladdinCoverEntity(AladdinConnectEntity, CoverEntity):
         except aiohttp.ClientError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"close_door_failed",
+                translation_key="close_door_failed",
             ) from err
 
     @property

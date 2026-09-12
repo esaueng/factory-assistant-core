@@ -51,7 +51,7 @@ class ActionDPCodeNotFoundError(ServiceValidationError):
 
         super().__init__(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"action_dpcode_not_found",
+            translation_key="action_dpcode_not_found",
             translation_placeholders={
                 "expected": str(
                     sorted(

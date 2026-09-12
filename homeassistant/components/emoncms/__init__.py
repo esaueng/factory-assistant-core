@@ -49,7 +49,7 @@ async def _check_unique_id_migration(
             is_fixable=False,
             issue_domain=DOMAIN,
             severity=IssueSeverity.WARNING,
-            REDACTED_VALUE"migrate_database",
+            translation_key="migrate_database",
             translation_placeholders={
                 "url": entry.data[CONF_URL],
                 "doc_url": EMONCMS_UUID_DOC_URL,

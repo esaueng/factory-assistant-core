@@ -33,7 +33,7 @@ class IncomfortBinarySensorEntityDescription(BinarySensorEntityDescription):
 SENSOR_TYPES: tuple[IncomfortBinarySensorEntityDescription, ...] = (
     IncomfortBinarySensorEntityDescription(
         key="failed",
-        REDACTED_VALUE"fault",
+        translation_key="fault",
         device_class=BinarySensorDeviceClass.PROBLEM,
         value_key="is_failed",
         extra_state_attributes_fn=lambda status: {
@@ -43,21 +43,21 @@ SENSOR_TYPES: tuple[IncomfortBinarySensorEntityDescription, ...] = (
     ),
     IncomfortBinarySensorEntityDescription(
         key="is_pumping",
-        REDACTED_VALUE"is_pumping",
+        translation_key="is_pumping",
         device_class=BinarySensorDeviceClass.RUNNING,
         value_key="is_pumping",
         entity_registry_enabled_default=False,
     ),
     IncomfortBinarySensorEntityDescription(
         key="is_burning",
-        REDACTED_VALUE"is_burning",
+        translation_key="is_burning",
         device_class=BinarySensorDeviceClass.RUNNING,
         value_key="is_burning",
         entity_registry_enabled_default=False,
     ),
     IncomfortBinarySensorEntityDescription(
         key="is_tapping",
-        REDACTED_VALUE"is_tapping",
+        translation_key="is_tapping",
         device_class=BinarySensorDeviceClass.RUNNING,
         value_key="is_tapping",
         entity_registry_enabled_default=False,

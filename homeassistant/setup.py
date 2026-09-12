@@ -296,7 +296,7 @@ async def _async_setup_component(
                 is_fixable=True,
                 issue_domain=HOMEASSISTANT_DOMAIN,
                 severity=IssueSeverity.ERROR,
-                REDACTED_VALUE"integration_not_found",
+                translation_key="integration_not_found",
                 translation_placeholders={
                     "domain": domain,
                 },
@@ -381,7 +381,7 @@ async def _async_setup_component(
             is_fixable=False,
             severity=IssueSeverity.ERROR,
             issue_domain=domain,
-            REDACTED_VALUE"config_entry_only",
+            translation_key="config_entry_only",
             translation_placeholders={
                 "domain": domain,
                 "add_integration": (

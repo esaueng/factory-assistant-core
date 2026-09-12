@@ -71,12 +71,12 @@ class SMADataUpdateCoordinator(DataUpdateCoordinator[SMACoordinatorData]):
             await self.async_close_sma_session()
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
             ) from err
         except SmaAuthenticationException as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_auth",
+                translation_key="invalid_auth",
             ) from err
 
     async def _async_update_data(self) -> SMACoordinatorData:
@@ -89,12 +89,12 @@ class SMADataUpdateCoordinator(DataUpdateCoordinator[SMACoordinatorData]):
         ) as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
             ) from err
         except SmaAuthenticationException as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_auth",
+                translation_key="invalid_auth",
             ) from err
 
         return SMACoordinatorData(

@@ -114,48 +114,48 @@ class SMHIFireEntityDescription(SensorEntityDescription):
 WEATHER_SENSOR_DESCRIPTIONS: tuple[SMHIWeatherEntityDescription, ...] = (
     SMHIWeatherEntityDescription(
         key="thunder",
-        REDACTED_VALUE"thunder",
+        translation_key="thunder",
         value_fn=lambda entity: get_percentage_values(entity, "thunder"),
         native_unit_of_measurement=PERCENTAGE,
     ),
     SMHIWeatherEntityDescription(
         key="total_cloud",
-        REDACTED_VALUE"total_cloud",
+        translation_key="total_cloud",
         value_fn=lambda entity: get_percentage_values(entity, "total_cloud"),
         native_unit_of_measurement=PERCENTAGE,
         entity_registry_enabled_default=False,
     ),
     SMHIWeatherEntityDescription(
         key="low_cloud",
-        REDACTED_VALUE"low_cloud",
+        translation_key="low_cloud",
         value_fn=lambda entity: get_percentage_values(entity, "low_cloud"),
         native_unit_of_measurement=PERCENTAGE,
         entity_registry_enabled_default=False,
     ),
     SMHIWeatherEntityDescription(
         key="medium_cloud",
-        REDACTED_VALUE"medium_cloud",
+        translation_key="medium_cloud",
         value_fn=lambda entity: get_percentage_values(entity, "medium_cloud"),
         native_unit_of_measurement=PERCENTAGE,
         entity_registry_enabled_default=False,
     ),
     SMHIWeatherEntityDescription(
         key="high_cloud",
-        REDACTED_VALUE"high_cloud",
+        translation_key="high_cloud",
         value_fn=lambda entity: get_percentage_values(entity, "high_cloud"),
         native_unit_of_measurement=PERCENTAGE,
         entity_registry_enabled_default=False,
     ),
     SMHIWeatherEntityDescription(
         key="precipitation_category",
-        REDACTED_VALUE"precipitation_category",
+        translation_key="precipitation_category",
         value_fn=get_precipitation_category,
         device_class=SensorDeviceClass.ENUM,
         options=[*PRECIPITATION_CATEGORY_MAP.values()],
     ),
     SMHIWeatherEntityDescription(
         key="frozen_precipitation",
-        REDACTED_VALUE"frozen_precipitation",
+        translation_key="frozen_precipitation",
         value_fn=lambda entity: get_percentage_values(entity, "frozen_precipitation"),
         native_unit_of_measurement=PERCENTAGE,
     ),
@@ -163,7 +163,7 @@ WEATHER_SENSOR_DESCRIPTIONS: tuple[SMHIWeatherEntityDescription, ...] = (
 FIRE_SENSOR_DESCRIPTIONS: tuple[SMHIFireEntityDescription, ...] = (
     SMHIFireEntityDescription(
         key="fwiindex",
-        REDACTED_VALUE"fwiindex",
+        translation_key="fwiindex",
         value_fn=(
             lambda entity: FWI_INDEX_MAP.get(get_fire_index_value(entity, "fwiindex"))
         ),
@@ -173,21 +173,21 @@ FIRE_SENSOR_DESCRIPTIONS: tuple[SMHIFireEntityDescription, ...] = (
     ),
     SMHIFireEntityDescription(
         key="fire_weather_index",
-        REDACTED_VALUE"fire_weather_index",
+        translation_key="fire_weather_index",
         value_fn=lambda entity: entity.coordinator.fire_current.get("fwi"),
         state_class=SensorStateClass.MEASUREMENT,
         entity_registry_enabled_default=False,
     ),
     SMHIFireEntityDescription(
         key="initial_spread_index",
-        REDACTED_VALUE"initial_spread_index",
+        translation_key="initial_spread_index",
         value_fn=lambda entity: entity.coordinator.fire_current.get("isi"),
         state_class=SensorStateClass.MEASUREMENT,
         entity_registry_enabled_default=False,
     ),
     SMHIFireEntityDescription(
         key="build_up_index",
-        REDACTED_VALUE"build_up_index",
+        translation_key="build_up_index",
         value_fn=(
             lambda entity: entity.coordinator.fire_current.get(
                 "bui"  # codespell:ignore bui
@@ -198,28 +198,28 @@ FIRE_SENSOR_DESCRIPTIONS: tuple[SMHIFireEntityDescription, ...] = (
     ),
     SMHIFireEntityDescription(
         key="fine_fuel_moisture_code",
-        REDACTED_VALUE"fine_fuel_moisture_code",
+        translation_key="fine_fuel_moisture_code",
         value_fn=lambda entity: entity.coordinator.fire_current.get("ffmc"),
         state_class=SensorStateClass.MEASUREMENT,
         entity_registry_enabled_default=False,
     ),
     SMHIFireEntityDescription(
         key="duff_moisture_code",
-        REDACTED_VALUE"duff_moisture_code",
+        translation_key="duff_moisture_code",
         value_fn=lambda entity: entity.coordinator.fire_current.get("dmc"),
         state_class=SensorStateClass.MEASUREMENT,
         entity_registry_enabled_default=False,
     ),
     SMHIFireEntityDescription(
         key="drought_code",
-        REDACTED_VALUE"drought_code",
+        translation_key="drought_code",
         value_fn=lambda entity: entity.coordinator.fire_current.get("dc"),
         state_class=SensorStateClass.MEASUREMENT,
         entity_registry_enabled_default=False,
     ),
     SMHIFireEntityDescription(
         key="grassfire",
-        REDACTED_VALUE"grassfire",
+        translation_key="grassfire",
         value_fn=(
             lambda entity: GRASSFIRE_MAP.get(get_fire_index_value(entity, "grassfire"))
         ),
@@ -229,7 +229,7 @@ FIRE_SENSOR_DESCRIPTIONS: tuple[SMHIFireEntityDescription, ...] = (
     ),
     SMHIFireEntityDescription(
         key="rate_of_spread",
-        REDACTED_VALUE"rate_of_spread",
+        translation_key="rate_of_spread",
         value_fn=lambda entity: entity.coordinator.fire_current.get("rn"),
         device_class=SensorDeviceClass.SPEED,
         state_class=SensorStateClass.MEASUREMENT,
@@ -238,7 +238,7 @@ FIRE_SENSOR_DESCRIPTIONS: tuple[SMHIFireEntityDescription, ...] = (
     ),
     SMHIFireEntityDescription(
         key="forestdry",
-        REDACTED_VALUE"forestdry",
+        translation_key="forestdry",
         value_fn=(
             lambda entity: FORESTDRY_MAP.get(get_fire_index_value(entity, "forestdry"))
         ),

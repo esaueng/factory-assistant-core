@@ -101,7 +101,7 @@ class SpotifyCoordinator(DataUpdateCoordinator[SpotifyCoordinatorData]):
                 is_fixable=False,
                 issue_domain=DOMAIN,
                 severity=IssueSeverity.ERROR,
-                REDACTED_VALUE"user_not_premium",
+                translation_key="user_not_premium",
                 translation_placeholders={"entry_title": self.config_entry.title},
                 learn_more_url=FREE_API_BLOGPOST,
             )

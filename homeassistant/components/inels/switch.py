@@ -28,7 +28,7 @@ class InelsSwitchEntityDescription(SwitchEntityDescription):
 SWITCH_TYPES = [
     InelsSwitchEntityDescription(
         key="bit",
-        REDACTED_VALUE"bit",
+        translation_key="bit",
         get_state_fn=lambda device, index: device.state.bit[index],
         placeholder_fn=lambda device, index, indexed: {
             "addr": f" {device.state.bit[index].addr}"
@@ -36,7 +36,7 @@ SWITCH_TYPES = [
     ),
     InelsSwitchEntityDescription(
         key="simple_relay",
-        REDACTED_VALUE"simple_relay",
+        translation_key="simple_relay",
         get_state_fn=lambda device, index: device.state.simple_relay[index],
         placeholder_fn=lambda device, index, indexed: {
             "index": f" {index + 1}" if indexed else ""
@@ -44,7 +44,7 @@ SWITCH_TYPES = [
     ),
     InelsSwitchEntityDescription(
         key="relay",
-        REDACTED_VALUE"relay",
+        translation_key="relay",
         get_state_fn=lambda device, index: device.state.relay[index],
         alerts=["overflow"],
         placeholder_fn=lambda device, index, indexed: {

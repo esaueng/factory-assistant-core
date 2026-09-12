@@ -194,7 +194,7 @@ def assert_issues(
             issue_id=issue_id,
             learn_more_url=None,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUEexpected_issue_data["issue_type"],
+            translation_key=expected_issue_data["issue_type"],
             translation_placeholders=expected_translation_placeholders,
         )
         assert (DOMAIN, issue_id) in issue_registry.issues
@@ -6755,7 +6755,7 @@ async def test_clean_up_repairs(
             data=data,
             is_fixable=False,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"",
+            translation_key="",
         )
 
     create_issue("test", "test_issue", None)

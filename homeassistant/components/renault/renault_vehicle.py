@@ -43,7 +43,7 @@ def with_error_wrapping[**_P, _R](
         except RenaultException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unknown_error",
+                translation_key="unknown_error",
                 translation_placeholders={"error": str(err)},
             ) from err
 

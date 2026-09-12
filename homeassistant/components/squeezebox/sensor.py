@@ -87,7 +87,7 @@ class PlayerSensorEntityDescription(SensorEntityDescription):
 PLAYER_SENSORS: tuple[PlayerSensorEntityDescription, ...] = (
     PlayerSensorEntityDescription(
         key=PLAYER_SENSOR_NEXT_ALARM,
-        REDACTED_VALUEPLAYER_SENSOR_NEXT_ALARM,
+        translation_key=PLAYER_SENSOR_NEXT_ALARM,
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda sensor: sensor.coordinator.player.alarm_next,
     ),

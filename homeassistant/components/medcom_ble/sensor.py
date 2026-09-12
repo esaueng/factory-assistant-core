@@ -20,7 +20,7 @@ _LOGGER = logging.getLogger(__name__)
 SENSORS_MAPPING_TEMPLATE: dict[str, SensorEntityDescription] = {
     "cpm": SensorEntityDescription(
         key="cpm",
-        REDACTED_VALUE"cpm",
+        translation_key="cpm",
         native_unit_of_measurement=UNIT_CPM,
         state_class=SensorStateClass.MEASUREMENT,
     ),

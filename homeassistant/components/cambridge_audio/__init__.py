@@ -53,7 +53,7 @@ async def async_setup_entry(
     except STREAM_MAGIC_EXCEPTIONS as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"entry_cannot_connect",
+            translation_key="entry_cannot_connect",
             translation_placeholders={
                 "host": client.host,
             },

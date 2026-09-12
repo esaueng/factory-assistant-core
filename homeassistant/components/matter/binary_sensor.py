@@ -131,7 +131,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="WaterLeakDetector",
-            REDACTED_VALUE"water_leak",
+            translation_key="water_leak",
             device_class=BinarySensorDeviceClass.MOISTURE,
         ),
         entity_class=MatterBinarySensor,
@@ -142,7 +142,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="WaterFreezeDetector",
-            REDACTED_VALUE"water_freeze",
+            translation_key="water_freeze",
             device_class=BinarySensorDeviceClass.COLD,
         ),
         entity_class=MatterBinarySensor,
@@ -153,7 +153,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="RainSensor",
-            REDACTED_VALUE"rain",
+            translation_key="rain",
             device_class=BinarySensorDeviceClass.MOISTURE,
         ),
         entity_class=MatterBinarySensor,
@@ -180,7 +180,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="LockActuatorEnabledSensor",
-            REDACTED_VALUE"actuator",
+            translation_key="actuator",
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
         entity_class=MatterBinarySensor,
@@ -193,7 +193,7 @@ DISCOVERY_SCHEMAS = [
             device_to_ha=lambda x: (
                 x == clusters.SmokeCoAlarm.Enums.MuteStateEnum.kMuted
             ),
-            REDACTED_VALUE"muted",
+            translation_key="muted",
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
         entity_class=MatterBinarySensor,
@@ -206,7 +206,7 @@ DISCOVERY_SCHEMAS = [
             device_to_ha=lambda x: (
                 x == clusters.SmokeCoAlarm.Enums.EndOfServiceEnum.kExpired
             ),
-            REDACTED_VALUE"end_of_service",
+            translation_key="end_of_service",
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
@@ -220,7 +220,7 @@ DISCOVERY_SCHEMAS = [
             device_to_ha=lambda x: (
                 x != clusters.SmokeCoAlarm.Enums.AlarmStateEnum.kNormal
             ),
-            REDACTED_VALUE"battery_alert",
+            translation_key="battery_alert",
             device_class=BinarySensorDeviceClass.BATTERY,
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
@@ -231,7 +231,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="SmokeCoAlarmTestInProgressSensor",
-            REDACTED_VALUE"test_in_progress",
+            translation_key="test_in_progress",
             device_class=BinarySensorDeviceClass.RUNNING,
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
@@ -242,7 +242,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="SmokeCoAlarmHardwareFaultAlertSensor",
-            REDACTED_VALUE"hardware_fault",
+            translation_key="hardware_fault",
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
@@ -281,7 +281,7 @@ DISCOVERY_SCHEMAS = [
             device_to_ha=lambda x: (
                 x != clusters.SmokeCoAlarm.Enums.AlarmStateEnum.kNormal
             ),
-            REDACTED_VALUE"interconnected_smoke_alarm",
+            translation_key="interconnected_smoke_alarm",
         ),
         entity_class=MatterBinarySensor,
         required_attributes=(clusters.SmokeCoAlarm.Attributes.InterconnectSmokeAlarm,),
@@ -294,7 +294,7 @@ DISCOVERY_SCHEMAS = [
             device_to_ha=lambda x: (
                 x != clusters.SmokeCoAlarm.Enums.AlarmStateEnum.kNormal
             ),
-            REDACTED_VALUE"interconnected_co_alarm",
+            translation_key="interconnected_co_alarm",
         ),
         entity_class=MatterBinarySensor,
         required_attributes=(clusters.SmokeCoAlarm.Attributes.InterconnectCOAlarm,),
@@ -303,7 +303,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="EnergyEvseChargingStatusSensor",
-            REDACTED_VALUE"evse_charging_status",
+            translation_key="evse_charging_status",
             device_class=BinarySensorDeviceClass.BATTERY_CHARGING,
             device_to_ha={
                 clusters.EnergyEvse.Enums.StateEnum.kNotPluggedIn: False,
@@ -323,7 +323,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="EnergyEvsePlugStateSensor",
-            REDACTED_VALUE"evse_plug_state",
+            translation_key="evse_plug_state",
             device_class=BinarySensorDeviceClass.PLUG,
             device_to_ha={
                 clusters.EnergyEvse.Enums.StateEnum.kNotPluggedIn: False,
@@ -343,7 +343,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="EnergyEvseSupplyStateSensor",
-            REDACTED_VALUE"evse_supply_state",
+            translation_key="evse_supply_state",
             device_class=BinarySensorDeviceClass.RUNNING,
             device_to_ha={
                 clusters.EnergyEvse.Enums.SupplyStateEnum.kDisabled: False,
@@ -360,7 +360,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="WaterHeaterManagementBoostStateSensor",
-            REDACTED_VALUE"boost_state",
+            translation_key="boost_state",
             device_to_ha=lambda x: (
                 x == clusters.WaterHeaterManagement.Enums.BoostStateEnum.kActive
             ),
@@ -372,7 +372,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="PumpFault",
-            REDACTED_VALUE"pump_fault",
+            translation_key="pump_fault",
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             # DeviceFault or SupplyFault bit enabled
@@ -390,7 +390,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="PumpStatusRunning",
-            REDACTED_VALUE"pump_running",
+            translation_key="pump_running",
             device_class=BinarySensorDeviceClass.RUNNING,
             device_to_ha=lambda x: bool(x & _PUMP_STATUS.kRunning),
         ),
@@ -404,7 +404,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="DishwasherAlarmInflowError",
-            REDACTED_VALUE"dishwasher_alarm_inflow",
+            translation_key="dishwasher_alarm_inflow",
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             device_to_ha=lambda x: bool(
@@ -419,7 +419,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="DishwasherAlarmDoorError",
-            REDACTED_VALUE"alarm_door",
+            translation_key="alarm_door",
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             device_to_ha=lambda x: bool(
@@ -434,7 +434,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="ValveConfigurationAndControlValveFault_GeneralFault",
-            REDACTED_VALUE"valve_fault_general_fault",
+            translation_key="valve_fault_general_fault",
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             # GeneralFault bit from ValveFault attribute
@@ -450,7 +450,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="ValveConfigurationAndControlValveFault_Blocked",
-            REDACTED_VALUE"valve_fault_blocked",
+            translation_key="valve_fault_blocked",
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             # Blocked bit from ValveFault attribute
@@ -466,7 +466,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="ValveConfigurationAndControlValveFault_Leaking",
-            REDACTED_VALUE"valve_fault_leaking",
+            translation_key="valve_fault_leaking",
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             # Leaking bit from ValveFault attribute
@@ -481,7 +481,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="RefrigeratorAlarmDoorOpen",
-            REDACTED_VALUE"alarm_door",
+            translation_key="alarm_door",
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             device_to_ha=lambda x: bool(
@@ -496,7 +496,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="WindowCoveringConfigStatusOperational",
-            REDACTED_VALUE"config_status_operational",
+            translation_key="config_status_operational",
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             # unset Operational bit from ConfigStatus bitmap means problem
@@ -511,7 +511,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="ThermostatRemoteSensing_LocalTemperature",
-            REDACTED_VALUE"thermostat_remote_sensing_local_temperature",
+            translation_key="thermostat_remote_sensing_local_temperature",
             entity_category=EntityCategory.DIAGNOSTIC,
             # LocalTemperature bit from RemoteSensing attribute
             device_to_ha=lambda x: bool(
@@ -526,7 +526,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="ThermostatRemoteSensing_OutdoorTemperature",
-            REDACTED_VALUE"thermostat_remote_sensing_outdoor_temperature",
+            translation_key="thermostat_remote_sensing_outdoor_temperature",
             entity_category=EntityCategory.DIAGNOSTIC,
             # OutdoorTemperature bit from RemoteSensing attribute
             device_to_ha=lambda x: bool(
@@ -544,7 +544,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="ThermostatRemoteSensing_Occupancy",
-            REDACTED_VALUE"thermostat_remote_sensing_occupancy",
+            translation_key="thermostat_remote_sensing_occupancy",
             entity_category=EntityCategory.DIAGNOSTIC,
             # Occupancy bit from RemoteSensing attribute
             device_to_ha=lambda x: bool(
@@ -561,7 +561,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="GeneralDiagnosticsActiveHardwareFaults",
-            REDACTED_VALUE"active_hardware_faults",
+            translation_key="active_hardware_faults",
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
@@ -576,7 +576,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="GeneralDiagnosticsActiveRadioFaults",
-            REDACTED_VALUE"active_radio_faults",
+            translation_key="active_radio_faults",
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
@@ -589,7 +589,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.BINARY_SENSOR,
         entity_description=MatterBinarySensorEntityDescription(
             key="GeneralDiagnosticsActiveNetworkFaults",
-            REDACTED_VALUE"active_network_faults",
+            translation_key="active_network_faults",
             device_class=BinarySensorDeviceClass.PROBLEM,
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,

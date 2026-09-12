@@ -1247,7 +1247,7 @@ async def test_entity_name_translation_placeholders(
     ent.entity_description = entity.EntityDescription(
         "test",
         has_entity_name=has_entity_name,
-        REDACTED_VALUEtranslation_key,
+        translation_key=translation_key,
         name="Entity Blu",
     )
     if placeholders is not None:
@@ -1347,7 +1347,7 @@ async def test_entity_name_translation_placeholder_errors(
     ent.entity_description = entity.EntityDescription(
         "test",
         has_entity_name=True,
-        REDACTED_VALUEtranslation_key,
+        translation_key=translation_key,
         name="Entity Blu",
     )
     if placeholders is not None:
@@ -1654,7 +1654,7 @@ async def test_translation_key(hass: HomeAssistant) -> None:
     mock_entity1 = entity.Entity()
     mock_entity1.hass = hass
     mock_entity1.entity_description = entity.EntityDescription(
-        key="abc", REDACTED_VALUE"from_entity_description"
+        key="abc", translation_key="from_entity_description"
     )
     mock_entity1.entity_id = "hello.world"
     mock_entity1._attr_translation_key = "from_attr"
@@ -1663,7 +1663,7 @@ async def test_translation_key(hass: HomeAssistant) -> None:
     mock_entity2 = entity.Entity()
     mock_entity2.hass = hass
     mock_entity2.entity_description = entity.EntityDescription(
-        key="abc", REDACTED_VALUE"from_entity_description"
+        key="abc", translation_key="from_entity_description"
     )
     mock_entity2.entity_id = "hello.world"
     assert mock_entity2.translation_key == "from_entity_description"

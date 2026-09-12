@@ -52,7 +52,7 @@ async def async_setup_entry(
         descriptions.append(
             AprilaireHumidifierDescription(
                 key="humidifier",
-                REDACTED_VALUE"humidifier",
+                translation_key="humidifier",
                 device_class=HumidifierDeviceClass.HUMIDIFIER,
                 action_key=Attribute.HUMIDIFICATION_STATUS,
                 action_map=HUMIDIFIER_ACTION_MAP,
@@ -71,7 +71,7 @@ async def async_setup_entry(
         descriptions.append(
             AprilaireHumidifierDescription(
                 key="dehumidifier",
-                REDACTED_VALUE"dehumidifier",
+                translation_key="dehumidifier",
                 device_class=HumidifierDeviceClass.DEHUMIDIFIER,
                 action_key=Attribute.DEHUMIDIFICATION_STATUS,
                 action_map=DEHUMIDIFIER_ACTION_MAP,

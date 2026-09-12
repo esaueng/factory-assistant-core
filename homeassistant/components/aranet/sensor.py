@@ -74,7 +74,7 @@ SENSOR_DESCRIPTIONS = {
     ),
     "status": AranetSensorEntityDescription(
         key="threshold",
-        REDACTED_VALUE"threshold",
+        translation_key="threshold",
         name="Threshold",
         device_class=SensorDeviceClass.ENUM,
         options=[status.name.lower() for status in Color],
@@ -88,7 +88,7 @@ SENSOR_DESCRIPTIONS = {
     ),
     "radiation_rate": AranetSensorEntityDescription(
         key="radiation_rate",
-        REDACTED_VALUE"radiation_rate",
+        translation_key="radiation_rate",
         name="Radiation Dose Rate",
         native_unit_of_measurement="μSv/h",
         state_class=SensorStateClass.MEASUREMENT,
@@ -97,7 +97,7 @@ SENSOR_DESCRIPTIONS = {
     ),
     "radiation_total": AranetSensorEntityDescription(
         key="radiation_total",
-        REDACTED_VALUE"radiation_total",
+        translation_key="radiation_total",
         name="Radiation Total Dose",
         native_unit_of_measurement="mSv",
         state_class=SensorStateClass.MEASUREMENT,
@@ -106,7 +106,7 @@ SENSOR_DESCRIPTIONS = {
     ),
     "radon_concentration": AranetSensorEntityDescription(
         key="radon_concentration",
-        REDACTED_VALUE"radon_concentration",
+        translation_key="radon_concentration",
         name="Radon Concentration",
         native_unit_of_measurement="Bq/m³",
         state_class=SensorStateClass.MEASUREMENT,

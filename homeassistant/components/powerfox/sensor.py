@@ -51,7 +51,7 @@ SENSORS_POWER: tuple[PowerfoxSensorEntityDescription[PowerMeter], ...] = (
     ),
     PowerfoxSensorEntityDescription[PowerMeter](
         key="energy_usage",
-        REDACTED_VALUE"energy_usage",
+        translation_key="energy_usage",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -59,7 +59,7 @@ SENSORS_POWER: tuple[PowerfoxSensorEntityDescription[PowerMeter], ...] = (
     ),
     PowerfoxSensorEntityDescription[PowerMeter](
         key="energy_usage_low_tariff",
-        REDACTED_VALUE"energy_usage_low_tariff",
+        translation_key="energy_usage_low_tariff",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -67,7 +67,7 @@ SENSORS_POWER: tuple[PowerfoxSensorEntityDescription[PowerMeter], ...] = (
     ),
     PowerfoxSensorEntityDescription[PowerMeter](
         key="energy_usage_high_tariff",
-        REDACTED_VALUE"energy_usage_high_tariff",
+        translation_key="energy_usage_high_tariff",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -75,7 +75,7 @@ SENSORS_POWER: tuple[PowerfoxSensorEntityDescription[PowerMeter], ...] = (
     ),
     PowerfoxSensorEntityDescription[PowerMeter](
         key="energy_return",
-        REDACTED_VALUE"energy_return",
+        translation_key="energy_return",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -87,7 +87,7 @@ SENSORS_POWER: tuple[PowerfoxSensorEntityDescription[PowerMeter], ...] = (
 SENSORS_WATER: tuple[PowerfoxSensorEntityDescription[WaterMeter], ...] = (
     PowerfoxSensorEntityDescription[WaterMeter](
         key="cold_water",
-        REDACTED_VALUE"cold_water",
+        translation_key="cold_water",
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         device_class=SensorDeviceClass.WATER,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -95,7 +95,7 @@ SENSORS_WATER: tuple[PowerfoxSensorEntityDescription[WaterMeter], ...] = (
     ),
     PowerfoxSensorEntityDescription[WaterMeter](
         key="warm_water",
-        REDACTED_VALUE"warm_water",
+        translation_key="warm_water",
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         device_class=SensorDeviceClass.WATER,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -106,7 +106,7 @@ SENSORS_WATER: tuple[PowerfoxSensorEntityDescription[WaterMeter], ...] = (
 SENSORS_HEAT: tuple[PowerfoxSensorEntityDescription[HeatMeter], ...] = (
     PowerfoxSensorEntityDescription[HeatMeter](
         key="heat_total_energy",
-        REDACTED_VALUE"heat_total_energy",
+        translation_key="heat_total_energy",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -114,14 +114,14 @@ SENSORS_HEAT: tuple[PowerfoxSensorEntityDescription[HeatMeter], ...] = (
     ),
     PowerfoxSensorEntityDescription[HeatMeter](
         key="heat_delta_energy",
-        REDACTED_VALUE"heat_delta_energy",
+        translation_key="heat_delta_energy",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         value_fn=lambda meter: meter.delta_energy,
     ),
     PowerfoxSensorEntityDescription[HeatMeter](
         key="heat_total_volume",
-        REDACTED_VALUE"heat_total_volume",
+        translation_key="heat_total_volume",
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         device_class=SensorDeviceClass.WATER,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -129,7 +129,7 @@ SENSORS_HEAT: tuple[PowerfoxSensorEntityDescription[HeatMeter], ...] = (
     ),
     PowerfoxSensorEntityDescription[HeatMeter](
         key="heat_delta_volume",
-        REDACTED_VALUE"heat_delta_volume",
+        translation_key="heat_delta_volume",
         suggested_display_precision=2,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         device_class=SensorDeviceClass.WATER,
@@ -140,7 +140,7 @@ SENSORS_HEAT: tuple[PowerfoxSensorEntityDescription[HeatMeter], ...] = (
 SENSORS_GAS: tuple[PowerfoxReportSensorEntityDescription, ...] = (
     PowerfoxReportSensorEntityDescription(
         key="gas_consumption_today",
-        REDACTED_VALUE"gas_consumption_today",
+        translation_key="gas_consumption_today",
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         device_class=SensorDeviceClass.GAS,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -148,7 +148,7 @@ SENSORS_GAS: tuple[PowerfoxReportSensorEntityDescription, ...] = (
     ),
     PowerfoxReportSensorEntityDescription(
         key="gas_consumption_energy_today",
-        REDACTED_VALUE"gas_consumption_energy_today",
+        translation_key="gas_consumption_energy_today",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -157,14 +157,14 @@ SENSORS_GAS: tuple[PowerfoxReportSensorEntityDescription, ...] = (
     ),
     PowerfoxReportSensorEntityDescription(
         key="gas_current_consumption",
-        REDACTED_VALUE"gas_current_consumption",
+        translation_key="gas_current_consumption",
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         device_class=SensorDeviceClass.GAS,
         value_fn=lambda gas: gas.current_consumption,
     ),
     PowerfoxReportSensorEntityDescription(
         key="gas_current_consumption_energy",
-        REDACTED_VALUE"gas_current_consumption_energy",
+        translation_key="gas_current_consumption_energy",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         entity_registry_enabled_default=False,
@@ -172,7 +172,7 @@ SENSORS_GAS: tuple[PowerfoxReportSensorEntityDescription, ...] = (
     ),
     PowerfoxReportSensorEntityDescription(
         key="gas_cost_today",
-        REDACTED_VALUE"gas_cost_today",
+        translation_key="gas_cost_today",
         native_unit_of_measurement=CURRENCY_EURO,
         device_class=SensorDeviceClass.MONETARY,
         suggested_display_precision=2,
@@ -181,21 +181,21 @@ SENSORS_GAS: tuple[PowerfoxReportSensorEntityDescription, ...] = (
     ),
     PowerfoxReportSensorEntityDescription(
         key="gas_max_consumption_today",
-        REDACTED_VALUE"gas_max_consumption_today",
+        translation_key="gas_max_consumption_today",
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         device_class=SensorDeviceClass.GAS,
         value_fn=lambda gas: gas.max_consumption,
     ),
     PowerfoxReportSensorEntityDescription(
         key="gas_min_consumption_today",
-        REDACTED_VALUE"gas_min_consumption_today",
+        translation_key="gas_min_consumption_today",
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         device_class=SensorDeviceClass.GAS,
         value_fn=lambda gas: gas.min_consumption,
     ),
     PowerfoxReportSensorEntityDescription(
         key="gas_avg_consumption_today",
-        REDACTED_VALUE"gas_avg_consumption_today",
+        translation_key="gas_avg_consumption_today",
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         device_class=SensorDeviceClass.GAS,
         entity_registry_enabled_default=False,
@@ -203,7 +203,7 @@ SENSORS_GAS: tuple[PowerfoxReportSensorEntityDescription, ...] = (
     ),
     PowerfoxReportSensorEntityDescription(
         key="gas_max_consumption_energy_today",
-        REDACTED_VALUE"gas_max_consumption_energy_today",
+        translation_key="gas_max_consumption_energy_today",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         entity_registry_enabled_default=False,
@@ -211,7 +211,7 @@ SENSORS_GAS: tuple[PowerfoxReportSensorEntityDescription, ...] = (
     ),
     PowerfoxReportSensorEntityDescription(
         key="gas_min_consumption_energy_today",
-        REDACTED_VALUE"gas_min_consumption_energy_today",
+        translation_key="gas_min_consumption_energy_today",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         entity_registry_enabled_default=False,
@@ -219,7 +219,7 @@ SENSORS_GAS: tuple[PowerfoxReportSensorEntityDescription, ...] = (
     ),
     PowerfoxReportSensorEntityDescription(
         key="gas_avg_consumption_energy_today",
-        REDACTED_VALUE"gas_avg_consumption_energy_today",
+        translation_key="gas_avg_consumption_energy_today",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         entity_registry_enabled_default=False,
@@ -227,7 +227,7 @@ SENSORS_GAS: tuple[PowerfoxReportSensorEntityDescription, ...] = (
     ),
     PowerfoxReportSensorEntityDescription(
         key="gas_max_cost_today",
-        REDACTED_VALUE"gas_max_cost_today",
+        translation_key="gas_max_cost_today",
         native_unit_of_measurement=CURRENCY_EURO,
         device_class=SensorDeviceClass.MONETARY,
         suggested_display_precision=2,

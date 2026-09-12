@@ -859,7 +859,7 @@ class ConfigEntry[_DataT = Any]:
                     HassJob(
                         functools.partial(self._async_setup_again, hass),
                         job_type=HassJobType.Callback,
-                        REDACTED_VALUE,
+                        cancel_on_shutdown=True,
                     ),
                 )
             else:
@@ -1353,7 +1353,7 @@ class ConfigEntry[_DataT = Any]:
             is_fixable=False,
             issue_domain=self.domain,
             severity=ir.IssueSeverity.ERROR,
-            REDACTED_VALUE"config_entry_reauth",
+            translation_key="config_entry_reauth",
             translation_placeholders={"name": self.title},
         )
 
@@ -2365,7 +2365,7 @@ class ConfigEntries:
                     is_fixable=True,
                     is_persistent=True,
                     severity=ir.IssueSeverity.WARNING,
-                    REDACTED_VALUE"orphaned_ignored_config_entry",
+                    translation_key="orphaned_ignored_config_entry",
                     translation_placeholders={"domain": entry.domain},
                     data={
                         "domain": entry.domain,
@@ -2958,7 +2958,7 @@ class ConfigEntries:
                     is_fixable=False,
                     issue_domain=domain,
                     severity=ir.IssueSeverity.ERROR,
-                    REDACTED_VALUEtranslation_key,
+                    translation_key=translation_key,
                     translation_placeholders=translation_placeholders,
                 )
 
@@ -4082,7 +4082,7 @@ class EntityRegistryDisabledHandler:
         self._remove_call_later = async_call_later(
             self.hass,
             RELOAD_AFTER_UPDATE_DELAY,
-            HassJob(self._async_handle_reload, REDACTED_VALUE),
+            HassJob(self._async_handle_reload, cancel_on_shutdown=True),
         )
 
     @callback

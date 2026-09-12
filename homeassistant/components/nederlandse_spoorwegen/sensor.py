@@ -67,14 +67,14 @@ class NSSensorEntityDescription(SensorEntityDescription):
 SENSOR_DESCRIPTIONS: tuple[NSSensorEntityDescription, ...] = (
     NSSensorEntityDescription(
         key="actual_departure",
-        REDACTED_VALUE"departure",
+        translation_key="departure",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=None,
         value_fn=get_departure_time,
     ),
     NSSensorEntityDescription(
         key="next_departure",
-        REDACTED_VALUE"next_departure_time",
+        translation_key="next_departure_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         is_next=True,
         value_fn=get_departure_time,
@@ -83,52 +83,52 @@ SENSOR_DESCRIPTIONS: tuple[NSSensorEntityDescription, ...] = (
     # Platform information
     NSSensorEntityDescription(
         key="departure_platform_planned",
-        REDACTED_VALUE"departure_platform_planned",
+        translation_key="departure_platform_planned",
         value_fn=lambda trip: getattr(trip, "departure_platform_planned", None),
         entity_registry_enabled_default=False,
     ),
     NSSensorEntityDescription(
         key="departure_platform_actual",
-        REDACTED_VALUE"departure_platform_actual",
+        translation_key="departure_platform_actual",
         value_fn=lambda trip: trip.departure_platform_actual,
         entity_registry_enabled_default=False,
     ),
     NSSensorEntityDescription(
         key="arrival_platform_planned",
-        REDACTED_VALUE"arrival_platform_planned",
+        translation_key="arrival_platform_planned",
         value_fn=lambda trip: trip.arrival_platform_planned,
         entity_registry_enabled_default=False,
     ),
     NSSensorEntityDescription(
         key="arrival_platform_actual",
-        REDACTED_VALUE"arrival_platform_actual",
+        translation_key="arrival_platform_actual",
         value_fn=lambda trip: trip.arrival_platform_actual,
         entity_registry_enabled_default=False,
     ),
     NSSensorEntityDescription(
         key="departure_time_planned",
-        REDACTED_VALUE"departure_time_planned",
+        translation_key="departure_time_planned",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda trip: trip.departure_time_planned,
         entity_registry_enabled_default=False,
     ),
     NSSensorEntityDescription(
         key="departure_time_actual",
-        REDACTED_VALUE"departure_time_actual",
+        translation_key="departure_time_actual",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda trip: trip.departure_time_actual,
         entity_registry_enabled_default=False,
     ),
     NSSensorEntityDescription(
         key="arrival_time_planned",
-        REDACTED_VALUE"arrival_time_planned",
+        translation_key="arrival_time_planned",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda trip: trip.arrival_time_planned,
         entity_registry_enabled_default=False,
     ),
     NSSensorEntityDescription(
         key="arrival_time_actual",
-        REDACTED_VALUE"arrival_time_actual",
+        translation_key="arrival_time_actual",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda trip: trip.arrival_time_actual,
         entity_registry_enabled_default=False,
@@ -136,7 +136,7 @@ SENSOR_DESCRIPTIONS: tuple[NSSensorEntityDescription, ...] = (
     # Trip information
     NSSensorEntityDescription(
         key="status",
-        REDACTED_VALUE"status",
+        translation_key="status",
         device_class=SensorDeviceClass.ENUM,
         options=list(TRIP_STATUS.values()),
         value_fn=lambda trip: TRIP_STATUS.get(trip.status),
@@ -144,14 +144,14 @@ SENSOR_DESCRIPTIONS: tuple[NSSensorEntityDescription, ...] = (
     ),
     NSSensorEntityDescription(
         key="transfers",
-        REDACTED_VALUE"transfers",
+        translation_key="transfers",
         value_fn=lambda trip: trip.nr_transfers if trip else 0,
         entity_registry_enabled_default=False,
     ),
     # Route info sensors
     NSSensorEntityDescription(
         key="route",
-        REDACTED_VALUE"route",
+        translation_key="route",
         value_fn=lambda trip: ", ".join(_get_route(trip)),
         entity_registry_enabled_default=False,
     ),

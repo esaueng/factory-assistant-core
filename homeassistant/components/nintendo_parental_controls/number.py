@@ -37,7 +37,7 @@ class NintendoParentalControlsNumberEntityDescription(NumberEntityDescription):
 NUMBER_DESCRIPTIONS: tuple[NintendoParentalControlsNumberEntityDescription, ...] = (
     NintendoParentalControlsNumberEntityDescription(
         key=NintendoParentalNumber.TODAY_MAX_SCREENTIME,
-        REDACTED_VALUENintendoParentalNumber.TODAY_MAX_SCREENTIME,
+        translation_key=NintendoParentalNumber.TODAY_MAX_SCREENTIME,
         native_min_value=-1,
         native_step=1,
         native_max_value=360,

@@ -28,22 +28,22 @@ class SystemNexa2SwitchEntityDescription(SwitchEntityDescription):
 SWITCH_TYPES: Final = [
     SystemNexa2SwitchEntityDescription(
         key="433Mhz",
-        REDACTED_VALUE"433mhz",
+        translation_key="433mhz",
         entity_category=EntityCategory.CONFIG,
     ),
     SystemNexa2SwitchEntityDescription(
         key="Cloud Access",
-        REDACTED_VALUE"cloud_access",
+        translation_key="cloud_access",
         entity_category=EntityCategory.CONFIG,
     ),
     SystemNexa2SwitchEntityDescription(
         key="Led",
-        REDACTED_VALUE"led",
+        translation_key="led",
         entity_category=EntityCategory.CONFIG,
     ),
     SystemNexa2SwitchEntityDescription(
         key="Physical Button",
-        REDACTED_VALUE"physical_button",
+        translation_key="physical_button",
         entity_category=EntityCategory.CONFIG,
     ),
 ]

@@ -126,12 +126,12 @@ class DucoVentilationFanEntity(DucoEntity, FanEntity):
             _LOGGER.warning("Duco write rate limit exceeded for node %s", self._node_id)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"rate_limit_exceeded",
+                translation_key="rate_limit_exceeded",
             ) from err
         except DucoError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_to_set_state",
+                translation_key="failed_to_set_state",
                 translation_placeholders={"error": repr(err)},
             ) from err
         await self.coordinator.async_refresh()

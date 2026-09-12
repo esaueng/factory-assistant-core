@@ -48,7 +48,7 @@ ENTITY_DESCRIPTIONS: tuple[AnglianWaterSensorEntityDescription, ...] = (
         device_class=SensorDeviceClass.WATER,
         value_fn=lambda entity: entity.get_yesterday_consumption,
         state_class=SensorStateClass.TOTAL,
-        REDACTED_VALUEAnglianWaterSensor.YESTERDAY_CONSUMPTION,
+        translation_key=AnglianWaterSensor.YESTERDAY_CONSUMPTION,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     AnglianWaterSensorEntityDescription(
@@ -57,7 +57,7 @@ ENTITY_DESCRIPTIONS: tuple[AnglianWaterSensorEntityDescription, ...] = (
         device_class=SensorDeviceClass.WATER,
         value_fn=lambda entity: entity.latest_read,
         state_class=SensorStateClass.TOTAL_INCREASING,
-        REDACTED_VALUEAnglianWaterSensor.LATEST_READING,
+        translation_key=AnglianWaterSensor.LATEST_READING,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     AnglianWaterSensorEntityDescription(
@@ -65,7 +65,7 @@ ENTITY_DESCRIPTIONS: tuple[AnglianWaterSensorEntityDescription, ...] = (
         native_unit_of_measurement="GBP",
         device_class=SensorDeviceClass.MONETARY,
         value_fn=lambda entity: entity.yesterday_water_cost,
-        REDACTED_VALUEAnglianWaterSensor.YESTERDAY_WATER_COST,
+        translation_key=AnglianWaterSensor.YESTERDAY_WATER_COST,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     AnglianWaterSensorEntityDescription(
@@ -73,14 +73,14 @@ ENTITY_DESCRIPTIONS: tuple[AnglianWaterSensorEntityDescription, ...] = (
         native_unit_of_measurement="GBP",
         device_class=SensorDeviceClass.MONETARY,
         value_fn=lambda entity: entity.yesterday_sewerage_cost,
-        REDACTED_VALUEAnglianWaterSensor.YESTERDAY_SEWERAGE_COST,
+        translation_key=AnglianWaterSensor.YESTERDAY_SEWERAGE_COST,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     AnglianWaterSensorEntityDescription(
         key=AnglianWaterSensor.LAST_UPDATED,
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda entity: entity.last_updated,
-        REDACTED_VALUEAnglianWaterSensor.LAST_UPDATED,
+        translation_key=AnglianWaterSensor.LAST_UPDATED,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
 )

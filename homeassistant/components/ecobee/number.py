@@ -31,7 +31,7 @@ class EcobeeNumberEntityDescription(NumberEntityDescription):
 VENTILATOR_NUMBERS = (
     EcobeeNumberEntityDescription(
         key="home",
-        REDACTED_VALUE"ventilator_min_type_home",
+        translation_key="ventilator_min_type_home",
         ecobee_setting_key="ventilatorMinOnTimeHome",
         set_fn=lambda data, id, min_time: data.ecobee.set_ventilator_min_on_time_home(
             id, min_time
@@ -39,7 +39,7 @@ VENTILATOR_NUMBERS = (
     ),
     EcobeeNumberEntityDescription(
         key="away",
-        REDACTED_VALUE"ventilator_min_type_away",
+        translation_key="ventilator_min_type_away",
         ecobee_setting_key="ventilatorMinOnTimeAway",
         set_fn=lambda data, id, min_time: data.ecobee.set_ventilator_min_on_time_away(
             id, min_time

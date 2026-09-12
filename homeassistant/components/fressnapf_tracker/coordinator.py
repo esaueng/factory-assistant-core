@@ -58,7 +58,7 @@ class FressnapfTrackerDataUpdateCoordinator(DataUpdateCoordinator[Tracker]):
         except FressnapfTrackerInvalidDeviceTokenError as exception:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_auth",
+                translation_key="invalid_auth",
             ) from exception
         except FressnapfTrackerError as exception:
             raise UpdateFailed(exception) from exception

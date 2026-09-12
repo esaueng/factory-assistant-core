@@ -74,7 +74,7 @@ class FlussCover(FlussEntity, CoverEntity):
             await self.coordinator.api.async_open_device(self.device_id)
         except FlussApiClientError as err:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"command_failed"
+                translation_domain=DOMAIN, translation_key="command_failed"
             ) from err
         await self.coordinator.async_request_refresh()
 
@@ -84,6 +84,6 @@ class FlussCover(FlussEntity, CoverEntity):
             await self.coordinator.api.async_close_device(self.device_id)
         except FlussApiClientError as err:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"command_failed"
+                translation_domain=DOMAIN, translation_key="command_failed"
             ) from err
         await self.coordinator.async_request_refresh()

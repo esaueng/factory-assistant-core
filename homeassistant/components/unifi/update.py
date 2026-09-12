@@ -101,7 +101,7 @@ class UnifiDeviceUpdateEntity[_HandlerT: Devices, _DataT: Device](
         except aiounifi.AiounifiException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"action_request_failed",
+                translation_key="action_request_failed",
             ) from err
 
     @callback

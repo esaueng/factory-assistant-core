@@ -15,7 +15,7 @@ from .entity import YaleAlarmEntity
 BUTTON_TYPES = (
     ButtonEntityDescription(
         key="panic",
-        REDACTED_VALUE"panic",
+        translation_key="panic",
     ),
 )
 
@@ -61,7 +61,7 @@ class YalePanicButton(YaleAlarmEntity, ButtonEntity):
         except YALE_ALL_ERRORS as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"could_not_trigger_panic",
+                translation_key="could_not_trigger_panic",
                 translation_placeholders={
                     "entity_id": self.entity_id,
                     "error": str(error),

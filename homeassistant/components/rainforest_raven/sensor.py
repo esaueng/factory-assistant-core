@@ -35,7 +35,7 @@ class RAVEnSensorEntityDescription(SensorEntityDescription):
 SENSORS = (
     RAVEnSensorEntityDescription(
         message_key="CurrentSummationDelivered",
-        REDACTED_VALUE"total_energy_delivered",
+        translation_key="total_energy_delivered",
         key="summation_delivered",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -43,7 +43,7 @@ SENSORS = (
     ),
     RAVEnSensorEntityDescription(
         message_key="CurrentSummationDelivered",
-        REDACTED_VALUE"total_energy_received",
+        translation_key="total_energy_received",
         key="summation_received",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -51,7 +51,7 @@ SENSORS = (
     ),
     RAVEnSensorEntityDescription(
         message_key="InstantaneousDemand",
-        REDACTED_VALUE"power_demand",
+        translation_key="power_demand",
         key="demand",
         native_unit_of_measurement=UnitOfPower.KILO_WATT,
         device_class=SensorDeviceClass.POWER,
@@ -63,7 +63,7 @@ SENSORS = (
 DIAGNOSTICS = (
     RAVEnSensorEntityDescription(
         message_key="NetworkInfo",
-        REDACTED_VALUE"signal_strength",
+        translation_key="signal_strength",
         key="link_strength",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -99,7 +99,7 @@ async def async_setup_entry(
                     coordinator,
                     RAVEnSensorEntityDescription(
                         message_key="PriceCluster",
-                        REDACTED_VALUE"energy_price",
+                        translation_key="energy_price",
                         key="price",
                         native_unit_of_measurement=f"{meter_data['PriceCluster']['currency'].value}/{UnitOfEnergy.KILO_WATT_HOUR}",
                         state_class=SensorStateClass.MEASUREMENT,

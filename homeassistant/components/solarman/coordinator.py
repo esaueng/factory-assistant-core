@@ -45,5 +45,5 @@ class SolarmanDeviceUpdateCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         except ConnectionError as e:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
+                translation_key="update_failed",
             ) from e

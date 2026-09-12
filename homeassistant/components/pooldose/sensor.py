@@ -44,38 +44,38 @@ SENSOR_DESCRIPTIONS: tuple[PooldoseSensorEntityDescription, ...] = (
     PooldoseSensorEntityDescription(key="ph", device_class=SensorDeviceClass.PH),
     PooldoseSensorEntityDescription(
         key="orp",
-        REDACTED_VALUE"orp",
+        translation_key="orp",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
     ),
     PooldoseSensorEntityDescription(
         key="cl",
-        REDACTED_VALUE"cl",
+        translation_key="cl",
         native_unit_of_measurement=CONCENTRATION_PARTS_PER_MILLION,
     ),
     PooldoseSensorEntityDescription(
         key="flow_rate",
-        REDACTED_VALUE"flow_rate",
+        translation_key="flow_rate",
         device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
         use_unit_conversion=True,
     ),
     PooldoseSensorEntityDescription(
         key="water_meter_total_permanent",
-        REDACTED_VALUE"water_meter_total_permanent",
+        translation_key="water_meter_total_permanent",
         device_class=SensorDeviceClass.VOLUME,
         state_class=SensorStateClass.TOTAL_INCREASING,
         use_unit_conversion=True,
     ),
     PooldoseSensorEntityDescription(
         key="ph_type_dosing",
-        REDACTED_VALUE"ph_type_dosing",
+        translation_key="ph_type_dosing",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.ENUM,
         options=["alcalyne", "acid"],
     ),
     PooldoseSensorEntityDescription(
         key="peristaltic_ph_dosing",
-        REDACTED_VALUE"peristaltic_ph_dosing",
+        translation_key="peristaltic_ph_dosing",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.ENUM,
@@ -83,7 +83,7 @@ SENSOR_DESCRIPTIONS: tuple[PooldoseSensorEntityDescription, ...] = (
     ),
     PooldoseSensorEntityDescription(
         key="ofa_ph_time",
-        REDACTED_VALUE"ofa_ph_time",
+        translation_key="ofa_ph_time",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.DURATION,
         entity_registry_enabled_default=False,
@@ -91,7 +91,7 @@ SENSOR_DESCRIPTIONS: tuple[PooldoseSensorEntityDescription, ...] = (
     ),
     PooldoseSensorEntityDescription(
         key="orp_type_dosing",
-        REDACTED_VALUE"orp_type_dosing",
+        translation_key="orp_type_dosing",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.ENUM,
@@ -99,7 +99,7 @@ SENSOR_DESCRIPTIONS: tuple[PooldoseSensorEntityDescription, ...] = (
     ),
     PooldoseSensorEntityDescription(
         key="peristaltic_orp_dosing",
-        REDACTED_VALUE"peristaltic_orp_dosing",
+        translation_key="peristaltic_orp_dosing",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.ENUM,
@@ -107,7 +107,7 @@ SENSOR_DESCRIPTIONS: tuple[PooldoseSensorEntityDescription, ...] = (
     ),
     PooldoseSensorEntityDescription(
         key="cl_type_dosing",
-        REDACTED_VALUE"cl_type_dosing",
+        translation_key="cl_type_dosing",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.ENUM,
@@ -115,7 +115,7 @@ SENSOR_DESCRIPTIONS: tuple[PooldoseSensorEntityDescription, ...] = (
     ),
     PooldoseSensorEntityDescription(
         key="peristaltic_cl_dosing",
-        REDACTED_VALUE"peristaltic_cl_dosing",
+        translation_key="peristaltic_cl_dosing",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.ENUM,
@@ -123,7 +123,7 @@ SENSOR_DESCRIPTIONS: tuple[PooldoseSensorEntityDescription, ...] = (
     ),
     PooldoseSensorEntityDescription(
         key="ofa_orp_time",
-        REDACTED_VALUE"ofa_orp_time",
+        translation_key="ofa_orp_time",
         device_class=SensorDeviceClass.DURATION,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -131,7 +131,7 @@ SENSOR_DESCRIPTIONS: tuple[PooldoseSensorEntityDescription, ...] = (
     ),
     PooldoseSensorEntityDescription(
         key="ph_calibration_type",
-        REDACTED_VALUE"ph_calibration_type",
+        translation_key="ph_calibration_type",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.ENUM,
@@ -139,7 +139,7 @@ SENSOR_DESCRIPTIONS: tuple[PooldoseSensorEntityDescription, ...] = (
     ),
     PooldoseSensorEntityDescription(
         key="ph_calibration_offset",
-        REDACTED_VALUE"ph_calibration_offset",
+        translation_key="ph_calibration_offset",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.VOLTAGE,
         suggested_display_precision=2,
@@ -148,7 +148,7 @@ SENSOR_DESCRIPTIONS: tuple[PooldoseSensorEntityDescription, ...] = (
     ),
     PooldoseSensorEntityDescription(
         key="ph_calibration_slope",
-        REDACTED_VALUE"ph_calibration_slope",
+        translation_key="ph_calibration_slope",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.VOLTAGE,
         suggested_display_precision=2,
@@ -157,7 +157,7 @@ SENSOR_DESCRIPTIONS: tuple[PooldoseSensorEntityDescription, ...] = (
     ),
     PooldoseSensorEntityDescription(
         key="orp_calibration_type",
-        REDACTED_VALUE"orp_calibration_type",
+        translation_key="orp_calibration_type",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.ENUM,
@@ -165,7 +165,7 @@ SENSOR_DESCRIPTIONS: tuple[PooldoseSensorEntityDescription, ...] = (
     ),
     PooldoseSensorEntityDescription(
         key="orp_calibration_offset",
-        REDACTED_VALUE"orp_calibration_offset",
+        translation_key="orp_calibration_offset",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.VOLTAGE,
         suggested_display_precision=2,
@@ -174,7 +174,7 @@ SENSOR_DESCRIPTIONS: tuple[PooldoseSensorEntityDescription, ...] = (
     ),
     PooldoseSensorEntityDescription(
         key="orp_calibration_slope",
-        REDACTED_VALUE"orp_calibration_slope",
+        translation_key="orp_calibration_slope",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.VOLTAGE,
         suggested_display_precision=2,
@@ -183,7 +183,7 @@ SENSOR_DESCRIPTIONS: tuple[PooldoseSensorEntityDescription, ...] = (
     ),
     PooldoseSensorEntityDescription(
         key="device_config",
-        REDACTED_VALUE"device_config",
+        translation_key="device_config",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.ENUM,
@@ -191,7 +191,7 @@ SENSOR_DESCRIPTIONS: tuple[PooldoseSensorEntityDescription, ...] = (
     ),
     PooldoseSensorEntityDescription(
         key="temperature_unit",
-        REDACTED_VALUE"temperature_unit",
+        translation_key="temperature_unit",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.ENUM,

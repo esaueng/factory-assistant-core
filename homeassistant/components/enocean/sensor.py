@@ -80,7 +80,7 @@ SENSOR_DESC_POWER = EnOceanSensorEntityDescription(
 SENSOR_DESC_WINDOWHANDLE = EnOceanSensorEntityDescription(
     key=SENSOR_TYPE_WINDOWHANDLE,
     name="WindowHandle",
-    REDACTED_VALUE"window_handle",
+    translation_key="window_handle",
     unique_id=lambda dev_id: f"{combine_hex(dev_id)}-{SENSOR_TYPE_WINDOWHANDLE}",
 )
 

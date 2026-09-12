@@ -45,7 +45,7 @@ KM_PER_MI = DistanceConverter.convert(1, UnitOfLength.MILES, UnitOfLength.KILOME
 SAFETY_SENSORS = [
     SensorEntityDescription(
         key=sc.ODOMETER,
-        REDACTED_VALUE"odometer",
+        translation_key="odometer",
         device_class=SensorDeviceClass.DISTANCE,
         native_unit_of_measurement=UnitOfLength.MILES,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -56,41 +56,41 @@ SAFETY_SENSORS = [
 API_GEN_2_SENSORS = [
     SensorEntityDescription(
         key=sc.AVG_FUEL_CONSUMPTION,
-        REDACTED_VALUE"average_fuel_consumption",
+        translation_key="average_fuel_consumption",
         native_unit_of_measurement=FUEL_CONSUMPTION_MILES_PER_GALLON,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key=sc.DIST_TO_EMPTY,
-        REDACTED_VALUE"range",
+        translation_key="range",
         device_class=SensorDeviceClass.DISTANCE,
         native_unit_of_measurement=UnitOfLength.MILES,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key=sc.TIRE_PRESSURE_FL,
-        REDACTED_VALUE"tire_pressure_front_left",
+        translation_key="tire_pressure_front_left",
         device_class=SensorDeviceClass.PRESSURE,
         native_unit_of_measurement=UnitOfPressure.PSI,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key=sc.TIRE_PRESSURE_FR,
-        REDACTED_VALUE"tire_pressure_front_right",
+        translation_key="tire_pressure_front_right",
         device_class=SensorDeviceClass.PRESSURE,
         native_unit_of_measurement=UnitOfPressure.PSI,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key=sc.TIRE_PRESSURE_RL,
-        REDACTED_VALUE"tire_pressure_rear_left",
+        translation_key="tire_pressure_rear_left",
         device_class=SensorDeviceClass.PRESSURE,
         native_unit_of_measurement=UnitOfPressure.PSI,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key=sc.TIRE_PRESSURE_RR,
-        REDACTED_VALUE"tire_pressure_rear_right",
+        translation_key="tire_pressure_rear_right",
         device_class=SensorDeviceClass.PRESSURE,
         native_unit_of_measurement=UnitOfPressure.PSI,
         state_class=SensorStateClass.MEASUREMENT,
@@ -101,7 +101,7 @@ API_GEN_2_SENSORS = [
 API_GEN_3_SENSORS = [
     SensorEntityDescription(
         key=sc.REMAINING_FUEL_PERCENT,
-        REDACTED_VALUE"fuel_level",
+        translation_key="fuel_level",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
@@ -111,21 +111,21 @@ API_GEN_3_SENSORS = [
 EV_SENSORS = [
     SensorEntityDescription(
         key=sc.EV_DISTANCE_TO_EMPTY,
-        REDACTED_VALUE"ev_range",
+        translation_key="ev_range",
         device_class=SensorDeviceClass.DISTANCE,
         native_unit_of_measurement=UnitOfLength.MILES,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key=sc.EV_STATE_OF_CHARGE_PERCENT,
-        REDACTED_VALUE"ev_battery_level",
+        translation_key="ev_battery_level",
         device_class=SensorDeviceClass.BATTERY,
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key=sc.EV_TIME_TO_FULLY_CHARGED_UTC,
-        REDACTED_VALUE"ev_time_to_full_charge",
+        translation_key="ev_time_to_full_charge",
         device_class=SensorDeviceClass.TIMESTAMP,
     ),
 ]

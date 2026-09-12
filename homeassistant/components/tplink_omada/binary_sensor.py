@@ -79,28 +79,28 @@ class GatewayPortBinarySensorEntityDescription(BinarySensorEntityDescription):
 GATEWAY_PORT_SENSORS: list[GatewayPortBinarySensorEntityDescription] = [
     GatewayPortBinarySensorEntityDescription(
         key="wan_link",
-        REDACTED_VALUE"wan_link",
+        translation_key="wan_link",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         exists_func=lambda p: p.port_status.mode == GatewayPortMode.WAN,
         update_func=lambda p: p.wan_connected,
     ),
     GatewayPortBinarySensorEntityDescription(
         key="online_detection",
-        REDACTED_VALUE"online_detection",
+        translation_key="online_detection",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         exists_func=lambda p: p.port_status.mode == GatewayPortMode.WAN,
         update_func=lambda p: p.online_detection,
     ),
     GatewayPortBinarySensorEntityDescription(
         key="lan_status",
-        REDACTED_VALUE"lan_status",
+        translation_key="lan_status",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         exists_func=lambda p: p.port_status.mode == GatewayPortMode.LAN,
         update_func=lambda p: p.link_status == LinkStatus.LINK_UP,
     ),
     GatewayPortBinarySensorEntityDescription(
         key="poe_delivery",
-        REDACTED_VALUE"poe_delivery",
+        translation_key="poe_delivery",
         device_class=BinarySensorDeviceClass.POWER,
         exists_func=lambda p: (
             p.port_status.mode == GatewayPortMode.LAN and p.poe_mode == PoEMode.ENABLED

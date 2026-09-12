@@ -44,14 +44,14 @@ class EnvoyStorageSettingsNumberEntityDescription(NumberEntityDescription):
 RELAY_ENTITIES = (
     EnvoyRelayNumberEntityDescription(
         key="soc_low",
-        REDACTED_VALUE"cutoff_battery_level",
+        translation_key="cutoff_battery_level",
         device_class=NumberDeviceClass.BATTERY,
         entity_category=EntityCategory.CONFIG,
         value_fn=attrgetter("soc_low"),
     ),
     EnvoyRelayNumberEntityDescription(
         key="soc_high",
-        REDACTED_VALUE"restore_battery_level",
+        translation_key="restore_battery_level",
         device_class=NumberDeviceClass.BATTERY,
         entity_category=EntityCategory.CONFIG,
         value_fn=attrgetter("soc_high"),
@@ -60,7 +60,7 @@ RELAY_ENTITIES = (
 
 STORAGE_RESERVE_SOC_ENTITY = EnvoyStorageSettingsNumberEntityDescription(
     key="reserve_soc",
-    REDACTED_VALUE"reserve_soc",
+    translation_key="reserve_soc",
     native_unit_of_measurement=PERCENTAGE,
     device_class=NumberDeviceClass.BATTERY,
     value_fn=attrgetter("reserved_soc"),

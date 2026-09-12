@@ -101,7 +101,7 @@ class SmBaseDataUpdateCoordinator[_DataT](DataUpdateCoordinator[_DataT]):
                 is_persistent=False,
                 learn_more_url="https://smlight.tech/flasher/#SLZB-06",
                 severity=IssueSeverity.ERROR,
-                REDACTED_VALUE"unsupported_firmware",
+                translation_key="unsupported_firmware",
             )
 
     async def _async_update_data(self) -> _DataT:
@@ -113,7 +113,7 @@ class SmBaseDataUpdateCoordinator[_DataT](DataUpdateCoordinator[_DataT]):
         except SmlightConnectionError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect_device",
+                translation_key="cannot_connect_device",
                 translation_placeholders={"error": str(err)},
             ) from err
 
@@ -135,7 +135,7 @@ class SmBaseDataUpdateCoordinator[_DataT](DataUpdateCoordinator[_DataT]):
         except SmlightConnectionError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect_device",
+                translation_key="cannot_connect_device",
                 translation_placeholders={"error": str(err)},
             ) from err
 

@@ -39,40 +39,40 @@ class PaperlessEntityDescription[DataT](SensorEntityDescription):
 SENSOR_STATISTICS: tuple[PaperlessEntityDescription[Statistic], ...] = (
     PaperlessEntityDescription[Statistic](
         key="documents_total",
-        REDACTED_VALUE"documents_total",
+        translation_key="documents_total",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data.documents_total,
     ),
     PaperlessEntityDescription[Statistic](
         key="documents_inbox",
-        REDACTED_VALUE"documents_inbox",
+        translation_key="documents_inbox",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data.documents_inbox,
     ),
     PaperlessEntityDescription[Statistic](
         key="characters_count",
-        REDACTED_VALUE"characters_count",
+        translation_key="characters_count",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data.character_count,
         entity_registry_enabled_default=False,
     ),
     PaperlessEntityDescription[Statistic](
         key="tag_count",
-        REDACTED_VALUE"tag_count",
+        translation_key="tag_count",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data.tag_count,
         entity_registry_enabled_default=False,
     ),
     PaperlessEntityDescription[Statistic](
         key="correspondent_count",
-        REDACTED_VALUE"correspondent_count",
+        translation_key="correspondent_count",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data.correspondent_count,
         entity_registry_enabled_default=False,
     ),
     PaperlessEntityDescription[Statistic](
         key="document_type_count",
-        REDACTED_VALUE"document_type_count",
+        translation_key="document_type_count",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data.document_type_count,
         entity_registry_enabled_default=False,
@@ -82,7 +82,7 @@ SENSOR_STATISTICS: tuple[PaperlessEntityDescription[Statistic], ...] = (
 SENSOR_STATUS: tuple[PaperlessEntityDescription[Status], ...] = (
     PaperlessEntityDescription[Status](
         key="storage_total",
-        REDACTED_VALUE"storage_total",
+        translation_key="storage_total",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
@@ -104,7 +104,7 @@ SENSOR_STATUS: tuple[PaperlessEntityDescription[Status], ...] = (
     ),
     PaperlessEntityDescription[Status](
         key="storage_available",
-        REDACTED_VALUE"storage_available",
+        translation_key="storage_available",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
@@ -126,7 +126,7 @@ SENSOR_STATUS: tuple[PaperlessEntityDescription[Status], ...] = (
     ),
     PaperlessEntityDescription[Status](
         key="database_status",
-        REDACTED_VALUE"database_status",
+        translation_key="database_status",
         device_class=SensorDeviceClass.ENUM,
         entity_category=EntityCategory.DIAGNOSTIC,
         options=[
@@ -146,7 +146,7 @@ SENSOR_STATUS: tuple[PaperlessEntityDescription[Status], ...] = (
     ),
     PaperlessEntityDescription[Status](
         key="index_status",
-        REDACTED_VALUE"index_status",
+        translation_key="index_status",
         device_class=SensorDeviceClass.ENUM,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -167,7 +167,7 @@ SENSOR_STATUS: tuple[PaperlessEntityDescription[Status], ...] = (
     ),
     PaperlessEntityDescription[Status](
         key="classifier_status",
-        REDACTED_VALUE"classifier_status",
+        translation_key="classifier_status",
         device_class=SensorDeviceClass.ENUM,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -188,7 +188,7 @@ SENSOR_STATUS: tuple[PaperlessEntityDescription[Status], ...] = (
     ),
     PaperlessEntityDescription[Status](
         key="celery_status",
-        REDACTED_VALUE"celery_status",
+        translation_key="celery_status",
         device_class=SensorDeviceClass.ENUM,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -209,7 +209,7 @@ SENSOR_STATUS: tuple[PaperlessEntityDescription[Status], ...] = (
     ),
     PaperlessEntityDescription[Status](
         key="redis_status",
-        REDACTED_VALUE"redis_status",
+        translation_key="redis_status",
         device_class=SensorDeviceClass.ENUM,
         entity_category=EntityCategory.DIAGNOSTIC,
         options=[
@@ -229,7 +229,7 @@ SENSOR_STATUS: tuple[PaperlessEntityDescription[Status], ...] = (
     ),
     PaperlessEntityDescription[Status](
         key="sanity_check_status",
-        REDACTED_VALUE"sanity_check_status",
+        translation_key="sanity_check_status",
         device_class=SensorDeviceClass.ENUM,
         entity_category=EntityCategory.DIAGNOSTIC,
         options=[

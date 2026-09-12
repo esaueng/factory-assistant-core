@@ -16,7 +16,7 @@ PARALLEL_UPDATES = 0
 
 _DESCRIPTION = BinarySensorEntityDescription(
     key="statflag",
-    REDACTED_VALUE"online_status",
+    translation_key="online_status",
 )
 # The bit in STATFLAG that indicates the online status of the APC UPS.
 _VALUE_ONLINE_MASK: Final = 0b1000

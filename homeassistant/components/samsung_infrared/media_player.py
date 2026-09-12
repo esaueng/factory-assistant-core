@@ -120,7 +120,7 @@ class SamsungIrTvMediaPlayer(
         if (code := SOURCE_MAP.get(source)) is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_source",
+                translation_key="invalid_source",
                 translation_placeholders={
                     "invalid_source": source,
                     "valid_sources": ", ".join(self._attr_source_list),

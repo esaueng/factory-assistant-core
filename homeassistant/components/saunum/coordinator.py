@@ -44,5 +44,5 @@ class LeilSaunaCoordinator(DataUpdateCoordinator[SaunumData]):
         except SaunumException as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
             ) from err

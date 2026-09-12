@@ -12,15 +12,15 @@ from .entity import SkybellEntity
 SWITCH_TYPES: tuple[SwitchEntityDescription, ...] = (
     SwitchEntityDescription(
         key="do_not_disturb",
-        REDACTED_VALUE"do_not_disturb",
+        translation_key="do_not_disturb",
     ),
     SwitchEntityDescription(
         key="do_not_ring",
-        REDACTED_VALUE"do_not_ring",
+        translation_key="do_not_ring",
     ),
     SwitchEntityDescription(
         key="motion_sensor",
-        REDACTED_VALUE"motion_sensor",
+        translation_key="motion_sensor",
     ),
 )
 

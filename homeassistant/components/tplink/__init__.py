@@ -125,7 +125,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         _async_discovery(), "tplink first discovery", eager_start=True
     )
     async_track_time_interval(
-        hass, _async_discovery, DISCOVERY_INTERVAL, REDACTED_VALUE
+        hass, _async_discovery, DISCOVERY_INTERVAL, cancel_on_shutdown=True
     )
 
     return True
@@ -174,7 +174,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: TPLinkConfigEntry) -> bo
             hass.config_entries.async_update_entry(entry, data=data)
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_authentication",
+            translation_key="device_authentication",
             translation_placeholders={
                 "func": "connect",
                 "exc": str(ex),
@@ -183,7 +183,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: TPLinkConfigEntry) -> bo
     except KasaException as ex:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_error",
+            translation_key="device_error",
             translation_placeholders={
                 "func": "connect",
                 "exc": str(ex),
@@ -221,7 +221,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: TPLinkConfigEntry) -> bo
         # and update the config entry so we do not mix up devices.
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unexpected_device",
+            translation_key="unexpected_device",
             translation_placeholders={
                 "host": host,
                 # all entries have a unique id

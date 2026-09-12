@@ -38,7 +38,7 @@ class GrowattNumberEntityDescription(NumberEntityDescription):
 MIN_NUMBER_TYPES: tuple[GrowattNumberEntityDescription, ...] = (
     GrowattNumberEntityDescription(
         key="battery_charge_power_limit",
-        REDACTED_VALUE"battery_charge_power_limit",
+        translation_key="battery_charge_power_limit",
         api_key="chargePowerCommand",  # Key returned by V1 API
         write_key="charge_power",  # Key used to write parameter
         native_step=1,
@@ -48,7 +48,7 @@ MIN_NUMBER_TYPES: tuple[GrowattNumberEntityDescription, ...] = (
     ),
     GrowattNumberEntityDescription(
         key="battery_charge_soc_limit",
-        REDACTED_VALUE"battery_charge_soc_limit",
+        translation_key="battery_charge_soc_limit",
         api_key="wchargeSOCLowLimit",  # Key returned by V1 API
         write_key="charge_stop_soc",  # Key used to write parameter
         native_step=1,
@@ -58,7 +58,7 @@ MIN_NUMBER_TYPES: tuple[GrowattNumberEntityDescription, ...] = (
     ),
     GrowattNumberEntityDescription(
         key="battery_discharge_power_limit",
-        REDACTED_VALUE"battery_discharge_power_limit",
+        translation_key="battery_discharge_power_limit",
         api_key="disChargePowerCommand",  # Key returned by V1 API
         write_key="discharge_power",  # Key used to write parameter
         native_step=1,
@@ -68,7 +68,7 @@ MIN_NUMBER_TYPES: tuple[GrowattNumberEntityDescription, ...] = (
     ),
     GrowattNumberEntityDescription(
         key="battery_discharge_soc_limit",  # Keep original key to preserve unique_id
-        REDACTED_VALUE"battery_discharge_soc_limit_off_grid",
+        translation_key="battery_discharge_soc_limit_off_grid",
         api_key="wdisChargeSOCLowLimit",  # Key returned by V1 API (off-grid)
         write_key="discharge_stop_soc",  # Key used to write parameter
         native_step=1,
@@ -78,7 +78,7 @@ MIN_NUMBER_TYPES: tuple[GrowattNumberEntityDescription, ...] = (
     ),
     GrowattNumberEntityDescription(
         key="battery_discharge_soc_limit_on_grid",
-        REDACTED_VALUE"battery_discharge_soc_limit_on_grid",
+        translation_key="battery_discharge_soc_limit_on_grid",
         api_key="onGridDischargeStopSOC",  # Key returned by V1 API (on-grid)
         write_key="on_grid_discharge_stop_soc",  # Key used to write parameter
         native_step=1,
@@ -184,7 +184,7 @@ class GrowattNumber(CoordinatorEntity[GrowattCoordinator], NumberEntity):
         except GrowattV1ApiError as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_error",
+                translation_key="api_error",
                 translation_placeholders={"error": str(e)},
             ) from e
 

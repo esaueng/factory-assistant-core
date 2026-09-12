@@ -26,12 +26,12 @@ class SabnzbdButtonEntityDescription(ButtonEntityDescription):
 BUTTON_DESCRIPTIONS: tuple[SabnzbdButtonEntityDescription, ...] = (
     SabnzbdButtonEntityDescription(
         key="pause",
-        REDACTED_VALUE"pause",
+        translation_key="pause",
         press_fn=lambda coordinator: coordinator.sab_api.pause_queue(),
     ),
     SabnzbdButtonEntityDescription(
         key="resume",
-        REDACTED_VALUE"resume",
+        translation_key="resume",
         press_fn=lambda coordinator: coordinator.sab_api.resume_queue(),
     ),
 )
@@ -62,7 +62,7 @@ class SabnzbdButton(SabnzbdEntity, ButtonEntity):
         except SabnzbdApiException as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_call_exception",
+                translation_key="service_call_exception",
             ) from e
         else:
             await self.coordinator.async_request_refresh()

@@ -56,7 +56,7 @@ _MODE_SELECTOR = SelectSelector(
             BluetoothScanningMode.ACTIVE.value,
             BluetoothScanningMode.PASSIVE.value,
         ],
-        REDACTED_VALUE"mode",
+        translation_key="mode",
         mode=SelectSelectorMode.DROPDOWN,
     )
 )

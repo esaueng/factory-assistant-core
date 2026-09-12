@@ -24,7 +24,7 @@ async def safe_library_call(
     if result is False or result is None:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUEtranslation_key,
+            translation_key=translation_key,
             translation_placeholders=translation_placeholders,
         )
 

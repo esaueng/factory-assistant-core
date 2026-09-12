@@ -138,7 +138,7 @@ class MotionMountPresets(MotionMountEntity, SelectEntity):
         except (TimeoutError, socket.gaierror) as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_communication",
+                translation_key="failed_communication",
             ) from ex
         else:
             self._attr_current_option = option

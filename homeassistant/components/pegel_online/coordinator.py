@@ -45,6 +45,6 @@ class PegelOnlineDataUpdateCoordinator(DataUpdateCoordinator[StationMeasurements
         except CONNECT_ERRORS as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
                 translation_placeholders={"error": str(err)},
             ) from err

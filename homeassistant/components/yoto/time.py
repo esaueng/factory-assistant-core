@@ -31,14 +31,14 @@ class YotoTimeEntityDescription(TimeEntityDescription):
 TIME_ENTITIES: tuple[YotoTimeEntityDescription, ...] = (
     YotoTimeEntityDescription(
         key="day_mode_start",
-        REDACTED_VALUE"day_mode_start",
+        translation_key="day_mode_start",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda config: config.day_time,
         config_field="day_time",
     ),
     YotoTimeEntityDescription(
         key="night_mode_start",
-        REDACTED_VALUE"night_mode_start",
+        translation_key="night_mode_start",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda config: config.night_time,
         config_field="night_time",

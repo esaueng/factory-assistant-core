@@ -65,22 +65,22 @@ class PaperlessCoordinator[DataT](DataUpdateCoordinator[DataT]):
         except PaperlessConnectionError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
             ) from err
         except PaperlessInvalidTokenError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_api_key",
+                translation_key="invalid_api_key",
             ) from err
         except PaperlessInactiveOrDeletedError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"user_inactive_or_deleted",
+                translation_key="user_inactive_or_deleted",
             ) from err
         except PaperlessForbiddenError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"forbidden",
+                translation_key="forbidden",
             ) from err
 
     @abstractmethod

@@ -40,7 +40,7 @@ class RoborockNumberDescription(NumberEntityDescription):
 NUMBER_DESCRIPTIONS: list[RoborockNumberDescription] = [
     RoborockNumberDescription(
         key="volume",
-        REDACTED_VALUE"volume",
+        translation_key="volume",
         native_min_value=0,
         native_max_value=100,
         native_unit_of_measurement=PERCENTAGE,
@@ -104,5 +104,5 @@ class RoborockNumberEntity(RoborockEntityV1, NumberEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_options_failed",
+                translation_key="update_options_failed",
             ) from err

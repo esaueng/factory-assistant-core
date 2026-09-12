@@ -30,20 +30,20 @@ class TailscaleBinarySensorEntityDescription(BinarySensorEntityDescription):
 BINARY_SENSORS: tuple[TailscaleBinarySensorEntityDescription, ...] = (
     TailscaleBinarySensorEntityDescription(
         key="update_available",
-        REDACTED_VALUE"client",
+        translation_key="client",
         device_class=BinarySensorDeviceClass.UPDATE,
         entity_category=EntityCategory.DIAGNOSTIC,
         is_on_fn=lambda device: device.update_available,
     ),
     TailscaleBinarySensorEntityDescription(
         key="key_expiry_disabled",
-        REDACTED_VALUE"key_expiry_disabled",
+        translation_key="key_expiry_disabled",
         entity_category=EntityCategory.DIAGNOSTIC,
         is_on_fn=lambda device: device.key_expiry_disabled,
     ),
     TailscaleBinarySensorEntityDescription(
         key="client_supports_ipv6",
-        REDACTED_VALUE"client_supports_ipv6",
+        translation_key="client_supports_ipv6",
         entity_category=EntityCategory.DIAGNOSTIC,
         is_on_fn=lambda device: (
             device.client_connectivity.client_supports.ipv6
@@ -53,7 +53,7 @@ BINARY_SENSORS: tuple[TailscaleBinarySensorEntityDescription, ...] = (
     ),
     TailscaleBinarySensorEntityDescription(
         key="client_supports_pcp",
-        REDACTED_VALUE"client_supports_pcp",
+        translation_key="client_supports_pcp",
         entity_category=EntityCategory.DIAGNOSTIC,
         is_on_fn=lambda device: (
             device.client_connectivity.client_supports.pcp
@@ -63,7 +63,7 @@ BINARY_SENSORS: tuple[TailscaleBinarySensorEntityDescription, ...] = (
     ),
     TailscaleBinarySensorEntityDescription(
         key="client_supports_pmp",
-        REDACTED_VALUE"client_supports_pmp",
+        translation_key="client_supports_pmp",
         entity_category=EntityCategory.DIAGNOSTIC,
         is_on_fn=lambda device: (
             device.client_connectivity.client_supports.pmp
@@ -73,7 +73,7 @@ BINARY_SENSORS: tuple[TailscaleBinarySensorEntityDescription, ...] = (
     ),
     TailscaleBinarySensorEntityDescription(
         key="client_supports_udp",
-        REDACTED_VALUE"client_supports_udp",
+        translation_key="client_supports_udp",
         entity_category=EntityCategory.DIAGNOSTIC,
         is_on_fn=lambda device: (
             device.client_connectivity.client_supports.udp
@@ -83,7 +83,7 @@ BINARY_SENSORS: tuple[TailscaleBinarySensorEntityDescription, ...] = (
     ),
     TailscaleBinarySensorEntityDescription(
         key="client_supports_upnp",
-        REDACTED_VALUE"client_supports_upnp",
+        translation_key="client_supports_upnp",
         entity_category=EntityCategory.DIAGNOSTIC,
         is_on_fn=lambda device: (
             device.client_connectivity.client_supports.upnp

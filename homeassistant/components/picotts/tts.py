@@ -96,19 +96,19 @@ class PicoTTSEntity(TextToSpeechEntity):
         except subprocess.CalledProcessError as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"returncode_error",
+                translation_key="returncode_error",
                 translation_placeholders={"returncode": str(exc.returncode)},
             ) from exc
         except subprocess.TimeoutExpired as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"timeout_error",
+                translation_key="timeout_error",
             ) from exc
         except OSError as exc:
             _LOGGER.debug("Full exception %s", exc)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"file_read_error",
+                translation_key="file_read_error",
                 translation_placeholders={"filename": fname},
             ) from exc
         finally:

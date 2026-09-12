@@ -56,7 +56,7 @@ class OhmeBaseCoordinator(DataUpdateCoordinator[None]):
             await self._internal_update_data()
         except ApiException as e:
             raise UpdateFailed(
-                REDACTED_VALUE"api_failed", translation_domain=DOMAIN
+                translation_key="api_failed", translation_domain=DOMAIN
             ) from e
 
     @abstractmethod

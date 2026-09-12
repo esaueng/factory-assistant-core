@@ -78,7 +78,7 @@ STEP_USER_DATA_SCHEMA: vol.Schema = vol.Schema(
                     PLATFORM_POLLING,
                     PLATFORM_WEBHOOKS,
                 ],
-                REDACTED_VALUE"platforms",
+                translation_key="platforms",
             )
         ),
         vol.Required(CONF_API_KEY): TextSelector(
@@ -114,7 +114,7 @@ STEP_RECONFIGURE_USER_DATA_SCHEMA: vol.Schema = vol.Schema(
                     PLATFORM_POLLING,
                     PLATFORM_WEBHOOKS,
                 ],
-                REDACTED_VALUE"platforms",
+                translation_key="platforms",
             )
         ),
         vol.Required(SECTION_ADVANCED_SETTINGS): section(
@@ -161,7 +161,7 @@ OPTIONS_SCHEMA: vol.Schema = vol.Schema(
         ): SelectSelector(
             SelectSelectorConfig(
                 options=[PARSER_MD, PARSER_MD2, PARSER_HTML, PARSER_PLAIN_TEXT],
-                REDACTED_VALUE"parse_mode",
+                translation_key="parse_mode",
             )
         ),
     }

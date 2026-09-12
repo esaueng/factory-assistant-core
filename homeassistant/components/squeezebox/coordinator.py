@@ -68,7 +68,7 @@ class LMSStatusDataUpdateCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         if not data:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"coordinator_no_data",
+                translation_key="coordinator_no_data",
             )
         _LOGGER.debug("Raw serverstatus %s=%s", self.lms.name, data)
 

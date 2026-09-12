@@ -326,7 +326,7 @@ class ConversationSubentryFlowHandler(ConfigSubentryFlow):
             ): SelectSelector(
                 SelectSelectorConfig(
                     options=[x.value for x in PromptCaching],
-                    REDACTED_VALUECONF_PROMPT_CACHING,
+                    translation_key=CONF_PROMPT_CACHING,
                     mode=SelectSelectorMode.DROPDOWN,
                 )
             ),
@@ -433,7 +433,7 @@ class ConversationSubentryFlowHandler(ConfigSubentryFlow):
             ] = SelectSelector(
                 SelectSelectorConfig(
                     options=effort_options,
-                    REDACTED_VALUECONF_THINKING_EFFORT,
+                    translation_key=CONF_THINKING_EFFORT,
                     mode=SelectSelectorMode.DROPDOWN,
                 )
             )

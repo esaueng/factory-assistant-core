@@ -32,12 +32,12 @@ async def async_setup_entry(hass: HomeAssistant, entry: DiscovergyConfigEntry) -
     except discovergyError.InvalidLogin as err:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_auth",
+            translation_key="invalid_auth",
         ) from err
     except Exception as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect_meters_setup",
+            translation_key="cannot_connect_meters_setup",
         ) from err
 
     # Init coordinators for meters

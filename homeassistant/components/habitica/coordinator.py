@@ -99,13 +99,13 @@ class HabiticaBaseCoordinator[_DataT](DataUpdateCoordinator[_DataT]):
         except HabiticaException as e:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_call_exception",
+                translation_key="service_call_exception",
                 translation_placeholders={"reason": str(e.error.message)},
             ) from e
         except ClientError as e:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_call_exception",
+                translation_key="service_call_exception",
                 translation_placeholders={"reason": str(e)},
             ) from e
 
@@ -127,24 +127,24 @@ class HabiticaDataUpdateCoordinator(HabiticaBaseCoordinator[HabiticaData]):
         except NotAuthorizedError as e:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"authentication_failed",
+                translation_key="authentication_failed",
             ) from e
         except TooManyRequestsError as e:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"setup_rate_limit_exception",
+                translation_key="setup_rate_limit_exception",
                 translation_placeholders={"retry_after": str(e.retry_after)},
             ) from e
         except HabiticaException as e:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_call_exception",
+                translation_key="service_call_exception",
                 translation_placeholders={"reason": str(e.error.message)},
             ) from e
         except ClientError as e:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_call_exception",
+                translation_key="service_call_exception",
                 translation_placeholders={"reason": str(e)},
             ) from e
 
@@ -167,24 +167,24 @@ class HabiticaDataUpdateCoordinator(HabiticaBaseCoordinator[HabiticaData]):
         except TooManyRequestsError as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"setup_rate_limit_exception",
+                translation_key="setup_rate_limit_exception",
                 translation_placeholders={"retry_after": str(e.retry_after)},
             ) from e
         except NotAuthorizedError as e:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_call_unallowed",
+                translation_key="service_call_unallowed",
             ) from e
         except HabiticaException as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_call_exception",
+                translation_key="service_call_exception",
                 translation_placeholders={"reason": e.error.message},
             ) from e
         except ClientError as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_call_exception",
+                translation_key="service_call_exception",
                 translation_placeholders={"reason": str(e)},
             ) from e
         else:

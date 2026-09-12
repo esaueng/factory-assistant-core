@@ -57,7 +57,7 @@ PRINTER_SENSORS: tuple[IPPSensorEntityDescription, ...] = (
     IPPSensorEntityDescription(
         key="printer",
         name=None,
-        REDACTED_VALUE"printer",
+        translation_key="printer",
         device_class=SensorDeviceClass.ENUM,
         options=["idle", "printing", "stopped"],
         attributes_fn=lambda printer: {
@@ -73,7 +73,7 @@ PRINTER_SENSORS: tuple[IPPSensorEntityDescription, ...] = (
     ),
     IPPSensorEntityDescription(
         key="uptime",
-        REDACTED_VALUE"uptime",
+        translation_key="uptime",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -104,7 +104,7 @@ async def async_setup_entry(
                 IPPSensorEntityDescription(
                     key=f"marker_{index}",
                     name=marker.name,
-                    REDACTED_VALUE"marker",
+                    translation_key="marker",
                     native_unit_of_measurement=PERCENTAGE,
                     state_class=SensorStateClass.MEASUREMENT,
                     attributes_fn=_get_marker_attributes_fn(

@@ -142,7 +142,7 @@ class TeslaFleetClimateEntity(TeslaFleetVehicleEntity, ClimateEntity):
         if ATTR_TEMPERATURE not in kwargs:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"missing_temperature",
+                translation_key="missing_temperature",
             )
 
         temp = kwargs[ATTR_TEMPERATURE]
@@ -281,14 +281,14 @@ class TeslaFleetCabinOverheatProtectionEntity(TeslaFleetVehicleEntity, ClimateEn
         if ATTR_TEMPERATURE not in kwargs:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"missing_temperature",
+                translation_key="missing_temperature",
             )
 
         temp = kwargs[ATTR_TEMPERATURE]
         if (cop_mode := TEMP_LEVELS.get(temp)) is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_cop_temp",
+                translation_key="invalid_cop_temp",
             )
 
         await self.wake_up_if_asleep()

@@ -67,7 +67,7 @@ def _uptime_to_timestamp(
 INTELLIFIRE_SENSORS: tuple[IntellifireSensorEntityDescription, ...] = (
     IntellifireSensorEntityDescription(
         key="read_mode",
-        REDACTED_VALUE"read_mode",
+        translation_key="read_mode",
         device_class=SensorDeviceClass.ENUM,
         options=[API_MODE_LOCAL, API_MODE_CLOUD],
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -75,7 +75,7 @@ INTELLIFIRE_SENSORS: tuple[IntellifireSensorEntityDescription, ...] = (
     ),
     IntellifireSensorEntityDescription(
         key="control_mode",
-        REDACTED_VALUE"control_mode",
+        translation_key="control_mode",
         device_class=SensorDeviceClass.ENUM,
         options=[API_MODE_LOCAL, API_MODE_CLOUD],
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -83,7 +83,7 @@ INTELLIFIRE_SENSORS: tuple[IntellifireSensorEntityDescription, ...] = (
     ),
     IntellifireSensorEntityDescription(
         key="flame_height",
-        REDACTED_VALUE"flame_height",
+        translation_key="flame_height",
         state_class=SensorStateClass.MEASUREMENT,
         # UI uses 1-5 for flame height, backing lib uses 0-4
         value_fn=lambda coordinator: coordinator.data.flameheight + 1,
@@ -97,7 +97,7 @@ INTELLIFIRE_SENSORS: tuple[IntellifireSensorEntityDescription, ...] = (
     ),
     IntellifireSensorEntityDescription(
         key="target_temp",
-        REDACTED_VALUE"target_temp",
+        translation_key="target_temp",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -105,47 +105,47 @@ INTELLIFIRE_SENSORS: tuple[IntellifireSensorEntityDescription, ...] = (
     ),
     IntellifireSensorEntityDescription(
         key="fan_speed",
-        REDACTED_VALUE"fan_speed",
+        translation_key="fan_speed",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda coordinator: coordinator.data.fanspeed,
     ),
     IntellifireSensorEntityDescription(
         key="timer_end_timestamp",
-        REDACTED_VALUE"timer_end_timestamp",
+        translation_key="timer_end_timestamp",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=_time_remaining_to_timestamp,
     ),
     IntellifireSensorEntityDescription(
         key="downtime",
-        REDACTED_VALUE"downtime",
+        translation_key="downtime",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=_downtime_to_timestamp,
     ),
     IntellifireSensorEntityDescription(
         key="uptime",
-        REDACTED_VALUE"uptime",
+        translation_key="uptime",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=_uptime_to_timestamp,
     ),
     IntellifireSensorEntityDescription(
         key="connection_quality",
-        REDACTED_VALUE"connection_quality",
+        translation_key="connection_quality",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda coordinator: coordinator.data.connection_quality,
         entity_registry_enabled_default=False,
     ),
     IntellifireSensorEntityDescription(
         key="ecm_latency",
-        REDACTED_VALUE"ecm_latency",
+        translation_key="ecm_latency",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda coordinator: coordinator.data.ecm_latency,
         entity_registry_enabled_default=False,
     ),
     IntellifireSensorEntityDescription(
         key="ipv4_address",
-        REDACTED_VALUE"ipv4_address",
+        translation_key="ipv4_address",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda coordinator: coordinator.data.ipv4_address,
     ),

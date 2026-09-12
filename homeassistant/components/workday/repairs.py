@@ -98,7 +98,7 @@ class CountryFixFlow(RepairsFlow):
                         SelectSelectorConfig(
                             options=country_provinces,
                             mode=SelectSelectorMode.DROPDOWN,
-                            REDACTED_VALUECONF_PROVINCE,
+                            translation_key=CONF_PROVINCE,
                         )
                     ),
                 }

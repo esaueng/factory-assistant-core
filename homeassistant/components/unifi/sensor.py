@@ -268,7 +268,7 @@ def make_wan_latency_sensors() -> tuple[UnifiSensorEntityDescription, ...]:
         name_wan = f"{name} {wan}"
         return UnifiSensorEntityDescription[Devices, Device](
             key=f"{name_wan} latency",
-            REDACTED_VALUE"wan_latency",
+            translation_key="wan_latency",
             entity_category=EntityCategory.DIAGNOSTIC,
             native_unit_of_measurement=UnitOfTime.MILLISECONDS,
             state_class=SensorStateClass.MEASUREMENT,
@@ -353,7 +353,7 @@ def make_device_temperatur_sensors() -> tuple[UnifiSensorEntityDescription, ...]
     ) -> UnifiSensorEntityDescription:
         return UnifiSensorEntityDescription[Devices, Device](
             key=f"Device {name} temperature",
-            REDACTED_VALUE"device_sub_temperature",
+            translation_key="device_sub_temperature",
             device_class=SensorDeviceClass.TEMPERATURE,
             entity_category=EntityCategory.DIAGNOSTIC,
             state_class=SensorStateClass.MEASUREMENT,
@@ -400,7 +400,7 @@ class UnifiSensorEntityDescription[HandlerT: APIHandler, ApiItemT: ApiItem](
 ENTITY_DESCRIPTIONS: tuple[UnifiSensorEntityDescription, ...] = (
     UnifiSensorEntityDescription[Clients, Client](
         key="Bandwidth sensor RX",
-        REDACTED_VALUE"client_bandwidth_rx",
+        translation_key="client_bandwidth_rx",
         device_class=SensorDeviceClass.DATA_RATE,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
@@ -416,7 +416,7 @@ ENTITY_DESCRIPTIONS: tuple[UnifiSensorEntityDescription, ...] = (
     ),
     UnifiSensorEntityDescription[Clients, Client](
         key="Bandwidth sensor TX",
-        REDACTED_VALUE"client_bandwidth_tx",
+        translation_key="client_bandwidth_tx",
         device_class=SensorDeviceClass.DATA_RATE,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
@@ -432,7 +432,7 @@ ENTITY_DESCRIPTIONS: tuple[UnifiSensorEntityDescription, ...] = (
     ),
     UnifiSensorEntityDescription[Clients, Client](
         key="Wired client speed",
-        REDACTED_VALUE"wired_client_link_speed",
+        translation_key="wired_client_link_speed",
         device_class=SensorDeviceClass.DATA_RATE,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
@@ -448,7 +448,7 @@ ENTITY_DESCRIPTIONS: tuple[UnifiSensorEntityDescription, ...] = (
     ),
     UnifiSensorEntityDescription[Ports, Port](
         key="PoE port power sensor",
-        REDACTED_VALUE"port_poe_power",
+        translation_key="port_poe_power",
         device_class=SensorDeviceClass.POWER,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
@@ -465,7 +465,7 @@ ENTITY_DESCRIPTIONS: tuple[UnifiSensorEntityDescription, ...] = (
     ),
     UnifiSensorEntityDescription[Ports, Port](
         key="Port Bandwidth sensor RX",
-        REDACTED_VALUE"port_bandwidth_rx",
+        translation_key="port_bandwidth_rx",
         device_class=SensorDeviceClass.DATA_RATE,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -483,7 +483,7 @@ ENTITY_DESCRIPTIONS: tuple[UnifiSensorEntityDescription, ...] = (
     ),
     UnifiSensorEntityDescription[Ports, Port](
         key="Port Bandwidth sensor TX",
-        REDACTED_VALUE"port_bandwidth_tx",
+        translation_key="port_bandwidth_tx",
         device_class=SensorDeviceClass.DATA_RATE,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -501,7 +501,7 @@ ENTITY_DESCRIPTIONS: tuple[UnifiSensorEntityDescription, ...] = (
     ),
     UnifiSensorEntityDescription[Ports, Port](
         key="Port speed",
-        REDACTED_VALUE"port_link_speed",
+        translation_key="port_link_speed",
         device_class=SensorDeviceClass.DATA_RATE,
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfDataRate.MEGABITS_PER_SECOND,
@@ -532,7 +532,7 @@ ENTITY_DESCRIPTIONS: tuple[UnifiSensorEntityDescription, ...] = (
     ),
     UnifiSensorEntityDescription[Wlans, Wlan](
         key="WLAN clients",
-        REDACTED_VALUE"wlan_clients",
+        translation_key="wlan_clients",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         api_handler_fn=lambda api: api.wlans,
@@ -545,7 +545,7 @@ ENTITY_DESCRIPTIONS: tuple[UnifiSensorEntityDescription, ...] = (
     ),
     UnifiSensorEntityDescription[Devices, Device](
         key="Device clients",
-        REDACTED_VALUE"device_clients",
+        translation_key="device_clients",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         entity_registry_enabled_default=False,
@@ -559,7 +559,7 @@ ENTITY_DESCRIPTIONS: tuple[UnifiSensorEntityDescription, ...] = (
     ),
     UnifiSensorEntityDescription[Outlets, Outlet](
         key="Outlet power metering",
-        REDACTED_VALUE"outlet_power",
+        translation_key="outlet_power",
         device_class=SensorDeviceClass.POWER,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
@@ -576,7 +576,7 @@ ENTITY_DESCRIPTIONS: tuple[UnifiSensorEntityDescription, ...] = (
     ),
     UnifiSensorEntityDescription[Devices, Device](
         key="SmartPower AC power budget",
-        REDACTED_VALUE"smartpower_ac_power_budget",
+        translation_key="smartpower_ac_power_budget",
         device_class=SensorDeviceClass.POWER,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
@@ -592,7 +592,7 @@ ENTITY_DESCRIPTIONS: tuple[UnifiSensorEntityDescription, ...] = (
     ),
     UnifiSensorEntityDescription[Devices, Device](
         key="SmartPower AC power consumption",
-        REDACTED_VALUE"smartpower_ac_power_consumption",
+        translation_key="smartpower_ac_power_consumption",
         device_class=SensorDeviceClass.POWER,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
@@ -633,7 +633,7 @@ ENTITY_DESCRIPTIONS: tuple[UnifiSensorEntityDescription, ...] = (
     ),
     UnifiSensorEntityDescription[Devices, Device](
         key="Device Uplink MAC",
-        REDACTED_VALUE"device_uplink_mac",
+        translation_key="device_uplink_mac",
         entity_category=EntityCategory.DIAGNOSTIC,
         api_handler_fn=lambda api: api.devices,
         available_fn=async_device_available_fn,
@@ -646,7 +646,7 @@ ENTITY_DESCRIPTIONS: tuple[UnifiSensorEntityDescription, ...] = (
     ),
     UnifiSensorEntityDescription[Devices, Device](
         key="Device State",
-        REDACTED_VALUE"device_state",
+        translation_key="device_state",
         device_class=SensorDeviceClass.ENUM,
         entity_category=EntityCategory.DIAGNOSTIC,
         api_handler_fn=lambda api: api.devices,
@@ -659,7 +659,7 @@ ENTITY_DESCRIPTIONS: tuple[UnifiSensorEntityDescription, ...] = (
     ),
     UnifiSensorEntityDescription[Devices, Device](
         key="Device CPU utilization",
-        REDACTED_VALUE"device_cpu_utilization",
+        translation_key="device_cpu_utilization",
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -673,7 +673,7 @@ ENTITY_DESCRIPTIONS: tuple[UnifiSensorEntityDescription, ...] = (
     ),
     UnifiSensorEntityDescription[Devices, Device](
         key="Device memory utilization",
-        REDACTED_VALUE"device_memory_utilization",
+        translation_key="device_memory_utilization",
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,

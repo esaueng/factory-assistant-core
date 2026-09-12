@@ -79,7 +79,7 @@ def _get_current_tariff_groups(
 SENSORS: tuple[EssentSensorEntityDescription, ...] = (
     EssentSensorEntityDescription(
         key="current_price",
-        REDACTED_VALUE"current_price",
+        translation_key="current_price",
         value_fn=lambda energy_data: (
             None
             if (tariff := _get_current_tariff(energy_data)) is None
@@ -88,7 +88,7 @@ SENSORS: tuple[EssentSensorEntityDescription, ...] = (
     ),
     EssentSensorEntityDescription(
         key="next_price",
-        REDACTED_VALUE"next_price",
+        translation_key="next_price",
         value_fn=lambda energy_data: (
             None
             if (tariff := _get_next_tariff(energy_data)) is None
@@ -98,27 +98,27 @@ SENSORS: tuple[EssentSensorEntityDescription, ...] = (
     ),
     EssentSensorEntityDescription(
         key="average_today",
-        REDACTED_VALUE"average_today",
+        translation_key="average_today",
         value_fn=lambda energy_data: energy_data.avg_price,
         energy_types=(EnergyType.ELECTRICITY,),
     ),
     EssentSensorEntityDescription(
         key="lowest_price_today",
-        REDACTED_VALUE"lowest_price_today",
+        translation_key="lowest_price_today",
         value_fn=lambda energy_data: energy_data.min_price,
         energy_types=(EnergyType.ELECTRICITY,),
         entity_registry_enabled_default=False,
     ),
     EssentSensorEntityDescription(
         key="highest_price_today",
-        REDACTED_VALUE"highest_price_today",
+        translation_key="highest_price_today",
         value_fn=lambda energy_data: energy_data.max_price,
         energy_types=(EnergyType.ELECTRICITY,),
         entity_registry_enabled_default=False,
     ),
     EssentSensorEntityDescription(
         key="current_price_ex_vat",
-        REDACTED_VALUE"current_price_ex_vat",
+        translation_key="current_price_ex_vat",
         value_fn=lambda energy_data: (
             None
             if (tariff := _get_current_tariff(energy_data)) is None
@@ -129,7 +129,7 @@ SENSORS: tuple[EssentSensorEntityDescription, ...] = (
     ),
     EssentSensorEntityDescription(
         key="current_price_vat",
-        REDACTED_VALUE"current_price_vat",
+        translation_key="current_price_vat",
         value_fn=lambda energy_data: (
             None
             if (tariff := _get_current_tariff(energy_data)) is None
@@ -141,7 +141,7 @@ SENSORS: tuple[EssentSensorEntityDescription, ...] = (
     ),
     EssentSensorEntityDescription(
         key="current_price_market_price",
-        REDACTED_VALUE"current_price_market_price",
+        translation_key="current_price_market_price",
         value_fn=lambda energy_data: _get_current_tariff_groups(energy_data)[1].get(
             PriceGroup.MARKET_PRICE
         ),
@@ -150,7 +150,7 @@ SENSORS: tuple[EssentSensorEntityDescription, ...] = (
     ),
     EssentSensorEntityDescription(
         key="current_price_purchasing_fee",
-        REDACTED_VALUE"current_price_purchasing_fee",
+        translation_key="current_price_purchasing_fee",
         value_fn=lambda energy_data: _get_current_tariff_groups(energy_data)[1].get(
             PriceGroup.PURCHASING_FEE
         ),
@@ -159,7 +159,7 @@ SENSORS: tuple[EssentSensorEntityDescription, ...] = (
     ),
     EssentSensorEntityDescription(
         key="current_price_tax",
-        REDACTED_VALUE"current_price_tax",
+        translation_key="current_price_tax",
         value_fn=lambda energy_data: _get_current_tariff_groups(energy_data)[1].get(
             PriceGroup.TAX
         ),

@@ -191,12 +191,12 @@ def title_logo(_: Person, title: Title | None) -> str | None:
 SENSOR_DESCRIPTIONS: tuple[XboxSensorEntityDescription, ...] = (
     XboxSensorEntityDescription(
         key=XboxSensor.STATUS,
-        REDACTED_VALUEXboxSensor.STATUS,
+        translation_key=XboxSensor.STATUS,
         value_fn=lambda x, _: x.presence_text,
     ),
     XboxSensorEntityDescription(
         key=XboxSensor.GAMER_SCORE,
-        REDACTED_VALUEXboxSensor.GAMER_SCORE,
+        translation_key=XboxSensor.GAMER_SCORE,
         value_fn=lambda x, _: x.gamer_score,
         state_class=SensorStateClass.MEASUREMENT,
     ),
@@ -212,7 +212,7 @@ SENSOR_DESCRIPTIONS: tuple[XboxSensorEntityDescription, ...] = (
     ),
     XboxSensorEntityDescription(
         key=XboxSensor.LAST_ONLINE,
-        REDACTED_VALUEXboxSensor.LAST_ONLINE,
+        translation_key=XboxSensor.LAST_ONLINE,
         value_fn=(
             lambda x, _: (
                 x.last_seen_date_time_utc.replace(tzinfo=UTC)
@@ -224,32 +224,32 @@ SENSOR_DESCRIPTIONS: tuple[XboxSensorEntityDescription, ...] = (
     ),
     XboxSensorEntityDescription(
         key=XboxSensor.FOLLOWING,
-        REDACTED_VALUEXboxSensor.FOLLOWING,
+        translation_key=XboxSensor.FOLLOWING,
         value_fn=lambda x, _: x.detail.following_count if x.detail else None,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     XboxSensorEntityDescription(
         key=XboxSensor.FOLLOWER,
-        REDACTED_VALUEXboxSensor.FOLLOWER,
+        translation_key=XboxSensor.FOLLOWER,
         value_fn=lambda x, _: x.detail.follower_count if x.detail else None,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     XboxSensorEntityDescription(
         key=XboxSensor.NOW_PLAYING,
-        REDACTED_VALUEXboxSensor.NOW_PLAYING,
+        translation_key=XboxSensor.NOW_PLAYING,
         value_fn=lambda _, title: title.name if title else None,
         attributes_fn=now_playing_attributes,
         entity_picture_fn=title_logo,
     ),
     XboxSensorEntityDescription(
         key=XboxSensor.FRIENDS,
-        REDACTED_VALUEXboxSensor.FRIENDS,
+        translation_key=XboxSensor.FRIENDS,
         value_fn=lambda x, _: x.detail.friend_count if x.detail else None,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     XboxSensorEntityDescription(
         key=XboxSensor.IN_PARTY,
-        REDACTED_VALUEXboxSensor.IN_PARTY,
+        translation_key=XboxSensor.IN_PARTY,
         value_fn=(
             lambda x, _: (
                 x.multiplayer_summary.in_party if x.multiplayer_summary else None
@@ -258,7 +258,7 @@ SENSOR_DESCRIPTIONS: tuple[XboxSensorEntityDescription, ...] = (
     ),
     XboxSensorEntityDescription(
         key=XboxSensor.JOIN_RESTRICTIONS,
-        REDACTED_VALUEXboxSensor.JOIN_RESTRICTIONS,
+        translation_key=XboxSensor.JOIN_RESTRICTIONS,
         value_fn=join_restrictions,
         device_class=SensorDeviceClass.ENUM,
         options=list(MAP_JOIN_RESTRICTIONS.values()),
@@ -268,7 +268,7 @@ SENSOR_DESCRIPTIONS: tuple[XboxSensorEntityDescription, ...] = (
 STORAGE_SENSOR_DESCRIPTIONS: tuple[XboxStorageDeviceSensorEntityDescription, ...] = (
     XboxStorageDeviceSensorEntityDescription(
         key=XboxSensor.TOTAL_STORAGE,
-        REDACTED_VALUEXboxSensor.TOTAL_STORAGE,
+        translation_key=XboxSensor.TOTAL_STORAGE,
         value_fn=lambda x: x.total_space_bytes,
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -279,7 +279,7 @@ STORAGE_SENSOR_DESCRIPTIONS: tuple[XboxStorageDeviceSensorEntityDescription, ...
     ),
     XboxStorageDeviceSensorEntityDescription(
         key=XboxSensor.FREE_STORAGE,
-        REDACTED_VALUEXboxSensor.FREE_STORAGE,
+        translation_key=XboxSensor.FREE_STORAGE,
         value_fn=lambda x: x.free_space_bytes,
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,

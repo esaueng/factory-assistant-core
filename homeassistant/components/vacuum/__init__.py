@@ -451,7 +451,7 @@ class StateVacuumEntity(
             if area_mapping is None:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"area_mapping_not_configured",
+                    translation_key="area_mapping_not_configured",
                     translation_placeholders={"entity_id": entity.entity_id},
                 )
 
@@ -483,7 +483,7 @@ class StateVacuumEntity(
         if unhandled_areas:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"areas_not_mapped",
+                translation_key="areas_not_mapped",
                 translation_placeholders={"areas": ", ".join(sorted(unhandled_areas))},
             )
 
@@ -524,7 +524,7 @@ class StateVacuumEntity(
             },
             is_fixable=False,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUEISSUE_SEGMENTS_CHANGED,
+            translation_key=ISSUE_SEGMENTS_CHANGED,
             translation_placeholders={
                 "entity_id": self.entity_id,
             },

@@ -43,7 +43,7 @@ BATTERY_STATE_ENTITY_DESCRIPTION = TadoBinarySensorEntityDescription(
 )
 CONNECTION_STATE_ENTITY_DESCRIPTION = TadoBinarySensorEntityDescription(
     key="connection state",
-    REDACTED_VALUE"connection_state",
+    translation_key="connection_state",
     state_fn=lambda data: data.get("connectionState", {}).get("value", False),
     device_class=BinarySensorDeviceClass.CONNECTIVITY,
 )
@@ -59,7 +59,7 @@ LINK_ENTITY_DESCRIPTION = TadoBinarySensorEntityDescription(
 )
 OVERLAY_ENTITY_DESCRIPTION = TadoBinarySensorEntityDescription(
     key="overlay",
-    REDACTED_VALUE"overlay",
+    translation_key="overlay",
     state_fn=lambda data: data.overlay_active,
     attributes_fn=lambda data: (
         {"termination": data.overlay_termination_type} if data.overlay_active else {}
@@ -74,7 +74,7 @@ OPEN_WINDOW_ENTITY_DESCRIPTION = TadoBinarySensorEntityDescription(
 )
 EARLY_START_ENTITY_DESCRIPTION = TadoBinarySensorEntityDescription(
     key="early start",
-    REDACTED_VALUE"early_start",
+    translation_key="early_start",
     state_fn=lambda data: data.preparation,
     device_class=BinarySensorDeviceClass.POWER,
 )

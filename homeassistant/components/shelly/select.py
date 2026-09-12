@@ -98,7 +98,7 @@ RPC_SELECT_ENTITIES: Final = {
     "cury_mode": RpcSelectDescription(
         key="cury",
         sub_key="mode",
-        REDACTED_VALUE"cury_mode",
+        translation_key="cury_mode",
         options=[
             "hall",
             "bedroom",

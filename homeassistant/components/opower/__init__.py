@@ -24,7 +24,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: OpowerConfigEntry) -> bo
             f"unsupported_utility_{entry.entry_id}",
             is_fixable=True,
             severity=ir.IssueSeverity.ERROR,
-            REDACTED_VALUE"unsupported_utility",
+            translation_key="unsupported_utility",
             translation_placeholders={"utility": utility_name},
             data={
                 "entry_id": entry.entry_id,

@@ -96,7 +96,7 @@ class VolvoBaseCoordinator(DataUpdateCoordinator[CoordinatorData]):
         except VolvoAuthException as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unauthorized",
+                translation_key="unauthorized",
                 translation_placeholders={"message": err.message},
             ) from err
         except VolvoApiException as err:
@@ -135,7 +135,7 @@ class VolvoBaseCoordinator(DataUpdateCoordinator[CoordinatorData]):
                 )
                 raise ConfigEntryAuthFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"unauthorized",
+                    translation_key="unauthorized",
                     translation_placeholders={"message": result.message},
                 ) from result
 
@@ -154,7 +154,7 @@ class VolvoBaseCoordinator(DataUpdateCoordinator[CoordinatorData]):
                 # Something bad happened, raise immediately.
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"update_failed",
+                    translation_key="update_failed",
                 ) from result
 
             api_data = cast(CoordinatorData, result)
@@ -170,7 +170,7 @@ class VolvoBaseCoordinator(DataUpdateCoordinator[CoordinatorData]):
         if not valid:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
+                translation_key="update_failed",
             ) from exception
 
         return data

@@ -53,7 +53,7 @@ def _create_rtsp_repair(
         is_persistent=False,
         learn_more_url="https://www.home-assistant.io/integrations/unifiprotect/#camera-streams",
         severity=IssueSeverity.WARNING,
-        REDACTED_VALUEtranslation_key,
+        translation_key=translation_key,
         translation_placeholders={"camera": camera.display_name},
         data={"entry_id": entry.entry_id, "camera_id": camera.id},
     )

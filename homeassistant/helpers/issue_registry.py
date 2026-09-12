@@ -163,7 +163,7 @@ class IssueRegistry(BaseRegistry):
                 issue_id=issue_id,
                 learn_more_url=learn_more_url,
                 severity=severity,
-                REDACTED_VALUEtranslation_key,
+                translation_key=translation_key,
                 translation_placeholders=translation_placeholders,
             )
             self.issues[(domain, issue_id)] = issue
@@ -187,7 +187,7 @@ class IssueRegistry(BaseRegistry):
                 issue_domain=issue_domain,
                 learn_more_url=learn_more_url,
                 severity=severity,
-                REDACTED_VALUEtranslation_key,
+                translation_key=translation_key,
                 translation_placeholders=translation_placeholders,
             )
             # Only fire is something changed
@@ -279,7 +279,7 @@ class IssueRegistry(BaseRegistry):
                         issue_domain=issue["issue_domain"],
                         learn_more_url=issue["learn_more_url"],
                         severity=issue["severity"],
-                        REDACTED_VALUEissue["translation_key"],
+                        translation_key=issue["translation_key"],
                         translation_placeholders=issue["translation_placeholders"],
                     )
                 else:
@@ -296,7 +296,7 @@ class IssueRegistry(BaseRegistry):
                         issue_domain=None,
                         learn_more_url=None,
                         severity=None,
-                        REDACTED_VALUENone,
+                        translation_key=None,
                         translation_placeholders=None,
                     )
 
@@ -367,7 +367,7 @@ def async_create_issue(
         issue_domain=issue_domain,
         learn_more_url=learn_more_url,
         severity=severity,
-        REDACTED_VALUEtranslation_key,
+        translation_key=translation_key,
         translation_placeholders=translation_placeholders,
     )
 
@@ -402,7 +402,7 @@ def create_issue(
             issue_domain=issue_domain,
             learn_more_url=learn_more_url,
             severity=severity,
-            REDACTED_VALUEtranslation_key,
+            translation_key=translation_key,
             translation_placeholders=translation_placeholders,
         ),
     ).result()

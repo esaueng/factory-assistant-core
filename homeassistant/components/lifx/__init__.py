@@ -123,7 +123,7 @@ class LIFXDiscoveryManager:
             self.migrating,
         )
         self._cancel_discovery = async_track_time_interval(
-            self.hass, self.async_discovery, discovery_interval, REDACTED_VALUE
+            self.hass, self.async_discovery, discovery_interval, cancel_on_shutdown=True
         )
 
     async def async_discovery(self, *_: Any) -> None:
@@ -174,7 +174,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     async_call_later(
         hass,
         DISCOVERY_COOLDOWN,
-        HassJob(_async_delayed_discovery, REDACTED_VALUE),
+        HassJob(_async_delayed_discovery, cancel_on_shutdown=True),
     )
     hass.bus.async_listen_once(
         EVENT_HOMEASSISTANT_STARTED, discovery_manager.async_discovery

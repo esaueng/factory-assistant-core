@@ -31,22 +31,22 @@ class PlugwiseSwitchEntityDescription(SwitchEntityDescription):
 SWITCHES: tuple[PlugwiseSwitchEntityDescription, ...] = (
     PlugwiseSwitchEntityDescription(
         key="dhw_cm_switch",
-        REDACTED_VALUE"dhw_cm_switch",
+        translation_key="dhw_cm_switch",
         entity_category=EntityCategory.CONFIG,
     ),
     PlugwiseSwitchEntityDescription(
         key="lock",
-        REDACTED_VALUE"lock",
+        translation_key="lock",
         entity_category=EntityCategory.CONFIG,
     ),
     PlugwiseSwitchEntityDescription(
         key="relay",
-        REDACTED_VALUE"relay",
+        translation_key="relay",
         device_class=SwitchDeviceClass.SWITCH,
     ),
     PlugwiseSwitchEntityDescription(
         key="cooling_ena_switch",
-        REDACTED_VALUE"cooling_ena_switch",
+        translation_key="cooling_ena_switch",
         entity_category=EntityCategory.CONFIG,
     ),
 )

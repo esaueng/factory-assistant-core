@@ -25,7 +25,7 @@ ON_STATES = ["on", "yes", "charging", "alert", "exceeded"]
 DESCRIPTIONS: dict[CompitParameter, BinarySensorEntityDescription] = {
     CompitParameter.AIRING: BinarySensorEntityDescription(
         key=CompitParameter.AIRING.value,
-        REDACTED_VALUE"airing",
+        translation_key="airing",
         device_class=BinarySensorDeviceClass.WINDOW,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
@@ -36,31 +36,31 @@ DESCRIPTIONS: dict[CompitParameter, BinarySensorEntityDescription] = {
     ),
     CompitParameter.CO2_ALERT: BinarySensorEntityDescription(
         key=CompitParameter.CO2_ALERT.value,
-        REDACTED_VALUE"co2_alert",
+        translation_key="co2_alert",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     CompitParameter.CO2_LEVEL: BinarySensorEntityDescription(
         key=CompitParameter.CO2_LEVEL.value,
-        REDACTED_VALUE"co2_level",
+        translation_key="co2_level",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     CompitParameter.DUST_ALERT: BinarySensorEntityDescription(
         key=CompitParameter.DUST_ALERT.value,
-        REDACTED_VALUE"dust_alert",
+        translation_key="dust_alert",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     CompitParameter.PUMP_STATUS: BinarySensorEntityDescription(
         key=CompitParameter.PUMP_STATUS.value,
-        REDACTED_VALUE"pump_status",
+        translation_key="pump_status",
         device_class=BinarySensorDeviceClass.RUNNING,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     CompitParameter.TEMPERATURE_ALERT: BinarySensorEntityDescription(
         key=CompitParameter.TEMPERATURE_ALERT.value,
-        REDACTED_VALUE"temperature_alert",
+        translation_key="temperature_alert",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),

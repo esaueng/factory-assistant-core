@@ -14,50 +14,50 @@ from .const import DATA_UPDATED, DOMAIN
 SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="application_name",
-        REDACTED_VALUE"application_name",
+        translation_key="application_name",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="body",
-        REDACTED_VALUE"body",
+        translation_key="body",
     ),
     SensorEntityDescription(
         key="notification_id",
-        REDACTED_VALUE"notification_id",
+        translation_key="notification_id",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="notification_tag",
-        REDACTED_VALUE"notification_tag",
+        translation_key="notification_tag",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="package_name",
-        REDACTED_VALUE"package_name",
+        translation_key="package_name",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="receiver_email",
-        REDACTED_VALUE"receiver_email",
+        translation_key="receiver_email",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="sender_email",
-        REDACTED_VALUE"sender_email",
+        translation_key="sender_email",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="source_device_iden",
-        REDACTED_VALUE"source_device_identifier",
+        translation_key="source_device_identifier",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key="title",
-        REDACTED_VALUE"title",
+        translation_key="title",
     ),
     SensorEntityDescription(
         key="type",
-        REDACTED_VALUE"type",
+        translation_key="type",
         entity_registry_enabled_default=False,
     ),
 )

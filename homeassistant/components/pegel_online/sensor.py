@@ -32,7 +32,7 @@ class PegelOnlineSensorEntityDescription(SensorEntityDescription):
 SENSORS: tuple[PegelOnlineSensorEntityDescription, ...] = (
     PegelOnlineSensorEntityDescription(
         key="air_temperature",
-        REDACTED_VALUE"air_temperature",
+        translation_key="air_temperature",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.TEMPERATURE,
         entity_registry_enabled_default=False,
@@ -40,14 +40,14 @@ SENSORS: tuple[PegelOnlineSensorEntityDescription, ...] = (
     ),
     PegelOnlineSensorEntityDescription(
         key="clearance_height",
-        REDACTED_VALUE"clearance_height",
+        translation_key="clearance_height",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.DISTANCE,
         measurement_fn=lambda data: data.clearance_height,
     ),
     PegelOnlineSensorEntityDescription(
         key="oxygen_level",
-        REDACTED_VALUE"oxygen_level",
+        translation_key="oxygen_level",
         state_class=SensorStateClass.MEASUREMENT,
         entity_registry_enabled_default=False,
         measurement_fn=lambda data: data.oxygen_level,
@@ -61,7 +61,7 @@ SENSORS: tuple[PegelOnlineSensorEntityDescription, ...] = (
     ),
     PegelOnlineSensorEntityDescription(
         key="water_speed",
-        REDACTED_VALUE"water_speed",
+        translation_key="water_speed",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.SPEED,
         entity_registry_enabled_default=False,
@@ -69,7 +69,7 @@ SENSORS: tuple[PegelOnlineSensorEntityDescription, ...] = (
     ),
     PegelOnlineSensorEntityDescription(
         key="water_flow",
-        REDACTED_VALUE"water_flow",
+        translation_key="water_flow",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
         entity_registry_enabled_default=False,
@@ -77,13 +77,13 @@ SENSORS: tuple[PegelOnlineSensorEntityDescription, ...] = (
     ),
     PegelOnlineSensorEntityDescription(
         key="water_level",
-        REDACTED_VALUE"water_level",
+        translation_key="water_level",
         state_class=SensorStateClass.MEASUREMENT,
         measurement_fn=lambda data: data.water_level,
     ),
     PegelOnlineSensorEntityDescription(
         key="water_temperature",
-        REDACTED_VALUE"water_temperature",
+        translation_key="water_temperature",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.TEMPERATURE,
         entity_registry_enabled_default=False,

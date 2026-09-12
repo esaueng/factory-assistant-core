@@ -55,7 +55,7 @@ CONF_SCHEMA = vol.Schema(
             SelectSelectorConfig(
                 options=list(SECURITY_LEVELS.keys()),
                 mode=SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUE"security_level",
+                translation_key="security_level",
                 sort=True,
             ),
         ),

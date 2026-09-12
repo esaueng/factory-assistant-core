@@ -39,7 +39,7 @@ ROBOT_SELECT_MAP: dict[
     LitterRobot: (
         RobotSelectEntityDescription[LitterRobot, int](
             key="cycle_delay",
-            REDACTED_VALUE"cycle_delay",
+            translation_key="cycle_delay",
             unit_of_measurement=UnitOfTime.MINUTES,
             current_fn=lambda robot: robot.clean_cycle_wait_time_minutes,
             options_fn=lambda robot: robot.VALID_WAIT_TIMES,
@@ -49,7 +49,7 @@ ROBOT_SELECT_MAP: dict[
     (LitterRobot4, LitterRobot5): (
         RobotSelectEntityDescription[LitterRobot4 | LitterRobot5, str](
             key="globe_brightness",
-            REDACTED_VALUE"globe_brightness",
+            translation_key="globe_brightness",
             current_fn=(
                 lambda robot: (
                     bri.name.lower()
@@ -66,7 +66,7 @@ ROBOT_SELECT_MAP: dict[
         ),
         RobotSelectEntityDescription[LitterRobot4 | LitterRobot5, str](
             key="globe_light",
-            REDACTED_VALUE"globe_light",
+            translation_key="globe_light",
             current_fn=(
                 lambda robot: (
                     mode.name.lower()
@@ -83,7 +83,7 @@ ROBOT_SELECT_MAP: dict[
         ),
         RobotSelectEntityDescription[LitterRobot4 | LitterRobot5, str](
             key="panel_brightness",
-            REDACTED_VALUE"brightness_level",
+            translation_key="brightness_level",
             current_fn=(
                 lambda robot: (
                     bri.name.lower()
@@ -102,7 +102,7 @@ ROBOT_SELECT_MAP: dict[
     FeederRobot: (
         RobotSelectEntityDescription[FeederRobot, float](
             key="meal_insert_size",
-            REDACTED_VALUE"meal_insert_size",
+            translation_key="meal_insert_size",
             unit_of_measurement="cups",
             current_fn=lambda robot: robot.meal_insert_size,
             options_fn=lambda robot: robot.VALID_MEAL_INSERT_SIZES,

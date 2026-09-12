@@ -85,7 +85,7 @@ async def async_setup_platform(
                 is_persistent=False,
                 issue_domain=DOMAIN,
                 severity=ir.IssueSeverity.WARNING,
-                REDACTED_VALUE"yaml_deprecation_import_issue",
+                translation_key="yaml_deprecation_import_issue",
                 translation_placeholders={
                     "reason": str(result.get("reason")),
                     "host": switch.get("host"),
@@ -103,7 +103,7 @@ async def async_setup_platform(
             is_fixable=False,
             is_persistent=False,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"yaml_deprecation",
+            translation_key="yaml_deprecation",
             translation_placeholders={
                 "host": switch.get("host"),
                 "mac": switch.get("mac") or "Unknown MAC",
@@ -162,7 +162,7 @@ class S20Switch(SwitchEntity):
         except S20Exception as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"turn_on_error",
+                translation_key="turn_on_error",
                 translation_placeholders={"name": self._name},
             ) from err
 
@@ -173,7 +173,7 @@ class S20Switch(SwitchEntity):
         except S20Exception as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"turn_off_error",
+                translation_key="turn_off_error",
                 translation_placeholders={"name": self._name},
             ) from err
 

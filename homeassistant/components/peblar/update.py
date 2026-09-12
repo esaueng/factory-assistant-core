@@ -40,7 +40,7 @@ DESCRIPTIONS: tuple[PeblarUpdateEntityDescription, ...] = (
     ),
     PeblarUpdateEntityDescription(
         key="customization",
-        REDACTED_VALUE"customization",
+        translation_key="customization",
         available_fn=lambda x: x.available.customization,
         has_fn=lambda x: x.available.customization is not None,
         installed_fn=lambda x: x.current.customization,

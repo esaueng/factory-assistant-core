@@ -281,7 +281,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterSelectEntityDescription(
             key="MatterModeSelect",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"mode",
+            translation_key="mode",
         ),
         entity_class=MatterModeSelectEntity,
         required_attributes=(
@@ -295,7 +295,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SELECT,
         entity_description=MatterSelectEntityDescription(
             key="MatterOvenMode",
-            REDACTED_VALUE"mode",
+            translation_key="mode",
         ),
         entity_class=MatterModeSelectEntity,
         required_attributes=(
@@ -309,7 +309,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SELECT,
         entity_description=MatterSelectEntityDescription(
             key="MatterLaundryWasherMode",
-            REDACTED_VALUE"mode",
+            translation_key="mode",
         ),
         entity_class=MatterModeSelectEntity,
         required_attributes=(
@@ -323,7 +323,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SELECT,
         entity_description=MatterSelectEntityDescription(
             key="MatterRefrigeratorAndTemperatureControlledCabinetMode",
-            REDACTED_VALUE"mode",
+            translation_key="mode",
         ),
         entity_class=MatterModeSelectEntity,
         required_attributes=(
@@ -337,7 +337,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SELECT,
         entity_description=MatterSelectEntityDescription(
             key="MatterRvcCleanMode",
-            REDACTED_VALUE"clean_mode",
+            translation_key="clean_mode",
         ),
         entity_class=MatterModeSelectEntity,
         required_attributes=(
@@ -351,7 +351,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SELECT,
         entity_description=MatterSelectEntityDescription(
             key="MatterDishwasherMode",
-            REDACTED_VALUE"mode",
+            translation_key="mode",
         ),
         entity_class=MatterModeSelectEntity,
         required_attributes=(
@@ -365,7 +365,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SELECT,
         entity_description=MatterSelectEntityDescription(
             key="MatterEnergyEvseMode",
-            REDACTED_VALUE"mode",
+            translation_key="mode",
         ),
         entity_class=MatterModeSelectEntity,
         required_attributes=(
@@ -379,7 +379,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SELECT,
         entity_description=MatterSelectEntityDescription(
             key="MatterDeviceEnergyManagementMode",
-            REDACTED_VALUE"device_energy_management_mode",
+            translation_key="device_energy_management_mode",
         ),
         entity_class=MatterModeSelectEntity,
         required_attributes=(
@@ -394,7 +394,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterSelectEntityDescription(
             key="MatterStartUpOnOff",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"startup_on_off",
+            translation_key="startup_on_off",
             options=["on", "off", "toggle", "previous"],
             device_to_ha={
                 0: "off",
@@ -419,7 +419,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterSelectEntityDescription(
             key="SmokeCOSmokeSensitivityLevel",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"sensitivity_level",
+            translation_key="sensitivity_level",
             options=["high", "standard", "low"],
             device_to_ha={
                 0: "high",
@@ -440,7 +440,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterSelectEntityDescription(
             key="TrvTemperatureDisplayMode",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"temperature_display_mode",
+            translation_key="temperature_display_mode",
             options=["Celsius", "Fahrenheit"],
             device_to_ha={
                 0: "Celsius",
@@ -460,7 +460,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SELECT,
         entity_description=MatterListSelectEntityDescription(
             key="TemperatureControlSelectedTemperatureLevel",
-            REDACTED_VALUE"temperature_level",
+            translation_key="temperature_level",
             command=lambda selected_index: (
                 clusters.TemperatureControl.Commands.SetTemperature(
                     targetTemperatureLevel=selected_index
@@ -480,7 +480,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SELECT,
         entity_description=MatterListSelectEntityDescription(
             key="LaundryWasherControlsSpinSpeed",
-            REDACTED_VALUE"laundry_washer_spin_speed",
+            translation_key="laundry_washer_spin_speed",
             list_attribute=clusters.LaundryWasherControls.Attributes.SpinSpeeds,
         ),
         entity_class=MatterListSelectEntity,
@@ -495,7 +495,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SELECT,
         entity_description=MatterMapSelectEntityDescription(
             key="MatterLaundryWasherNumberOfRinses",
-            REDACTED_VALUE"laundry_washer_number_of_rinses",
+            translation_key="laundry_washer_number_of_rinses",
             list_attribute=clusters.LaundryWasherControls.Attributes.SupportedRinses,
             device_to_ha=NUMBER_OF_RINSES_STATE_MAP.get,
             ha_to_device=NUMBER_OF_RINSES_STATE_MAP_REVERSE.get,
@@ -512,7 +512,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SELECT,
         entity_description=MatterListSelectEntityDescription(
             key="MicrowaveOvenControlSelectedWattIndex",
-            REDACTED_VALUE"power_level",
+            translation_key="power_level",
             command=lambda selected_index: (
                 clusters.MicrowaveOvenControl.Commands.SetCookingParameters(
                     wattSettingIndex=selected_index
@@ -533,7 +533,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterSelectEntityDescription(
             key="DoorLockSoundVolume",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"door_lock_sound_volume",
+            translation_key="door_lock_sound_volume",
             options=["silent", "low", "medium", "high"],
             device_to_ha={
                 0: "silent",
@@ -555,7 +555,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SELECT,
         entity_description=MatterSelectEntityDescription(
             key="PumpConfigurationAndControlOperationMode",
-            REDACTED_VALUE"pump_operation_mode",
+            translation_key="pump_operation_mode",
             options=list(PUMP_OPERATION_MODE_MAP.values()),
             device_to_ha=PUMP_OPERATION_MODE_MAP.get,
             ha_to_device=PUMP_OPERATION_MODE_MAP_REVERSE.get,
@@ -574,7 +574,7 @@ DISCOVERY_SCHEMAS = [
             key="AqaraBooleanStateConfigurationCurrentSensitivityLevel",
             entity_category=EntityCategory.CONFIG,
             entity_registry_enabled_default=False,
-            REDACTED_VALUE"sensitivity_level",
+            translation_key="sensitivity_level",
             options=["10 mm", "20 mm", "30 mm"],
             device_to_ha={
                 # CurrentSensitivityLevel=0 / highest
@@ -604,7 +604,7 @@ DISCOVERY_SCHEMAS = [
             key="AqaraOccupancySensorBooleanStateConfigurationCurrentSensitivityLevel",
             entity_category=EntityCategory.CONFIG,
             entity_registry_enabled_default=False,
-            REDACTED_VALUE"sensitivity_level",
+            translation_key="sensitivity_level",
             options=["low", "standard", "high"],
             device_to_ha={
                 0: "low",
@@ -634,7 +634,7 @@ DISCOVERY_SCHEMAS = [
             key="HeimanOccupancySensorBooleanStateConfigurationCurrentSensitivityLevel",
             entity_category=EntityCategory.CONFIG,
             entity_registry_enabled_default=False,
-            REDACTED_VALUE"sensitivity_level",
+            translation_key="sensitivity_level",
             options=["low", "standard", "high"],
             device_to_ha={
                 0: "low",
@@ -659,7 +659,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SELECT,
         entity_description=MatterMapSelectEntityDescription(
             key="DoorLockOperatingMode",
-            REDACTED_VALUE"door_lock_operating_mode",
+            translation_key="door_lock_operating_mode",
             list_attribute=clusters.DoorLock.Attributes.SupportedOperatingModes,
             device_to_ha=DOOR_LOCK_OPERATING_MODE_MAP.get,
             ha_to_device=DOOR_LOCK_OPERATING_MODE_MAP_REVERSE.get,

@@ -306,7 +306,7 @@ class ShellyRpcMediaPlayer(ShellyRpcAttributeEntity, MediaPlayerEntity):
             self.coordinator.last_update_success = False
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_communication_action_error",
+                translation_key="device_communication_action_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                     "device": self.coordinator.name,
@@ -315,7 +315,7 @@ class ShellyRpcMediaPlayer(ShellyRpcAttributeEntity, MediaPlayerEntity):
         except RpcCallError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"rpc_call_action_error",
+                translation_key="rpc_call_action_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                     "device": self.coordinator.name,
@@ -325,7 +325,7 @@ class ShellyRpcMediaPlayer(ShellyRpcAttributeEntity, MediaPlayerEntity):
             await self.coordinator.async_shutdown_device_and_start_reauth()
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_error",
+                translation_key="auth_error",
                 translation_placeholders={
                     "device": self.coordinator.name,
                 },
@@ -333,7 +333,7 @@ class ShellyRpcMediaPlayer(ShellyRpcAttributeEntity, MediaPlayerEntity):
 
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unsupported_media_content_type",
+            translation_key="unsupported_media_content_type",
             translation_placeholders={"media_content_type": str(media_content_type)},
         )
 
@@ -428,7 +428,7 @@ class ShellyRpcMediaPlayer(ShellyRpcAttributeEntity, MediaPlayerEntity):
         if media_id.isdecimal() is False:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unsupported_media_id",
+                translation_key="unsupported_media_id",
                 translation_placeholders={"media_id": media_id},
             )
 
@@ -442,7 +442,7 @@ class ShellyRpcMediaPlayer(ShellyRpcAttributeEntity, MediaPlayerEntity):
 
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unsupported_media_type",
+            translation_key="unsupported_media_type",
             translation_placeholders={"media_type": str(media_type)},
         )
 

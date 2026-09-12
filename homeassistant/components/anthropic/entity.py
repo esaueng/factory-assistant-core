@@ -467,7 +467,7 @@ def _convert_content(  # noqa: C901
             # passed to the API as the prompt
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unexpected_chat_log_content",
+                translation_key="unexpected_chat_log_content",
                 translation_placeholders={"type": type(content).__name__},
             )
 
@@ -540,7 +540,7 @@ class AnthropicDeltaStream:
         """Initialize the stream and return the async iterator."""
         if self._stream is None or not hasattr(self._stream, "__aiter__"):
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"unexpected_stream_object"
+                translation_domain=DOMAIN, translation_key="unexpected_stream_object"
             )
         if self._stream_iterator is None:
             self._stream_iterator = self._stream.__aiter__()
@@ -851,7 +851,7 @@ class AnthropicDeltaStream:
         self._content_details.container = delta.container
         if delta.stop_reason == "refusal":
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"api_refusal"
+                translation_domain=DOMAIN, translation_key="api_refusal"
             )
 
     def on_message_stop_event(self) -> None:
@@ -927,7 +927,7 @@ class AnthropicBaseLLMEntity(CoordinatorEntity[AnthropicCoordinator]):
         system = chat_log.content[0]
         if not isinstance(system, conversation.SystemContent):
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"system_message_not_found"
+                translation_domain=DOMAIN, translation_key="system_message_not_found"
             )
 
         messages, container_id = _convert_content(chat_log.content[1:])
@@ -1066,7 +1066,7 @@ class AnthropicBaseLLMEntity(CoordinatorEntity[AnthropicCoordinator]):
             last_message = messages[-1]
             if last_message["role"] != "user":
                 raise HomeAssistantError(
-                    translation_domain=DOMAIN, REDACTED_VALUE"user_message_not_found"
+                    translation_domain=DOMAIN, translation_key="user_message_not_found"
                 )
             if isinstance(last_message["content"], str):
                 last_message["content"] = [
@@ -1205,7 +1205,7 @@ class AnthropicBaseLLMEntity(CoordinatorEntity[AnthropicCoordinator]):
                 await coordinator.async_request_refresh()
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"api_authentication_error",
+                    translation_key="api_authentication_error",
                     translation_placeholders={"message": err.message},
                 ) from err
             except anthropic.APIConnectionError as err:
@@ -1213,7 +1213,7 @@ class AnthropicBaseLLMEntity(CoordinatorEntity[AnthropicCoordinator]):
                 coordinator.mark_connection_error()
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"api_error",
+                    translation_key="api_error",
                     translation_placeholders={"message": err.message},
                 ) from err
             except anthropic.AnthropicError as err:
@@ -1222,7 +1222,7 @@ class AnthropicBaseLLMEntity(CoordinatorEntity[AnthropicCoordinator]):
                 LOGGER.error("Error while talking to Anthropic: %s", err)
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"api_error",
+                    translation_key="api_error",
                     translation_placeholders={
                         "message": err.message
                         if isinstance(err, anthropic.APIError)
@@ -1250,7 +1250,7 @@ async def async_prepare_files_for_prompt(
             if not file_path.exists():
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"wrong_file_path",
+                    translation_key="wrong_file_path",
                     translation_placeholders={"file_path": file_path.as_posix()},
                 )
 
@@ -1272,7 +1272,7 @@ async def async_prepare_files_for_prompt(
             ):
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"wrong_file_type",
+                    translation_key="wrong_file_type",
                     translation_placeholders={
                         "file_path": file_path.as_posix(),
                         "mime_type": mime_type or "unknown",

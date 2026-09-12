@@ -39,13 +39,13 @@ class DROPSwitchEntityDescription(SwitchEntityDescription):
 SWITCHES: list[DROPSwitchEntityDescription] = [
     DROPSwitchEntityDescription(
         key=WATER_SWITCH,
-        REDACTED_VALUEWATER_SWITCH,
+        translation_key=WATER_SWITCH,
         value_fn=lambda device: device.drop_api.water(),
         set_fn=lambda device, value: device.set_water(value),
     ),
     DROPSwitchEntityDescription(
         key=BYPASS_SWITCH,
-        REDACTED_VALUEBYPASS_SWITCH,
+        translation_key=BYPASS_SWITCH,
         value_fn=lambda device: device.drop_api.bypass(),
         set_fn=lambda device, value: device.set_bypass(value),
     ),

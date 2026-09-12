@@ -68,7 +68,7 @@ async def async_setup_entry(
                         player_option=player_option,
                         entity_description=SelectEntityDescription(
                             key=player_option.key,
-                            REDACTED_VALUEplayer_option.translation_key,
+                            translation_key=player_option.translation_key,
                             entity_registry_enabled_default=PLAYER_OPTIONS_SELECT[
                                 player_option.translation_key
                             ],

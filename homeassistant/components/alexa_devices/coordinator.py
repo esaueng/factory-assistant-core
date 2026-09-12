@@ -48,7 +48,7 @@ async def alexa_api_call(
             coordinator.last_update_success = False
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_auth",
+            translation_key="invalid_auth",
             translation_placeholders={"error": repr(err)},
         ) from err
     except CannotConnect as err:
@@ -56,7 +56,7 @@ async def alexa_api_call(
             coordinator.last_update_success = False
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect_with_error",
+            translation_key="cannot_connect_with_error",
             translation_placeholders={"error": repr(err)},
         ) from err
     except (CannotRetrieveData, ValueError) as err:
@@ -64,7 +64,7 @@ async def alexa_api_call(
             coordinator.last_update_success = False
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_retrieve_data_with_error",
+            translation_key="cannot_retrieve_data_with_error",
             translation_placeholders={"error": repr(err)},
         ) from err
 
@@ -77,19 +77,19 @@ async def alexa_config_entry_errors() -> AsyncGenerator[None]:
     except CannotAuthenticate as err:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_auth",
+            translation_key="invalid_auth",
             translation_placeholders={"error": repr(err)},
         ) from err
     except (CannotConnect, TimeoutError) as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect_with_error",
+            translation_key="cannot_connect_with_error",
             translation_placeholders={"error": repr(err)},
         ) from err
     except (CannotRetrieveData, ValueError, KeyError, StopIteration) as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_retrieve_data_with_error",
+            translation_key="cannot_retrieve_data_with_error",
             translation_placeholders={"error": repr(err)},
         ) from err
 
@@ -163,25 +163,25 @@ class AmazonDevicesCoordinator(DataUpdateCoordinator[dict[str, AmazonDevice]]):
         except CannotConnect as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect_with_error",
+                translation_key="cannot_connect_with_error",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except CannotRetrieveData as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_retrieve_data_with_error",
+                translation_key="cannot_retrieve_data_with_error",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except CannotAuthenticate as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_auth",
+                translation_key="invalid_auth",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except ValueError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_retrieve_data_with_error",
+                translation_key="cannot_retrieve_data_with_error",
                 translation_placeholders={"error": repr(err)},
             ) from err
         else:

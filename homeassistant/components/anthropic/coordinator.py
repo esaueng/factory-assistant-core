@@ -66,13 +66,13 @@ class AnthropicCoordinator(DataUpdateCoordinator[list[anthropic.types.ModelInfo]
         except anthropic.AuthenticationError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_authentication_error",
+                translation_key="api_authentication_error",
                 translation_placeholders={"message": err.message},
             ) from err
         except anthropic.APIError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_error",
+                translation_key="api_error",
                 translation_placeholders={"message": err.message},
             ) from err
         return result.data

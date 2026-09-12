@@ -55,14 +55,14 @@ class RingCameraEntityDescription(CameraEntityDescription, Generic[RingDeviceT])
 CAMERA_DESCRIPTIONS: tuple[RingCameraEntityDescription, ...] = (
     RingCameraEntityDescription(
         key="live_view",
-        REDACTED_VALUE"live_view",
+        translation_key="live_view",
         exists_fn=lambda _: True,
         live_stream=True,
         motion_detection=False,
     ),
     RingCameraEntityDescription(
         key="last_recording",
-        REDACTED_VALUE"last_recording",
+        translation_key="last_recording",
         entity_registry_enabled_default=False,
         exists_fn=lambda camera: camera.has_subscription,
         live_stream=False,
@@ -157,7 +157,7 @@ class RingCam(RingEntity[RingDoorBell], Camera):
             if not self._device.has_subscription:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"no_subscription",
+                    translation_key="no_subscription",
                 )
             return None
 
@@ -228,7 +228,7 @@ class RingCam(RingEntity[RingDoorBell], Camera):
         if candidate.sdp_m_line_index is None:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"sdp_m_line_index_required",
+                translation_key="sdp_m_line_index_required",
                 translation_placeholders={
                     "device": self._device.name,
                 },

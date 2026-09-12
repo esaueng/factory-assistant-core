@@ -43,26 +43,26 @@ class TrafikverketSensorEntityDescription(SensorEntityDescription):
 SENSOR_TYPES: tuple[TrafikverketSensorEntityDescription, ...] = (
     TrafikverketSensorEntityDescription(
         key="departure_time",
-        REDACTED_VALUE"departure_time",
+        translation_key="departure_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda data: as_utc(data["departure_time"]),
         info_fn=lambda data: cast(list[str], data["departure_information"]),
     ),
     TrafikverketSensorEntityDescription(
         key="departure_from",
-        REDACTED_VALUE"departure_from",
+        translation_key="departure_from",
         value_fn=lambda data: cast(str, data["departure_from"]),
         info_fn=lambda data: cast(list[str], data["departure_information"]),
     ),
     TrafikverketSensorEntityDescription(
         key="departure_to",
-        REDACTED_VALUE"departure_to",
+        translation_key="departure_to",
         value_fn=lambda data: cast(str, data["departure_to"]),
         info_fn=lambda data: cast(list[str], data["departure_information"]),
     ),
     TrafikverketSensorEntityDescription(
         key="departure_modified",
-        REDACTED_VALUE"departure_modified",
+        translation_key="departure_modified",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda data: as_utc(data["departure_modified"]),
         info_fn=lambda data: cast(list[str], data["departure_information"]),
@@ -70,7 +70,7 @@ SENSOR_TYPES: tuple[TrafikverketSensorEntityDescription, ...] = (
     ),
     TrafikverketSensorEntityDescription(
         key="departure_time_next",
-        REDACTED_VALUE"departure_time_next",
+        translation_key="departure_time_next",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda data: as_utc(data["departure_time_next"]),
         info_fn=None,
@@ -78,7 +78,7 @@ SENSOR_TYPES: tuple[TrafikverketSensorEntityDescription, ...] = (
     ),
     TrafikverketSensorEntityDescription(
         key="departure_time_next_next",
-        REDACTED_VALUE"departure_time_next_next",
+        translation_key="departure_time_next_next",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda data: as_utc(data["departure_time_next_next"]),
         info_fn=None,

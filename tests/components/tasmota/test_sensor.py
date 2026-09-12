@@ -220,7 +220,7 @@ TEMPERATURE_SENSOR_CONFIG = {
         ),
         (
             TEMPERATURE_SENSOR_CONFIG,
-            ["sensor.tasmota_REDACTED_VALUE", "sensor.tasmota_ds18b20_id"],
+            ["sensor.tasmota_ds18b20_temperature", "sensor.tasmota_ds18b20_id"],
             (
                 '{"DS18B20":{"Id": "01191ED79190","Temperature": 12.3}}',
                 '{"StatusSNS":{"DS18B20":{"Id": "meep","Temperature": 23.4}}}',

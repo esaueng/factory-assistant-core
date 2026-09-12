@@ -107,7 +107,7 @@ def convert_ppb_to_ugm3(molecular_weight: float) -> Callable[[float], float]:
 SENSOR_TYPES = (
     TomorrowioSensorEntityDescription(
         key="feels_like",
-        REDACTED_VALUE"feels_like",
+        translation_key="feels_like",
         attribute=TMRW_ATTR_FEELS_LIKE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -115,7 +115,7 @@ SENSOR_TYPES = (
     ),
     TomorrowioSensorEntityDescription(
         key="dew_point",
-        REDACTED_VALUE"dew_point",
+        translation_key="dew_point",
         attribute=TMRW_ATTR_DEW_POINT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -143,7 +143,7 @@ SENSOR_TYPES = (
     # Data comes in as km, convert to miles for imperial
     TomorrowioSensorEntityDescription(
         key="cloud_base",
-        REDACTED_VALUE"cloud_base",
+        translation_key="cloud_base",
         attribute=TMRW_ATTR_CLOUD_BASE,
         unit_imperial=UnitOfLength.MILES,
         unit_metric=UnitOfLength.KILOMETERS,
@@ -158,7 +158,7 @@ SENSOR_TYPES = (
     # Data comes in as km, convert to miles for imperial
     TomorrowioSensorEntityDescription(
         key="cloud_ceiling",
-        REDACTED_VALUE"cloud_ceiling",
+        translation_key="cloud_ceiling",
         attribute=TMRW_ATTR_CLOUD_CEILING,
         unit_imperial=UnitOfLength.MILES,
         unit_metric=UnitOfLength.KILOMETERS,
@@ -172,14 +172,14 @@ SENSOR_TYPES = (
     ),
     TomorrowioSensorEntityDescription(
         key="cloud_cover",
-        REDACTED_VALUE"cloud_cover",
+        translation_key="cloud_cover",
         attribute=TMRW_ATTR_CLOUD_COVER,
         native_unit_of_measurement=PERCENTAGE,
     ),
     # Data comes in as m/s, convert to mi/h for imperial
     TomorrowioSensorEntityDescription(
         key="wind_gust",
-        REDACTED_VALUE"wind_gust",
+        translation_key="wind_gust",
         attribute=TMRW_ATTR_WIND_GUST,
         unit_imperial=UnitOfSpeed.MILES_PER_HOUR,
         unit_metric=UnitOfSpeed.METERS_PER_SECOND,
@@ -191,7 +191,7 @@ SENSOR_TYPES = (
     ),
     TomorrowioSensorEntityDescription(
         key="precipitation_type",
-        REDACTED_VALUE"precipitation_type",
+        translation_key="precipitation_type",
         attribute=TMRW_ATTR_PRECIPITATION_TYPE,
         value_map=PrecipitationType,
     ),
@@ -250,73 +250,73 @@ SENSOR_TYPES = (
     ),
     TomorrowioSensorEntityDescription(
         key="us_epa_air_quality_index",
-        REDACTED_VALUE"us_epa_air_quality_index",
+        translation_key="us_epa_air_quality_index",
         attribute=TMRW_ATTR_EPA_AQI,
         device_class=SensorDeviceClass.AQI,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     TomorrowioSensorEntityDescription(
         key="us_epa_primary_pollutant",
-        REDACTED_VALUE"primary_pollutant",
+        translation_key="primary_pollutant",
         attribute=TMRW_ATTR_EPA_PRIMARY_POLLUTANT,
         value_map=PrimaryPollutantType,
     ),
     TomorrowioSensorEntityDescription(
         key="us_epa_health_concern",
-        REDACTED_VALUE"health_concern",
+        translation_key="health_concern",
         attribute=TMRW_ATTR_EPA_HEALTH_CONCERN,
         value_map=HealthConcernType,
     ),
     TomorrowioSensorEntityDescription(
         key="china_mep_air_quality_index",
-        REDACTED_VALUE"china_mep_air_quality_index",
+        translation_key="china_mep_air_quality_index",
         attribute=TMRW_ATTR_CHINA_AQI,
         device_class=SensorDeviceClass.AQI,
     ),
     TomorrowioSensorEntityDescription(
         key="china_mep_primary_pollutant",
-        REDACTED_VALUE"china_mep_primary_pollutant",
+        translation_key="china_mep_primary_pollutant",
         attribute=TMRW_ATTR_CHINA_PRIMARY_POLLUTANT,
         value_map=PrimaryPollutantType,
     ),
     TomorrowioSensorEntityDescription(
         key="china_mep_health_concern",
-        REDACTED_VALUE"china_mep_health_concern",
+        translation_key="china_mep_health_concern",
         attribute=TMRW_ATTR_CHINA_HEALTH_CONCERN,
         value_map=HealthConcernType,
     ),
     TomorrowioSensorEntityDescription(
         key="tree_pollen_index",
-        REDACTED_VALUE"pollen_index",
+        translation_key="pollen_index",
         attribute=TMRW_ATTR_POLLEN_TREE,
         value_map=PollenIndex,
     ),
     TomorrowioSensorEntityDescription(
         key="weed_pollen_index",
-        REDACTED_VALUE"weed_pollen_index",
+        translation_key="weed_pollen_index",
         attribute=TMRW_ATTR_POLLEN_WEED,
         value_map=PollenIndex,
     ),
     TomorrowioSensorEntityDescription(
         key="grass_pollen_index",
-        REDACTED_VALUE"grass_pollen_index",
+        translation_key="grass_pollen_index",
         attribute=TMRW_ATTR_POLLEN_GRASS,
         value_map=PollenIndex,
     ),
     TomorrowioSensorEntityDescription(
         key="fire_index",
-        REDACTED_VALUE"fire_index",
+        translation_key="fire_index",
         attribute=TMRW_ATTR_FIRE_INDEX,
     ),
     TomorrowioSensorEntityDescription(
         key="uv_index",
-        REDACTED_VALUE"uv_index",
+        translation_key="uv_index",
         attribute=TMRW_ATTR_UV_INDEX,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     TomorrowioSensorEntityDescription(
         key="uv_radiation_health_concern",
-        REDACTED_VALUE"uv_radiation_health_concern",
+        translation_key="uv_radiation_health_concern",
         attribute=TMRW_ATTR_UV_HEALTH_CONCERN,
         value_map=UVDescription,
     ),

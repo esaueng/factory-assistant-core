@@ -76,7 +76,7 @@ class HueLight(HueBaseEntity, LightEntity):
 
     _fixed_color_mode: ColorMode | None = None
     entity_description = LightEntityDescription(
-        key="hue_light", REDACTED_VALUE"hue_light", has_entity_name=True, name=None
+        key="hue_light", translation_key="hue_light", has_entity_name=True, name=None
     )
 
     def __init__(
@@ -258,7 +258,7 @@ class HueLight(HueBaseEntity, LightEntity):
                 breaks_in_ha_version="2025.10.0",
                 is_fixable=False,
                 severity=IssueSeverity.WARNING,
-                REDACTED_VALUE"deprecated_effect_none",
+                translation_key="deprecated_effect_none",
             )
             self.logger.warning(
                 "Detected deprecated effect 'None' in %s, use 'off' instead. "

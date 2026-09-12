@@ -66,17 +66,17 @@ class PyLoadCoordinator(DataUpdateCoordinator[PyLoadData]):
         except InvalidAuth as e:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"setup_authentication_exception",
+                translation_key="setup_authentication_exception",
             ) from e
         except CannotConnect as e:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"setup_request_exception",
+                translation_key="setup_request_exception",
             ) from e
         except ParserError as e:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"setup_parse_exception",
+                translation_key="setup_parse_exception",
             ) from e
 
     async def _async_setup(self) -> None:
@@ -87,15 +87,15 @@ class PyLoadCoordinator(DataUpdateCoordinator[PyLoadData]):
         except CannotConnect as e:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"setup_request_exception",
+                translation_key="setup_request_exception",
             ) from e
         except ParserError as e:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"setup_parse_exception",
+                translation_key="setup_parse_exception",
             ) from e
         except InvalidAuth as e:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"setup_authentication_exception",
+                translation_key="setup_authentication_exception",
             ) from e

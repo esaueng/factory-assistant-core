@@ -38,7 +38,7 @@ async def async_setup_entry(
     if CONF_API_TOKEN not in entry.data:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"migrate_to_api_token",
+            translation_key="migrate_to_api_token",
         )
     client_session = async_create_clientsession(
         hass,
@@ -71,7 +71,7 @@ async def async_setup_entry(
                 hass,
                 coordinator.import_events,
                 timedelta(seconds=30),
-                REDACTED_VALUE,
+                cancel_on_shutdown=True,
                 name="traccar_server_import_events",
             )
         )

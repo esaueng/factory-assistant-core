@@ -55,7 +55,7 @@ class ElectricityMapsConfigFlow(ConfigFlow, domain=DOMAIN):
             {
                 vol.Required("location"): SelectSelector(
                     SelectSelectorConfig(
-                        REDACTED_VALUE"location",
+                        translation_key="location",
                         mode=SelectSelectorMode.LIST,
                         options=[
                             TYPE_USE_HOME,

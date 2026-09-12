@@ -574,7 +574,7 @@ def _validate_credential_type_support(
     if required_bit is None:
         raise CredentialTypeNotSupportedError(
             translation_domain="matter",
-            REDACTED_VALUEERR_CREDENTIAL_TYPE_NOT_SUPPORTED,
+            translation_key=ERR_CREDENTIAL_TYPE_NOT_SUPPORTED,
             translation_placeholders={"credential_type": credential_type},
         )
 
@@ -582,7 +582,7 @@ def _validate_credential_type_support(
     if not (feature_map & required_bit):
         raise CredentialTypeNotSupportedError(
             translation_domain="matter",
-            REDACTED_VALUEERR_CREDENTIAL_TYPE_NOT_SUPPORTED,
+            translation_key=ERR_CREDENTIAL_TYPE_NOT_SUPPORTED,
             translation_placeholders={"credential_type": credential_type},
         )
 
@@ -600,7 +600,7 @@ def _validate_credential_data(
         if not credential_data.isdigit():
             raise CredentialDataInvalidError(
                 translation_domain="matter",
-                REDACTED_VALUEERR_INVALID_CREDENTIAL_DATA,
+                translation_key=ERR_INVALID_CREDENTIAL_DATA,
                 translation_placeholders={"reason": "PIN must contain only digits"},
             )
         min_len = (
@@ -618,7 +618,7 @@ def _validate_credential_data(
         if not min_len <= len(credential_data) <= max_len:
             raise CredentialDataInvalidError(
                 translation_domain="matter",
-                REDACTED_VALUEERR_INVALID_CREDENTIAL_DATA,
+                translation_key=ERR_INVALID_CREDENTIAL_DATA,
                 translation_placeholders={
                     "reason": (f"PIN length must be between {min_len} and {max_len}")
                 },
@@ -630,7 +630,7 @@ def _validate_credential_data(
         except ValueError as err:
             raise CredentialDataInvalidError(
                 translation_domain="matter",
-                REDACTED_VALUEERR_INVALID_CREDENTIAL_DATA,
+                translation_key=ERR_INVALID_CREDENTIAL_DATA,
                 translation_placeholders={
                     "reason": "RFID data must be valid hexadecimal"
                 },
@@ -650,7 +650,7 @@ def _validate_credential_data(
         if not min_len <= len(rfid_bytes) <= max_len:
             raise CredentialDataInvalidError(
                 translation_domain="matter",
-                REDACTED_VALUEERR_INVALID_CREDENTIAL_DATA,
+                translation_key=ERR_INVALID_CREDENTIAL_DATA,
                 translation_placeholders={
                     "reason": (
                         f"RFID data length must be between"
@@ -772,7 +772,7 @@ async def set_lock_credential(
     if status_str != "success":
         raise SetCredentialFailedError(
             translation_domain="matter",
-            REDACTED_VALUE"set_credential_failed",
+            translation_key="set_credential_failed",
             translation_placeholders={"status": status_str},
         )
 

@@ -75,7 +75,7 @@ REST_UPDATES: Final = {
     ),
     "fwupdate_beta": RestUpdateDescription(
         key="fwupdate",
-        REDACTED_VALUE"beta_firmware",
+        translation_key="beta_firmware",
         latest_version=lambda status: status["update"].get("beta_version"),
         beta=True,
         device_class=UpdateDeviceClass.FIRMWARE,
@@ -96,7 +96,7 @@ RPC_UPDATES: Final = {
     "fwupdate_beta": RpcUpdateDescription(
         key="sys",
         sub_key="available_updates",
-        REDACTED_VALUE"beta_firmware",
+        translation_key="beta_firmware",
         latest_version=lambda status: status.get("beta", {"version": ""})["version"],
         beta=True,
         device_class=UpdateDeviceClass.FIRMWARE,
@@ -224,7 +224,7 @@ class RestUpdateEntity(ShellyRestAttributeEntity, UpdateEntity):
         except DeviceConnectionError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"ota_update_connection_error",
+                translation_key="ota_update_connection_error",
                 translation_placeholders={"device": self.coordinator.name},
             ) from err
         except InvalidAuthError:
@@ -340,13 +340,13 @@ class RpcUpdateEntity(ShellyRpcAttributeEntity, UpdateEntity):
         except DeviceConnectionError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"ota_update_connection_error",
+                translation_key="ota_update_connection_error",
                 translation_placeholders={"device": self.coordinator.name},
             ) from err
         except RpcCallError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"ota_update_rpc_error",
+                translation_key="ota_update_rpc_error",
                 translation_placeholders={"device": self.coordinator.name},
             ) from err
         except InvalidAuthError:

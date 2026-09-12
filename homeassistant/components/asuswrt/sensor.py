@@ -52,7 +52,7 @@ UNIT_DEVICES = "Devices"
 CPU_CORE_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = tuple(
     AsusWrtSensorEntityDescription(
         key=sens_key,
-        REDACTED_VALUE"cpu_core_usage",
+        translation_key="cpu_core_usage",
         translation_placeholders={"core_id": str(core_id)},
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
@@ -65,13 +65,13 @@ CPU_CORE_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = tuple(
 CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     AsusWrtSensorEntityDescription(
         key=SENSORS_CONNECTED_DEVICE[0],
-        REDACTED_VALUE"devices_connected",
+        translation_key="devices_connected",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UNIT_DEVICES,
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_RATES[0],
-        REDACTED_VALUE"download_speed",
+        translation_key="download_speed",
         device_class=SensorDeviceClass.DATA_RATE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfDataRate.MEGABITS_PER_SECOND,
@@ -81,7 +81,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_RATES[1],
-        REDACTED_VALUE"upload_speed",
+        translation_key="upload_speed",
         device_class=SensorDeviceClass.DATA_RATE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfDataRate.MEGABITS_PER_SECOND,
@@ -91,7 +91,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_BYTES[0],
-        REDACTED_VALUE"download",
+        translation_key="download",
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -101,7 +101,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_BYTES[1],
-        REDACTED_VALUE"upload",
+        translation_key="upload",
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -111,7 +111,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_LOAD_AVG[0],
-        REDACTED_VALUE"load_avg_1m",
+        translation_key="load_avg_1m",
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -119,7 +119,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_LOAD_AVG[1],
-        REDACTED_VALUE"load_avg_5m",
+        translation_key="load_avg_5m",
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -127,7 +127,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_LOAD_AVG[2],
-        REDACTED_VALUE"load_avg_15m",
+        translation_key="load_avg_15m",
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -135,7 +135,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_TEMPERATURES[0],
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="24ghz_temperature",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -145,7 +145,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_TEMPERATURES[1],
-        REDACTED_VALUE"5ghz_temperature",
+        translation_key="5ghz_temperature",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -155,7 +155,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_TEMPERATURES[2],
-        REDACTED_VALUE"cpu_temperature",
+        translation_key="cpu_temperature",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -165,7 +165,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_TEMPERATURES[3],
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="5ghz_2_temperature",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -175,7 +175,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_TEMPERATURES[4],
-        REDACTED_VALUE"6ghz_temperature",
+        translation_key="6ghz_temperature",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -185,7 +185,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_MEMORY[0],
-        REDACTED_VALUE"memory_usage",
+        translation_key="memory_usage",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -194,7 +194,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_MEMORY[1],
-        REDACTED_VALUE"memory_free",
+        translation_key="memory_free",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.MEGABYTES,
@@ -205,7 +205,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_MEMORY[2],
-        REDACTED_VALUE"memory_used",
+        translation_key="memory_used",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.MEGABYTES,
@@ -216,12 +216,12 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_UPTIME[0],
-        REDACTED_VALUE"last_boot",
+        translation_key="last_boot",
         device_class=SensorDeviceClass.TIMESTAMP,
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_UPTIME[1],
-        REDACTED_VALUE"uptime",
+        translation_key="uptime",
         state_class=SensorStateClass.TOTAL,
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.SECONDS,
@@ -230,7 +230,7 @@ CONNECTION_SENSORS: tuple[AsusWrtSensorEntityDescription, ...] = (
     ),
     AsusWrtSensorEntityDescription(
         key=SENSORS_CPU[0],
-        REDACTED_VALUE"cpu_usage",
+        translation_key="cpu_usage",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,

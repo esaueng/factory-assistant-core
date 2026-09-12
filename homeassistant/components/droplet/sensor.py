@@ -41,7 +41,7 @@ class DropletSensorEntityDescription(SensorEntityDescription):
 SENSORS: list[DropletSensorEntityDescription] = [
     DropletSensorEntityDescription(
         key=KEY_CURRENT_FLOW_RATE,
-        REDACTED_VALUEKEY_CURRENT_FLOW_RATE,
+        translation_key=KEY_CURRENT_FLOW_RATE,
         device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
         native_unit_of_measurement=UnitOfVolumeFlowRate.LITERS_PER_MINUTE,
         suggested_unit_of_measurement=UnitOfVolumeFlowRate.GALLONS_PER_MINUTE,
@@ -61,7 +61,7 @@ SENSORS: list[DropletSensorEntityDescription] = [
     ),
     DropletSensorEntityDescription(
         key=KEY_SERVER_CONNECTIVITY,
-        REDACTED_VALUEKEY_SERVER_CONNECTIVITY,
+        translation_key=KEY_SERVER_CONNECTIVITY,
         device_class=SensorDeviceClass.ENUM,
         options=["connected", "connecting", "disconnected"],
         value_fn=lambda device: device.get_server_status(),
@@ -69,7 +69,7 @@ SENSORS: list[DropletSensorEntityDescription] = [
     ),
     DropletSensorEntityDescription(
         key=KEY_SIGNAL_QUALITY,
-        REDACTED_VALUEKEY_SIGNAL_QUALITY,
+        translation_key=KEY_SIGNAL_QUALITY,
         device_class=SensorDeviceClass.ENUM,
         options=["no_signal", "weak_signal", "strong_signal"],
         value_fn=lambda device: device.get_signal_quality(),

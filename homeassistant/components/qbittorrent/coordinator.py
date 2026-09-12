@@ -63,11 +63,11 @@ class QBittorrentDataCoordinator(DataUpdateCoordinator[SyncMainDataDictionary]):
             )
         except (LoginFailed, Forbidden403Error) as exc:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"login_error"
+                translation_domain=DOMAIN, translation_key="login_error"
             ) from exc
         except APIConnectionError as exc:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"cannot_connect"
+                translation_domain=DOMAIN, translation_key="cannot_connect"
             ) from exc
         return data
 
@@ -91,11 +91,11 @@ class QBittorrentDataCoordinator(DataUpdateCoordinator[SyncMainDataDictionary]):
             )
         except (LoginFailed, Forbidden403Error) as exc:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"login_error"
+                translation_domain=DOMAIN, translation_key="login_error"
             ) from exc
         except APIConnectionError as exc:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"cannot_connect"
+                translation_domain=DOMAIN, translation_key="cannot_connect"
             ) from exc
 
         return torrents

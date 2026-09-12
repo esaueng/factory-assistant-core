@@ -55,13 +55,13 @@ class TautulliSensorEntityDescription(SensorEntityDescription):
 SENSOR_TYPES: tuple[TautulliSensorEntityDescription, ...] = (
     TautulliSensorEntityDescription(
         key="watching_count",
-        REDACTED_VALUE"watching_count",
+        translation_key="watching_count",
         native_unit_of_measurement="Watching",
         value_fn=lambda home_stats, activity, _: cast(int, activity.stream_count),
     ),
     TautulliSensorEntityDescription(
         key="stream_count_direct_play",
-        REDACTED_VALUE"stream_count_direct_play",
+        translation_key="stream_count_direct_play",
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement="Streams",
         entity_registry_enabled_default=False,
@@ -71,7 +71,7 @@ SENSOR_TYPES: tuple[TautulliSensorEntityDescription, ...] = (
     ),
     TautulliSensorEntityDescription(
         key="stream_count_direct_stream",
-        REDACTED_VALUE"stream_count_direct_stream",
+        translation_key="stream_count_direct_stream",
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement="Streams",
         entity_registry_enabled_default=False,
@@ -81,7 +81,7 @@ SENSOR_TYPES: tuple[TautulliSensorEntityDescription, ...] = (
     ),
     TautulliSensorEntityDescription(
         key="stream_count_transcode",
-        REDACTED_VALUE"stream_count_transcode",
+        translation_key="stream_count_transcode",
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement="Streams",
         entity_registry_enabled_default=False,
@@ -91,7 +91,7 @@ SENSOR_TYPES: tuple[TautulliSensorEntityDescription, ...] = (
     ),
     TautulliSensorEntityDescription(
         key="total_bandwidth",
-        REDACTED_VALUE"total_bandwidth",
+        translation_key="total_bandwidth",
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfInformation.KILOBITS,
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -100,7 +100,7 @@ SENSOR_TYPES: tuple[TautulliSensorEntityDescription, ...] = (
     ),
     TautulliSensorEntityDescription(
         key="lan_bandwidth",
-        REDACTED_VALUE"lan_bandwidth",
+        translation_key="lan_bandwidth",
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfInformation.KILOBITS,
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -110,7 +110,7 @@ SENSOR_TYPES: tuple[TautulliSensorEntityDescription, ...] = (
     ),
     TautulliSensorEntityDescription(
         key="wan_bandwidth",
-        REDACTED_VALUE"wan_bandwidth",
+        translation_key="wan_bandwidth",
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfInformation.KILOBITS,
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -120,19 +120,19 @@ SENSOR_TYPES: tuple[TautulliSensorEntityDescription, ...] = (
     ),
     TautulliSensorEntityDescription(
         key="top_movies",
-        REDACTED_VALUE"top_movies",
+        translation_key="top_movies",
         entity_registry_enabled_default=False,
         value_fn=get_top_stats,
     ),
     TautulliSensorEntityDescription(
         key="top_tv",
-        REDACTED_VALUE"top_tv",
+        translation_key="top_tv",
         entity_registry_enabled_default=False,
         value_fn=get_top_stats,
     ),
     TautulliSensorEntityDescription(
         key=ATTR_TOP_USER,
-        REDACTED_VALUE"top_user",
+        translation_key="top_user",
         entity_registry_enabled_default=False,
         value_fn=get_top_stats,
     ),
@@ -149,46 +149,46 @@ class TautulliSessionSensorEntityDescription(SensorEntityDescription):
 SESSION_SENSOR_TYPES: tuple[TautulliSessionSensorEntityDescription, ...] = (
     TautulliSessionSensorEntityDescription(
         key="state",
-        REDACTED_VALUE"state",
+        translation_key="state",
         value_fn=lambda session: cast(str, session.state),
     ),
     TautulliSessionSensorEntityDescription(
         key="full_title",
-        REDACTED_VALUE"full_title",
+        translation_key="full_title",
         entity_registry_enabled_default=False,
         value_fn=lambda session: cast(str, session.full_title),
     ),
     TautulliSessionSensorEntityDescription(
         key="progress",
-        REDACTED_VALUE"progress",
+        translation_key="progress",
         native_unit_of_measurement=PERCENTAGE,
         entity_registry_enabled_default=False,
         value_fn=lambda session: cast(str, session.progress_percent),
     ),
     TautulliSessionSensorEntityDescription(
         key="stream_resolution",
-        REDACTED_VALUE"stream_resolution",
+        translation_key="stream_resolution",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda session: cast(str, session.stream_video_resolution),
     ),
     TautulliSessionSensorEntityDescription(
         key="transcode_decision",
-        REDACTED_VALUE"transcode_decision",
+        translation_key="transcode_decision",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda session: cast(str, session.transcode_decision),
     ),
     TautulliSessionSensorEntityDescription(
         key="session_thumb",
-        REDACTED_VALUE"session_thumb",
+        translation_key="session_thumb",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda session: cast(str, session.user_thumb),
     ),
     TautulliSessionSensorEntityDescription(
         key="video_resolution",
-        REDACTED_VALUE"video_resolution",
+        translation_key="video_resolution",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda session: cast(str, session.video_resolution),

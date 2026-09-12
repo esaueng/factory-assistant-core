@@ -90,7 +90,7 @@ async def async_setup_entry(
         await host.stop()
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"config_entry_not_ready",
+            translation_key="config_entry_not_ready",
             translation_placeholders={"host": host.api.host, "err": str(err)},
         ) from err
     except BaseException:
@@ -109,7 +109,7 @@ async def async_setup_entry(
         await host.stop()
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"uid_mismatch",
+            translation_key="uid_mismatch",
             translation_placeholders={
                 "name": host.api.nvr_name,
                 "conf_uid": config_entry.data.get(CONF_UID, ""),

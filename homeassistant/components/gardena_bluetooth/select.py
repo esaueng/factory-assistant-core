@@ -52,18 +52,18 @@ class GardenaBluetoothSelectEntityDescription(SelectEntityDescription):
 
 DESCRIPTIONS = (
     GardenaBluetoothSelectEntityDescription(
-        REDACTED_VALUE"watering_active",
+        translation_key="watering_active",
         char=AquaContourWatering.watering_active,
         option_to_number=_enum_to_int(AquaContourWatering.watering_active.enum),
     ),
     GardenaBluetoothSelectEntityDescription(
-        REDACTED_VALUE"operation_mode",
+        translation_key="operation_mode",
         char=AquaContour.operation_mode,
         option_to_number=_enum_to_int(AquaContour.operation_mode.enum),
         entity_category=EntityCategory.CONFIG,
     ),
     GardenaBluetoothSelectEntityDescription(
-        REDACTED_VALUE"active_position",
+        translation_key="active_position",
         char=AquaContourPosition.active_position,
         option_to_number={
             "position_1": 1,

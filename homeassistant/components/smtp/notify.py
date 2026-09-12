@@ -298,7 +298,7 @@ def _attach_file(
             url = "https://www.home-assistant.io/docs/configuration/basic/"
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"remote_path_not_allowed",
+                translation_key="remote_path_not_allowed",
                 translation_placeholders={
                     "allow_list": allow_list,
                     "file_path": str(file_path),

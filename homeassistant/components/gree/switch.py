@@ -56,31 +56,31 @@ def _set_anion(device: Device, value: bool) -> None:
 GREE_SWITCHES: tuple[GreeSwitchEntityDescription, ...] = (
     GreeSwitchEntityDescription(
         key="Panel Light",
-        REDACTED_VALUE"light",
+        translation_key="light",
         get_value_fn=lambda d: d.light,
         set_value_fn=_set_light,
     ),
     GreeSwitchEntityDescription(
         key="Quiet",
-        REDACTED_VALUE"quiet",
+        translation_key="quiet",
         get_value_fn=lambda d: d.quiet,
         set_value_fn=_set_quiet,
     ),
     GreeSwitchEntityDescription(
         key="Fresh Air",
-        REDACTED_VALUE"fresh_air",
+        translation_key="fresh_air",
         get_value_fn=lambda d: d.fresh_air,
         set_value_fn=_set_fresh_air,
     ),
     GreeSwitchEntityDescription(
         key="XFan",
-        REDACTED_VALUE"xfan",
+        translation_key="xfan",
         get_value_fn=lambda d: d.xfan,
         set_value_fn=_set_xfan,
     ),
     GreeSwitchEntityDescription(
         key="Health mode",
-        REDACTED_VALUE"health_mode",
+        translation_key="health_mode",
         get_value_fn=lambda d: d.anion,
         set_value_fn=_set_anion,
         entity_registry_enabled_default=False,

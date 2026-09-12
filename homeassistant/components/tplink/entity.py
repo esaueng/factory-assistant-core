@@ -125,7 +125,7 @@ def async_refresh_after[_T: CoordinatedTPLinkEntity, **_P](
             self.coordinator.config_entry.async_start_reauth(self.hass)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_authentication",
+                translation_key="device_authentication",
                 translation_placeholders={
                     "func": func.__name__,
                     "exc": str(ex),
@@ -134,7 +134,7 @@ def async_refresh_after[_T: CoordinatedTPLinkEntity, **_P](
         except TimeoutError as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_timeout",
+                translation_key="device_timeout",
                 translation_placeholders={
                     "func": func.__name__,
                     "exc": str(ex),
@@ -143,7 +143,7 @@ def async_refresh_after[_T: CoordinatedTPLinkEntity, **_P](
         except KasaException as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_error",
+                translation_key="device_error",
                 translation_placeholders={
                     "func": func.__name__,
                     "exc": str(ex),
@@ -221,7 +221,7 @@ class CoordinatedTPLinkEntity(CoordinatorEntity[TPLinkDataUpdateCoordinator], AB
             manufacturer="TP-Link",
             model=registry_device.model,
             name=device_name,
-            REDACTED_VALUEtranslation_key,
+            translation_key=translation_key,
             translation_placeholders=translation_placeholders,
             sw_version=registry_device.hw_info["sw_ver"],
             hw_version=registry_device.hw_info["hw_ver"],
@@ -387,7 +387,7 @@ class CoordinatedTPLinkFeatureEntity(CoordinatedTPLinkEntity, ABC):
 
             return replace(
                 desc,
-                REDACTED_VALUEtranslation_key,
+                translation_key=translation_key,
                 name=name,  # if undefined will use translation key
                 entity_category=cls._category_for_feature(feature),
                 # enabled_default can be overridden to False in the description

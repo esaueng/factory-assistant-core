@@ -37,14 +37,14 @@ class VeSyncBinarySensorEntityDescription(BinarySensorEntityDescription):
 SENSOR_DESCRIPTIONS: tuple[VeSyncBinarySensorEntityDescription, ...] = (
     VeSyncBinarySensorEntityDescription(
         key="water_lacks",
-        REDACTED_VALUE"water_lacks",
+        translation_key="water_lacks",
         is_on=lambda device: device.state.water_lacks,
         device_class=BinarySensorDeviceClass.PROBLEM,
         exists_fn=lambda device: rgetattr(device, "state.water_lacks") is not None,
     ),
     VeSyncBinarySensorEntityDescription(
         key="details.water_tank_lifted",
-        REDACTED_VALUE"water_tank_lifted",
+        translation_key="water_tank_lifted",
         is_on=lambda device: device.state.water_tank_lifted,
         device_class=BinarySensorDeviceClass.PROBLEM,
         exists_fn=(

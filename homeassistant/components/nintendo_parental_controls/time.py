@@ -49,13 +49,13 @@ class NintendoParentalControlsTimeEntityDescription(TimeEntityDescription):
 TIME_DESCRIPTIONS: tuple[NintendoParentalControlsTimeEntityDescription, ...] = (
     NintendoParentalControlsTimeEntityDescription(
         key=NintendoParentalControlsTime.BEDTIME_ALARM,
-        REDACTED_VALUENintendoParentalControlsTime.BEDTIME_ALARM,
+        translation_key=NintendoParentalControlsTime.BEDTIME_ALARM,
         value_fn=lambda device: device.bedtime_alarm,
         set_value_fn=lambda device, value: device.set_bedtime_alarm(value=value),
     ),
     NintendoParentalControlsTimeEntityDescription(
         key=NintendoParentalControlsTime.BEDTIME_END_TIME,
-        REDACTED_VALUENintendoParentalControlsTime.BEDTIME_END_TIME,
+        translation_key=NintendoParentalControlsTime.BEDTIME_END_TIME,
         value_fn=lambda device: device.bedtime_end,
         set_value_fn=lambda device, value: device.set_bedtime_end_time(value=value),
     ),
@@ -106,7 +106,7 @@ class NintendoParentalControlsTimeEntity(NintendoDevice, TimeEntity):
             ):
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"bedtime_end_time_out_of_range",
+                    translation_key="bedtime_end_time_out_of_range",
                     translation_placeholders={
                         "value": value.strftime("%H:%M"),
                         "bedtime_end_time_max": BEDTIME_END_TIME_MAX,
@@ -116,7 +116,7 @@ class NintendoParentalControlsTimeEntity(NintendoDevice, TimeEntity):
                 ) from exc
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"bedtime_alarm_out_of_range",
+                translation_key="bedtime_alarm_out_of_range",
                 translation_placeholders={
                     "value": value.strftime("%H:%M"),
                     "bedtime_alarm_max": BEDTIME_ALARM_MAX,

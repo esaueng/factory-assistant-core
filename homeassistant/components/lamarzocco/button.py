@@ -44,7 +44,7 @@ async def async_backflush_and_update(coordinator: LaMarzoccoUpdateCoordinator) -
 ENTITIES: tuple[LaMarzoccoButtonEntityDescription, ...] = (
     LaMarzoccoButtonEntityDescription(
         key="start_backflush",
-        REDACTED_VALUE"start_backflush",
+        translation_key="start_backflush",
         press_fn=async_backflush_and_update,
     ),
 )
@@ -77,7 +77,7 @@ class LaMarzoccoButtonEntity(LaMarzoccoEntity, ButtonEntity):
         except RequestNotSuccessful as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"button_error",
+                translation_key="button_error",
                 translation_placeholders={
                     "key": self.entity_description.key,
                 },

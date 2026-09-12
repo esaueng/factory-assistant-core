@@ -15,7 +15,7 @@ PARALLEL_UPDATES = 1
 BUTTON_DESCRIPTIONS: tuple[ButtonEntityDescription, ...] = (
     ButtonEntityDescription(
         key="sync_time",
-        REDACTED_VALUE"sync_time",
+        translation_key="sync_time",
         entity_category=EntityCategory.CONFIG,
     ),
 )

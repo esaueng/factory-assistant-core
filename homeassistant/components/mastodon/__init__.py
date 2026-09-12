@@ -50,12 +50,12 @@ async def async_setup_entry(hass: HomeAssistant, entry: MastodonConfigEntry) -> 
     except MastodonUnauthorizedError as error:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"auth_failed",
+            translation_key="auth_failed",
         ) from error
     except MastodonError as ex:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"failed_to_connect",
+            translation_key="failed_to_connect",
         ) from ex
 
     assert entry.unique_id

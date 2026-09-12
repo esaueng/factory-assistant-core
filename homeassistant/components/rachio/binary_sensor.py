@@ -67,7 +67,7 @@ CONTROLLER_BINARY_SENSOR_TYPES: tuple[RachioControllerBinarySensorDescription, .
     ),
     RachioControllerBinarySensorDescription(
         key=KEY_RAIN_SENSOR,
-        REDACTED_VALUE"rain",
+        translation_key="rain",
         device_class=BinarySensorDeviceClass.MOISTURE,
         signal_string=SIGNAL_RACHIO_RAIN_SENSOR_UPDATE,
         is_on=lambda controller: controller.init_data[KEY_RAIN_SENSOR_TRIPPED],
@@ -98,7 +98,7 @@ HOSE_TIMER_BINARY_SENSOR_TYPES: tuple[RachioHoseTimerBinarySensorDescription, ..
         key=KEY_FLOW,
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
-        REDACTED_VALUE"flow",
+        translation_key="flow",
         value_fn=lambda device: device.no_flow_detected,
         exists_fn=lambda valve: valve[KEY_DETECT_FLOW],
     ),

@@ -53,7 +53,7 @@ def _get_hop_percentage(account_balance: AccountSummary) -> float:
 ACCOUNT_SENSOR_TYPES: tuple[ElectricKiwiAccountSensorEntityDescription, ...] = (
     ElectricKiwiAccountSensorEntityDescription(
         key=ATTR_TOTAL_RUNNING_BALANCE,
-        REDACTED_VALUE"total_running_balance",
+        translation_key="total_running_balance",
         device_class=SensorDeviceClass.MONETARY,
         state_class=SensorStateClass.TOTAL,
         native_unit_of_measurement=CURRENCY_DOLLAR,
@@ -61,7 +61,7 @@ ACCOUNT_SENSOR_TYPES: tuple[ElectricKiwiAccountSensorEntityDescription, ...] = (
     ),
     ElectricKiwiAccountSensorEntityDescription(
         key=ATTR_TOTAL_CURRENT_BALANCE,
-        REDACTED_VALUE"total_current_balance",
+        translation_key="total_current_balance",
         device_class=SensorDeviceClass.MONETARY,
         state_class=SensorStateClass.TOTAL,
         native_unit_of_measurement=CURRENCY_DOLLAR,
@@ -69,7 +69,7 @@ ACCOUNT_SENSOR_TYPES: tuple[ElectricKiwiAccountSensorEntityDescription, ...] = (
     ),
     ElectricKiwiAccountSensorEntityDescription(
         key=ATTR_NEXT_BILLING_DATE,
-        REDACTED_VALUE"next_billing_date",
+        translation_key="next_billing_date",
         device_class=SensorDeviceClass.DATE,
         value_func=lambda account_balance: datetime.strptime(
             account_balance.next_billing_date, "%Y-%m-%d"
@@ -77,7 +77,7 @@ ACCOUNT_SENSOR_TYPES: tuple[ElectricKiwiAccountSensorEntityDescription, ...] = (
     ),
     ElectricKiwiAccountSensorEntityDescription(
         key=ATTR_HOP_PERCENTAGE,
-        REDACTED_VALUE"hop_power_savings",
+        translation_key="hop_power_savings",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_func=_get_hop_percentage,
@@ -114,13 +114,13 @@ def _check_and_move_time(hop: Hop, time: str) -> datetime:
 HOP_SENSOR_TYPES: tuple[ElectricKiwiHOPSensorEntityDescription, ...] = (
     ElectricKiwiHOPSensorEntityDescription(
         key=ATTR_EK_HOP_START,
-        REDACTED_VALUE"hop_free_power_start",
+        translation_key="hop_free_power_start",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_func=lambda hop: _check_and_move_time(hop, hop.start.start_time),
     ),
     ElectricKiwiHOPSensorEntityDescription(
         key=ATTR_EK_HOP_END,
-        REDACTED_VALUE"hop_free_power_end",
+        translation_key="hop_free_power_end",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_func=lambda hop: _check_and_move_time(hop, hop.end.end_time),
     ),

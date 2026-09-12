@@ -68,7 +68,7 @@ class SchlageDataUpdateCoordinator(DataUpdateCoordinator[SchlageData]):
             raise ConfigEntryAuthFailed from ex
         except SchlageError as ex:
             raise UpdateFailed(
-                translation_domain=DOMAIN, REDACTED_VALUE"schlage_refresh_failed"
+                translation_domain=DOMAIN, translation_key="schlage_refresh_failed"
             ) from ex
         lock_data = await asyncio.gather(
             *(

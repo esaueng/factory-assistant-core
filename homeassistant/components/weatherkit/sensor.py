@@ -27,7 +27,7 @@ SENSORS = (
         key="pressureTrend",
         device_class=SensorDeviceClass.ENUM,
         options=["rising", "falling", "steady"],
-        REDACTED_VALUE"pressure_trend",
+        translation_key="pressure_trend",
     ),
 )
 

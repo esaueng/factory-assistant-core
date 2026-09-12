@@ -28,7 +28,7 @@ class SnooSelectEntityDescription(SelectEntityDescription):
 SELECT_DESCRIPTIONS: list[SnooSelectEntityDescription] = [
     SnooSelectEntityDescription(
         key="intensity",
-        REDACTED_VALUE"intensity",
+        translation_key="intensity",
         value_fn=lambda data: data.state_machine.level.name,
         set_value_fn=lambda snoo_api, device, state: snoo_api.set_level(
             device, SnooLevels[state]
@@ -71,6 +71,6 @@ class SnooSelect(SnooDescriptionEntity, SelectEntity):
         except SnooCommandException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"select_failed",
+                translation_key="select_failed",
                 translation_placeholders={"name": str(self.name), "option": option},
             ) from err

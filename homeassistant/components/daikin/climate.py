@@ -96,7 +96,7 @@ def _zone_error(
     """Return a Home Assistant error with Daikin translation info."""
     return HomeAssistantError(
         translation_domain=DOMAIN,
-        REDACTED_VALUEtranslation_key,
+        translation_key=translation_key,
         translation_placeholders=placeholders,
     )
 
@@ -449,7 +449,7 @@ class DaikinZoneClimate(DaikinEntity, ClimateEntity):
         if (temperature := kwargs.get(ATTR_TEMPERATURE)) is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"zone_temperature_missing",
+                translation_key="zone_temperature_missing",
             )
         zones = self.device.zones
         if not zones or not _supports_zone_temperature_control(self.device):
@@ -494,5 +494,5 @@ class DaikinZoneClimate(DaikinEntity, ClimateEntity):
         """Disallow changing HVAC mode via zone climate."""
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"zone_hvac_read_only",
+            translation_key="zone_hvac_read_only",
         )

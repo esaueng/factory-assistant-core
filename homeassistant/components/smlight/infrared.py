@@ -53,6 +53,6 @@ class SmInfraredEntity(SmEntity, InfraredEmitterEntity):
         except (SmlightError, ValueError) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"send_ir_code_failed",
+                translation_key="send_ir_code_failed",
                 translation_placeholders={"error": str(err)},
             ) from err

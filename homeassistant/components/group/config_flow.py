@@ -107,7 +107,7 @@ BINARY_SENSOR_CONFIG_SCHEMA = basic_group_config_schema("binary_sensor").extend(
 SENSOR_CONFIG_EXTENDS = {
     vol.Required(CONF_TYPE): selector.SelectSelector(
         selector.SelectSelectorConfig(
-            options=_STATISTIC_MEASURES, REDACTED_VALUECONF_TYPE
+            options=_STATISTIC_MEASURES, translation_key=CONF_TYPE
         ),
     ),
 }
@@ -115,7 +115,7 @@ SENSOR_OPTIONS = {
     vol.Optional(CONF_IGNORE_NON_NUMERIC, default=False): selector.BooleanSelector(),
     vol.Required(CONF_TYPE): selector.SelectSelector(
         selector.SelectSelectorConfig(
-            options=_STATISTIC_MEASURES, REDACTED_VALUECONF_TYPE
+            options=_STATISTIC_MEASURES, translation_key=CONF_TYPE
         ),
     ),
 }

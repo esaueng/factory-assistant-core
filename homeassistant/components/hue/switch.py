@@ -129,7 +129,7 @@ class HueMotionSensorEnabledEntity(HueResourceEnabledEntity):
         device_class=SwitchDeviceClass.SWITCH,
         entity_category=EntityCategory.CONFIG,
         has_entity_name=True,
-        REDACTED_VALUE"motion_sensor_enabled",
+        translation_key="motion_sensor_enabled",
     )
 
 
@@ -141,5 +141,5 @@ class HueLightSensorEnabledEntity(HueResourceEnabledEntity):
         device_class=SwitchDeviceClass.SWITCH,
         entity_category=EntityCategory.CONFIG,
         has_entity_name=True,
-        REDACTED_VALUE"light_sensor_enabled",
+        translation_key="light_sensor_enabled",
     )

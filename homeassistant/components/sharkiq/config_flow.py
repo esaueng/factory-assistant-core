@@ -31,7 +31,7 @@ SHARKIQ_SCHEMA = vol.Schema(
             CONF_REGION, default=SHARKIQ_REGION_DEFAULT
         ): selector.SelectSelector(
             selector.SelectSelectorConfig(
-                options=SHARKIQ_REGION_OPTIONS, REDACTED_VALUE"region"
+                options=SHARKIQ_REGION_OPTIONS, translation_key="region"
             ),
         ),
     }

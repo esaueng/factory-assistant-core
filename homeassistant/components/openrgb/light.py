@@ -270,7 +270,7 @@ class OpenRGBLight(CoordinatorEntity[OpenRGBCoordinator], LightEntity):
             except CONNECTION_ERRORS as err:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"communication_error",
+                    translation_key="communication_error",
                     translation_placeholders={
                         "server_address": self.coordinator.server_address,
                         "error": str(err),
@@ -279,7 +279,7 @@ class OpenRGBLight(CoordinatorEntity[OpenRGBCoordinator], LightEntity):
             except ValueError as err:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"openrgb_error",
+                    translation_key="openrgb_error",
                     translation_placeholders={
                         "error": str(err),
                     },
@@ -293,7 +293,7 @@ class OpenRGBLight(CoordinatorEntity[OpenRGBCoordinator], LightEntity):
             except CONNECTION_ERRORS as err:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"communication_error",
+                    translation_key="communication_error",
                     translation_placeholders={
                         "server_address": self.coordinator.server_address,
                         "error": str(err),
@@ -302,7 +302,7 @@ class OpenRGBLight(CoordinatorEntity[OpenRGBCoordinator], LightEntity):
             except ValueError as err:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"openrgb_error",
+                    translation_key="openrgb_error",
                     translation_placeholders={
                         "error": str(err),
                     },
@@ -316,7 +316,7 @@ class OpenRGBLight(CoordinatorEntity[OpenRGBCoordinator], LightEntity):
             if self._attr_effect_list is None or effect not in self._attr_effect_list:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"unsupported_effect",
+                    translation_key="unsupported_effect",
                     translation_placeholders={
                         "effect": effect,
                         "device_name": self.device.name,
@@ -345,7 +345,7 @@ class OpenRGBLight(CoordinatorEntity[OpenRGBCoordinator], LightEntity):
         if color_or_brightness_requested and not mode_supports_color:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"effect_no_color_support",
+                translation_key="effect_no_color_support",
                 translation_placeholders={
                     "effect": slugify(mode or self._mode or ""),
                     "device_name": self.device.name,

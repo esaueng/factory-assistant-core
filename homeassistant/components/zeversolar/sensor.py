@@ -36,7 +36,7 @@ SENSOR_TYPES = (
     ),
     ZeversolarEntityDescription(
         key="energy_today",
-        REDACTED_VALUE"energy_today",
+        translation_key="energy_today",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
         device_class=SensorDeviceClass.ENERGY,

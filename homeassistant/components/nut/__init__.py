@@ -321,7 +321,7 @@ class PyNUTData:
         except NUTError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"nut_command_error",
+                translation_key="nut_command_error",
                 translation_placeholders={
                     "command_name": command_name,
                     "err": str(err),

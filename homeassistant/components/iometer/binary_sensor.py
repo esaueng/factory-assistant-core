@@ -26,7 +26,7 @@ class IOmeterBinarySensorDescription(BinarySensorEntityDescription):
 SENSOR_TYPES: list[IOmeterBinarySensorDescription] = [
     IOmeterBinarySensorDescription(
         key="connection_status",
-        REDACTED_VALUE"connection_status",
+        translation_key="connection_status",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         entity_registry_enabled_default=False,
         value_fn=lambda data: (
@@ -37,7 +37,7 @@ SENSOR_TYPES: list[IOmeterBinarySensorDescription] = [
     ),
     IOmeterBinarySensorDescription(
         key="attachment_status",
-        REDACTED_VALUE"attachment_status",
+        translation_key="attachment_status",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         entity_registry_enabled_default=False,
         value_fn=lambda data: (

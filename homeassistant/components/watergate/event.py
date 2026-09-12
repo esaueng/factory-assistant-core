@@ -18,12 +18,12 @@ DURATION_AUTO_SHUT_OFF = "duration_threshold"
 
 DESCRIPTIONS: list[EventEntityDescription] = [
     EventEntityDescription(
-        REDACTED_VALUE"auto_shut_off_volume",
+        translation_key="auto_shut_off_volume",
         key="auto_shut_off_volume",
         event_types=[VOLUME_AUTO_SHUT_OFF],
     ),
     EventEntityDescription(
-        REDACTED_VALUE"auto_shut_off_duration",
+        translation_key="auto_shut_off_duration",
         key="auto_shut_off_duration",
         event_types=[DURATION_AUTO_SHUT_OFF],
     ),

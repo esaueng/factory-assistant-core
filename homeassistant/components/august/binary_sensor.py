@@ -60,7 +60,7 @@ SENSOR_TYPES_VIDEO_DOORBELL = (
     ),
     AugustDoorbellBinarySensorEntityDescription(
         key="image capture",
-        REDACTED_VALUE"image_capture",
+        translation_key="image_capture",
         value_fn=partial(
             retrieve_time_based_activity, {ActivityType.DOORBELL_IMAGE_CAPTURE}
         ),
@@ -79,7 +79,7 @@ SENSOR_TYPES_VIDEO_DOORBELL = (
 SENSOR_TYPES_DOORBELL: tuple[AugustDoorbellBinarySensorEntityDescription, ...] = (
     AugustDoorbellBinarySensorEntityDescription(
         key="ding",
-        REDACTED_VALUE"ding",
+        translation_key="ding",
         device_class=BinarySensorDeviceClass.OCCUPANCY,
         value_fn=retrieve_ding_activity,
         is_time_based=True,

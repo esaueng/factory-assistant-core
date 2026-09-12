@@ -148,7 +148,7 @@ async def async_setup_entry(
                 state_class=None,
                 unit_of_measurement=None,
                 options=["away", "comfort", "eco", "sleep"],
-                REDACTED_VALUE"thermostat_mode",
+                translation_key="thermostat_mode",
             ),
         ]
     )

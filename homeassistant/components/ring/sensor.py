@@ -165,7 +165,7 @@ SENSOR_TYPES: tuple[RingSensorEntityDescription[Any], ...] = (
     ),
     RingSensorEntityDescription[RingGeneric](
         key="last_activity",
-        REDACTED_VALUE"last_activity",
+        translation_key="last_activity",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda device: (
             last_event.get("created_at")
@@ -181,7 +181,7 @@ SENSOR_TYPES: tuple[RingSensorEntityDescription[Any], ...] = (
     ),
     RingSensorEntityDescription[RingGeneric](
         key="last_ding",
-        REDACTED_VALUE"last_ding",
+        translation_key="last_ding",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda device: (
             last_event.get("created_at")
@@ -204,7 +204,7 @@ SENSOR_TYPES: tuple[RingSensorEntityDescription[Any], ...] = (
     ),
     RingSensorEntityDescription[RingGeneric](
         key="last_motion",
-        REDACTED_VALUE"last_motion",
+        translation_key="last_motion",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda device: (
             last_event.get("created_at")
@@ -229,7 +229,7 @@ SENSOR_TYPES: tuple[RingSensorEntityDescription[Any], ...] = (
     ),
     RingSensorEntityDescription[RingDoorBell | RingChime](
         key="volume",
-        REDACTED_VALUE"volume",
+        translation_key="volume",
         value_fn=lambda device: device.volume,
         exists_fn=lambda device: isinstance(device, (RingDoorBell, RingChime)),
         deprecated_info=DeprecatedInfo(
@@ -238,7 +238,7 @@ SENSOR_TYPES: tuple[RingSensorEntityDescription[Any], ...] = (
     ),
     RingSensorEntityDescription[RingOther](
         key="doorbell_volume",
-        REDACTED_VALUE"doorbell_volume",
+        translation_key="doorbell_volume",
         value_fn=lambda device: device.doorbell_volume,
         exists_fn=lambda device: isinstance(device, RingOther),
         deprecated_info=DeprecatedInfo(
@@ -247,7 +247,7 @@ SENSOR_TYPES: tuple[RingSensorEntityDescription[Any], ...] = (
     ),
     RingSensorEntityDescription[RingOther](
         key="mic_volume",
-        REDACTED_VALUE"mic_volume",
+        translation_key="mic_volume",
         value_fn=lambda device: device.mic_volume,
         exists_fn=lambda device: isinstance(device, RingOther),
         deprecated_info=DeprecatedInfo(
@@ -256,7 +256,7 @@ SENSOR_TYPES: tuple[RingSensorEntityDescription[Any], ...] = (
     ),
     RingSensorEntityDescription[RingOther](
         key="voice_volume",
-        REDACTED_VALUE"voice_volume",
+        translation_key="voice_volume",
         value_fn=lambda device: device.voice_volume,
         exists_fn=lambda device: isinstance(device, RingOther),
         deprecated_info=DeprecatedInfo(
@@ -265,7 +265,7 @@ SENSOR_TYPES: tuple[RingSensorEntityDescription[Any], ...] = (
     ),
     RingSensorEntityDescription[RingGeneric](
         key="wifi_signal_category",
-        REDACTED_VALUE"wifi_signal_category",
+        translation_key="wifi_signal_category",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda device: device.wifi_signal_category,

@@ -71,7 +71,7 @@ class HomeeEntity(Entity):
         except ConnectionClosed as exception:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connection_closed",
+                translation_key="connection_closed",
             ) from exception
 
     async def async_update(self) -> None:
@@ -163,7 +163,7 @@ class HomeeNodeEntity(Entity):
         except ConnectionClosed as exception:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connection_closed",
+                translation_key="connection_closed",
             ) from exception
 
     def _on_node_updated(self, node: HomeeNode) -> None:

@@ -75,7 +75,7 @@ DATA_SCHEMA_SETUP = vol.Schema(
             SelectSelectorConfig(
                 options=CONF_TYPE_KEYS,
                 mode=SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUECONF_TYPE,
+                translation_key=CONF_TYPE,
             )
         ),
     }
@@ -133,7 +133,7 @@ def _get_options_schema_with_entity_id(entity_id: str, type: str) -> vol.Schema:
                 SelectSelectorConfig(
                     options=CONF_TYPE_KEYS,
                     mode=SelectSelectorMode.DROPDOWN,
-                    REDACTED_VALUECONF_TYPE,
+                    translation_key=CONF_TYPE,
                     read_only=True,
                 )
             ),
@@ -145,7 +145,7 @@ def _get_options_schema_with_entity_id(entity_id: str, type: str) -> vol.Schema:
             vol.Optional(CONF_STATE_CLASS): SelectSelector(
                 SelectSelectorConfig(
                     options=state_class_options,
-                    REDACTED_VALUECONF_STATE_CLASS,
+                    translation_key=CONF_STATE_CLASS,
                     mode=SelectSelectorMode.DROPDOWN,
                 ),
             ),

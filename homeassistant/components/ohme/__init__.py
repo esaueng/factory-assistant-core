@@ -42,15 +42,15 @@ async def async_setup_entry(hass: HomeAssistant, entry: OhmeConfigEntry) -> bool
 
         if not await client.async_update_device_info():
             raise ConfigEntryNotReady(
-                REDACTED_VALUE"device_info_failed", translation_domain=DOMAIN
+                translation_key="device_info_failed", translation_domain=DOMAIN
             )
     except AuthException as e:
         raise ConfigEntryAuthFailed(
-            REDACTED_VALUE"auth_failed", translation_domain=DOMAIN
+            translation_key="auth_failed", translation_domain=DOMAIN
         ) from e
     except ApiException as e:
         raise ConfigEntryNotReady(
-            REDACTED_VALUE"api_failed", translation_domain=DOMAIN
+            translation_key="api_failed", translation_domain=DOMAIN
         ) from e
 
     coordinators = (

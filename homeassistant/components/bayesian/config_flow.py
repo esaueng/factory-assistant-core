@@ -171,7 +171,7 @@ OPTIONS_SCHEMA = vol.Schema(
             selector.SelectSelectorConfig(
                 options=[cls.value for cls in BinarySensorDeviceClass],
                 mode=selector.SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUE"binary_sensor_device_class",
+                translation_key="binary_sensor_device_class",
                 sort=True,
             ),
         ),
@@ -395,7 +395,7 @@ async def _get_description_placeholders(
             "on",
             BINARY_SENSOR_DOMAIN,
             platform=None,
-            REDACTED_VALUENone,
+            translation_key=None,
             device_class=handler.options.get(CONF_DEVICE_CLASS, None),
         ),
         "device_class_off": translation.async_translate_state(
@@ -403,7 +403,7 @@ async def _get_description_placeholders(
             "off",
             BINARY_SENSOR_DOMAIN,
             platform=None,
-            REDACTED_VALUENone,
+            translation_key=None,
             device_class=handler.options.get(CONF_DEVICE_CLASS, None),
         ),
     }
@@ -524,7 +524,7 @@ class ObservationSubentryFlowHandler(ConfigSubentryFlow):
                     "on",
                     BINARY_SENSOR_DOMAIN,
                     platform=None,
-                    REDACTED_VALUENone,
+                    translation_key=None,
                     device_class=self._get_entry().options.get(CONF_DEVICE_CLASS, None),
                 ),
                 "device_class_off": translation.async_translate_state(
@@ -532,7 +532,7 @@ class ObservationSubentryFlowHandler(ConfigSubentryFlow):
                     "off",
                     BINARY_SENSOR_DOMAIN,
                     platform=None,
-                    REDACTED_VALUENone,
+                    translation_key=None,
                     device_class=self._get_entry().options.get(CONF_DEVICE_CLASS, None),
                 ),
             },

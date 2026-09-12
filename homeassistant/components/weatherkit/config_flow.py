@@ -113,7 +113,11 @@ class WeatherKitFlowHandler(ConfigFlow, domain=DOMAIN):
         key_input = key_input.strip()
 
         # Make sure header and footer are present
-        header = "REDACTED_VALUE"
+        header = "-----BEGIN PRIVATE KEY-----"
+        if not key_input.startswith(header):
+            key_input = f"{header}\n{key_input}"
+
+        footer = "-----END PRIVATE KEY-----"
         if not key_input.endswith(footer):
             key_input += f"\n{footer}"
 

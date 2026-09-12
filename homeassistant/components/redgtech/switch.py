@@ -72,13 +72,13 @@ class RedgtechSwitch(CoordinatorEntity[RedgtechDataUpdateCoordinator], SwitchEnt
         except RedgtechAuthError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"switch_auth_error",
+                translation_key="switch_auth_error",
                 translation_placeholders={"integration_name": INTEGRATION_NAME},
             ) from err
         except RedgtechConnectionError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connection_error",
+                translation_key="connection_error",
                 translation_placeholders={"integration_name": INTEGRATION_NAME},
             ) from err
 

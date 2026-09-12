@@ -321,7 +321,7 @@ class CambridgeAudioDevice(CambridgeAudioEntity, MediaPlayerEntity):
         }:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unsupported_media_type",
+                translation_key="unsupported_media_type",
                 translation_placeholders={"media_type": media_type},
             )
 
@@ -331,7 +331,7 @@ class CambridgeAudioDevice(CambridgeAudioEntity, MediaPlayerEntity):
             except ValueError as ve:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"preset_non_integer",
+                    translation_key="preset_non_integer",
                     translation_placeholders={"preset_id": media_id},
                 ) from ve
             preset = None
@@ -341,7 +341,7 @@ class CambridgeAudioDevice(CambridgeAudioEntity, MediaPlayerEntity):
             if not preset:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"missing_preset",
+                    translation_key="missing_preset",
                     translation_placeholders={"preset_id": media_id},
                 )
             await self.client.recall_preset(preset.preset_id)

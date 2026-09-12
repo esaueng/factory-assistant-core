@@ -31,24 +31,24 @@ class GaragesAmsterdamSensorEntityDescription(SensorEntityDescription):
 SENSORS: tuple[GaragesAmsterdamSensorEntityDescription, ...] = (
     GaragesAmsterdamSensorEntityDescription(
         key="free_space_short",
-        REDACTED_VALUE"free_space_short",
+        translation_key="free_space_short",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda garage: garage.free_space_short,
     ),
     GaragesAmsterdamSensorEntityDescription(
         key="free_space_long",
-        REDACTED_VALUE"free_space_long",
+        translation_key="free_space_long",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda garage: garage.free_space_long,
     ),
     GaragesAmsterdamSensorEntityDescription(
         key="short_capacity",
-        REDACTED_VALUE"short_capacity",
+        translation_key="short_capacity",
         value_fn=lambda garage: garage.short_capacity,
     ),
     GaragesAmsterdamSensorEntityDescription(
         key="long_capacity",
-        REDACTED_VALUE"long_capacity",
+        translation_key="long_capacity",
         value_fn=lambda garage: garage.long_capacity,
     ),
 )

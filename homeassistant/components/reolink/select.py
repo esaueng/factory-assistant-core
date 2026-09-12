@@ -87,7 +87,7 @@ SELECT_ENTITIES = (
         key="floodlight_mode",
         cmd_key="GetWhiteLed",
         cmd_id=[289, 438],
-        REDACTED_VALUE"floodlight_mode",
+        translation_key="floodlight_mode",
         entity_category=EntityCategory.CONFIG,
         get_options=lambda api, ch: api.whiteled_mode_list(ch),
         supported=lambda api, ch: api.supported(ch, "floodLight"),
@@ -98,7 +98,7 @@ SELECT_ENTITIES = (
         key="floodlight_event_mode",
         cmd_key="GetWhiteLed",
         cmd_id=[289, 438],
-        REDACTED_VALUE"floodlight_event_mode",
+        translation_key="floodlight_event_mode",
         entity_category=EntityCategory.CONFIG,
         get_options=[mode.name for mode in SpotlightEventModeEnum],
         supported=lambda api, ch: api.supported(ch, "floodlight_event"),
@@ -111,7 +111,7 @@ SELECT_ENTITIES = (
         key="day_night_mode",
         cmd_key="GetIsp",
         cmd_id=26,
-        REDACTED_VALUE"day_night_mode",
+        translation_key="day_night_mode",
         entity_category=EntityCategory.CONFIG,
         get_options=[mode.name for mode in DayNightEnum],
         supported=lambda api, ch: api.supported(ch, "dayNight"),
@@ -120,14 +120,14 @@ SELECT_ENTITIES = (
     ),
     ReolinkSelectEntityDescription(
         key="ptz_preset",
-        REDACTED_VALUE"ptz_preset",
+        translation_key="ptz_preset",
         get_options=lambda api, ch: list(api.ptz_presets(ch)),
         supported=lambda api, ch: api.supported(ch, "ptz_presets"),
         method=lambda api, ch, name: api.set_ptz_command(ch, preset=name),
     ),
     ReolinkSelectEntityDescription(
         key="play_quick_reply_message",
-        REDACTED_VALUE"play_quick_reply_message",
+        translation_key="play_quick_reply_message",
         get_options=lambda api, ch: list(api.quick_reply_dict(ch).values())[1:],
         supported=lambda api, ch: api.supported(ch, "play_quick_reply"),
         method=lambda api, ch, mess: api.play_quick_reply(
@@ -137,7 +137,7 @@ SELECT_ENTITIES = (
     ReolinkSelectEntityDescription(
         key="auto_quick_reply_message",
         cmd_key="GetAutoReply",
-        REDACTED_VALUE"auto_quick_reply_message",
+        translation_key="auto_quick_reply_message",
         entity_category=EntityCategory.CONFIG,
         get_options=lambda api, ch: list(api.quick_reply_dict(ch).values()),
         supported=lambda api, ch: api.supported(ch, "quick_reply"),
@@ -149,7 +149,7 @@ SELECT_ENTITIES = (
     ReolinkSelectEntityDescription(
         key="hub_alarm_ringtone",
         cmd_key="GetDeviceAudioCfg",
-        REDACTED_VALUE"hub_alarm_ringtone",
+        translation_key="hub_alarm_ringtone",
         entity_category=EntityCategory.CONFIG,
         get_options=[mode.name for mode in HubToneEnum],
         supported=lambda api, ch: api.supported(ch, "hub_audio"),
@@ -161,7 +161,7 @@ SELECT_ENTITIES = (
     ReolinkSelectEntityDescription(
         key="hub_visitor_ringtone",
         cmd_key="GetDeviceAudioCfg",
-        REDACTED_VALUE"hub_visitor_ringtone",
+        translation_key="hub_visitor_ringtone",
         entity_category=EntityCategory.CONFIG,
         get_options=[mode.name for mode in HubToneEnum],
         supported=lambda api, ch: (
@@ -175,7 +175,7 @@ SELECT_ENTITIES = (
     ReolinkSelectEntityDescription(
         key="auto_track_method",
         cmd_key="GetAiCfg",
-        REDACTED_VALUE"auto_track_method",
+        translation_key="auto_track_method",
         entity_category=EntityCategory.CONFIG,
         get_options=[method.name for method in TrackMethodEnum],
         supported=lambda api, ch: api.supported(ch, "auto_track_method"),
@@ -185,7 +185,7 @@ SELECT_ENTITIES = (
     ReolinkSelectEntityDescription(
         key="status_led",
         cmd_key="GetPowerLed",
-        REDACTED_VALUE"doorbell_led",
+        translation_key="doorbell_led",
         entity_category=EntityCategory.CONFIG,
         get_options=lambda api, ch: api.doorbell_led_list(ch),
         supported=lambda api, ch: api.supported(ch, "doorbell_led"),
@@ -197,7 +197,7 @@ SELECT_ENTITIES = (
     ReolinkSelectEntityDescription(
         key="hdr",
         cmd_key="GetIsp",
-        REDACTED_VALUE"hdr",
+        translation_key="hdr",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         get_options=[method.name for method in HDREnum],
@@ -208,7 +208,7 @@ SELECT_ENTITIES = (
     ReolinkSelectEntityDescription(
         key="exposure",
         cmd_key="GetIsp",
-        REDACTED_VALUE"exposure",
+        translation_key="exposure",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         get_options=[method.name for method in ExposureEnum],
@@ -219,7 +219,7 @@ SELECT_ENTITIES = (
     ReolinkSelectEntityDescription(
         key="binning_mode",
         cmd_key="GetIsp",
-        REDACTED_VALUE"binning_mode",
+        translation_key="binning_mode",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         get_options=[method.name for method in BinningModeEnum],
@@ -232,7 +232,7 @@ SELECT_ENTITIES = (
     ReolinkSelectEntityDescription(
         key="main_frame_rate",
         cmd_key="GetEnc",
-        REDACTED_VALUE"main_frame_rate",
+        translation_key="main_frame_rate",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         unit_of_measurement=UnitOfFrequency.HERTZ,
@@ -244,7 +244,7 @@ SELECT_ENTITIES = (
     ReolinkSelectEntityDescription(
         key="sub_frame_rate",
         cmd_key="GetEnc",
-        REDACTED_VALUE"sub_frame_rate",
+        translation_key="sub_frame_rate",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         unit_of_measurement=UnitOfFrequency.HERTZ,
@@ -256,7 +256,7 @@ SELECT_ENTITIES = (
     ReolinkSelectEntityDescription(
         key="main_bit_rate",
         cmd_key="GetEnc",
-        REDACTED_VALUE"main_bit_rate",
+        translation_key="main_bit_rate",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         unit_of_measurement=UnitOfDataRate.KILOBITS_PER_SECOND,
@@ -268,7 +268,7 @@ SELECT_ENTITIES = (
     ReolinkSelectEntityDescription(
         key="sub_bit_rate",
         cmd_key="GetEnc",
-        REDACTED_VALUE"sub_bit_rate",
+        translation_key="sub_bit_rate",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         unit_of_measurement=UnitOfDataRate.KILOBITS_PER_SECOND,
@@ -280,7 +280,7 @@ SELECT_ENTITIES = (
     ReolinkSelectEntityDescription(
         key="main_encoding",
         cmd_key="GetEnc",
-        REDACTED_VALUE"main_encoding",
+        translation_key="main_encoding",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         get_options=[val.name for val in EncodingEnum],
@@ -291,7 +291,7 @@ SELECT_ENTITIES = (
     ReolinkSelectEntityDescription(
         key="sub_encoding",
         cmd_key="GetEnc",
-        REDACTED_VALUE"sub_encoding",
+        translation_key="sub_encoding",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         get_options=[val.name for val in EncodingEnum],
@@ -302,7 +302,7 @@ SELECT_ENTITIES = (
     ReolinkSelectEntityDescription(
         key="pre_record_fps",
         cmd_key="594",
-        REDACTED_VALUE"pre_record_fps",
+        translation_key="pre_record_fps",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         unit_of_measurement=UnitOfFrequency.HERTZ,
@@ -316,7 +316,7 @@ SELECT_ENTITIES = (
     ReolinkSelectEntityDescription(
         key="post_rec_time",
         cmd_key="GetRec",
-        REDACTED_VALUE"post_rec_time",
+        translation_key="post_rec_time",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         get_options=lambda api, ch: api.post_recording_time_list(ch),
@@ -330,7 +330,7 @@ HOST_SELECT_ENTITIES = (
     ReolinkHostSelectEntityDescription(
         key="scene_mode",
         cmd_key="GetScene",
-        REDACTED_VALUE"scene_mode",
+        translation_key="scene_mode",
         entity_category=EntityCategory.CONFIG,
         get_options=lambda api: api.baichuan.scene_names,
         supported=lambda api: api.supported(None, "scenes"),
@@ -340,7 +340,7 @@ HOST_SELECT_ENTITIES = (
     ReolinkHostSelectEntityDescription(
         key="packing_time",
         cmd_key="GetRec",
-        REDACTED_VALUE"packing_time",
+        translation_key="packing_time",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         get_options=lambda api: api.recording_packing_time_list,
@@ -354,7 +354,7 @@ CHIME_SELECT_ENTITIES = (
     ReolinkChimeSelectEntityDescription(
         key="motion_tone",
         cmd_key="GetDingDongCfg",
-        REDACTED_VALUE"motion_tone",
+        translation_key="motion_tone",
         entity_category=EntityCategory.CONFIG,
         supported=lambda chime: "md" in chime.chime_event_types,
         get_options=[method.name for method in ChimeToneEnum],
@@ -364,7 +364,7 @@ CHIME_SELECT_ENTITIES = (
     ReolinkChimeSelectEntityDescription(
         key="people_tone",
         cmd_key="GetDingDongCfg",
-        REDACTED_VALUE"people_tone",
+        translation_key="people_tone",
         entity_category=EntityCategory.CONFIG,
         get_options=[method.name for method in ChimeToneEnum],
         supported=lambda chime: "people" in chime.chime_event_types,
@@ -374,7 +374,7 @@ CHIME_SELECT_ENTITIES = (
     ReolinkChimeSelectEntityDescription(
         key="vehicle_tone",
         cmd_key="GetDingDongCfg",
-        REDACTED_VALUE"vehicle_tone",
+        translation_key="vehicle_tone",
         entity_category=EntityCategory.CONFIG,
         get_options=[method.name for method in ChimeToneEnum],
         supported=lambda chime: "vehicle" in chime.chime_event_types,
@@ -384,7 +384,7 @@ CHIME_SELECT_ENTITIES = (
     ReolinkChimeSelectEntityDescription(
         key="visitor_tone",
         cmd_key="GetDingDongCfg",
-        REDACTED_VALUE"visitor_tone",
+        translation_key="visitor_tone",
         entity_category=EntityCategory.CONFIG,
         get_options=[method.name for method in ChimeToneEnum],
         supported=lambda chime: "visitor" in chime.chime_event_types,
@@ -394,7 +394,7 @@ CHIME_SELECT_ENTITIES = (
     ReolinkChimeSelectEntityDescription(
         key="package_tone",
         cmd_key="GetDingDongCfg",
-        REDACTED_VALUE"package_tone",
+        translation_key="package_tone",
         entity_category=EntityCategory.CONFIG,
         get_options=[method.name for method in ChimeToneEnum],
         supported=lambda chime: "package" in chime.chime_event_types,
@@ -404,7 +404,7 @@ CHIME_SELECT_ENTITIES = (
     ReolinkChimeSelectEntityDescription(
         key="pet_tone",
         cmd_key="GetDingDongCfg",
-        REDACTED_VALUE"pet_tone",
+        translation_key="pet_tone",
         entity_category=EntityCategory.CONFIG,
         get_options=[method.name for method in ChimeToneEnum],
         supported=lambda chime: "dog_cat" in chime.chime_event_types,

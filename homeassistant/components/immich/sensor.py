@@ -32,7 +32,7 @@ class ImmichSensorEntityDescription(SensorEntityDescription):
 SENSOR_TYPES: tuple[ImmichSensorEntityDescription, ...] = (
     ImmichSensorEntityDescription(
         key="disk_size",
-        REDACTED_VALUE"disk_size",
+        translation_key="disk_size",
         native_unit_of_measurement=UnitOfInformation.BYTES,
         suggested_unit_of_measurement=UnitOfInformation.GIBIBYTES,
         suggested_display_precision=1,
@@ -43,7 +43,7 @@ SENSOR_TYPES: tuple[ImmichSensorEntityDescription, ...] = (
     ),
     ImmichSensorEntityDescription(
         key="disk_available",
-        REDACTED_VALUE"disk_available",
+        translation_key="disk_available",
         native_unit_of_measurement=UnitOfInformation.BYTES,
         suggested_unit_of_measurement=UnitOfInformation.GIBIBYTES,
         suggested_display_precision=1,
@@ -54,7 +54,7 @@ SENSOR_TYPES: tuple[ImmichSensorEntityDescription, ...] = (
     ),
     ImmichSensorEntityDescription(
         key="disk_use",
-        REDACTED_VALUE"disk_use",
+        translation_key="disk_use",
         native_unit_of_measurement=UnitOfInformation.BYTES,
         suggested_unit_of_measurement=UnitOfInformation.GIBIBYTES,
         suggested_display_precision=1,
@@ -66,7 +66,7 @@ SENSOR_TYPES: tuple[ImmichSensorEntityDescription, ...] = (
     ),
     ImmichSensorEntityDescription(
         key="disk_usage",
-        REDACTED_VALUE"disk_usage",
+        translation_key="disk_usage",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -75,7 +75,7 @@ SENSOR_TYPES: tuple[ImmichSensorEntityDescription, ...] = (
     ),
     ImmichSensorEntityDescription(
         key="photos_count",
-        REDACTED_VALUE"photos_count",
+        translation_key="photos_count",
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         value=lambda data: data.server_usage.photos if data.server_usage else None,
@@ -83,7 +83,7 @@ SENSOR_TYPES: tuple[ImmichSensorEntityDescription, ...] = (
     ),
     ImmichSensorEntityDescription(
         key="videos_count",
-        REDACTED_VALUE"videos_count",
+        translation_key="videos_count",
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         value=lambda data: data.server_usage.videos if data.server_usage else None,
@@ -91,7 +91,7 @@ SENSOR_TYPES: tuple[ImmichSensorEntityDescription, ...] = (
     ),
     ImmichSensorEntityDescription(
         key="usage_by_photos",
-        REDACTED_VALUE"usage_by_photos",
+        translation_key="usage_by_photos",
         native_unit_of_measurement=UnitOfInformation.BYTES,
         suggested_unit_of_measurement=UnitOfInformation.GIBIBYTES,
         suggested_display_precision=1,
@@ -104,7 +104,7 @@ SENSOR_TYPES: tuple[ImmichSensorEntityDescription, ...] = (
     ),
     ImmichSensorEntityDescription(
         key="usage_by_videos",
-        REDACTED_VALUE"usage_by_videos",
+        translation_key="usage_by_videos",
         native_unit_of_measurement=UnitOfInformation.BYTES,
         suggested_unit_of_measurement=UnitOfInformation.GIBIBYTES,
         suggested_display_precision=1,

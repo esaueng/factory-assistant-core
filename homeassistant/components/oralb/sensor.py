@@ -42,38 +42,38 @@ SENSOR_DESCRIPTIONS: dict[str, SensorEntityDescription] = {
     ),
     OralBSensor.SECTOR: SensorEntityDescription(
         key=OralBSensor.SECTOR,
-        REDACTED_VALUE"sector",
+        translation_key="sector",
         entity_category=EntityCategory.DIAGNOSTIC,
         options=[v.replace(" ", "_") for v in set(SECTOR_MAP.values()) | {"no_sector"}],
         device_class=SensorDeviceClass.ENUM,
     ),
     OralBSensor.NUMBER_OF_SECTORS: SensorEntityDescription(
         key=OralBSensor.NUMBER_OF_SECTORS,
-        REDACTED_VALUE"number_of_sectors",
+        translation_key="number_of_sectors",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     OralBSensor.SECTOR_TIMER: SensorEntityDescription(
         key=OralBSensor.SECTOR_TIMER,
-        REDACTED_VALUE"sector_timer",
+        translation_key="sector_timer",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
     OralBSensor.TOOTHBRUSH_STATE: SensorEntityDescription(
         key=OralBSensor.TOOTHBRUSH_STATE,
-        REDACTED_VALUE"toothbrush_state",
+        translation_key="toothbrush_state",
         options=[v.replace(" ", "_") for v in set(STATES.values())],
         device_class=SensorDeviceClass.ENUM,
         name=None,
     ),
     OralBSensor.PRESSURE: SensorEntityDescription(
         key=OralBSensor.PRESSURE,
-        REDACTED_VALUE"pressure",
+        translation_key="pressure",
         options=[v.replace(" ", "_") for v in set(PRESSURE.values()) | {"low"}],
         device_class=SensorDeviceClass.ENUM,
     ),
     OralBSensor.MODE: SensorEntityDescription(
         key=OralBSensor.MODE,
-        REDACTED_VALUE"mode",
+        translation_key="mode",
         entity_category=EntityCategory.DIAGNOSTIC,
         options=[
             v.replace(" ", "_")

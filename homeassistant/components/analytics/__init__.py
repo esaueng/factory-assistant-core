@@ -93,7 +93,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     except HassioNotReadyError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"supervisor_not_ready",
+            translation_key="supervisor_not_ready",
         ) from err
 
     started = False

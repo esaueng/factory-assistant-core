@@ -102,7 +102,7 @@ class TedeeLockEntity(TedeeEntity, LockEntity):
         except (TedeeClientException, Exception) as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unlock_failed",
+                translation_key="unlock_failed",
                 translation_placeholders={"lock_id": str(self._lock.id)},
             ) from ex
 
@@ -117,7 +117,7 @@ class TedeeLockEntity(TedeeEntity, LockEntity):
         except (TedeeClientException, Exception) as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"lock_failed",
+                translation_key="lock_failed",
                 translation_placeholders={"lock_id": str(self._lock.id)},
             ) from ex
 
@@ -141,6 +141,6 @@ class TedeeLockWithLatchEntity(TedeeLockEntity):
         except (TedeeClientException, Exception) as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"open_failed",
+                translation_key="open_failed",
                 translation_placeholders={"lock_id": str(self._lock.id)},
             ) from ex

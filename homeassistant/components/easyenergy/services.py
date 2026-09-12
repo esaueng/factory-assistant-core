@@ -109,7 +109,7 @@ def __get_date(
     if not (datetime_value := dt_util.parse_datetime(date_input)):
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_date",
+            translation_key="invalid_date",
             translation_placeholders={
                 "date": date_input,
             },

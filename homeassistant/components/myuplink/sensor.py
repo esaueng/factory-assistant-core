@@ -95,7 +95,7 @@ DEVICE_POINT_UNIT_DESCRIPTIONS: dict[str, SensorEntityDescription] = {
     ),
     "m3/h": SensorEntityDescription(
         key="airflow",
-        REDACTED_VALUE"airflow",
+        translation_key="airflow",
         device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfVolumeFlowRate.CUBIC_METERS_PER_HOUR,
@@ -116,7 +116,7 @@ DEVICE_POINT_UNIT_DESCRIPTIONS: dict[str, SensorEntityDescription] = {
     ),
     "rpm": SensorEntityDescription(
         key="rpm",
-        REDACTED_VALUE"rpm",
+        translation_key="rpm",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=REVOLUTIONS_PER_MINUTE,
         suggested_display_precision=0,
@@ -143,47 +143,47 @@ CATEGORY_BASED_DESCRIPTIONS: dict[str, dict[str, SensorEntityDescription]] = {
     F_SERIES: {
         "43108": SensorEntityDescription(
             key="fan_mode",
-            REDACTED_VALUE"fan_mode",
+            translation_key="fan_mode",
         ),
         "43427": SensorEntityDescription(
             key="status_compressor",
-            REDACTED_VALUE"status_compressor",
+            translation_key="status_compressor",
             device_class=SensorDeviceClass.ENUM,
         ),
         "49993": SensorEntityDescription(
             key="elect_add",
-            REDACTED_VALUE"elect_add",
+            translation_key="elect_add",
             device_class=SensorDeviceClass.ENUM,
         ),
         "49994": SensorEntityDescription(
             key="priority",
-            REDACTED_VALUE"priority",
+            translation_key="priority",
             device_class=SensorDeviceClass.ENUM,
         ),
         "50095": SensorEntityDescription(
             key="status",
-            REDACTED_VALUE"status",
+            translation_key="status",
             device_class=SensorDeviceClass.ENUM,
         ),
     },
     "NIBEF": {
         "43108": SensorEntityDescription(
             key="fan_mode",
-            REDACTED_VALUE"fan_mode",
+            translation_key="fan_mode",
         ),
         "43427": SensorEntityDescription(
             key="status_compressor",
-            REDACTED_VALUE"status_compressor",
+            translation_key="status_compressor",
             device_class=SensorDeviceClass.ENUM,
         ),
         "49993": SensorEntityDescription(
             key="elect_add",
-            REDACTED_VALUE"elect_add",
+            translation_key="elect_add",
             device_class=SensorDeviceClass.ENUM,
         ),
         "49994": SensorEntityDescription(
             key="priority",
-            REDACTED_VALUE"priority",
+            translation_key="priority",
             device_class=SensorDeviceClass.ENUM,
         ),
     },

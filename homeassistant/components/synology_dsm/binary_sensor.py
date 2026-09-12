@@ -35,7 +35,7 @@ SECURITY_BINARY_SENSORS: tuple[SynologyDSMBinarySensorEntityDescription, ...] = 
     SynologyDSMBinarySensorEntityDescription(
         api_key=SynoCoreSecurity.API_KEY,
         key="status",
-        REDACTED_VALUE"status",
+        translation_key="status",
         device_class=BinarySensorDeviceClass.SAFETY,
     ),
 )
@@ -44,14 +44,14 @@ STORAGE_DISK_BINARY_SENSORS: tuple[SynologyDSMBinarySensorEntityDescription, ...
     SynologyDSMBinarySensorEntityDescription(
         api_key=SynoStorage.API_KEY,
         key="disk_exceed_bad_sector_thr",
-        REDACTED_VALUE"disk_exceed_bad_sector_thr",
+        translation_key="disk_exceed_bad_sector_thr",
         device_class=BinarySensorDeviceClass.SAFETY,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     SynologyDSMBinarySensorEntityDescription(
         api_key=SynoStorage.API_KEY,
         key="disk_below_remain_life_thr",
-        REDACTED_VALUE"disk_below_remain_life_thr",
+        translation_key="disk_below_remain_life_thr",
         device_class=BinarySensorDeviceClass.SAFETY,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),

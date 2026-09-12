@@ -56,7 +56,7 @@ SENSOR_TYPES: tuple[GoogleWeatherSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda data: data.feels_like_temperature.degrees,
-        REDACTED_VALUE"apparent_temperature",
+        translation_key="apparent_temperature",
     ),
     GoogleWeatherSensorDescription(
         key="dewPoint",
@@ -65,7 +65,7 @@ SENSOR_TYPES: tuple[GoogleWeatherSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda data: data.dew_point.degrees,
-        REDACTED_VALUE"dew_point",
+        translation_key="dew_point",
     ),
     GoogleWeatherSensorDescription(
         key="heatIndex",
@@ -74,7 +74,7 @@ SENSOR_TYPES: tuple[GoogleWeatherSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda data: data.heat_index.degrees,
-        REDACTED_VALUE"heat_index",
+        translation_key="heat_index",
     ),
     GoogleWeatherSensorDescription(
         key="windChill",
@@ -83,7 +83,7 @@ SENSOR_TYPES: tuple[GoogleWeatherSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda data: data.wind_chill.degrees,
-        REDACTED_VALUE"wind_chill",
+        translation_key="wind_chill",
     ),
     GoogleWeatherSensorDescription(
         key="relativeHumidity",
@@ -98,7 +98,7 @@ SENSOR_TYPES: tuple[GoogleWeatherSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UV_INDEX,
         value_fn=lambda data: data.uv_index,
-        REDACTED_VALUE"uv_index",
+        translation_key="uv_index",
     ),
     GoogleWeatherSensorDescription(
         key="precipitation_probability",
@@ -106,7 +106,7 @@ SENSOR_TYPES: tuple[GoogleWeatherSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda data: data.precipitation.probability.percent,
-        REDACTED_VALUE"precipitation_probability",
+        translation_key="precipitation_probability",
     ),
     GoogleWeatherSensorDescription(
         key="precipitation_qpf",
@@ -121,7 +121,7 @@ SENSOR_TYPES: tuple[GoogleWeatherSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda data: data.thunderstorm_probability,
-        REDACTED_VALUE"thunderstorm_probability",
+        translation_key="thunderstorm_probability",
     ),
     GoogleWeatherSensorDescription(
         key="airPressure",
@@ -155,7 +155,7 @@ SENSOR_TYPES: tuple[GoogleWeatherSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfSpeed.KILOMETERS_PER_HOUR,
         value_fn=lambda data: data.wind.gust.value,
-        REDACTED_VALUE"wind_gust_speed",
+        translation_key="wind_gust_speed",
     ),
     GoogleWeatherSensorDescription(
         key="visibility",
@@ -164,20 +164,20 @@ SENSOR_TYPES: tuple[GoogleWeatherSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfLength.KILOMETERS,
         value_fn=lambda data: data.visibility.distance,
-        REDACTED_VALUE"visibility",
+        translation_key="visibility",
     ),
     GoogleWeatherSensorDescription(
         key="cloudCover",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda data: data.cloud_cover,
-        REDACTED_VALUE"cloud_coverage",
+        translation_key="cloud_coverage",
     ),
     GoogleWeatherSensorDescription(
         key="weatherCondition",
         entity_registry_enabled_default=False,
         value_fn=lambda data: data.weather_condition.description.text,
-        REDACTED_VALUE"weather_condition",
+        translation_key="weather_condition",
     ),
 )
 

@@ -65,7 +65,7 @@ STORAGE_MODE_OPTIONS = list(REVERSE_STORAGE_MODE_MAP)
 RELAY_ENTITIES = (
     EnvoyRelaySelectEntityDescription(
         key="mode",
-        REDACTED_VALUE"relay_mode",
+        translation_key="relay_mode",
         options=MODE_OPTIONS,
         value_fn=lambda relay: RELAY_MODE_MAP[relay.mode],
         update_fn=lambda envoy, relay, value: envoy.update_dry_contact(
@@ -77,7 +77,7 @@ RELAY_ENTITIES = (
     ),
     EnvoyRelaySelectEntityDescription(
         key="grid_action",
-        REDACTED_VALUE"relay_grid_action",
+        translation_key="relay_grid_action",
         options=ACTION_OPTIONS,
         value_fn=lambda relay: RELAY_ACTION_MAP[relay.grid_action],
         update_fn=lambda envoy, relay, value: envoy.update_dry_contact(
@@ -89,7 +89,7 @@ RELAY_ENTITIES = (
     ),
     EnvoyRelaySelectEntityDescription(
         key="microgrid_action",
-        REDACTED_VALUE"relay_microgrid_action",
+        translation_key="relay_microgrid_action",
         options=ACTION_OPTIONS,
         value_fn=lambda relay: RELAY_ACTION_MAP[relay.micro_grid_action],
         update_fn=lambda envoy, relay, value: envoy.update_dry_contact(
@@ -101,7 +101,7 @@ RELAY_ENTITIES = (
     ),
     EnvoyRelaySelectEntityDescription(
         key="generator_action",
-        REDACTED_VALUE"relay_generator_action",
+        translation_key="relay_generator_action",
         options=ACTION_OPTIONS,
         value_fn=lambda relay: RELAY_ACTION_MAP[relay.generator_action],
         update_fn=lambda envoy, relay, value: envoy.update_dry_contact(
@@ -114,7 +114,7 @@ RELAY_ENTITIES = (
 )
 STORAGE_MODE_ENTITY = EnvoyStorageSettingsSelectEntityDescription(
     key="storage_mode",
-    REDACTED_VALUE"storage_mode",
+    translation_key="storage_mode",
     options=STORAGE_MODE_OPTIONS,
     value_fn=lambda storage_settings: (
         None if not storage_settings.mode else STORAGE_MODE_MAP[storage_settings.mode]

@@ -28,7 +28,7 @@ class ToGrillEntity(CoordinatorEntity[ToGrillCoordinator]):
         client = self.coordinator.client
         if client is None or not client.is_connected:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"disconnected"
+                translation_domain=DOMAIN, translation_key="disconnected"
             )
         return client
 
@@ -39,12 +39,12 @@ class ToGrillEntity(CoordinatorEntity[ToGrillCoordinator]):
         except BleakError as exc:
             LOGGER.debug("Failed to write", exc_info=True)
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"communication_failed"
+                translation_domain=DOMAIN, translation_key="communication_failed"
             ) from exc
         except BaseError as exc:
             LOGGER.debug("Failed to write", exc_info=True)
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"rejected"
+                translation_domain=DOMAIN, translation_key="rejected"
             ) from exc
         await self.coordinator.async_request_refresh()
 

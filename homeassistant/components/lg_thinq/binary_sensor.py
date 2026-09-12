@@ -29,23 +29,23 @@ class ThinQBinarySensorEntityDescription(BinarySensorEntityDescription):
 BINARY_SENSOR_DESC: dict[ThinQProperty, ThinQBinarySensorEntityDescription] = {
     ThinQProperty.RINSE_REFILL: ThinQBinarySensorEntityDescription(
         key=ThinQProperty.RINSE_REFILL,
-        REDACTED_VALUEThinQProperty.RINSE_REFILL,
+        translation_key=ThinQProperty.RINSE_REFILL,
     ),
     ThinQProperty.ECO_FRIENDLY_MODE: ThinQBinarySensorEntityDescription(
         key=ThinQProperty.ECO_FRIENDLY_MODE,
-        REDACTED_VALUEThinQProperty.ECO_FRIENDLY_MODE,
+        translation_key=ThinQProperty.ECO_FRIENDLY_MODE,
     ),
     ThinQProperty.POWER_SAVE_ENABLED: ThinQBinarySensorEntityDescription(
         key=ThinQProperty.POWER_SAVE_ENABLED,
-        REDACTED_VALUEThinQProperty.POWER_SAVE_ENABLED,
+        translation_key=ThinQProperty.POWER_SAVE_ENABLED,
     ),
     ThinQProperty.REMOTE_CONTROL_ENABLED: ThinQBinarySensorEntityDescription(
         key=ThinQProperty.REMOTE_CONTROL_ENABLED,
-        REDACTED_VALUEThinQProperty.REMOTE_CONTROL_ENABLED,
+        translation_key=ThinQProperty.REMOTE_CONTROL_ENABLED,
     ),
     ThinQProperty.SABBATH_MODE: ThinQBinarySensorEntityDescription(
         key=ThinQProperty.SABBATH_MODE,
-        REDACTED_VALUEThinQProperty.SABBATH_MODE,
+        translation_key=ThinQProperty.SABBATH_MODE,
     ),
     ThinQProperty.DOOR_STATE: ThinQBinarySensorEntityDescription(
         key=ThinQProperty.DOOR_STATE,
@@ -54,33 +54,33 @@ BINARY_SENSOR_DESC: dict[ThinQProperty, ThinQBinarySensorEntityDescription] = {
     ),
     ThinQProperty.MACHINE_CLEAN_REMINDER: ThinQBinarySensorEntityDescription(
         key=ThinQProperty.MACHINE_CLEAN_REMINDER,
-        REDACTED_VALUEThinQProperty.MACHINE_CLEAN_REMINDER,
+        translation_key=ThinQProperty.MACHINE_CLEAN_REMINDER,
         on_key="mcreminder_on",
     ),
     ThinQProperty.SIGNAL_LEVEL: ThinQBinarySensorEntityDescription(
         key=ThinQProperty.SIGNAL_LEVEL,
-        REDACTED_VALUEThinQProperty.SIGNAL_LEVEL,
+        translation_key=ThinQProperty.SIGNAL_LEVEL,
         on_key="signallevel_on",
     ),
     ThinQProperty.CLEAN_LIGHT_REMINDER: ThinQBinarySensorEntityDescription(
         key=ThinQProperty.CLEAN_LIGHT_REMINDER,
-        REDACTED_VALUEThinQProperty.CLEAN_LIGHT_REMINDER,
+        translation_key=ThinQProperty.CLEAN_LIGHT_REMINDER,
         on_key="cleanlreminder_on",
     ),
     ThinQProperty.HOOD_OPERATION_MODE: ThinQBinarySensorEntityDescription(
         key=ThinQProperty.HOOD_OPERATION_MODE,
-        REDACTED_VALUE"operation_mode",
+        translation_key="operation_mode",
         on_key="power_on",
     ),
     ThinQProperty.WATER_HEATER_OPERATION_MODE: ThinQBinarySensorEntityDescription(
         key=ThinQProperty.WATER_HEATER_OPERATION_MODE,
         device_class=BinarySensorDeviceClass.POWER,
-        REDACTED_VALUEThinQProperty.WATER_HEATER_OPERATION_MODE,
+        translation_key=ThinQProperty.WATER_HEATER_OPERATION_MODE,
         on_key="power_on",
     ),
     ThinQProperty.ONE_TOUCH_FILTER: ThinQBinarySensorEntityDescription(
         key=ThinQProperty.ONE_TOUCH_FILTER,
-        REDACTED_VALUEThinQProperty.ONE_TOUCH_FILTER,
+        translation_key=ThinQProperty.ONE_TOUCH_FILTER,
         on_key="on",
     ),
 }

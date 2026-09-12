@@ -35,7 +35,7 @@ class AirGradientSwitchEntityDescription(SwitchEntityDescription):
 
 POST_DATA_TO_AIRGRADIENT = AirGradientSwitchEntityDescription(
     key="post_data_to_airgradient",
-    REDACTED_VALUE"post_data_to_airgradient",
+    translation_key="post_data_to_airgradient",
     entity_category=EntityCategory.CONFIG,
     value_fn=lambda config: config.post_data_to_airgradient,
     set_value_fn=lambda client, value: client.enable_sharing_data(enable=value),

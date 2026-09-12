@@ -72,13 +72,13 @@ class CommandLineNotificationService(BaseNotificationService):
                 kill_subprocess(proc)
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"timeout_error",
+                    translation_key="timeout_error",
                     translation_placeholders={"command": command},
                 ) from err
             except subprocess.SubprocessError as err:
                 _LOGGER.debug("Error trying to exec command: %s", command)
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"command_error",
+                    translation_key="command_error",
                     translation_placeholders={"command": command, "error": str(err)},
                 ) from err

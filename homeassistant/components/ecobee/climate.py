@@ -834,7 +834,7 @@ class Thermostat(ClimateEntity):
             if self.preset_modes:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"invalid_preset",
+                    translation_key="invalid_preset",
                     translation_placeholders={
                         "options": ", ".join(self._preset_modes.values())
                     },
@@ -871,7 +871,7 @@ class Thermostat(ClimateEntity):
         if not set(sensor_names).issubset(set(self._sensors)) or not sensor_names:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_sensor",
+                translation_key="invalid_sensor",
                 translation_placeholders={
                     "options": ", ".join(
                         [
@@ -885,7 +885,7 @@ class Thermostat(ClimateEntity):
         # Check that an id was found for each sensor
         if len(device_ids) != len(sensor_ids):
             raise ServiceValidationError(
-                translation_domain=DOMAIN, REDACTED_VALUE"sensor_lookup_failed"
+                translation_domain=DOMAIN, translation_key="sensor_lookup_failed"
             )
 
         # Check if sensors are currently used on the climate for the thermostat.

@@ -90,7 +90,7 @@ class ArcamFmj(ArcamFmjEntity, MediaPlayerEntity):
         except KeyError as exception:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unsupported_source",
+                translation_key="unsupported_source",
                 translation_placeholders={"source": source},
             ) from exception
 
@@ -105,7 +105,7 @@ class ArcamFmj(ArcamFmjEntity, MediaPlayerEntity):
         except (KeyError, ValueError) as exception:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unsupported_sound_mode",
+                translation_key="unsupported_sound_mode",
                 translation_placeholders={"sound_mode": sound_mode},
             ) from exception
 
@@ -191,7 +191,7 @@ class ArcamFmj(ArcamFmjEntity, MediaPlayerEntity):
         else:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unsupported_media",
+                translation_key="unsupported_media",
                 translation_placeholders={"media": media_id},
             )
 

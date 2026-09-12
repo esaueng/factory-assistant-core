@@ -26,7 +26,7 @@ UPDATE_ENTITIES: Final = [
     SynologyDSMUpdateEntityEntityDescription(
         api_key=SynoCoreUpgrade.API_KEY,
         key="update",
-        REDACTED_VALUE"update",
+        translation_key="update",
         entity_category=EntityCategory.DIAGNOSTIC,
     )
 ]

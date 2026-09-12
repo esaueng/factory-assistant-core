@@ -63,7 +63,7 @@ OPTIONS_SCHEMA: vol.Schema = vol.Schema(
                                 if cls != SensorDeviceClass.ENUM
                             ],
                             mode=selector.SelectSelectorMode.DROPDOWN,
-                            REDACTED_VALUE"device_class",
+                            translation_key="device_class",
                             sort=True,
                         )
                     ),
@@ -71,7 +71,7 @@ OPTIONS_SCHEMA: vol.Schema = vol.Schema(
                         selector.SelectSelectorConfig(
                             options=[cls.value for cls in SensorStateClass],
                             mode=selector.SelectSelectorMode.DROPDOWN,
-                            REDACTED_VALUE"state_class",
+                            translation_key="state_class",
                             sort=True,
                         )
                     ),

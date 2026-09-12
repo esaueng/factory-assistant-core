@@ -25,7 +25,7 @@ async def async_setup_entry(
                 "AC",
                 False,
                 False,
-                REDACTED_VALUE"air_conditioner",
+                translation_key="air_conditioner",
                 device_class=SwitchDeviceClass.OUTLET,
             ),
         ]

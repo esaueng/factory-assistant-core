@@ -34,14 +34,14 @@ class IronOSButton(StrEnum):
 BUTTON_DESCRIPTIONS: tuple[IronOSButtonEntityDescription, ...] = (
     IronOSButtonEntityDescription(
         key=IronOSButton.SETTINGS_RESET,
-        REDACTED_VALUEIronOSButton.SETTINGS_RESET,
+        translation_key=IronOSButton.SETTINGS_RESET,
         characteristic=CharSetting.SETTINGS_RESET,
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.CONFIG,
     ),
     IronOSButtonEntityDescription(
         key=IronOSButton.SETTINGS_SAVE,
-        REDACTED_VALUEIronOSButton.SETTINGS_SAVE,
+        translation_key=IronOSButton.SETTINGS_SAVE,
         characteristic=CharSetting.SETTINGS_SAVE,
         entity_category=EntityCategory.CONFIG,
     ),

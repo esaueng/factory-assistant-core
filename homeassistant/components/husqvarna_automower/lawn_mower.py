@@ -134,13 +134,13 @@ class AutomowerLawnMowerEntity(AutomowerBaseEntity, LawnMowerEntity):
         """Override the schedule with a certain work area."""
         if not self.mower_attributes.capabilities.work_areas:
             raise ServiceValidationError(
-                translation_domain=DOMAIN, REDACTED_VALUE"work_areas_not_supported"
+                translation_domain=DOMAIN, translation_key="work_areas_not_supported"
             )
         if TYPE_CHECKING:
             assert self.work_areas is not None
         if work_area_id not in self.work_areas:
             raise ServiceValidationError(
-                translation_domain=DOMAIN, REDACTED_VALUE"work_area_not_existing"
+                translation_domain=DOMAIN, translation_key="work_area_not_existing"
             )
         await self.coordinator.api.commands.start_in_workarea(
             self.mower_id, work_area_id, duration

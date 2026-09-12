@@ -81,11 +81,11 @@ class PalazzettiClimateEntity(PalazzettiEntity, ClimateEntity):
             await self.coordinator.client.set_on(hvac_mode != HVACMode.OFF)
         except CommunicationError as err:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"cannot_connect"
+                translation_domain=DOMAIN, translation_key="cannot_connect"
             ) from err
         except ValidationError as err:
             raise ServiceValidationError(
-                translation_domain=DOMAIN, REDACTED_VALUE"on_off_not_available"
+                translation_domain=DOMAIN, translation_key="on_off_not_available"
             ) from err
         await self.coordinator.async_refresh()
 
@@ -106,12 +106,12 @@ class PalazzettiClimateEntity(PalazzettiEntity, ClimateEntity):
             await self.coordinator.client.set_target_temperature(temperature)
         except CommunicationError as err:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"cannot_connect"
+                translation_domain=DOMAIN, translation_key="cannot_connect"
             ) from err
         except ValidationError as err:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_target_temperature",
+                translation_key="invalid_target_temperature",
                 translation_placeholders={
                     "value": str(temperature),
                 },
@@ -135,12 +135,12 @@ class PalazzettiClimateEntity(PalazzettiEntity, ClimateEntity):
                 await self.coordinator.client.set_fan_speed(FAN_MODES.index(fan_mode))
         except CommunicationError as err:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"cannot_connect"
+                translation_domain=DOMAIN, translation_key="cannot_connect"
             ) from err
         except ValidationError as err:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_fan_mode",
+                translation_key="invalid_fan_mode",
                 translation_placeholders={
                     "value": fan_mode,
                 },

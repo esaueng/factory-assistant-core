@@ -78,7 +78,7 @@ def get_filter_schema(options: dict[str, Any]) -> vol.Schema:
                 SelectSelectorConfig(
                     options=SORT_BY_OPTIONS,
                     mode=SelectSelectorMode.DROPDOWN,
-                    REDACTED_VALUE"sort_by",
+                    translation_key="sort_by",
                 )
             ),
             vol.Optional(

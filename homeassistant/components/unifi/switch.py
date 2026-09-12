@@ -242,7 +242,7 @@ class UnifiSwitchEntityDescription[HandlerT: APIHandler, ApiItemT: ApiItem](
 ENTITY_DESCRIPTIONS: tuple[UnifiSwitchEntityDescription, ...] = (
     UnifiSwitchEntityDescription[Clients, Client](
         key="Block client",
-        REDACTED_VALUE"block_client",
+        translation_key="block_client",
         device_class=SwitchDeviceClass.SWITCH,
         entity_category=EntityCategory.CONFIG,
         allowed_fn=async_block_client_allowed_fn,
@@ -334,7 +334,7 @@ ENTITY_DESCRIPTIONS: tuple[UnifiSwitchEntityDescription, ...] = (
     ),
     UnifiSwitchEntityDescription[Ports, Port](
         key="PoE port control",
-        REDACTED_VALUE"poe_port_control",
+        translation_key="poe_port_control",
         device_class=SwitchDeviceClass.OUTLET,
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
@@ -365,7 +365,7 @@ ENTITY_DESCRIPTIONS: tuple[UnifiSwitchEntityDescription, ...] = (
     ),
     UnifiSwitchEntityDescription[Wlans, Wlan](
         key="WLAN control",
-        REDACTED_VALUE"wlan_control",
+        translation_key="wlan_control",
         device_class=SwitchDeviceClass.SWITCH,
         entity_category=EntityCategory.CONFIG,
         api_handler_fn=lambda api: api.wlans,
@@ -411,7 +411,7 @@ class UnifiSwitchEntity[HandlerT: APIHandler, ApiItemT: ApiItem](
         except aiounifi.AiounifiException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"action_request_failed",
+                translation_key="action_request_failed",
             ) from err
         if coordinator := self.hub.entity_loader.get_data_update_coordinator(
             self.entity_description.api_handler_fn(self.api)
@@ -425,7 +425,7 @@ class UnifiSwitchEntity[HandlerT: APIHandler, ApiItemT: ApiItem](
         except aiounifi.AiounifiException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"action_request_failed",
+                translation_key="action_request_failed",
             ) from err
         if coordinator := self.hub.entity_loader.get_data_update_coordinator(
             self.entity_description.api_handler_fn(self.api)

@@ -72,13 +72,13 @@ class OumanEh800Coordinator(DataUpdateCoordinator[dict[OumanEndpoint, OumanValue
             ),
             OumanDevice.L1: DeviceInfo(
                 identifiers={(DOMAIN, f"{entry_id}_{OumanDevice.L1}")},
-                REDACTED_VALUE"heating_circuit",
+                translation_key="heating_circuit",
                 translation_placeholders={"circuit_number": "1"},
                 via_device=main_device_identifier,
             ),
             OumanDevice.L2: DeviceInfo(
                 identifiers={(DOMAIN, f"{entry_id}_{OumanDevice.L2}")},
-                REDACTED_VALUE"heating_circuit",
+                translation_key="heating_circuit",
                 translation_placeholders={"circuit_number": "2"},
                 via_device=main_device_identifier,
             ),

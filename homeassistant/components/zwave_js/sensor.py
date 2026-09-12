@@ -376,52 +376,52 @@ class ZWaveJSStatisticsSensorEntityDescription(SensorEntityDescription):
 ENTITY_DESCRIPTION_CONTROLLER_STATISTICS_LIST = [
     ZWaveJSStatisticsSensorEntityDescription(
         key="messages_tx",
-        REDACTED_VALUE"successful_messages",
+        translation_key="successful_messages",
         translation_placeholders={"direction": "TX"},
         state_class=SensorStateClass.TOTAL,
     ),
     ZWaveJSStatisticsSensorEntityDescription(
         key="messages_rx",
-        REDACTED_VALUE"successful_messages",
+        translation_key="successful_messages",
         translation_placeholders={"direction": "RX"},
         state_class=SensorStateClass.TOTAL,
     ),
     ZWaveJSStatisticsSensorEntityDescription(
         key="messages_dropped_tx",
-        REDACTED_VALUE"messages_dropped",
+        translation_key="messages_dropped",
         translation_placeholders={"direction": "TX"},
         state_class=SensorStateClass.TOTAL,
     ),
     ZWaveJSStatisticsSensorEntityDescription(
         key="messages_dropped_rx",
-        REDACTED_VALUE"messages_dropped",
+        translation_key="messages_dropped",
         translation_placeholders={"direction": "RX"},
         state_class=SensorStateClass.TOTAL,
     ),
     ZWaveJSStatisticsSensorEntityDescription(
-        key="nak", REDACTED_VALUE"nak", state_class=SensorStateClass.TOTAL
+        key="nak", translation_key="nak", state_class=SensorStateClass.TOTAL
     ),
     ZWaveJSStatisticsSensorEntityDescription(
-        key="can", REDACTED_VALUE"can", state_class=SensorStateClass.TOTAL
+        key="can", translation_key="can", state_class=SensorStateClass.TOTAL
     ),
     ZWaveJSStatisticsSensorEntityDescription(
         key="timeout_ack",
-        REDACTED_VALUE"timeout_ack",
+        translation_key="timeout_ack",
         state_class=SensorStateClass.TOTAL,
     ),
     ZWaveJSStatisticsSensorEntityDescription(
         key="timeout_response",
-        REDACTED_VALUE"timeout_response",
+        translation_key="timeout_response",
         state_class=SensorStateClass.TOTAL,
     ),
     ZWaveJSStatisticsSensorEntityDescription(
         key="timeout_callback",
-        REDACTED_VALUE"timeout_callback",
+        translation_key="timeout_callback",
         state_class=SensorStateClass.TOTAL,
     ),
     ZWaveJSStatisticsSensorEntityDescription(
         key="background_rssi.channel_0.average",
-        REDACTED_VALUE"avg_signal_noise",
+        translation_key="avg_signal_noise",
         translation_placeholders={"channel": "0"},
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
@@ -429,7 +429,7 @@ ENTITY_DESCRIPTION_CONTROLLER_STATISTICS_LIST = [
     ),
     ZWaveJSStatisticsSensorEntityDescription(
         key="background_rssi.channel_0.current",
-        REDACTED_VALUE"signal_noise",
+        translation_key="signal_noise",
         translation_placeholders={"channel": "0"},
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
@@ -438,7 +438,7 @@ ENTITY_DESCRIPTION_CONTROLLER_STATISTICS_LIST = [
     ),
     ZWaveJSStatisticsSensorEntityDescription(
         key="background_rssi.channel_1.average",
-        REDACTED_VALUE"avg_signal_noise",
+        translation_key="avg_signal_noise",
         translation_placeholders={"channel": "1"},
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
@@ -446,7 +446,7 @@ ENTITY_DESCRIPTION_CONTROLLER_STATISTICS_LIST = [
     ),
     ZWaveJSStatisticsSensorEntityDescription(
         key="background_rssi.channel_1.current",
-        REDACTED_VALUE"signal_noise",
+        translation_key="signal_noise",
         translation_placeholders={"channel": "1"},
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
@@ -455,7 +455,7 @@ ENTITY_DESCRIPTION_CONTROLLER_STATISTICS_LIST = [
     ),
     ZWaveJSStatisticsSensorEntityDescription(
         key="background_rssi.channel_2.average",
-        REDACTED_VALUE"avg_signal_noise",
+        translation_key="avg_signal_noise",
         translation_placeholders={"channel": "2"},
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
@@ -463,7 +463,7 @@ ENTITY_DESCRIPTION_CONTROLLER_STATISTICS_LIST = [
     ),
     ZWaveJSStatisticsSensorEntityDescription(
         key="background_rssi.channel_2.current",
-        REDACTED_VALUE"signal_noise",
+        translation_key="signal_noise",
         translation_placeholders={"channel": "2"},
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
@@ -472,7 +472,7 @@ ENTITY_DESCRIPTION_CONTROLLER_STATISTICS_LIST = [
     ),
     ZWaveJSStatisticsSensorEntityDescription(
         key="background_rssi.channel_3.average",
-        REDACTED_VALUE"avg_signal_noise",
+        translation_key="avg_signal_noise",
         translation_placeholders={"channel": "3"},
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
@@ -480,7 +480,7 @@ ENTITY_DESCRIPTION_CONTROLLER_STATISTICS_LIST = [
     ),
     ZWaveJSStatisticsSensorEntityDescription(
         key="background_rssi.channel_3.current",
-        REDACTED_VALUE"signal_noise",
+        translation_key="signal_noise",
         translation_placeholders={"channel": "3"},
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
@@ -513,50 +513,50 @@ CONTROLLER_STATISTICS_KEY_MAP: dict[str, str] = {
 ENTITY_DESCRIPTION_NODE_STATISTICS_LIST = [
     ZWaveJSStatisticsSensorEntityDescription(
         key="commands_rx",
-        REDACTED_VALUE"successful_commands",
+        translation_key="successful_commands",
         translation_placeholders={"direction": "RX"},
         state_class=SensorStateClass.TOTAL,
     ),
     ZWaveJSStatisticsSensorEntityDescription(
         key="commands_tx",
-        REDACTED_VALUE"successful_commands",
+        translation_key="successful_commands",
         translation_placeholders={"direction": "TX"},
         state_class=SensorStateClass.TOTAL,
     ),
     ZWaveJSStatisticsSensorEntityDescription(
         key="commands_dropped_rx",
-        REDACTED_VALUE"commands_dropped",
+        translation_key="commands_dropped",
         translation_placeholders={"direction": "RX"},
         state_class=SensorStateClass.TOTAL,
     ),
     ZWaveJSStatisticsSensorEntityDescription(
         key="commands_dropped_tx",
-        REDACTED_VALUE"commands_dropped",
+        translation_key="commands_dropped",
         translation_placeholders={"direction": "TX"},
         state_class=SensorStateClass.TOTAL,
     ),
     ZWaveJSStatisticsSensorEntityDescription(
         key="timeout_response",
-        REDACTED_VALUE"timeout_response",
+        translation_key="timeout_response",
         state_class=SensorStateClass.TOTAL,
     ),
     ZWaveJSStatisticsSensorEntityDescription(
         key="rtt",
-        REDACTED_VALUE"rtt",
+        translation_key="rtt",
         native_unit_of_measurement=UnitOfTime.MILLISECONDS,
         device_class=SensorDeviceClass.DURATION,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     ZWaveJSStatisticsSensorEntityDescription(
         key="rssi",
-        REDACTED_VALUE"signal_strength",
+        translation_key="signal_strength",
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     ZWaveJSStatisticsSensorEntityDescription(
         key="last_seen",
-        REDACTED_VALUE"last_seen",
+        translation_key="last_seen",
         device_class=SensorDeviceClass.TIMESTAMP,
     ),
 ]

@@ -39,7 +39,7 @@ class WyomingSatelliteAutoGainNumber(WyomingSatelliteEntity, RestoreNumber):
 
     entity_description = NumberEntityDescription(
         key="auto_gain",
-        REDACTED_VALUE"auto_gain",
+        translation_key="auto_gain",
         entity_category=EntityCategory.CONFIG,
     )
     _attr_should_poll = False
@@ -68,7 +68,7 @@ class WyomingSatelliteVolumeMultiplierNumber(WyomingSatelliteEntity, RestoreNumb
 
     entity_description = NumberEntityDescription(
         key="volume_multiplier",
-        REDACTED_VALUE"volume_multiplier",
+        translation_key="volume_multiplier",
         entity_category=EntityCategory.CONFIG,
     )
     _attr_should_poll = False

@@ -77,7 +77,7 @@ class TPLinkDataUpdateCoordinator(DataUpdateCoordinator[None]):
         except AuthenticationError as ex:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_authentication",
+                translation_key="device_authentication",
                 translation_placeholders={
                     "func": "update",
                     "exc": str(ex),
@@ -86,7 +86,7 @@ class TPLinkDataUpdateCoordinator(DataUpdateCoordinator[None]):
         except KasaException as ex:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_error",
+                translation_key="device_error",
                 translation_placeholders={
                     "func": "update",
                     "exc": str(ex),

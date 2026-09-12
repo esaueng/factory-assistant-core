@@ -58,7 +58,7 @@ _WEATHER_DESCRIPTIONS = (
     QbusWeatherDescription(
         key="daylight",
         property="dayLight",
-        REDACTED_VALUE"daylight",
+        translation_key="daylight",
         device_class=SensorDeviceClass.ILLUMINANCE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=LIGHT_LUX,
@@ -75,7 +75,7 @@ _WEATHER_DESCRIPTIONS = (
     QbusWeatherDescription(
         key="light_east",
         property="lightEast",
-        REDACTED_VALUE"light_east",
+        translation_key="light_east",
         device_class=SensorDeviceClass.ILLUMINANCE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=LIGHT_LUX,
@@ -84,7 +84,7 @@ _WEATHER_DESCRIPTIONS = (
     QbusWeatherDescription(
         key="light_south",
         property="lightSouth",
-        REDACTED_VALUE"light_south",
+        translation_key="light_south",
         device_class=SensorDeviceClass.ILLUMINANCE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=LIGHT_LUX,
@@ -93,7 +93,7 @@ _WEATHER_DESCRIPTIONS = (
     QbusWeatherDescription(
         key="light_west",
         property="lightWest",
-        REDACTED_VALUE"light_west",
+        translation_key="light_west",
         device_class=SensorDeviceClass.ILLUMINANCE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=LIGHT_LUX,

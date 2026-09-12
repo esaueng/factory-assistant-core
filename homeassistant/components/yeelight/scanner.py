@@ -109,7 +109,7 @@ class YeelightScanner:
 
         await asyncio.wait(connected_futures)
         self._track_interval = async_track_time_interval(
-            self._hass, self.async_scan, DISCOVERY_INTERVAL, REDACTED_VALUE
+            self._hass, self.async_scan, DISCOVERY_INTERVAL, cancel_on_shutdown=True
         )
         self.async_scan()
         _set_future_if_not_done(self._setup_future)
@@ -181,7 +181,7 @@ class YeelightScanner:
         # Delay starting the flow in case the discovery is the result
         # of another discovery
         async_call_later(
-            self._hass, 1, HassJob(_async_start_flow, REDACTED_VALUE)
+            self._hass, 1, HassJob(_async_start_flow, cancel_on_shutdown=True)
         )
 
     @callback

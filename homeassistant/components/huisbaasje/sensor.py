@@ -51,7 +51,7 @@ class EnergyFlipSensorEntityDescription(SensorEntityDescription):
 
 SENSORS_INFO = [
     EnergyFlipSensorEntityDescription(
-        REDACTED_VALUE"current_power",
+        translation_key="current_power",
         sensor_type=SENSOR_TYPE_RATE,
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -59,7 +59,7 @@ SENSORS_INFO = [
         state_class=SensorStateClass.MEASUREMENT,
     ),
     EnergyFlipSensorEntityDescription(
-        REDACTED_VALUE"current_power_peak",
+        translation_key="current_power_peak",
         sensor_type=SENSOR_TYPE_RATE,
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -67,7 +67,7 @@ SENSORS_INFO = [
         state_class=SensorStateClass.MEASUREMENT,
     ),
     EnergyFlipSensorEntityDescription(
-        REDACTED_VALUE"current_power_off_peak",
+        translation_key="current_power_off_peak",
         sensor_type=SENSOR_TYPE_RATE,
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -75,7 +75,7 @@ SENSORS_INFO = [
         state_class=SensorStateClass.MEASUREMENT,
     ),
     EnergyFlipSensorEntityDescription(
-        REDACTED_VALUE"current_power_out_peak",
+        translation_key="current_power_out_peak",
         sensor_type=SENSOR_TYPE_RATE,
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -83,7 +83,7 @@ SENSORS_INFO = [
         state_class=SensorStateClass.MEASUREMENT,
     ),
     EnergyFlipSensorEntityDescription(
-        REDACTED_VALUE"current_power_out_off_peak",
+        translation_key="current_power_out_off_peak",
         sensor_type=SENSOR_TYPE_RATE,
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -91,7 +91,7 @@ SENSORS_INFO = [
         state_class=SensorStateClass.MEASUREMENT,
     ),
     EnergyFlipSensorEntityDescription(
-        REDACTED_VALUE"energy_consumption_peak_today",
+        translation_key="energy_consumption_peak_today",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         key=SOURCE_TYPE_ELECTRICITY_IN,
@@ -100,7 +100,7 @@ SENSORS_INFO = [
         suggested_display_precision=3,
     ),
     EnergyFlipSensorEntityDescription(
-        REDACTED_VALUE"energy_consumption_off_peak_today",
+        translation_key="energy_consumption_off_peak_today",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         key=SOURCE_TYPE_ELECTRICITY_IN_LOW,
@@ -109,7 +109,7 @@ SENSORS_INFO = [
         suggested_display_precision=3,
     ),
     EnergyFlipSensorEntityDescription(
-        REDACTED_VALUE"energy_production_peak_today",
+        translation_key="energy_production_peak_today",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         key=SOURCE_TYPE_ELECTRICITY_OUT,
@@ -118,7 +118,7 @@ SENSORS_INFO = [
         suggested_display_precision=3,
     ),
     EnergyFlipSensorEntityDescription(
-        REDACTED_VALUE"energy_production_off_peak_today",
+        translation_key="energy_production_off_peak_today",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         key=SOURCE_TYPE_ELECTRICITY_OUT_LOW,
@@ -127,7 +127,7 @@ SENSORS_INFO = [
         suggested_display_precision=3,
     ),
     EnergyFlipSensorEntityDescription(
-        REDACTED_VALUE"energy_today",
+        translation_key="energy_today",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL,
@@ -136,7 +136,7 @@ SENSORS_INFO = [
         suggested_display_precision=1,
     ),
     EnergyFlipSensorEntityDescription(
-        REDACTED_VALUE"energy_week",
+        translation_key="energy_week",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL,
@@ -145,7 +145,7 @@ SENSORS_INFO = [
         suggested_display_precision=1,
     ),
     EnergyFlipSensorEntityDescription(
-        REDACTED_VALUE"energy_month",
+        translation_key="energy_month",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL,
@@ -154,7 +154,7 @@ SENSORS_INFO = [
         suggested_display_precision=1,
     ),
     EnergyFlipSensorEntityDescription(
-        REDACTED_VALUE"energy_year",
+        translation_key="energy_year",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL,
@@ -163,7 +163,7 @@ SENSORS_INFO = [
         suggested_display_precision=1,
     ),
     EnergyFlipSensorEntityDescription(
-        REDACTED_VALUE"current_gas",
+        translation_key="current_gas",
         native_unit_of_measurement=UnitOfVolumeFlowRate.CUBIC_METERS_PER_HOUR,
         sensor_type=SENSOR_TYPE_RATE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -171,7 +171,7 @@ SENSORS_INFO = [
         suggested_display_precision=2,
     ),
     EnergyFlipSensorEntityDescription(
-        REDACTED_VALUE"gas_today",
+        translation_key="gas_today",
         device_class=SensorDeviceClass.GAS,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         key=SOURCE_TYPE_GAS,
@@ -180,7 +180,7 @@ SENSORS_INFO = [
         suggested_display_precision=2,
     ),
     EnergyFlipSensorEntityDescription(
-        REDACTED_VALUE"gas_week",
+        translation_key="gas_week",
         device_class=SensorDeviceClass.GAS,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         key=SOURCE_TYPE_GAS,
@@ -189,7 +189,7 @@ SENSORS_INFO = [
         suggested_display_precision=2,
     ),
     EnergyFlipSensorEntityDescription(
-        REDACTED_VALUE"gas_month",
+        translation_key="gas_month",
         device_class=SensorDeviceClass.GAS,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         key=SOURCE_TYPE_GAS,
@@ -198,7 +198,7 @@ SENSORS_INFO = [
         suggested_display_precision=2,
     ),
     EnergyFlipSensorEntityDescription(
-        REDACTED_VALUE"gas_year",
+        translation_key="gas_year",
         device_class=SensorDeviceClass.GAS,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         key=SOURCE_TYPE_GAS,

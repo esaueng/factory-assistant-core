@@ -150,7 +150,7 @@ class EcovacsConfigFlow(ConfigFlow, domain=DOMAIN):
                     ): selector.SelectSelector(
                         selector.SelectSelectorConfig(
                             options=list(InstanceMode),
-                            REDACTED_VALUE"installation_mode",
+                            translation_key="installation_mode",
                             mode=selector.SelectSelectorMode.DROPDOWN,
                         )
                     )

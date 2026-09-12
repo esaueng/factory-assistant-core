@@ -63,7 +63,7 @@ class WhirlpoolEntity(Entity):
         if not result:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"request_failed",
+                translation_key="request_failed",
             )
 
 

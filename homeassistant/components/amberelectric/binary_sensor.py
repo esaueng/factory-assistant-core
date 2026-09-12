@@ -95,7 +95,7 @@ async def async_setup_entry(
     demand_window_description = BinarySensorEntityDescription(
         key="demand_window",
         name=f"{entry.title} - Demand Window",
-        REDACTED_VALUE"demand_window",
+        translation_key="demand_window",
     )
     async_add_entities(
         [

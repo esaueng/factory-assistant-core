@@ -28,7 +28,7 @@ class RussoundZoneSelectEntityDescription(SelectEntityDescription):
 CONTROL_ENTITIES: tuple[RussoundZoneSelectEntityDescription, ...] = (
     RussoundZoneSelectEntityDescription(
         key="party_mode",
-        REDACTED_VALUE"party_mode",
+        translation_key="party_mode",
         options=[
             PartyMode.OFF.value.lower(),
             PartyMode.ON.value.lower(),

@@ -39,7 +39,7 @@ def _get_water_use(sensor: HydrawiseSensor) -> ControllerWaterUseSummary:
 WATER_USE_CONTROLLER_SENSORS: tuple[HydrawiseSensorEntityDescription, ...] = (
     HydrawiseSensorEntityDescription(
         key="daily_active_water_time",
-        REDACTED_VALUE"daily_active_water_time",
+        translation_key="daily_active_water_time",
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.SECONDS,
         value_fn=lambda sensor: _get_water_use(
@@ -52,7 +52,7 @@ WATER_USE_CONTROLLER_SENSORS: tuple[HydrawiseSensorEntityDescription, ...] = (
 WATER_USE_ZONE_SENSORS: tuple[HydrawiseSensorEntityDescription, ...] = (
     HydrawiseSensorEntityDescription(
         key="daily_active_water_time",
-        REDACTED_VALUE"daily_active_water_time",
+        translation_key="daily_active_water_time",
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.SECONDS,
         value_fn=lambda sensor: (
@@ -66,21 +66,21 @@ WATER_USE_ZONE_SENSORS: tuple[HydrawiseSensorEntityDescription, ...] = (
 FLOW_CONTROLLER_SENSORS: tuple[HydrawiseSensorEntityDescription, ...] = (
     HydrawiseSensorEntityDescription(
         key="daily_total_water_use",
-        REDACTED_VALUE"daily_total_water_use",
+        translation_key="daily_total_water_use",
         device_class=SensorDeviceClass.WATER,
         suggested_display_precision=1,
         value_fn=lambda sensor: _get_water_use(sensor).total_use,
     ),
     HydrawiseSensorEntityDescription(
         key="daily_active_water_use",
-        REDACTED_VALUE"daily_active_water_use",
+        translation_key="daily_active_water_use",
         device_class=SensorDeviceClass.WATER,
         suggested_display_precision=1,
         value_fn=lambda sensor: _get_water_use(sensor).total_active_use,
     ),
     HydrawiseSensorEntityDescription(
         key="daily_inactive_water_use",
-        REDACTED_VALUE"daily_inactive_water_use",
+        translation_key="daily_inactive_water_use",
         device_class=SensorDeviceClass.WATER,
         suggested_display_precision=1,
         value_fn=lambda sensor: _get_water_use(sensor).total_inactive_use,
@@ -90,7 +90,7 @@ FLOW_CONTROLLER_SENSORS: tuple[HydrawiseSensorEntityDescription, ...] = (
 FLOW_ZONE_SENSORS: tuple[SensorEntityDescription, ...] = (
     HydrawiseSensorEntityDescription(
         key="daily_active_water_use",
-        REDACTED_VALUE"daily_active_water_use",
+        translation_key="daily_active_water_use",
         device_class=SensorDeviceClass.WATER,
         suggested_display_precision=1,
         value_fn=lambda sensor: float(
@@ -102,7 +102,7 @@ FLOW_ZONE_SENSORS: tuple[SensorEntityDescription, ...] = (
 ZONE_SENSORS: tuple[HydrawiseSensorEntityDescription, ...] = (
     HydrawiseSensorEntityDescription(
         key="next_cycle",
-        REDACTED_VALUE"next_cycle",
+        translation_key="next_cycle",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda sensor: (
             dt_util.as_utc(sensor.zone.scheduled_runs.next_run.start_time)
@@ -112,7 +112,7 @@ ZONE_SENSORS: tuple[HydrawiseSensorEntityDescription, ...] = (
     ),
     HydrawiseSensorEntityDescription(
         key="watering_time",
-        REDACTED_VALUE"watering_time",
+        translation_key="watering_time",
         native_unit_of_measurement=UnitOfTime.MINUTES,
         value_fn=lambda sensor: (
             int(

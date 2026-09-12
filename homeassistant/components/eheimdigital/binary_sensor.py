@@ -37,13 +37,13 @@ REEFLEX_DESCRIPTIONS: tuple[
 ] = (
     EheimDigitalBinarySensorDescription[EheimDigitalReeflexUV](
         key="is_lighting",
-        REDACTED_VALUE"is_lighting",
+        translation_key="is_lighting",
         value_fn=lambda device: device.is_lighting,
         device_class=BinarySensorDeviceClass.LIGHT,
     ),
     EheimDigitalBinarySensorDescription[EheimDigitalReeflexUV](
         key="is_uvc_connected",
-        REDACTED_VALUE"is_uvc_connected",
+        translation_key="is_uvc_connected",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda device: device.is_uvc_connected,
         device_class=BinarySensorDeviceClass.CONNECTIVITY,

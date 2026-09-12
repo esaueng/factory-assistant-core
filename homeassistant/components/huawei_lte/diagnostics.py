@@ -42,8 +42,8 @@ DEVICE_SIGNAL_DATA_TO_REDACT = {
 MONITORING_STATUS_DATA_TO_REDACT = {
     "PrimaryDns",
     "SecondaryDns",
-    "REDACTED_VALUE",
-    "REDACTED_VALUE",
+    "PrimaryIPv6Dns",
+    "SecondaryIPv6Dns",
 }
 NET_CURRENT_PLMN_DATA_TO_REDACT = {
     "net_current_plmn",

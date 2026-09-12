@@ -90,7 +90,7 @@ class LaCrosseUpdateCoordinator(DataUpdateCoordinator[list[Sensor]]):
                     continue
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"update_error",
+                    translation_key="update_error",
                 ) from error
 
         for sensor in self.devices:

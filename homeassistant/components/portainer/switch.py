@@ -65,17 +65,17 @@ async def _perform_action(
     except PortainerAuthenticationError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_auth_no_details",
+            translation_key="invalid_auth_no_details",
         ) from err
     except PortainerConnectionError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect_no_details",
+            translation_key="cannot_connect_no_details",
         ) from err
     except PortainerTimeoutError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"timeout_connect_no_details",
+            translation_key="timeout_connect_no_details",
         ) from err
     else:
         await coordinator.async_request_refresh()
@@ -84,7 +84,7 @@ async def _perform_action(
 CONTAINER_SWITCHES: tuple[PortainerSwitchEntityDescription, ...] = (
     PortainerSwitchEntityDescription(
         key="container",
-        REDACTED_VALUE"container",
+        translation_key="container",
         device_class=SwitchDeviceClass.SWITCH,
         is_on_fn=lambda data: (
             data.container.state
@@ -98,7 +98,7 @@ CONTAINER_SWITCHES: tuple[PortainerSwitchEntityDescription, ...] = (
 STACK_SWITCHES: tuple[PortainerStackSwitchEntityDescription, ...] = (
     PortainerStackSwitchEntityDescription(
         key="stack",
-        REDACTED_VALUE"stack",
+        translation_key="stack",
         device_class=SwitchDeviceClass.SWITCH,
         is_on_fn=lambda data: data.stack.status == StackStatus.ACTIVE,
         turn_on_fn=lambda portainer: portainer.start_stack,

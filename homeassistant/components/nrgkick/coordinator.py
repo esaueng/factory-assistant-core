@@ -65,28 +65,28 @@ class NRGkickDataUpdateCoordinator(DataUpdateCoordinator[NRGkickData]):
         except NRGkickAuthenticationError as error:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"authentication_error",
+                translation_key="authentication_error",
             ) from error
         except NRGkickAPIDisabledError as error:
             raise ConfigEntryError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"json_api_disabled",
+                translation_key="json_api_disabled",
             ) from error
         except NRGkickConnectionError as error:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
                 translation_placeholders={"error": str(error)},
             ) from error
         except NRGkickInvalidResponseError as error:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_response",
+                translation_key="invalid_response",
             ) from error
         except (TimeoutError, aiohttp.ClientError, OSError) as error:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
                 translation_placeholders={"error": str(error)},
             ) from error
 

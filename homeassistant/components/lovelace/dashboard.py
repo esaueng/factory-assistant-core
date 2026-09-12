@@ -287,7 +287,7 @@ class DashboardsCollection(collection.DictStorageCollection):
         if async_panel_exists(self.hass, url_path):
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"url_already_exists",
+                translation_key="url_already_exists",
                 translation_placeholders={"url": url_path},
             )
 

@@ -30,7 +30,7 @@ class SabnzbdNumberEntityDescription(NumberEntityDescription):
 NUMBER_DESCRIPTIONS: tuple[SabnzbdNumberEntityDescription, ...] = (
     SabnzbdNumberEntityDescription(
         key="speedlimit",
-        REDACTED_VALUE"speedlimit",
+        translation_key="speedlimit",
         mode=NumberMode.BOX,
         native_max_value=100,
         native_min_value=0,
@@ -73,7 +73,7 @@ class SabnzbdNumber(SabnzbdEntity, NumberEntity):
         except SabnzbdApiException as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_call_exception",
+                translation_key="service_call_exception",
             ) from e
         else:
             await self.coordinator.async_request_refresh()

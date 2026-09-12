@@ -135,7 +135,7 @@ class TPLinkSirenEntity(CoordinatedTPLinkModuleEntity, SirenEntity):
             if duration < 1 or duration > self._alarm_duration_max:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"invalid_alarm_duration",
+                    translation_key="invalid_alarm_duration",
                     translation_placeholders={
                         "duration": str(duration),
                         "duration_max": str(self._alarm_duration_max),

@@ -37,7 +37,7 @@ class ChessModeEntityDescription(SensorEntityDescription):
 PLAYER_SENSORS: tuple[ChessEntityDescription, ...] = (
     ChessEntityDescription(
         key="followers",
-        REDACTED_VALUE"followers",
+        translation_key="followers",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda state: state.player.followers,
@@ -48,27 +48,27 @@ PLAYER_SENSORS: tuple[ChessEntityDescription, ...] = (
 GAME_MODE_SENSORS: tuple[ChessModeEntityDescription, ...] = (
     ChessModeEntityDescription(
         key="rating",
-        REDACTED_VALUE"rating",
+        translation_key="rating",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda mode: mode["last"]["rating"],
     ),
     ChessModeEntityDescription(
         key="won",
-        REDACTED_VALUE"won",
+        translation_key="won",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL_INCREASING,
         value_fn=lambda mode: mode["record"]["win"],
     ),
     ChessModeEntityDescription(
         key="lost",
-        REDACTED_VALUE"lost",
+        translation_key="lost",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL_INCREASING,
         value_fn=lambda mode: mode["record"]["loss"],
     ),
     ChessModeEntityDescription(
         key="draw",
-        REDACTED_VALUE"draw",
+        translation_key="draw",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL_INCREASING,
         value_fn=lambda mode: mode["record"]["draw"],

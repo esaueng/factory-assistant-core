@@ -68,7 +68,7 @@ SENSOR_DESCRIPTIONS: list[OverkizSensorDescription] = [
         icon="mdi:battery",
         device_class=SensorDeviceClass.ENUM,
         options=["full", "normal", "medium", "low", "verylow"],
-        REDACTED_VALUE"battery",
+        translation_key="battery",
     ),
     OverkizSensorDescription(
         key=OverkizState.CORE_BATTERY_DISCRETE_LEVEL,
@@ -77,7 +77,7 @@ SENSOR_DESCRIPTIONS: list[OverkizSensorDescription] = [
         icon="mdi:battery",
         device_class=SensorDeviceClass.ENUM,
         options=["good", "medium", "low", "critical"],
-        REDACTED_VALUE"battery",
+        translation_key="battery",
     ),
     OverkizSensorDescription(
         key=OverkizState.CORE_RSSI_LEVEL,
@@ -388,14 +388,14 @@ SENSOR_DESCRIPTIONS: list[OverkizSensorDescription] = [
         options=["clean", "dirty"],
         entity_category=EntityCategory.DIAGNOSTIC,
         icon="mdi:spray-bottle",
-        REDACTED_VALUE"sensor_room",
+        translation_key="sensor_room",
     ),
     OverkizSensorDescription(
         key=OverkizState.IO_PRIORITY_LOCK_ORIGINATOR,
         name="Priority lock originator",
         icon="mdi:lock",
         entity_registry_enabled_default=False,
-        REDACTED_VALUE"priority_lock_originator",
+        translation_key="priority_lock_originator",
         native_value=lambda value: OVERKIZ_STATE_TO_TRANSLATION.get(
             cast(str, value), cast(str, value)
         ),
@@ -415,14 +415,14 @@ SENSOR_DESCRIPTIONS: list[OverkizSensorDescription] = [
         icon="mdi:wifi",
         device_class=SensorDeviceClass.ENUM,
         options=["verylow", "low", "normal", "good"],
-        REDACTED_VALUE"discrete_rssi_level",
+        translation_key="discrete_rssi_level",
     ),
     OverkizSensorDescription(
         key=OverkizState.CORE_SENSOR_DEFECT,
         name="Sensor defect",
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.DIAGNOSTIC,
-        REDACTED_VALUE"sensor_defect",
+        translation_key="sensor_defect",
         native_value=lambda value: OVERKIZ_STATE_TO_TRANSLATION.get(
             cast(str, value), cast(str, value)
         ),
@@ -478,7 +478,7 @@ SENSOR_DESCRIPTIONS: list[OverkizSensorDescription] = [
         name="Three way handle direction",
         device_class=SensorDeviceClass.ENUM,
         options=["open", "tilt", "closed"],
-        REDACTED_VALUE"three_way_handle_direction",
+        translation_key="three_way_handle_direction",
     ),
     # Hitachi air to air heatpump outdoor temperature sensors (HLRRWIFI protocol)
     OverkizSensorDescription(

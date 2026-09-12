@@ -29,12 +29,12 @@ def toon_exception_handler[_ToonEntityT: ToonEntity, **_P](
             self.coordinator.async_update_listeners()
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
             ) from error
         except ToonError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_response",
+                translation_key="invalid_response",
             ) from error
 
     return handler

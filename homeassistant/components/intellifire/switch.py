@@ -31,14 +31,14 @@ class IntellifireSwitchEntityDescription(
 INTELLIFIRE_SWITCHES: tuple[IntellifireSwitchEntityDescription, ...] = (
     IntellifireSwitchEntityDescription(
         key="on_off",
-        REDACTED_VALUE"flame",
+        translation_key="flame",
         on_fn=lambda coordinator: coordinator.control_api.flame_on(),
         off_fn=lambda coordinator: coordinator.control_api.flame_off(),
         value_fn=lambda coordinator: coordinator.read_api.data.is_on,
     ),
     IntellifireSwitchEntityDescription(
         key="pilot",
-        REDACTED_VALUE"pilot_light",
+        translation_key="pilot_light",
         on_fn=lambda coordinator: coordinator.control_api.pilot_on(),
         off_fn=lambda coordinator: coordinator.control_api.pilot_off(),
         value_fn=lambda coordinator: coordinator.read_api.data.pilot_on,

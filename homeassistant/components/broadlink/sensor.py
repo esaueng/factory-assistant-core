@@ -59,11 +59,11 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="light",
-        REDACTED_VALUE"light",
+        translation_key="light",
     ),
     SensorEntityDescription(
         key="noise",
-        REDACTED_VALUE"noise",
+        translation_key="noise",
     ),
     SensorEntityDescription(
         key="power",
@@ -85,14 +85,14 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="overload",
-        REDACTED_VALUE"overload",
+        translation_key="overload",
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="totalconsum",
-        REDACTED_VALUE"total_consumption",
+        translation_key="total_consumption",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,

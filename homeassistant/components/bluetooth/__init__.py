@@ -182,7 +182,7 @@ async def _async_start_adapter_discovery(
         """Call the debouncer at a later time."""
         await discovery_debouncer.async_call()
 
-    call_debouncer_job = HassJob(_async_call_debouncer, REDACTED_VALUE)
+    call_debouncer_job = HassJob(_async_call_debouncer, cancel_on_shutdown=True)
 
     def _async_trigger_discovery() -> None:
         # There are so many bluetooth adapter models that

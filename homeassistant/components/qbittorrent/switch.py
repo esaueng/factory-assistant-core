@@ -27,7 +27,7 @@ class QBittorrentSwitchEntityDescription(SwitchEntityDescription):
 SWITCH_TYPES: tuple[QBittorrentSwitchEntityDescription, ...] = (
     QBittorrentSwitchEntityDescription(
         key="alternative_speed",
-        REDACTED_VALUE"alternative_speed",
+        translation_key="alternative_speed",
         icon="mdi:speedometer-slow",
         is_on_func=lambda coordinator: coordinator.get_alt_speed_enabled(),
         turn_on_fn=lambda coordinator: coordinator.set_alt_speed_enabled(True),

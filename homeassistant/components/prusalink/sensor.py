@@ -56,11 +56,11 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
             value_fn=lambda data: cast(str, data["printer"]["state"]).lower(),
             device_class=SensorDeviceClass.ENUM,
             options=[state.value.lower() for state in PrinterState],
-            REDACTED_VALUE"printer_state",
+            translation_key="printer_state",
         ),
         PrusaLinkSensorEntityDescription[PrinterStatus](
             key="printer.telemetry.temp-bed",
-            REDACTED_VALUE"heatbed_temperature",
+            translation_key="heatbed_temperature",
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             device_class=SensorDeviceClass.TEMPERATURE,
             state_class=SensorStateClass.MEASUREMENT,
@@ -69,7 +69,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
         ),
         PrusaLinkSensorEntityDescription[PrinterStatus](
             key="printer.telemetry.temp-nozzle",
-            REDACTED_VALUE"nozzle_temperature",
+            translation_key="nozzle_temperature",
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             device_class=SensorDeviceClass.TEMPERATURE,
             state_class=SensorStateClass.MEASUREMENT,
@@ -78,7 +78,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
         ),
         PrusaLinkSensorEntityDescription[PrinterStatus](
             key="printer.telemetry.temp-bed.target",
-            REDACTED_VALUE"heatbed_target_temperature",
+            translation_key="heatbed_target_temperature",
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             device_class=SensorDeviceClass.TEMPERATURE,
             state_class=SensorStateClass.MEASUREMENT,
@@ -87,7 +87,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
         ),
         PrusaLinkSensorEntityDescription[PrinterStatus](
             key="printer.telemetry.temp-nozzle.target",
-            REDACTED_VALUE"nozzle_target_temperature",
+            translation_key="nozzle_target_temperature",
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             device_class=SensorDeviceClass.TEMPERATURE,
             state_class=SensorStateClass.MEASUREMENT,
@@ -96,7 +96,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
         ),
         PrusaLinkSensorEntityDescription[PrinterStatus](
             key="printer.telemetry.z-height",
-            REDACTED_VALUE"z_height",
+            translation_key="z_height",
             native_unit_of_measurement=UnitOfLength.MILLIMETERS,
             device_class=SensorDeviceClass.DISTANCE,
             state_class=SensorStateClass.MEASUREMENT,
@@ -105,7 +105,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
         ),
         PrusaLinkSensorEntityDescription[PrinterStatus](
             key="printer.telemetry.x-position",
-            REDACTED_VALUE"x_position",
+            translation_key="x_position",
             native_unit_of_measurement=UnitOfLength.MILLIMETERS,
             device_class=SensorDeviceClass.DISTANCE,
             state_class=SensorStateClass.MEASUREMENT,
@@ -115,7 +115,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
         ),
         PrusaLinkSensorEntityDescription[PrinterStatus](
             key="printer.telemetry.y-position",
-            REDACTED_VALUE"y_position",
+            translation_key="y_position",
             native_unit_of_measurement=UnitOfLength.MILLIMETERS,
             device_class=SensorDeviceClass.DISTANCE,
             state_class=SensorStateClass.MEASUREMENT,
@@ -125,27 +125,27 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
         ),
         PrusaLinkSensorEntityDescription[PrinterStatus](
             key="printer.telemetry.print-speed",
-            REDACTED_VALUE"print_speed",
+            translation_key="print_speed",
             native_unit_of_measurement=PERCENTAGE,
             value_fn=lambda data: cast(float, data["printer"]["speed"]),
         ),
         PrusaLinkSensorEntityDescription[PrinterStatus](
             key="printer.telemetry.print-flow",
-            REDACTED_VALUE"print_flow",
+            translation_key="print_flow",
             native_unit_of_measurement=PERCENTAGE,
             value_fn=lambda data: cast(float, data["printer"]["flow"]),
             entity_registry_enabled_default=False,
         ),
         PrusaLinkSensorEntityDescription[PrinterStatus](
             key="printer.telemetry.fan-hotend",
-            REDACTED_VALUE"fan_hotend",
+            translation_key="fan_hotend",
             native_unit_of_measurement=REVOLUTIONS_PER_MINUTE,
             value_fn=lambda data: cast(float, data["printer"]["fan_hotend"]),
             entity_registry_enabled_default=False,
         ),
         PrusaLinkSensorEntityDescription[PrinterStatus](
             key="printer.telemetry.fan-print",
-            REDACTED_VALUE"fan_print",
+            translation_key="fan_print",
             native_unit_of_measurement=REVOLUTIONS_PER_MINUTE,
             value_fn=lambda data: cast(float, data["printer"]["fan_print"]),
             entity_registry_enabled_default=False,
@@ -154,7 +154,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
     "legacy_status": (
         PrusaLinkSensorEntityDescription[LegacyPrinterStatus](
             key="printer.telemetry.material",
-            REDACTED_VALUE"material",
+            translation_key="material",
             value_fn=lambda data: cast(
                 str, cast(LegacyPrinterTelemetry, data["telemetry"])["material"]
             ),
@@ -164,7 +164,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
     "job": (
         PrusaLinkSensorEntityDescription[JobInfo](
             key="job.progress",
-            REDACTED_VALUE"progress",
+            translation_key="progress",
             native_unit_of_measurement=PERCENTAGE,
             value_fn=lambda data: cast(float, data["progress"]),
             available_fn=lambda data: (
@@ -174,7 +174,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
         ),
         PrusaLinkSensorEntityDescription[JobInfo](
             key="job.filename",
-            REDACTED_VALUE"filename",
+            translation_key="filename",
             # `available_fn` guarantees `file` is not None at this point;
             # the inner cast narrows the Optional for the index.
             value_fn=lambda data: cast(
@@ -187,7 +187,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
         ),
         PrusaLinkSensorEntityDescription[JobInfo](
             key="job.start",
-            REDACTED_VALUE"print_start",
+            translation_key="print_start",
             device_class=SensorDeviceClass.TIMESTAMP,
             value_fn=ignore_variance(
                 lambda data: utcnow() - timedelta(seconds=data["time_printing"]),
@@ -200,7 +200,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
         ),
         PrusaLinkSensorEntityDescription[JobInfo](
             key="job.finish",
-            REDACTED_VALUE"print_finish",
+            translation_key="print_finish",
             device_class=SensorDeviceClass.TIMESTAMP,
             # `available_fn` guarantees `time_remaining` is not None at this
             # point; the cast narrows the Optional for `timedelta`.
@@ -219,7 +219,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
     "info": (
         PrusaLinkSensorEntityDescription[PrinterInfo](
             key="info.nozzle_diameter",
-            REDACTED_VALUE"nozzle_diameter",
+            translation_key="nozzle_diameter",
             native_unit_of_measurement=UnitOfLength.MILLIMETERS,
             device_class=SensorDeviceClass.DISTANCE,
             value_fn=lambda data: cast(str, data["nozzle_diameter"]),
@@ -227,7 +227,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
         ),
         PrusaLinkSensorEntityDescription[PrinterInfo](
             key="info.min_extrusion_temp",
-            REDACTED_VALUE"min_extrusion_temp",
+            translation_key="min_extrusion_temp",
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             device_class=SensorDeviceClass.TEMPERATURE,
             value_fn=lambda data: data["min_extrusion_temp"],

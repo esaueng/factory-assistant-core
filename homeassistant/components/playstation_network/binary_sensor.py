@@ -39,7 +39,7 @@ BINARY_SENSOR_DESCRIPTIONS: tuple[
 ] = (
     PlaystationNetworkBinarySensorEntityDescription(
         key=PlaystationNetworkBinarySensor.PS_PLUS_STATUS,
-        REDACTED_VALUEPlaystationNetworkBinarySensor.PS_PLUS_STATUS,
+        translation_key=PlaystationNetworkBinarySensor.PS_PLUS_STATUS,
         is_on_fn=lambda psn: psn.profile["isPlus"],
     ),
 )

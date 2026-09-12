@@ -130,7 +130,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         except HomeAssistantError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_to_reload",
+                translation_key="failed_to_reload",
             ) from err
 
         integration = await async_get_integration(hass, DOMAIN)
@@ -478,6 +478,6 @@ def _async_create_yaml_mode_repair(hass: HomeAssistant) -> None:
         breaks_in_ha_version="2026.8.0",
         is_fixable=False,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"yaml_mode_deprecated",
+        translation_key="yaml_mode_deprecated",
         translation_placeholders={"config_file": LOVELACE_CONFIG_FILE},
     )

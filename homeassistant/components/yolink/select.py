@@ -49,7 +49,7 @@ SELECTOR_MAPPINGS: tuple[YoLinkSelectEntityDescription, ...] = (
     YoLinkSelectEntityDescription(
         key="model",
         options=["auto", "manual", "off"],
-        REDACTED_VALUE"sprinkler_mode",
+        translation_key="sprinkler_mode",
         value=lambda data: (
             data.get("mode") if data is not None else None
         ),  # watering state report will missing state field

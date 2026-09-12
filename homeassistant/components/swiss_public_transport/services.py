@@ -56,7 +56,7 @@ async def _async_fetch_connections(
     except UpdateFailed as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect",
+            translation_key="cannot_connect",
             translation_placeholders={
                 "error": str(e),
             },

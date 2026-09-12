@@ -146,7 +146,7 @@ class RoborockDataUpdateCoordinator(DataUpdateCoordinator[DeviceState | None]):
             _LOGGER.debug("Failed to update data during setup: %s", err)
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_data_fail",
+                translation_key="update_data_fail",
             ) from err
 
         self._last_home_update_attempt = dt_util.utcnow()
@@ -165,7 +165,7 @@ class RoborockDataUpdateCoordinator(DataUpdateCoordinator[DeviceState | None]):
             _LOGGER.debug("Failed to get maps: %s", err)
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"map_failure",
+                translation_key="map_failure",
             ) from err
         else:
             # Force a map refresh on first setup
@@ -188,7 +188,7 @@ class RoborockDataUpdateCoordinator(DataUpdateCoordinator[DeviceState | None]):
         except RoborockException as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"map_failure",
+                translation_key="map_failure",
             ) from ex
         else:
             self.last_home_update = dt_util.utcnow()
@@ -209,7 +209,7 @@ class RoborockDataUpdateCoordinator(DataUpdateCoordinator[DeviceState | None]):
                     f"cloud_api_used_{self.duid_slug}",
                     is_fixable=False,
                     severity=IssueSeverity.WARNING,
-                    REDACTED_VALUE"cloud_api_used",
+                    translation_key="cloud_api_used",
                     translation_placeholders={"device_name": self._device.name},
                     learn_more_url="https://www.home-assistant.io/integrations/roborock/#the-integration-tells-me-it-cannot-reach-my-vacuum-and-is-using-the-cloud-api-and-that-this-is-not-supported-or-i-am-having-any-networking-issues",
                 )
@@ -329,7 +329,7 @@ class RoborockDataUpdateCoordinator(DataUpdateCoordinator[DeviceState | None]):
             _LOGGER.error("Failed to get routines %s", err)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={
                     "command": "get_scenes",
                 },
@@ -343,7 +343,7 @@ class RoborockDataUpdateCoordinator(DataUpdateCoordinator[DeviceState | None]):
             _LOGGER.error("Failed to execute routines %s %s", routine_id, err)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={
                     "command": "execute_scene",
                 },
@@ -381,7 +381,7 @@ async def _refresh_traits(traits: list[Any]) -> None:
             )
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_data_fail",
+                translation_key="update_data_fail",
             ) from ex
 
 
@@ -471,7 +471,7 @@ class RoborockWashingMachineUpdateCoordinator(
             _LOGGER.debug("Failed to update washing machine data: %s", ex)
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_data_fail",
+                translation_key="update_data_fail",
             ) from ex
 
 
@@ -509,7 +509,7 @@ class RoborockWetDryVacUpdateCoordinator(
             _LOGGER.debug("Failed to update wet dry vac data: %s", ex)
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_data_fail",
+                translation_key="update_data_fail",
             ) from ex
 
 
@@ -590,12 +590,12 @@ class RoborockB01Q7UpdateCoordinator(RoborockDataUpdateCoordinatorB01):
             _LOGGER.debug("Failed to update Q7 data: %s", ex)
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_data_fail",
+                translation_key="update_data_fail",
             ) from ex
         if data is None:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_data_fail",
+                translation_key="update_data_fail",
             )
         return data
 
@@ -646,7 +646,7 @@ class RoborockB01Q10UpdateCoordinator(DataUpdateCoordinator[None]):
             _LOGGER.debug("Failed to request Q10 data: %s", ex)
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"request_fail",
+                translation_key="request_fail",
             ) from ex
 
     @cached_property

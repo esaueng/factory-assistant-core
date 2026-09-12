@@ -145,13 +145,13 @@ def raise_translated_error[**P, R](
         except InvalidParameterError as err:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUEcheck_translation_key(err) or "invalid_parameter",
+                translation_key=check_translation_key(err) or "invalid_parameter",
                 translation_placeholders={"err": str(err)},
             ) from err
         except ReolinkError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUEcheck_translation_key(err)
+                translation_key=check_translation_key(err)
                 or _EXCEPTION_TO_TRANSLATION_KEY.get(type(err), "unexpected"),
                 translation_placeholders={"err": str(err)},
             ) from err

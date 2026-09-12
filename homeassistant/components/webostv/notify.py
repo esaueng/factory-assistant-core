@@ -50,7 +50,7 @@ class LgWebOSNotificationService(BaseNotificationService):
         if not client.tv_state.is_on:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"notify_device_off",
+                translation_key="notify_device_off",
                 translation_placeholders={"name": str(self._entry.title)},
             )
         try:
@@ -58,7 +58,7 @@ class LgWebOSNotificationService(BaseNotificationService):
         except FileNotFoundError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"notify_icon_not_found",
+                translation_key="notify_icon_not_found",
                 translation_placeholders={
                     "name": str(self._entry.title),
                     "icon_path": str(icon_path),
@@ -67,7 +67,7 @@ class LgWebOSNotificationService(BaseNotificationService):
         except WEBOSTV_EXCEPTIONS as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"notify_communication_error",
+                translation_key="notify_communication_error",
                 translation_placeholders={
                     "name": str(self._entry.title),
                     "error": str(error),

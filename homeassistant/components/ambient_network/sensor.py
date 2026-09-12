@@ -61,14 +61,14 @@ TYPE_YEARLYRAININ = "yearlyrainin"
 SENSOR_DESCRIPTIONS = (
     SensorEntityDescription(
         key=TYPE_AQI_PM25,
-        REDACTED_VALUE"pm25_aqi",
+        translation_key="pm25_aqi",
         device_class=SensorDeviceClass.AQI,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=0,
     ),
     SensorEntityDescription(
         key=TYPE_AQI_PM25_24H,
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="pm25_aqi_24h_average",
         device_class=SensorDeviceClass.AQI,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=0,
@@ -76,7 +76,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     SensorEntityDescription(
         key=TYPE_BAROMABSIN,
-        REDACTED_VALUE"absolute_pressure",
+        translation_key="absolute_pressure",
         native_unit_of_measurement=UnitOfPressure.INHG,
         device_class=SensorDeviceClass.PRESSURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -85,7 +85,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     SensorEntityDescription(
         key=TYPE_BAROMRELIN,
-        REDACTED_VALUE"relative_pressure",
+        translation_key="relative_pressure",
         native_unit_of_measurement=UnitOfPressure.INHG,
         device_class=SensorDeviceClass.PRESSURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -101,7 +101,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     SensorEntityDescription(
         key=TYPE_DAILYRAININ,
-        REDACTED_VALUE"daily_rain",
+        translation_key="daily_rain",
         native_unit_of_measurement=UnitOfPrecipitationDepth.INCHES,
         device_class=SensorDeviceClass.PRECIPITATION,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -109,7 +109,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     SensorEntityDescription(
         key=TYPE_DEWPOINT,
-        REDACTED_VALUE"dew_point",
+        translation_key="dew_point",
         native_unit_of_measurement=UnitOfTemperature.FAHRENHEIT,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -117,7 +117,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     SensorEntityDescription(
         key=TYPE_FEELSLIKE,
-        REDACTED_VALUE"feels_like",
+        translation_key="feels_like",
         native_unit_of_measurement=UnitOfTemperature.FAHRENHEIT,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -125,7 +125,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     SensorEntityDescription(
         key=TYPE_HOURLYRAININ,
-        REDACTED_VALUE"hourly_rain",
+        translation_key="hourly_rain",
         native_unit_of_measurement=UnitOfVolumetricFlux.INCHES_PER_HOUR,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.PRECIPITATION_INTENSITY,
@@ -140,27 +140,27 @@ SENSOR_DESCRIPTIONS = (
     ),
     SensorEntityDescription(
         key=TYPE_LASTRAIN,
-        REDACTED_VALUE"last_rain",
+        translation_key="last_rain",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key=TYPE_LIGHTNING_PER_DAY,
-        REDACTED_VALUE"lightning_strikes_per_day",
+        translation_key="lightning_strikes_per_day",
         native_unit_of_measurement="strikes",
         state_class=SensorStateClass.TOTAL_INCREASING,
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key=TYPE_LIGHTNING_PER_HOUR,
-        REDACTED_VALUE"lightning_strikes_per_hour",
+        translation_key="lightning_strikes_per_hour",
         native_unit_of_measurement="strikes/hour",
         state_class=SensorStateClass.TOTAL,
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key=TYPE_LIGHTNING_DISTANCE,
-        REDACTED_VALUE"lightning_distance",
+        translation_key="lightning_distance",
         native_unit_of_measurement=UnitOfLength.MILES,
         device_class=SensorDeviceClass.DISTANCE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -169,7 +169,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     SensorEntityDescription(
         key=TYPE_MAXDAILYGUST,
-        REDACTED_VALUE"max_daily_gust",
+        translation_key="max_daily_gust",
         native_unit_of_measurement=UnitOfSpeed.MILES_PER_HOUR,
         device_class=SensorDeviceClass.WIND_SPEED,
         state_class=SensorStateClass.MEASUREMENT,
@@ -177,7 +177,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     SensorEntityDescription(
         key=TYPE_MONTHLYRAININ,
-        REDACTED_VALUE"monthly_rain",
+        translation_key="monthly_rain",
         native_unit_of_measurement=UnitOfPrecipitationDepth.INCHES,
         device_class=SensorDeviceClass.PRECIPITATION,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -186,7 +186,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     SensorEntityDescription(
         key=TYPE_PM25_24H,
-        REDACTED_VALUE"pm25_24h_average",
+        translation_key="pm25_24h_average",
         native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
         device_class=SensorDeviceClass.PM25,
         suggested_display_precision=1,
@@ -217,14 +217,14 @@ SENSOR_DESCRIPTIONS = (
     ),
     SensorEntityDescription(
         key=TYPE_UV,
-        REDACTED_VALUE"uv_index",
+        translation_key="uv_index",
         native_unit_of_measurement="index",
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
     ),
     SensorEntityDescription(
         key=TYPE_WEEKLYRAININ,
-        REDACTED_VALUE"weekly_rain",
+        translation_key="weekly_rain",
         native_unit_of_measurement=UnitOfPrecipitationDepth.INCHES,
         device_class=SensorDeviceClass.PRECIPITATION,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -233,7 +233,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     SensorEntityDescription(
         key=TYPE_WINDDIR,
-        REDACTED_VALUE"wind_direction",
+        translation_key="wind_direction",
         native_unit_of_measurement=DEGREE,
         suggested_display_precision=0,
         entity_registry_enabled_default=False,
@@ -242,7 +242,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     SensorEntityDescription(
         key=TYPE_WINDGUSTMPH,
-        REDACTED_VALUE"wind_gust",
+        translation_key="wind_gust",
         native_unit_of_measurement=UnitOfSpeed.MILES_PER_HOUR,
         device_class=SensorDeviceClass.WIND_SPEED,
         state_class=SensorStateClass.MEASUREMENT,
@@ -257,7 +257,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     SensorEntityDescription(
         key=TYPE_YEARLYRAININ,
-        REDACTED_VALUE"yearly_rain",
+        translation_key="yearly_rain",
         native_unit_of_measurement=UnitOfPrecipitationDepth.INCHES,
         device_class=SensorDeviceClass.PRECIPITATION,
         state_class=SensorStateClass.TOTAL_INCREASING,

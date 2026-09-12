@@ -138,7 +138,7 @@ class EvoClimateEntity(EvoEntity, ClimateEntity):
         """Clear the zone override; only supported by zones."""
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"zone_only_service",
+            translation_key="zone_only_service",
             translation_placeholders={"service": EvoService.CLEAR_ZONE_OVERRIDE},
         )
 
@@ -148,7 +148,7 @@ class EvoClimateEntity(EvoEntity, ClimateEntity):
         """Set the zone override; only supported by zones."""
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"zone_only_service",
+            translation_key="zone_only_service",
             translation_placeholders={"service": EvoService.SET_ZONE_OVERRIDE},
         )
 
@@ -411,7 +411,7 @@ class EvoController(EvoClimateEntity):
         except evo.InvalidSystemModeError as err:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_system_mode",
+                translation_key="invalid_system_mode",
                 translation_placeholders={"error": str(err)},
             ) from err
 

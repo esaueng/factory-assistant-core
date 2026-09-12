@@ -31,7 +31,7 @@ class FumisSwitchEntityDescription(SwitchEntityDescription):
 SWITCHES: tuple[FumisSwitchEntityDescription, ...] = (
     FumisSwitchEntityDescription(
         key="eco_mode",
-        REDACTED_VALUE"eco_mode",
+        translation_key="eco_mode",
         entity_category=EntityCategory.CONFIG,
         has_fn=lambda data: data.controller.eco_mode is not None,
         is_on_fn=lambda data: (
@@ -42,7 +42,7 @@ SWITCHES: tuple[FumisSwitchEntityDescription, ...] = (
     ),
     FumisSwitchEntityDescription(
         key="timer",
-        REDACTED_VALUE"timer",
+        translation_key="timer",
         entity_category=EntityCategory.CONFIG,
         is_on_fn=lambda data: data.controller.timer_enable,
         turn_on_fn=lambda client: client.set_timer(enabled=True),

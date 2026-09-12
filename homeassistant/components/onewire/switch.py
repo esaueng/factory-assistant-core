@@ -30,7 +30,7 @@ DEVICE_SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
         SwitchEntityDescription(
             key="PIO",
             entity_registry_enabled_default=False,
-            REDACTED_VALUE"pio",
+            translation_key="pio",
         ),
     ),
     "12": tuple(
@@ -38,7 +38,7 @@ DEVICE_SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
             SwitchEntityDescription(
                 key=f"PIO.{device_key}",
                 entity_registry_enabled_default=False,
-                REDACTED_VALUE"pio_id",
+                translation_key="pio_id",
                 translation_placeholders={"id": str(device_key)},
             )
             for device_key in DEVICE_KEYS_A_B
@@ -47,7 +47,7 @@ DEVICE_SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
             SwitchEntityDescription(
                 key=f"latch.{device_key}",
                 entity_registry_enabled_default=False,
-                REDACTED_VALUE"latch_id",
+                translation_key="latch_id",
                 translation_placeholders={"id": str(device_key)},
             )
             for device_key in DEVICE_KEYS_A_B
@@ -58,7 +58,7 @@ DEVICE_SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
             key="IAD",
             entity_registry_enabled_default=False,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"iad",
+            translation_key="iad",
         ),
     ),
     "29": tuple(
@@ -66,7 +66,7 @@ DEVICE_SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
             SwitchEntityDescription(
                 key=f"PIO.{device_key}",
                 entity_registry_enabled_default=False,
-                REDACTED_VALUE"pio_id",
+                translation_key="pio_id",
                 translation_placeholders={"id": str(device_key)},
             )
             for device_key in DEVICE_KEYS_0_7
@@ -75,7 +75,7 @@ DEVICE_SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
             SwitchEntityDescription(
                 key=f"latch.{device_key}",
                 entity_registry_enabled_default=False,
-                REDACTED_VALUE"latch_id",
+                translation_key="latch_id",
                 translation_placeholders={"id": str(device_key)},
             )
             for device_key in DEVICE_KEYS_0_7
@@ -85,7 +85,7 @@ DEVICE_SWITCHES: dict[str, tuple[SwitchEntityDescription, ...]] = {
         SwitchEntityDescription(
             key=f"PIO.{device_key}",
             entity_registry_enabled_default=False,
-            REDACTED_VALUE"pio_id",
+            translation_key="pio_id",
             translation_placeholders={"id": str(device_key)},
         )
         for device_key in DEVICE_KEYS_A_B
@@ -101,7 +101,7 @@ HOBBYBOARD_EF: dict[str, tuple[SwitchEntityDescription, ...]] = {
             key=f"hub/branch.{device_key}",
             entity_registry_enabled_default=False,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"hub_branch_id",
+            translation_key="hub_branch_id",
             translation_placeholders={"id": str(device_key)},
         )
         for device_key in DEVICE_KEYS_0_3
@@ -112,7 +112,7 @@ HOBBYBOARD_EF: dict[str, tuple[SwitchEntityDescription, ...]] = {
                 key=f"moisture/is_leaf.{device_key}",
                 entity_registry_enabled_default=False,
                 entity_category=EntityCategory.CONFIG,
-                REDACTED_VALUE"leaf_sensor_id",
+                translation_key="leaf_sensor_id",
                 translation_placeholders={"id": str(device_key)},
             )
             for device_key in DEVICE_KEYS_0_3
@@ -122,7 +122,7 @@ HOBBYBOARD_EF: dict[str, tuple[SwitchEntityDescription, ...]] = {
                 key=f"moisture/is_moisture.{device_key}",
                 entity_registry_enabled_default=False,
                 entity_category=EntityCategory.CONFIG,
-                REDACTED_VALUE"moisture_sensor_id",
+                translation_key="moisture_sensor_id",
                 translation_placeholders={"id": str(device_key)},
             )
             for device_key in DEVICE_KEYS_0_3

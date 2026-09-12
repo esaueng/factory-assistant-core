@@ -30,7 +30,7 @@ class FumisNumberEntityDescription(NumberEntityDescription):
 NUMBERS: tuple[FumisNumberEntityDescription, ...] = (
     FumisNumberEntityDescription(
         key="fan_speed",
-        REDACTED_VALUE"fan_speed",
+        translation_key="fan_speed",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         native_min_value=0,
@@ -44,7 +44,7 @@ NUMBERS: tuple[FumisNumberEntityDescription, ...] = (
     ),
     FumisNumberEntityDescription(
         key="power_level",
-        REDACTED_VALUE"power_level",
+        translation_key="power_level",
         native_min_value=1,
         native_max_value=5,
         native_step=1,

@@ -34,7 +34,7 @@ SWITCHES: list[SmarlaSwitchEntityDescription] = [
     ),
     SmarlaSwitchEntityDescription(
         key="smart_mode",
-        REDACTED_VALUE"smart_mode",
+        translation_key="smart_mode",
         service="babywiege",
         property="smart_mode",
         device_class=SwitchDeviceClass.SWITCH,

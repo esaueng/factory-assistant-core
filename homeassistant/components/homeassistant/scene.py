@@ -186,7 +186,7 @@ async def async_setup_platform(
         except (HomeAssistantError, FileNotFoundError) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"scene_config_reload_failed",
+                translation_key="scene_config_reload_failed",
                 translation_placeholders={"error": str(err)},
             ) from err
 
@@ -280,7 +280,7 @@ async def async_setup_platform(
             if scene is None:
                 raise ServiceValidationError(
                     translation_domain=SCENE_DOMAIN,
-                    REDACTED_VALUE"entity_not_scene",
+                    translation_key="entity_not_scene",
                     translation_placeholders={
                         "entity_id": entity_id,
                     },
@@ -289,7 +289,7 @@ async def async_setup_platform(
             if not scene.from_service:
                 raise ServiceValidationError(
                     translation_domain=SCENE_DOMAIN,
-                    REDACTED_VALUE"entity_not_dynamically_created",
+                    translation_key="entity_not_dynamically_created",
                     translation_placeholders={
                         "entity_id": entity_id,
                     },

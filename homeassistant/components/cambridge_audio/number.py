@@ -37,7 +37,7 @@ def room_correction_intensity(client: StreamMagicClient) -> int:
 CONTROL_ENTITIES: tuple[CambridgeAudioNumberEntityDescription, ...] = (
     CambridgeAudioNumberEntityDescription(
         key="room_correction_intensity",
-        REDACTED_VALUE"room_correction_intensity",
+        translation_key="room_correction_intensity",
         entity_category=EntityCategory.CONFIG,
         native_min_value=-15,
         native_max_value=15,
@@ -48,7 +48,7 @@ CONTROL_ENTITIES: tuple[CambridgeAudioNumberEntityDescription, ...] = (
     ),
     CambridgeAudioNumberEntityDescription(
         key="volume_limit",
-        REDACTED_VALUE"volume_limit",
+        translation_key="volume_limit",
         entity_category=EntityCategory.CONFIG,
         native_min_value=1,
         native_max_value=100,

@@ -109,7 +109,7 @@ BINARY_SENSOR_TYPES: tuple[RenaultBinarySensorEntityDescription, ...] = (
     RenaultBinarySensorEntityDescription[KamereonVehicleHvacStatusData](
         key="hvac_status",
         coordinator="hvac_status",
-        REDACTED_VALUE"hvac_status",
+        translation_key="hvac_status",
         value_lambda=lambda e: (
             e.coordinator.data.hvacStatus == "on"
             if e.coordinator.data.hvacStatus is not None
@@ -132,7 +132,7 @@ BINARY_SENSOR_TYPES: tuple[RenaultBinarySensorEntityDescription, ...] = (
         coordinator="lock_status",
         # On means open, Off means closed
         device_class=BinarySensorDeviceClass.DOOR,
-        REDACTED_VALUE"hatch_status",
+        translation_key="hatch_status",
         value_lambda=lambda e: (
             e.coordinator.data.hatchStatus == "open"
             if e.coordinator.data.hatchStatus is not None
@@ -144,7 +144,7 @@ BINARY_SENSOR_TYPES: tuple[RenaultBinarySensorEntityDescription, ...] = (
         coordinator="lock_status",
         # On means open, Off means closed
         device_class=BinarySensorDeviceClass.DOOR,
-        REDACTED_VALUE"rear_left_door_status",
+        translation_key="rear_left_door_status",
         value_lambda=lambda e: (
             e.coordinator.data.doorStatusRearLeft == "open"
             if e.coordinator.data.doorStatusRearLeft is not None
@@ -156,7 +156,7 @@ BINARY_SENSOR_TYPES: tuple[RenaultBinarySensorEntityDescription, ...] = (
         coordinator="lock_status",
         # On means open, Off means closed
         device_class=BinarySensorDeviceClass.DOOR,
-        REDACTED_VALUE"rear_right_door_status",
+        translation_key="rear_right_door_status",
         value_lambda=lambda e: (
             e.coordinator.data.doorStatusRearRight == "open"
             if e.coordinator.data.doorStatusRearRight is not None
@@ -168,7 +168,7 @@ BINARY_SENSOR_TYPES: tuple[RenaultBinarySensorEntityDescription, ...] = (
         coordinator="lock_status",
         # On means open, Off means closed
         device_class=BinarySensorDeviceClass.DOOR,
-        REDACTED_VALUE"driver_door_status",
+        translation_key="driver_door_status",
         value_lambda=lambda e: (
             e.coordinator.data.doorStatusDriver == "open"
             if e.coordinator.data.doorStatusDriver is not None
@@ -180,7 +180,7 @@ BINARY_SENSOR_TYPES: tuple[RenaultBinarySensorEntityDescription, ...] = (
         coordinator="lock_status",
         # On means open, Off means closed
         device_class=BinarySensorDeviceClass.DOOR,
-        REDACTED_VALUE"passenger_door_status",
+        translation_key="passenger_door_status",
         value_lambda=lambda e: (
             e.coordinator.data.doorStatusPassenger == "open"
             if e.coordinator.data.doorStatusPassenger is not None

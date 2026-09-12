@@ -18,7 +18,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         breaks_in_ha_version="2026.3",
         is_fixable=False,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"volvooncall_deprecated",
+        translation_key="volvooncall_deprecated",
     )
 
     return True

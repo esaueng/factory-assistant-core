@@ -30,7 +30,7 @@ class WhirlpoolSelectDescription(SelectEntityDescription):
 REFRIGERATOR_DESCRIPTIONS: Final[tuple[WhirlpoolSelectDescription, ...]] = (
     WhirlpoolSelectDescription(
         key="refrigerator_temperature_level",
-        REDACTED_VALUE"refrigerator_temperature_level",
+        translation_key="refrigerator_temperature_level",
         options=["-4", "-2", "0", "3", "5"],
         unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda fridge: (
@@ -82,5 +82,5 @@ class WhirlpoolSelectEntity(WhirlpoolEntity, SelectEntity):
         except ValueError as err:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_value_set",
+                translation_key="invalid_value_set",
             ) from err

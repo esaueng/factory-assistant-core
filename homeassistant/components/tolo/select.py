@@ -27,7 +27,7 @@ class ToloSelectEntityDescription(SelectEntityDescription):
 SELECTS = (
     ToloSelectEntityDescription(
         key="lamp_mode",
-        REDACTED_VALUE"lamp_mode",
+        translation_key="lamp_mode",
         options=[lamp_mode.name.lower() for lamp_mode in LampMode],
         getter=lambda settings: settings.lamp_mode.name.lower(),
         setter=lambda client, option: client.set_lamp_mode(
@@ -36,7 +36,7 @@ SELECTS = (
     ),
     ToloSelectEntityDescription(
         key="aroma_therapy_slot",
-        REDACTED_VALUE"aroma_therapy_slot",
+        translation_key="aroma_therapy_slot",
         options=[
             aroma_therapy_slot.name.lower() for aroma_therapy_slot in AromaTherapySlot
         ],

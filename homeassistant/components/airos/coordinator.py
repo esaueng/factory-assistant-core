@@ -52,7 +52,7 @@ async def async_fetch_airos_data(
     except AirOSConnectionAuthenticationError as err:
         _LOGGER.exception("Error authenticating with airOS device")
         raise ConfigEntryAuthFailed(
-            translation_domain=DOMAIN, REDACTED_VALUE"invalid_auth"
+            translation_domain=DOMAIN, translation_key="invalid_auth"
         ) from err
     except (
         AirOSConnectionSetupError,
@@ -62,13 +62,13 @@ async def async_fetch_airos_data(
         _LOGGER.error("Error connecting to airOS device: %s", err)
         raise UpdateFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect",
+            translation_key="cannot_connect",
         ) from err
     except AirOSDataMissingError as err:
         _LOGGER.error("Expected data not returned by airOS device: %s", err)
         raise UpdateFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"error_data_missing",
+            translation_key="error_data_missing",
         ) from err
 
 

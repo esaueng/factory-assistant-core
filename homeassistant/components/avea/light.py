@@ -72,7 +72,7 @@ def _create_deprecated_yaml_issue(hass: HomeAssistant) -> None:
         is_persistent=False,
         issue_domain=DOMAIN,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"deprecated_yaml",
+        translation_key="deprecated_yaml",
         translation_placeholders={
             "domain": DOMAIN,
             "integration_title": INTEGRATION_TITLE,
@@ -90,7 +90,7 @@ def _create_yaml_import_failed_issue(hass: HomeAssistant) -> None:
         is_fixable=False,
         issue_domain=DOMAIN,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"deprecated_yaml_import_issue_no_bulbs",
+        translation_key="deprecated_yaml_import_issue_no_bulbs",
         translation_placeholders={
             "domain": DOMAIN,
             "integration_title": INTEGRATION_TITLE,

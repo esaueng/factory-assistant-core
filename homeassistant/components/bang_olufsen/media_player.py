@@ -504,7 +504,7 @@ class BeoMediaPlayer(BeoEntity, MediaPlayerEntity):
         ):
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_grouping_entity",
+                translation_key="invalid_grouping_entity",
                 translation_placeholders={"entity_id": entity_id},
             )
 
@@ -728,7 +728,7 @@ class BeoMediaPlayer(BeoEntity, MediaPlayerEntity):
         if source not in self._sources.values():
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_source",
+                translation_key="invalid_source",
                 translation_placeholders={
                     "invalid_source": source,
                     "valid_sources": ",".join(list(self._sources.values())),
@@ -751,7 +751,7 @@ class BeoMediaPlayer(BeoEntity, MediaPlayerEntity):
         if sound_mode not in self._sound_modes:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_sound_mode",
+                translation_key="invalid_sound_mode",
                 translation_placeholders={
                     "invalid_sound_mode": sound_mode,
                     "valid_sound_modes": ", ".join(list(self._sound_modes)),
@@ -775,7 +775,7 @@ class BeoMediaPlayer(BeoEntity, MediaPlayerEntity):
         if media_type not in VALID_MEDIA_TYPES:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_media_type",
+                translation_key="invalid_media_type",
                 translation_placeholders={
                     "invalid_media_type": media_type,
                     "valid_media_types": ",".join(VALID_MEDIA_TYPES),
@@ -792,7 +792,7 @@ class BeoMediaPlayer(BeoEntity, MediaPlayerEntity):
             # Exit if the source uses unsupported file.
             if media_id.endswith(".m3u"):
                 raise HomeAssistantError(
-                    translation_domain=DOMAIN, REDACTED_VALUE"m3u_invalid_format"
+                    translation_domain=DOMAIN, translation_key="m3u_invalid_format"
                 )
 
         if announce:
@@ -899,7 +899,7 @@ class BeoMediaPlayer(BeoEntity, MediaPlayerEntity):
             except ApiException as error:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"play_media_error",
+                    translation_key="play_media_error",
                     translation_placeholders={
                         "media_type": media_type,
                         "error_message": json.loads(cast(str, error.body))["message"],
@@ -965,7 +965,7 @@ class BeoMediaPlayer(BeoEntity, MediaPlayerEntity):
         if not self._beolink_sources[cast(str, self._source_change.id)]:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_source",
+                translation_key="invalid_source",
                 translation_placeholders={
                     "invalid_source": cast(str, self._source_change.id),
                     "valid_sources": ", ".join(list(self._beolink_sources)),

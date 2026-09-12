@@ -55,7 +55,7 @@ BUTTON_DESCRIPTIONS = (
     ),
     ValveControllerButtonDescription(
         key=BUTTON_KIND_RESET_VALVE_DIAGNOSTICS,
-        REDACTED_VALUE"reset_diagnostics",
+        translation_key="reset_diagnostics",
         push_action=_async_valve_reset,
         # Buttons don't actually need a coordinator; we give them one so they can
         # properly inherit from GuardianEntity:

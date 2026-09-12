@@ -95,13 +95,13 @@ def exception_handler[**_P, _R](
         except TimeoutException as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"timeout_exception",
+                translation_key="timeout_exception",
             ) from e
         except (RequestError, HTTPStatusError) as e:
             _LOGGER.debug("Xbox exception:", exc_info=True)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"request_exception",
+                translation_key="request_exception",
             ) from e
 
     return wrapper
@@ -124,7 +124,7 @@ class XboxRemote(XboxConsoleBaseEntity, RemoteEntity):
             if e.response.status_code == HTTPStatus.NOT_FOUND:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"turn_on_failed",
+                    translation_key="turn_on_failed",
                 ) from e
             raise
 

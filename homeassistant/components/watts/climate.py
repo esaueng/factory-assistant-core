@@ -156,7 +156,7 @@ class WattsVisionClimate(WattsVisionEntity[ThermostatDevice], ClimateEntity):
         except (ValueError, RuntimeError) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_preset_mode_error",
+                translation_key="set_preset_mode_error",
             ) from err
 
         _LOGGER.debug(
@@ -183,7 +183,7 @@ class WattsVisionClimate(WattsVisionEntity[ThermostatDevice], ClimateEntity):
         except RuntimeError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_temperature_error",
+                translation_key="set_temperature_error",
             ) from err
 
         _LOGGER.debug(
@@ -203,7 +203,7 @@ class WattsVisionClimate(WattsVisionEntity[ThermostatDevice], ClimateEntity):
         if not self._attr_min_temp <= temperature <= self._attr_max_temp:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"timer_temperature_out_of_range",
+                translation_key="timer_temperature_out_of_range",
                 translation_placeholders={
                     "temperature": str(temperature),
                     "min_temp": str(self._attr_min_temp),
@@ -222,7 +222,7 @@ class WattsVisionClimate(WattsVisionEntity[ThermostatDevice], ClimateEntity):
         except (WattsVisionError, ValueError, RuntimeError) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"activate_timer_mode_error",
+                translation_key="activate_timer_mode_error",
             ) from err
 
         _LOGGER.debug(
@@ -246,7 +246,7 @@ class WattsVisionClimate(WattsVisionEntity[ThermostatDevice], ClimateEntity):
         except (ValueError, RuntimeError) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_hvac_mode_error",
+                translation_key="set_hvac_mode_error",
             ) from err
 
         _LOGGER.debug(

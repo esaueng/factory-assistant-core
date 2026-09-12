@@ -27,7 +27,7 @@ def command[_EntityT: CambridgeAudioEntity, **_P](
         except STREAM_MAGIC_EXCEPTIONS as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_error",
+                translation_key="command_error",
                 translation_placeholders={
                     "function_name": func.__name__,
                     "entity_id": self.entity_id,

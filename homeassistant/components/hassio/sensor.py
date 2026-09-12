@@ -66,13 +66,13 @@ ADDON_ENTITY_DESCRIPTIONS = (
     HassioAddonSensorEntityDescription(
         entity_registry_enabled_default=False,
         key="version",
-        REDACTED_VALUE"version",
+        translation_key="version",
         value_fn=lambda entity: entity.addon_data.addon.version,
     ),
     HassioAddonSensorEntityDescription(
         entity_registry_enabled_default=False,
         key="version_latest",
-        REDACTED_VALUE"version_latest",
+        translation_key="version_latest",
         value_fn=lambda entity: entity.addon_data.addon.version_latest,
     ),
 )
@@ -81,7 +81,7 @@ STATS_ENTITY_DESCRIPTIONS = (
     HassioStatsSensorEntityDescription(
         entity_registry_enabled_default=False,
         key=ATTR_CPU_PERCENT,
-        REDACTED_VALUE"cpu_percent",
+        translation_key="cpu_percent",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda entity: entity.stats.cpu_percent,
@@ -89,7 +89,7 @@ STATS_ENTITY_DESCRIPTIONS = (
     HassioStatsSensorEntityDescription(
         entity_registry_enabled_default=False,
         key=ATTR_MEMORY_PERCENT,
-        REDACTED_VALUE"memory_percent",
+        translation_key="memory_percent",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda entity: entity.stats.memory_percent,
@@ -100,13 +100,13 @@ OS_ENTITY_DESCRIPTIONS = (
     HassioOSSensorEntityDescription(
         entity_registry_enabled_default=False,
         key="version",
-        REDACTED_VALUE"version",
+        translation_key="version",
         value_fn=lambda entity: entity.os.version,
     ),
     HassioOSSensorEntityDescription(
         entity_registry_enabled_default=False,
         key="version_latest",
-        REDACTED_VALUE"version_latest",
+        translation_key="version_latest",
         value_fn=lambda entity: entity.os.version_latest,
     ),
 )
@@ -115,21 +115,21 @@ HOST_ENTITY_DESCRIPTIONS = (
     HassioHostSensorEntityDescription(
         entity_registry_enabled_default=False,
         key="agent_version",
-        REDACTED_VALUE"agent_version",
+        translation_key="agent_version",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda entity: entity.host.agent_version,
     ),
     HassioHostSensorEntityDescription(
         entity_registry_enabled_default=False,
         key="apparmor_version",
-        REDACTED_VALUE"apparmor_version",
+        translation_key="apparmor_version",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda entity: entity.host.apparmor_version,
     ),
     HassioHostSensorEntityDescription(
         entity_registry_enabled_default=False,
         key="disk_total",
-        REDACTED_VALUE"disk_total",
+        translation_key="disk_total",
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -138,7 +138,7 @@ HOST_ENTITY_DESCRIPTIONS = (
     HassioHostSensorEntityDescription(
         entity_registry_enabled_default=False,
         key="disk_used",
-        REDACTED_VALUE"disk_used",
+        translation_key="disk_used",
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -147,7 +147,7 @@ HOST_ENTITY_DESCRIPTIONS = (
     HassioHostSensorEntityDescription(
         entity_registry_enabled_default=False,
         key="disk_free",
-        REDACTED_VALUE"disk_free",
+        translation_key="disk_free",
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         entity_category=EntityCategory.DIAGNOSTIC,

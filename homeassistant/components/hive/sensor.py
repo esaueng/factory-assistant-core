@@ -74,14 +74,14 @@ SENSOR_TYPES: tuple[HiveSensorEntityDescription, ...] = (
         key="Heating_Mode",
         device_class=SensorDeviceClass.ENUM,
         options=["schedule", "manual", "off"],
-        REDACTED_VALUE"heating",
+        translation_key="heating",
         fn=lambda x: x.lower() if isinstance(x, str) else None,
     ),
     HiveSensorEntityDescription(
         key="Hotwater_Mode",
         device_class=SensorDeviceClass.ENUM,
         options=["schedule", "on", "off"],
-        REDACTED_VALUE"hot_water",
+        translation_key="hot_water",
         fn=lambda x: x.lower() if isinstance(x, str) else None,
     ),
 )

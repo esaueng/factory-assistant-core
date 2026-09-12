@@ -26,42 +26,42 @@ from .models import RiscoConfigEntry
 SYSTEM_ENTITY_DESCRIPTIONS = [
     BinarySensorEntityDescription(
         key="low_battery_trouble",
-        REDACTED_VALUE"low_battery_trouble",
+        translation_key="low_battery_trouble",
         device_class=BinarySensorDeviceClass.BATTERY,
     ),
     BinarySensorEntityDescription(
         key="ac_trouble",
-        REDACTED_VALUE"ac_trouble",
+        translation_key="ac_trouble",
         device_class=BinarySensorDeviceClass.PROBLEM,
     ),
     BinarySensorEntityDescription(
         key="monitoring_station_1_trouble",
-        REDACTED_VALUE"monitoring_station_1_trouble",
+        translation_key="monitoring_station_1_trouble",
         device_class=BinarySensorDeviceClass.PROBLEM,
     ),
     BinarySensorEntityDescription(
         key="monitoring_station_2_trouble",
-        REDACTED_VALUE"monitoring_station_2_trouble",
+        translation_key="monitoring_station_2_trouble",
         device_class=BinarySensorDeviceClass.PROBLEM,
     ),
     BinarySensorEntityDescription(
         key="monitoring_station_3_trouble",
-        REDACTED_VALUE"monitoring_station_3_trouble",
+        translation_key="monitoring_station_3_trouble",
         device_class=BinarySensorDeviceClass.PROBLEM,
     ),
     BinarySensorEntityDescription(
         key="phone_line_trouble",
-        REDACTED_VALUE"phone_line_trouble",
+        translation_key="phone_line_trouble",
         device_class=BinarySensorDeviceClass.PROBLEM,
     ),
     BinarySensorEntityDescription(
         key="clock_trouble",
-        REDACTED_VALUE"clock_trouble",
+        translation_key="clock_trouble",
         device_class=BinarySensorDeviceClass.PROBLEM,
     ),
     BinarySensorEntityDescription(
         key="box_tamper",
-        REDACTED_VALUE"box_tamper",
+        translation_key="box_tamper",
         device_class=BinarySensorDeviceClass.TAMPER,
     ),
 ]

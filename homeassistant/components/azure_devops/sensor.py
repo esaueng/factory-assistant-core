@@ -44,7 +44,7 @@ BASE_BUILD_SENSOR_DESCRIPTIONS: tuple[AzureDevOpsBuildSensorEntityDescription, .
     # Attributes are deprecated in 2024.7 and can be removed in 2025.1
     AzureDevOpsBuildSensorEntityDescription(
         key="latest_build",
-        REDACTED_VALUE"latest_build",
+        translation_key="latest_build",
         attr_fn=lambda build: {
             "definition_id": (build.definition.build_id if build.definition else None),
             "definition_name": (build.definition.name if build.definition else None),
@@ -63,38 +63,38 @@ BASE_BUILD_SENSOR_DESCRIPTIONS: tuple[AzureDevOpsBuildSensorEntityDescription, .
     ),
     AzureDevOpsBuildSensorEntityDescription(
         key="build_id",
-        REDACTED_VALUE"build_id",
+        translation_key="build_id",
         entity_registry_visible_default=False,
         value_fn=lambda build: build.build_id,
     ),
     AzureDevOpsBuildSensorEntityDescription(
         key="reason",
-        REDACTED_VALUE"reason",
+        translation_key="reason",
         entity_registry_visible_default=False,
         value_fn=lambda build: build.reason,
     ),
     AzureDevOpsBuildSensorEntityDescription(
         key="result",
-        REDACTED_VALUE"result",
+        translation_key="result",
         entity_registry_visible_default=False,
         value_fn=lambda build: build.result,
     ),
     AzureDevOpsBuildSensorEntityDescription(
         key="source_branch",
-        REDACTED_VALUE"source_branch",
+        translation_key="source_branch",
         entity_registry_enabled_default=False,
         entity_registry_visible_default=False,
         value_fn=lambda build: build.source_branch,
     ),
     AzureDevOpsBuildSensorEntityDescription(
         key="source_version",
-        REDACTED_VALUE"source_version",
+        translation_key="source_version",
         entity_registry_visible_default=False,
         value_fn=lambda build: build.source_version,
     ),
     AzureDevOpsBuildSensorEntityDescription(
         key="queue_time",
-        REDACTED_VALUE"queue_time",
+        translation_key="queue_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_registry_enabled_default=False,
         entity_registry_visible_default=False,
@@ -102,21 +102,21 @@ BASE_BUILD_SENSOR_DESCRIPTIONS: tuple[AzureDevOpsBuildSensorEntityDescription, .
     ),
     AzureDevOpsBuildSensorEntityDescription(
         key="start_time",
-        REDACTED_VALUE"start_time",
+        translation_key="start_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_registry_visible_default=False,
         value_fn=lambda build: parse_datetime(build.start_time),
     ),
     AzureDevOpsBuildSensorEntityDescription(
         key="finish_time",
-        REDACTED_VALUE"finish_time",
+        translation_key="finish_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_registry_visible_default=False,
         value_fn=lambda build: parse_datetime(build.finish_time),
     ),
     AzureDevOpsBuildSensorEntityDescription(
         key="url",
-        REDACTED_VALUE"url",
+        translation_key="url",
         value_fn=lambda build: build.links.web if build.links else None,
     ),
 )
@@ -126,7 +126,7 @@ BASE_WORK_ITEM_SENSOR_DESCRIPTIONS: tuple[
 ] = (
     AzureDevOpsWorkItemSensorEntityDescription(
         key="work_item_count",
-        REDACTED_VALUE"work_item_count",
+        translation_key="work_item_count",
         value_fn=lambda work_item_state: len(work_item_state.work_items),
     ),
 )

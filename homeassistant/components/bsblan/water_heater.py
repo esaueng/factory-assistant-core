@@ -150,7 +150,7 @@ class BSBLANWaterHeater(BSBLanWaterHeaterDeviceEntity, WaterHeaterEntity):
         except BSBLANError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_temperature_error",
+                translation_key="set_temperature_error",
             ) from err
 
         await self.coordinator.async_request_refresh()
@@ -167,7 +167,7 @@ class BSBLANWaterHeater(BSBLanWaterHeaterDeviceEntity, WaterHeaterEntity):
         except BSBLANError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_operation_mode_error",
+                translation_key="set_operation_mode_error",
             ) from err
 
         await self.coordinator.async_request_refresh()

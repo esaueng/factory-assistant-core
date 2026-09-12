@@ -26,7 +26,7 @@ def _get_trigger_platform(config: ConfigType) -> TriggerProtocol:
     if len(platform_split) < 2 or platform_split[1] not in TRIGGERS:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unknown_trigger_platform",
+            translation_key="unknown_trigger_platform",
             translation_placeholders={"platform": config[CONF_PLATFORM]},
         )
     return cast(TriggerProtocol, TRIGGERS[platform_split[1]])

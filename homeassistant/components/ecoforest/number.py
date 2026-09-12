@@ -23,7 +23,7 @@ class EcoforestNumberEntityDescription(NumberEntityDescription):
 NUMBER_ENTITIES = (
     EcoforestNumberEntityDescription(
         key="power_level",
-        REDACTED_VALUE"power_level",
+        translation_key="power_level",
         native_min_value=1,
         native_max_value=9,
         native_step=1,

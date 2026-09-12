@@ -73,7 +73,7 @@ async def async_setup_entry(
         _LOGGER.error("Authentication failed for %s: %s", entry.title, exception)
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"authentication_failed",
+            translation_key="authentication_failed",
             translation_placeholders={
                 "title": entry.title,
                 "host": entry.data[CONF_HOST],
@@ -82,7 +82,7 @@ async def async_setup_entry(
     except (ConnectionClosedException, ConnectionErrorException) as exception:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"connection_failed",
+            translation_key="connection_failed",
             translation_placeholders={
                 "title": entry.title,
                 "host": entry.data[CONF_HOST],
@@ -91,7 +91,7 @@ async def async_setup_entry(
     except TimeoutError as exception:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"timeout",
+            translation_key="timeout",
             translation_placeholders={
                 "title": entry.title,
                 "host": entry.data[CONF_HOST],
@@ -104,14 +104,14 @@ async def async_setup_entry(
             hass=hass,
             domain=DOMAIN,
             issue_id=f"system_bridge_{entry.entry_id}_unsupported_version",
-            REDACTED_VALUE"unsupported_version",
+            translation_key="unsupported_version",
             translation_placeholders={"host": entry.data[CONF_HOST]},
             severity=IssueSeverity.ERROR,
             is_fixable=False,
         )
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unsupported_version",
+            translation_key="unsupported_version",
             translation_placeholders={
                 "title": entry.title,
                 "host": entry.data[CONF_HOST],
@@ -131,7 +131,7 @@ async def async_setup_entry(
         _LOGGER.error("Authentication failed for %s: %s", entry.title, exception)
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"authentication_failed",
+            translation_key="authentication_failed",
             translation_placeholders={
                 "title": entry.title,
                 "host": entry.data[CONF_HOST],
@@ -140,7 +140,7 @@ async def async_setup_entry(
     except (ConnectionClosedException, ConnectionErrorException) as exception:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"connection_failed",
+            translation_key="connection_failed",
             translation_placeholders={
                 "title": entry.title,
                 "host": entry.data[CONF_HOST],
@@ -149,7 +149,7 @@ async def async_setup_entry(
     except (DataMissingException, TimeoutError) as exception:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"timeout",
+            translation_key="timeout",
             translation_placeholders={
                 "title": entry.title,
                 "host": entry.data[CONF_HOST],

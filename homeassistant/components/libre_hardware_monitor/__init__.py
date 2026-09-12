@@ -91,7 +91,7 @@ async def async_setup_entry(
             breaks_in_ha_version="2026.9.0",
             is_fixable=False,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"deprecated_api",
+            translation_key="deprecated_api",
             translation_placeholders={
                 "lhm_releases_url": "https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/releases"
             },

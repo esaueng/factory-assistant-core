@@ -120,7 +120,7 @@ async def async_check_v2_support_and_create_issue(
         is_fixable=True,
         is_persistent=False,
         learn_more_url="https://home-assistant.io/integrations/homewizard/#which-button-do-i-need-to-press-to-configure-the-device",
-        REDACTED_VALUE"migrate_to_v2_api",
+        translation_key="migrate_to_v2_api",
         translation_placeholders={
             "title": title,
         },

@@ -11,17 +11,17 @@ from .entity import StarlineEntity
 BUTTON_TYPES: tuple[ButtonEntityDescription, ...] = (
     ButtonEntityDescription(
         key="poke",
-        REDACTED_VALUE"horn",
+        translation_key="horn",
     ),
     ButtonEntityDescription(
         key="panic",
-        REDACTED_VALUE"panic",
+        translation_key="panic",
         entity_registry_enabled_default=False,
     ),
     *[
         ButtonEntityDescription(
             key=f"flex_{i}",
-            REDACTED_VALUE"flex",
+            translation_key="flex",
             translation_placeholders={"num": str(i)},
             entity_registry_enabled_default=False,
         )

@@ -87,7 +87,7 @@ OPTIONS_SCHEMA = vol.Schema(
                 options=TRAVEL_MODES,
                 sort=True,
                 mode=SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUECONF_MODE,
+                translation_key=CONF_MODE,
             )
         ),
         vol.Required(CONF_UNITS): UNITS_SELECTOR,

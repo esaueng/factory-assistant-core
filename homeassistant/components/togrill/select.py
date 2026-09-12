@@ -98,7 +98,7 @@ def _get_probe_descriptions(
 
     yield ToGrillSelectEntityDescription(
         key=f"grill_type_{probe_number}",
-        REDACTED_VALUE"grill_type",
+        translation_key="grill_type",
         options=_get_enum_options(GrillType),
         set_packet=_set_grill_type,
         get_value=_get_grill_type,
@@ -108,7 +108,7 @@ def _get_probe_descriptions(
 
     yield ToGrillSelectEntityDescription(
         key=f"taste_{probe_number}",
-        REDACTED_VALUE"taste",
+        translation_key="taste",
         options=_get_enum_options(Taste),
         set_packet=_set_taste,
         get_value=_get_taste,

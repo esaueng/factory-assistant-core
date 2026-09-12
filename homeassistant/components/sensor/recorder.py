@@ -1002,7 +1002,7 @@ def update_statistics_issues(
             data=data | {"issue_type": issue_type},
             is_fixable=False,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUEissue_type,
+            translation_key=issue_type,
             translation_placeholders=data,
         )
 

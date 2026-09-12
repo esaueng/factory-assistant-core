@@ -141,7 +141,7 @@ async def async_setup_mqtt(
     except (AttributeError, ThinQAPIException, TypeError, ValueError) as exc:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"failed_to_connect_mqtt",
+            translation_key="failed_to_connect_mqtt",
             translation_placeholders={"error": str(exc)},
         ) from exc
 
@@ -157,7 +157,7 @@ async def async_setup_mqtt(
             hass,
             mqtt_client.async_refresh_subscribe,
             MQTT_SUBSCRIPTION_INTERVAL,
-            REDACTED_VALUE,
+            cancel_on_shutdown=True,
         )
     )
     entry.async_on_unload(

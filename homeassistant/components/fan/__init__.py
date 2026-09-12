@@ -80,7 +80,7 @@ class NotValidPresetModeError(ServiceValidationError):
         super().__init__(
             *args,
             translation_domain=DOMAIN,
-            REDACTED_VALUE"not_valid_preset_mode",
+            translation_key="not_valid_preset_mode",
             translation_placeholders=translation_placeholders,
         )
 

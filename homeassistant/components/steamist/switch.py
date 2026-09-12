@@ -13,7 +13,7 @@ from .entity import SteamistEntity
 
 ACTIVE_SWITCH = SwitchEntityDescription(
     key="active",
-    REDACTED_VALUE"steam_active",
+    translation_key="steam_active",
 )
 
 

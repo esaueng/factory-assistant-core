@@ -240,7 +240,7 @@ CONSUMABLE_ENTITIES: tuple[VenstarSensorEntityDescription, ...] = (
             coordinator.runtimes[-1][sensor_name] / 100
         ),
         name_fn=None,
-        REDACTED_VALUE"filter_install_time",
+        translation_key="filter_install_time",
     ),
     VenstarSensorEntityDescription(
         key="filterDays",
@@ -248,7 +248,7 @@ CONSUMABLE_ENTITIES: tuple[VenstarSensorEntityDescription, ...] = (
         uom_fn=lambda _: UnitOfTime.DAYS,
         value_fn=lambda coordinator, sensor_name: coordinator.runtimes[-1][sensor_name],
         name_fn=None,
-        REDACTED_VALUE"filter_usage",
+        translation_key="filter_usage",
     ),
 )
 
@@ -257,7 +257,7 @@ INFO_ENTITIES: tuple[VenstarSensorEntityDescription, ...] = (
         key="schedulepart",
         device_class=SensorDeviceClass.ENUM,
         options=list(SCHEDULE_PARTS.values()),
-        REDACTED_VALUE"schedule_part",
+        translation_key="schedule_part",
         uom_fn=lambda _: None,
         value_fn=lambda coordinator, sensor_name: SCHEDULE_PARTS[
             coordinator.client.get_info(sensor_name)
@@ -268,7 +268,7 @@ INFO_ENTITIES: tuple[VenstarSensorEntityDescription, ...] = (
         key="activestage",
         device_class=SensorDeviceClass.ENUM,
         options=list(STAGES.values()),
-        REDACTED_VALUE"active_stage",
+        translation_key="active_stage",
         uom_fn=lambda _: None,
         value_fn=lambda coordinator, sensor_name: STAGES[
             coordinator.client.get_info(sensor_name)

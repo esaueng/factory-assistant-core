@@ -36,7 +36,7 @@ class FreshrSensorEntityDescription(SensorEntityDescription):
 
 _T1 = FreshrSensorEntityDescription(
     key="t1",
-    REDACTED_VALUE"inside_temperature",
+    translation_key="inside_temperature",
     device_class=SensorDeviceClass.TEMPERATURE,
     native_unit_of_measurement=UnitOfTemperature.CELSIUS,
     state_class=SensorStateClass.MEASUREMENT,
@@ -44,7 +44,7 @@ _T1 = FreshrSensorEntityDescription(
 )
 _T2 = FreshrSensorEntityDescription(
     key="t2",
-    REDACTED_VALUE"outside_temperature",
+    translation_key="outside_temperature",
     device_class=SensorDeviceClass.TEMPERATURE,
     native_unit_of_measurement=UnitOfTemperature.CELSIUS,
     state_class=SensorStateClass.MEASUREMENT,
@@ -66,7 +66,7 @@ _HUM = FreshrSensorEntityDescription(
 )
 _FLOW = FreshrSensorEntityDescription(
     key="flow",
-    REDACTED_VALUE"flow",
+    translation_key="flow",
     device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
     native_unit_of_measurement=UnitOfVolumeFlowRate.CUBIC_METERS_PER_HOUR,
     state_class=SensorStateClass.MEASUREMENT,
@@ -74,7 +74,7 @@ _FLOW = FreshrSensorEntityDescription(
 )
 _DP = FreshrSensorEntityDescription(
     key="dp",
-    REDACTED_VALUE"dew_point",
+    translation_key="dew_point",
     device_class=SensorDeviceClass.TEMPERATURE,
     native_unit_of_measurement=UnitOfTemperature.CELSIUS,
     state_class=SensorStateClass.MEASUREMENT,

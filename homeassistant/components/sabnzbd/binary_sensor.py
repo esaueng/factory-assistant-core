@@ -27,7 +27,7 @@ class SabnzbdBinarySensorEntityDescription(BinarySensorEntityDescription):
 BINARY_SENSORS: tuple[SabnzbdBinarySensorEntityDescription, ...] = (
     SabnzbdBinarySensorEntityDescription(
         key="warnings",
-        REDACTED_VALUE"warnings",
+        translation_key="warnings",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
         is_on_fn=lambda data: data["have_warnings"] != "0",

@@ -15,7 +15,7 @@ from .entity import AemetEntity
 AEMET_IMAGES: Final[tuple[ImageEntityDescription, ...]] = (
     ImageEntityDescription(
         key=AOD_RADAR,
-        REDACTED_VALUE"weather_radar",
+        translation_key="weather_radar",
     ),
 )
 

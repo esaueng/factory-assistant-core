@@ -49,7 +49,7 @@ _BATTERY_POWER_MODES = {PowerMode.BATTERY, PowerMode.SOLAR}
 
 _BATTERY_VOLTAGE_DESCRIPTION = OpenDisplaySensorEntityDescription(
     key="battery_voltage",
-    REDACTED_VALUE"battery_voltage",
+    translation_key="battery_voltage",
     device_class=SensorDeviceClass.VOLTAGE,
     native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
     state_class=SensorStateClass.MEASUREMENT,

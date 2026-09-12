@@ -24,17 +24,17 @@ class Dremel3DPrinterButtonEntityDescription(ButtonEntityDescription):
 BUTTON_TYPES: tuple[Dremel3DPrinterButtonEntityDescription, ...] = (
     Dremel3DPrinterButtonEntityDescription(
         key="cancel_job",
-        REDACTED_VALUE"cancel_job",
+        translation_key="cancel_job",
         press_fn=lambda api: api.stop_print(),
     ),
     Dremel3DPrinterButtonEntityDescription(
         key="pause_job",
-        REDACTED_VALUE"pause_job",
+        translation_key="pause_job",
         press_fn=lambda api: api.pause_print(),
     ),
     Dremel3DPrinterButtonEntityDescription(
         key="resume_job",
-        REDACTED_VALUE"resume_job",
+        translation_key="resume_job",
         press_fn=lambda api: api.resume_print(),
     ),
 )

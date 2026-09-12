@@ -45,7 +45,7 @@ SENSOR_DESCRIPTIONS: tuple[TRMNLSensorEntityDescription, ...] = (
     ),
     TRMNLSensorEntityDescription(
         key="battery_voltage",
-        REDACTED_VALUE"battery_voltage",
+        translation_key="battery_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -64,7 +64,7 @@ SENSOR_DESCRIPTIONS: tuple[TRMNLSensorEntityDescription, ...] = (
     ),
     TRMNLSensorEntityDescription(
         key="wifi_strength",
-        REDACTED_VALUE"wifi_strength",
+        translation_key="wifi_strength",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,

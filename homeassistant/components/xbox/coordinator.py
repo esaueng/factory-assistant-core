@@ -90,13 +90,13 @@ class XboxBaseCoordinator[_DataT](DataUpdateCoordinator[_DataT]):
         except TimeoutException as e:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"timeout_exception",
+                translation_key="timeout_exception",
             ) from e
         except (RequestError, HTTPStatusError) as e:
             _LOGGER.debug("Xbox exception:", exc_info=True)
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"request_exception",
+                translation_key="request_exception",
             ) from e
 
 

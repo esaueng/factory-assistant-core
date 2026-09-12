@@ -332,7 +332,7 @@ class SonosTVAutoplaySwitchEntity(SonosPollingEntity, SwitchEntity):
         except SoCoUPnPException as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"toggle_failed",
+                translation_key="toggle_failed",
                 translation_placeholders={"entity_id": self.entity_id},
             ) from exc
         self.poll_state()
@@ -406,7 +406,7 @@ class SonosTVUngroupAutoplaySwitchEntity(SonosPollingEntity, SwitchEntity):
         except SoCoUPnPException as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"toggle_failed",
+                translation_key="toggle_failed",
                 translation_placeholders={"entity_id": self.entity_id},
             ) from exc
         self.poll_state()

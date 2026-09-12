@@ -95,7 +95,7 @@ class AndroidTVFlowHandler(ConfigFlow, domain=DOMAIN):
                             SelectOptionDict(value=k, label=v)
                             for k, v in DEVICE_CLASSES.items()
                         ],
-                        REDACTED_VALUE"device_class",
+                        translation_key="device_class",
                     )
                 ),
                 vol.Required(CONF_PORT, default=DEFAULT_PORT): cv.port,

@@ -29,7 +29,7 @@ class GardenaBluetoothButtonEntityDescription(ButtonEntityDescription):
 DESCRIPTIONS = (
     GardenaBluetoothButtonEntityDescription(
         key=Reset.factory_reset.unique_id,
-        REDACTED_VALUE"factory_reset",
+        translation_key="factory_reset",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         char=Reset.factory_reset,

@@ -32,7 +32,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: IsraelRailConfigEntry) -
         # pylint: disable-next=home-assistant-exception-translation-key-missing
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"request_timeout",
+            translation_key="request_timeout",
             translation_placeholders={
                 "config_title": entry.title,
                 "error": str(e),

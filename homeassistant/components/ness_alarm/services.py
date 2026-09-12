@@ -27,7 +27,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
         if not entries:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_config_entry",
+                translation_key="no_config_entry",
             )
         client = entries[0].runtime_data
         await client.panic(call.data[ATTR_CODE])
@@ -38,7 +38,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
         if not entries:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_config_entry",
+                translation_key="no_config_entry",
             )
         client = entries[0].runtime_data
         await client.aux(call.data[ATTR_OUTPUT_ID], call.data[ATTR_STATE])

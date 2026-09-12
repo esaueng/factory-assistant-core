@@ -83,7 +83,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: DaliCenterConfigEntry) -
     except DaliGatewayError as exc:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect",
+            translation_key="cannot_connect",
             translation_placeholders={"host": entry.data[CONF_HOST]},
         ) from exc
 
@@ -95,7 +95,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: DaliCenterConfigEntry) -
     except DaliGatewayError as exc:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_discover_devices",
+            translation_key="cannot_discover_devices",
         ) from exc
 
     _LOGGER.debug("Discovered %d devices on gateway %s", len(devices), gw_sn)

@@ -61,24 +61,24 @@ class DucoCoordinator(DataUpdateCoordinator[DucoData]):
         except UnsupportedBoardError as err:
             raise ConfigEntryError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unsupported_board",
+                translation_key="unsupported_board",
             ) from err
         except DucoResponseError as err:
             raise ConfigEntryError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_error",
+                translation_key="api_error",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except DucoConnectionError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except DucoError as err:
             raise ConfigEntryError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_error",
+                translation_key="api_error",
                 translation_placeholders={"error": repr(err)},
             ) from err
 
@@ -89,13 +89,13 @@ class DucoCoordinator(DataUpdateCoordinator[DucoData]):
         except DucoConnectionError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except DucoError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_error",
+                translation_key="api_error",
                 translation_placeholders={"error": repr(err)},
             ) from err
 

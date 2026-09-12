@@ -34,7 +34,7 @@ class AirGradientSelectEntityDescription(SelectEntityDescription):
 
 CONFIG_CONTROL_ENTITY = AirGradientSelectEntityDescription(
     key="configuration_control",
-    REDACTED_VALUE"configuration_control",
+    translation_key="configuration_control",
     options=[ConfigurationControl.CLOUD.value, ConfigurationControl.LOCAL.value],
     entity_category=EntityCategory.CONFIG,
     value_fn=lambda config: (
@@ -50,7 +50,7 @@ CONFIG_CONTROL_ENTITY = AirGradientSelectEntityDescription(
 DISPLAY_SELECT_TYPES: tuple[AirGradientSelectEntityDescription, ...] = (
     AirGradientSelectEntityDescription(
         key="display_temperature_unit",
-        REDACTED_VALUE"display_temperature_unit",
+        translation_key="display_temperature_unit",
         options=[x.value for x in TemperatureUnit],
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda config: config.temperature_unit,
@@ -60,7 +60,7 @@ DISPLAY_SELECT_TYPES: tuple[AirGradientSelectEntityDescription, ...] = (
     ),
     AirGradientSelectEntityDescription(
         key="display_pm_standard",
-        REDACTED_VALUE"display_pm_standard",
+        translation_key="display_pm_standard",
         options=list(PM_STANDARD_REVERSE),
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda config: PM_STANDARD.get(config.pm_standard),
@@ -73,7 +73,7 @@ DISPLAY_SELECT_TYPES: tuple[AirGradientSelectEntityDescription, ...] = (
 LED_BAR_ENTITIES: tuple[AirGradientSelectEntityDescription, ...] = (
     AirGradientSelectEntityDescription(
         key="led_bar_mode",
-        REDACTED_VALUE"led_bar_mode",
+        translation_key="led_bar_mode",
         options=[x.value for x in LedBarMode],
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda config: config.led_bar_mode,
@@ -107,7 +107,7 @@ def _get_value(value: int, values: list[str]) -> str | None:
 CONTROL_ENTITIES: tuple[AirGradientSelectEntityDescription, ...] = (
     AirGradientSelectEntityDescription(
         key="nox_index_learning_time_offset",
-        REDACTED_VALUE"nox_index_learning_time_offset",
+        translation_key="nox_index_learning_time_offset",
         options=LEARNING_TIME_OFFSET_OPTIONS,
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda config: _get_value(
@@ -117,7 +117,7 @@ CONTROL_ENTITIES: tuple[AirGradientSelectEntityDescription, ...] = (
     ),
     AirGradientSelectEntityDescription(
         key="voc_index_learning_time_offset",
-        REDACTED_VALUE"voc_index_learning_time_offset",
+        translation_key="voc_index_learning_time_offset",
         options=LEARNING_TIME_OFFSET_OPTIONS,
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda config: _get_value(
@@ -127,7 +127,7 @@ CONTROL_ENTITIES: tuple[AirGradientSelectEntityDescription, ...] = (
     ),
     AirGradientSelectEntityDescription(
         key="co2_automatic_baseline_calibration",
-        REDACTED_VALUE"co2_automatic_baseline_calibration",
+        translation_key="co2_automatic_baseline_calibration",
         options=ABC_DAYS,
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda config: _get_value(

@@ -17,7 +17,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     if not await hass.async_add_executor_job(check_file_path_access, file_path):
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"not_readable_path",
+            translation_key="not_readable_path",
             translation_placeholders={"file_path": file_path},
         )
 

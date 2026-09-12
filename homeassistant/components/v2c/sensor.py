@@ -50,7 +50,7 @@ _METER_ERROR_OPTIONS = [get_meter_value(error) for error in SlaveCommunicationSt
 TRYDAN_SENSORS = (
     V2CSensorEntityDescription(
         key="charge_power",
-        REDACTED_VALUE"charge_power",
+        translation_key="charge_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.POWER,
@@ -58,7 +58,7 @@ TRYDAN_SENSORS = (
     ),
     V2CSensorEntityDescription(
         key="voltage_installation",
-        REDACTED_VALUE"voltage_installation",
+        translation_key="voltage_installation",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.VOLTAGE,
@@ -67,7 +67,7 @@ TRYDAN_SENSORS = (
     ),
     V2CSensorEntityDescription(
         key="charge_energy",
-        REDACTED_VALUE"charge_energy",
+        translation_key="charge_energy",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
         device_class=SensorDeviceClass.ENERGY,
@@ -75,7 +75,7 @@ TRYDAN_SENSORS = (
     ),
     V2CSensorEntityDescription(
         key="charge_time",
-        REDACTED_VALUE"charge_time",
+        translation_key="charge_time",
         native_unit_of_measurement=UnitOfTime.SECONDS,
         state_class=SensorStateClass.TOTAL_INCREASING,
         device_class=SensorDeviceClass.DURATION,
@@ -83,7 +83,7 @@ TRYDAN_SENSORS = (
     ),
     V2CSensorEntityDescription(
         key="house_power",
-        REDACTED_VALUE"house_power",
+        translation_key="house_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.POWER,
@@ -91,7 +91,7 @@ TRYDAN_SENSORS = (
     ),
     V2CSensorEntityDescription(
         key="fv_power",
-        REDACTED_VALUE"fv_power",
+        translation_key="fv_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.POWER,
@@ -99,7 +99,7 @@ TRYDAN_SENSORS = (
     ),
     V2CSensorEntityDescription(
         key="meter_error",
-        REDACTED_VALUE"meter_error",
+        translation_key="meter_error",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda evse_data: get_meter_value(evse_data.slave_error),
         entity_registry_enabled_default=False,
@@ -108,7 +108,7 @@ TRYDAN_SENSORS = (
     ),
     V2CSensorEntityDescription(
         key="battery_power",
-        REDACTED_VALUE"battery_power",
+        translation_key="battery_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.POWER,
@@ -117,21 +117,21 @@ TRYDAN_SENSORS = (
     ),
     V2CSensorEntityDescription(
         key="ssid",
-        REDACTED_VALUE"ssid",
+        translation_key="ssid",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda evse_data: evse_data.SSID,
         entity_registry_enabled_default=False,
     ),
     V2CSensorEntityDescription(
         key="ip_address",
-        REDACTED_VALUE"ip_address",
+        translation_key="ip_address",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda evse_data: evse_data.IP,
         entity_registry_enabled_default=False,
     ),
     V2CSensorEntityDescription(
         key="signal_status",
-        REDACTED_VALUE"signal_status",
+        translation_key="signal_status",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda evse_data: evse_data.signal_status,

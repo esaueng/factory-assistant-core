@@ -81,13 +81,13 @@ async def async_setup_entry(
     if not plane_subentries:
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"no_plane",
+            translation_key="no_plane",
         )
 
     if len(plane_subentries) > 1 and not entry.options.get(CONF_API_KEY):
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"api_key_required",
+            translation_key="api_key_required",
         )
 
     coordinator = ForecastSolarDataUpdateCoordinator(hass, entry)

@@ -110,5 +110,5 @@ class HuumDevice(HuumBaseEntity, ClimateEntity):
         except (ValueError, SafetyException) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unable_to_turn_on",
+                translation_key="unable_to_turn_on",
             ) from err

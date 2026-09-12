@@ -39,7 +39,7 @@ class FritzButtonDescription(ButtonEntityDescription):
 BUTTONS: Final = [
     FritzButtonDescription(
         key="firmware_update",
-        REDACTED_VALUE"firmware_update",
+        translation_key="firmware_update",
         device_class=ButtonDeviceClass.UPDATE,
         entity_category=EntityCategory.CONFIG,
         press_action=lambda avm_wrapper: avm_wrapper.async_trigger_firmware_update(),
@@ -53,14 +53,14 @@ BUTTONS: Final = [
     ),
     FritzButtonDescription(
         key="reconnect",
-        REDACTED_VALUE"reconnect",
+        translation_key="reconnect",
         device_class=ButtonDeviceClass.RESTART,
         entity_category=EntityCategory.CONFIG,
         press_action=lambda avm_wrapper: avm_wrapper.async_trigger_reconnect(),
     ),
     FritzButtonDescription(
         key="cleanup",
-        REDACTED_VALUE"cleanup",
+        translation_key="cleanup",
         entity_category=EntityCategory.CONFIG,
         press_action=lambda avm_wrapper: avm_wrapper.async_trigger_cleanup(),
         entity_registry_enabled_default=False,
@@ -89,7 +89,7 @@ def repair_issue_cleanup(hass: HomeAssistant, avm_wrapper: AvmWrapper) -> None:
             is_fixable=False,
             is_persistent=True,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"deprecated_cleanup_button",
+            translation_key="deprecated_cleanup_button",
             translation_placeholders={"removal_version": "2026.11.0"},
             breaks_in_ha_version="2026.11.0",
         )
@@ -116,7 +116,7 @@ def repair_issue_firmware_update(hass: HomeAssistant, avm_wrapper: AvmWrapper) -
             is_fixable=False,
             is_persistent=True,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"deprecated_firmware_update_button",
+            translation_key="deprecated_firmware_update_button",
             translation_placeholders={"removal_version": "2026.11.0"},
             breaks_in_ha_version="2026.11.0",
         )

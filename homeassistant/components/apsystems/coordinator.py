@@ -75,6 +75,6 @@ class ApSystemsDataCoordinator(DataUpdateCoordinator[ApSystemsSensorData]):
             alarm_info = await self.api.get_alarm_info()
         except InverterReturnedError:
             raise UpdateFailed(
-                translation_domain=DOMAIN, REDACTED_VALUE"inverter_error"
+                translation_domain=DOMAIN, translation_key="inverter_error"
             ) from None
         return ApSystemsSensorData(output_data=output_data, alarm_info=alarm_info)

@@ -23,7 +23,7 @@ _ATTRIBUTION = "Data provided by OMIE.es"
 SENSOR_DESCRIPTIONS: dict[str, SensorEntityDescription] = {
     key: SensorEntityDescription(
         key=key,
-        REDACTED_VALUEkey,
+        translation_key=key,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=f"{CURRENCY_EURO}/{UnitOfEnergy.KILO_WATT_HOUR}",
         suggested_display_precision=4,

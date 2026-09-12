@@ -48,7 +48,7 @@ BUTTON_TYPES: Final = (
     ),
     VodafoneStationEntityDescription(
         key="dsl_ready",
-        REDACTED_VALUE"dsl_reconnect",
+        translation_key="dsl_reconnect",
         device_class=ButtonDeviceClass.RESTART,
         entity_category=EntityCategory.DIAGNOSTIC,
         press_action=lambda coordinator: coordinator.api.restart_connection("dsl"),
@@ -56,7 +56,7 @@ BUTTON_TYPES: Final = (
     ),
     VodafoneStationEntityDescription(
         key="fiber_ready",
-        REDACTED_VALUE"fiber_reconnect",
+        translation_key="fiber_reconnect",
         device_class=ButtonDeviceClass.RESTART,
         entity_category=EntityCategory.DIAGNOSTIC,
         press_action=lambda coordinator: coordinator.api.restart_connection("fiber"),
@@ -64,7 +64,7 @@ BUTTON_TYPES: Final = (
     ),
     VodafoneStationEntityDescription(
         key="vf_internet_key_online_since",
-        REDACTED_VALUE"internet_key_reconnect",
+        translation_key="internet_key_reconnect",
         device_class=ButtonDeviceClass.RESTART,
         entity_category=EntityCategory.DIAGNOSTIC,
         press_action=lambda coordinator: coordinator.api.restart_connection(
@@ -122,7 +122,7 @@ class VodafoneStationSensorEntity(
             self.coordinator.config_entry.async_start_reauth(self.hass)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_authenticate",
+                translation_key="cannot_authenticate",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except (
@@ -134,6 +134,6 @@ class VodafoneStationSensorEntity(
             self.coordinator.last_update_success = False
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_execute_action",
+                translation_key="cannot_execute_action",
                 translation_placeholders={"error": repr(err)},
             ) from err

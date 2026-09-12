@@ -98,7 +98,7 @@ def _require_program_or_at_least_one_option(data: dict) -> dict:
     ):
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"required_program_or_one_option_at_least",
+            translation_key="required_program_or_one_option_at_least",
         )
     return data
 
@@ -158,7 +158,7 @@ async def _get_client_and_ha_id(
     if device_entry is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_entry_not_found",
+            translation_key="device_entry_not_found",
             translation_placeholders={
                 "device_id": device_id,
             },
@@ -173,7 +173,7 @@ async def _get_client_and_ha_id(
     if entry is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"config_entry_not_found",
+            translation_key="config_entry_not_found",
             translation_placeholders={
                 "device_id": device_id,
             },
@@ -190,7 +190,7 @@ async def _get_client_and_ha_id(
     if ha_id is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"appliance_not_found",
+            translation_key="appliance_not_found",
             translation_placeholders={
                 "device_id": device_id,
             },
@@ -209,7 +209,7 @@ async def async_service_setting(call: ServiceCall) -> None:
     except HomeConnectError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"set_setting",
+            translation_key="set_setting",
             translation_placeholders={
                 **get_dict_from_home_connect_error(err),
                 "key": key,
@@ -277,7 +277,7 @@ async def async_service_set_program_and_options(call: ServiceCall) -> None:
     except HomeConnectError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUEexception_translation_key,
+            translation_key=exception_translation_key,
             translation_placeholders={
                 **get_dict_from_home_connect_error(err),
                 **({"program": program} if program else {}),
@@ -297,13 +297,13 @@ async def async_service_start_selected_program(call: ServiceCall) -> None:
     except HomeConnectError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"fetch_program_error",
+            translation_key="fetch_program_error",
             translation_placeholders=get_dict_from_home_connect_error(err),
         ) from err
     if not program_obj.key:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"no_program_to_start",
+            translation_key="no_program_to_start",
         )
 
     program = program_obj.key
@@ -321,7 +321,7 @@ async def async_service_start_selected_program(call: ServiceCall) -> None:
     except HomeConnectError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"start_program",
+            translation_key="start_program",
             translation_placeholders={
                 "program": program,
                 **get_dict_from_home_connect_error(err),

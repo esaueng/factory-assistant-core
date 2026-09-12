@@ -205,7 +205,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleDevice], ...]] = (
         ),
         description=MieleSensorDescription(
             key="state_status",
-            REDACTED_VALUE"status",
+            translation_key="status",
             value_fn=lambda value: value.state_status,
             device_class=SensorDeviceClass.ENUM,
             options=sorted(set(StateStatus.keys())),
@@ -232,7 +232,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleDevice], ...]] = (
         ),
         description=MieleSensorDescription(
             key="state_program_id",
-            REDACTED_VALUE"program_id",
+            translation_key="program_id",
             device_class=SensorDeviceClass.ENUM,
             value_fn=lambda value: value.state_program_id,
         ),
@@ -241,7 +241,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleDevice], ...]] = (
         types=(MieleAppliance.COFFEE_SYSTEM,),
         description=MieleSensorDescription(
             key="state_program_id",
-            REDACTED_VALUE"program_id",
+            translation_key="program_id",
             device_class=SensorDeviceClass.ENUM,
             value_fn=lambda value: value.state_program_id,
             extra_attributes={
@@ -270,7 +270,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleDevice], ...]] = (
         ),
         description=MieleSensorDescription(
             key="state_program_phase",
-            REDACTED_VALUE"program_phase",
+            translation_key="program_phase",
             value_fn=lambda value: value.state_program_phase,
             device_class=SensorDeviceClass.ENUM,
         ),
@@ -297,7 +297,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleDevice], ...]] = (
         ),
         description=MieleSensorDescription(
             key="state_program_type",
-            REDACTED_VALUE"program_type",
+            translation_key="program_type",
             value_fn=lambda value: StateProgramType(value.state_program_type).name,
             entity_category=EntityCategory.DIAGNOSTIC,
             device_class=SensorDeviceClass.ENUM,
@@ -315,7 +315,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleDevice], ...]] = (
         ),
         description=MieleSensorDescription(
             key="current_energy_consumption",
-            REDACTED_VALUE"energy_consumption",
+            translation_key="energy_consumption",
             value_fn=lambda value: value.current_energy_consumption,
             device_class=SensorDeviceClass.ENERGY,
             state_class=SensorStateClass.TOTAL_INCREASING,
@@ -335,7 +335,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleDevice], ...]] = (
         ),
         description=MieleSensorDescription(
             key="energy_forecast",
-            REDACTED_VALUE"energy_forecast",
+            translation_key="energy_forecast",
             value_fn=(
                 lambda value: (
                     value.energy_forecast * 100
@@ -355,7 +355,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleDevice], ...]] = (
         ),
         description=MieleSensorDescription(
             key="current_water_consumption",
-            REDACTED_VALUE"water_consumption",
+            translation_key="water_consumption",
             value_fn=lambda value: value.current_water_consumption,
             device_class=SensorDeviceClass.WATER,
             state_class=SensorStateClass.TOTAL_INCREASING,
@@ -372,7 +372,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleDevice], ...]] = (
         ),
         description=MieleSensorDescription(
             key="water_forecast",
-            REDACTED_VALUE"water_forecast",
+            translation_key="water_forecast",
             value_fn=(
                 lambda value: (
                     value.water_forecast * 100
@@ -392,7 +392,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleDevice], ...]] = (
         ),
         description=MieleSensorDescription(
             key="state_spinning_speed",
-            REDACTED_VALUE"spin_speed",
+            translation_key="spin_speed",
             value_fn=lambda value: value.state_spinning_speed,
             native_unit_of_measurement=REVOLUTIONS_PER_MINUTE,
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -418,7 +418,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleDevice], ...]] = (
         ),
         description=MieleSensorDescription(
             key="state_remaining_time",
-            REDACTED_VALUE"remaining_time",
+            translation_key="remaining_time",
             value_fn=lambda value: _convert_duration(value.state_remaining_time),
             end_value_fn=lambda last_value: 0,
             device_class=SensorDeviceClass.DURATION,
@@ -444,7 +444,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleDevice], ...]] = (
         ),
         description=MieleSensorDescription(
             key="state_elapsed_time",
-            REDACTED_VALUE"elapsed_time",
+            translation_key="elapsed_time",
             value_fn=lambda value: _convert_duration(value.state_elapsed_time),
             end_value_fn=lambda last_value: last_value,
             device_class=SensorDeviceClass.DURATION,
@@ -472,7 +472,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleDevice], ...]] = (
         ),
         description=MieleSensorDescription(
             key="state_start_time",
-            REDACTED_VALUE"start_time",
+            translation_key="start_time",
             value_fn=lambda value: _convert_duration(value.state_start_time),
             end_value_fn=lambda last_value: None,
             native_unit_of_measurement=UnitOfTime.MINUTES,
@@ -502,7 +502,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleDevice], ...]] = (
         ),
         description=MieleSensorDescription(
             key="state_finish_timestamp",
-            REDACTED_VALUE"finish",
+            translation_key="finish",
             value_fn=lambda value: _convert_finish_timestamp(
                 value.state_remaining_time, value.state_start_time
             ),
@@ -528,7 +528,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleDevice], ...]] = (
         ),
         description=MieleSensorDescription(
             key="state_start_timestamp",
-            REDACTED_VALUE"start",
+            translation_key="start",
             value_fn=lambda value: _convert_start_timestamp(
                 value.state_elapsed_time, value.state_start_time
             ),
@@ -577,7 +577,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleDevice], ...]] = (
             key="state_temperature_2",
             zone=2,
             device_class=SensorDeviceClass.TEMPERATURE,
-            REDACTED_VALUE"temperature_zone_2",
+            translation_key="temperature_zone_2",
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             value_fn=lambda value: _convert_temperature(value.state_temperatures, 1),
@@ -594,7 +594,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleDevice], ...]] = (
             key="state_temperature_3",
             zone=3,
             device_class=SensorDeviceClass.TEMPERATURE,
-            REDACTED_VALUE"temperature_zone_3",
+            translation_key="temperature_zone_3",
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             value_fn=lambda value: _convert_temperature(value.state_temperatures, 2),
@@ -609,7 +609,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleDevice], ...]] = (
         ),
         description=MieleSensorDescription(
             key="state_core_target_temperature",
-            REDACTED_VALUE"core_target_temperature",
+            translation_key="core_target_temperature",
             device_class=SensorDeviceClass.TEMPERATURE,
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
@@ -630,7 +630,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleDevice], ...]] = (
         ),
         description=MieleSensorDescription(
             key="state_target_temperature",
-            REDACTED_VALUE"target_temperature",
+            translation_key="target_temperature",
             zone=1,
             device_class=SensorDeviceClass.TEMPERATURE,
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -649,7 +649,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleDevice], ...]] = (
         ),
         description=MieleSensorDescription(
             key="state_core_temperature",
-            REDACTED_VALUE"core_temperature",
+            translation_key="core_temperature",
             device_class=SensorDeviceClass.TEMPERATURE,
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
@@ -667,7 +667,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleDevice], ...]] = (
             ),
             description=MieleSensorDescription(
                 key="state_plate_step",
-                REDACTED_VALUE"plate",
+                translation_key="plate",
                 translation_placeholders={"plate_no": str(i)},
                 zone=i,
                 device_class=SensorDeviceClass.ENUM,
@@ -688,7 +688,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleDevice], ...]] = (
         ),
         description=MieleSensorDescription(
             key="state_drying_step",
-            REDACTED_VALUE"drying_step",
+            translation_key="drying_step",
             value_fn=lambda value: (
                 StateDryingStep(cast(int, value.state_drying_step)).name
             ),
@@ -717,7 +717,7 @@ POLLED_SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleFillingLevel], ...]]
         ),
         description=MieleSensorDescription[MieleFillingLevel](
             key="twin_dos_1_level",
-            REDACTED_VALUE"twin_dos_1_level",
+            translation_key="twin_dos_1_level",
             value_fn=lambda value: value.twin_dos_container_1_filling_level,
             native_unit_of_measurement=PERCENTAGE,
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -730,7 +730,7 @@ POLLED_SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleFillingLevel], ...]]
         ),
         description=MieleSensorDescription[MieleFillingLevel](
             key="twin_dos_2_level",
-            REDACTED_VALUE"twin_dos_2_level",
+            translation_key="twin_dos_2_level",
             value_fn=lambda value: value.twin_dos_container_2_filling_level,
             native_unit_of_measurement=PERCENTAGE,
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -740,7 +740,7 @@ POLLED_SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleFillingLevel], ...]]
         types=(MieleAppliance.DISHWASHER,),
         description=MieleSensorDescription[MieleFillingLevel](
             key="power_disk_level",
-            REDACTED_VALUE"power_disk_level",
+            translation_key="power_disk_level",
             value_fn=lambda value: value.power_disc_filling_level,
             native_unit_of_measurement=PERCENTAGE,
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -750,7 +750,7 @@ POLLED_SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleFillingLevel], ...]]
         types=(MieleAppliance.DISHWASHER,),
         description=MieleSensorDescription[MieleFillingLevel](
             key="salt_level",
-            REDACTED_VALUE"salt_level",
+            translation_key="salt_level",
             value_fn=lambda value: value.salt_filling_level,
             native_unit_of_measurement=PERCENTAGE,
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -760,7 +760,7 @@ POLLED_SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleFillingLevel], ...]]
         types=(MieleAppliance.DISHWASHER,),
         description=MieleSensorDescription[MieleFillingLevel](
             key="rinse_aid_level",
-            REDACTED_VALUE"rinse_aid_level",
+            translation_key="rinse_aid_level",
             value_fn=lambda value: value.rinse_aid_filling_level,
             native_unit_of_measurement=PERCENTAGE,
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -770,7 +770,7 @@ POLLED_SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleFillingLevel], ...]]
         types=(MieleAppliance.COFFEE_SYSTEM,),
         description=MieleSensorDescription[MieleFillingLevel](
             key="descaling_counter",
-            REDACTED_VALUE"descaling_counter",
+            translation_key="descaling_counter",
             value_fn=lambda value: value.descaling_counter,
             state_class=SensorStateClass.TOTAL_INCREASING,
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -780,7 +780,7 @@ POLLED_SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleFillingLevel], ...]]
         types=(MieleAppliance.COFFEE_SYSTEM,),
         description=MieleSensorDescription[MieleFillingLevel](
             key="degreasing_counter",
-            REDACTED_VALUE"degreasing_counter",
+            translation_key="degreasing_counter",
             value_fn=lambda value: value.degreasing_counter,
             state_class=SensorStateClass.TOTAL_INCREASING,
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -790,7 +790,7 @@ POLLED_SENSOR_TYPES: Final[tuple[MieleSensorDefinition[MieleFillingLevel], ...]]
         types=(MieleAppliance.COFFEE_SYSTEM,),
         description=MieleSensorDescription[MieleFillingLevel](
             key="milk_cleaning_counter",
-            REDACTED_VALUE"milk_cleaning_counter",
+            translation_key="milk_cleaning_counter",
             value_fn=lambda value: value.milk_cleaning_counter,
             state_class=SensorStateClass.TOTAL_INCREASING,
             entity_category=EntityCategory.DIAGNOSTIC,

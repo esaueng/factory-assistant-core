@@ -17,42 +17,42 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     # Values from 'sph_detail' API call
     GrowattSensorEntityDescription(
         key="mix_statement_of_charge",
-        REDACTED_VALUE"mix_statement_of_charge",
+        translation_key="mix_statement_of_charge",
         api_key="bmsSOC",
         native_unit_of_measurement=PERCENTAGE,
         device_class=SensorDeviceClass.BATTERY,
     ),
     GrowattSensorEntityDescription(
         key="mix_battery_voltage",
-        REDACTED_VALUE"mix_battery_voltage",
+        translation_key="mix_battery_voltage",
         api_key="vbat",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
     ),
     GrowattSensorEntityDescription(
-        key="REDACTED_VALUE",
-        REDACTED_VALUE"REDACTED_VALUE",
+        key="mix_pv1_voltage",
+        translation_key="mix_pv1_voltage",
         api_key="vpv1",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
     ),
     GrowattSensorEntityDescription(
-        key="REDACTED_VALUE",
-        REDACTED_VALUE"REDACTED_VALUE",
+        key="mix_pv2_voltage",
+        translation_key="mix_pv2_voltage",
         api_key="vpv2",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
     ),
     GrowattSensorEntityDescription(
         key="mix_grid_voltage",
-        REDACTED_VALUE"mix_grid_voltage",
+        translation_key="mix_grid_voltage",
         api_key="vac1",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
     ),
     GrowattSensorEntityDescription(
         key="mix_battery_charge",
-        REDACTED_VALUE"mix_battery_charge",
+        translation_key="mix_battery_charge",
         api_key="pcharge1",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
@@ -60,7 +60,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="mix_battery_discharge_w",
-        REDACTED_VALUE"mix_battery_discharge_w",
+        translation_key="mix_battery_discharge_w",
         api_key="pdischarge1",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
@@ -68,7 +68,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="mix_export_to_grid",
-        REDACTED_VALUE"mix_export_to_grid",
+        translation_key="mix_export_to_grid",
         api_key="pacToGridTotal",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
@@ -76,7 +76,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="mix_import_from_grid",
-        REDACTED_VALUE"mix_import_from_grid",
+        translation_key="mix_import_from_grid",
         api_key="pacToUserR",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
@@ -84,7 +84,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="sph_grid_frequency",
-        REDACTED_VALUE"sph_grid_frequency",
+        translation_key="sph_grid_frequency",
         api_key="fac",
         native_unit_of_measurement=UnitOfFrequency.HERTZ,
         device_class=SensorDeviceClass.FREQUENCY,
@@ -94,7 +94,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="sph_temperature_1",
-        REDACTED_VALUE"sph_temperature_1",
+        translation_key="sph_temperature_1",
         api_key="temp1",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -104,7 +104,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="sph_temperature_2",
-        REDACTED_VALUE"sph_temperature_2",
+        translation_key="sph_temperature_2",
         api_key="temp2",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -114,7 +114,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="sph_temperature_3",
-        REDACTED_VALUE"sph_temperature_3",
+        translation_key="sph_temperature_3",
         api_key="temp3",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -124,7 +124,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="sph_temperature_4",
-        REDACTED_VALUE"sph_temperature_4",
+        translation_key="sph_temperature_4",
         api_key="temp4",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -134,7 +134,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="sph_temperature_5",
-        REDACTED_VALUE"sph_temperature_5",
+        translation_key="sph_temperature_5",
         api_key="temp5",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -145,7 +145,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     # Values from 'sph_energy' API call
     GrowattSensorEntityDescription(
         key="mix_wattage_pv_1",
-        REDACTED_VALUE"mix_wattage_pv_1",
+        translation_key="mix_wattage_pv_1",
         api_key="ppv1",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
@@ -153,7 +153,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="mix_wattage_pv_2",
-        REDACTED_VALUE"mix_wattage_pv_2",
+        translation_key="mix_wattage_pv_2",
         api_key="ppv2",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
@@ -161,7 +161,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="mix_wattage_pv_all",
-        REDACTED_VALUE"mix_wattage_pv_all",
+        translation_key="mix_wattage_pv_all",
         api_key="ppv",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
@@ -169,7 +169,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="mix_battery_charge_today",
-        REDACTED_VALUE"mix_battery_charge_today",
+        translation_key="mix_battery_charge_today",
         api_key="echarge1Today",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -177,7 +177,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="mix_battery_charge_lifetime",
-        REDACTED_VALUE"mix_battery_charge_lifetime",
+        translation_key="mix_battery_charge_lifetime",
         api_key="echarge1Total",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -186,16 +186,16 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="mix_battery_discharge_today",
-        REDACTED_VALUE"mix_battery_discharge_today",
-        api_key="REDACTED_VALUE",
+        translation_key="mix_battery_discharge_today",
+        api_key="edischarge1Today",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     GrowattSensorEntityDescription(
         key="mix_battery_discharge_lifetime",
-        REDACTED_VALUE"mix_battery_discharge_lifetime",
-        api_key="REDACTED_VALUE",
+        translation_key="mix_battery_discharge_lifetime",
+        api_key="edischarge1Total",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL,
@@ -203,7 +203,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="mix_solar_generation_today",
-        REDACTED_VALUE"mix_solar_generation_today",
+        translation_key="mix_solar_generation_today",
         api_key="epvtoday",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -211,7 +211,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="mix_solar_generation_lifetime",
-        REDACTED_VALUE"mix_solar_generation_lifetime",
+        translation_key="mix_solar_generation_lifetime",
         api_key="epvTotal",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -220,7 +220,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="mix_system_production_today",
-        REDACTED_VALUE"mix_system_production_today",
+        translation_key="mix_system_production_today",
         api_key="esystemtoday",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -228,7 +228,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="mix_self_consumption_today",
-        REDACTED_VALUE"mix_self_consumption_today",
+        translation_key="mix_self_consumption_today",
         api_key="eselfToday",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -236,7 +236,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="mix_import_from_grid_today",
-        REDACTED_VALUE"mix_import_from_grid_today",
+        translation_key="mix_import_from_grid_today",
         api_key="etoUserToday",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -244,7 +244,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="mix_export_to_grid_today",
-        REDACTED_VALUE"mix_export_to_grid_today",
+        translation_key="mix_export_to_grid_today",
         api_key="etoGridToday",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -252,7 +252,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="mix_export_to_grid_lifetime",
-        REDACTED_VALUE"mix_export_to_grid_lifetime",
+        translation_key="mix_export_to_grid_lifetime",
         api_key="etogridTotal",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -261,7 +261,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="mix_load_consumption_today",
-        REDACTED_VALUE"mix_load_consumption_today",
+        translation_key="mix_load_consumption_today",
         api_key="elocalLoadToday",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -269,7 +269,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="mix_load_consumption_lifetime",
-        REDACTED_VALUE"mix_load_consumption_lifetime",
+        translation_key="mix_load_consumption_lifetime",
         api_key="elocalLoadTotal",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -278,7 +278,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="mix_load_consumption_battery_today",
-        REDACTED_VALUE"mix_load_consumption_battery_today",
+        translation_key="mix_load_consumption_battery_today",
         api_key="echarge1",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -286,7 +286,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     ),
     GrowattSensorEntityDescription(
         key="mix_load_consumption_solar_today",
-        REDACTED_VALUE"mix_load_consumption_solar_today",
+        translation_key="mix_load_consumption_solar_today",
         api_key="eChargeToday",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -295,7 +295,7 @@ SPH_SENSOR_TYPES: tuple[GrowattSensorEntityDescription, ...] = (
     # Synthetic timestamp from 'time' field in sph_energy response
     GrowattSensorEntityDescription(
         key="mix_last_update",
-        REDACTED_VALUE"mix_last_update",
+        translation_key="mix_last_update",
         api_key="lastdataupdate",
         device_class=SensorDeviceClass.TIMESTAMP,
     ),

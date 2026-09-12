@@ -23,7 +23,7 @@ class SmarlaButtonEntityDescription(SmarlaEntityDescription, ButtonEntityDescrip
 BUTTONS: list[SmarlaButtonEntityDescription] = [
     SmarlaButtonEntityDescription(
         key="send_diagnostics",
-        REDACTED_VALUE"send_diagnostics",
+        translation_key="send_diagnostics",
         service="system",
         property="send_diagnostic_data",
         entity_category=EntityCategory.CONFIG,

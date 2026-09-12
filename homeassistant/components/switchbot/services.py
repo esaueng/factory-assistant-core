@@ -35,7 +35,7 @@ def _async_get_switchbot_entry_for_device_id(
     if not (device_entry := device_registry.async_get(device_id)):
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_device_id",
+            translation_key="invalid_device_id",
             translation_placeholders={"device_id": device_id},
         )
 
@@ -49,7 +49,7 @@ def _async_get_switchbot_entry_for_device_id(
     if not switchbot_entries:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_not_belonging",
+            translation_key="device_not_belonging",
             translation_placeholders={"device_id": device_id},
         )
 
@@ -65,7 +65,7 @@ def _async_get_switchbot_entry_for_device_id(
     ):
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_entry_not_loaded",
+            translation_key="device_entry_not_loaded",
             translation_placeholders={"device_id": device_id},
         )
 
@@ -90,7 +90,7 @@ def _async_target(
     if not _is_supported_keypad(entry):
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"not_keypad_vision_device",
+            translation_key="not_keypad_vision_device",
         )
 
     return entry.runtime_data

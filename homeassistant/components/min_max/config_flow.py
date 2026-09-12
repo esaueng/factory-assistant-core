@@ -38,7 +38,7 @@ OPTIONS_SCHEMA = vol.Schema(
         ),
         vol.Required(CONF_TYPE): selector.SelectSelector(
             selector.SelectSelectorConfig(
-                options=_STATISTIC_MEASURES, REDACTED_VALUECONF_TYPE
+                options=_STATISTIC_MEASURES, translation_key=CONF_TYPE
             ),
         ),
         vol.Required(CONF_ROUND_DIGITS, default=2): selector.NumberSelector(

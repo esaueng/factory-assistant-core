@@ -95,7 +95,7 @@ async def warn_on_inconsistent_network_settings(
         issue_id=ISSUE_INCONSISTENT_NETWORK_SETTINGS,
         is_fixable=True,
         severity=ir.IssueSeverity.ERROR,
-        REDACTED_VALUEISSUE_INCONSISTENT_NETWORK_SETTINGS,
+        translation_key=ISSUE_INCONSISTENT_NETWORK_SETTINGS,
         data={
             "config_entry_id": config_entry.entry_id,
             "old_state": json_dumps(old_state.as_dict()),

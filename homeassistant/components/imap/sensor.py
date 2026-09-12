@@ -23,7 +23,7 @@ IMAP_MAIL_COUNT_DESCRIPTION = SensorEntityDescription(
     entity_category=EntityCategory.DIAGNOSTIC,
     state_class=SensorStateClass.MEASUREMENT,
     suggested_display_precision=0,
-    REDACTED_VALUE"imap_mail_count",
+    translation_key="imap_mail_count",
 )
 
 

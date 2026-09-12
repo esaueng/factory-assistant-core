@@ -195,7 +195,7 @@ class SynoApi:
                     is_fixable=True,
                     is_persistent=False,
                     severity=ir.IssueSeverity.WARNING,
-                    REDACTED_VALUEISSUE_MISSING_BACKUP_SETUP,
+                    translation_key=ISSUE_MISSING_BACKUP_SETUP,
                     translation_placeholders={"title": self._entry.title},
                 )
 

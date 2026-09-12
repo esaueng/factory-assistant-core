@@ -65,7 +65,7 @@ class MyNeoSelectEntityDescription(SelectEntityDescription):
 SELECT_TYPES: dict[str, MyNeoSelectEntityDescription] = {
     "relais": MyNeoSelectEntityDescription(
         key="relais",
-        REDACTED_VALUE"relais",
+        translation_key="relais",
         options=list(PRESET_MODE_MAP_RELAIS),
         preset_mode_map=PRESET_MODE_MAP_RELAIS,
         reverse_preset_mode_map=REVERSE_PRESET_MODE_MAP_RELAIS,
@@ -73,7 +73,7 @@ SELECT_TYPES: dict[str, MyNeoSelectEntityDescription] = {
     ),
     "pilote": MyNeoSelectEntityDescription(
         key="pilote",
-        REDACTED_VALUE"pilote",
+        translation_key="pilote",
         options=list(PRESET_MODE_MAP),
         preset_mode_map=PRESET_MODE_MAP,
         reverse_preset_mode_map=REVERSE_PRESET_MODE_MAP,
@@ -81,7 +81,7 @@ SELECT_TYPES: dict[str, MyNeoSelectEntityDescription] = {
     ),
     "ufh": MyNeoSelectEntityDescription(
         key="ufh",
-        REDACTED_VALUE"ufh",
+        translation_key="ufh",
         options=list(PRESET_MODE_MAP_UFH),
         preset_mode_map=PRESET_MODE_MAP_UFH,
         reverse_preset_mode_map=REVERSE_PRESET_MODE_MAP_UFH,

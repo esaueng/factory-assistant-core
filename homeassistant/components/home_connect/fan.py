@@ -42,7 +42,7 @@ FAN_SPEED_MODE_OPTIONS_INVERTED = {v: k for k, v in FAN_SPEED_MODE_OPTIONS.items
 
 AIR_CONDITIONER_ENTITY_DESCRIPTION = FanEntityDescription(
     key="air_conditioner",
-    REDACTED_VALUE"air_conditioner",
+    translation_key="air_conditioner",
     name=None,
 )
 

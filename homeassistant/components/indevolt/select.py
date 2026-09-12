@@ -32,7 +32,7 @@ class IndevoltSelectEntityDescription(SelectEntityDescription):
 SELECTS: Final = (
     IndevoltSelectEntityDescription(
         key="energy_mode",
-        REDACTED_VALUE"energy_mode",
+        translation_key="energy_mode",
         read_key=IndevoltConfig.READ_ENERGY_MODE,
         write_key=IndevoltConfig.WRITE_ENERGY_MODE,
         value_to_option={
@@ -113,6 +113,6 @@ class IndevoltSelectEntity(IndevoltEntity, SelectEntity):
         else:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"write_error",
+                translation_key="write_error",
                 translation_placeholders={"name": str(self.name)},
             )

@@ -31,14 +31,14 @@ SENSORS = (
     NextDnsBinarySensorEntityDescription(
         key="this_device_nextdns_connection_status",
         entity_category=EntityCategory.DIAGNOSTIC,
-        REDACTED_VALUE"device_connection_status",
+        translation_key="device_connection_status",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         state=lambda data, _: data.connected,
     ),
     NextDnsBinarySensorEntityDescription(
         key="this_device_profile_connection_status",
         entity_category=EntityCategory.DIAGNOSTIC,
-        REDACTED_VALUE"device_profile_connection_status",
+        translation_key="device_profile_connection_status",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         state=lambda data, profile_id: profile_id == data.profile_id,
     ),

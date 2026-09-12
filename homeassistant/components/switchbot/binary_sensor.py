@@ -36,17 +36,17 @@ class SwitchbotBinarySensorEntityDescription(BinarySensorEntityDescription):
 BINARY_SENSOR_TYPES: dict[str, SwitchbotBinarySensorEntityDescription] = {
     "calibration": SwitchbotBinarySensorEntityDescription(
         key="calibration",
-        REDACTED_VALUE"calibration",
+        translation_key="calibration",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "half_lock_calibration": SwitchbotBinarySensorEntityDescription(
         key="half_lock_calibration",
-        REDACTED_VALUE"half_lock_calibration",
+        translation_key="half_lock_calibration",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "half_locked": SwitchbotBinarySensorEntityDescription(
         key="half_locked",
-        REDACTED_VALUE"half_locked",
+        translation_key="half_locked",
         value_fn=lambda device, _: (
             None
             if (status := device.get_lock_status()) is None
@@ -66,7 +66,7 @@ BINARY_SENSOR_TYPES: dict[str, SwitchbotBinarySensorEntityDescription] = {
     ),
     "contact_timeout": SwitchbotBinarySensorEntityDescription(
         key="contact_timeout",
-        REDACTED_VALUE"door_timeout",
+        translation_key="door_timeout",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
@@ -81,19 +81,19 @@ BINARY_SENSOR_TYPES: dict[str, SwitchbotBinarySensorEntityDescription] = {
     ),
     "unclosed_alarm": SwitchbotBinarySensorEntityDescription(
         key="unclosed_alarm",
-        REDACTED_VALUE"door_unclosed_alarm",
+        translation_key="door_unclosed_alarm",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=BinarySensorDeviceClass.PROBLEM,
     ),
     "unlocked_alarm": SwitchbotBinarySensorEntityDescription(
         key="unlocked_alarm",
-        REDACTED_VALUE"door_unlocked_alarm",
+        translation_key="door_unlocked_alarm",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=BinarySensorDeviceClass.PROBLEM,
     ),
     "auto_lock_paused": SwitchbotBinarySensorEntityDescription(
         key="auto_lock_paused",
-        REDACTED_VALUE"door_auto_lock_paused",
+        translation_key="door_auto_lock_paused",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "leak": SwitchbotBinarySensorEntityDescription(

@@ -32,42 +32,42 @@ class AdGuardHomeSwitchEntityDescription(SwitchEntityDescription):
 SWITCHES: tuple[AdGuardHomeSwitchEntityDescription, ...] = (
     AdGuardHomeSwitchEntityDescription(
         key="protection",
-        REDACTED_VALUE"protection",
+        translation_key="protection",
         is_on_fn=lambda adguard: adguard.protection_enabled,
         turn_on_fn=lambda adguard: adguard.enable_protection,
         turn_off_fn=lambda adguard: adguard.disable_protection,
     ),
     AdGuardHomeSwitchEntityDescription(
         key="parental",
-        REDACTED_VALUE"parental",
+        translation_key="parental",
         is_on_fn=lambda adguard: adguard.parental.enabled,
         turn_on_fn=lambda adguard: adguard.parental.enable,
         turn_off_fn=lambda adguard: adguard.parental.disable,
     ),
     AdGuardHomeSwitchEntityDescription(
         key="safesearch",
-        REDACTED_VALUE"safe_search",
+        translation_key="safe_search",
         is_on_fn=lambda adguard: adguard.safesearch.enabled,
         turn_on_fn=lambda adguard: adguard.safesearch.enable,
         turn_off_fn=lambda adguard: adguard.safesearch.disable,
     ),
     AdGuardHomeSwitchEntityDescription(
         key="safebrowsing",
-        REDACTED_VALUE"safe_browsing",
+        translation_key="safe_browsing",
         is_on_fn=lambda adguard: adguard.safebrowsing.enabled,
         turn_on_fn=lambda adguard: adguard.safebrowsing.enable,
         turn_off_fn=lambda adguard: adguard.safebrowsing.disable,
     ),
     AdGuardHomeSwitchEntityDescription(
         key="filtering",
-        REDACTED_VALUE"filtering",
+        translation_key="filtering",
         is_on_fn=lambda adguard: adguard.filtering.enabled,
         turn_on_fn=lambda adguard: adguard.filtering.enable,
         turn_off_fn=lambda adguard: adguard.filtering.disable,
     ),
     AdGuardHomeSwitchEntityDescription(
         key="querylog",
-        REDACTED_VALUE"query_log",
+        translation_key="query_log",
         is_on_fn=lambda adguard: adguard.querylog.enabled,
         turn_on_fn=lambda adguard: adguard.querylog.enable,
         turn_off_fn=lambda adguard: adguard.querylog.disable,
@@ -121,7 +121,7 @@ class AdGuardHomeSwitch(AdGuardHomeEntity, SwitchEntity):
             self._attr_available = False
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"error_while_turn_off",
+                translation_key="error_while_turn_off",
             ) from err
 
     async def async_turn_on(self, **kwargs: Any) -> None:
@@ -132,7 +132,7 @@ class AdGuardHomeSwitch(AdGuardHomeEntity, SwitchEntity):
             self._attr_available = False
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"error_while_turn_on",
+                translation_key="error_while_turn_on",
             ) from err
 
     async def _adguard_update(self) -> None:

@@ -63,7 +63,7 @@ SENSOR_TYPES = [
     ),
     TractiveBinarySensorEntityDescription(
         key=ATTR_POWER_SAVING,
-        REDACTED_VALUE"tracker_power_saving",
+        translation_key="tracker_power_saving",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
 ]

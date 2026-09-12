@@ -40,7 +40,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
         except OSError as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"scan_failed",
+                translation_key="scan_failed",
                 translation_placeholders={"error": str(exc)},
             ) from exc
 
@@ -54,7 +54,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
         except OSError as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"sync_clock_failed",
+                translation_key="sync_clock_failed",
                 translation_placeholders={"error": str(exc)},
             ) from exc
 
@@ -69,7 +69,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
         if not module:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"module_not_found",
+                translation_key="module_not_found",
                 translation_placeholders={"address": str(address)},
             )
         try:
@@ -77,7 +77,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
         except OSError as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_memo_text_failed",
+                translation_key="set_memo_text_failed",
                 translation_placeholders={"error": str(exc)},
             ) from exc
 
@@ -107,7 +107,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
         except OSError as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"clear_cache_failed",
+                translation_key="clear_cache_failed",
                 translation_placeholders={"error": str(exc)},
             ) from exc
         # call a scan to repopulate

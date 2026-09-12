@@ -779,7 +779,7 @@ async def test_call_service_error(
         raise HomeAssistantError(
             "error_message",
             translation_domain="test",
-            REDACTED_VALUE"custom_error",
+            translation_key="custom_error",
             translation_placeholders={"option": "bla"},
         )
 
@@ -790,7 +790,7 @@ async def test_call_service_error(
         raise ServiceValidationError(
             "error_message",
             translation_domain="test",
-            REDACTED_VALUE"custom_error",
+            translation_key="custom_error",
             translation_placeholders={"option": "bla"},
         )
 
@@ -3333,7 +3333,7 @@ async def test_execute_script(
             HomeAssistantError(
                 "Some error",
                 translation_domain="test",
-                REDACTED_VALUE"test_error",
+                translation_key="test_error",
                 translation_placeholders={"option": "bla"},
             ),
             "home_assistant_error",
@@ -3342,7 +3342,7 @@ async def test_execute_script(
             ServiceValidationError(
                 "Some error",
                 translation_domain="test",
-                REDACTED_VALUE"test_error",
+                translation_key="test_error",
                 translation_placeholders={"option": "bla"},
             ),
             "service_validation_error",

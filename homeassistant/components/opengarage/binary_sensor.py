@@ -19,7 +19,7 @@ _LOGGER = logging.getLogger(__name__)
 SENSOR_TYPES: tuple[BinarySensorEntityDescription, ...] = (
     BinarySensorEntityDescription(
         key="vehicle",
-        REDACTED_VALUE"vehicle",
+        translation_key="vehicle",
     ),
 )
 

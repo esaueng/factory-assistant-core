@@ -66,12 +66,12 @@ class CookidooDataUpdateCoordinator(DataUpdateCoordinator[CookidooData]):
         except CookidooRequestException as e:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"setup_request_exception",
+                translation_key="setup_request_exception",
             ) from e
         except CookidooAuthException as e:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"setup_authentication_exception",
+                translation_key="setup_authentication_exception",
                 translation_placeholders={
                     CONF_EMAIL: self.config_entry.data[CONF_EMAIL]
                 },
@@ -91,7 +91,7 @@ class CookidooDataUpdateCoordinator(DataUpdateCoordinator[CookidooData]):
             except CookidooAuthException as exc:
                 raise ConfigEntryAuthFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"setup_authentication_exception",
+                    translation_key="setup_authentication_exception",
                     translation_placeholders={
                         CONF_EMAIL: self.config_entry.data[CONF_EMAIL]
                     },
@@ -99,7 +99,7 @@ class CookidooDataUpdateCoordinator(DataUpdateCoordinator[CookidooData]):
             except CookidooRequestException as exc:
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"setup_request_exception",
+                    translation_key="setup_request_exception",
                 ) from exc
             _LOGGER.debug(
                 "Authentication failed but re-authentication"
@@ -109,7 +109,7 @@ class CookidooDataUpdateCoordinator(DataUpdateCoordinator[CookidooData]):
         except CookidooException as e:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_exception",
+                translation_key="update_exception",
             ) from e
 
         return CookidooData(

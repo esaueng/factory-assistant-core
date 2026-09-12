@@ -68,7 +68,7 @@ async def _async_set_profile_fan_speed(call: ServiceCall, profile: Profile) -> N
     except ValloxApiException as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"failed_to_set_fan_speed_for_profile",
+            translation_key="failed_to_set_fan_speed_for_profile",
             translation_placeholders={
                 "profile": profile.name.lower(),
                 "fan_speed": str(fan_speed),
@@ -113,7 +113,7 @@ async def _async_set_profile(call: ServiceCall) -> None:
             translation_key = "failed_to_set_profile"
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUEtranslation_key,
+            translation_key=translation_key,
             translation_placeholders=placeholders,
         ) from err
     else:

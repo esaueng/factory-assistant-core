@@ -49,7 +49,7 @@ def sensor_descriptions(travel_mode: str) -> tuple[SensorEntityDescription, ...]
     """Construct SensorEntityDescriptions."""
     return (
         SensorEntityDescription(
-            REDACTED_VALUE"duration",
+            translation_key="duration",
             icon=ICONS.get(travel_mode, ICON_CAR),
             key=ATTR_DURATION,
             state_class=SensorStateClass.MEASUREMENT,
@@ -58,7 +58,7 @@ def sensor_descriptions(travel_mode: str) -> tuple[SensorEntityDescription, ...]
             suggested_unit_of_measurement=UnitOfTime.MINUTES,
         ),
         SensorEntityDescription(
-            REDACTED_VALUE"duration_in_traffic",
+            translation_key="duration_in_traffic",
             icon=ICONS.get(travel_mode, ICON_CAR),
             key=ATTR_DURATION_IN_TRAFFIC,
             state_class=SensorStateClass.MEASUREMENT,
@@ -67,7 +67,7 @@ def sensor_descriptions(travel_mode: str) -> tuple[SensorEntityDescription, ...]
             suggested_unit_of_measurement=UnitOfTime.MINUTES,
         ),
         SensorEntityDescription(
-            REDACTED_VALUE"distance",
+            translation_key="distance",
             icon=ICONS.get(travel_mode, ICON_CAR),
             key=ATTR_DISTANCE,
             state_class=SensorStateClass.MEASUREMENT,
@@ -171,7 +171,7 @@ class OriginSensor(HERETravelTimeSensor):
     ) -> None:
         """Initialize the sensor."""
         sensor_description = SensorEntityDescription(
-            REDACTED_VALUE"origin",
+            translation_key="origin",
             icon="mdi:store-marker",
             key=ATTR_ORIGIN_NAME,
         )
@@ -200,7 +200,7 @@ class DestinationSensor(HERETravelTimeSensor):
     ) -> None:
         """Initialize the sensor."""
         sensor_description = SensorEntityDescription(
-            REDACTED_VALUE"destination",
+            translation_key="destination",
             icon="mdi:store-marker",
             key=ATTR_DESTINATION_NAME,
         )

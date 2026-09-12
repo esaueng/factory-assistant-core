@@ -49,7 +49,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         if device_entry is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_device",
+                translation_key="invalid_device",
                 translation_placeholders={
                     "device_id": service_call.data[ATTR_DEVICE_ID]
                 },
@@ -64,7 +64,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         else:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_entry_id",
+                translation_key="invalid_entry_id",
                 translation_placeholders={"device_id": entry_id or ""},
             )
 
@@ -74,7 +74,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         if entry is None or entry.state is not ConfigEntryState.LOADED:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_entry_id",
+                translation_key="invalid_entry_id",
                 translation_placeholders={"device_id": entry_id},
             )
         coordinator = entry.runtime_data

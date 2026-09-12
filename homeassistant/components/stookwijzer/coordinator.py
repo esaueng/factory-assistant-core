@@ -45,5 +45,5 @@ class StookwijzerCoordinator(DataUpdateCoordinator[None]):
         if self.client.advice is None:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_data_received",
+                translation_key="no_data_received",
             )

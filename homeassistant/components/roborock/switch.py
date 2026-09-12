@@ -43,27 +43,27 @@ SWITCH_DESCRIPTIONS: list[RoborockSwitchDescription] = [
     RoborockSwitchDescription(
         trait=lambda traits: traits.child_lock,
         key="child_lock",
-        REDACTED_VALUE"child_lock",
+        translation_key="child_lock",
         entity_category=EntityCategory.CONFIG,
         is_dock_entity=True,
     ),
     RoborockSwitchDescription(
         trait=lambda traits: traits.flow_led_status,
         key="status_indicator",
-        REDACTED_VALUE"status_indicator",
+        translation_key="status_indicator",
         entity_category=EntityCategory.CONFIG,
         is_dock_entity=True,
     ),
     RoborockSwitchDescription(
         trait=lambda traits: traits.dnd,
         key="dnd_switch",
-        REDACTED_VALUE"dnd_switch",
+        translation_key="dnd_switch",
         entity_category=EntityCategory.CONFIG,
     ),
     RoborockSwitchDescription(
         trait=lambda traits: traits.valley_electricity_timer,
         key="off_peak_switch",
-        REDACTED_VALUE"off_peak_switch",
+        translation_key="off_peak_switch",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
     ),
@@ -81,7 +81,7 @@ A01_SWITCH_DESCRIPTIONS: list[RoborockSwitchDescriptionA01] = [
     RoborockSwitchDescriptionA01(
         key="sound_setting",
         data_protocol=RoborockZeoProtocol.SOUND_SET,
-        REDACTED_VALUE"sound_setting",
+        translation_key="sound_setting",
         entity_category=EntityCategory.CONFIG,
     ),
 ]
@@ -152,7 +152,7 @@ class RoborockSwitch(RoborockEntityV1, SwitchEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_options_failed",
+                translation_key="update_options_failed",
             ) from err
 
     async def async_turn_on(self, **kwargs: Any) -> None:
@@ -162,7 +162,7 @@ class RoborockSwitch(RoborockEntityV1, SwitchEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_options_failed",
+                translation_key="update_options_failed",
             ) from err
 
     @property
@@ -195,7 +195,7 @@ class RoborockSwitchA01(RoborockCoordinatedEntityA01, SwitchEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_options_failed",
+                translation_key="update_options_failed",
             ) from err
 
     async def async_turn_on(self, **kwargs: Any) -> None:
@@ -208,7 +208,7 @@ class RoborockSwitchA01(RoborockCoordinatedEntityA01, SwitchEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_options_failed",
+                translation_key="update_options_failed",
             ) from err
 
     @property

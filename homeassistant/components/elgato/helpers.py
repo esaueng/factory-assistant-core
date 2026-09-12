@@ -30,12 +30,12 @@ def elgato_exception_handler[_ElgatoEntityT: ElgatoEntity, **_P](
             self.coordinator.async_update_listeners()
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
             ) from error
         except ElgatoError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unknown_error",
+                translation_key="unknown_error",
             ) from error
 
     return handler

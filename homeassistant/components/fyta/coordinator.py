@@ -62,7 +62,7 @@ class FytaCoordinator(DataUpdateCoordinator[dict[int, Plant]]):
             data = await self.fyta.update_all_plants()
         except (FytaConnectionError, FytaPlantError) as err:
             raise UpdateFailed(
-                translation_domain=DOMAIN, REDACTED_VALUE"update_error"
+                translation_domain=DOMAIN, translation_key="update_error"
             ) from err
         _LOGGER.debug("Data successfully updated")
 
@@ -126,12 +126,12 @@ class FytaCoordinator(DataUpdateCoordinator[dict[int, Plant]]):
             credentials = await self.fyta.login()
         except FytaConnectionError as ex:
             raise ConfigEntryNotReady(
-                translation_domain=DOMAIN, REDACTED_VALUE"config_entry_not_ready"
+                translation_domain=DOMAIN, translation_key="config_entry_not_ready"
             ) from ex
         except (FytaAuthentificationError, FytaPasswordError) as ex:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_failed",
+                translation_key="auth_failed",
             ) from ex
 
         new_config_entry = {**self.config_entry.data}

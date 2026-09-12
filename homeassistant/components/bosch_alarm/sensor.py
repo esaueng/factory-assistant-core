@@ -55,7 +55,7 @@ SENSOR_TYPES: list[BoschAlarmSensorEntityDescription] = [
     *[
         BoschAlarmSensorEntityDescription(
             key=f"alarms_{key}",
-            REDACTED_VALUEf"alarms_{key}",
+            translation_key=f"alarms_{key}",
             value_fn=priority_value_fn(priority_type),
             observe_alarms=True,
         )
@@ -63,7 +63,7 @@ SENSOR_TYPES: list[BoschAlarmSensorEntityDescription] = [
     ],
     BoschAlarmSensorEntityDescription(
         key="faulting_points",
-        REDACTED_VALUE"faulting_points",
+        translation_key="faulting_points",
         value_fn=lambda area: area.faults,
         observe_ready=True,
     ),

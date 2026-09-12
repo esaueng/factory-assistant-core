@@ -33,7 +33,7 @@ _OPTION_TO_MODE: dict[str, OperationMode] = {
 OPERATION_MODE = SelectEntityDescription(
     key="operation_mode",
     entity_category=EntityCategory.CONFIG,
-    REDACTED_VALUE"operation_mode",
+    translation_key="operation_mode",
 )
 
 

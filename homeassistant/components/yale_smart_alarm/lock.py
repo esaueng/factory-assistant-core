@@ -78,7 +78,7 @@ class YaleDoorlock(YaleLockEntity, LockEntity):
         except YALE_ALL_ERRORS as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_lock",
+                translation_key="set_lock",
                 translation_placeholders={
                     "name": self.lock_data.name,
                     "error": str(error),
@@ -91,7 +91,7 @@ class YaleDoorlock(YaleLockEntity, LockEntity):
             return
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"could_not_change_lock",
+            translation_key="could_not_change_lock",
         )
 
     @property

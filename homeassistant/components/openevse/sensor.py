@@ -63,12 +63,12 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     # Status sensors
     OpenEVSESensorDescription(
         key="status",
-        REDACTED_VALUE"status",
+        translation_key="status",
         value_fn=lambda ev: ev.status,
     ),
     OpenEVSESensorDescription(
         key="service_level",
-        REDACTED_VALUE"service_level",
+        translation_key="service_level",
         device_class=SensorDeviceClass.ENUM,
         options=["level_1", "level_2", "automatic"],
         value_fn=lambda ev: {
@@ -82,7 +82,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     # Timing sensors
     OpenEVSESensorDescription(
         key="charge_time",
-        REDACTED_VALUE"charge_time",
+        translation_key="charge_time",
         native_unit_of_measurement=UnitOfTime.SECONDS,
         suggested_unit_of_measurement=UnitOfTime.MINUTES,
         device_class=SensorDeviceClass.DURATION,
@@ -91,14 +91,14 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     ),
     OpenEVSESensorDescription(
         key="vehicle_eta",
-        REDACTED_VALUE"vehicle_eta",
+        translation_key="vehicle_eta",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda ev: ev.vehicle_eta,
     ),
     # Electrical sensors
     OpenEVSESensorDescription(
         key="charging_current",
-        REDACTED_VALUE"charging_current",
+        translation_key="charging_current",
         native_unit_of_measurement=UnitOfElectricCurrent.MILLIAMPERE,
         suggested_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         device_class=SensorDeviceClass.CURRENT,
@@ -107,7 +107,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     ),
     OpenEVSESensorDescription(
         key="charging_voltage",
-        REDACTED_VALUE"charging_voltage",
+        translation_key="charging_voltage",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -115,7 +115,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     ),
     OpenEVSESensorDescription(
         key="charging_power",
-        REDACTED_VALUE"charging_power",
+        translation_key="charging_power",
         native_unit_of_measurement=UnitOfPower.MILLIWATT,
         suggested_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
@@ -124,7 +124,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     ),
     OpenEVSESensorDescription(
         key="current_power",
-        REDACTED_VALUE"current_power",
+        translation_key="current_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -132,7 +132,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     ),
     OpenEVSESensorDescription(
         key="current_capacity",
-        REDACTED_VALUE"current_capacity",
+        translation_key="current_capacity",
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -140,7 +140,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     ),
     OpenEVSESensorDescription(
         key="max_current",
-        REDACTED_VALUE"max_current",
+        translation_key="max_current",
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         device_class=SensorDeviceClass.CURRENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -148,7 +148,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     ),
     OpenEVSESensorDescription(
         key="min_amps",
-        REDACTED_VALUE"min_amps",
+        translation_key="min_amps",
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         device_class=SensorDeviceClass.CURRENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -157,7 +157,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     ),
     OpenEVSESensorDescription(
         key="max_amps",
-        REDACTED_VALUE"max_amps",
+        translation_key="max_amps",
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         device_class=SensorDeviceClass.CURRENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -167,7 +167,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     # Temperature sensors
     OpenEVSESensorDescription(
         key="ambient_temp",
-        REDACTED_VALUE"ambient_temp",
+        translation_key="ambient_temp",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -175,7 +175,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     ),
     OpenEVSESensorDescription(
         key="ir_temp",
-        REDACTED_VALUE"ir_temp",
+        translation_key="ir_temp",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -184,7 +184,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     ),
     OpenEVSESensorDescription(
         key="rtc_temp",
-        REDACTED_VALUE"rtc_temp",
+        translation_key="rtc_temp",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -193,7 +193,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     ),
     OpenEVSESensorDescription(
         key="esp_temp",
-        REDACTED_VALUE"esp_temp",
+        translation_key="esp_temp",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -204,7 +204,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     # Energy sensors
     OpenEVSESensorDescription(
         key="usage_session",
-        REDACTED_VALUE"usage_session",
+        translation_key="usage_session",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         suggested_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -213,7 +213,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     ),
     OpenEVSESensorDescription(
         key="usage_total",
-        REDACTED_VALUE"usage_total",
+        translation_key="usage_total",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -221,7 +221,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     ),
     OpenEVSESensorDescription(
         key="total_day",
-        REDACTED_VALUE"total_day",
+        translation_key="total_day",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -230,7 +230,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     ),
     OpenEVSESensorDescription(
         key="total_week",
-        REDACTED_VALUE"total_week",
+        translation_key="total_week",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -239,7 +239,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     ),
     OpenEVSESensorDescription(
         key="total_month",
-        REDACTED_VALUE"total_month",
+        translation_key="total_month",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -248,7 +248,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     ),
     OpenEVSESensorDescription(
         key="total_year",
-        REDACTED_VALUE"total_year",
+        translation_key="total_year",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -258,7 +258,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     # Vehicle sensors
     OpenEVSESensorDescription(
         key="vehicle_soc",
-        REDACTED_VALUE"vehicle_soc",
+        translation_key="vehicle_soc",
         native_unit_of_measurement=PERCENTAGE,
         device_class=SensorDeviceClass.BATTERY,
         state_class=SensorStateClass.MEASUREMENT,
@@ -266,7 +266,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     ),
     OpenEVSESensorDescription(
         key="vehicle_range",
-        REDACTED_VALUE"vehicle_range",
+        translation_key="vehicle_range",
         native_unit_of_measurement=UnitOfLength.KILOMETERS,
         device_class=SensorDeviceClass.DISTANCE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -285,7 +285,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     # Power shaper sensors
     OpenEVSESensorDescription(
         key="shaper_live_power",
-        REDACTED_VALUE"shaper_live_power",
+        translation_key="shaper_live_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
@@ -294,7 +294,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     ),
     OpenEVSESensorDescription(
         key="shaper_available_current",
-        REDACTED_VALUE"shaper_available_current",
+        translation_key="shaper_available_current",
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -303,7 +303,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     ),
     OpenEVSESensorDescription(
         key="shaper_max_power",
-        REDACTED_VALUE"shaper_max_power",
+        translation_key="shaper_max_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -313,7 +313,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     # Safety trip count sensors
     OpenEVSESensorDescription(
         key="gfi_trip_count",
-        REDACTED_VALUE"gfi_trip_count",
+        translation_key="gfi_trip_count",
         state_class=SensorStateClass.TOTAL,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -321,7 +321,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     ),
     OpenEVSESensorDescription(
         key="no_gnd_trip_count",
-        REDACTED_VALUE"no_gnd_trip_count",
+        translation_key="no_gnd_trip_count",
         state_class=SensorStateClass.TOTAL,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -329,7 +329,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     ),
     OpenEVSESensorDescription(
         key="stuck_relay_trip_count",
-        REDACTED_VALUE"stuck_relay_trip_count",
+        translation_key="stuck_relay_trip_count",
         state_class=SensorStateClass.TOTAL,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -338,7 +338,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     # System diagnostic sensors
     OpenEVSESensorDescription(
         key="uptime",
-        REDACTED_VALUE"uptime",
+        translation_key="uptime",
         native_unit_of_measurement=UnitOfTime.SECONDS,
         device_class=SensorDeviceClass.DURATION,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -347,7 +347,7 @@ SENSOR_TYPES: tuple[OpenEVSESensorDescription, ...] = (
     ),
     OpenEVSESensorDescription(
         key="freeram",
-        REDACTED_VALUE"freeram",
+        translation_key="freeram",
         native_unit_of_measurement=UnitOfInformation.BYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -393,7 +393,7 @@ async def async_setup_platform(
             is_fixable=False,
             issue_domain=DOMAIN,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUEf"deprecated_yaml_import_issue_{result.get('reason')}",
+            translation_key=f"deprecated_yaml_import_issue_{result.get('reason')}",
             translation_placeholders={
                 "domain": DOMAIN,
                 "integration_title": INTEGRATION_TITLE,
@@ -409,7 +409,7 @@ async def async_setup_platform(
         is_fixable=False,
         issue_domain=DOMAIN,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"deprecated_yaml",
+        translation_key="deprecated_yaml",
         translation_placeholders={
             "domain": DOMAIN,
             "integration_title": INTEGRATION_TITLE,

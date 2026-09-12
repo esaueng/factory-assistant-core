@@ -21,7 +21,7 @@ def raise_mirrored_entries(
             breaks_in_ha_version="2022.10.0",
             is_fixable=False,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"manual_migration",
+            translation_key="manual_migration",
             translation_placeholders={"entity": text},
             learn_more_url="https://github.com/home-assistant/core/pull/67631",
         )
@@ -38,7 +38,7 @@ def raise_no_prob_given_false(hass: HomeAssistant, text: str) -> None:
         breaks_in_ha_version="2022.10.0",
         is_fixable=False,
         severity=ir.IssueSeverity.ERROR,
-        REDACTED_VALUE"no_prob_given_false",
+        translation_key="no_prob_given_false",
         translation_placeholders={"entity": text},
         learn_more_url="https://github.com/home-assistant/core/pull/67631",
     )

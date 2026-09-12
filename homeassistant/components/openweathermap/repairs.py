@@ -77,7 +77,7 @@ def async_create_issue(hass: HomeAssistant, entry_id: str) -> None:
         is_persistent=False,
         severity=ir.IssueSeverity.WARNING,
         learn_more_url="https://www.home-assistant.io/integrations/openweathermap/",
-        REDACTED_VALUE"deprecated_v25",
+        translation_key="deprecated_v25",
         data={"entry_id": entry_id},
     )
 

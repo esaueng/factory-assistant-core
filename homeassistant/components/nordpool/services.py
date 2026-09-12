@@ -149,14 +149,14 @@ def async_setup_services(hass: HomeAssistant) -> None:
         except NordPoolAuthenticationError as error:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"authentication_error",
+                translation_key="authentication_error",
             ) from error
         except NordPoolEmptyResponseError:
             return {area: [] for area in areas}
         except (NordPoolError, TimeoutError) as error:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connection_error",
+                translation_key="connection_error",
             ) from error
 
         result: dict[str, JsonValueType] = {}

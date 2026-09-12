@@ -36,7 +36,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: RovaConfigEntry) -> bool
             is_fixable=False,
             issue_domain=DOMAIN,
             severity=IssueSeverity.ERROR,
-            REDACTED_VALUE"no_rova_area",
+            translation_key="no_rova_area",
             translation_placeholders={
                 CONF_ZIP_CODE: entry.data[CONF_ZIP_CODE],
             },

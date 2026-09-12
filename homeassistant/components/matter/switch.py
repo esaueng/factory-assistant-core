@@ -191,7 +191,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterSwitchEntityDescription(
             key="MatterPowerToggle",
             device_class=SwitchDeviceClass.SWITCH,
-            REDACTED_VALUE"power",
+            translation_key="power",
         ),
         entity_class=MatterSwitch,
         required_attributes=(clusters.OnOff.Attributes.OnOff,),
@@ -252,7 +252,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SWITCH,
         entity_description=MatterSwitchEntityDescription(
             key="MatterMuteToggle",
-            REDACTED_VALUE"speaker_mute",
+            translation_key="speaker_mute",
             inverted=True,
         ),
         entity_class=MatterSwitch,
@@ -264,7 +264,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterNumericSwitchEntityDescription(
             key="EveTrvChildLock",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"child_lock",
+            translation_key="child_lock",
             device_to_ha={
                 0: False,
                 1: True,
@@ -285,7 +285,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterNumericSwitchEntityDescription(
             key="DoorLockEnablePrivacyModeButton",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"privacy_mode_button",
+            translation_key="privacy_mode_button",
             device_to_ha=bool,
             ha_to_device=int,
         ),
@@ -296,7 +296,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.SWITCH,
         entity_description=MatterGenericCommandSwitchEntityDescription(
             key="EnergyEvseChargingSwitch",
-            REDACTED_VALUE"evse_charging_switch",
+            translation_key="evse_charging_switch",
             on_command=lambda: clusters.EnergyEvse.Commands.EnableCharging(
                 chargingEnabledUntil=NullValue,
                 minimumChargeCurrent=0,
@@ -319,7 +319,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterNumericSwitchEntityDescription(
             key="EveChildLock",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"child_lock",
+            translation_key="child_lock",
         ),
         entity_class=MatterNumericSwitch,
         required_attributes=(clusters.EveCluster.Attributes.ChildLock,),

@@ -225,7 +225,7 @@ async def _set_hdr_mode(obj: Camera, mode: str) -> None:
 
 PTZ_PATROL_DESCRIPTION = ProtectSelectEntityDescription[Camera](
     key=_KEY_PTZ_PATROL,
-    REDACTED_VALUE"ptz_patrol",
+    translation_key="ptz_patrol",
     entity_category=EntityCategory.CONFIG,
     ufp_required_field="feature_flags.is_ptz",
     ufp_set_method_fn=_set_ptz_patrol,
@@ -235,7 +235,7 @@ PTZ_PATROL_DESCRIPTION = ProtectSelectEntityDescription[Camera](
 CAMERA_SELECTS: tuple[ProtectSelectEntityDescription, ...] = (
     ProtectSelectEntityDescription(
         key="recording_mode",
-        REDACTED_VALUE"recording_mode",
+        translation_key="recording_mode",
         entity_category=EntityCategory.CONFIG,
         ufp_options=DEVICE_RECORDING_MODES,
         ufp_enum_type=RecordingMode,
@@ -245,7 +245,7 @@ CAMERA_SELECTS: tuple[ProtectSelectEntityDescription, ...] = (
     ),
     ProtectSelectEntityDescription(
         key="infrared",
-        REDACTED_VALUE"infrared_mode",
+        translation_key="infrared_mode",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="feature_flags.has_led_ir",
         ufp_options=INFRARED_MODES,
@@ -256,7 +256,7 @@ CAMERA_SELECTS: tuple[ProtectSelectEntityDescription, ...] = (
     ),
     ProtectSelectEntityDescription[Camera](
         key="doorbell_text",
-        REDACTED_VALUE"doorbell_text",
+        translation_key="doorbell_text",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="feature_flags.has_lcd_screen",
         ufp_value_fn=_get_doorbell_current,
@@ -266,7 +266,7 @@ CAMERA_SELECTS: tuple[ProtectSelectEntityDescription, ...] = (
     ),
     ProtectSelectEntityDescription(
         key="chime_type",
-        REDACTED_VALUE"chime_type",
+        translation_key="chime_type",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="feature_flags.has_chime",
         ufp_options=CHIME_TYPES,
@@ -277,7 +277,7 @@ CAMERA_SELECTS: tuple[ProtectSelectEntityDescription, ...] = (
     ),
     ProtectSelectEntityDescription[Camera](
         key="hdr_mode",
-        REDACTED_VALUE"hdr_mode",
+        translation_key="hdr_mode",
         entity_category=EntityCategory.CONFIG,
         ufp_required_field="feature_flags.has_hdr",
         ufp_options=HDR_MODES,
@@ -290,7 +290,7 @@ CAMERA_SELECTS: tuple[ProtectSelectEntityDescription, ...] = (
 LIGHT_SELECTS: tuple[ProtectSelectEntityDescription, ...] = (
     ProtectSelectEntityDescription[Light](
         key=_KEY_LIGHT_MOTION,
-        REDACTED_VALUE"light_mode",
+        translation_key="light_mode",
         entity_category=EntityCategory.CONFIG,
         ufp_options=MOTION_MODE_TO_LIGHT_MODE,
         ufp_value_fn=async_get_light_motion_current,
@@ -299,7 +299,7 @@ LIGHT_SELECTS: tuple[ProtectSelectEntityDescription, ...] = (
     ),
     ProtectSelectEntityDescription[Light](
         key="paired_camera",
-        REDACTED_VALUE"paired_camera",
+        translation_key="paired_camera",
         entity_category=EntityCategory.CONFIG,
         ufp_value="camera_id",
         ufp_options_fn=_get_paired_camera_options,
@@ -311,7 +311,7 @@ LIGHT_SELECTS: tuple[ProtectSelectEntityDescription, ...] = (
 SENSE_SELECTS: tuple[ProtectSelectEntityDescription, ...] = (
     ProtectSelectEntityDescription(
         key="mount_type",
-        REDACTED_VALUE"mount_type",
+        translation_key="mount_type",
         entity_category=EntityCategory.CONFIG,
         ufp_options=MOUNT_TYPES,
         ufp_enum_type=MountType,
@@ -321,7 +321,7 @@ SENSE_SELECTS: tuple[ProtectSelectEntityDescription, ...] = (
     ),
     ProtectSelectEntityDescription[Sensor](
         key="paired_camera",
-        REDACTED_VALUE"paired_camera",
+        translation_key="paired_camera",
         entity_category=EntityCategory.CONFIG,
         ufp_value="camera_id",
         ufp_options_fn=_get_paired_camera_options,
@@ -333,7 +333,7 @@ SENSE_SELECTS: tuple[ProtectSelectEntityDescription, ...] = (
 DOORLOCK_SELECTS: tuple[ProtectSelectEntityDescription, ...] = (
     ProtectSelectEntityDescription[Doorlock](
         key="paired_camera",
-        REDACTED_VALUE"paired_camera",
+        translation_key="paired_camera",
         entity_category=EntityCategory.CONFIG,
         ufp_value="camera_id",
         ufp_options_fn=_get_paired_camera_options,
@@ -345,7 +345,7 @@ DOORLOCK_SELECTS: tuple[ProtectSelectEntityDescription, ...] = (
 VIEWER_SELECTS: tuple[ProtectSelectEntityDescription, ...] = (
     ProtectSelectEntityDescription[Viewer](
         key="viewer",
-        REDACTED_VALUE"liveview",
+        translation_key="liveview",
         ufp_options_fn=_get_viewer_options,
         ufp_value_fn=_get_viewer_current,
         ufp_set_method_fn=_set_liveview,
@@ -584,5 +584,5 @@ class ProtectNVRArmProfileSelect(ProtectNVREntity, SelectEntity):
         except GlobalAlarmManagerError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"global_alarm_manager",
+                translation_key="global_alarm_manager",
             ) from err

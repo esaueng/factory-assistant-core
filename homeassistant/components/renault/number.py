@@ -49,7 +49,7 @@ async def _set_charge_limit_min(
     if (target_soc := entity.coordinator.data.socTarget) is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"battery_soc_unavailable",
+            translation_key="battery_soc_unavailable",
         )
     await _set_charge_limits(entity, min_soc=round(value), target_soc=target_soc)
 
@@ -64,7 +64,7 @@ async def _set_charge_limit_target(
     if (min_soc := entity.coordinator.data.socMin) is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"battery_soc_unavailable",
+            translation_key="battery_soc_unavailable",
         )
     await _set_charge_limits(entity, min_soc=min_soc, target_soc=round(value))
 
@@ -131,7 +131,7 @@ NUMBER_TYPES: tuple[RenaultNumberEntityDescription, ...] = (
         native_step=5,
         native_unit_of_measurement=PERCENTAGE,
         mode=NumberMode.SLIDER,
-        REDACTED_VALUE"charge_limit_min",
+        translation_key="charge_limit_min",
         value_fn=lambda entity: entity.coordinator.data.socMin,
     ),
     RenaultNumberEntityDescription[KamereonVehicleBatterySocData](
@@ -144,7 +144,7 @@ NUMBER_TYPES: tuple[RenaultNumberEntityDescription, ...] = (
         native_step=5,
         native_unit_of_measurement=PERCENTAGE,
         mode=NumberMode.SLIDER,
-        REDACTED_VALUE"charge_limit_target",
+        translation_key="charge_limit_target",
         value_fn=lambda entity: entity.coordinator.data.socTarget,
     ),
 )

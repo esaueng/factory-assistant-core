@@ -561,7 +561,7 @@ class UnavailableAutomationEntity(BaseAutomationEntity):
             f"{self.entity_id}_validation_{self._validation_status}",
             is_fixable=False,
             severity=IssueSeverity.ERROR,
-            REDACTED_VALUEf"validation_{self._validation_status}",
+            translation_key=f"validation_{self._validation_status}",
             translation_placeholders={
                 "edit": f"/config/automation/edit/{self.unique_id}",
                 "entity_id": self.entity_id,
@@ -874,7 +874,7 @@ class AutomationEntity(BaseAutomationEntity, RestoreEntity):
                     is_fixable=True,
                     is_persistent=True,
                     severity=IssueSeverity.ERROR,
-                    REDACTED_VALUE"service_not_found",
+                    translation_key="service_not_found",
                     translation_placeholders={
                         "service": f"{err.domain}.{err.service}",
                         "entity_id": self.entity_id,

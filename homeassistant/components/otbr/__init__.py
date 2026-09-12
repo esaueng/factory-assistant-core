@@ -57,7 +57,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: OTBRConfigEntry) -> bool
             is_fixable=False,
             is_persistent=False,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"get_get_border_agent_id_unsupported",
+            translation_key="get_get_border_agent_id_unsupported",
         )
         return False
     except (

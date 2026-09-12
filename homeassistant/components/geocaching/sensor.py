@@ -33,29 +33,29 @@ class GeocachingSensorEntityDescription(SensorEntityDescription):
 PROFILE_SENSORS: tuple[GeocachingSensorEntityDescription, ...] = (
     GeocachingSensorEntityDescription(
         key="find_count",
-        REDACTED_VALUE"find_count",
+        translation_key="find_count",
         value_fn=lambda status: status.user.find_count,
     ),
     GeocachingSensorEntityDescription(
         key="hide_count",
-        REDACTED_VALUE"hide_count",
+        translation_key="hide_count",
         entity_registry_visible_default=False,
         value_fn=lambda status: status.user.hide_count,
     ),
     GeocachingSensorEntityDescription(
         key="favorite_points",
-        REDACTED_VALUE"favorite_points",
+        translation_key="favorite_points",
         entity_registry_visible_default=False,
         value_fn=lambda status: status.user.favorite_points,
     ),
     GeocachingSensorEntityDescription(
         key="souvenir_count",
-        REDACTED_VALUE"souvenir_count",
+        translation_key="souvenir_count",
         value_fn=lambda status: status.user.souvenir_count,
     ),
     GeocachingSensorEntityDescription(
         key="awarded_favorite_points",
-        REDACTED_VALUE"awarded_favorite_points",
+        translation_key="awarded_favorite_points",
         entity_registry_visible_default=False,
         value_fn=lambda status: status.user.awarded_favorite_points,
     ),

@@ -49,7 +49,7 @@ STEP_2FA_CHANNEL_SCHEMA = vol.Schema(
             SelectSelectorConfig(
                 options=TWO_FA_CHANNELS,
                 mode=SelectSelectorMode.LIST,
-                REDACTED_VALUE"two_fa_channel",
+                translation_key="two_fa_channel",
             )
         ),
     }

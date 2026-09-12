@@ -34,18 +34,18 @@ class SmBinarySensorEntityDescription(BinarySensorEntityDescription):
 SENSORS = [
     SmBinarySensorEntityDescription(
         key="ethernet",
-        REDACTED_VALUE"ethernet",
+        translation_key="ethernet",
         value_fn=lambda x: x.ethernet,
     ),
     SmBinarySensorEntityDescription(
         key="vpn",
-        REDACTED_VALUE"vpn",
+        translation_key="vpn",
         entity_registry_enabled_default=False,
         value_fn=lambda x: x.vpn_status,
     ),
     SmBinarySensorEntityDescription(
         key="wifi",
-        REDACTED_VALUE"wifi",
+        translation_key="wifi",
         entity_registry_enabled_default=False,
         value_fn=lambda x: x.wifi_connected,
     ),

@@ -53,7 +53,7 @@ def _get_temperature_descriptions(
     ) -> ToGrillNumberEntityDescription:
         return ToGrillNumberEntityDescription(
             key=f"temperature_{variant}_{probe_number}",
-            REDACTED_VALUEf"temperature_{variant}",
+            translation_key=f"temperature_{variant}",
             translation_placeholders={"probe_number": f"{probe_number}"},
             device_class=NumberDeviceClass.TEMPERATURE,
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -139,7 +139,7 @@ ENTITY_DESCRIPTIONS = (
     ],
     ToGrillNumberEntityDescription(
         key="ambient_temperature_minimum",
-        REDACTED_VALUE"ambient_temperature_minimum",
+        translation_key="ambient_temperature_minimum",
         device_class=NumberDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         native_min_value=0,
@@ -160,7 +160,7 @@ ENTITY_DESCRIPTIONS = (
     ),
     ToGrillNumberEntityDescription(
         key="ambient_temperature_maximum",
-        REDACTED_VALUE"ambient_temperature_maximum",
+        translation_key="ambient_temperature_maximum",
         device_class=NumberDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         native_min_value=0,
@@ -181,7 +181,7 @@ ENTITY_DESCRIPTIONS = (
     ),
     ToGrillNumberEntityDescription(
         key="alarm_interval",
-        REDACTED_VALUE"alarm_interval",
+        translation_key="alarm_interval",
         device_class=NumberDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.MINUTES,
         native_min_value=0,

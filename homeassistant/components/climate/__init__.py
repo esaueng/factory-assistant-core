@@ -536,7 +536,7 @@ class ClimateEntity(Entity, cached_properties=CACHED_PROPERTIES_WITH_ATTR_):
         translation_key = f"not_valid_{mode_type}_mode"
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUEtranslation_key,
+            translation_key=translation_key,
             translation_placeholders={
                 "mode": mode,
                 "modes": modes_str,
@@ -755,7 +755,7 @@ async def async_service_humidity_set(
     if humidity < min_humidity or humidity > max_humidity:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"humidity_out_of_range",
+            translation_key="humidity_out_of_range",
             translation_placeholders={
                 "humidity": str(humidity),
                 "min_humidity": str(min_humidity),
@@ -776,7 +776,7 @@ async def async_service_temperature_set(
     ):
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"missing_target_temperature_entity_feature",
+            translation_key="missing_target_temperature_entity_feature",
         )
     if (
         ATTR_TARGET_TEMP_LOW in service_call.data
@@ -785,7 +785,7 @@ async def async_service_temperature_set(
     ):
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"missing_target_temperature_range_entity_feature",
+            translation_key="missing_target_temperature_range_entity_feature",
         )
 
     hass = entity.hass
@@ -802,7 +802,7 @@ async def async_service_temperature_set(
         # Ensure target_low_temp is not higher than target_high_temp.
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"low_temp_higher_than_high_temp",
+            translation_key="low_temp_higher_than_high_temp",
         )
 
     for value, temp in service_call.data.items():
@@ -825,7 +825,7 @@ async def async_service_temperature_set(
             if check_temp < min_temp or check_temp > max_temp:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"temp_out_of_range",
+                    translation_key="temp_out_of_range",
                     translation_placeholders={
                         "check_temp": str(check_temp),
                         "min_temp": str(min_temp),

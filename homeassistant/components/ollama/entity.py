@@ -116,7 +116,7 @@ def _convert_content(
             if not attachment.mime_type.startswith("image/"):
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"unsupported_attachment_type",
+                    translation_key="unsupported_attachment_type",
                 )
             images.append(ollama.Image(value=attachment.path))
         return ollama.Message(

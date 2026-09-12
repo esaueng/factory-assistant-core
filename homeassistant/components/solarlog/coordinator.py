@@ -71,7 +71,7 @@ class SolarLogBasicDataCoordinator(DataUpdateCoordinator[SolarlogData]):
         except SolarLogConnectionError as ex:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"config_entry_not_ready",
+                translation_key="config_entry_not_ready",
             ) from ex
         except SolarLogAuthenticationError as ex:
             if await self.renew_authentication():
@@ -80,17 +80,17 @@ class SolarLogBasicDataCoordinator(DataUpdateCoordinator[SolarlogData]):
                 await self.solarlog.test_extended_data_available()
                 raise ConfigEntryNotReady(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"config_entry_not_ready",
+                    translation_key="config_entry_not_ready",
                 ) from ex
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_failed",
+                translation_key="auth_failed",
             ) from ex
         except SolarLogUpdateError as ex:
             # pylint: disable-next=home-assistant-exception-translation-key-missing
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
+                translation_key="update_failed",
             ) from ex
 
         _LOGGER.debug("Basic data successfully updated")
@@ -105,12 +105,12 @@ class SolarLogBasicDataCoordinator(DataUpdateCoordinator[SolarlogData]):
         except SolarLogAuthenticationError as ex:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_failed",
+                translation_key="auth_failed",
             ) from ex
         except (SolarLogConnectionError, SolarLogUpdateError) as ex:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"config_entry_not_ready",
+                translation_key="config_entry_not_ready",
             ) from ex
 
         _LOGGER.debug("Credentials successfully updated? %s", logged_in)
@@ -152,13 +152,13 @@ class SolarLogDeviceDataCoordinator(DataUpdateCoordinator[dict[int, InverterData
         except SolarLogAuthenticationError as ex:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_failed",
+                translation_key="auth_failed",
             ) from ex
         except (SolarLogConnectionError, SolarLogUpdateError) as ex:
             # pylint: disable-next=home-assistant-exception-translation-key-missing
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
+                translation_key="update_failed",
             ) from ex
 
         _LOGGER.debug("Device data successfully updated")
@@ -247,7 +247,7 @@ class SolarLogLongtimeDataCoordinator(DataUpdateCoordinator[EnergyData]):
         except SolarLogAuthenticationError as ex:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_failed",
+                translation_key="auth_failed",
             ) from ex
         except (SolarLogConnectionError, SolarLogUpdateError) as ex:
             if (
@@ -266,7 +266,7 @@ class SolarLogLongtimeDataCoordinator(DataUpdateCoordinator[EnergyData]):
 
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
+                translation_key="update_failed",
             ) from ex
 
     async def _async_update_data(self) -> EnergyData:
@@ -282,13 +282,13 @@ class SolarLogLongtimeDataCoordinator(DataUpdateCoordinator[EnergyData]):
         except SolarLogAuthenticationError as ex:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_failed",
+                translation_key="auth_failed",
             ) from ex
         except (SolarLogConnectionError, SolarLogUpdateError) as ex:
             # pylint: disable-next=home-assistant-exception-translation-key-missing
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
+                translation_key="update_failed",
             ) from ex
 
         if energy_data is None:

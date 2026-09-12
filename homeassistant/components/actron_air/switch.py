@@ -27,7 +27,7 @@ class ActronAirSwitchEntityDescription(SwitchEntityDescription):
 SWITCHES: tuple[ActronAirSwitchEntityDescription, ...] = (
     ActronAirSwitchEntityDescription(
         key="away_mode",
-        REDACTED_VALUE"away_mode",
+        translation_key="away_mode",
         is_on_fn=lambda coordinator: coordinator.data.user_aircon_settings.away_mode,
         set_fn=lambda coordinator, enabled: (
             coordinator.data.user_aircon_settings.set_away_mode(enabled)
@@ -35,7 +35,7 @@ SWITCHES: tuple[ActronAirSwitchEntityDescription, ...] = (
     ),
     ActronAirSwitchEntityDescription(
         key="continuous_fan",
-        REDACTED_VALUE"continuous_fan",
+        translation_key="continuous_fan",
         is_on_fn=lambda coordinator: (
             coordinator.data.user_aircon_settings.continuous_fan_enabled
         ),
@@ -45,7 +45,7 @@ SWITCHES: tuple[ActronAirSwitchEntityDescription, ...] = (
     ),
     ActronAirSwitchEntityDescription(
         key="quiet_mode",
-        REDACTED_VALUE"quiet_mode",
+        translation_key="quiet_mode",
         is_on_fn=lambda coordinator: (
             coordinator.data.user_aircon_settings.quiet_mode_enabled
         ),
@@ -55,7 +55,7 @@ SWITCHES: tuple[ActronAirSwitchEntityDescription, ...] = (
     ),
     ActronAirSwitchEntityDescription(
         key="turbo_mode",
-        REDACTED_VALUE"turbo_mode",
+        translation_key="turbo_mode",
         is_on_fn=lambda coordinator: (
             coordinator.data.user_aircon_settings.turbo_enabled
         ),

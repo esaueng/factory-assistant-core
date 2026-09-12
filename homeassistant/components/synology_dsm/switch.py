@@ -30,7 +30,7 @@ SURVEILLANCE_SWITCH: tuple[SynologyDSMSwitchEntityDescription, ...] = (
     SynologyDSMSwitchEntityDescription(
         api_key=SynoSurveillanceStation.HOME_MODE_API_KEY,
         key="home_mode",
-        REDACTED_VALUE"home_mode",
+        translation_key="home_mode",
     ),
 )
 

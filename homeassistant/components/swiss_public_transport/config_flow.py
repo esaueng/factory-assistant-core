@@ -56,14 +56,14 @@ USER_DATA_SCHEMA = vol.Schema(
             SelectSelectorConfig(
                 options=TIME_MODE_OPTIONS,
                 mode=SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUE"time_mode",
+                translation_key="time_mode",
             ),
         ),
         vol.Optional(CONF_TIME_STATION, default=DEFAULT_TIME_STATION): SelectSelector(
             SelectSelectorConfig(
                 options=IS_ARRIVAL_OPTIONS,
                 mode=SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUE"time_station",
+                translation_key="time_station",
             ),
         ),
     }

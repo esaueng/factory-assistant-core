@@ -37,7 +37,7 @@ class NordpoolBinarySensorEntityDescription(BinarySensorEntityDescription):
 BINARY_SENSOR_TYPES: tuple[NordpoolBinarySensorEntityDescription, ...] = (
     NordpoolBinarySensorEntityDescription(
         key="tomorrow_price_available",
-        REDACTED_VALUE"tomorrow_price_available",
+        translation_key="tomorrow_price_available",
         value_fn=get_tomorrow_price_available,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),

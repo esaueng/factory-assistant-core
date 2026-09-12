@@ -83,35 +83,35 @@ BUTTONS: Final[list[ShellyButtonDescription[Any]]] = [
     ),
     ShellyButtonDescription[ShellyBlockCoordinator](
         key="self_test",
-        REDACTED_VALUE"self_test",
+        translation_key="self_test",
         entity_category=EntityCategory.DIAGNOSTIC,
         press_action="trigger_shelly_gas_self_test",
         supported=lambda coordinator: coordinator.model in SHELLY_GAS_MODELS,
     ),
     ShellyButtonDescription[ShellyBlockCoordinator](
         key="mute",
-        REDACTED_VALUE"mute_alarm",
+        translation_key="mute_alarm",
         entity_category=EntityCategory.CONFIG,
         press_action="trigger_shelly_gas_mute",
         supported=lambda coordinator: coordinator.model in SHELLY_GAS_MODELS,
     ),
     ShellyButtonDescription[ShellyBlockCoordinator](
         key="unmute",
-        REDACTED_VALUE"unmute_alarm",
+        translation_key="unmute_alarm",
         entity_category=EntityCategory.CONFIG,
         press_action="trigger_shelly_gas_unmute",
         supported=lambda coordinator: coordinator.model in SHELLY_GAS_MODELS,
     ),
     ShellyButtonDescription[ShellyRpcCoordinator](
         key="turn_on_screen",
-        REDACTED_VALUE"turn_on_the_screen",
+        translation_key="turn_on_the_screen",
         press_action="wall_display_set_screen",
         params={"value": True},
         supported=lambda coordinator: coordinator.model in SHELLY_WALL_DISPLAY_MODELS,
     ),
     ShellyButtonDescription[ShellyRpcCoordinator](
         key="turn_off_screen",
-        REDACTED_VALUE"turn_off_the_screen",
+        translation_key="turn_off_the_screen",
         press_action="wall_display_set_screen",
         params={"value": False},
         supported=lambda coordinator: coordinator.model in SHELLY_WALL_DISPLAY_MODELS,
@@ -288,7 +288,7 @@ class ShellyBaseButton(
             self.coordinator.last_update_success = False
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_communication_action_error",
+                translation_key="device_communication_action_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                     "device": self.coordinator.name,
@@ -297,7 +297,7 @@ class ShellyBaseButton(
         except RpcCallError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"rpc_call_action_error",
+                translation_key="rpc_call_action_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                     "device": self.coordinator.name,
@@ -417,21 +417,21 @@ RPC_BUTTONS = {
     ),
     "button_open": RpcButtonDescription(
         key="button",
-        REDACTED_VALUE"open",
+        translation_key="open",
         entity_registry_enabled_default=False,
         role="open",
         models={MODEL_FRANKEVER_WATER_VALVE},
     ),
     "button_close": RpcButtonDescription(
         key="button",
-        REDACTED_VALUE"close",
+        translation_key="close",
         entity_registry_enabled_default=False,
         role="close",
         models={MODEL_FRANKEVER_WATER_VALVE},
     ),
     "calibrate": RpcButtonDescription(
         key="blutrv",
-        REDACTED_VALUE"calibrate",
+        translation_key="calibrate",
         entity_category=EntityCategory.CONFIG,
         entity_class=ShellyBluTrvButton,
         models={MODEL_BLU_GATEWAY_G3},
@@ -439,6 +439,6 @@ RPC_BUTTONS = {
     "smoke_mute": RpcButtonDescription(
         key="smoke",
         sub_key="mute",
-        REDACTED_VALUE"mute_alarm",
+        translation_key="mute_alarm",
     ),
 }

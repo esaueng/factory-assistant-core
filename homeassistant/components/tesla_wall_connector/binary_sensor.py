@@ -29,14 +29,14 @@ class WallConnectorBinarySensorDescription(
 WALL_CONNECTOR_SENSORS = [
     WallConnectorBinarySensorDescription(
         key="vehicle_connected",
-        REDACTED_VALUE"vehicle_connected",
+        translation_key="vehicle_connected",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data[WALLCONNECTOR_DATA_VITALS].vehicle_connected,
         device_class=BinarySensorDeviceClass.PLUG,
     ),
     WallConnectorBinarySensorDescription(
         key="contactor_closed",
-        REDACTED_VALUE"contactor_closed",
+        translation_key="contactor_closed",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data[WALLCONNECTOR_DATA_VITALS].contactor_closed,
         device_class=BinarySensorDeviceClass.BATTERY_CHARGING,

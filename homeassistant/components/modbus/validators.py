@@ -121,7 +121,7 @@ def modbus_create_issue(
         key,
         is_fixable=False,
         severity=IssueSeverity.WARNING,
-        REDACTED_VALUEkey,
+        translation_key=key,
         translation_placeholders={
             "sub_1": subs[0],
             "sub_2": subs[1],

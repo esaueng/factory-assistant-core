@@ -96,7 +96,7 @@ async def _async_register_events(
             DOMAIN,
             issue_id,
             severity=ir.IssueSeverity.ERROR,
-            REDACTED_VALUE"error_registering_events",
+            translation_key="error_registering_events",
             data={"entry_id": entry.entry_id},
             is_fixable=True,
             translation_placeholders={

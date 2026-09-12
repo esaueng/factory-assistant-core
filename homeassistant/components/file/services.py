@@ -47,14 +47,14 @@ def read_file(call: ServiceCall) -> dict:
     if not call.hass.config.is_allowed_path(file_name):
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"no_access_to_path",
+            translation_key="no_access_to_path",
             translation_placeholders={"filename": file_name},
         )
 
     if file_encoding not in ENCODING_LOADERS:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unsupported_file_encoding",
+            translation_key="unsupported_file_encoding",
             translation_placeholders={
                 "filename": file_name,
                 "encoding": file_encoding,
@@ -67,13 +67,13 @@ def read_file(call: ServiceCall) -> dict:
     except FileNotFoundError as err:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"file_not_found",
+            translation_key="file_not_found",
             translation_placeholders={"filename": file_name},
         ) from err
     except OSError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"file_read_error",
+            translation_key="file_read_error",
             translation_placeholders={"filename": file_name},
         ) from err
 
@@ -83,7 +83,7 @@ def read_file(call: ServiceCall) -> dict:
     except error_type as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"file_decoding",
+            translation_key="file_decoding",
             translation_placeholders={"filename": file_name, "encoding": file_encoding},
         ) from err
 

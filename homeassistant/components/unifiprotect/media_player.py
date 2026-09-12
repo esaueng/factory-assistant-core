@@ -30,7 +30,7 @@ PARALLEL_UPDATES = 0
 
 _SPEAKER_DESCRIPTION = MediaPlayerEntityDescription(
     key="speaker",
-    REDACTED_VALUE"speaker",
+    translation_key="speaker",
     device_class=MediaPlayerDeviceClass.SPEAKER,
 )
 
@@ -133,7 +133,7 @@ class ProtectMediaPlayer(ProtectDeviceEntity, MediaPlayerEntity):
         if media_type != MediaType.MUSIC:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"only_music_supported",
+                translation_key="only_music_supported",
             )
 
         _LOGGER.debug(
@@ -146,7 +146,7 @@ class ProtectMediaPlayer(ProtectDeviceEntity, MediaPlayerEntity):
             _LOGGER.debug("Error playing audio: %s", err)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"stream_error",
+                translation_key="stream_error",
             ) from err
 
         # update state after starting player

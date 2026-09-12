@@ -37,21 +37,21 @@ class FlexitSwitchEntityDescription(SwitchEntityDescription):
 SWITCHES: tuple[FlexitSwitchEntityDescription, ...] = (
     FlexitSwitchEntityDescription(
         key="electric_heater",
-        REDACTED_VALUE"electric_heater",
+        translation_key="electric_heater",
         is_on_fn=lambda data: data.electric_heater,
         turn_on_fn=lambda data: data.enable_electric_heater(),
         turn_off_fn=lambda data: data.disable_electric_heater(),
     ),
     FlexitSwitchEntityDescription(
         key="cooker_hood_mode",
-        REDACTED_VALUE"cooker_hood_mode",
+        translation_key="cooker_hood_mode",
         is_on_fn=lambda data: data.cooker_hood_status,
         turn_on_fn=lambda data: data.activate_cooker_hood(),
         turn_off_fn=lambda data: data.deactivate_cooker_hood(),
     ),
     FlexitSwitchEntityDescription(
         key="fireplace_mode",
-        REDACTED_VALUE"fireplace_mode",
+        translation_key="fireplace_mode",
         is_on_fn=lambda data: data.fireplace_ventilation_status,
         turn_on_fn=lambda data: data.trigger_fireplace_mode(),
         turn_off_fn=lambda data: data.trigger_fireplace_mode(),
@@ -95,7 +95,7 @@ async def async_setup_entry(
                         is_fixable=False,
                         issue_domain=DOMAIN,
                         severity=IssueSeverity.WARNING,
-                        REDACTED_VALUE"deprecated_fireplace_switch",
+                        translation_key="deprecated_fireplace_switch",
                         translation_placeholders={
                             "entity_id": fireplace_switch_entity_id,
                         },
@@ -141,7 +141,7 @@ class FlexitSwitch(FlexitEntity, SwitchEntity):
         except (asyncio.exceptions.TimeoutError, ConnectionError, DecodingError) as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"switch_turn",
+                translation_key="switch_turn",
                 translation_placeholders={
                     "state": "on",
                 },
@@ -156,7 +156,7 @@ class FlexitSwitch(FlexitEntity, SwitchEntity):
         except (asyncio.exceptions.TimeoutError, ConnectionError, DecodingError) as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"switch_turn",
+                translation_key="switch_turn",
                 translation_placeholders={
                     "state": "off",
                 },

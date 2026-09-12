@@ -65,7 +65,7 @@ class FumisSensorEntityDescription(SensorEntityDescription):
 SENSORS: tuple[FumisSensorEntityDescription, ...] = (
     FumisSensorEntityDescription(
         key="alert",
-        REDACTED_VALUE"alert",
+        translation_key="alert",
         device_class=SensorDeviceClass.ENUM,
         entity_category=EntityCategory.DIAGNOSTIC,
         options=[
@@ -81,7 +81,7 @@ SENSORS: tuple[FumisSensorEntityDescription, ...] = (
     ),
     FumisSensorEntityDescription(
         key="combustion_chamber_temperature",
-        REDACTED_VALUE"combustion_chamber_temperature",
+        translation_key="combustion_chamber_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -91,7 +91,7 @@ SENSORS: tuple[FumisSensorEntityDescription, ...] = (
     ),
     FumisSensorEntityDescription(
         key="detailed_stove_status",
-        REDACTED_VALUE"detailed_stove_status",
+        translation_key="detailed_stove_status",
         device_class=SensorDeviceClass.ENUM,
         entity_category=EntityCategory.DIAGNOSTIC,
         options=[
@@ -107,7 +107,7 @@ SENSORS: tuple[FumisSensorEntityDescription, ...] = (
     ),
     FumisSensorEntityDescription(
         key="error",
-        REDACTED_VALUE"error",
+        translation_key="error",
         device_class=SensorDeviceClass.ENUM,
         entity_category=EntityCategory.DIAGNOSTIC,
         options=[
@@ -123,7 +123,7 @@ SENSORS: tuple[FumisSensorEntityDescription, ...] = (
     ),
     FumisSensorEntityDescription(
         key="fan_1_speed",
-        REDACTED_VALUE"fan_1_speed",
+        translation_key="fan_1_speed",
         native_unit_of_measurement=REVOLUTIONS_PER_MINUTE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -133,7 +133,7 @@ SENSORS: tuple[FumisSensorEntityDescription, ...] = (
     ),
     FumisSensorEntityDescription(
         key="fan_2_speed",
-        REDACTED_VALUE"fan_2_speed",
+        translation_key="fan_2_speed",
         native_unit_of_measurement=REVOLUTIONS_PER_MINUTE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -143,7 +143,7 @@ SENSORS: tuple[FumisSensorEntityDescription, ...] = (
     ),
     FumisSensorEntityDescription(
         key="fuel_quantity",
-        REDACTED_VALUE"fuel_quantity",
+        translation_key="fuel_quantity",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=0,
@@ -159,14 +159,14 @@ SENSORS: tuple[FumisSensorEntityDescription, ...] = (
     ),
     FumisSensorEntityDescription(
         key="fuel_used",
-        REDACTED_VALUE"fuel_used",
+        translation_key="fuel_used",
         state_class=SensorStateClass.TOTAL_INCREASING,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.controller.statistic.fuel_quantity_used,
     ),
     FumisSensorEntityDescription(
         key="heating_time",
-        REDACTED_VALUE"heating_time",
+        translation_key="heating_time",
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.SECONDS,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -176,21 +176,21 @@ SENSORS: tuple[FumisSensorEntityDescription, ...] = (
     ),
     FumisSensorEntityDescription(
         key="igniter_starts",
-        REDACTED_VALUE"igniter_starts",
+        translation_key="igniter_starts",
         state_class=SensorStateClass.TOTAL_INCREASING,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.controller.statistic.igniter_starts,
     ),
     FumisSensorEntityDescription(
         key="misfires",
-        REDACTED_VALUE"misfires",
+        translation_key="misfires",
         state_class=SensorStateClass.TOTAL_INCREASING,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.controller.statistic.misfires,
     ),
     FumisSensorEntityDescription(
         key="module_temperature",
-        REDACTED_VALUE"module_temperature",
+        translation_key="module_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -201,14 +201,14 @@ SENSORS: tuple[FumisSensorEntityDescription, ...] = (
     ),
     FumisSensorEntityDescription(
         key="overheatings",
-        REDACTED_VALUE"overheatings",
+        translation_key="overheatings",
         state_class=SensorStateClass.TOTAL_INCREASING,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.controller.statistic.overheatings,
     ),
     FumisSensorEntityDescription(
         key="power_output",
-        REDACTED_VALUE"power_output",
+        translation_key="power_output",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.KILO_WATT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -218,7 +218,7 @@ SENSORS: tuple[FumisSensorEntityDescription, ...] = (
     ),
     FumisSensorEntityDescription(
         key="pressure",
-        REDACTED_VALUE"pressure",
+        translation_key="pressure",
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -227,7 +227,7 @@ SENSORS: tuple[FumisSensorEntityDescription, ...] = (
     ),
     FumisSensorEntityDescription(
         key="stove_status",
-        REDACTED_VALUE"stove_status",
+        translation_key="stove_status",
         device_class=SensorDeviceClass.ENUM,
         options=[state.value for state in StoveState if state != StoveState.UNKNOWN],
         value_fn=lambda data: (
@@ -250,7 +250,7 @@ SENSORS: tuple[FumisSensorEntityDescription, ...] = (
     ),
     FumisSensorEntityDescription(
         key="time_to_service",
-        REDACTED_VALUE"time_to_service",
+        translation_key="time_to_service",
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.HOURS,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -259,7 +259,7 @@ SENSORS: tuple[FumisSensorEntityDescription, ...] = (
     ),
     FumisSensorEntityDescription(
         key="uptime",
-        REDACTED_VALUE"uptime",
+        translation_key="uptime",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=ignore_variance(
@@ -271,7 +271,7 @@ SENSORS: tuple[FumisSensorEntityDescription, ...] = (
     ),
     FumisSensorEntityDescription(
         key="wifi_rssi",
-        REDACTED_VALUE"wifi_rssi",
+        translation_key="wifi_rssi",
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -281,7 +281,7 @@ SENSORS: tuple[FumisSensorEntityDescription, ...] = (
     ),
     FumisSensorEntityDescription(
         key="wifi_signal_strength",
-        REDACTED_VALUE"wifi_signal_strength",
+        translation_key="wifi_signal_strength",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,

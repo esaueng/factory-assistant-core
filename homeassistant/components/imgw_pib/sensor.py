@@ -57,7 +57,7 @@ class ImgwPibSensorEntityDescription(SensorEntityDescription):
 SENSOR_TYPES: tuple[ImgwPibSensorEntityDescription, ...] = (
     ImgwPibSensorEntityDescription(
         key="hydrological_alert",
-        REDACTED_VALUE"hydrological_alert",
+        translation_key="hydrological_alert",
         device_class=SensorDeviceClass.ENUM,
         options=list(HYDROLOGICAL_ALERTS_MAP.values()),
         value=lambda data: data.hydrological_alert.value,
@@ -65,7 +65,7 @@ SENSOR_TYPES: tuple[ImgwPibSensorEntityDescription, ...] = (
     ),
     ImgwPibSensorEntityDescription(
         key="ice_phenomena",
-        REDACTED_VALUE"ice_phenomena",
+        translation_key="ice_phenomena",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value=lambda data: data.ice_phenomena.value,
@@ -73,7 +73,7 @@ SENSOR_TYPES: tuple[ImgwPibSensorEntityDescription, ...] = (
     ),
     ImgwPibSensorEntityDescription(
         key="water_flow",
-        REDACTED_VALUE"water_flow",
+        translation_key="water_flow",
         native_unit_of_measurement=UnitOfVolumeFlowRate.CUBIC_METERS_PER_SECOND,
         device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -82,7 +82,7 @@ SENSOR_TYPES: tuple[ImgwPibSensorEntityDescription, ...] = (
     ),
     ImgwPibSensorEntityDescription(
         key="water_level",
-        REDACTED_VALUE"water_level",
+        translation_key="water_level",
         native_unit_of_measurement=UnitOfLength.CENTIMETERS,
         device_class=SensorDeviceClass.DISTANCE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -91,7 +91,7 @@ SENSOR_TYPES: tuple[ImgwPibSensorEntityDescription, ...] = (
     ),
     ImgwPibSensorEntityDescription(
         key="water_temperature",
-        REDACTED_VALUE"water_temperature",
+        translation_key="water_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -100,7 +100,7 @@ SENSOR_TYPES: tuple[ImgwPibSensorEntityDescription, ...] = (
     ),
     ImgwPibSensorEntityDescription(
         key="submerged_vegetation_cover",
-        REDACTED_VALUE"submerged_vegetation_cover",
+        translation_key="submerged_vegetation_cover",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value=lambda data: data.submerged_vegetation_cover.value,
@@ -109,7 +109,7 @@ SENSOR_TYPES: tuple[ImgwPibSensorEntityDescription, ...] = (
     ),
     ImgwPibSensorEntityDescription(
         key="floating_vegetation_cover",
-        REDACTED_VALUE"floating_vegetation_cover",
+        translation_key="floating_vegetation_cover",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value=lambda data: data.floating_vegetation_cover.value,
@@ -118,7 +118,7 @@ SENSOR_TYPES: tuple[ImgwPibSensorEntityDescription, ...] = (
     ),
     ImgwPibSensorEntityDescription(
         key="emergent_vegetation_cover",
-        REDACTED_VALUE"emergent_vegetation_cover",
+        translation_key="emergent_vegetation_cover",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value=lambda data: data.emergent_vegetation_cover.value,

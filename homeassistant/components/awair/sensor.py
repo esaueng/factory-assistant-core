@@ -62,7 +62,7 @@ class AwairSensorEntityDescription(SensorEntityDescription):
 SENSOR_TYPE_SCORE = AwairSensorEntityDescription(
     key=API_SCORE,
     native_unit_of_measurement=PERCENTAGE,
-    REDACTED_VALUE"score",
+    translation_key="score",
     unique_id_tag="score",  # matches legacy format
     state_class=SensorStateClass.MEASUREMENT,
 )
@@ -86,7 +86,7 @@ SENSOR_TYPES: tuple[AwairSensorEntityDescription, ...] = (
         key=API_SPL_A,
         device_class=SensorDeviceClass.SOUND_PRESSURE,
         native_unit_of_measurement=UnitOfSoundPressure.WEIGHTED_DECIBEL_A,
-        REDACTED_VALUE"sound_level",
+        translation_key="sound_level",
         unique_id_tag="sound_level",
         state_class=SensorStateClass.MEASUREMENT,
     ),
@@ -115,7 +115,7 @@ SENSOR_TYPES: tuple[AwairSensorEntityDescription, ...] = (
         key=API_DEW_POINT,
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
-        REDACTED_VALUE"dew_point",
+        translation_key="dew_point",
         unique_id_tag="dew_point",
         state_class=SensorStateClass.MEASUREMENT,
         entity_registry_enabled_default=False,

@@ -33,7 +33,7 @@ def wrap_pyvlx_call_exceptions[**P](
         except (OSError, PyVLXException) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_communication_error",
+                translation_key="device_communication_error",
                 translation_placeholders={"error": str(err)},
             ) from err
 

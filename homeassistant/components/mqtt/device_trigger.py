@@ -148,7 +148,7 @@ class Trigger:
             if instance not in self.trigger_instances:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"mqtt_trigger_cannot_remove_twice",
+                    translation_key="mqtt_trigger_cannot_remove_twice",
                 )
 
             if instance.remove:

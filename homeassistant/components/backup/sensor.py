@@ -27,26 +27,26 @@ class BackupSensorEntityDescription(SensorEntityDescription):
 BACKUP_MANAGER_DESCRIPTIONS = (
     BackupSensorEntityDescription(
         key="backup_manager_state",
-        REDACTED_VALUE"backup_manager_state",
+        translation_key="backup_manager_state",
         device_class=SensorDeviceClass.ENUM,
         options=[state.value for state in BackupManagerState],
         value_fn=lambda data: data.backup_manager_state,
     ),
     BackupSensorEntityDescription(
         key="next_scheduled_automatic_backup",
-        REDACTED_VALUE"next_scheduled_automatic_backup",
+        translation_key="next_scheduled_automatic_backup",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda data: data.next_scheduled_automatic_backup,
     ),
     BackupSensorEntityDescription(
         key="last_successful_automatic_backup",
-        REDACTED_VALUE"last_successful_automatic_backup",
+        translation_key="last_successful_automatic_backup",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda data: data.last_successful_automatic_backup,
     ),
     BackupSensorEntityDescription(
         key="last_attempted_automatic_backup",
-        REDACTED_VALUE"last_attempted_automatic_backup",
+        translation_key="last_attempted_automatic_backup",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda data: data.last_attempted_automatic_backup,
     ),

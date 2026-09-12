@@ -57,24 +57,24 @@ class NtfySensor(StrEnum):
 SENSOR_DESCRIPTIONS: tuple[NtfySensorEntityDescription, ...] = (
     NtfySensorEntityDescription(
         key=NtfySensor.MESSAGES,
-        REDACTED_VALUENtfySensor.MESSAGES,
+        translation_key=NtfySensor.MESSAGES,
         value_fn=lambda account: account.stats.messages,
     ),
     NtfySensorEntityDescription(
         key=NtfySensor.MESSAGES_REMAINING,
-        REDACTED_VALUENtfySensor.MESSAGES_REMAINING,
+        translation_key=NtfySensor.MESSAGES_REMAINING,
         value_fn=lambda account: account.stats.messages_remaining,
         entity_registry_enabled_default=False,
     ),
     NtfySensorEntityDescription(
         key=NtfySensor.MESSAGES_LIMIT,
-        REDACTED_VALUENtfySensor.MESSAGES_LIMIT,
+        translation_key=NtfySensor.MESSAGES_LIMIT,
         value_fn=lambda account: account.limits.messages if account.limits else None,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     NtfySensorEntityDescription(
         key=NtfySensor.MESSAGES_EXPIRY_DURATION,
-        REDACTED_VALUENtfySensor.MESSAGES_EXPIRY_DURATION,
+        translation_key=NtfySensor.MESSAGES_EXPIRY_DURATION,
         value_fn=(
             lambda account: (
                 account.limits.messages_expiry_duration if account.limits else None
@@ -87,52 +87,52 @@ SENSOR_DESCRIPTIONS: tuple[NtfySensorEntityDescription, ...] = (
     ),
     NtfySensorEntityDescription(
         key=NtfySensor.EMAILS,
-        REDACTED_VALUENtfySensor.EMAILS,
+        translation_key=NtfySensor.EMAILS,
         value_fn=lambda account: account.stats.emails,
     ),
     NtfySensorEntityDescription(
         key=NtfySensor.EMAILS_REMAINING,
-        REDACTED_VALUENtfySensor.EMAILS_REMAINING,
+        translation_key=NtfySensor.EMAILS_REMAINING,
         value_fn=lambda account: account.stats.emails_remaining,
         entity_registry_enabled_default=False,
     ),
     NtfySensorEntityDescription(
         key=NtfySensor.EMAILS_LIMIT,
-        REDACTED_VALUENtfySensor.EMAILS_LIMIT,
+        translation_key=NtfySensor.EMAILS_LIMIT,
         value_fn=lambda account: account.limits.emails if account.limits else None,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     NtfySensorEntityDescription(
         key=NtfySensor.CALLS,
-        REDACTED_VALUENtfySensor.CALLS,
+        translation_key=NtfySensor.CALLS,
         value_fn=lambda account: account.stats.calls,
     ),
     NtfySensorEntityDescription(
         key=NtfySensor.CALLS_REMAINING,
-        REDACTED_VALUENtfySensor.CALLS_REMAINING,
+        translation_key=NtfySensor.CALLS_REMAINING,
         value_fn=lambda account: account.stats.calls_remaining,
         entity_registry_enabled_default=False,
     ),
     NtfySensorEntityDescription(
         key=NtfySensor.CALLS_LIMIT,
-        REDACTED_VALUENtfySensor.CALLS_LIMIT,
+        translation_key=NtfySensor.CALLS_LIMIT,
         value_fn=lambda account: account.limits.calls if account.limits else None,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     NtfySensorEntityDescription(
         key=NtfySensor.RESERVATIONS,
-        REDACTED_VALUENtfySensor.RESERVATIONS,
+        translation_key=NtfySensor.RESERVATIONS,
         value_fn=lambda account: account.stats.reservations,
     ),
     NtfySensorEntityDescription(
         key=NtfySensor.RESERVATIONS_REMAINING,
-        REDACTED_VALUENtfySensor.RESERVATIONS_REMAINING,
+        translation_key=NtfySensor.RESERVATIONS_REMAINING,
         value_fn=lambda account: account.stats.reservations_remaining,
         entity_registry_enabled_default=False,
     ),
     NtfySensorEntityDescription(
         key=NtfySensor.RESERVATIONS_LIMIT,
-        REDACTED_VALUENtfySensor.RESERVATIONS_LIMIT,
+        translation_key=NtfySensor.RESERVATIONS_LIMIT,
         value_fn=(
             lambda account: account.limits.reservations if account.limits else None
         ),
@@ -140,7 +140,7 @@ SENSOR_DESCRIPTIONS: tuple[NtfySensorEntityDescription, ...] = (
     ),
     NtfySensorEntityDescription(
         key=NtfySensor.ATTACHMENT_EXPIRY_DURATION,
-        REDACTED_VALUENtfySensor.ATTACHMENT_EXPIRY_DURATION,
+        translation_key=NtfySensor.ATTACHMENT_EXPIRY_DURATION,
         value_fn=(
             lambda account: (
                 account.limits.attachment_expiry_duration if account.limits else None
@@ -153,7 +153,7 @@ SENSOR_DESCRIPTIONS: tuple[NtfySensorEntityDescription, ...] = (
     ),
     NtfySensorEntityDescription(
         key=NtfySensor.ATTACHMENT_TOTAL_SIZE,
-        REDACTED_VALUENtfySensor.ATTACHMENT_TOTAL_SIZE,
+        translation_key=NtfySensor.ATTACHMENT_TOTAL_SIZE,
         value_fn=lambda account: account.stats.attachment_total_size,
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -162,7 +162,7 @@ SENSOR_DESCRIPTIONS: tuple[NtfySensorEntityDescription, ...] = (
     ),
     NtfySensorEntityDescription(
         key=NtfySensor.ATTACHMENT_TOTAL_SIZE_REMAINING,
-        REDACTED_VALUENtfySensor.ATTACHMENT_TOTAL_SIZE_REMAINING,
+        translation_key=NtfySensor.ATTACHMENT_TOTAL_SIZE_REMAINING,
         value_fn=lambda account: account.stats.attachment_total_size_remaining,
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -172,7 +172,7 @@ SENSOR_DESCRIPTIONS: tuple[NtfySensorEntityDescription, ...] = (
     ),
     NtfySensorEntityDescription(
         key=NtfySensor.ATTACHMENT_TOTAL_SIZE_LIMIT,
-        REDACTED_VALUENtfySensor.ATTACHMENT_TOTAL_SIZE_LIMIT,
+        translation_key=NtfySensor.ATTACHMENT_TOTAL_SIZE_LIMIT,
         value_fn=(
             lambda account: (
                 account.limits.attachment_total_size if account.limits else None
@@ -186,7 +186,7 @@ SENSOR_DESCRIPTIONS: tuple[NtfySensorEntityDescription, ...] = (
     ),
     NtfySensorEntityDescription(
         key=NtfySensor.ATTACHMENT_FILE_SIZE,
-        REDACTED_VALUENtfySensor.ATTACHMENT_FILE_SIZE,
+        translation_key=NtfySensor.ATTACHMENT_FILE_SIZE,
         value_fn=(
             lambda account: (
                 account.limits.attachment_file_size if account.limits else None
@@ -200,7 +200,7 @@ SENSOR_DESCRIPTIONS: tuple[NtfySensorEntityDescription, ...] = (
     ),
     NtfySensorEntityDescription(
         key=NtfySensor.ATTACHMENT_BANDWIDTH,
-        REDACTED_VALUENtfySensor.ATTACHMENT_BANDWIDTH,
+        translation_key=NtfySensor.ATTACHMENT_BANDWIDTH,
         value_fn=(
             lambda account: (
                 account.limits.attachment_bandwidth if account.limits else None
@@ -214,7 +214,7 @@ SENSOR_DESCRIPTIONS: tuple[NtfySensorEntityDescription, ...] = (
     ),
     NtfySensorEntityDescription(
         key=NtfySensor.TIER,
-        REDACTED_VALUENtfySensor.TIER,
+        translation_key=NtfySensor.TIER,
         value_fn=lambda account: account.tier.name if account.tier else "free",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,

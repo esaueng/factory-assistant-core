@@ -230,7 +230,7 @@ def async_register_services(  # noqa: C901
         if project_id is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"project_invalid",
+                translation_key="project_invalid",
                 translation_placeholders={
                     "project": project_name,
                 },
@@ -248,7 +248,7 @@ def async_register_services(  # noqa: C901
             if section_id is None:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"section_invalid",
+                    translation_key="section_invalid",
                     translation_placeholders={
                         "section": section_name,
                         "project": project_name,

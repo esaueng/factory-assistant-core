@@ -34,12 +34,12 @@ def camera_in_use(data: SystemBridgeData) -> bool | None:
 BASE_BINARY_SENSOR_TYPES: tuple[SystemBridgeBinarySensorEntityDescription, ...] = (
     SystemBridgeBinarySensorEntityDescription(
         key="camera_in_use",
-        REDACTED_VALUE"camera_in_use",
+        translation_key="camera_in_use",
         value_fn=camera_in_use,
     ),
     SystemBridgeBinarySensorEntityDescription(
         key="pending_reboot",
-        REDACTED_VALUE"pending_reboot",
+        translation_key="pending_reboot",
         value_fn=lambda data: data.system.pending_reboot,
     ),
     SystemBridgeBinarySensorEntityDescription(

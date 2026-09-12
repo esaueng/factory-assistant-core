@@ -201,7 +201,7 @@ class SnapcastClientDevice(SnapcastCoordinatorEntity, MediaPlayerEntity):
         if self._current_group is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"select_source_no_group",
+                translation_key="select_source_no_group",
                 translation_placeholders={
                     "entity_id": self.entity_id,
                     "source": source,
@@ -271,7 +271,7 @@ class SnapcastClientDevice(SnapcastCoordinatorEntity, MediaPlayerEntity):
         if self._current_group is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"join_players_no_group",
+                translation_key="join_players_no_group",
                 translation_placeholders={
                     "entity_id": self.entity_id,
                 },
@@ -319,7 +319,7 @@ class SnapcastClientDevice(SnapcastCoordinatorEntity, MediaPlayerEntity):
         if self._current_group is None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unjoin_no_group",
+                translation_key="unjoin_no_group",
                 translation_placeholders={
                     "entity_id": self.entity_id,
                 },

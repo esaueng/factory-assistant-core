@@ -57,7 +57,7 @@ TRACCAR_SERVER_SENSOR_ENTITY_DESCRIPTIONS: tuple[
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=2,
         value_fn=lambda x: x["attributes"].get("power"),
-        REDACTED_VALUE"power",
+        translation_key="power",
     ),
     TraccarServerSensorEntityDescription[PositionModel](
         key="attributes.battery",
@@ -67,7 +67,7 @@ TRACCAR_SERVER_SENSOR_ENTITY_DESCRIPTIONS: tuple[
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=2,
         value_fn=lambda x: x["attributes"].get("battery"),
-        REDACTED_VALUE"battery",
+        translation_key="battery",
     ),
     TraccarServerSensorEntityDescription[PositionModel](
         key="speed",
@@ -81,7 +81,7 @@ TRACCAR_SERVER_SENSOR_ENTITY_DESCRIPTIONS: tuple[
     TraccarServerSensorEntityDescription[PositionModel](
         key="altitude",
         data_key="position",
-        REDACTED_VALUE"altitude",
+        translation_key="altitude",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfLength.METERS,
         suggested_display_precision=1,
@@ -90,13 +90,13 @@ TRACCAR_SERVER_SENSOR_ENTITY_DESCRIPTIONS: tuple[
     TraccarServerSensorEntityDescription[PositionModel](
         key="address",
         data_key="position",
-        REDACTED_VALUE"address",
+        translation_key="address",
         value_fn=lambda x: x["address"],
     ),
     TraccarServerSensorEntityDescription[GeofenceModel | None](
         key="name",
         data_key="geofence",
-        REDACTED_VALUE"geofence",
+        translation_key="geofence",
         value_fn=lambda x: x["name"] if x else None,
     ),
 )

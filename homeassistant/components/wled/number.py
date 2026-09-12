@@ -48,8 +48,8 @@ class WLEDNumberEntityDescription(NumberEntityDescription):
 NUMBERS = [
     WLEDNumberEntityDescription(
         key=ATTR_SPEED,
-        REDACTED_VALUE"speed",
-        segment_REDACTED_VALUE"segment_speed",
+        translation_key="speed",
+        segment_translation_key="segment_speed",
         entity_category=EntityCategory.CONFIG,
         native_step=1,
         native_min_value=0,
@@ -58,8 +58,8 @@ NUMBERS = [
     ),
     WLEDNumberEntityDescription(
         key=ATTR_INTENSITY,
-        REDACTED_VALUE"intensity",
-        segment_REDACTED_VALUE"segment_intensity",
+        translation_key="intensity",
+        segment_translation_key="segment_intensity",
         entity_category=EntityCategory.CONFIG,
         native_step=1,
         native_min_value=0,

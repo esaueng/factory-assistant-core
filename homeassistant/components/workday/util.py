@@ -42,7 +42,7 @@ async def async_validate_country_and_province(
             is_fixable=True,
             is_persistent=False,
             severity=IssueSeverity.ERROR,
-            REDACTED_VALUE"bad_country",
+            translation_key="bad_country",
             translation_placeholders={"title": entry.title},
             data={"entry_id": entry.entry_id, "country": None},
         )
@@ -66,7 +66,7 @@ async def async_validate_country_and_province(
             is_fixable=True,
             is_persistent=False,
             severity=IssueSeverity.ERROR,
-            REDACTED_VALUE"bad_province",
+            translation_key="bad_province",
             translation_placeholders={
                 CONF_COUNTRY: country,
                 "title": entry.title,
@@ -220,7 +220,7 @@ def add_remove_custom_holidays(
                         is_fixable=True,
                         is_persistent=False,
                         severity=IssueSeverity.WARNING,
-                        REDACTED_VALUE"bad_date_holiday",
+                        translation_key="bad_date_holiday",
                         translation_placeholders={
                             CONF_COUNTRY: country or "-",
                             "title": entry.title,
@@ -240,7 +240,7 @@ def add_remove_custom_holidays(
                     is_fixable=True,
                     is_persistent=False,
                     severity=IssueSeverity.WARNING,
-                    REDACTED_VALUE"bad_named_holiday",
+                    translation_key="bad_named_holiday",
                     translation_placeholders={
                         CONF_COUNTRY: country or "-",
                         "title": entry.title,

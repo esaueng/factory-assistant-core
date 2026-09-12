@@ -30,14 +30,14 @@ class ViCareButtonEntityDescription(
 BUTTON_DESCRIPTIONS: tuple[ViCareButtonEntityDescription, ...] = (
     ViCareButtonEntityDescription(
         key="activate_onetimecharge",
-        REDACTED_VALUE"activate_onetimecharge",
+        translation_key="activate_onetimecharge",
         entity_category=EntityCategory.CONFIG,
         value_getter=lambda api: api.getOneTimeCharge(),
         value_setter=lambda api: api.activateOneTimeCharge(),
     ),
     ViCareButtonEntityDescription(
         key="deactivate_onetimecharge",
-        REDACTED_VALUE"deactivate_onetimecharge",
+        translation_key="deactivate_onetimecharge",
         entity_category=EntityCategory.CONFIG,
         value_getter=lambda api: api.getOneTimeCharge(),
         value_setter=lambda api: api.deactivateOneTimeCharge(),

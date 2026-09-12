@@ -20,13 +20,13 @@ CATEGORY_BASED_DESCRIPTIONS: dict[str, dict[str, BinarySensorEntityDescription]]
     F_SERIES: {
         "43161": BinarySensorEntityDescription(
             key="elect_add",
-            REDACTED_VALUE"elect_add",
+            translation_key="elect_add",
         ),
     },
     "NIBEF": {
         "43161": BinarySensorEntityDescription(
             key="elect_add",
-            REDACTED_VALUE"elect_add",
+            translation_key="elect_add",
         ),
     },
 }
@@ -39,7 +39,7 @@ CONNECTED_BINARY_SENSOR_DESCRIPTION = BinarySensorEntityDescription(
 ALARM_BINARY_SENSOR_DESCRIPTION = BinarySensorEntityDescription(
     key="has_alarm",
     device_class=BinarySensorDeviceClass.PROBLEM,
-    REDACTED_VALUE"alarm",
+    translation_key="alarm",
 )
 
 

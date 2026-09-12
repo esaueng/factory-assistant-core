@@ -171,7 +171,7 @@ MOWER_SENSOR_TYPES: tuple[AutomowerSensorEntityDescription, ...] = (
     ),
     AutomowerSensorEntityDescription(
         key="mode",
-        REDACTED_VALUE"mode",
+        translation_key="mode",
         device_class=SensorDeviceClass.ENUM,
         option_fn=lambda data: list(MowerModes),
         value_fn=(
@@ -182,7 +182,7 @@ MOWER_SENSOR_TYPES: tuple[AutomowerSensorEntityDescription, ...] = (
     ),
     AutomowerSensorEntityDescription(
         key="cutting_blade_usage_time",
-        REDACTED_VALUE"cutting_blade_usage_time",
+        translation_key="cutting_blade_usage_time",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL,
         device_class=SensorDeviceClass.DURATION,
@@ -193,7 +193,7 @@ MOWER_SENSOR_TYPES: tuple[AutomowerSensorEntityDescription, ...] = (
     ),
     AutomowerSensorEntityDescription(
         key="downtime",
-        REDACTED_VALUE"downtime",
+        translation_key="downtime",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL,
         device_class=SensorDeviceClass.DURATION,
@@ -206,7 +206,7 @@ MOWER_SENSOR_TYPES: tuple[AutomowerSensorEntityDescription, ...] = (
     ),
     AutomowerSensorEntityDescription(
         key="total_charging_time",
-        REDACTED_VALUE"total_charging_time",
+        translation_key="total_charging_time",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL,
         device_class=SensorDeviceClass.DURATION,
@@ -217,7 +217,7 @@ MOWER_SENSOR_TYPES: tuple[AutomowerSensorEntityDescription, ...] = (
     ),
     AutomowerSensorEntityDescription(
         key="total_cutting_time",
-        REDACTED_VALUE"total_cutting_time",
+        translation_key="total_cutting_time",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL,
         device_class=SensorDeviceClass.DURATION,
@@ -228,7 +228,7 @@ MOWER_SENSOR_TYPES: tuple[AutomowerSensorEntityDescription, ...] = (
     ),
     AutomowerSensorEntityDescription(
         key="total_running_time",
-        REDACTED_VALUE"total_running_time",
+        translation_key="total_running_time",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL,
         device_class=SensorDeviceClass.DURATION,
@@ -239,7 +239,7 @@ MOWER_SENSOR_TYPES: tuple[AutomowerSensorEntityDescription, ...] = (
     ),
     AutomowerSensorEntityDescription(
         key="total_searching_time",
-        REDACTED_VALUE"total_searching_time",
+        translation_key="total_searching_time",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL,
         device_class=SensorDeviceClass.DURATION,
@@ -250,7 +250,7 @@ MOWER_SENSOR_TYPES: tuple[AutomowerSensorEntityDescription, ...] = (
     ),
     AutomowerSensorEntityDescription(
         key="number_of_charging_cycles",
-        REDACTED_VALUE"number_of_charging_cycles",
+        translation_key="number_of_charging_cycles",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL,
         exists_fn=lambda data: data.statistics.number_of_charging_cycles is not None,
@@ -258,7 +258,7 @@ MOWER_SENSOR_TYPES: tuple[AutomowerSensorEntityDescription, ...] = (
     ),
     AutomowerSensorEntityDescription(
         key="number_of_collisions",
-        REDACTED_VALUE"number_of_collisions",
+        translation_key="number_of_collisions",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         state_class=SensorStateClass.TOTAL,
@@ -267,7 +267,7 @@ MOWER_SENSOR_TYPES: tuple[AutomowerSensorEntityDescription, ...] = (
     ),
     AutomowerSensorEntityDescription(
         key="total_drive_distance",
-        REDACTED_VALUE"total_drive_distance",
+        translation_key="total_drive_distance",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL,
         device_class=SensorDeviceClass.DISTANCE,
@@ -278,7 +278,7 @@ MOWER_SENSOR_TYPES: tuple[AutomowerSensorEntityDescription, ...] = (
     ),
     AutomowerSensorEntityDescription(
         key="uptime",
-        REDACTED_VALUE"uptime",
+        translation_key="uptime",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL,
         device_class=SensorDeviceClass.DURATION,
@@ -291,27 +291,27 @@ MOWER_SENSOR_TYPES: tuple[AutomowerSensorEntityDescription, ...] = (
     ),
     AutomowerSensorEntityDescription(
         key="next_start_timestamp",
-        REDACTED_VALUE"next_start_timestamp",
+        translation_key="next_start_timestamp",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=attrgetter("planner.next_start_datetime"),
     ),
     AutomowerSensorEntityDescription(
         key="error",
-        REDACTED_VALUE"error",
+        translation_key="error",
         device_class=SensorDeviceClass.ENUM,
         option_fn=lambda data: ERROR_KEY_LIST,
         value_fn=_get_error_string,
     ),
     AutomowerSensorEntityDescription(
         key="restricted_reason",
-        REDACTED_VALUE"restricted_reason",
+        translation_key="restricted_reason",
         device_class=SensorDeviceClass.ENUM,
         option_fn=lambda data: RESTRICTED_REASONS,
         value_fn=_get_restricted_reason,
     ),
     AutomowerSensorEntityDescription(
         key="inactive_reason",
-        REDACTED_VALUE"inactive_reason",
+        translation_key="inactive_reason",
         exists_fn=lambda data: data.capabilities.work_areas,
         device_class=SensorDeviceClass.ENUM,
         option_fn=lambda data: INACTIVE_REASONS,
@@ -319,7 +319,7 @@ MOWER_SENSOR_TYPES: tuple[AutomowerSensorEntityDescription, ...] = (
     ),
     AutomowerSensorEntityDescription(
         key="work_area",
-        REDACTED_VALUE"work_area",
+        translation_key="work_area",
         device_class=SensorDeviceClass.ENUM,
         exists_fn=lambda data: data.capabilities.work_areas,
         extra_state_attributes_fn=_get_current_work_area_dict,
@@ -328,7 +328,7 @@ MOWER_SENSOR_TYPES: tuple[AutomowerSensorEntityDescription, ...] = (
     ),
     AutomowerSensorEntityDescription(
         key="remaining_charging_time",
-        REDACTED_VALUE"remaining_charging_time",
+        translation_key="remaining_charging_time",
         device_class=SensorDeviceClass.DURATION,
         value_fn=_get_remaining_charging_time,
         native_unit_of_measurement=UnitOfTime.SECONDS,

@@ -20,7 +20,7 @@ SCAN_INTERVAL = timedelta(seconds=30)
 
 RSSI_SENSOR = SensorEntityDescription(
     key=ATTR_RSSI,
-    REDACTED_VALUE"rssi",
+    translation_key="rssi",
     device_class=SensorDeviceClass.SIGNAL_STRENGTH,
     entity_category=EntityCategory.DIAGNOSTIC,
     state_class=SensorStateClass.MEASUREMENT,

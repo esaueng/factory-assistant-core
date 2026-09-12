@@ -43,21 +43,21 @@ def equalizer_enabled(client: StreamMagicClient) -> bool:
 CONTROL_ENTITIES: tuple[CambridgeAudioSwitchEntityDescription, ...] = (
     CambridgeAudioSwitchEntityDescription(
         key="pre_amp",
-        REDACTED_VALUE"pre_amp",
+        translation_key="pre_amp",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda client: client.state.pre_amp_mode,
         set_value_fn=lambda client, value: client.set_pre_amp_mode(value),
     ),
     CambridgeAudioSwitchEntityDescription(
         key="early_update",
-        REDACTED_VALUE"early_update",
+        translation_key="early_update",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda client: client.update.early_update,
         set_value_fn=lambda client, value: client.set_early_update(value),
     ),
     CambridgeAudioSwitchEntityDescription(
         key="room_correction",
-        REDACTED_VALUE"room_correction",
+        translation_key="room_correction",
         entity_category=EntityCategory.CONFIG,
         load_fn=lambda client: client.audio.tilt_eq is not None,
         value_fn=room_correction_enabled,
@@ -65,7 +65,7 @@ CONTROL_ENTITIES: tuple[CambridgeAudioSwitchEntityDescription, ...] = (
     ),
     CambridgeAudioSwitchEntityDescription(
         key="equalizer",
-        REDACTED_VALUE"equalizer",
+        translation_key="equalizer",
         entity_category=EntityCategory.CONFIG,
         load_fn=lambda client: client.audio.user_eq is not None,
         value_fn=equalizer_enabled,

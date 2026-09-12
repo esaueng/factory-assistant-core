@@ -27,7 +27,7 @@ class StreamlabsWaterSensorEntityDescription(SensorEntityDescription):
 SENSORS: tuple[StreamlabsWaterSensorEntityDescription, ...] = (
     StreamlabsWaterSensorEntityDescription(
         key="daily_usage",
-        REDACTED_VALUE"daily_usage",
+        translation_key="daily_usage",
         native_unit_of_measurement=UnitOfVolume.GALLONS,
         device_class=SensorDeviceClass.WATER,
         suggested_display_precision=1,
@@ -35,7 +35,7 @@ SENSORS: tuple[StreamlabsWaterSensorEntityDescription, ...] = (
     ),
     StreamlabsWaterSensorEntityDescription(
         key="monthly_usage",
-        REDACTED_VALUE"monthly_usage",
+        translation_key="monthly_usage",
         native_unit_of_measurement=UnitOfVolume.GALLONS,
         device_class=SensorDeviceClass.WATER,
         suggested_display_precision=1,
@@ -43,7 +43,7 @@ SENSORS: tuple[StreamlabsWaterSensorEntityDescription, ...] = (
     ),
     StreamlabsWaterSensorEntityDescription(
         key="yearly_usage",
-        REDACTED_VALUE"yearly_usage",
+        translation_key="yearly_usage",
         native_unit_of_measurement=UnitOfVolume.GALLONS,
         device_class=SensorDeviceClass.WATER,
         suggested_display_precision=1,

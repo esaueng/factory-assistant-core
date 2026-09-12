@@ -174,25 +174,25 @@ class FritzDeviceSensorEntityDescription(
 CONNECTION_SENSOR_TYPES: tuple[FritzConnectionSensorEntityDescription, ...] = (
     FritzConnectionSensorEntityDescription(
         key="external_ip",
-        REDACTED_VALUE"external_ip",
+        translation_key="external_ip",
         value_fn=_retrieve_external_ip_state,
     ),
     FritzConnectionSensorEntityDescription(
         key="external_ipv6",
-        REDACTED_VALUE"external_ipv6",
+        translation_key="external_ipv6",
         value_fn=_retrieve_external_ipv6_state,
         is_suitable=lambda info: info.ipv6_active,
     ),
     FritzConnectionSensorEntityDescription(
         key="connection_uptime",
-        REDACTED_VALUE"connection_uptime",
+        translation_key="connection_uptime",
         device_class=SensorDeviceClass.UPTIME,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=_retrieve_connection_uptime_state,
     ),
     FritzConnectionSensorEntityDescription(
         key="kb_s_sent",
-        REDACTED_VALUE"kb_s_sent",
+        translation_key="kb_s_sent",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfDataRate.KILOBYTES_PER_SECOND,
         device_class=SensorDeviceClass.DATA_RATE,
@@ -200,7 +200,7 @@ CONNECTION_SENSOR_TYPES: tuple[FritzConnectionSensorEntityDescription, ...] = (
     ),
     FritzConnectionSensorEntityDescription(
         key="kb_s_received",
-        REDACTED_VALUE"kb_s_received",
+        translation_key="kb_s_received",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfDataRate.KILOBYTES_PER_SECOND,
         device_class=SensorDeviceClass.DATA_RATE,
@@ -208,21 +208,21 @@ CONNECTION_SENSOR_TYPES: tuple[FritzConnectionSensorEntityDescription, ...] = (
     ),
     FritzConnectionSensorEntityDescription(
         key="max_kb_s_sent",
-        REDACTED_VALUE"max_kb_s_sent",
+        translation_key="max_kb_s_sent",
         native_unit_of_measurement=UnitOfDataRate.KILOBITS_PER_SECOND,
         device_class=SensorDeviceClass.DATA_RATE,
         value_fn=_retrieve_max_kb_s_sent_state,
     ),
     FritzConnectionSensorEntityDescription(
         key="max_kb_s_received",
-        REDACTED_VALUE"max_kb_s_received",
+        translation_key="max_kb_s_received",
         native_unit_of_measurement=UnitOfDataRate.KILOBITS_PER_SECOND,
         device_class=SensorDeviceClass.DATA_RATE,
         value_fn=_retrieve_max_kb_s_received_state,
     ),
     FritzConnectionSensorEntityDescription(
         key="gb_sent",
-        REDACTED_VALUE"gb_sent",
+        translation_key="gb_sent",
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -230,7 +230,7 @@ CONNECTION_SENSOR_TYPES: tuple[FritzConnectionSensorEntityDescription, ...] = (
     ),
     FritzConnectionSensorEntityDescription(
         key="gb_received",
-        REDACTED_VALUE"gb_received",
+        translation_key="gb_received",
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -238,7 +238,7 @@ CONNECTION_SENSOR_TYPES: tuple[FritzConnectionSensorEntityDescription, ...] = (
     ),
     FritzConnectionSensorEntityDescription(
         key="link_kb_s_sent",
-        REDACTED_VALUE"link_kb_s_sent",
+        translation_key="link_kb_s_sent",
         native_unit_of_measurement=UnitOfDataRate.KILOBITS_PER_SECOND,
         device_class=SensorDeviceClass.DATA_RATE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -246,7 +246,7 @@ CONNECTION_SENSOR_TYPES: tuple[FritzConnectionSensorEntityDescription, ...] = (
     ),
     FritzConnectionSensorEntityDescription(
         key="link_kb_s_received",
-        REDACTED_VALUE"link_kb_s_received",
+        translation_key="link_kb_s_received",
         native_unit_of_measurement=UnitOfDataRate.KILOBITS_PER_SECOND,
         device_class=SensorDeviceClass.DATA_RATE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -254,7 +254,7 @@ CONNECTION_SENSOR_TYPES: tuple[FritzConnectionSensorEntityDescription, ...] = (
     ),
     FritzConnectionSensorEntityDescription(
         key="link_noise_margin_sent",
-        REDACTED_VALUE"link_noise_margin_sent",
+        translation_key="link_noise_margin_sent",
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -263,7 +263,7 @@ CONNECTION_SENSOR_TYPES: tuple[FritzConnectionSensorEntityDescription, ...] = (
     ),
     FritzConnectionSensorEntityDescription(
         key="link_noise_margin_received",
-        REDACTED_VALUE"link_noise_margin_received",
+        translation_key="link_noise_margin_received",
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -272,7 +272,7 @@ CONNECTION_SENSOR_TYPES: tuple[FritzConnectionSensorEntityDescription, ...] = (
     ),
     FritzConnectionSensorEntityDescription(
         key="link_attenuation_sent",
-        REDACTED_VALUE"link_attenuation_sent",
+        translation_key="link_attenuation_sent",
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -281,7 +281,7 @@ CONNECTION_SENSOR_TYPES: tuple[FritzConnectionSensorEntityDescription, ...] = (
     ),
     FritzConnectionSensorEntityDescription(
         key="link_attenuation_received",
-        REDACTED_VALUE"link_attenuation_received",
+        translation_key="link_attenuation_received",
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -299,7 +299,7 @@ DEVICE_SENSOR_TYPES: tuple[FritzDeviceSensorEntityDescription, ...] = (
     ),
     FritzDeviceSensorEntityDescription(
         key="cpu_temperature",
-        REDACTED_VALUE"cpu_temperature",
+        translation_key="cpu_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         entity_category=EntityCategory.DIAGNOSTIC,

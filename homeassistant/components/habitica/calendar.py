@@ -106,7 +106,7 @@ class HabiticaTodosCalendarEntity(HabiticaCalendarEntity):
 
     entity_description = CalendarEntityDescription(
         key=HabiticaCalendar.TODOS,
-        REDACTED_VALUEHabiticaCalendar.TODOS,
+        translation_key=HabiticaCalendar.TODOS,
     )
 
     def get_events(
@@ -160,7 +160,7 @@ class HabiticaDailiesCalendarEntity(HabiticaCalendarEntity):
 
     entity_description = CalendarEntityDescription(
         key=HabiticaCalendar.DAILIES,
-        REDACTED_VALUEHabiticaCalendar.DAILIES,
+        translation_key=HabiticaCalendar.DAILIES,
     )
 
     def end_date(self, recurrence: datetime, end: datetime | None = None) -> date:
@@ -253,7 +253,7 @@ class HabiticaTodoRemindersCalendarEntity(HabiticaCalendarEntity):
 
     entity_description = CalendarEntityDescription(
         key=HabiticaCalendar.TODO_REMINDERS,
-        REDACTED_VALUEHabiticaCalendar.TODO_REMINDERS,
+        translation_key=HabiticaCalendar.TODO_REMINDERS,
     )
 
     def get_events(
@@ -307,7 +307,7 @@ class HabiticaDailyRemindersCalendarEntity(HabiticaCalendarEntity):
 
     entity_description = CalendarEntityDescription(
         key=HabiticaCalendar.DAILY_REMINDERS,
-        REDACTED_VALUEHabiticaCalendar.DAILY_REMINDERS,
+        translation_key=HabiticaCalendar.DAILY_REMINDERS,
     )
 
     def start(self, reminder_time: datetime, reminder_date: date) -> datetime:

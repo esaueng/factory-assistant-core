@@ -60,7 +60,7 @@ def _credential_service_error(
     """Wrap a zwave-js-server error with a credential-service translation."""
     return HomeAssistantError(
         translation_domain=DOMAIN,
-        REDACTED_VALUEtranslation_key,
+        translation_key=translation_key,
         translation_placeholders={"error": str(err), **extra},
     )
 
@@ -136,7 +136,7 @@ class ZWaveLock(ZWaveBaseEntity, LockEntity):
         except BaseZwaveJSServerError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_lock_usercode_failed",
+                translation_key="set_lock_usercode_failed",
                 translation_placeholders={
                     "entity_id": self.entity_id,
                     "code_slot": str(code_slot),
@@ -161,7 +161,7 @@ class ZWaveLock(ZWaveBaseEntity, LockEntity):
         except NotFoundError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"get_lock_usercode_not_found",
+                translation_key="get_lock_usercode_not_found",
                 translation_placeholders={
                     "code_slot": str(code_slot),
                     "entity_id": self.entity_id,
@@ -193,7 +193,7 @@ class ZWaveLock(ZWaveBaseEntity, LockEntity):
         except BaseZwaveJSServerError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"clear_lock_usercode_failed",
+                translation_key="clear_lock_usercode_failed",
                 translation_placeholders={
                     "entity_id": self.entity_id,
                     "code_slot": str(code_slot),

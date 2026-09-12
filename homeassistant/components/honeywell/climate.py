@@ -389,14 +389,14 @@ class HoneywellUSThermostat(ClimateEntity):
         except (AscConnectionError, UnexpectedResponse) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"temp_failed",
+                translation_key="temp_failed",
             ) from err
 
         except SomeComfortError as err:
             _LOGGER.error("Invalid temperature %.1f: %s", temperature, err)
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"temp_failed_value",
+                translation_key="temp_failed_value",
                 translation_placeholders={"temperature": temperature},
             ) from err
 
@@ -413,14 +413,14 @@ class HoneywellUSThermostat(ClimateEntity):
             except (AscConnectionError, UnexpectedResponse) as err:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"temp_failed",
+                    translation_key="temp_failed",
                 ) from err
 
             except SomeComfortError as err:
                 _LOGGER.error("Invalid temperature %.1f: %s", temperature, err)
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"temp_failed_value",
+                    translation_key="temp_failed_value",
                     translation_placeholders={"temperature": str(temperature)},
                 ) from err
 
@@ -432,7 +432,7 @@ class HoneywellUSThermostat(ClimateEntity):
         except SomeComfortError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"fan_mode_failed",
+                translation_key="fan_mode_failed",
             ) from err
 
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
@@ -443,7 +443,7 @@ class HoneywellUSThermostat(ClimateEntity):
         except SomeComfortError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"sys_mode_failed",
+                translation_key="sys_mode_failed",
             ) from err
 
     async def _turn_away_mode_on(self) -> None:
@@ -467,7 +467,7 @@ class HoneywellUSThermostat(ClimateEntity):
         except (AscConnectionError, UnexpectedResponse) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"away_mode_failed",
+                translation_key="away_mode_failed",
             ) from err
 
         except SomeComfortError as err:
@@ -481,7 +481,7 @@ class HoneywellUSThermostat(ClimateEntity):
             )
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"temp_failed_range",
+                translation_key="temp_failed_range",
                 translation_placeholders={
                     "heat": str(self._heat_away_temp),
                     "cool": str(self._cool_away_temp),
@@ -506,13 +506,13 @@ class HoneywellUSThermostat(ClimateEntity):
                 _LOGGER.error("Couldn't set permanent hold")
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"set_hold_failed",
+                    translation_key="set_hold_failed",
                 ) from err
         else:
             _LOGGER.error("Invalid system mode returned: %s", mode)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_mode_failed",
+                translation_key="set_mode_failed",
                 translation_placeholders={"mode": mode},
             )
 
@@ -528,7 +528,7 @@ class HoneywellUSThermostat(ClimateEntity):
             _LOGGER.error("Can not stop hold mode")
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"stop_hold_failed",
+                translation_key="stop_hold_failed",
             ) from err
 
     async def async_set_preset_mode(self, preset_mode: str) -> None:

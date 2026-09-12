@@ -63,6 +63,6 @@ class FileNotifyEntity(NotifyEntity):
         except OSError as exc:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"write_access_failed",
+                translation_key="write_access_failed",
                 translation_placeholders={"filename": filepath, "exc": f"{exc!r}"},
             ) from exc

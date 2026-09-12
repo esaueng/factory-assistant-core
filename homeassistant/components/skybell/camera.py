@@ -16,11 +16,11 @@ from .entity import SkybellEntity
 CAMERA_TYPES: tuple[CameraEntityDescription, ...] = (
     CameraEntityDescription(
         key="activity",
-        REDACTED_VALUE"activity",
+        translation_key="activity",
     ),
     CameraEntityDescription(
         key="avatar",
-        REDACTED_VALUE"camera",
+        translation_key="camera",
     ),
 )
 

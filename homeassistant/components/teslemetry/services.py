@@ -70,7 +70,7 @@ def async_get_device_for_service_call(
     if (device_entry := device_registry.async_get(device_id)) is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_device",
+            translation_key="invalid_device",
             translation_placeholders={"device_id": device_id},
         )
 
@@ -160,7 +160,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
             time = int(hours) * 60 + int(minutes)
         elif call.data["enable"]:
             raise ServiceValidationError(
-                translation_domain=DOMAIN, REDACTED_VALUE"set_scheduled_charging_time"
+                translation_domain=DOMAIN, translation_key="set_scheduled_charging_time"
             )
         else:
             time = 0
@@ -202,7 +202,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
         elif preconditioning_enabled:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_scheduled_departure_preconditioning",
+                translation_key="set_scheduled_departure_preconditioning",
             )
         else:
             departure_time = 0
@@ -220,7 +220,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
         elif off_peak_charging_enabled:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_scheduled_departure_off_peak",
+                translation_key="set_scheduled_departure_off_peak",
             )
         else:
             end_off_peak_time = 0
@@ -322,7 +322,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
         if "error" in resp:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_error",
+                translation_key="command_error",
                 translation_placeholders={"error": resp["error"]},
             )
 

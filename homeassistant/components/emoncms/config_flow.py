@@ -133,7 +133,7 @@ class EmoncmsConfigFlow(ConfigFlow, domain=DOMAIN):
                             SelectSelectorConfig(
                                 options=[SYNC_MODE_MANUAL, SYNC_MODE_AUTO],
                                 mode=SelectSelectorMode.DROPDOWN,
-                                REDACTED_VALUESYNC_MODE,
+                                translation_key=SYNC_MODE,
                             )
                         ),
                     }

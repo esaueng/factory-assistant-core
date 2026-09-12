@@ -43,7 +43,7 @@ class PalazzettiSilentButtonEntity(PalazzettiEntity, ButtonEntity):
             await self.coordinator.client.set_fan_silent()
         except CommunicationError as err:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"cannot_connect"
+                translation_domain=DOMAIN, translation_key="cannot_connect"
             ) from err
 
         await self.coordinator.async_request_refresh()

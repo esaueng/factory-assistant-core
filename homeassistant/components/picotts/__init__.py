@@ -16,7 +16,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up Pico TTS from a config entry."""
     if await hass.async_add_executor_job(shutil.which, "pico2wave") is None:
         raise ConfigEntryError(
-            translation_domain=DOMAIN, REDACTED_VALUE"binary_not_found"
+            translation_domain=DOMAIN, translation_key="binary_not_found"
         )
 
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)

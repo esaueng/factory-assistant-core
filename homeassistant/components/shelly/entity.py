@@ -342,7 +342,7 @@ def rpc_call[_T: ShellyRpcEntity, **_P](
             self.coordinator.last_update_success = False
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_communication_action_error",
+                translation_key="device_communication_action_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                     "device": self.coordinator.name,
@@ -351,7 +351,7 @@ def rpc_call[_T: ShellyRpcEntity, **_P](
         except RpcCallError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"rpc_call_action_error",
+                translation_key="rpc_call_action_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                     "device": self.coordinator.name,
@@ -395,7 +395,7 @@ class ShellyBlockEntity(CoordinatorEntity[ShellyBlockCoordinator]):
             self.coordinator.last_update_success = False
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_communication_action_error",
+                translation_key="device_communication_action_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                     "device": self.coordinator.name,

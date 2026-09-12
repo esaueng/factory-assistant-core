@@ -54,7 +54,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: VistapoolConfigEntry) ->
     except AuthenticationError as exc:
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_credentials",
+            translation_key="invalid_credentials",
         ) from exc
     except AquariteError as exc:
         raise ConfigEntryNotReady from exc
@@ -68,7 +68,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: VistapoolConfigEntry) ->
     if not pools:
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"no_pools",
+            translation_key="no_pools",
         )
 
     data = VistapoolData(auth=auth, api=api)

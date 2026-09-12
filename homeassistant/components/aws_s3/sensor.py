@@ -30,7 +30,7 @@ class S3SensorEntityDescription(SensorEntityDescription):
 SENSORS: tuple[S3SensorEntityDescription, ...] = (
     S3SensorEntityDescription(
         key="backups_size",
-        REDACTED_VALUE"backups_size",
+        translation_key="backups_size",
         native_unit_of_measurement=UnitOfInformation.BYTES,
         suggested_unit_of_measurement=UnitOfInformation.MEBIBYTES,
         suggested_display_precision=0,

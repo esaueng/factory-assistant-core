@@ -63,7 +63,7 @@ class SlideSwitch(SlideEntity, SwitchEntity):
         ) as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"touchgo_error",
+                translation_key="touchgo_error",
                 translation_placeholders={
                     "state": "off",
                 },
@@ -82,7 +82,7 @@ class SlideSwitch(SlideEntity, SwitchEntity):
         ) as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"touchgo_error",
+                translation_key="touchgo_error",
                 translation_placeholders={
                     "state": "on",
                 },

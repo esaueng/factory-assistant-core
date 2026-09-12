@@ -107,7 +107,7 @@ class AirlyDataUpdateCoordinator(DataUpdateCoordinator[dict[str, str | float | i
             except (AirlyError, ClientConnectorError) as error:
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"update_error",
+                    translation_key="update_error",
                     translation_placeholders={
                         "entry": self.config_entry.title,
                         "error": repr(error),
@@ -135,7 +135,7 @@ class AirlyDataUpdateCoordinator(DataUpdateCoordinator[dict[str, str | float | i
         if index["description"] == NO_AIRLY_SENSORS:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_station",
+                translation_key="no_station",
                 translation_placeholders={"entry": self.config_entry.title},
             )
         for value in values:

@@ -167,7 +167,7 @@ class ActiveConnection:
                     msg_id,
                     code,
                     message,
-                    REDACTED_VALUEtranslation_key,
+                    translation_key=translation_key,
                     translation_domain=translation_domain,
                     translation_placeholders=translation_placeholders,
                 )
@@ -318,7 +318,7 @@ class ActiveConnection:
                 code,
                 err_message,
                 translation_domain=translation_domain,
-                REDACTED_VALUEtranslation_key,
+                translation_key=translation_key,
                 translation_placeholders=translation_placeholders,
             )
         )

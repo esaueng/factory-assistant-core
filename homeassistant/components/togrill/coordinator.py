@@ -101,7 +101,7 @@ class ToGrillCoordinator(DataUpdateCoordinator[dict[tuple[int, int | None], Pack
             )
 
         return DeviceInfo(
-            REDACTED_VALUE"probe",
+            translation_key="probe",
             translation_placeholders={
                 "probe_number": str(probe_number),
             },

@@ -75,19 +75,19 @@ class PortainerVolumeSensorEntityDescription(SensorEntityDescription):
 CONTAINER_SENSORS: tuple[PortainerContainerSensorEntityDescription, ...] = (
     PortainerContainerSensorEntityDescription(
         key="image",
-        REDACTED_VALUE"image",
+        translation_key="image",
         value_fn=lambda data: data.container.image,
     ),
     PortainerContainerSensorEntityDescription(
         key="container_state",
-        REDACTED_VALUE"container_state",
+        translation_key="container_state",
         value_fn=lambda data: data.container.state,
         device_class=SensorDeviceClass.ENUM,
         options=["running", "exited", "paused", "restarting", "created", "dead"],
     ),
     PortainerContainerSensorEntityDescription(
         key="memory_limit",
-        REDACTED_VALUE"memory_limit",
+        translation_key="memory_limit",
         value_fn=lambda data: (
             data.stats.memory_stats.limit if data.stats is not None else 0
         ),
@@ -100,7 +100,7 @@ CONTAINER_SENSORS: tuple[PortainerContainerSensorEntityDescription, ...] = (
     ),
     PortainerContainerSensorEntityDescription(
         key="memory_usage",
-        REDACTED_VALUE"memory_usage",
+        translation_key="memory_usage",
         value_fn=lambda data: (
             data.stats.memory_stats.usage if data.stats is not None else 0
         ),
@@ -113,7 +113,7 @@ CONTAINER_SENSORS: tuple[PortainerContainerSensorEntityDescription, ...] = (
     ),
     PortainerContainerSensorEntityDescription(
         key="memory_usage_percentage",
-        REDACTED_VALUE"memory_usage_percentage",
+        translation_key="memory_usage_percentage",
         value_fn=lambda data: (
             (data.stats.memory_stats.usage / data.stats.memory_stats.limit) * 100.0
             if data.stats is not None
@@ -128,7 +128,7 @@ CONTAINER_SENSORS: tuple[PortainerContainerSensorEntityDescription, ...] = (
     ),
     PortainerContainerSensorEntityDescription(
         key="cpu_usage_total",
-        REDACTED_VALUE"cpu_usage_total",
+        translation_key="cpu_usage_total",
         value_fn=lambda data: (
             (total_delta / system_delta) * data.stats.cpu_stats.online_cpus * 100.0
             if data.stats is not None
@@ -160,84 +160,84 @@ CONTAINER_SENSORS: tuple[PortainerContainerSensorEntityDescription, ...] = (
 ENDPOINT_SENSORS: tuple[PortainerEndpointSensorEntityDescription, ...] = (
     PortainerEndpointSensorEntityDescription(
         key="api_version",
-        REDACTED_VALUE"api_version",
+        translation_key="api_version",
         value_fn=lambda data: data.docker_version.api_version,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
     PortainerEndpointSensorEntityDescription(
         key="kernel_version",
-        REDACTED_VALUE"kernel_version",
+        translation_key="kernel_version",
         value_fn=lambda data: data.docker_version.kernel_version,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
     PortainerEndpointSensorEntityDescription(
         key="operating_system",
-        REDACTED_VALUE"operating_system",
+        translation_key="operating_system",
         value_fn=lambda data: data.docker_info.os_type,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
     PortainerEndpointSensorEntityDescription(
         key="operating_system_version",
-        REDACTED_VALUE"operating_system_version",
+        translation_key="operating_system_version",
         value_fn=lambda data: data.docker_info.os_version,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
     PortainerEndpointSensorEntityDescription(
         key="docker_version",
-        REDACTED_VALUE"docker_version",
+        translation_key="docker_version",
         value_fn=lambda data: data.docker_info.server_version,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
     PortainerEndpointSensorEntityDescription(
         key="architecture",
-        REDACTED_VALUE"architecture",
+        translation_key="architecture",
         value_fn=lambda data: data.docker_info.architecture,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
     PortainerEndpointSensorEntityDescription(
         key="containers_count",
-        REDACTED_VALUE"containers_count",
+        translation_key="containers_count",
         value_fn=lambda data: data.docker_info.containers,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     PortainerEndpointSensorEntityDescription(
         key="containers_running",
-        REDACTED_VALUE"containers_running",
+        translation_key="containers_running",
         value_fn=lambda data: data.docker_info.containers_running,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     PortainerEndpointSensorEntityDescription(
         key="containers_stopped",
-        REDACTED_VALUE"containers_stopped",
+        translation_key="containers_stopped",
         value_fn=lambda data: data.docker_info.containers_stopped,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     PortainerEndpointSensorEntityDescription(
         key="containers_paused",
-        REDACTED_VALUE"containers_paused",
+        translation_key="containers_paused",
         value_fn=lambda data: data.docker_info.containers_paused,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     PortainerEndpointSensorEntityDescription(
         key="images_count",
-        REDACTED_VALUE"images_count",
+        translation_key="images_count",
         value_fn=lambda data: data.docker_info.images,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     PortainerEndpointSensorEntityDescription(
         key="memory_total",
-        REDACTED_VALUE"memory_total",
+        translation_key="memory_total",
         value_fn=lambda data: data.docker_info.mem_total,
         device_class=SensorDeviceClass.DATA_SIZE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -248,7 +248,7 @@ ENDPOINT_SENSORS: tuple[PortainerEndpointSensorEntityDescription, ...] = (
     ),
     PortainerEndpointSensorEntityDescription(
         key="cpu_total",
-        REDACTED_VALUE"cpu_total",
+        translation_key="cpu_total",
         value_fn=lambda data: data.docker_info.ncpu,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -261,7 +261,7 @@ DOCKER_SYSTEM_DISK_SPACE_SENSORS: tuple[
 ] = (
     PortainerDockerSystemDiskSpaceSensorEntityDescription(
         key="container_disk_usage_reclaimable",
-        REDACTED_VALUE"container_disk_usage_reclaimable",
+        translation_key="container_disk_usage_reclaimable",
         value_fn=lambda data: data.container_disk_usage.reclaimable,
         device_class=SensorDeviceClass.DATA_SIZE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -271,7 +271,7 @@ DOCKER_SYSTEM_DISK_SPACE_SENSORS: tuple[
     ),
     PortainerDockerSystemDiskSpaceSensorEntityDescription(
         key="container_disk_usage_total_size",
-        REDACTED_VALUE"container_disk_usage_total_size",
+        translation_key="container_disk_usage_total_size",
         value_fn=lambda data: data.container_disk_usage.total_size,
         device_class=SensorDeviceClass.DATA_SIZE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -281,7 +281,7 @@ DOCKER_SYSTEM_DISK_SPACE_SENSORS: tuple[
     ),
     PortainerDockerSystemDiskSpaceSensorEntityDescription(
         key="image_disk_usage_reclaimable",
-        REDACTED_VALUE"image_disk_usage_reclaimable",
+        translation_key="image_disk_usage_reclaimable",
         value_fn=lambda data: data.image_disk_usage.reclaimable,
         device_class=SensorDeviceClass.DATA_SIZE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -291,7 +291,7 @@ DOCKER_SYSTEM_DISK_SPACE_SENSORS: tuple[
     ),
     PortainerDockerSystemDiskSpaceSensorEntityDescription(
         key="image_disk_usage_total_size",
-        REDACTED_VALUE"image_disk_usage_total_size",
+        translation_key="image_disk_usage_total_size",
         value_fn=lambda data: data.image_disk_usage.total_size,
         device_class=SensorDeviceClass.DATA_SIZE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -301,7 +301,7 @@ DOCKER_SYSTEM_DISK_SPACE_SENSORS: tuple[
     ),
     PortainerDockerSystemDiskSpaceSensorEntityDescription(
         key="volume_disk_usage_total",
-        REDACTED_VALUE"volume_disk_usage_total_size",
+        translation_key="volume_disk_usage_total_size",
         value_fn=lambda data: data.volume_disk_usage.total_size,
         device_class=SensorDeviceClass.DATA_SIZE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -313,7 +313,7 @@ DOCKER_SYSTEM_DISK_SPACE_SENSORS: tuple[
 STACK_SENSORS: tuple[PortainerStackSensorEntityDescription, ...] = (
     PortainerStackSensorEntityDescription(
         key="stack_type",
-        REDACTED_VALUE"stack_type",
+        translation_key="stack_type",
         value_fn=lambda data: (
             "swarm"
             if data.stack.type == StackType.SWARM
@@ -329,7 +329,7 @@ STACK_SENSORS: tuple[PortainerStackSensorEntityDescription, ...] = (
     ),
     PortainerStackSensorEntityDescription(
         key="stack_containers_count",
-        REDACTED_VALUE"stack_containers_count",
+        translation_key="stack_containers_count",
         value_fn=lambda data: data.container_count,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
@@ -338,12 +338,12 @@ STACK_SENSORS: tuple[PortainerStackSensorEntityDescription, ...] = (
 VOLUME_SENSORS: tuple[PortainerVolumeSensorEntityDescription, ...] = (
     PortainerVolumeSensorEntityDescription(
         key="volume_driver",
-        REDACTED_VALUE"volume_driver",
+        translation_key="volume_driver",
         value_fn=lambda data: data.volume.driver,
     ),
     PortainerVolumeSensorEntityDescription(
         key="volume_size",
-        REDACTED_VALUE"volume_size",
+        translation_key="volume_size",
         value_fn=lambda data: (
             data.volume.usage_data.size if data.volume.usage_data else None
         ),

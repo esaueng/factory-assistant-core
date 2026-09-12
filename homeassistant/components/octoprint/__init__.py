@@ -249,7 +249,7 @@ def async_get_client_for_service_call(
 
     raise ServiceValidationError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"missing_client",
+        translation_key="missing_client",
         translation_placeholders={
             "device_id": device_id,
         },

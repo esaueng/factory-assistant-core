@@ -387,7 +387,7 @@ class TelegramNotificationService:
             else:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"invalid_inline_keyboard",
+                    translation_key="invalid_inline_keyboard",
                 )
             return buttons
 
@@ -1061,7 +1061,7 @@ class TelegramNotificationService:
             except ValueError as err:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"invalid_directory_path",
+                    translation_key="invalid_directory_path",
                     translation_placeholders={"directory_path": directory_path},
                 ) from err
         else:
@@ -1073,7 +1073,7 @@ class TelegramNotificationService:
             except ValueError as err:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"invalid_file_name",
+                    translation_key="invalid_file_name",
                     translation_placeholders={"file_name": file_name},
                 ) from err
 
@@ -1086,7 +1086,7 @@ class TelegramNotificationService:
         if not file.file_path:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"action_failed",
+                translation_key="action_failed",
                 translation_placeholders={
                     "error": "No file path returned from Telegram"
                 },
@@ -1107,7 +1107,7 @@ class TelegramNotificationService:
         except (RuntimeError, OSError, TelegramError) as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"action_failed",
+                translation_key="action_failed",
                 translation_placeholders={"error": str(exc)},
             ) from exc
         return {ATTR_FILE_PATH: custom_path}
@@ -1192,7 +1192,7 @@ async def load_data(
                 except (httpx.HTTPError, httpx.InvalidURL) as err:
                     raise HomeAssistantError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"failed_to_load_url",
+                        translation_key="failed_to_load_url",
                         translation_placeholders={"error": str(err)},
                     ) from err
 
@@ -1218,7 +1218,7 @@ async def load_data(
                     )  # Add a sleep to allow other async operations to proceed
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_to_load_url",
+                translation_key="failed_to_load_url",
                 translation_placeholders={"error": str(response.status_code)},
             )
     elif filepath is not None:
@@ -1227,12 +1227,12 @@ async def load_data(
 
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"allowlist_external_dirs_error",
+            translation_key="allowlist_external_dirs_error",
         )
     else:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"missing_input",
+            translation_key="missing_input",
             translation_placeholders={"field": "URL or File"},
         )
 
@@ -1246,7 +1246,7 @@ def _validate_credentials_input(
     ):
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"missing_input",
+            translation_key="missing_input",
             translation_placeholders={"field": "Username"},
         )
 
@@ -1261,7 +1261,7 @@ def _validate_credentials_input(
     ):
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"missing_input",
+            translation_key="missing_input",
             translation_placeholders={"field": "Password"},
         )
 
@@ -1276,6 +1276,6 @@ def _read_file_as_bytesio(file_path: str) -> io.BytesIO:
     except OSError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"failed_to_load_file",
+            translation_key="failed_to_load_file",
             translation_placeholders={"error": str(err)},
         ) from err

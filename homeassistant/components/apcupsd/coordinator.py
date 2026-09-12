@@ -119,5 +119,5 @@ class APCUPSdCoordinator(DataUpdateCoordinator[APCUPSdData]):
             except (OSError, asyncio.IncompleteReadError) as error:
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"cannot_connect",
+                    translation_key="cannot_connect",
                 ) from error

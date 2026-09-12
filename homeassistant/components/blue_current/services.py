@@ -32,7 +32,7 @@ async def start_charge_session(service_call: ServiceCall) -> None:
 
     if device is None:
         raise ServiceValidationError(
-            translation_domain=DOMAIN, REDACTED_VALUE"invalid_device_id"
+            translation_domain=DOMAIN, translation_key="invalid_device_id"
         )
 
     blue_current_config_entry: ConfigEntry | None = None
@@ -45,7 +45,7 @@ async def start_charge_session(service_call: ServiceCall) -> None:
 
         if config_entry.state is not ConfigEntryState.LOADED:
             raise ServiceValidationError(
-                translation_domain=DOMAIN, REDACTED_VALUE"config_entry_not_loaded"
+                translation_domain=DOMAIN, translation_key="config_entry_not_loaded"
             )
 
         blue_current_config_entry = config_entry
@@ -54,7 +54,7 @@ async def start_charge_session(service_call: ServiceCall) -> None:
     if not blue_current_config_entry:
         # The device is not connected to a valid blue_current config entry.
         raise ServiceValidationError(
-            translation_domain=DOMAIN, REDACTED_VALUE"no_config_entry"
+            translation_domain=DOMAIN, translation_key="no_config_entry"
         )
 
     connector = blue_current_config_entry.runtime_data

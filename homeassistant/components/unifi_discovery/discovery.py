@@ -64,7 +64,7 @@ def async_start_discovery(hass: HomeAssistant) -> None:
         hass,
         _async_start_background_discovery,
         DISCOVERY_INTERVAL,
-        REDACTED_VALUE,
+        cancel_on_shutdown=True,
     )
 
 

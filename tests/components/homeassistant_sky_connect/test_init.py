@@ -727,7 +727,7 @@ async def test_multi_pan_migration_issue_deleted_for_ezsp(
         issue_id=f"{ISSUE_MULTI_PAN_MIGRATION}_{config_entry.entry_id}",
         is_fixable=True,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUEISSUE_MULTI_PAN_MIGRATION,
+        translation_key=ISSUE_MULTI_PAN_MIGRATION,
         translation_placeholders={"hardware_name": "Home Assistant SkyConnect"},
         data={"entry_id": config_entry.entry_id},
     )

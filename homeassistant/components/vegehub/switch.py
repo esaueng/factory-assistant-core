@@ -16,7 +16,7 @@ from .entity import VegeHubEntity
 SWITCH_TYPES: dict[str, SwitchEntityDescription] = {
     "switch": SwitchEntityDescription(
         key="switch",
-        REDACTED_VALUE"switch",
+        translation_key="switch",
         device_class=SwitchDeviceClass.SWITCH,
     )
 }

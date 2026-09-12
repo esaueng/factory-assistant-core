@@ -55,5 +55,5 @@ class SlideButton(SlideEntity, ButtonEntity):
         ) as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"calibration_error",
+                translation_key="calibration_error",
             ) from ex

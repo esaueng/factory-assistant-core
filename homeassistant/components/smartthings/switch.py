@@ -80,7 +80,7 @@ CAPABILITY_TO_COMMAND_SWITCHES: dict[
 ] = {
     Capability.CUSTOM_SPI_MODE: SmartThingsCommandSwitchEntityDescription(
         key=Capability.CUSTOM_SPI_MODE,
-        REDACTED_VALUE"purify",
+        translation_key="purify",
         status_attribute=Attribute.SPI_MODE,
         command=Command.SET_SPI_MODE,
         entity_category=EntityCategory.CONFIG,
@@ -88,7 +88,7 @@ CAPABILITY_TO_COMMAND_SWITCHES: dict[
     Capability.SAMSUNG_CE_AIR_CONDITIONER_LIGHTING: (
         SmartThingsCommandSwitchEntityDescription(
             key=Capability.SAMSUNG_CE_AIR_CONDITIONER_LIGHTING,
-            REDACTED_VALUE"display_lighting",
+            translation_key="display_lighting",
             status_attribute=Attribute.LIGHTING,
             command=Command.SET_LIGHTING_LEVEL,
             entity_category=EntityCategory.CONFIG,
@@ -96,7 +96,7 @@ CAPABILITY_TO_COMMAND_SWITCHES: dict[
     ),
     Capability.CUSTOM_DRYER_WRINKLE_PREVENT: SmartThingsCommandSwitchEntityDescription(
         key=Capability.CUSTOM_DRYER_WRINKLE_PREVENT,
-        REDACTED_VALUE"wrinkle_prevent",
+        translation_key="wrinkle_prevent",
         status_attribute=Attribute.DRYER_WRINKLE_PREVENT,
         command=Command.SET_DRYER_WRINKLE_PREVENT,
         entity_category=EntityCategory.CONFIG,
@@ -104,7 +104,7 @@ CAPABILITY_TO_COMMAND_SWITCHES: dict[
     Capability.SAMSUNG_CE_STEAM_CLOSET_AUTO_CYCLE_LINK: (
         SmartThingsCommandSwitchEntityDescription(
             key=Capability.SAMSUNG_CE_STEAM_CLOSET_AUTO_CYCLE_LINK,
-            REDACTED_VALUE"auto_cycle_link",
+            translation_key="auto_cycle_link",
             status_attribute=Attribute.STEAM_CLOSET_AUTO_CYCLE_LINK,
             command=Command.SET_STEAM_CLOSET_AUTO_CYCLE_LINK,
             entity_category=EntityCategory.CONFIG,
@@ -113,7 +113,7 @@ CAPABILITY_TO_COMMAND_SWITCHES: dict[
     Capability.SAMSUNG_CE_MICROFIBER_FILTER_SETTINGS: (
         SmartThingsCommandSwitchEntityDescription(
             key=Capability.SAMSUNG_CE_MICROFIBER_FILTER_SETTINGS,
-            REDACTED_VALUE"bypass_mode",
+            translation_key="bypass_mode",
             status_attribute=Attribute.BYPASS_MODE,
             entity_category=EntityCategory.CONFIG,
             on_key="enabled",
@@ -125,7 +125,7 @@ CAPABILITY_TO_COMMAND_SWITCHES: dict[
 CAPABILITY_TO_SWITCHES: dict[Capability | str, SmartThingsSwitchEntityDescription] = {
     Capability.SAMSUNG_CE_AIR_CONDITIONER_BEEP: SmartThingsSwitchEntityDescription(
         key=Capability.SAMSUNG_CE_AIR_CONDITIONER_BEEP,
-        REDACTED_VALUE"sound_effect",
+        translation_key="sound_effect",
         status_attribute=Attribute.BEEP,
         on_key="on",
         on_command=Command.ON,
@@ -134,27 +134,27 @@ CAPABILITY_TO_SWITCHES: dict[Capability | str, SmartThingsSwitchEntityDescriptio
     ),
     Capability.SAMSUNG_CE_WASHER_BUBBLE_SOAK: SmartThingsSwitchEntityDescription(
         key=Capability.SAMSUNG_CE_WASHER_BUBBLE_SOAK,
-        REDACTED_VALUE"bubble_soak",
+        translation_key="bubble_soak",
         status_attribute=Attribute.STATUS,
         entity_category=EntityCategory.CONFIG,
     ),
     Capability.SWITCH: SmartThingsSwitchEntityDescription(
         key=Capability.SWITCH,
         status_attribute=Attribute.SWITCH,
-        component_REDACTED_VALUE{
+        component_translation_key={
             "icemaker": "ice_maker",
             "icemaker-02": "ice_maker_2",
         },
     ),
     Capability.SAMSUNG_CE_SABBATH_MODE: SmartThingsSwitchEntityDescription(
         key=Capability.SAMSUNG_CE_SABBATH_MODE,
-        REDACTED_VALUE"sabbath_mode",
+        translation_key="sabbath_mode",
         status_attribute=Attribute.STATUS,
         entity_category=EntityCategory.CONFIG,
     ),
     Capability.SAMSUNG_CE_POWER_COOL: SmartThingsSwitchEntityDescription(
         key=Capability.SAMSUNG_CE_POWER_COOL,
-        REDACTED_VALUE"power_cool",
+        translation_key="power_cool",
         status_attribute=Attribute.ACTIVATED,
         on_key="True",
         on_command=Command.ACTIVATE,
@@ -163,7 +163,7 @@ CAPABILITY_TO_SWITCHES: dict[Capability | str, SmartThingsSwitchEntityDescriptio
     ),
     Capability.SAMSUNG_CE_POWER_FREEZE: SmartThingsSwitchEntityDescription(
         key=Capability.SAMSUNG_CE_POWER_FREEZE,
-        REDACTED_VALUE"power_freeze",
+        translation_key="power_freeze",
         status_attribute=Attribute.ACTIVATED,
         on_key="True",
         on_command=Command.ACTIVATE,
@@ -173,7 +173,7 @@ CAPABILITY_TO_SWITCHES: dict[Capability | str, SmartThingsSwitchEntityDescriptio
     Capability.SAMSUNG_CE_STEAM_CLOSET_SANITIZE_MODE: (
         SmartThingsSwitchEntityDescription(
             key=Capability.SAMSUNG_CE_STEAM_CLOSET_SANITIZE_MODE,
-            REDACTED_VALUE"sanitize",
+            translation_key="sanitize",
             status_attribute=Attribute.STATUS,
             entity_category=EntityCategory.CONFIG,
         )
@@ -181,14 +181,14 @@ CAPABILITY_TO_SWITCHES: dict[Capability | str, SmartThingsSwitchEntityDescriptio
     Capability.SAMSUNG_CE_STEAM_CLOSET_KEEP_FRESH_MODE: (
         SmartThingsSwitchEntityDescription(
             key=Capability.SAMSUNG_CE_STEAM_CLOSET_KEEP_FRESH_MODE,
-            REDACTED_VALUE"keep_fresh_mode",
+            translation_key="keep_fresh_mode",
             status_attribute=Attribute.STATUS,
             entity_category=EntityCategory.CONFIG,
         )
     ),
     Capability.CUSTOM_DO_NOT_DISTURB_MODE: SmartThingsSwitchEntityDescription(
         key=Capability.CUSTOM_DO_NOT_DISTURB_MODE,
-        REDACTED_VALUE"do_not_disturb",
+        translation_key="do_not_disturb",
         status_attribute=Attribute.DO_NOT_DISTURB,
         entity_category=EntityCategory.CONFIG,
         on_command=Command.DO_NOT_DISTURB_ON,
@@ -196,7 +196,7 @@ CAPABILITY_TO_SWITCHES: dict[Capability | str, SmartThingsSwitchEntityDescriptio
     ),
     Capability.SOUND_DETECTION: SmartThingsSwitchEntityDescription(
         key=Capability.SOUND_DETECTION,
-        REDACTED_VALUE"sound_detection",
+        translation_key="sound_detection",
         status_attribute=Attribute.SOUND_DETECTION_STATE,
         entity_category=EntityCategory.CONFIG,
         on_key="enabled",
@@ -206,7 +206,7 @@ CAPABILITY_TO_SWITCHES: dict[Capability | str, SmartThingsSwitchEntityDescriptio
     Capability.SAMSUNG_CE_STICK_CLEANER_DUSTBIN_STATUS: (
         SmartThingsSwitchEntityDescription(
             key=Capability.SAMSUNG_CE_STICK_CLEANER_DUSTBIN_STATUS,
-            REDACTED_VALUE"empty_dustbin",
+            translation_key="empty_dustbin",
             status_attribute=Attribute.OPERATING_STATE,
             on_key="emptying",
             on_command=Command.START_EMPTYING,
@@ -219,56 +219,56 @@ DISHWASHER_WASHING_OPTIONS_TO_SWITCHES: dict[
 ] = {
     Attribute.ADD_RINSE: SmartThingsDishwasherWashingOptionSwitchEntityDescription(
         key=Attribute.ADD_RINSE,
-        REDACTED_VALUE"add_rinse",
+        translation_key="add_rinse",
         status_attribute=Attribute.ADD_RINSE,
         command=Command.SET_ADD_RINSE,
         entity_category=EntityCategory.CONFIG,
     ),
     Attribute.DRY_PLUS: SmartThingsDishwasherWashingOptionSwitchEntityDescription(
         key=Attribute.DRY_PLUS,
-        REDACTED_VALUE"dry_plus",
+        translation_key="dry_plus",
         status_attribute=Attribute.DRY_PLUS,
         command=Command.SET_DRY_PLUS,
         entity_category=EntityCategory.CONFIG,
     ),
     Attribute.HEATED_DRY: SmartThingsDishwasherWashingOptionSwitchEntityDescription(
         key=Attribute.HEATED_DRY,
-        REDACTED_VALUE"heated_dry",
+        translation_key="heated_dry",
         status_attribute=Attribute.HEATED_DRY,
         command=Command.SET_HEATED_DRY,
         entity_category=EntityCategory.CONFIG,
     ),
     Attribute.HIGH_TEMP_WASH: SmartThingsDishwasherWashingOptionSwitchEntityDescription(
         key=Attribute.HIGH_TEMP_WASH,
-        REDACTED_VALUE"high_temp_wash",
+        translation_key="high_temp_wash",
         status_attribute=Attribute.HIGH_TEMP_WASH,
         command=Command.SET_HIGH_TEMP_WASH,
         entity_category=EntityCategory.CONFIG,
     ),
     Attribute.HOT_AIR_DRY: SmartThingsDishwasherWashingOptionSwitchEntityDescription(
         key=Attribute.HOT_AIR_DRY,
-        REDACTED_VALUE"hot_air_dry",
+        translation_key="hot_air_dry",
         status_attribute=Attribute.HOT_AIR_DRY,
         command=Command.SET_HOT_AIR_DRY,
         entity_category=EntityCategory.CONFIG,
     ),
     Attribute.MULTI_TAB: SmartThingsDishwasherWashingOptionSwitchEntityDescription(
         key=Attribute.MULTI_TAB,
-        REDACTED_VALUE"multi_tab",
+        translation_key="multi_tab",
         status_attribute=Attribute.MULTI_TAB,
         command=Command.SET_MULTI_TAB,
         entity_category=EntityCategory.CONFIG,
     ),
     Attribute.RINSE_PLUS: SmartThingsDishwasherWashingOptionSwitchEntityDescription(
         key=Attribute.RINSE_PLUS,
-        REDACTED_VALUE"rinse_plus",
+        translation_key="rinse_plus",
         status_attribute=Attribute.RINSE_PLUS,
         command=Command.SET_RINSE_PLUS,
         entity_category=EntityCategory.CONFIG,
     ),
     Attribute.SANITIZE: SmartThingsDishwasherWashingOptionSwitchEntityDescription(
         key=Attribute.SANITIZE,
-        REDACTED_VALUE"sanitize",
+        translation_key="sanitize",
         status_attribute=Attribute.SANITIZE,
         command=Command.SET_SANITIZE,
         entity_category=EntityCategory.CONFIG,
@@ -276,7 +276,7 @@ DISHWASHER_WASHING_OPTIONS_TO_SWITCHES: dict[
     Attribute.SANITIZING_WASH: (
         SmartThingsDishwasherWashingOptionSwitchEntityDescription(
             key=Attribute.SANITIZING_WASH,
-            REDACTED_VALUE"sanitizing_wash",
+            translation_key="sanitizing_wash",
             status_attribute=Attribute.SANITIZING_WASH,
             command=Command.SET_SANITIZING_WASH,
             entity_category=EntityCategory.CONFIG,
@@ -284,21 +284,21 @@ DISHWASHER_WASHING_OPTIONS_TO_SWITCHES: dict[
     ),
     Attribute.SPEED_BOOSTER: SmartThingsDishwasherWashingOptionSwitchEntityDescription(
         key=Attribute.SPEED_BOOSTER,
-        REDACTED_VALUE"speed_booster",
+        translation_key="speed_booster",
         status_attribute=Attribute.SPEED_BOOSTER,
         command=Command.SET_SPEED_BOOSTER,
         entity_category=EntityCategory.CONFIG,
     ),
     Attribute.STEAM_SOAK: SmartThingsDishwasherWashingOptionSwitchEntityDescription(
         key=Attribute.STEAM_SOAK,
-        REDACTED_VALUE"steam_soak",
+        translation_key="steam_soak",
         status_attribute=Attribute.STEAM_SOAK,
         command=Command.SET_STEAM_SOAK,
         entity_category=EntityCategory.CONFIG,
     ),
     Attribute.STORM_WASH: SmartThingsDishwasherWashingOptionSwitchEntityDescription(
         key=Attribute.STORM_WASH,
-        REDACTED_VALUE"storm_wash",
+        translation_key="storm_wash",
         status_attribute=Attribute.STORM_WASH,
         command=Command.SET_STORM_WASH,
         entity_category=EntityCategory.CONFIG,

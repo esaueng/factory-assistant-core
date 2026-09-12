@@ -224,7 +224,7 @@ async def async_search_media(
     if search_type is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_media_content_type",
+            translation_key="invalid_media_content_type",
             translation_placeholders={
                 "media_content_type": media_content_type,
             },

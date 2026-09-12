@@ -74,7 +74,7 @@ class LidarrSensorEntityDescription(
 SENSOR_TYPES: dict[str, LidarrSensorEntityDescription[Any]] = {
     "disk_space": LidarrSensorEntityDescription(
         key="disk_space",
-        REDACTED_VALUE"disk_space",
+        translation_key="disk_space",
         native_unit_of_measurement=UnitOfInformation.GIGABYTES,
         device_class=SensorDeviceClass.DATA_SIZE,
         value_fn=get_space,
@@ -83,7 +83,7 @@ SENSOR_TYPES: dict[str, LidarrSensorEntityDescription[Any]] = {
     ),
     "queue": LidarrSensorEntityDescription[LidarrQueue](
         key="queue",
-        REDACTED_VALUE"queue",
+        translation_key="queue",
         native_unit_of_measurement="albums",
         value_fn=lambda data, _: data.totalRecords,
         state_class=SensorStateClass.TOTAL,
@@ -91,7 +91,7 @@ SENSOR_TYPES: dict[str, LidarrSensorEntityDescription[Any]] = {
     ),
     "wanted": LidarrSensorEntityDescription[LidarrQueue](
         key="wanted",
-        REDACTED_VALUE"wanted",
+        translation_key="wanted",
         native_unit_of_measurement="albums",
         value_fn=lambda data, _: data.totalRecords,
         state_class=SensorStateClass.TOTAL,
@@ -103,7 +103,7 @@ SENSOR_TYPES: dict[str, LidarrSensorEntityDescription[Any]] = {
     ),
     "albums": LidarrSensorEntityDescription[int](
         key="albums",
-        REDACTED_VALUE"albums",
+        translation_key="albums",
         native_unit_of_measurement="albums",
         value_fn=lambda data, _: data,
         state_class=SensorStateClass.TOTAL,

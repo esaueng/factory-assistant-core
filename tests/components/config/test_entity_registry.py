@@ -212,7 +212,7 @@ async def test_list_entities_for_display(
                 icon="mdi:icon",
                 original_name="Hello World",
                 platform="test_platform",
-                REDACTED_VALUE"translations_galore",
+                translation_key="translations_galore",
                 unique_id="1234",
             ),
             "test_domain.nameless": RegistryEntryWithDefaults(

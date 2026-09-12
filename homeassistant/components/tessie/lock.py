@@ -77,7 +77,7 @@ class TessieCableLockEntity(TessieEntity, LockEntity):
         """Charge cable Lock cannot be manually locked."""
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"no_cable",
+            translation_key="no_cable",
         )
 
     async def async_unlock(self, **kwargs: Any) -> None:

@@ -310,7 +310,7 @@ class SamsungTVDevice(SamsungTVEntity, MediaPlayerEntity):
             assert self._host
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"error_set_volume",
+                translation_key="error_set_volume",
                 translation_placeholders={"error": repr(err), "host": self._host},
             ) from err
 
@@ -370,7 +370,7 @@ class SamsungTVDevice(SamsungTVEntity, MediaPlayerEntity):
             LOGGER.error("Media ID must be positive integer")
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"media_id_invalid",
+                translation_key="media_id_invalid",
             ) from err
 
         await self._async_send_keys(
@@ -389,6 +389,6 @@ class SamsungTVDevice(SamsungTVEntity, MediaPlayerEntity):
 
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"source_unsupported",
+            translation_key="source_unsupported",
             translation_placeholders={"entity": self.entity_id, "source": source},
         )

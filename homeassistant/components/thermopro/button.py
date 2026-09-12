@@ -45,7 +45,7 @@ async def _async_set_datetime(hass: HomeAssistant, address: str) -> None:
 BUTTON_ENTITIES: tuple[ThermoProButtonEntityDescription, ...] = (
     ThermoProButtonEntityDescription(
         key="datetime",
-        REDACTED_VALUE"set_datetime",
+        translation_key="set_datetime",
         icon="mdi:calendar-clock",
         entity_category=EntityCategory.CONFIG,
         press_action_fn=_async_set_datetime,

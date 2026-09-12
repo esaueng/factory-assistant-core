@@ -109,7 +109,7 @@ async def async_migrate_entry(
             "update_redirect_uri",
             is_fixable=False,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"update_redirect_uri",
+            translation_key="update_redirect_uri",
             translation_placeholders={
                 "viessmann_developer_portal": VIESSMANN_DEVELOPER_PORTAL,
                 "redirect_url": MY_AUTH_CALLBACK_PATH,

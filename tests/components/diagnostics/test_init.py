@@ -117,7 +117,7 @@ async def test_download_diagnostics(
             severity=ir.IssueSeverity.WARNING,
             is_fixable=False,
             is_persistent=True,
-            REDACTED_VALUE"test_issue",
+            translation_key="test_issue",
         )
 
     with patch.object(integration, "manifest", original_manifest):

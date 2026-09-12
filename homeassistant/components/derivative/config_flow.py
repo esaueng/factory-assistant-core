@@ -92,7 +92,7 @@ async def _get_options_dict(handler: SchemaCommonFlowHandler | None) -> dict:
                 max=6,
                 mode=selector.NumberSelectorMode.BOX,
                 unit_of_measurement="decimals",
-                REDACTED_VALUE"round",
+                translation_key="round",
             ),
         ),
         vol.Required(CONF_TIME_WINDOW): selector.DurationSelector(),
@@ -101,7 +101,7 @@ async def _get_options_dict(handler: SchemaCommonFlowHandler | None) -> dict:
         ),
         vol.Required(CONF_UNIT_TIME, default=UnitOfTime.HOURS): selector.SelectSelector(
             selector.SelectSelectorConfig(
-                options=TIME_UNITS, REDACTED_VALUE"time_unit"
+                options=TIME_UNITS, translation_key="time_unit"
             ),
         ),
         vol.Optional(CONF_MAX_SUB_INTERVAL): selector.DurationSelector(

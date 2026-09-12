@@ -26,14 +26,14 @@ class LektricoSwitchEntityDescription(SwitchEntityDescription):
 SWITCHS_FOR_ALL_CHARGERS: tuple[LektricoSwitchEntityDescription, ...] = (
     LektricoSwitchEntityDescription(
         key="authentication",
-        REDACTED_VALUE"authentication",
+        translation_key="authentication",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda data: bool(data["require_auth"]),
         set_value_fn=lambda device, data, value: device.set_auth(not value),
     ),
     LektricoSwitchEntityDescription(
         key="lock",
-        REDACTED_VALUE"lock",
+        translation_key="lock",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda data: str(data["charger_state"]) == "locked",
         set_value_fn=lambda device, data, value: device.set_charger_locked(value),
@@ -44,7 +44,7 @@ SWITCHS_FOR_ALL_CHARGERS: tuple[LektricoSwitchEntityDescription, ...] = (
 SWITCHS_FOR_3_PHASE_CHARGERS: tuple[LektricoSwitchEntityDescription, ...] = (
     LektricoSwitchEntityDescription(
         key="force_single_phase",
-        REDACTED_VALUE"force_single_phase",
+        translation_key="force_single_phase",
         entity_category=EntityCategory.CONFIG,
         value_fn=lambda data: data["relay_mode"] == 1,
         set_value_fn=lambda device, data, value: (

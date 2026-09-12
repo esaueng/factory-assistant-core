@@ -16,7 +16,7 @@ from .entity import FliprEntity
 SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="chlorine",
-        REDACTED_VALUE"chlorine",
+        translation_key="chlorine",
         native_unit_of_measurement="mg/L",
         state_class=SensorStateClass.MEASUREMENT,
     ),
@@ -27,19 +27,19 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     ),
     SensorEntityDescription(
         key="temperature",
-        REDACTED_VALUE"water_temperature",
+        translation_key="water_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="date_time",
-        REDACTED_VALUE"last_measured",
+        translation_key="last_measured",
         device_class=SensorDeviceClass.TIMESTAMP,
     ),
     SensorEntityDescription(
         key="red_ox",
-        REDACTED_VALUE"red_ox",
+        translation_key="red_ox",
         native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
         state_class=SensorStateClass.MEASUREMENT,
     ),

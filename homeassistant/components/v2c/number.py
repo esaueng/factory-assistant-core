@@ -39,7 +39,7 @@ class V2CSettingsNumberEntityDescription(NumberEntityDescription):
 TRYDAN_NUMBER_SETTINGS = (
     V2CSettingsNumberEntityDescription(
         key="intensity",
-        REDACTED_VALUE"intensity",
+        translation_key="intensity",
         device_class=NumberDeviceClass.CURRENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         native_min_value=MIN_INTENSITY,
@@ -49,7 +49,7 @@ TRYDAN_NUMBER_SETTINGS = (
     ),
     V2CSettingsNumberEntityDescription(
         key="min_intensity",
-        REDACTED_VALUE"min_intensity",
+        translation_key="min_intensity",
         device_class=NumberDeviceClass.CURRENT,
         entity_category=EntityCategory.CONFIG,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
@@ -60,7 +60,7 @@ TRYDAN_NUMBER_SETTINGS = (
     ),
     V2CSettingsNumberEntityDescription(
         key="max_intensity",
-        REDACTED_VALUE"max_intensity",
+        translation_key="max_intensity",
         device_class=NumberDeviceClass.CURRENT,
         entity_category=EntityCategory.CONFIG,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
@@ -71,7 +71,7 @@ TRYDAN_NUMBER_SETTINGS = (
     ),
     V2CSettingsNumberEntityDescription(
         key="voltage_installation",
-        REDACTED_VALUE"voltage_installation",
+        translation_key="voltage_installation",
         device_class=NumberDeviceClass.VOLTAGE,
         entity_category=EntityCategory.CONFIG,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,

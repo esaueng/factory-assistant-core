@@ -144,7 +144,7 @@ def create_trigger_format_issue(
         issue_id,
         is_fixable=False,
         severity=IssueSeverity.WARNING,
-        REDACTED_VALUEf"config_format_{option}",
+        translation_key=f"config_format_{option}",
         translation_placeholders={"config": yaml_config},
     )
 

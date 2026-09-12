@@ -34,7 +34,7 @@ class AqvifySensorEntityDescription(SensorEntityDescription):
 ENTITIES: tuple[AqvifySensorEntityDescription, ...] = (
     AqvifySensorEntityDescription(
         key="meter_value",
-        REDACTED_VALUE"meter_value",
+        translation_key="meter_value",
         native_unit_of_measurement=UnitOfLength.METERS,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.DISTANCE,
@@ -43,7 +43,7 @@ ENTITIES: tuple[AqvifySensorEntityDescription, ...] = (
     ),
     AqvifySensorEntityDescription(
         key="water_level",
-        REDACTED_VALUE"water_level",
+        translation_key="water_level",
         native_unit_of_measurement=UnitOfLength.METERS,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.DISTANCE,

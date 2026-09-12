@@ -29,13 +29,13 @@ DIRECTIONS = ["arrived", "away_from", "stationary", "towards"]
 SENSORS_PER_ENTITY: list[SensorEntityDescription] = [
     SensorEntityDescription(
         key=ATTR_DIST_TO,
-        REDACTED_VALUEATTR_DIST_TO,
+        translation_key=ATTR_DIST_TO,
         device_class=SensorDeviceClass.DISTANCE,
         native_unit_of_measurement=UnitOfLength.METERS,
     ),
     SensorEntityDescription(
         key=ATTR_DIR_OF_TRAVEL,
-        REDACTED_VALUEATTR_DIR_OF_TRAVEL,
+        translation_key=ATTR_DIR_OF_TRAVEL,
         device_class=SensorDeviceClass.ENUM,
         options=DIRECTIONS,
     ),
@@ -44,17 +44,17 @@ SENSORS_PER_ENTITY: list[SensorEntityDescription] = [
 SENSORS_PER_PROXIMITY: list[SensorEntityDescription] = [
     SensorEntityDescription(
         key=ATTR_NEAREST,
-        REDACTED_VALUEATTR_NEAREST,
+        translation_key=ATTR_NEAREST,
     ),
     SensorEntityDescription(
         key=ATTR_DIST_TO,
-        REDACTED_VALUEATTR_NEAREST_DIST_TO,
+        translation_key=ATTR_NEAREST_DIST_TO,
         device_class=SensorDeviceClass.DISTANCE,
         native_unit_of_measurement=UnitOfLength.METERS,
     ),
     SensorEntityDescription(
         key=ATTR_DIR_OF_TRAVEL,
-        REDACTED_VALUEATTR_NEAREST_DIR_OF_TRAVEL,
+        translation_key=ATTR_NEAREST_DIR_OF_TRAVEL,
         device_class=SensorDeviceClass.ENUM,
         options=DIRECTIONS,
     ),

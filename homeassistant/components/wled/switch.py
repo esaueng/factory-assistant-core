@@ -31,8 +31,8 @@ class WLEDSegmentSwitchEntityDescription(SwitchEntityDescription):
 SEGMENT_SWITCHES: tuple[WLEDSegmentSwitchEntityDescription, ...] = (
     WLEDSegmentSwitchEntityDescription(
         key="reverse",
-        REDACTED_VALUE"reverse",
-        segment_REDACTED_VALUE"segment_reverse",
+        translation_key="reverse",
+        segment_translation_key="segment_reverse",
         set_segment=lambda wled, segment, value: wled.segment(
             segment_id=segment,
             reverse=value,
@@ -40,8 +40,8 @@ SEGMENT_SWITCHES: tuple[WLEDSegmentSwitchEntityDescription, ...] = (
     ),
     WLEDSegmentSwitchEntityDescription(
         key="freeze",
-        REDACTED_VALUE"freeze",
-        segment_REDACTED_VALUE"segment_freeze",
+        translation_key="freeze",
+        segment_translation_key="segment_freeze",
         set_segment=lambda wled, segment, value: wled.segment(
             segment_id=segment,
             freeze=value,

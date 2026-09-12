@@ -28,7 +28,7 @@ class UnifiAccessEventEntityDescription(EventEntityDescription):
 
 DOORBELL_EVENT_DESCRIPTION = UnifiAccessEventEntityDescription(
     key="doorbell",
-    REDACTED_VALUE"doorbell",
+    translation_key="doorbell",
     device_class=EventDeviceClass.DOORBELL,
     event_types=[DoorbellEventType.RING],
     category="doorbell",
@@ -36,7 +36,7 @@ DOORBELL_EVENT_DESCRIPTION = UnifiAccessEventEntityDescription(
 
 ACCESS_EVENT_DESCRIPTION = UnifiAccessEventEntityDescription(
     key="access",
-    REDACTED_VALUE"access",
+    translation_key="access",
     event_types=["access_granted", "access_denied"],
     category="access",
 )

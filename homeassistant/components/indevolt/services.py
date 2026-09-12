@@ -134,7 +134,7 @@ def _validate_realtime_action(
     if errors:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"multi_device_errors",
+            translation_key="multi_device_errors",
             translation_placeholders={"errors": "; ".join(errors)},
         )
 
@@ -166,7 +166,7 @@ async def _execute_realtime_action(
     if errors:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"multi_device_errors",
+            translation_key="multi_device_errors",
             translation_placeholders={"errors": "; ".join(errors)},
         )
 
@@ -175,7 +175,7 @@ def _raise_power_exceeds_max(power: int, max_power: int, generation: int) -> Nev
     """Raise a translated validation error for out-of-range power."""
     raise ServiceValidationError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"power_exceeds_max",
+        translation_key="power_exceeds_max",
         translation_placeholders={
             "power": str(power),
             "max_power": str(max_power),
@@ -191,7 +191,7 @@ def _raise_soc_below_minimum(target_soc: int, minimum_soc: int) -> Never:
     """
     raise ServiceValidationError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"soc_below_minimum",
+        translation_key="soc_below_minimum",
         translation_placeholders={
             "target": str(target_soc),
             "minimum_soc": str(minimum_soc),
@@ -203,7 +203,7 @@ def _raise_soc_below_emergency(target: int, emergency_soc: int) -> Never:
     """Raise a translated validation error for out-of-range SOC."""
     raise ServiceValidationError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"soc_below_emergency",
+        translation_key="soc_below_emergency",
         translation_placeholders={
             "target": str(target),
             "emergency_soc": str(emergency_soc),
@@ -215,5 +215,5 @@ def _raise_no_target_entries() -> Never:
     """Raise a translated validation error for missing/invalid service targets."""
     raise ServiceValidationError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"no_matching_target_entries",
+        translation_key="no_matching_target_entries",
     )

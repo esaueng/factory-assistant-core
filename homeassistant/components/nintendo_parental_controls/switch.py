@@ -39,7 +39,7 @@ class NintendoParentalControlsSwitchEntityDescription(SwitchEntityDescription):
 SWITCH_DESCRIPTIONS: tuple[NintendoParentalControlsSwitchEntityDescription, ...] = (
     NintendoParentalControlsSwitchEntityDescription(
         key=NintendoParentalSwitch.SUSPEND_SOFTWARE,
-        REDACTED_VALUENintendoParentalSwitch.SUSPEND_SOFTWARE,
+        translation_key=NintendoParentalSwitch.SUSPEND_SOFTWARE,
         device_class=SwitchDeviceClass.SWITCH,
         is_on=lambda device: device.forced_termination_mode,
         turn_off_fn=lambda device: device.set_restriction_mode(RestrictionMode.ALARM),

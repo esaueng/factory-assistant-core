@@ -32,7 +32,7 @@ class AirobotSwitchEntityDescription(SwitchEntityDescription):
 SWITCH_TYPES: tuple[AirobotSwitchEntityDescription, ...] = (
     AirobotSwitchEntityDescription(
         key="child_lock",
-        REDACTED_VALUE"child_lock",
+        translation_key="child_lock",
         entity_category=EntityCategory.CONFIG,
         is_on_fn=lambda coordinator: (
             coordinator.data.settings.setting_flags.childlock_enabled
@@ -42,7 +42,7 @@ SWITCH_TYPES: tuple[AirobotSwitchEntityDescription, ...] = (
     ),
     AirobotSwitchEntityDescription(
         key="actuator_exercise_disabled",
-        REDACTED_VALUE"actuator_exercise_disabled",
+        translation_key="actuator_exercise_disabled",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         is_on_fn=lambda coordinator: (
@@ -98,7 +98,7 @@ class AirobotSwitch(AirobotEntity, SwitchEntity):
         except AirobotError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"switch_turn_on_failed",
+                translation_key="switch_turn_on_failed",
                 translation_placeholders={"switch": self.entity_description.key},
             ) from err
         await self.coordinator.async_request_refresh()
@@ -110,7 +110,7 @@ class AirobotSwitch(AirobotEntity, SwitchEntity):
         except AirobotError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"switch_turn_off_failed",
+                translation_key="switch_turn_off_failed",
                 translation_placeholders={"switch": self.entity_description.key},
             ) from err
         await self.coordinator.async_request_refresh()

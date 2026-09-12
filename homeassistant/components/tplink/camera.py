@@ -43,7 +43,7 @@ class TPLinkCameraEntityDescription(
 CAMERA_DESCRIPTIONS: tuple[TPLinkCameraEntityDescription, ...] = (
     TPLinkCameraEntityDescription(
         key="live_view",
-        REDACTED_VALUE"live_view",
+        translation_key="live_view",
         available_fn=lambda dev: dev.is_on,
         exists_fn=lambda dev, entry: (
             (rtd := entry.runtime_data) is not None

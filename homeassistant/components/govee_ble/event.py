@@ -22,7 +22,7 @@ from .coordinator import GoveeBLEConfigEntry, format_event_dispatcher_name
 BUTTON_DESCRIPTIONS = [
     EventEntityDescription(
         key=f"button_{i}",
-        REDACTED_VALUEf"button_{i}",
+        translation_key=f"button_{i}",
         event_types=["press"],
         device_class=EventDeviceClass.BUTTON,
     )
@@ -36,7 +36,7 @@ MOTION_DESCRIPTION = EventEntityDescription(
 VIBRATION_DESCRIPTION = EventEntityDescription(
     key="vibration",
     event_types=["vibration"],
-    REDACTED_VALUE"vibration",
+    translation_key="vibration",
 )
 
 

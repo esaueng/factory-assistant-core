@@ -38,7 +38,7 @@ def _type_byte_for_frequency(frequency: int) -> int:
         return _RF_315_TYPE_BYTE
     raise HomeAssistantError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"frequency_not_supported",
+        translation_key="frequency_not_supported",
         translation_placeholders={"frequency": f"{frequency / 1_000_000:g}"},
     )
 
@@ -125,6 +125,6 @@ class BroadlinkRadioFrequency(BroadlinkEntity, RadioFrequencyTransmitterEntity):
         except (BroadlinkException, OSError) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"transmit_failed",
+                translation_key="transmit_failed",
                 translation_placeholders={"error": str(err)},
             ) from err

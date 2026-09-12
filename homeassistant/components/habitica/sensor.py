@@ -120,7 +120,7 @@ class HabiticaSensorEntity(StrEnum):
 SENSOR_DESCRIPTIONS_COMMON: tuple[HabiticaSensorEntityDescription, ...] = (
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.DISPLAY_NAME,
-        REDACTED_VALUEHabiticaSensorEntity.DISPLAY_NAME,
+        translation_key=HabiticaSensorEntity.DISPLAY_NAME,
         value_fn=lambda user, _: user.profile.name,
         attributes_fn=lambda user, _: {
             "username": f"@{user.auth.local.username}",
@@ -140,51 +140,51 @@ SENSOR_DESCRIPTIONS_COMMON: tuple[HabiticaSensorEntityDescription, ...] = (
     ),
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.HEALTH,
-        REDACTED_VALUEHabiticaSensorEntity.HEALTH,
+        translation_key=HabiticaSensorEntity.HEALTH,
         suggested_display_precision=0,
         value_fn=lambda user, _: user.stats.hp,
         entity_picture=ha.HP,
     ),
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.MANA,
-        REDACTED_VALUEHabiticaSensorEntity.MANA,
+        translation_key=HabiticaSensorEntity.MANA,
         suggested_display_precision=0,
         value_fn=lambda user, _: user.stats.mp,
         entity_picture=ha.MP,
     ),
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.MANA_MAX,
-        REDACTED_VALUEHabiticaSensorEntity.MANA_MAX,
+        translation_key=HabiticaSensorEntity.MANA_MAX,
         value_fn=lambda user, _: user.stats.maxMP,
         entity_picture=ha.MP,
     ),
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.EXPERIENCE,
-        REDACTED_VALUEHabiticaSensorEntity.EXPERIENCE,
+        translation_key=HabiticaSensorEntity.EXPERIENCE,
         value_fn=lambda user, _: user.stats.exp,
         entity_picture=ha.XP,
     ),
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.EXPERIENCE_MAX,
-        REDACTED_VALUEHabiticaSensorEntity.EXPERIENCE_MAX,
+        translation_key=HabiticaSensorEntity.EXPERIENCE_MAX,
         value_fn=lambda user, _: user.stats.toNextLevel,
         entity_picture=ha.XP,
     ),
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.LEVEL,
-        REDACTED_VALUEHabiticaSensorEntity.LEVEL,
+        translation_key=HabiticaSensorEntity.LEVEL,
         value_fn=lambda user, _: user.stats.lvl,
     ),
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.CLASS,
-        REDACTED_VALUEHabiticaSensorEntity.CLASS,
+        translation_key=HabiticaSensorEntity.CLASS,
         value_fn=lambda user, _: user.stats.Class.value if user.stats.Class else None,
         device_class=SensorDeviceClass.ENUM,
         options=[item.value for item in HabiticaClass],
     ),
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.STRENGTH,
-        REDACTED_VALUEHabiticaSensorEntity.STRENGTH,
+        translation_key=HabiticaSensorEntity.STRENGTH,
         value_fn=lambda user, content: get_attributes_total(user, content, "Str"),
         attributes_fn=lambda user, content: get_attribute_points(user, content, "Str"),
         suggested_display_precision=0,
@@ -192,7 +192,7 @@ SENSOR_DESCRIPTIONS_COMMON: tuple[HabiticaSensorEntityDescription, ...] = (
     ),
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.INTELLIGENCE,
-        REDACTED_VALUEHabiticaSensorEntity.INTELLIGENCE,
+        translation_key=HabiticaSensorEntity.INTELLIGENCE,
         value_fn=lambda user, content: get_attributes_total(user, content, "Int"),
         attributes_fn=lambda user, content: get_attribute_points(user, content, "Int"),
         suggested_display_precision=0,
@@ -200,7 +200,7 @@ SENSOR_DESCRIPTIONS_COMMON: tuple[HabiticaSensorEntityDescription, ...] = (
     ),
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.PERCEPTION,
-        REDACTED_VALUEHabiticaSensorEntity.PERCEPTION,
+        translation_key=HabiticaSensorEntity.PERCEPTION,
         value_fn=lambda user, content: get_attributes_total(user, content, "per"),
         attributes_fn=lambda user, content: get_attribute_points(user, content, "per"),
         suggested_display_precision=0,
@@ -208,7 +208,7 @@ SENSOR_DESCRIPTIONS_COMMON: tuple[HabiticaSensorEntityDescription, ...] = (
     ),
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.CONSTITUTION,
-        REDACTED_VALUEHabiticaSensorEntity.CONSTITUTION,
+        translation_key=HabiticaSensorEntity.CONSTITUTION,
         value_fn=lambda user, content: get_attributes_total(user, content, "con"),
         attributes_fn=lambda user, content: get_attribute_points(user, content, "con"),
         suggested_display_precision=0,
@@ -216,7 +216,7 @@ SENSOR_DESCRIPTIONS_COMMON: tuple[HabiticaSensorEntityDescription, ...] = (
     ),
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.LAST_CHECKIN,
-        REDACTED_VALUEHabiticaSensorEntity.LAST_CHECKIN,
+        translation_key=HabiticaSensorEntity.LAST_CHECKIN,
         value_fn=(
             lambda user, _: (
                 dt_util.as_local(last)
@@ -230,21 +230,21 @@ SENSOR_DESCRIPTIONS_COMMON: tuple[HabiticaSensorEntityDescription, ...] = (
 SENSOR_DESCRIPTIONS: tuple[HabiticaSensorEntityDescription, ...] = (
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.GOLD,
-        REDACTED_VALUEHabiticaSensorEntity.GOLD,
+        translation_key=HabiticaSensorEntity.GOLD,
         suggested_display_precision=2,
         value_fn=lambda user, _: user.stats.gp,
         entity_picture=ha.GP,
     ),
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.GEMS,
-        REDACTED_VALUEHabiticaSensorEntity.GEMS,
+        translation_key=HabiticaSensorEntity.GEMS,
         value_fn=lambda user, _: None if (b := user.balance) is None else round(b * 4),
         suggested_display_precision=0,
         entity_picture="shop_gem.png",
     ),
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.TRINKETS,
-        REDACTED_VALUEHabiticaSensorEntity.TRINKETS,
+        translation_key=HabiticaSensorEntity.TRINKETS,
         value_fn=lambda user, _: user.purchased.plan.consecutive.trinkets,
         suggested_display_precision=0,
         native_unit_of_measurement="⧖",
@@ -252,14 +252,14 @@ SENSOR_DESCRIPTIONS: tuple[HabiticaSensorEntityDescription, ...] = (
     ),
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.EGGS_TOTAL,
-        REDACTED_VALUEHabiticaSensorEntity.EGGS_TOTAL,
+        translation_key=HabiticaSensorEntity.EGGS_TOTAL,
         value_fn=lambda user, _: sum(n for n in user.items.eggs.values()),
         entity_picture="Pet_Egg_Egg.png",
         attributes_fn=lambda user, content: inventory_list(user, content, "eggs"),
     ),
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.HATCHING_POTIONS_TOTAL,
-        REDACTED_VALUEHabiticaSensorEntity.HATCHING_POTIONS_TOTAL,
+        translation_key=HabiticaSensorEntity.HATCHING_POTIONS_TOTAL,
         value_fn=lambda user, _: sum(n for n in user.items.hatchingPotions.values()),
         entity_picture="Pet_HatchingPotion_RoyalPurple.png",
         attributes_fn=(
@@ -268,7 +268,7 @@ SENSOR_DESCRIPTIONS: tuple[HabiticaSensorEntityDescription, ...] = (
     ),
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.FOOD_TOTAL,
-        REDACTED_VALUEHabiticaSensorEntity.FOOD_TOTAL,
+        translation_key=HabiticaSensorEntity.FOOD_TOTAL,
         value_fn=(
             lambda user, _: sum(n for k, n in user.items.food.items() if k != "Saddle")
         ),
@@ -277,27 +277,27 @@ SENSOR_DESCRIPTIONS: tuple[HabiticaSensorEntityDescription, ...] = (
     ),
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.SADDLE,
-        REDACTED_VALUEHabiticaSensorEntity.SADDLE,
+        translation_key=HabiticaSensorEntity.SADDLE,
         value_fn=lambda user, _: user.items.food.get("Saddle", 0),
         entity_picture="Pet_Food_Saddle.png",
     ),
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.QUEST_SCROLLS,
-        REDACTED_VALUEHabiticaSensorEntity.QUEST_SCROLLS,
+        translation_key=HabiticaSensorEntity.QUEST_SCROLLS,
         value_fn=(lambda user, _: sum(n for n in user.items.quests.values())),
         entity_picture="inventory_quest_scroll_dustbunnies.png",
         attributes_fn=lambda user, content: inventory_list(user, content, "quests"),
     ),
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.PENDING_DAMAGE,
-        REDACTED_VALUEHabiticaSensorEntity.PENDING_DAMAGE,
+        translation_key=HabiticaSensorEntity.PENDING_DAMAGE,
         value_fn=pending_damage,
         suggested_display_precision=1,
         entity_picture=ha.DAMAGE,
     ),
     HabiticaSensorEntityDescription(
         key=HabiticaSensorEntity.PENDING_QUEST_ITEMS,
-        REDACTED_VALUEHabiticaSensorEntity.PENDING_QUEST_ITEMS,
+        translation_key=HabiticaSensorEntity.PENDING_QUEST_ITEMS,
         value_fn=pending_quest_items,
     ),
 )
@@ -306,18 +306,18 @@ SENSOR_DESCRIPTIONS: tuple[HabiticaSensorEntityDescription, ...] = (
 SENSOR_DESCRIPTIONS_PARTY: tuple[HabiticaPartySensorEntityDescription, ...] = (
     HabiticaPartySensorEntityDescription(
         key=HabiticaSensorEntity.MEMBER_COUNT,
-        REDACTED_VALUEHabiticaSensorEntity.MEMBER_COUNT,
+        translation_key=HabiticaSensorEntity.MEMBER_COUNT,
         value_fn=lambda party, _: party.memberCount,
         entity_picture=ha.PARTY,
     ),
     HabiticaPartySensorEntityDescription(
         key=HabiticaSensorEntity.GROUP_LEADER,
-        REDACTED_VALUEHabiticaSensorEntity.GROUP_LEADER,
+        translation_key=HabiticaSensorEntity.GROUP_LEADER,
         value_fn=lambda party, _: party.leader.profile.name,
     ),
     HabiticaPartySensorEntityDescription(
         key=HabiticaSensorEntity.QUEST,
-        REDACTED_VALUEHabiticaSensorEntity.QUEST,
+        translation_key=HabiticaSensorEntity.QUEST,
         value_fn=lambda p, c: c.quests[p.quest.key].text if p.quest.key else None,
         attributes_fn=quest_attributes,
         entity_picture=(
@@ -330,26 +330,26 @@ SENSOR_DESCRIPTIONS_PARTY: tuple[HabiticaPartySensorEntityDescription, ...] = (
     ),
     HabiticaPartySensorEntityDescription(
         key=HabiticaSensorEntity.BOSS,
-        REDACTED_VALUEHabiticaSensorEntity.BOSS,
+        translation_key=HabiticaSensorEntity.BOSS,
         value_fn=lambda p, c: boss.name if (boss := quest_boss(p, c)) else None,
     ),
     HabiticaPartySensorEntityDescription(
         key=HabiticaSensorEntity.BOSS_HP,
-        REDACTED_VALUEHabiticaSensorEntity.BOSS_HP,
+        translation_key=HabiticaSensorEntity.BOSS_HP,
         value_fn=lambda p, c: boss.hp if (boss := quest_boss(p, c)) else None,
         entity_picture=ha.HP,
         suggested_display_precision=0,
     ),
     HabiticaPartySensorEntityDescription(
         key=HabiticaSensorEntity.BOSS_HP_REMAINING,
-        REDACTED_VALUEHabiticaSensorEntity.BOSS_HP_REMAINING,
+        translation_key=HabiticaSensorEntity.BOSS_HP_REMAINING,
         value_fn=lambda p, _: p.quest.progress.hp,
         entity_picture=ha.HP,
         suggested_display_precision=2,
     ),
     HabiticaPartySensorEntityDescription(
         key=HabiticaSensorEntity.COLLECTED_ITEMS,
-        REDACTED_VALUEHabiticaSensorEntity.COLLECTED_ITEMS,
+        translation_key=HabiticaSensorEntity.COLLECTED_ITEMS,
         value_fn=(
             lambda p, _: (
                 sum(n for n in p.quest.progress.collect.values())
@@ -369,14 +369,14 @@ SENSOR_DESCRIPTIONS_PARTY: tuple[HabiticaPartySensorEntityDescription, ...] = (
     ),
     HabiticaPartySensorEntityDescription(
         key=HabiticaSensorEntity.BOSS_RAGE,
-        REDACTED_VALUEHabiticaSensorEntity.BOSS_RAGE,
+        translation_key=HabiticaSensorEntity.BOSS_RAGE,
         value_fn=lambda p, _: p.quest.progress.rage,
         entity_picture=ha.RAGE,
         suggested_display_precision=2,
     ),
     HabiticaPartySensorEntityDescription(
         key=HabiticaSensorEntity.BOSS_RAGE_LIMIT,
-        REDACTED_VALUEHabiticaSensorEntity.BOSS_RAGE_LIMIT,
+        translation_key=HabiticaSensorEntity.BOSS_RAGE_LIMIT,
         value_fn=(
             lambda p, c: (
                 boss.rage.value if (boss := quest_boss(p, c)) and boss.rage else None

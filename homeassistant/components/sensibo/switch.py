@@ -37,7 +37,7 @@ class SensiboDeviceSwitchEntityDescription(SwitchEntityDescription):
 DEVICE_SWITCH_TYPES: tuple[SensiboDeviceSwitchEntityDescription, ...] = (
     SensiboDeviceSwitchEntityDescription(
         key="timer_on_switch",
-        REDACTED_VALUE"timer_on_switch",
+        translation_key="timer_on_switch",
         device_class=SwitchDeviceClass.SWITCH,
         value_fn=lambda data: data.timer_on,
         extra_fn=lambda data: {"id": data.timer_id, "turn_on": data.timer_state_on},
@@ -47,7 +47,7 @@ DEVICE_SWITCH_TYPES: tuple[SensiboDeviceSwitchEntityDescription, ...] = (
     ),
     SensiboDeviceSwitchEntityDescription(
         key="climate_react_switch",
-        REDACTED_VALUE"climate_react_switch",
+        translation_key="climate_react_switch",
         device_class=SwitchDeviceClass.SWITCH,
         value_fn=lambda data: data.smart_on,
         extra_fn=lambda data: {"type": data.smart_type},
@@ -60,7 +60,7 @@ DEVICE_SWITCH_TYPES: tuple[SensiboDeviceSwitchEntityDescription, ...] = (
 PURE_SWITCH_TYPES: tuple[SensiboDeviceSwitchEntityDescription, ...] = (
     SensiboDeviceSwitchEntityDescription(
         key="pure_boost_switch",
-        REDACTED_VALUE"pure_boost_switch",
+        translation_key="pure_boost_switch",
         device_class=SwitchDeviceClass.SWITCH,
         value_fn=lambda data: data.pure_boost_enabled,
         extra_fn=None,
@@ -189,7 +189,7 @@ class SensiboDeviceSwitch(SensiboDeviceBaseEntity, SwitchEntity):
         if self.device_data.smart_type is None:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"climate_react_not_available",
+                translation_key="climate_react_not_available",
             )
         data: dict[str, Any] = {"enabled": value}
         result = await self._client.async_enable_climate_react(self._device_id, data)

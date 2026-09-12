@@ -26,7 +26,7 @@ class WallboxButtonEntityDescription(ButtonEntityDescription):
 BUTTON_TYPES: dict[str, WallboxButtonEntityDescription] = {
     CHARGER_RESUME_SCHEDULE_KEY: WallboxButtonEntityDescription(
         key=CHARGER_RESUME_SCHEDULE_KEY,
-        REDACTED_VALUECHARGER_RESUME_SCHEDULE_KEY,
+        translation_key=CHARGER_RESUME_SCHEDULE_KEY,
         press_fn=lambda coordinator: coordinator.async_resume_schedule(),
     ),
 }

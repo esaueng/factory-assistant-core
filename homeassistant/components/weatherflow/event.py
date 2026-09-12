@@ -25,13 +25,13 @@ class WeatherFlowEventEntityDescription(EventEntityDescription):
 EVENT_DESCRIPTIONS: list[WeatherFlowEventEntityDescription] = [
     WeatherFlowEventEntityDescription(
         key="precip_start_event",
-        REDACTED_VALUE"precip_start_event",
+        translation_key="precip_start_event",
         event_types=["precipitation_start"],
         wf_event=EVENT_RAIN_START,
     ),
     WeatherFlowEventEntityDescription(
         key="lightning_strike_event",
-        REDACTED_VALUE"lightning_strike_event",
+        translation_key="lightning_strike_event",
         event_types=["lightning_strike"],
         wf_event=EVENT_STRIKE,
     ),

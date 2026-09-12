@@ -170,7 +170,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterNumberEntityDescription(
             key="on_level",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"on_level",
+            translation_key="on_level",
             native_max_value=255,
             native_min_value=0,
             mode=NumberMode.BOX,
@@ -190,7 +190,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterNumberEntityDescription(
             key="power_on_level",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"power_on_level",
+            translation_key="power_on_level",
             native_max_value=255,
             native_min_value=0,
             mode=NumberMode.BOX,
@@ -210,7 +210,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterNumberEntityDescription(
             key="on_transition_time",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"on_transition_time",
+            translation_key="on_transition_time",
             native_max_value=65534,
             native_min_value=0,
             device_to_ha=lambda x: None if x is None else x / 10,
@@ -229,7 +229,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterNumberEntityDescription(
             key="off_transition_time",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"off_transition_time",
+            translation_key="off_transition_time",
             native_max_value=65534,
             native_min_value=0,
             device_to_ha=lambda x: None if x is None else x / 10,
@@ -248,7 +248,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterNumberEntityDescription(
             key="on_off_transition_time",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"on_off_transition_time",
+            translation_key="on_off_transition_time",
             native_max_value=65534,
             native_min_value=0,
             device_to_ha=lambda x: None if x is None else x / 10,
@@ -268,7 +268,7 @@ DISCOVERY_SCHEMAS = [
             key="EveWeatherAltitude",
             device_class=NumberDeviceClass.DISTANCE,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"altitude",
+            translation_key="altitude",
             native_max_value=9000,
             native_min_value=0,
             native_unit_of_measurement=UnitOfLength.METERS,
@@ -283,7 +283,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterRangeNumberEntityDescription(
             key="ThermostatOccupiedSetback",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"occupied_setback",
+            translation_key="occupied_setback",
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             device_to_ha=lambda x: None if x is None else x / 10,
             ha_to_device=lambda x: round(x * 10),
@@ -309,7 +309,7 @@ DISCOVERY_SCHEMAS = [
             key="EveTemperatureOffset",
             device_class=NumberDeviceClass.TEMPERATURE,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"temperature_offset",
+            translation_key="temperature_offset",
             native_max_value=50,
             native_min_value=-50,
             native_step=0.5,
@@ -330,7 +330,7 @@ DISCOVERY_SCHEMAS = [
             key="TemperatureOffset",
             device_class=NumberDeviceClass.TEMPERATURE,
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"temperature_offset",
+            translation_key="temperature_offset",
             native_max_value=25,  # Matter 1.3 limit
             native_min_value=-25,  # Matter 1.3 limit
             native_step=0.5,
@@ -349,7 +349,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterNumberEntityDescription(
             key="pump_setpoint",
             native_unit_of_measurement=PERCENTAGE,
-            REDACTED_VALUE"pump_setpoint",
+            translation_key="pump_setpoint",
             native_max_value=100,
             native_min_value=0.5,
             native_step=0.5,
@@ -372,7 +372,7 @@ DISCOVERY_SCHEMAS = [
             key="PIROccupiedToUnoccupiedDelay",
             entity_category=EntityCategory.CONFIG,
             # pir_occupied_to_unoccupied_delay for old revisions
-            REDACTED_VALUE"hold_time",
+            translation_key="hold_time",
             native_max_value=65534,
             native_min_value=0,
             native_unit_of_measurement=UnitOfTime.SECONDS,
@@ -389,7 +389,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterNumberEntityDescription(
             key="OccupancySensingHoldTime",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"hold_time",
+            translation_key="hold_time",
             native_max_value=65534,
             native_min_value=1,
             native_unit_of_measurement=UnitOfTime.SECONDS,
@@ -406,7 +406,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterNumberEntityDescription(
             key="OccupancySensingPIRUnoccupiedToOccupiedDelay",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"detection_delay",
+            translation_key="detection_delay",
             native_max_value=65534,
             native_min_value=0,
             native_unit_of_measurement=UnitOfTime.SECONDS,
@@ -427,7 +427,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterNumberEntityDescription(
             key="OccupancySensingPIRUnoccupiedToOccupiedThreshold",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"detection_threshold",
+            translation_key="detection_threshold",
             native_max_value=254,
             native_min_value=1,
             mode=NumberMode.BOX,
@@ -445,7 +445,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterRangeNumberEntityDescription(
             key="BooleanStateConfigurationCurrentSensitivityLevel",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"sensitivity_level",
+            translation_key="sensitivity_level",
             native_min_value=1,
             native_step=1,
             device_to_ha=lambda x: x + 1,
@@ -470,7 +470,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterNumberEntityDescription(
             key="ValveConfigurationAndControlDefaultOpenDuration",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"valve_configuration_and_control_default_open_duration",
+            translation_key="valve_configuration_and_control_default_open_duration",
             native_max_value=65534,
             native_min_value=1,
             native_unit_of_measurement=UnitOfTime.SECONDS,
@@ -486,7 +486,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.NUMBER,
         entity_description=MatterRangeNumberEntityDescription(
             key="MicrowaveOvenControlCookTime",
-            REDACTED_VALUE"cook_time",
+            translation_key="cook_time",
             device_class=NumberDeviceClass.DURATION,
             command=lambda value: (
                 clusters.MicrowaveOvenControl.Commands.SetCookingParameters(
@@ -509,7 +509,7 @@ DISCOVERY_SCHEMAS = [
         platform=Platform.NUMBER,
         entity_description=MatterRangeNumberEntityDescription(
             key="speaker_setpoint",
-            REDACTED_VALUE"speaker_setpoint",
+            translation_key="speaker_setpoint",
             native_unit_of_measurement=PERCENTAGE,
             command=lambda value: clusters.LevelControl.Commands.MoveToLevel(
                 level=int(value)
@@ -535,7 +535,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterNumberEntityDescription(
             key="AutoRelockTimer",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"auto_relock_timer",
+            translation_key="auto_relock_timer",
             native_max_value=65534,
             native_min_value=0,
             native_unit_of_measurement=UnitOfTime.SECONDS,
@@ -549,7 +549,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterRangeNumberEntityDescription(
             key="TemperatureControlTemperatureSetpoint",
             name=None,
-            REDACTED_VALUE"temperature_setpoint",
+            translation_key="temperature_setpoint",
             command=lambda value: clusters.TemperatureControl.Commands.SetTemperature(
                 targetTemperature=value
             ),
@@ -574,7 +574,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterNumberEntityDescription(
             key="InovelliLEDIndicatorIntensityOff",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"led_indicator_intensity_off",
+            translation_key="led_indicator_intensity_off",
             native_max_value=75,
             native_min_value=0,
             native_step=1,
@@ -591,7 +591,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterNumberEntityDescription(
             key="InovelliLEDIndicatorIntensityOn",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"led_indicator_intensity_on",
+            translation_key="led_indicator_intensity_on",
             native_max_value=75,
             native_min_value=0,
             native_step=1,
@@ -608,7 +608,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterNumberEntityDescription(
             key="DoorLockWrongCodeEntryLimit",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"wrong_code_entry_limit",
+            translation_key="wrong_code_entry_limit",
             native_max_value=255,
             native_min_value=1,
             native_step=1,
@@ -622,7 +622,7 @@ DISCOVERY_SCHEMAS = [
         entity_description=MatterNumberEntityDescription(
             key="DoorLockUserCodeTemporaryDisableTime",
             entity_category=EntityCategory.CONFIG,
-            REDACTED_VALUE"user_code_temporary_disable_time",
+            translation_key="user_code_temporary_disable_time",
             native_max_value=255,
             native_min_value=1,
             native_step=1,

@@ -28,7 +28,7 @@ class LaMetricSensorEntityDescription(SensorEntityDescription):
 SENSORS = [
     LaMetricSensorEntityDescription(
         key="rssi",
-        REDACTED_VALUE"rssi",
+        translation_key="rssi",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         native_unit_of_measurement=PERCENTAGE,

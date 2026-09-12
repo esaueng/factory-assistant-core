@@ -138,7 +138,7 @@ class EnOceanFlowHandler(ConfigFlow, domain=DOMAIN):
                     vol.Required(CONF_DEVICE): SelectSelector(
                         SelectSelectorConfig(
                             options=devices,
-                            REDACTED_VALUE"devices",
+                            translation_key="devices",
                             mode=SelectSelectorMode.LIST,
                         )
                     )

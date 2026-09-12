@@ -33,21 +33,21 @@ class GardenaBluetoothBinarySensorEntityDescription(BinarySensorEntityDescriptio
 DESCRIPTIONS = (
     GardenaBluetoothBinarySensorEntityDescription(
         key=Valve.connected_state.unique_id,
-        REDACTED_VALUE"valve_connected_state",
+        translation_key="valve_connected_state",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         entity_category=EntityCategory.DIAGNOSTIC,
         char=Valve.connected_state,
     ),
     GardenaBluetoothBinarySensorEntityDescription(
         key=Sensor.connected_state.unique_id,
-        REDACTED_VALUE"sensor_connected_state",
+        translation_key="sensor_connected_state",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         entity_category=EntityCategory.DIAGNOSTIC,
         char=Sensor.connected_state,
     ),
     GardenaBluetoothBinarySensorEntityDescription(
         key=AquaContour.frost_warning.unique_id,
-        REDACTED_VALUE"frost_warning",
+        translation_key="frost_warning",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
         char=AquaContour.frost_warning,

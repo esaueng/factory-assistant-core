@@ -34,7 +34,7 @@ PROPERTY_SENSOR_DESCRIPTIONS: list[PropertySensorEntityDescription] = [
     PropertySensorEntityDescription(
         key="status",
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUE"status",
+        translation_key="status",
         client_property="status",
         property_map=STATUS_TO_HA,
         options=list(STATUS_TO_HA.values()),
@@ -44,7 +44,7 @@ PROPERTY_SENSOR_DESCRIPTIONS: list[PropertySensorEntityDescription] = [
         device_class=SensorDeviceClass.WEIGHT,
         native_unit_of_measurement=UnitOfMass.KILOGRAMS,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"pellet_quantity",
+        translation_key="pellet_quantity",
         client_property="pellet_quantity",
     ),
     PropertySensorEntityDescription(
@@ -52,7 +52,7 @@ PROPERTY_SENSOR_DESCRIPTIONS: list[PropertySensorEntityDescription] = [
         device_class=SensorDeviceClass.DISTANCE,
         native_unit_of_measurement=UnitOfLength.CENTIMETERS,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"pellet_level",
+        translation_key="pellet_level",
         presence_flag="has_pellet_level",
         client_property="pellet_level",
     ),
@@ -76,7 +76,7 @@ async def async_setup_entry(
                 device_class=SensorDeviceClass.TEMPERATURE,
                 native_unit_of_measurement=UnitOfTemperature.CELSIUS,
                 state_class=SensorStateClass.MEASUREMENT,
-                REDACTED_VALUEsensor.description_key.value,
+                translation_key=sensor.description_key.value,
                 client_property=sensor.state_property,
             ),
         )

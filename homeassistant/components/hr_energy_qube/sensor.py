@@ -65,7 +65,7 @@ def _status_value(data: QubeData) -> StateType:
 SENSOR_TYPES: tuple[QubeSensorEntityDescription, ...] = (
     QubeSensorEntityDescription(
         key="temp_supply",
-        REDACTED_VALUE"temp_supply",
+        translation_key="temp_supply",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -74,7 +74,7 @@ SENSOR_TYPES: tuple[QubeSensorEntityDescription, ...] = (
     ),
     QubeSensorEntityDescription(
         key="temp_return",
-        REDACTED_VALUE"temp_return",
+        translation_key="temp_return",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -83,7 +83,7 @@ SENSOR_TYPES: tuple[QubeSensorEntityDescription, ...] = (
     ),
     QubeSensorEntityDescription(
         key="temp_source_in",
-        REDACTED_VALUE"temp_source_in",
+        translation_key="temp_source_in",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -92,7 +92,7 @@ SENSOR_TYPES: tuple[QubeSensorEntityDescription, ...] = (
     ),
     QubeSensorEntityDescription(
         key="temp_source_out",
-        REDACTED_VALUE"temp_source_out",
+        translation_key="temp_source_out",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -101,7 +101,7 @@ SENSOR_TYPES: tuple[QubeSensorEntityDescription, ...] = (
     ),
     QubeSensorEntityDescription(
         key="temp_room",
-        REDACTED_VALUE"temp_room",
+        translation_key="temp_room",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -110,7 +110,7 @@ SENSOR_TYPES: tuple[QubeSensorEntityDescription, ...] = (
     ),
     QubeSensorEntityDescription(
         key="temp_dhw",
-        REDACTED_VALUE"temp_dhw",
+        translation_key="temp_dhw",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -119,7 +119,7 @@ SENSOR_TYPES: tuple[QubeSensorEntityDescription, ...] = (
     ),
     QubeSensorEntityDescription(
         key="temp_outside",
-        REDACTED_VALUE"temp_outside",
+        translation_key="temp_outside",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -128,7 +128,7 @@ SENSOR_TYPES: tuple[QubeSensorEntityDescription, ...] = (
     ),
     QubeSensorEntityDescription(
         key="power_thermic",
-        REDACTED_VALUE"power_thermic",
+        translation_key="power_thermic",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -137,7 +137,7 @@ SENSOR_TYPES: tuple[QubeSensorEntityDescription, ...] = (
     ),
     QubeSensorEntityDescription(
         key="power_electric",
-        REDACTED_VALUE"power_electric",
+        translation_key="power_electric",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -146,7 +146,7 @@ SENSOR_TYPES: tuple[QubeSensorEntityDescription, ...] = (
     ),
     QubeSensorEntityDescription(
         key="energy_total_electric",
-        REDACTED_VALUE"energy_total_electric",
+        translation_key="energy_total_electric",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -155,7 +155,7 @@ SENSOR_TYPES: tuple[QubeSensorEntityDescription, ...] = (
     ),
     QubeSensorEntityDescription(
         key="energy_total_thermic",
-        REDACTED_VALUE"energy_total_thermic",
+        translation_key="energy_total_thermic",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -164,14 +164,14 @@ SENSOR_TYPES: tuple[QubeSensorEntityDescription, ...] = (
     ),
     QubeSensorEntityDescription(
         key="cop_calc",
-        REDACTED_VALUE"cop_calc",
+        translation_key="cop_calc",
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
         value_fn=lambda data: data.state.cop_calc,
     ),
     QubeSensorEntityDescription(
         key="compressor_speed",
-        REDACTED_VALUE"compressor_speed",
+        translation_key="compressor_speed",
         native_unit_of_measurement=REVOLUTIONS_PER_MINUTE,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=0,
@@ -179,7 +179,7 @@ SENSOR_TYPES: tuple[QubeSensorEntityDescription, ...] = (
     ),
     QubeSensorEntityDescription(
         key="flow_rate",
-        REDACTED_VALUE"flow_rate",
+        translation_key="flow_rate",
         device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
         native_unit_of_measurement=UnitOfVolumeFlowRate.LITERS_PER_MINUTE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -188,7 +188,7 @@ SENSOR_TYPES: tuple[QubeSensorEntityDescription, ...] = (
     ),
     QubeSensorEntityDescription(
         key="setpoint_room_heat_day",
-        REDACTED_VALUE"setpoint_room_heat_day",
+        translation_key="setpoint_room_heat_day",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -197,7 +197,7 @@ SENSOR_TYPES: tuple[QubeSensorEntityDescription, ...] = (
     ),
     QubeSensorEntityDescription(
         key="setpoint_room_heat_night",
-        REDACTED_VALUE"setpoint_room_heat_night",
+        translation_key="setpoint_room_heat_night",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -206,7 +206,7 @@ SENSOR_TYPES: tuple[QubeSensorEntityDescription, ...] = (
     ),
     QubeSensorEntityDescription(
         key="setpoint_room_cool_day",
-        REDACTED_VALUE"setpoint_room_cool_day",
+        translation_key="setpoint_room_cool_day",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -215,7 +215,7 @@ SENSOR_TYPES: tuple[QubeSensorEntityDescription, ...] = (
     ),
     QubeSensorEntityDescription(
         key="setpoint_room_cool_night",
-        REDACTED_VALUE"setpoint_room_cool_night",
+        translation_key="setpoint_room_cool_night",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -224,7 +224,7 @@ SENSOR_TYPES: tuple[QubeSensorEntityDescription, ...] = (
     ),
     QubeSensorEntityDescription(
         key="status_heatpump",
-        REDACTED_VALUE"status_heatpump",
+        translation_key="status_heatpump",
         device_class=SensorDeviceClass.ENUM,
         options=[
             "standby",

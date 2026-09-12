@@ -23,7 +23,7 @@ EMERGENCY_HEAT_KEY = "emergency_heat"
 SWITCH_TYPES: tuple[SwitchEntityDescription, ...] = (
     SwitchEntityDescription(
         key=EMERGENCY_HEAT_KEY,
-        REDACTED_VALUEEMERGENCY_HEAT_KEY,
+        translation_key=EMERGENCY_HEAT_KEY,
         device_class=SwitchDeviceClass.SWITCH,
     ),
 )
@@ -72,7 +72,7 @@ class HoneywellSwitch(SwitchEntity):
             await self._device.set_system_mode("emheat")
         except SomeComfortError as err:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"switch_failed_on"
+                translation_domain=DOMAIN, translation_key="switch_failed_on"
             ) from err
 
     async def async_turn_off(self, **kwargs: Any) -> None:
@@ -83,7 +83,7 @@ class HoneywellSwitch(SwitchEntity):
 
             except SomeComfortError as err:
                 raise HomeAssistantError(
-                    translation_domain=DOMAIN, REDACTED_VALUE"switch_failed_off"
+                    translation_domain=DOMAIN, translation_key="switch_failed_off"
                 ) from err
 
     @property

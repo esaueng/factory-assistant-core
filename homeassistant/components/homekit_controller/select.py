@@ -32,7 +32,7 @@ class HomeKitSelectEntityDescription(SelectEntityDescription):
 SELECT_ENTITIES: dict[str, HomeKitSelectEntityDescription] = {
     CharacteristicsTypes.TEMPERATURE_UNITS: HomeKitSelectEntityDescription(
         key="temperature_display_units",
-        REDACTED_VALUE"temperature_display_units",
+        translation_key="temperature_display_units",
         name="Temperature Display Units",
         entity_category=EntityCategory.CONFIG,
         choices={
@@ -42,7 +42,7 @@ SELECT_ENTITIES: dict[str, HomeKitSelectEntityDescription] = {
     ),
     CharacteristicsTypes.AIR_PURIFIER_STATE_TARGET: HomeKitSelectEntityDescription(
         key="air_purifier_state_target",
-        REDACTED_VALUE"air_purifier_state_target",
+        translation_key="air_purifier_state_target",
         name="Air Purifier Mode",
         entity_category=EntityCategory.CONFIG,
         choices={

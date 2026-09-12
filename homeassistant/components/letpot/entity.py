@@ -55,13 +55,13 @@ def exception_handler[_EntityT: LetPotEntity, **_P](
         except LetPotConnectionException as exception:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
                 translation_placeholders={"exception": str(exception)},
             ) from exception
         except LetPotException as exception:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unknown_error",
+                translation_key="unknown_error",
                 translation_placeholders={"exception": str(exception)},
             ) from exception
 

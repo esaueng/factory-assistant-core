@@ -27,7 +27,7 @@ class OverseerrEventEntityDescription(EventEntityDescription):
 EVENTS: tuple[OverseerrEventEntityDescription, ...] = (
     OverseerrEventEntityDescription(
         key="media",
-        REDACTED_VALUE"last_media_event",
+        translation_key="last_media_event",
         event_types=[
             "pending",
             "approved",

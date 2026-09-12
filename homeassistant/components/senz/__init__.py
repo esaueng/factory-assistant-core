@@ -36,7 +36,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: SENZConfigEntry) -> bool
     except ImplementationUnavailableError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"oauth2_implementation_unavailable",
+            translation_key="oauth2_implementation_unavailable",
         ) from err
     session = OAuth2Session(hass, entry, implementation)
     auth = SENZConfigEntryAuth(httpx_client.get_async_client(hass), session)
@@ -48,31 +48,31 @@ async def async_setup_entry(hass: HomeAssistant, entry: SENZConfigEntry) -> bool
         if err.response.status_code == HTTPStatus.UNAUTHORIZED:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"config_entry_auth_failed",
+                translation_key="config_entry_auth_failed",
             ) from err
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"config_entry_not_ready",
+            translation_key="config_entry_not_ready",
         ) from err
     except ClientResponseError as err:
         if err.status in (HTTPStatus.UNAUTHORIZED, HTTPStatus.BAD_REQUEST):
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"config_entry_auth_failed",
+                translation_key="config_entry_auth_failed",
             ) from err
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"config_entry_not_ready",
+            translation_key="config_entry_not_ready",
         ) from err
     except RequestError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"config_entry_not_ready",
+            translation_key="config_entry_not_ready",
         ) from err
     except Exception as err:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"config_entry_auth_failed",
+            translation_key="config_entry_auth_failed",
         ) from err
 
     coordinator = SENZDataUpdateCoordinator(

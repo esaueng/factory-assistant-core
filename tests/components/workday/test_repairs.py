@@ -466,7 +466,7 @@ async def test_other_fixable_issues(
         is_persistent=False,
         learn_more_url=None,
         severity=issue["severity"],
-        REDACTED_VALUEissue["translation_key"],
+        translation_key=issue["translation_key"],
     )
 
     await ws_client.send_json({"id": 2, "type": "repairs/list_issues"})

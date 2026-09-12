@@ -66,21 +66,21 @@ class AirQualitySensorEntityDescription(SensorEntityDescription):
 AIR_QUALITY_SENSOR_TYPES: tuple[AirQualitySensorEntityDescription, ...] = (
     AirQualitySensorEntityDescription(
         key="uaqi",
-        REDACTED_VALUE"uaqi",
+        translation_key="uaqi",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.AQI,
         value_fn=lambda x: _uaqi(x).aqi,
     ),
     AirQualitySensorEntityDescription(
         key="uaqi_category",
-        REDACTED_VALUE"uaqi_category",
+        translation_key="uaqi_category",
         device_class=SensorDeviceClass.ENUM,
         value_fn=lambda x: _uaqi(x).category,
         options_fn=lambda x: _uaqi(x).category_options,
     ),
     AirQualitySensorEntityDescription(
         key="local_aqi",
-        REDACTED_VALUE"local_aqi",
+        translation_key="local_aqi",
         exists_fn=lambda x: _laqi(x).aqi is not None,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.AQI,
@@ -89,7 +89,7 @@ AIR_QUALITY_SENSOR_TYPES: tuple[AirQualitySensorEntityDescription, ...] = (
     ),
     AirQualitySensorEntityDescription(
         key="local_category",
-        REDACTED_VALUE"local_category",
+        translation_key="local_category",
         device_class=SensorDeviceClass.ENUM,
         value_fn=lambda x: _laqi(x).category,
         options_fn=lambda x: _laqi(x).category_options,
@@ -97,14 +97,14 @@ AIR_QUALITY_SENSOR_TYPES: tuple[AirQualitySensorEntityDescription, ...] = (
     ),
     AirQualitySensorEntityDescription(
         key="uaqi_dominant_pollutant",
-        REDACTED_VALUE"uaqi_dominant_pollutant",
+        translation_key="uaqi_dominant_pollutant",
         device_class=SensorDeviceClass.ENUM,
         value_fn=lambda x: _uaqi(x).dominant_pollutant,
         options_fn=lambda x: _uaqi(x).pollutant_options,
     ),
     AirQualitySensorEntityDescription(
         key="local_dominant_pollutant",
-        REDACTED_VALUE"local_dominant_pollutant",
+        translation_key="local_dominant_pollutant",
         device_class=SensorDeviceClass.ENUM,
         value_fn=lambda x: _laqi(x).dominant_pollutant,
         options_fn=lambda x: _laqi(x).pollutant_options,
@@ -112,7 +112,7 @@ AIR_QUALITY_SENSOR_TYPES: tuple[AirQualitySensorEntityDescription, ...] = (
     ),
     AirQualitySensorEntityDescription(
         key="c6h6",
-        REDACTED_VALUE"benzene",
+        translation_key="benzene",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement_fn=lambda x: x.pollutants.c6h6.concentration.units,
         value_fn=lambda x: x.pollutants.c6h6.concentration.value,
@@ -129,7 +129,7 @@ AIR_QUALITY_SENSOR_TYPES: tuple[AirQualitySensorEntityDescription, ...] = (
     ),
     AirQualitySensorEntityDescription(
         key="nh3",
-        REDACTED_VALUE"ammonia",
+        translation_key="ammonia",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement_fn=lambda x: x.pollutants.nh3.concentration.units,
         value_fn=lambda x: x.pollutants.nh3.concentration.value,
@@ -137,7 +137,7 @@ AIR_QUALITY_SENSOR_TYPES: tuple[AirQualitySensorEntityDescription, ...] = (
     ),
     AirQualitySensorEntityDescription(
         key="nmhc",
-        REDACTED_VALUE"non_methane_hydrocarbons",
+        translation_key="non_methane_hydrocarbons",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement_fn=lambda x: x.pollutants.nmhc.concentration.units,
         value_fn=lambda x: x.pollutants.nmhc.concentration.value,

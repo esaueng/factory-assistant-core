@@ -25,12 +25,12 @@ class TotalConnectButtonEntityDescription(ButtonEntityDescription):
 PANEL_BUTTONS: tuple[TotalConnectButtonEntityDescription, ...] = (
     TotalConnectButtonEntityDescription(
         key="clear_bypass",
-        REDACTED_VALUE"clear_bypass",
+        translation_key="clear_bypass",
         press_fn=lambda location: location.clear_bypass(),
     ),
     TotalConnectButtonEntityDescription(
         key="bypass_all",
-        REDACTED_VALUE"bypass_all",
+        translation_key="bypass_all",
         press_fn=lambda location: location.zone_bypass_all(),
     ),
 )

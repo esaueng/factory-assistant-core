@@ -29,12 +29,12 @@ async def async_setup_entry(hass: HomeAssistant, entry: ActronAirConfigEntry) ->
     except ActronAirAuthError as err:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"auth_error",
+            translation_key="auth_error",
         ) from err
     except ActronAirAPIError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"setup_connection_error",
+            translation_key="setup_connection_error",
         ) from err
 
     system_coordinators: dict[str, ActronAirSystemCoordinator] = {}

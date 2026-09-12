@@ -358,6 +358,6 @@ def _get_home(hass: HomeAssistant, hapid: str) -> AsyncHome | None:
 
     raise ServiceValidationError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"access_point_not_found",
+        translation_key="access_point_not_found",
         translation_placeholders={"id": hapid},
     )

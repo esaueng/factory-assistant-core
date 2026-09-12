@@ -120,7 +120,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: SqueezeboxConfigEntry) -
         _LOGGER.warning("Timeout connecting to LMS %s: %s", host, err)
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"init_timeout",
+            translation_key="init_timeout",
             translation_placeholders={
                 "host": str(host),
             },
@@ -134,7 +134,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: SqueezeboxConfigEntry) -
             _LOGGER.warning("Authentication failed for Squeezebox server %s", host)
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"init_auth_failed",
+                translation_key="init_auth_failed",
                 translation_placeholders={
                     "host": str(host),
                 },
@@ -149,7 +149,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: SqueezeboxConfigEntry) -
         )
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"init_get_status_failed",
+            translation_key="init_get_status_failed",
             translation_placeholders={
                 "host": str(host),
                 "http_status": str(lms.http_status),
@@ -165,7 +165,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: SqueezeboxConfigEntry) -
         # This is a non-recoverable error with the current server response
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"init_missing_uuid",
+            translation_key="init_missing_uuid",
             translation_placeholders={
                 "host": str(host),
             },

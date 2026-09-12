@@ -3035,7 +3035,7 @@ async def test_cancellable_hassjob(hass: HomeAssistant, eager_start: bool) -> No
         hass.async_run_hass_job(job, eager_start=True)
 
     timer1 = hass.loop.call_later(
-        60, run_job, HassJob(ha.callback(job), REDACTED_VALUE)
+        60, run_job, HassJob(ha.callback(job), cancel_on_shutdown=True)
     )
     timer2 = hass.loop.call_later(60, run_job, HassJob(ha.callback(job)))
 

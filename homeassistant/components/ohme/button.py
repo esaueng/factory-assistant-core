@@ -28,7 +28,7 @@ class OhmeButtonDescription(OhmeEntityDescription, ButtonEntityDescription):
 BUTTON_DESCRIPTIONS = [
     OhmeButtonDescription(
         key="approve",
-        REDACTED_VALUE"approve",
+        translation_key="approve",
         press_fn=lambda client: client.async_approve_charge(),
         is_supported_fn=lambda client: client.is_capable("pluginsRequireApprovalMode"),
         available_fn=lambda client: client.status is ChargerStatus.PENDING_APPROVAL,
@@ -62,6 +62,6 @@ class OhmeButton(OhmeEntity, ButtonEntity):
             await self.entity_description.press_fn(self.coordinator.client)
         except ApiException as e:
             raise HomeAssistantError(
-                REDACTED_VALUE"api_failed", translation_domain=DOMAIN
+                translation_key="api_failed", translation_domain=DOMAIN
             ) from e
         await self.coordinator.async_request_refresh()

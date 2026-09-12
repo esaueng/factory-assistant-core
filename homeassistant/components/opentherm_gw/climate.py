@@ -188,7 +188,7 @@ class OpenThermClimate(OpenThermStatusEntity, ClimateEntity):
         """Set new target hvac mode."""
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"change_hvac_mode_not_supported",
+            translation_key="change_hvac_mode_not_supported",
         )
 
     def set_preset_mode(self, preset_mode: str) -> None:

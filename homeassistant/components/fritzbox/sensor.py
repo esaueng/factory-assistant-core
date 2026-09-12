@@ -172,7 +172,7 @@ SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     # Thermostat Sensors
     FritzSensorEntityDescription(
         key="comfort_temperature",
-        REDACTED_VALUE"comfort_temperature",
+        translation_key="comfort_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -181,7 +181,7 @@ SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     ),
     FritzSensorEntityDescription(
         key="eco_temperature",
-        REDACTED_VALUE"eco_temperature",
+        translation_key="eco_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -190,7 +190,7 @@ SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     ),
     FritzSensorEntityDescription(
         key="nextchange_temperature",
-        REDACTED_VALUE"nextchange_temperature",
+        translation_key="nextchange_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -199,7 +199,7 @@ SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     ),
     FritzSensorEntityDescription(
         key="nextchange_time",
-        REDACTED_VALUE"nextchange_time",
+        translation_key="nextchange_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         suitable=suitable_nextchange_time,
@@ -207,14 +207,14 @@ SENSOR_TYPES: Final[tuple[FritzSensorEntityDescription, ...]] = (
     ),
     FritzSensorEntityDescription(
         key="nextchange_preset",
-        REDACTED_VALUE"nextchange_preset",
+        translation_key="nextchange_preset",
         entity_category=EntityCategory.DIAGNOSTIC,
         suitable=suitable_nextchange_temperature,
         native_value=value_nextchange_preset,
     ),
     FritzSensorEntityDescription(
         key="scheduled_preset",
-        REDACTED_VALUE"scheduled_preset",
+        translation_key="scheduled_preset",
         entity_category=EntityCategory.DIAGNOSTIC,
         suitable=suitable_nextchange_temperature,
         native_value=value_scheduled_preset,

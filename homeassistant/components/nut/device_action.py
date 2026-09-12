@@ -101,7 +101,7 @@ def _get_runtime_data_from_device_id_exception_on_failure(
     if (device := device_registry.async_get(device_id)) is None:
         raise InvalidDeviceAutomationConfig(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_not_found",
+            translation_key="device_not_found",
             translation_placeholders={
                 "device_id": device_id,
             },
@@ -112,7 +112,7 @@ def _get_runtime_data_from_device_id_exception_on_failure(
 
     raise InvalidDeviceAutomationConfig(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"config_invalid",
+        translation_key="config_invalid",
         translation_placeholders={
             "device_id": device_id,
         },

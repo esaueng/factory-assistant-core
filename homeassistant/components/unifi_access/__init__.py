@@ -53,13 +53,13 @@ async def async_setup_entry(hass: HomeAssistant, entry: UnifiAccessConfigEntry) 
     except ApiAuthError as err:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"auth_failed",
+            translation_key="auth_failed",
             translation_placeholders={"host": entry.data[CONF_HOST]},
         ) from err
     except ApiConnectionError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect",
+            translation_key="cannot_connect",
             translation_placeholders={"host": entry.data[CONF_HOST]},
         ) from err
 

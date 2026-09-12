@@ -45,7 +45,7 @@ def _get_atv(call: ServiceCall) -> AppleTVInterface:
     if atv is None:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"not_connected",
+            translation_key="not_connected",
         )
     return atv
 
@@ -57,12 +57,12 @@ def _check_keyboard_focus(atv: AppleTVInterface) -> None:
     except NotSupportedError as err:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"keyboard_not_available",
+            translation_key="keyboard_not_available",
         ) from err
     if focus_state is not KeyboardFocusState.Focused:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"keyboard_not_focused",
+            translation_key="keyboard_not_focused",
         )
 
 
@@ -75,7 +75,7 @@ async def _async_set_keyboard_text(call: ServiceCall) -> None:
     except ProtocolError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"keyboard_error",
+            translation_key="keyboard_error",
         ) from err
 
 
@@ -88,7 +88,7 @@ async def _async_append_keyboard_text(call: ServiceCall) -> None:
     except ProtocolError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"keyboard_error",
+            translation_key="keyboard_error",
         ) from err
 
 
@@ -101,7 +101,7 @@ async def _async_clear_keyboard_text(call: ServiceCall) -> None:
     except ProtocolError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"keyboard_error",
+            translation_key="keyboard_error",
         ) from err
 
 

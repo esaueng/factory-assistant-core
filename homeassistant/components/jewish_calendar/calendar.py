@@ -163,18 +163,18 @@ def _create_learning_event(
 CALENDARS = (
     JewishCalendarCalendarEntityDescription(
         key=CONF_DAILY_EVENTS,
-        REDACTED_VALUECONF_DAILY_EVENTS,
+        translation_key=CONF_DAILY_EVENTS,
         value_fn=_create_daily_event,
     ),
     JewishCalendarCalendarEntityDescription(
         key=CONF_LEARNING_SCHEDULE,
-        REDACTED_VALUECONF_LEARNING_SCHEDULE,
+        translation_key=CONF_LEARNING_SCHEDULE,
         value_fn=_create_learning_event,
         entity_registry_enabled_default=False,
     ),
     JewishCalendarCalendarEntityDescription(
         key=CONF_YEARLY_EVENTS,
-        REDACTED_VALUECONF_YEARLY_EVENTS,
+        translation_key=CONF_YEARLY_EVENTS,
         value_fn=_create_yearly_event,
     ),
 )

@@ -17,14 +17,14 @@ from .entity import VegeHubEntity
 SENSOR_TYPES: dict[str, SensorEntityDescription] = {
     "analog_sensor": SensorEntityDescription(
         key="analog_sensor",
-        REDACTED_VALUE"analog_sensor",
+        translation_key="analog_sensor",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         suggested_display_precision=2,
     ),
     "battery_volts": SensorEntityDescription(
         key="battery_volts",
-        REDACTED_VALUE"battery_volts",
+        translation_key="battery_volts",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         suggested_display_precision=1,

@@ -63,14 +63,14 @@ def _get_encryption_key(entry: OpenDisplayConfigEntry) -> bytes | None:
     if len(raw) != 32:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"authentication_error",
+            translation_key="authentication_error",
         )
     try:
         return bytes.fromhex(raw)
     except ValueError as err:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"authentication_error",
+            translation_key="authentication_error",
         ) from err
 
 
@@ -90,7 +90,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: OpenDisplayConfigEntry) 
     if ble_device is None:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_not_found",
+            translation_key="device_not_found",
             translation_placeholders={
                 "address": address,
                 "reason": async_address_reachability_diagnostics(
@@ -111,12 +111,12 @@ async def async_setup_entry(hass: HomeAssistant, entry: OpenDisplayConfigEntry) 
     except (AuthenticationFailedError, AuthenticationRequiredError) as err:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"authentication_error",
+            translation_key="authentication_error",
         ) from err
     except (BLEConnectionError, BLETimeoutError, OpenDisplayError) as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"setup_connection_error",
+            translation_key="setup_connection_error",
         ) from err
     device_config = device.config
     if TYPE_CHECKING:

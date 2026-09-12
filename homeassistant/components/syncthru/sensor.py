@@ -37,7 +37,7 @@ def get_toner_entity_description(color: str) -> SyncThruSensorDescription:
     """Get toner entity description for a specific color."""
     return SyncThruSensorDescription(
         key=f"toner_{color}",
-        REDACTED_VALUEf"toner_{color}",
+        translation_key=f"toner_{color}",
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda printer: printer.toner_status().get(color, {}).get("remaining"),
@@ -49,7 +49,7 @@ def get_drum_entity_description(color: str) -> SyncThruSensorDescription:
     """Get drum entity description for a specific color."""
     return SyncThruSensorDescription(
         key=f"drum_{color}",
-        REDACTED_VALUEf"drum_{color}",
+        translation_key=f"drum_{color}",
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda printer: printer.drum_status().get(color, {}).get("remaining"),
@@ -67,7 +67,7 @@ def get_input_tray_entity_description(tray: str) -> SyncThruSensorDescription:
         translation_key = "tray"
     return SyncThruSensorDescription(
         key=f"tray_{tray}",
-        REDACTED_VALUEtranslation_key,
+        translation_key=translation_key,
         entity_category=EntityCategory.DIAGNOSTIC,
         translation_placeholders=placeholders,
         value_fn=(
@@ -85,7 +85,7 @@ def get_output_tray_entity_description(tray: int) -> SyncThruSensorDescription:
     """Get output tray entity description for a specific tray."""
     return SyncThruSensorDescription(
         key=f"output_tray_{tray}",
-        REDACTED_VALUE"output_tray",
+        translation_key="output_tray",
         entity_category=EntityCategory.DIAGNOSTIC,
         translation_placeholders={"tray_number": str(tray)},
         value_fn=(
@@ -104,7 +104,7 @@ def get_output_tray_entity_description(tray: int) -> SyncThruSensorDescription:
 SENSOR_TYPES: tuple[SyncThruSensorDescription, ...] = (
     SyncThruSensorDescription(
         key="active_alerts",
-        REDACTED_VALUE"active_alerts",
+        translation_key="active_alerts",
         value_fn=lambda printer: printer.raw().get("GXI_ACTIVE_ALERT_TOTAL"),
     ),
     SyncThruSensorDescription(

@@ -82,7 +82,7 @@ def multiply(value: float | None, multiplier: float) -> float | None:
 PINECIL_NUMBER_DESCRIPTIONS: tuple[IronOSNumberEntityDescription, ...] = (
     IronOSNumberEntityDescription(
         key=PinecilNumber.QC_MAX_VOLTAGE,
-        REDACTED_VALUEPinecilNumber.QC_MAX_VOLTAGE,
+        translation_key=PinecilNumber.QC_MAX_VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=NumberDeviceClass.VOLTAGE,
         value_fn=lambda _, settings: settings.get("qc_ideal_voltage"),
@@ -96,7 +96,7 @@ PINECIL_NUMBER_DESCRIPTIONS: tuple[IronOSNumberEntityDescription, ...] = (
     ),
     IronOSNumberEntityDescription(
         key=PinecilNumber.PD_TIMEOUT,
-        REDACTED_VALUEPinecilNumber.PD_TIMEOUT,
+        translation_key=PinecilNumber.PD_TIMEOUT,
         native_unit_of_measurement=UnitOfTime.SECONDS,
         device_class=NumberDeviceClass.DURATION,
         value_fn=lambda _, settings: settings.get("pd_negotiation_timeout"),
@@ -110,7 +110,7 @@ PINECIL_NUMBER_DESCRIPTIONS: tuple[IronOSNumberEntityDescription, ...] = (
     ),
     IronOSNumberEntityDescription(
         key=PinecilNumber.SHUTDOWN_TIMEOUT,
-        REDACTED_VALUEPinecilNumber.SHUTDOWN_TIMEOUT,
+        translation_key=PinecilNumber.SHUTDOWN_TIMEOUT,
         native_unit_of_measurement=UnitOfTime.MINUTES,
         device_class=NumberDeviceClass.DURATION,
         value_fn=lambda _, settings: settings.get("shutdown_time"),
@@ -123,7 +123,7 @@ PINECIL_NUMBER_DESCRIPTIONS: tuple[IronOSNumberEntityDescription, ...] = (
     ),
     IronOSNumberEntityDescription(
         key=PinecilNumber.DISPLAY_BRIGHTNESS,
-        REDACTED_VALUEPinecilNumber.DISPLAY_BRIGHTNESS,
+        translation_key=PinecilNumber.DISPLAY_BRIGHTNESS,
         value_fn=lambda _, settings: settings.get("display_brightness"),
         characteristic=CharSetting.DISPLAY_BRIGHTNESS,
         mode=NumberMode.SLIDER,
@@ -134,7 +134,7 @@ PINECIL_NUMBER_DESCRIPTIONS: tuple[IronOSNumberEntityDescription, ...] = (
     ),
     IronOSNumberEntityDescription(
         key=PinecilNumber.SLEEP_TIMEOUT,
-        REDACTED_VALUEPinecilNumber.SLEEP_TIMEOUT,
+        translation_key=PinecilNumber.SLEEP_TIMEOUT,
         value_fn=lambda _, settings: settings.get("sleep_timeout"),
         characteristic=CharSetting.SLEEP_TIMEOUT,
         mode=NumberMode.BOX,
@@ -146,7 +146,7 @@ PINECIL_NUMBER_DESCRIPTIONS: tuple[IronOSNumberEntityDescription, ...] = (
     ),
     IronOSNumberEntityDescription(
         key=PinecilNumber.POWER_LIMIT,
-        REDACTED_VALUEPinecilNumber.POWER_LIMIT,
+        translation_key=PinecilNumber.POWER_LIMIT,
         value_fn=lambda _, settings: settings.get("power_limit"),
         characteristic=CharSetting.POWER_LIMIT,
         mode=NumberMode.BOX,
@@ -159,7 +159,7 @@ PINECIL_NUMBER_DESCRIPTIONS: tuple[IronOSNumberEntityDescription, ...] = (
     ),
     IronOSNumberEntityDescription(
         key=PinecilNumber.CALIBRATION_OFFSET,
-        REDACTED_VALUEPinecilNumber.CALIBRATION_OFFSET,
+        translation_key=PinecilNumber.CALIBRATION_OFFSET,
         value_fn=lambda _, settings: settings.get("calibration_offset"),
         characteristic=CharSetting.CALIBRATION_OFFSET,
         mode=NumberMode.BOX,
@@ -172,7 +172,7 @@ PINECIL_NUMBER_DESCRIPTIONS: tuple[IronOSNumberEntityDescription, ...] = (
     ),
     IronOSNumberEntityDescription(
         key=PinecilNumber.HALL_SENSITIVITY,
-        REDACTED_VALUEPinecilNumber.HALL_SENSITIVITY,
+        translation_key=PinecilNumber.HALL_SENSITIVITY,
         value_fn=lambda _, settings: settings.get("hall_sensitivity"),
         characteristic=CharSetting.HALL_SENSITIVITY,
         mode=NumberMode.SLIDER,
@@ -184,7 +184,7 @@ PINECIL_NUMBER_DESCRIPTIONS: tuple[IronOSNumberEntityDescription, ...] = (
     ),
     IronOSNumberEntityDescription(
         key=PinecilNumber.MIN_VOLTAGE_PER_CELL,
-        REDACTED_VALUEPinecilNumber.MIN_VOLTAGE_PER_CELL,
+        translation_key=PinecilNumber.MIN_VOLTAGE_PER_CELL,
         value_fn=lambda _, settings: settings.get("min_voltage_per_cell"),
         characteristic=CharSetting.MIN_VOLTAGE_PER_CELL,
         mode=NumberMode.BOX,
@@ -197,7 +197,7 @@ PINECIL_NUMBER_DESCRIPTIONS: tuple[IronOSNumberEntityDescription, ...] = (
     ),
     IronOSNumberEntityDescription(
         key=PinecilNumber.ACCEL_SENSITIVITY,
-        REDACTED_VALUEPinecilNumber.ACCEL_SENSITIVITY,
+        translation_key=PinecilNumber.ACCEL_SENSITIVITY,
         value_fn=lambda _, settings: settings.get("accel_sensitivity"),
         characteristic=CharSetting.ACCEL_SENSITIVITY,
         mode=NumberMode.SLIDER,
@@ -208,7 +208,7 @@ PINECIL_NUMBER_DESCRIPTIONS: tuple[IronOSNumberEntityDescription, ...] = (
     ),
     IronOSNumberEntityDescription(
         key=PinecilNumber.KEEP_AWAKE_PULSE_POWER,
-        REDACTED_VALUEPinecilNumber.KEEP_AWAKE_PULSE_POWER,
+        translation_key=PinecilNumber.KEEP_AWAKE_PULSE_POWER,
         value_fn=lambda _, settings: settings.get("keep_awake_pulse_power"),
         characteristic=CharSetting.KEEP_AWAKE_PULSE_POWER,
         mode=NumberMode.BOX,
@@ -221,7 +221,7 @@ PINECIL_NUMBER_DESCRIPTIONS: tuple[IronOSNumberEntityDescription, ...] = (
     ),
     IronOSNumberEntityDescription(
         key=PinecilNumber.KEEP_AWAKE_PULSE_DELAY,
-        REDACTED_VALUEPinecilNumber.KEEP_AWAKE_PULSE_DELAY,
+        translation_key=PinecilNumber.KEEP_AWAKE_PULSE_DELAY,
         value_fn=(
             lambda _, settings: multiply(settings.get("keep_awake_pulse_delay"), 2.5)
         ),
@@ -237,7 +237,7 @@ PINECIL_NUMBER_DESCRIPTIONS: tuple[IronOSNumberEntityDescription, ...] = (
     ),
     IronOSNumberEntityDescription(
         key=PinecilNumber.KEEP_AWAKE_PULSE_DURATION,
-        REDACTED_VALUEPinecilNumber.KEEP_AWAKE_PULSE_DURATION,
+        translation_key=PinecilNumber.KEEP_AWAKE_PULSE_DURATION,
         value_fn=(
             lambda _, settings: multiply(settings.get("keep_awake_pulse_duration"), 250)
         ),
@@ -253,7 +253,7 @@ PINECIL_NUMBER_DESCRIPTIONS: tuple[IronOSNumberEntityDescription, ...] = (
     ),
     IronOSNumberEntityDescription(
         key=PinecilNumber.VOLTAGE_DIV,
-        REDACTED_VALUEPinecilNumber.VOLTAGE_DIV,
+        translation_key=PinecilNumber.VOLTAGE_DIV,
         value_fn=(lambda _, settings: settings.get("voltage_div")),
         characteristic=CharSetting.VOLTAGE_DIV,
         raw_value_fn=lambda value: value,
@@ -269,7 +269,7 @@ PINECIL_NUMBER_DESCRIPTIONS: tuple[IronOSNumberEntityDescription, ...] = (
 PINECIL_NUMBER_DESCRIPTIONS_V223: tuple[IronOSNumberEntityDescription, ...] = (
     IronOSNumberEntityDescription(
         key=PinecilNumber.HALL_EFFECT_SLEEP_TIME,
-        REDACTED_VALUEPinecilNumber.HALL_EFFECT_SLEEP_TIME,
+        translation_key=PinecilNumber.HALL_EFFECT_SLEEP_TIME,
         value_fn=(lambda _, settings: settings.get("hall_sleep_time")),
         characteristic=CharSetting.HALL_SLEEP_TIME,
         raw_value_fn=lambda value: value,
@@ -298,7 +298,7 @@ with the device.
 PINECIL_TEMP_NUMBER_DESCRIPTIONS: tuple[IronOSNumberEntityDescription, ...] = (
     IronOSNumberEntityDescription(
         key=PinecilNumber.SLEEP_TEMP,
-        REDACTED_VALUEPinecilNumber.SLEEP_TEMP,
+        translation_key=PinecilNumber.SLEEP_TEMP,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda _, settings: settings.get("sleep_temp"),
         characteristic=CharSetting.SLEEP_TEMP,
@@ -312,7 +312,7 @@ PINECIL_TEMP_NUMBER_DESCRIPTIONS: tuple[IronOSNumberEntityDescription, ...] = (
     ),
     IronOSNumberEntityDescription(
         key=PinecilNumber.BOOST_TEMP,
-        REDACTED_VALUEPinecilNumber.BOOST_TEMP,
+        translation_key=PinecilNumber.BOOST_TEMP,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda _, settings: settings.get("boost_temp"),
         characteristic=CharSetting.BOOST_TEMP,
@@ -326,7 +326,7 @@ PINECIL_TEMP_NUMBER_DESCRIPTIONS: tuple[IronOSNumberEntityDescription, ...] = (
     ),
     IronOSNumberEntityDescription(
         key=PinecilNumber.TEMP_INCREMENT_SHORT,
-        REDACTED_VALUEPinecilNumber.TEMP_INCREMENT_SHORT,
+        translation_key=PinecilNumber.TEMP_INCREMENT_SHORT,
         value_fn=(lambda _, settings: settings.get("temp_increment_short")),
         characteristic=CharSetting.TEMP_INCREMENT_SHORT,
         raw_value_fn=lambda value: value,
@@ -338,7 +338,7 @@ PINECIL_TEMP_NUMBER_DESCRIPTIONS: tuple[IronOSNumberEntityDescription, ...] = (
     ),
     IronOSNumberEntityDescription(
         key=PinecilNumber.TEMP_INCREMENT_LONG,
-        REDACTED_VALUEPinecilNumber.TEMP_INCREMENT_LONG,
+        translation_key=PinecilNumber.TEMP_INCREMENT_LONG,
         value_fn=(lambda _, settings: settings.get("temp_increment_long")),
         characteristic=CharSetting.TEMP_INCREMENT_LONG,
         raw_value_fn=lambda value: value,
@@ -352,7 +352,7 @@ PINECIL_TEMP_NUMBER_DESCRIPTIONS: tuple[IronOSNumberEntityDescription, ...] = (
 
 PINECIL_SETPOINT_NUMBER_DESCRIPTION = IronOSNumberEntityDescription(
     key=PinecilNumber.SETPOINT_TEMP,
-    REDACTED_VALUEPinecilNumber.SETPOINT_TEMP,
+    translation_key=PinecilNumber.SETPOINT_TEMP,
     native_unit_of_measurement=UnitOfTemperature.CELSIUS,
     value_fn=lambda data, _: data.setpoint_temp,
     characteristic=CharSetting.SETPOINT_TEMP,

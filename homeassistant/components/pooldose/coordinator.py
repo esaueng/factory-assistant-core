@@ -51,25 +51,25 @@ class PooldoseCoordinator(DataUpdateCoordinator[StructuredValuesDict]):
         except TimeoutError as err:
             raise UpdateFailed(
                 translation_domain=self.config_entry.domain,
-                REDACTED_VALUE"update_timeout",
+                translation_key="update_timeout",
             ) from err
         except (ConnectionError, OSError) as err:
             raise UpdateFailed(
                 translation_domain=self.config_entry.domain,
-                REDACTED_VALUE"update_connect_failed",
+                translation_key="update_connect_failed",
             ) from err
 
         if status != RequestStatus.SUCCESS:
             raise UpdateFailed(
                 translation_domain=self.config_entry.domain,
-                REDACTED_VALUE"api_status_error",
+                translation_key="api_status_error",
                 translation_placeholders={"status": str(status.value)},
             )
 
         if not instant_values:
             raise UpdateFailed(
                 translation_domain=self.config_entry.domain,
-                REDACTED_VALUE"no_data_received",
+                translation_key="no_data_received",
             )
 
         _LOGGER.debug("Instant values structured: %s", instant_values)

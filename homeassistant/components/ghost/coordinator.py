@@ -79,12 +79,12 @@ class GhostDataUpdateCoordinator(DataUpdateCoordinator[GhostData]):
         except GhostAuthError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_api_key",
+                translation_key="invalid_api_key",
             ) from err
         except GhostError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_error",
+                translation_key="api_error",
                 translation_placeholders={"error": str(err)},
             ) from err
 

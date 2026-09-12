@@ -48,7 +48,7 @@ class LiebherrDeviceSwitchEntityDescription(LiebherrSwitchEntityDescription):
 ZONE_SWITCH_TYPES: dict[str, LiebherrZoneSwitchEntityDescription] = {
     CONTROL_SUPER_COOL: LiebherrZoneSwitchEntityDescription(
         key="super_cool",
-        REDACTED_VALUE"super_cool",
+        translation_key="super_cool",
         control_name=CONTROL_SUPER_COOL,
         set_fn=lambda coordinator, zone_id, value: coordinator.client.set_super_cool(
             device_id=coordinator.device_id,
@@ -58,7 +58,7 @@ ZONE_SWITCH_TYPES: dict[str, LiebherrZoneSwitchEntityDescription] = {
     ),
     CONTROL_SUPER_FROST: LiebherrZoneSwitchEntityDescription(
         key="super_frost",
-        REDACTED_VALUE"super_frost",
+        translation_key="super_frost",
         control_name=CONTROL_SUPER_FROST,
         set_fn=lambda coordinator, zone_id, value: coordinator.client.set_super_frost(
             device_id=coordinator.device_id,
@@ -71,7 +71,7 @@ ZONE_SWITCH_TYPES: dict[str, LiebherrZoneSwitchEntityDescription] = {
 DEVICE_SWITCH_TYPES: dict[str, LiebherrDeviceSwitchEntityDescription] = {
     CONTROL_PARTY_MODE: LiebherrDeviceSwitchEntityDescription(
         key="party_mode",
-        REDACTED_VALUE"party_mode",
+        translation_key="party_mode",
         control_name=CONTROL_PARTY_MODE,
         set_fn=lambda coordinator, value: coordinator.client.set_party_mode(
             device_id=coordinator.device_id,
@@ -80,7 +80,7 @@ DEVICE_SWITCH_TYPES: dict[str, LiebherrDeviceSwitchEntityDescription] = {
     ),
     CONTROL_NIGHT_MODE: LiebherrDeviceSwitchEntityDescription(
         key="night_mode",
-        REDACTED_VALUE"night_mode",
+        translation_key="night_mode",
         control_name=CONTROL_NIGHT_MODE,
         set_fn=lambda coordinator, value: coordinator.client.set_night_mode(
             device_id=coordinator.device_id,

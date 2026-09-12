@@ -51,7 +51,7 @@ class DiscovergySensorEntityDescription(SensorEntityDescription):
 GAS_SENSORS: tuple[DiscovergySensorEntityDescription, ...] = (
     DiscovergySensorEntityDescription(
         key="volume",
-        REDACTED_VALUE"total_gas_consumption",
+        translation_key="total_gas_consumption",
         suggested_display_precision=4,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         device_class=SensorDeviceClass.GAS,
@@ -63,7 +63,7 @@ ELECTRICITY_SENSORS: tuple[DiscovergySensorEntityDescription, ...] = (
     # power sensors
     DiscovergySensorEntityDescription(
         key="power",
-        REDACTED_VALUE"total_power",
+        translation_key="total_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         suggested_display_precision=3,
         device_class=SensorDeviceClass.POWER,
@@ -71,7 +71,7 @@ ELECTRICITY_SENSORS: tuple[DiscovergySensorEntityDescription, ...] = (
     ),
     DiscovergySensorEntityDescription(
         key="power1",
-        REDACTED_VALUE"phase_1_power",
+        translation_key="phase_1_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         suggested_display_precision=3,
         device_class=SensorDeviceClass.POWER,
@@ -81,7 +81,7 @@ ELECTRICITY_SENSORS: tuple[DiscovergySensorEntityDescription, ...] = (
     ),
     DiscovergySensorEntityDescription(
         key="power2",
-        REDACTED_VALUE"phase_2_power",
+        translation_key="phase_2_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         suggested_display_precision=3,
         device_class=SensorDeviceClass.POWER,
@@ -91,7 +91,7 @@ ELECTRICITY_SENSORS: tuple[DiscovergySensorEntityDescription, ...] = (
     ),
     DiscovergySensorEntityDescription(
         key="power3",
-        REDACTED_VALUE"phase_3_power",
+        translation_key="phase_3_power",
         native_unit_of_measurement=UnitOfPower.WATT,
         suggested_display_precision=3,
         device_class=SensorDeviceClass.POWER,
@@ -102,7 +102,7 @@ ELECTRICITY_SENSORS: tuple[DiscovergySensorEntityDescription, ...] = (
     # voltage sensors
     DiscovergySensorEntityDescription(
         key="phase1Voltage",
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="phase_1_voltage",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         suggested_display_precision=1,
         device_class=SensorDeviceClass.VOLTAGE,
@@ -112,7 +112,7 @@ ELECTRICITY_SENSORS: tuple[DiscovergySensorEntityDescription, ...] = (
     ),
     DiscovergySensorEntityDescription(
         key="phase2Voltage",
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="phase_2_voltage",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         suggested_display_precision=1,
         device_class=SensorDeviceClass.VOLTAGE,
@@ -122,7 +122,7 @@ ELECTRICITY_SENSORS: tuple[DiscovergySensorEntityDescription, ...] = (
     ),
     DiscovergySensorEntityDescription(
         key="phase3Voltage",
-        REDACTED_VALUE"REDACTED_VALUE",
+        translation_key="phase_3_voltage",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         suggested_display_precision=1,
         device_class=SensorDeviceClass.VOLTAGE,
@@ -133,7 +133,7 @@ ELECTRICITY_SENSORS: tuple[DiscovergySensorEntityDescription, ...] = (
     # energy sensors
     DiscovergySensorEntityDescription(
         key="energy",
-        REDACTED_VALUE"total_consumption",
+        translation_key="total_consumption",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         suggested_display_precision=4,
         device_class=SensorDeviceClass.ENERGY,
@@ -142,7 +142,7 @@ ELECTRICITY_SENSORS: tuple[DiscovergySensorEntityDescription, ...] = (
     ),
     DiscovergySensorEntityDescription(
         key="energyOut",
-        REDACTED_VALUE"total_production",
+        translation_key="total_production",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         suggested_display_precision=4,
         device_class=SensorDeviceClass.ENERGY,
@@ -154,7 +154,7 @@ ELECTRICITY_SENSORS: tuple[DiscovergySensorEntityDescription, ...] = (
 ADDITIONAL_SENSORS: tuple[DiscovergySensorEntityDescription, ...] = (
     DiscovergySensorEntityDescription(
         key="last_transmitted",
-        REDACTED_VALUE"last_transmitted",
+        translation_key="last_transmitted",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,

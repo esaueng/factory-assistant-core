@@ -21,25 +21,25 @@ _LOGGER = logging.getLogger(__name__)
 ENTITY_DESCRIPTIONS = [
     SensorEntityDescription(
         key="uv_upcoming_replacement",
-        REDACTED_VALUE"uv_upcoming_replacement",
+        translation_key="uv_upcoming_replacement",
         device_class=SensorDeviceClass.DATE,
     ),
     SensorEntityDescription(
         key="uv_installed",
-        REDACTED_VALUE"uv_installed",
+        translation_key="uv_installed",
     ),
     SensorEntityDescription(
         key="filter_upcoming_replacement",
-        REDACTED_VALUE"filter_upcoming_replacement",
+        translation_key="filter_upcoming_replacement",
         device_class=SensorDeviceClass.DATE,
     ),
     SensorEntityDescription(
         key="filter_installed",
-        REDACTED_VALUE"filter_installed",
+        translation_key="filter_installed",
     ),
     SensorEntityDescription(
         key="filter_litters_passed",
-        REDACTED_VALUE"filter_litters_passed",
+        translation_key="filter_litters_passed",
         state_class=SensorStateClass.TOTAL,
         device_class=SensorDeviceClass.WATER,
         native_unit_of_measurement=UnitOfVolume.LITERS,

@@ -26,7 +26,7 @@ class CoolmasterResetFilter(CoolmasterEntity, ButtonEntity):
 
     entity_description = ButtonEntityDescription(
         key="reset_filter",
-        REDACTED_VALUE"reset_filter",
+        translation_key="reset_filter",
         entity_category=EntityCategory.CONFIG,
     )
 

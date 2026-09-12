@@ -62,7 +62,7 @@ SENSOR_DESCRIPTIONS: tuple[VistapoolSensorEntityDescription, ...] = (
     ),
     VistapoolSensorEntityDescription(
         key="conductivity",
-        REDACTED_VALUE"conductivity",
+        translation_key="conductivity",
         state_class=SensorStateClass.MEASUREMENT,
         value_path="modules.cd.current",
         value_fn=_convert_hundredths,
@@ -70,7 +70,7 @@ SENSOR_DESCRIPTIONS: tuple[VistapoolSensorEntityDescription, ...] = (
     ),
     VistapoolSensorEntityDescription(
         key="chlorine",
-        REDACTED_VALUE"chlorine",
+        translation_key="chlorine",
         state_class=SensorStateClass.MEASUREMENT,
         value_path="modules.cl.current",
         value_fn=_convert_hundredths,
@@ -86,7 +86,7 @@ SENSOR_DESCRIPTIONS: tuple[VistapoolSensorEntityDescription, ...] = (
     ),
     VistapoolSensorEntityDescription(
         key="redox_potential",
-        REDACTED_VALUE"redox_potential",
+        translation_key="redox_potential",
         native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
         state_class=SensorStateClass.MEASUREMENT,
         value_path="modules.rx.current",
@@ -95,7 +95,7 @@ SENSOR_DESCRIPTIONS: tuple[VistapoolSensorEntityDescription, ...] = (
     ),
     VistapoolSensorEntityDescription(
         key="uv",
-        REDACTED_VALUE"uv",
+        translation_key="uv",
         state_class=SensorStateClass.MEASUREMENT,
         value_path="modules.uv.current",
         value_fn=_convert_hundredths,
@@ -103,7 +103,7 @@ SENSOR_DESCRIPTIONS: tuple[VistapoolSensorEntityDescription, ...] = (
     ),
     VistapoolSensorEntityDescription(
         key="filtration_intel_time",
-        REDACTED_VALUE"filtration_intel_time",
+        translation_key="filtration_intel_time",
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.MINUTES,
         suggested_unit_of_measurement=UnitOfTime.HOURS,
@@ -113,7 +113,7 @@ SENSOR_DESCRIPTIONS: tuple[VistapoolSensorEntityDescription, ...] = (
     ),
     VistapoolSensorEntityDescription(
         key="rssi",
-        REDACTED_VALUE"rssi",
+        translation_key="rssi",
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -149,7 +149,7 @@ async def async_setup_entry(
                     coordinator,
                     VistapoolSensorEntityDescription(
                         key="electrolysis" if is_electrolysis else "hydrolysis",
-                        REDACTED_VALUE(
+                        translation_key=(
                             "electrolysis" if is_electrolysis else "hydrolysis"
                         ),
                         native_unit_of_measurement="g/h",

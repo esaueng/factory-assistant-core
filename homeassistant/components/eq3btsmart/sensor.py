@@ -31,14 +31,14 @@ class Eq3SensorEntityDescription(SensorEntityDescription):
 SENSOR_ENTITY_DESCRIPTIONS = [
     Eq3SensorEntityDescription(
         key=ENTITY_KEY_VALVE,
-        REDACTED_VALUEENTITY_KEY_VALVE,
+        translation_key=ENTITY_KEY_VALVE,
         value_func=lambda status: status.valve,
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     Eq3SensorEntityDescription(
         key=ENTITY_KEY_AWAY_UNTIL,
-        REDACTED_VALUEENTITY_KEY_AWAY_UNTIL,
+        translation_key=ENTITY_KEY_AWAY_UNTIL,
         value_func=lambda status: status.away_until or None,
         device_class=SensorDeviceClass.DATE,
     ),

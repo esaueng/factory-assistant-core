@@ -143,7 +143,7 @@ def _get_controller(hass: HomeAssistant) -> Heos:
         breaks_in_ha_version="2025.8.0",
         is_fixable=False,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"sign_in_out_deprecated",
+        translation_key="sign_in_out_deprecated",
     )
 
     entry: HeosConfigEntry | None = (
@@ -152,7 +152,7 @@ def _get_controller(hass: HomeAssistant) -> Heos:
 
     if not entry or entry.state is not ConfigEntryState.LOADED:
         raise HomeAssistantError(
-            translation_domain=DOMAIN, REDACTED_VALUE"integration_not_loaded"
+            translation_domain=DOMAIN, translation_key="integration_not_loaded"
         )
     return entry.runtime_data.heos
 
@@ -166,12 +166,12 @@ async def _sign_in_handler(service: ServiceCall) -> None:
         await controller.sign_in(username, password)
     except CommandAuthenticationError as err:
         raise ServiceValidationError(
-            translation_domain=DOMAIN, REDACTED_VALUE"sign_in_auth_error"
+            translation_domain=DOMAIN, translation_key="sign_in_auth_error"
         ) from err
     except HeosError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"sign_in_error",
+            translation_key="sign_in_error",
             translation_placeholders={"error": str(err)},
         ) from err
 
@@ -184,6 +184,6 @@ async def _sign_out_handler(service: ServiceCall) -> None:
     except HeosError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"sign_out_error",
+            translation_key="sign_out_error",
             translation_placeholders={"error": str(err)},
         ) from err

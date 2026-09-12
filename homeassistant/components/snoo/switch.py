@@ -29,7 +29,7 @@ class SnooSwitchEntityDescription(SwitchEntityDescription):
 BINARY_SENSOR_DESCRIPTIONS: list[SnooSwitchEntityDescription] = [
     SnooSwitchEntityDescription(
         key="sticky_white_noise",
-        REDACTED_VALUE"sticky_white_noise",
+        translation_key="sticky_white_noise",
         value_fn=lambda data: data.state_machine.sticky_white_noise == "on",
         set_value_fn=lambda snoo_api, device, _, state: snoo_api.set_sticky_white_noise(
             device, state
@@ -37,7 +37,7 @@ BINARY_SENSOR_DESCRIPTIONS: list[SnooSwitchEntityDescription] = [
     ),
     SnooSwitchEntityDescription(
         key="hold",
-        REDACTED_VALUE"hold",
+        translation_key="hold",
         value_fn=lambda data: data.state_machine.hold == "on",
         set_value_fn=lambda snoo_api, device, data, state: snoo_api.set_level(
             device, data.state_machine.level, state
@@ -83,7 +83,7 @@ class SnooSwitch(SnooDescriptionEntity, SwitchEntity):
             # pylint: disable-next=home-assistant-exception-placeholder-mismatch
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"switch_on_failed",
+                translation_key="switch_on_failed",
                 translation_placeholders={"name": str(self.name), "status": "on"},
             ) from err
 
@@ -100,6 +100,6 @@ class SnooSwitch(SnooDescriptionEntity, SwitchEntity):
             # pylint: disable-next=home-assistant-exception-placeholder-mismatch
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"switch_off_failed",
+                translation_key="switch_off_failed",
                 translation_placeholders={"name": str(self.name), "status": "off"},
             ) from err

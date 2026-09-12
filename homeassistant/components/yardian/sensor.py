@@ -48,7 +48,7 @@ def _zone_delay_value(coordinator: YardianUpdateCoordinator) -> StateType:
 SENSOR_DESCRIPTIONS: tuple[YardianSensorEntityDescription, ...] = (
     YardianSensorEntityDescription(
         key="rain_delay",
-        REDACTED_VALUE"rain_delay",
+        translation_key="rain_delay",
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.SECONDS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -57,13 +57,13 @@ SENSOR_DESCRIPTIONS: tuple[YardianSensorEntityDescription, ...] = (
     ),
     YardianSensorEntityDescription(
         key="active_zone_count",
-        REDACTED_VALUE"active_zone_count",
+        translation_key="active_zone_count",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda coordinator: len(coordinator.data.active_zones),
     ),
     YardianSensorEntityDescription(
         key="zone_delay",
-        REDACTED_VALUE"zone_delay",
+        translation_key="zone_delay",
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.SECONDS,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -73,7 +73,7 @@ SENSOR_DESCRIPTIONS: tuple[YardianSensorEntityDescription, ...] = (
     ),
     YardianSensorEntityDescription(
         key="water_hammer_duration",
-        REDACTED_VALUE"water_hammer_duration",
+        translation_key="water_hammer_duration",
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.SECONDS,
         entity_category=EntityCategory.DIAGNOSTIC,

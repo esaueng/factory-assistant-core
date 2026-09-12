@@ -104,7 +104,7 @@ ENTITY_DESCRIPTIONS: tuple[UnifiButtonEntityDescription, ...] = (
     ),
     UnifiButtonEntityDescription[Ports, Port](
         key="PoE power cycle",
-        REDACTED_VALUE"port_power_cycle",
+        translation_key="port_power_cycle",
         entity_category=EntityCategory.CONFIG,
         device_class=ButtonDeviceClass.RESTART,
         api_handler_fn=lambda api: api.ports,
@@ -118,7 +118,7 @@ ENTITY_DESCRIPTIONS: tuple[UnifiButtonEntityDescription, ...] = (
     ),
     UnifiButtonEntityDescription[Wlans, Wlan](
         key="WLAN regenerate password",
-        REDACTED_VALUE"wlan_regenerate_password",
+        translation_key="wlan_regenerate_password",
         device_class=ButtonDeviceClass.UPDATE,
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
@@ -157,7 +157,7 @@ class UnifiButtonEntity[HandlerT: APIHandler, ApiItemT: ApiItem](
         except aiounifi.AiounifiException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"action_request_failed",
+                translation_key="action_request_failed",
             ) from err
 
     @callback

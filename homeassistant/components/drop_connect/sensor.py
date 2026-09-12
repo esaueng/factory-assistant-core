@@ -67,7 +67,7 @@ class DROPSensorEntityDescription(SensorEntityDescription):
 SENSORS: list[DROPSensorEntityDescription] = [
     DROPSensorEntityDescription(
         key=CURRENT_FLOW_RATE,
-        REDACTED_VALUECURRENT_FLOW_RATE,
+        translation_key=CURRENT_FLOW_RATE,
         device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
         native_unit_of_measurement=UnitOfVolumeFlowRate.GALLONS_PER_MINUTE,
         suggested_display_precision=1,
@@ -76,7 +76,7 @@ SENSORS: list[DROPSensorEntityDescription] = [
     ),
     DROPSensorEntityDescription(
         key=PEAK_FLOW_RATE,
-        REDACTED_VALUEPEAK_FLOW_RATE,
+        translation_key=PEAK_FLOW_RATE,
         device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
         native_unit_of_measurement=UnitOfVolumeFlowRate.GALLONS_PER_MINUTE,
         suggested_display_precision=1,
@@ -85,7 +85,7 @@ SENSORS: list[DROPSensorEntityDescription] = [
     ),
     DROPSensorEntityDescription(
         key=WATER_USED_TODAY,
-        REDACTED_VALUEWATER_USED_TODAY,
+        translation_key=WATER_USED_TODAY,
         device_class=SensorDeviceClass.WATER,
         native_unit_of_measurement=UnitOfVolume.GALLONS,
         suggested_display_precision=1,
@@ -94,7 +94,7 @@ SENSORS: list[DROPSensorEntityDescription] = [
     ),
     DROPSensorEntityDescription(
         key=AVERAGE_WATER_USED,
-        REDACTED_VALUEAVERAGE_WATER_USED,
+        translation_key=AVERAGE_WATER_USED,
         device_class=SensorDeviceClass.WATER,
         native_unit_of_measurement=UnitOfVolume.GALLONS,
         suggested_display_precision=0,
@@ -103,7 +103,7 @@ SENSORS: list[DROPSensorEntityDescription] = [
     ),
     DROPSensorEntityDescription(
         key=CAPACITY_REMAINING,
-        REDACTED_VALUECAPACITY_REMAINING,
+        translation_key=CAPACITY_REMAINING,
         device_class=SensorDeviceClass.WATER,
         native_unit_of_measurement=UnitOfVolume.GALLONS,
         suggested_display_precision=0,
@@ -112,7 +112,7 @@ SENSORS: list[DROPSensorEntityDescription] = [
     ),
     DROPSensorEntityDescription(
         key=CURRENT_SYSTEM_PRESSURE,
-        REDACTED_VALUECURRENT_SYSTEM_PRESSURE,
+        translation_key=CURRENT_SYSTEM_PRESSURE,
         device_class=SensorDeviceClass.PRESSURE,
         native_unit_of_measurement=UnitOfPressure.PSI,
         suggested_display_precision=1,
@@ -121,7 +121,7 @@ SENSORS: list[DROPSensorEntityDescription] = [
     ),
     DROPSensorEntityDescription(
         key=HIGH_SYSTEM_PRESSURE,
-        REDACTED_VALUEHIGH_SYSTEM_PRESSURE,
+        translation_key=HIGH_SYSTEM_PRESSURE,
         device_class=SensorDeviceClass.PRESSURE,
         native_unit_of_measurement=UnitOfPressure.PSI,
         suggested_display_precision=0,
@@ -130,7 +130,7 @@ SENSORS: list[DROPSensorEntityDescription] = [
     ),
     DROPSensorEntityDescription(
         key=LOW_SYSTEM_PRESSURE,
-        REDACTED_VALUELOW_SYSTEM_PRESSURE,
+        translation_key=LOW_SYSTEM_PRESSURE,
         device_class=SensorDeviceClass.PRESSURE,
         native_unit_of_measurement=UnitOfPressure.PSI,
         suggested_display_precision=0,
@@ -156,7 +156,7 @@ SENSORS: list[DROPSensorEntityDescription] = [
     ),
     DROPSensorEntityDescription(
         key=INLET_TDS,
-        REDACTED_VALUEINLET_TDS,
+        translation_key=INLET_TDS,
         native_unit_of_measurement=CONCENTRATION_PARTS_PER_MILLION,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=0,
@@ -164,7 +164,7 @@ SENSORS: list[DROPSensorEntityDescription] = [
     ),
     DROPSensorEntityDescription(
         key=OUTLET_TDS,
-        REDACTED_VALUEOUTLET_TDS,
+        translation_key=OUTLET_TDS,
         native_unit_of_measurement=CONCENTRATION_PARTS_PER_MILLION,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=0,
@@ -172,7 +172,7 @@ SENSORS: list[DROPSensorEntityDescription] = [
     ),
     DROPSensorEntityDescription(
         key=CARTRIDGE_1_LIFE,
-        REDACTED_VALUECARTRIDGE_1_LIFE,
+        translation_key=CARTRIDGE_1_LIFE,
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -181,7 +181,7 @@ SENSORS: list[DROPSensorEntityDescription] = [
     ),
     DROPSensorEntityDescription(
         key=CARTRIDGE_2_LIFE,
-        REDACTED_VALUECARTRIDGE_2_LIFE,
+        translation_key=CARTRIDGE_2_LIFE,
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -190,7 +190,7 @@ SENSORS: list[DROPSensorEntityDescription] = [
     ),
     DROPSensorEntityDescription(
         key=CARTRIDGE_3_LIFE,
-        REDACTED_VALUECARTRIDGE_3_LIFE,
+        translation_key=CARTRIDGE_3_LIFE,
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,

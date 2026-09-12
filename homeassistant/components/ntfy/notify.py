@@ -57,7 +57,7 @@ class NtfyNotifyEntity(NtfyBaseEntity, NotifyEntity):
 
     entity_description = NotifyEntityDescription(
         key="publish",
-        REDACTED_VALUE"publish",
+        translation_key="publish",
         name=None,
     )
     _attr_supported_features = NotifyEntityFeature.TITLE
@@ -81,12 +81,12 @@ class NtfyNotifyEntity(NtfyBaseEntity, NotifyEntity):
             if params.get("email"):
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"delay_no_email",
+                    translation_key="delay_no_email",
                 )
             if params.get("call"):
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"delay_no_call",
+                    translation_key="delay_no_call",
                 )
         if file := params.pop(ATTR_ATTACH_FILE, None):
             media_content_id: str = file["media_content_id"]
@@ -106,7 +106,7 @@ class NtfyNotifyEntity(NtfyBaseEntity, NotifyEntity):
                 if media.path is None:
                     raise ServiceValidationError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"media_source_not_supported",
+                        translation_key="media_source_not_supported",
                     )
 
                 attachment = await self.hass.async_add_executor_job(
@@ -131,17 +131,17 @@ class NtfyNotifyEntity(NtfyBaseEntity, NotifyEntity):
             self.config_entry.async_start_reauth(self.hass)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"authentication_error",
+                translation_key="authentication_error",
             ) from e
         except NtfyHTTPError as e:
             raise HomeAssistantError(
-                REDACTED_VALUE"publish_failed_request_error",
+                translation_key="publish_failed_request_error",
                 translation_domain=DOMAIN,
                 translation_placeholders={"error_msg": e.error},
             ) from e
         except NtfyException as e:
             raise HomeAssistantError(
-                REDACTED_VALUE"publish_failed_exception",
+                translation_key="publish_failed_exception",
                 translation_domain=DOMAIN,
             ) from e
 
@@ -156,12 +156,12 @@ class NtfyNotifyEntity(NtfyBaseEntity, NotifyEntity):
             self.config_entry.async_start_reauth(self.hass)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"authentication_error",
+                translation_key="authentication_error",
             ) from e
         except NtfyException as e:
             _LOGGER.debug("Exception:", exc_info=True)
             raise HomeAssistantError(
-                REDACTED_VALUE"clear_failed",
+                translation_key="clear_failed",
                 translation_domain=DOMAIN,
             ) from e
 
@@ -176,11 +176,11 @@ class NtfyNotifyEntity(NtfyBaseEntity, NotifyEntity):
             self.config_entry.async_start_reauth(self.hass)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"authentication_error",
+                translation_key="authentication_error",
             ) from e
         except NtfyException as e:
             _LOGGER.debug("Exception:", exc_info=True)
             raise HomeAssistantError(
-                REDACTED_VALUE"delete_failed",
+                translation_key="delete_failed",
                 translation_domain=DOMAIN,
             ) from e

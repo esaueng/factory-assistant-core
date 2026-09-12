@@ -16,7 +16,7 @@ from .entity import PoolSenseEntity
 SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="Chlorine",
-        REDACTED_VALUE"chlorine",
+        translation_key="chlorine",
         native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
     ),
     SensorEntityDescription(
@@ -31,31 +31,31 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="Water Temp",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
-        REDACTED_VALUE"water_temp",
+        translation_key="water_temp",
         device_class=SensorDeviceClass.TEMPERATURE,
     ),
     SensorEntityDescription(
         key="Last Seen",
-        REDACTED_VALUE"last_seen",
+        translation_key="last_seen",
         device_class=SensorDeviceClass.TIMESTAMP,
     ),
     SensorEntityDescription(
         key="Chlorine High",
-        REDACTED_VALUE"chlorine_high",
+        translation_key="chlorine_high",
         native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
     ),
     SensorEntityDescription(
         key="Chlorine Low",
-        REDACTED_VALUE"chlorine_low",
+        translation_key="chlorine_low",
         native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
     ),
     SensorEntityDescription(
         key="pH High",
-        REDACTED_VALUE"ph_high",
+        translation_key="ph_high",
     ),
     SensorEntityDescription(
         key="pH Low",
-        REDACTED_VALUE"ph_low",
+        translation_key="ph_low",
     ),
 )
 

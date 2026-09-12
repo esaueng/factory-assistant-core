@@ -17,7 +17,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: UptimeRobotConfigEntry) 
     if key.startswith(("ur", "m")):
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"api_key_wrong_type",
+            translation_key="api_key_wrong_type",
         )
     uptime_robot_api = UptimeRobot(key, async_get_clientsession(hass))
 

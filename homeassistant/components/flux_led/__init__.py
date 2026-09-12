@@ -104,7 +104,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         hass,
         _async_start_background_discovery,
         DISCOVERY_INTERVAL,
-        REDACTED_VALUE,
+        cancel_on_shutdown=True,
     )
     return True
 

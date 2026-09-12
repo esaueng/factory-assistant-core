@@ -407,7 +407,7 @@ class HomeAssistantBluetoothManager(BluetoothManager):
             passive_mode_issue_id,
             is_fixable=False,  # Requires a reboot or unplug
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUEtranslation_key,
+            translation_key=translation_key,
             translation_placeholders={
                 "adapter": adapter_name,
                 "model": model or "Unknown",
@@ -446,7 +446,7 @@ class HomeAssistantBluetoothManager(BluetoothManager):
             is_fixable=False,  # Not fixable from within HA - requires
             # container restart with new permissions
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"bluetooth_adapter_missing_permissions",
+            translation_key="bluetooth_adapter_missing_permissions",
             translation_placeholders={
                 "adapter": adapter_name,
                 "model": model or "Unknown",

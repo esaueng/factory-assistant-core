@@ -534,7 +534,7 @@ class ShellyConfigFlow(ConfigFlow, domain=DOMAIN):
                     vol.Required(CONF_DEVICE): SelectSelector(
                         SelectSelectorConfig(
                             options=device_options,
-                            REDACTED_VALUECONF_DEVICE,
+                            translation_key=CONF_DEVICE,
                             mode=SelectSelectorMode.LIST,
                         )
                     ),
@@ -1337,7 +1337,7 @@ class OptionsFlowHandler(OptionsFlow):
                     ): SelectSelector(
                         SelectSelectorConfig(
                             options=BLE_SCANNER_OPTIONS,
-                            REDACTED_VALUECONF_BLE_SCANNER_MODE,
+                            translation_key=CONF_BLE_SCANNER_MODE,
                         ),
                     ),
                 }

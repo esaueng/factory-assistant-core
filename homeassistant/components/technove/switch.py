@@ -24,7 +24,7 @@ async def _set_charging_enabled(
     if coordinator.data.info.auto_charge:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"set_charging_enabled_on_auto_charge",
+            translation_key="set_charging_enabled_on_auto_charge",
         )
     await coordinator.technove.set_charging_enabled(enabled=enabled)
     coordinator.data.info.is_session_active = enabled
@@ -57,7 +57,7 @@ class TechnoVESwitchDescription(SwitchEntityDescription):
 SWITCHES = [
     TechnoVESwitchDescription(
         key="auto_charge",
-        REDACTED_VALUE"auto_charge",
+        translation_key="auto_charge",
         entity_category=EntityCategory.CONFIG,
         is_on_fn=lambda station: station.info.auto_charge,
         turn_on_fn=lambda coordinator: _set_auto_charge(coordinator, True),
@@ -65,7 +65,7 @@ SWITCHES = [
     ),
     TechnoVESwitchDescription(
         key="session_active",
-        REDACTED_VALUE"session_active",
+        translation_key="session_active",
         entity_category=EntityCategory.CONFIG,
         is_on_fn=lambda station: station.info.is_session_active,
         turn_on_fn=_enable_charging,

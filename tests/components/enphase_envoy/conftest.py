@@ -101,7 +101,7 @@ async def mock_envoy(
             key="secret",
             algorithm="HS256",
         )
-        mock_envoy.auth = EnvoyTokenAuth("127.0.0.1", token=token, REDACTED_VALUE"1234")
+        mock_envoy.auth = EnvoyTokenAuth("127.0.0.1", token=token, envoy_serial="1234")
         mock_envoy.serial_number = "1234"
         mock = Mock()
         mock.status = 200

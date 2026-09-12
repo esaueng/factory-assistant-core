@@ -155,7 +155,7 @@ def _get_coordinator(
     if device_entry is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_not_found",
+            translation_key="device_not_found",
             translation_placeholders={"device": device_id},
         )
     try:
@@ -167,7 +167,7 @@ def _get_coordinator(
     except StopIteration as e:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_not_found",
+            translation_key="device_not_found",
             translation_placeholders={"device": device_id},
         ) from e
     entry: SystemBridgeConfigEntry = service.async_get_config_entry(
@@ -194,7 +194,7 @@ async def handle_get_process_by_id(service_call: ServiceCall) -> ServiceResponse
     except StopIteration as e:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"process_not_found",
+            translation_key="process_not_found",
             translation_placeholders={"id": service_call.data[CONF_ID]},
         ) from e
 

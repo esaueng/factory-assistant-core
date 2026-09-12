@@ -52,7 +52,7 @@ class PranaFanEntityDescription(FanEntityDescription):
 ENTITIES: tuple[PranaFanEntityDescription, ...] = (
     PranaFanEntityDescription(
         key=PranaFanType.SUPPLY,
-        REDACTED_VALUE"supply",
+        translation_key="supply",
         value_fn=lambda coord: (
             coord.data.supply if not coord.data.bound else coord.data.bounded
         ),
@@ -65,7 +65,7 @@ ENTITIES: tuple[PranaFanEntityDescription, ...] = (
     ),
     PranaFanEntityDescription(
         key=PranaFanType.EXTRACT,
-        REDACTED_VALUE"extract",
+        translation_key="extract",
         value_fn=lambda coord: (
             coord.data.extract if not coord.data.bound else coord.data.bounded
         ),

@@ -31,7 +31,7 @@ DATA_SCHEMA = vol.Schema(
                 options=WEEKDAYS,
                 multiple=True,
                 mode=selector.SelectSelectorMode.DROPDOWN,
-                REDACTED_VALUECONF_WEEKDAY,
+                translation_key=CONF_WEEKDAY,
             )
         ),
     }

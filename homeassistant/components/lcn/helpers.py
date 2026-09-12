@@ -101,7 +101,7 @@ def get_resource(domain_name: str, domain_data: ConfigType) -> str:
         return f"{domain_data['register']}{domain_data['scene']}"
     raise HomeAssistantError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"invalid_domain",
+        translation_key="invalid_domain",
         translation_placeholders={CONF_DOMAIN: domain_name},
     )
 
@@ -314,7 +314,7 @@ def is_states_string(states_string: str) -> list[str]:
     """Validate the given states string and return states list."""
     if len(states_string) != 8:
         raise HomeAssistantError(
-            translation_domain=DOMAIN, REDACTED_VALUE"invalid_length_of_states_string"
+            translation_domain=DOMAIN, translation_key="invalid_length_of_states_string"
         )
     states = {"1": "ON", "0": "OFF", "T": "TOGGLE", "-": "NOCHANGE"}
     return [states[state_string] for state_string in states_string]

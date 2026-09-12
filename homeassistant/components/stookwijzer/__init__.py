@@ -66,7 +66,7 @@ async def async_migrate_entry(
                 "location_migration_failed",
                 is_fixable=False,
                 severity=ir.IssueSeverity.ERROR,
-                REDACTED_VALUE"location_migration_failed",
+                translation_key="location_migration_failed",
                 translation_placeholders={
                     "entry_title": entry.title,
                 },

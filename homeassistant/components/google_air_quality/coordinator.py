@@ -79,7 +79,7 @@ class GoogleAirQualityUpdateCoordinator(
             _LOGGER.debug("Cannot fetch air quality data: %s", str(ex))
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unable_to_fetch",
+                translation_key="unable_to_fetch",
             ) from ex
 
 

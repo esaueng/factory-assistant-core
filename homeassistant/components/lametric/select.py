@@ -27,7 +27,7 @@ class LaMetricSelectEntityDescription(SelectEntityDescription):
 SELECTS = [
     LaMetricSelectEntityDescription(
         key="brightness_mode",
-        REDACTED_VALUE"brightness_mode",
+        translation_key="brightness_mode",
         entity_category=EntityCategory.CONFIG,
         options=["auto", "manual"],
         current_fn=lambda device: device.display.brightness_mode.value,

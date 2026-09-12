@@ -62,21 +62,21 @@ class QswSensorEntityDescription(SensorEntityDescription, QswEntityDescription):
 
 SENSOR_TYPES: Final[tuple[QswSensorEntityDescription, ...]] = (
     QswSensorEntityDescription(
-        REDACTED_VALUE"fan_1_speed",
+        translation_key="fan_1_speed",
         key=QSD_SYSTEM_SENSOR,
         native_unit_of_measurement=RPM,
         state_class=SensorStateClass.MEASUREMENT,
         subkey=QSD_FAN1_SPEED,
     ),
     QswSensorEntityDescription(
-        REDACTED_VALUE"fan_2_speed",
+        translation_key="fan_2_speed",
         key=QSD_SYSTEM_SENSOR,
         native_unit_of_measurement=RPM,
         state_class=SensorStateClass.MEASUREMENT,
         subkey=QSD_FAN2_SPEED,
     ),
     QswSensorEntityDescription(
-        REDACTED_VALUE"ports",
+        translation_key="ports",
         attributes={
             ATTR_MAX: [QSD_SYSTEM_BOARD, QSD_PORT_NUM],
         },
@@ -87,7 +87,7 @@ SENSOR_TYPES: Final[tuple[QswSensorEntityDescription, ...]] = (
     ),
     QswSensorEntityDescription(
         entity_registry_enabled_default=False,
-        REDACTED_VALUE"rx",
+        translation_key="rx",
         device_class=SensorDeviceClass.DATA_SIZE,
         key=QSD_PORTS_STATISTICS,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -96,7 +96,7 @@ SENSOR_TYPES: Final[tuple[QswSensorEntityDescription, ...]] = (
     ),
     QswSensorEntityDescription(
         entity_registry_enabled_default=False,
-        REDACTED_VALUE"rx_errors",
+        translation_key="rx_errors",
         key=QSD_PORTS_STATISTICS,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -104,7 +104,7 @@ SENSOR_TYPES: Final[tuple[QswSensorEntityDescription, ...]] = (
     ),
     QswSensorEntityDescription(
         entity_registry_enabled_default=False,
-        REDACTED_VALUE"rx_speed",
+        translation_key="rx_speed",
         device_class=SensorDeviceClass.DATA_RATE,
         key=QSD_PORTS_STATISTICS,
         native_unit_of_measurement=UnitOfDataRate.BYTES_PER_SECOND,
@@ -123,7 +123,7 @@ SENSOR_TYPES: Final[tuple[QswSensorEntityDescription, ...]] = (
     ),
     QswSensorEntityDescription(
         entity_registry_enabled_default=False,
-        REDACTED_VALUE"tx",
+        translation_key="tx",
         device_class=SensorDeviceClass.DATA_SIZE,
         key=QSD_PORTS_STATISTICS,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -132,7 +132,7 @@ SENSOR_TYPES: Final[tuple[QswSensorEntityDescription, ...]] = (
     ),
     QswSensorEntityDescription(
         entity_registry_enabled_default=False,
-        REDACTED_VALUE"tx_speed",
+        translation_key="tx_speed",
         device_class=SensorDeviceClass.DATA_RATE,
         key=QSD_PORTS_STATISTICS,
         native_unit_of_measurement=UnitOfDataRate.BYTES_PER_SECOND,
@@ -140,7 +140,7 @@ SENSOR_TYPES: Final[tuple[QswSensorEntityDescription, ...]] = (
         subkey=QSD_TX_SPEED,
     ),
     QswSensorEntityDescription(
-        REDACTED_VALUE"uptime_timestamp",
+        translation_key="uptime_timestamp",
         key=QSD_SYSTEM_TIME,
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,

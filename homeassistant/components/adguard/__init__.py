@@ -67,7 +67,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         )
         if not entries:
             raise ServiceValidationError(
-                translation_domain=DOMAIN, REDACTED_VALUE"config_entry_not_loaded"
+                translation_domain=DOMAIN, translation_key="config_entry_not_loaded"
             )
         return [entry.runtime_data.client for entry in entries]
 

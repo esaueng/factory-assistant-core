@@ -19,21 +19,21 @@ from .coordinator import EagleDataCoordinator, RainforestEagleConfigEntry
 SENSORS = (
     SensorEntityDescription(
         key="zigbee:InstantaneousDemand",
-        REDACTED_VALUE"power_demand",
+        translation_key="power_demand",
         native_unit_of_measurement=UnitOfPower.KILO_WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="zigbee:CurrentSummationDelivered",
-        REDACTED_VALUE"total_energy_delivered",
+        translation_key="total_energy_delivered",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     SensorEntityDescription(
         key="zigbee:CurrentSummationReceived",
-        REDACTED_VALUE"total_energy_received",
+        translation_key="total_energy_received",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -56,7 +56,7 @@ async def async_setup_entry(
                 coordinator,
                 SensorEntityDescription(
                     key="zigbee:Price",
-                    REDACTED_VALUE"energy_price",
+                    translation_key="energy_price",
                     native_unit_of_measurement=f"{coordinator.data['zigbee:PriceCurrency']}/{UnitOfEnergy.KILO_WATT_HOUR}",
                     state_class=SensorStateClass.MEASUREMENT,
                 ),

@@ -85,7 +85,7 @@ class INKBIRDActiveBluetoothProcessorCoordinator(
         if not (service_info := async_last_service_info(self.hass, self.address)):
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_advertisement",
+                translation_key="no_advertisement",
                 translation_placeholders={
                     "address": self.address,
                     "reason": async_address_reachability_diagnostics(

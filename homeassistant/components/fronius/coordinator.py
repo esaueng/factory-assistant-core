@@ -68,7 +68,7 @@ class FroniusCoordinatorBase(
                     self.update_interval = self.error_interval
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"update_failed",
+                    translation_key="update_failed",
                     translation_placeholders={"fronius_error": str(err)},
                 ) from err
 

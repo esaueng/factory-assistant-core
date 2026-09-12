@@ -434,7 +434,7 @@ class PowerViewShadeWithTiltBase(PowerViewShadeBase):
 class PowerViewShadeWithTiltOnClosed(PowerViewShadeWithTiltBase):
     """Representation of a PowerView shade with tilt when closed capabilities.
 
-    API Class: ShadeBottomUpTiltOnClosed + REDACTED_VALUE
+    API Class: ShadeBottomUpTiltOnClosed + ShadeBottomUpTiltOnClosed90
 
     Type 1 - Bottom Up w/ 90° Tilt
     Shade 44 - a shade thought to have been a firmware issue (type 0 usually don't tilt)

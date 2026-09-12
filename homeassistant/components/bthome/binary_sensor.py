@@ -61,7 +61,7 @@ BINARY_SENSOR_DESCRIPTIONS = {
     ),
     BTHomeBinarySensorDeviceClass.GENERIC: BinarySensorEntityDescription(
         key=BTHomeBinarySensorDeviceClass.GENERIC,
-        REDACTED_VALUE"generic",
+        translation_key="generic",
     ),
     BTHomeBinarySensorDeviceClass.LIGHT: BinarySensorEntityDescription(
         key=BTHomeBinarySensorDeviceClass.LIGHT,

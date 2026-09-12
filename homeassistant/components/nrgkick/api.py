@@ -64,7 +64,7 @@ async def async_api_call[_T](awaitable: Awaitable[_T]) -> _T:
     except NRGkickCommandRejectedError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"command_rejected",
+            translation_key="command_rejected",
             translation_placeholders={"reason": err.reason},
         ) from err
     except NRGkickAuthenticationError as err:

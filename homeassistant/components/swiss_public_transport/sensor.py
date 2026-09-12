@@ -45,7 +45,7 @@ SENSORS: tuple[SwissPublicTransportSensorEntityDescription, ...] = (
     *[
         SwissPublicTransportSensorEntityDescription(
             key=f"departure{i or ''}",
-            REDACTED_VALUEf"departure{i}",
+            translation_key=f"departure{i}",
             device_class=SensorDeviceClass.TIMESTAMP,
             value_fn=lambda data_connection: data_connection["departure"],
             index=i,
@@ -54,7 +54,7 @@ SENSORS: tuple[SwissPublicTransportSensorEntityDescription, ...] = (
     ],
     SwissPublicTransportSensorEntityDescription(
         key="duration",
-        REDACTED_VALUE"trip_duration",
+        translation_key="trip_duration",
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.SECONDS,
         suggested_unit_of_measurement=UnitOfTime.HOURS,
@@ -62,24 +62,24 @@ SENSORS: tuple[SwissPublicTransportSensorEntityDescription, ...] = (
     ),
     SwissPublicTransportSensorEntityDescription(
         key="transfers",
-        REDACTED_VALUE"transfers",
+        translation_key="transfers",
         value_fn=lambda data_connection: data_connection["transfers"],
     ),
     SwissPublicTransportSensorEntityDescription(
         key="platform",
-        REDACTED_VALUE"platform",
+        translation_key="platform",
         value_fn=lambda data_connection: data_connection["platform"],
     ),
     SwissPublicTransportSensorEntityDescription(
         key="delay",
-        REDACTED_VALUE"delay",
+        translation_key="delay",
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.MINUTES,
         value_fn=lambda data_connection: data_connection["delay"],
     ),
     SwissPublicTransportSensorEntityDescription(
         key="line",
-        REDACTED_VALUE"line",
+        translation_key="line",
         value_fn=lambda data_connection: data_connection["line"],
     ),
 )

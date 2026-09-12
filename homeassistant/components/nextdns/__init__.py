@@ -85,7 +85,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: NextDnsConfigEntry) -> b
     except (ApiError, ClientConnectorError, RetryError, TimeoutError) as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect",
+            translation_key="cannot_connect",
             translation_placeholders={
                 "entry": entry.title,
                 "error": repr(err),
@@ -94,7 +94,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: NextDnsConfigEntry) -> b
     except InvalidApiKeyError as err:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"auth_error",
+            translation_key="auth_error",
             translation_placeholders={"entry": entry.title},
         ) from err
 

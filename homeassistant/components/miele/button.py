@@ -55,7 +55,7 @@ BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
         ),
         description=MieleButtonDescription(
             key="start",
-            REDACTED_VALUE"start",
+            translation_key="start",
             press_data=MieleActions.START,
             entity_registry_enabled_default=False,
         ),
@@ -80,7 +80,7 @@ BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
         ),
         description=MieleButtonDescription(
             key="stop",
-            REDACTED_VALUE"stop",
+            translation_key="stop",
             press_data=MieleActions.STOP,
             entity_registry_enabled_default=False,
         ),
@@ -96,7 +96,7 @@ BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
         ),
         description=MieleButtonDescription(
             key="pause",
-            REDACTED_VALUE"pause",
+            translation_key="pause",
             press_data=MieleActions.PAUSE,
             entity_registry_enabled_default=False,
         ),
@@ -155,7 +155,7 @@ class MieleButton(MieleEntity, ButtonEntity):
             _LOGGER.debug("Error setting button state for %s: %s", self.entity_id, err)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_state_error",
+                translation_key="set_state_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                 },

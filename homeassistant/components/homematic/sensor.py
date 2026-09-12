@@ -218,38 +218,38 @@ SENSOR_DESCRIPTIONS: dict[str, SensorEntityDescription] = {
         native_unit_of_measurement="#",
         icon="mdi:invert-colors",
     ),
-    "REDACTED_VALUE": SensorEntityDescription(
-        key="REDACTED_VALUE",
+    "MASS_CONCENTRATION_PM_1": SensorEntityDescription(
+        key="MASS_CONCENTRATION_PM_1",
         native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
         device_class=SensorDeviceClass.PM1,
         state_class=SensorStateClass.MEASUREMENT,
     ),
-    "REDACTED_VALUE": SensorEntityDescription(
-        key="REDACTED_VALUE",
+    "MASS_CONCENTRATION_PM_2_5": SensorEntityDescription(
+        key="MASS_CONCENTRATION_PM_2_5",
         native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
         device_class=SensorDeviceClass.PM25,
         state_class=SensorStateClass.MEASUREMENT,
     ),
-    "REDACTED_VALUE": SensorEntityDescription(
-        key="REDACTED_VALUE",
+    "MASS_CONCENTRATION_PM_10": SensorEntityDescription(
+        key="MASS_CONCENTRATION_PM_10",
         native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
         device_class=SensorDeviceClass.PM10,
         state_class=SensorStateClass.MEASUREMENT,
     ),
-    "REDACTED_VALUE": SensorEntityDescription(
-        key="REDACTED_VALUE",
+    "MASS_CONCENTRATION_PM_1_24H_AVERAGE": SensorEntityDescription(
+        key="MASS_CONCENTRATION_PM_1_24H_AVERAGE",
         native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
         device_class=SensorDeviceClass.PM1,
         state_class=SensorStateClass.MEASUREMENT,
     ),
-    "REDACTED_VALUE": SensorEntityDescription(
-        key="REDACTED_VALUE",
+    "MASS_CONCENTRATION_PM_2_5_24H_AVERAGE": SensorEntityDescription(
+        key="MASS_CONCENTRATION_PM_2_5_24H_AVERAGE",
         native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
         device_class=SensorDeviceClass.PM25,
         state_class=SensorStateClass.MEASUREMENT,
     ),
-    "REDACTED_VALUE": SensorEntityDescription(
-        key="REDACTED_VALUE",
+    "MASS_CONCENTRATION_PM_10_24H_AVERAGE": SensorEntityDescription(
+        key="MASS_CONCENTRATION_PM_10_24H_AVERAGE",
         native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
         device_class=SensorDeviceClass.PM10,
         state_class=SensorStateClass.MEASUREMENT,

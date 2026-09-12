@@ -24,11 +24,11 @@ SENSORS = (
     SensorEntityDescription(key="inst_power"),
     SensorEntityDescription(
         key="avg_power",
-        REDACTED_VALUE"average",
+        translation_key="average",
         entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
-        key="max_power", REDACTED_VALUE"max", entity_registry_enabled_default=False
+        key="max_power", translation_key="max", entity_registry_enabled_default=False
     ),
 )
 

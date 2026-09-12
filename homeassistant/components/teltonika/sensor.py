@@ -40,7 +40,7 @@ class TeltonikaSensorEntityDescription(SensorEntityDescription):
 SENSOR_DESCRIPTIONS: tuple[TeltonikaSensorEntityDescription, ...] = (
     TeltonikaSensorEntityDescription(
         key="rssi",
-        REDACTED_VALUE"rssi",
+        translation_key="rssi",
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
@@ -49,7 +49,7 @@ SENSOR_DESCRIPTIONS: tuple[TeltonikaSensorEntityDescription, ...] = (
     ),
     TeltonikaSensorEntityDescription(
         key="rsrp",
-        REDACTED_VALUE"rsrp",
+        translation_key="rsrp",
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
@@ -58,7 +58,7 @@ SENSOR_DESCRIPTIONS: tuple[TeltonikaSensorEntityDescription, ...] = (
     ),
     TeltonikaSensorEntityDescription(
         key="rsrq",
-        REDACTED_VALUE"rsrq",
+        translation_key="rsrq",
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS,
@@ -67,7 +67,7 @@ SENSOR_DESCRIPTIONS: tuple[TeltonikaSensorEntityDescription, ...] = (
     ),
     TeltonikaSensorEntityDescription(
         key="sinr",
-        REDACTED_VALUE"sinr",
+        translation_key="sinr",
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS,
@@ -84,17 +84,17 @@ SENSOR_DESCRIPTIONS: tuple[TeltonikaSensorEntityDescription, ...] = (
     ),
     TeltonikaSensorEntityDescription(
         key="operator",
-        REDACTED_VALUE"operator",
+        translation_key="operator",
         value_fn=lambda modem: modem.operator,
     ),
     TeltonikaSensorEntityDescription(
         key="connection_type",
-        REDACTED_VALUE"connection_type",
+        translation_key="connection_type",
         value_fn=lambda modem: modem.conntype,
     ),
     TeltonikaSensorEntityDescription(
         key="band",
-        REDACTED_VALUE"band",
+        translation_key="band",
         value_fn=lambda modem: modem.band,
     ),
 )

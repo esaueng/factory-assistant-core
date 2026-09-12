@@ -71,7 +71,7 @@ class SysMonitorBinarySensorEntityDescription(BinarySensorEntityDescription):
 PROCESS_TYPES: tuple[SysMonitorBinarySensorEntityDescription, ...] = (
     SysMonitorBinarySensorEntityDescription(
         key="binary_process",
-        REDACTED_VALUE"process",
+        translation_key="process",
         icon=get_cpu_icon(),
         value_fn=get_process,
         device_class=BinarySensorDeviceClass.RUNNING,

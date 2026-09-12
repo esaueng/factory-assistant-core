@@ -32,11 +32,11 @@ class CompitDeviceDescription:
 DESCRIPTIONS: dict[CompitParameter, SwitchEntityDescription] = {
     CompitParameter.DEVICE_ON_OFF: SwitchEntityDescription(
         key=CompitParameter.DEVICE_ON_OFF.value,
-        REDACTED_VALUE"device_on_off",
+        translation_key="device_on_off",
     ),
     CompitParameter.FORCE_DHW: SwitchEntityDescription(
         key=CompitParameter.FORCE_DHW.value,
-        REDACTED_VALUE"force_dhw",
+        translation_key="force_dhw",
     ),
 }
 

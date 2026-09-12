@@ -75,7 +75,7 @@ class NextDnsUpdateCoordinator[CoordinatorDataT: NextDnsData](
         ) as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_error",
+                translation_key="update_error",
                 translation_placeholders={
                     "entry": self.config_entry.title,
                     "error": repr(err),
@@ -84,7 +84,7 @@ class NextDnsUpdateCoordinator[CoordinatorDataT: NextDnsData](
         except InvalidApiKeyError as err:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"auth_error",
+                translation_key="auth_error",
                 translation_placeholders={"entry": self.config_entry.title},
             ) from err
 

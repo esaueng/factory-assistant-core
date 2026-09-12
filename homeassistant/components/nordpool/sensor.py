@@ -155,20 +155,20 @@ class NordpoolBlockPricesSensorEntityDescription(SensorEntityDescription):
 DEFAULT_SENSOR_TYPES: tuple[NordpoolDefaultSensorEntityDescription, ...] = (
     NordpoolDefaultSensorEntityDescription(
         key="updated_at",
-        REDACTED_VALUE"updated_at",
+        translation_key="updated_at",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda entity: entity.coordinator.get_data_current_day().updated_at,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     NordpoolDefaultSensorEntityDescription(
         key="currency",
-        REDACTED_VALUE"currency",
+        translation_key="currency",
         value_fn=lambda entity: entity.coordinator.get_data_current_day().currency,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     NordpoolDefaultSensorEntityDescription(
         key="exchange_rate",
-        REDACTED_VALUE"exchange_rate",
+        translation_key="exchange_rate",
         value_fn=lambda entity: entity.coordinator.get_data_current_day().exchange_rate,
         state_class=SensorStateClass.MEASUREMENT,
         entity_registry_enabled_default=False,
@@ -178,7 +178,7 @@ DEFAULT_SENSOR_TYPES: tuple[NordpoolDefaultSensorEntityDescription, ...] = (
 PRICES_SENSOR_TYPES: tuple[NordpoolPricesSensorEntityDescription, ...] = (
     NordpoolPricesSensorEntityDescription(
         key="current_price",
-        REDACTED_VALUE"current_price",
+        translation_key="current_price",
         value_fn=lambda entity: validate_prices(get_prices, entity, entity.area, 1),
         extra_fn=lambda entity: None,
         state_class=SensorStateClass.MEASUREMENT,
@@ -186,21 +186,21 @@ PRICES_SENSOR_TYPES: tuple[NordpoolPricesSensorEntityDescription, ...] = (
     ),
     NordpoolPricesSensorEntityDescription(
         key="last_price",
-        REDACTED_VALUE"last_price",
+        translation_key="last_price",
         value_fn=lambda entity: validate_prices(get_prices, entity, entity.area, 0),
         extra_fn=lambda entity: None,
         suggested_display_precision=2,
     ),
     NordpoolPricesSensorEntityDescription(
         key="next_price",
-        REDACTED_VALUE"next_price",
+        translation_key="next_price",
         value_fn=lambda entity: validate_prices(get_prices, entity, entity.area, 2),
         extra_fn=lambda entity: None,
         suggested_display_precision=2,
     ),
     NordpoolPricesSensorEntityDescription(
         key="lowest_price",
-        REDACTED_VALUE"lowest_price",
+        translation_key="lowest_price",
         value_fn=lambda entity: get_min_max_price(entity, min)[0] / 1000,
         extra_fn=lambda entity: {
             "start": get_min_max_price(entity, min)[1].isoformat(),
@@ -210,7 +210,7 @@ PRICES_SENSOR_TYPES: tuple[NordpoolPricesSensorEntityDescription, ...] = (
     ),
     NordpoolPricesSensorEntityDescription(
         key="highest_price",
-        REDACTED_VALUE"highest_price",
+        translation_key="highest_price",
         value_fn=lambda entity: get_min_max_price(entity, max)[0] / 1000,
         extra_fn=lambda entity: {
             "start": get_min_max_price(entity, max)[1].isoformat(),
@@ -222,7 +222,7 @@ PRICES_SENSOR_TYPES: tuple[NordpoolPricesSensorEntityDescription, ...] = (
 BLOCK_PRICES_SENSOR_TYPES: tuple[NordpoolBlockPricesSensorEntityDescription, ...] = (
     NordpoolBlockPricesSensorEntityDescription(
         key="block_average",
-        REDACTED_VALUE"block_average",
+        translation_key="block_average",
         value_fn=lambda data: data[2] / 1000,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=2,
@@ -230,7 +230,7 @@ BLOCK_PRICES_SENSOR_TYPES: tuple[NordpoolBlockPricesSensorEntityDescription, ...
     ),
     NordpoolBlockPricesSensorEntityDescription(
         key="block_min",
-        REDACTED_VALUE"block_min",
+        translation_key="block_min",
         value_fn=lambda data: data[3] / 1000,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=2,
@@ -238,7 +238,7 @@ BLOCK_PRICES_SENSOR_TYPES: tuple[NordpoolBlockPricesSensorEntityDescription, ...
     ),
     NordpoolBlockPricesSensorEntityDescription(
         key="block_max",
-        REDACTED_VALUE"block_max",
+        translation_key="block_max",
         value_fn=lambda data: data[4] / 1000,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=2,
@@ -246,14 +246,14 @@ BLOCK_PRICES_SENSOR_TYPES: tuple[NordpoolBlockPricesSensorEntityDescription, ...
     ),
     NordpoolBlockPricesSensorEntityDescription(
         key="block_start_time",
-        REDACTED_VALUE"block_start_time",
+        translation_key="block_start_time",
         value_fn=lambda data: data[0],
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_registry_enabled_default=False,
     ),
     NordpoolBlockPricesSensorEntityDescription(
         key="block_end_time",
-        REDACTED_VALUE"block_end_time",
+        translation_key="block_end_time",
         value_fn=lambda data: data[1],
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_registry_enabled_default=False,
@@ -262,7 +262,7 @@ BLOCK_PRICES_SENSOR_TYPES: tuple[NordpoolBlockPricesSensorEntityDescription, ...
 DAILY_AVERAGE_PRICES_SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="daily_average",
-        REDACTED_VALUE"daily_average",
+        translation_key="daily_average",
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=2,
         entity_registry_enabled_default=False,

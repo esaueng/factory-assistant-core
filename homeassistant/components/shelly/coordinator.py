@@ -403,7 +403,7 @@ class ShellyBlockCoordinator(ShellyCoordinatorBase[BlockDevice]):
             # Sleeping device, no point polling it, just mark it unavailable
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_error_sleeping_device",
+                translation_key="update_error_sleeping_device",
                 translation_placeholders={
                     "device": self.name,
                     "period": str(self.sleep_period),
@@ -416,7 +416,7 @@ class ShellyBlockCoordinator(ShellyCoordinatorBase[BlockDevice]):
         except DeviceConnectionError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_error",
+                translation_key="update_error",
                 translation_placeholders={"device": self.name},
             ) from err
         except InvalidAuthError:
@@ -498,7 +498,7 @@ class ShellyRestCoordinator(ShellyCoordinatorBase[BlockDevice]):
         except (DeviceConnectionError, MacAddressMismatchError) as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_error",
+                translation_key="update_error",
                 translation_placeholders={"device": self.name},
             ) from err
         except InvalidAuthError:
@@ -674,7 +674,7 @@ class ShellyRpcCoordinator(ShellyCoordinatorBase[RpcDevice]):
             # Sleeping device, no point polling it, just mark it unavailable
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_error_sleeping_device",
+                translation_key="update_error_sleeping_device",
                 translation_placeholders={
                     "device": self.name,
                     "period": str(self.sleep_period),
@@ -688,7 +688,7 @@ class ShellyRpcCoordinator(ShellyCoordinatorBase[RpcDevice]):
             if not await self._async_device_connect_task():
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"update_error_reconnect_error",
+                    translation_key="update_error_reconnect_error",
                     translation_placeholders={"device": self.name},
                 )
 
@@ -879,7 +879,7 @@ class ShellyRpcPollingCoordinator(ShellyCoordinatorBase[RpcDevice]):
         if not self.device.connected:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_error_device_disconnected",
+                translation_key="update_error_device_disconnected",
                 translation_placeholders={"device": self.name},
             )
 
@@ -889,7 +889,7 @@ class ShellyRpcPollingCoordinator(ShellyCoordinatorBase[RpcDevice]):
         except (DeviceConnectionError, RpcCallError) as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_error",
+                translation_key="update_error",
                 translation_placeholders={"device": self.name},
             ) from err
         except InvalidAuthError:

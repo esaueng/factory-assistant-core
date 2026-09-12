@@ -39,7 +39,7 @@ def retry[_R, **P](
             except (ApiError, ClientError) as err:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUEtranslation_key,
+                    translation_key=translation_key,
                     translation_placeholders={"exception": str(err)},
                 ) from err
             except AuthFailedError:
@@ -50,14 +50,14 @@ def retry[_R, **P](
                 except (ApiError, ClientError, UpdateFailed) as err:
                     raise HomeAssistantError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUEtranslation_key,
+                        translation_key=translation_key,
                         translation_placeholders={"exception": str(err)},
                     ) from err
                 except (AuthFailedError, ConfigEntryAuthFailed) as err:
                     instance.coordinator.config_entry.async_start_reauth(instance.hass)
                     raise HomeAssistantError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUEtranslation_key,
+                        translation_key=translation_key,
                         translation_placeholders={"exception": str(err)},
                     ) from err
 

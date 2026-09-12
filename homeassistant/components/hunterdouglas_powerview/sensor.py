@@ -64,7 +64,7 @@ SENSORS: Final = [
     ),
     PowerviewSensorDescription(
         key="signal",
-        REDACTED_VALUE"signal_strength",
+        translation_key="signal_strength",
         icon="mdi:signal",
         device_class_fn=get_signal_device_class,
         native_unit_fn=get_signal_native_unit,

@@ -43,7 +43,7 @@ def get_forecasts(channel_type: str, data: dict) -> list[JsonValueType]:
     if channel_type not in data["forecasts"]:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"channel_not_found",
+            translation_key="channel_not_found",
             translation_placeholders={"channel_type": channel_type},
         )
 

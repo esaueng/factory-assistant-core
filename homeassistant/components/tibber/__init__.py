@@ -90,7 +90,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: TibberConfigEntry) -> bo
     if AUTH_IMPLEMENTATION not in entry.data:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"data_api_reauth_required",
+            translation_key="data_api_reauth_required",
         )
 
     try:
@@ -98,7 +98,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: TibberConfigEntry) -> bo
     except ImplementationUnavailableError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"oauth2_implementation_unavailable",
+            translation_key="oauth2_implementation_unavailable",
         ) from err
 
     session = OAuth2Session(hass, entry, implementation)

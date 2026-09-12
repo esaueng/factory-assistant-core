@@ -152,12 +152,12 @@ class ValloxSensorEntityDescription(SensorEntityDescription):
 SENSOR_ENTITIES: tuple[ValloxSensorEntityDescription, ...] = (
     ValloxSensorEntityDescription(
         key="current_profile",
-        REDACTED_VALUE"current_profile",
+        translation_key="current_profile",
         entity_type=ValloxProfileSensor,
     ),
     ValloxSensorEntityDescription(
         key="fan_speed",
-        REDACTED_VALUE"fan_speed",
+        translation_key="fan_speed",
         metric_key="A_CYC_FAN_SPEED",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
@@ -165,7 +165,7 @@ SENSOR_ENTITIES: tuple[ValloxSensorEntityDescription, ...] = (
     ),
     ValloxSensorEntityDescription(
         key="extract_fan_speed",
-        REDACTED_VALUE"extract_fan_speed",
+        translation_key="extract_fan_speed",
         metric_key="A_CYC_EXTR_FAN_SPEED",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=REVOLUTIONS_PER_MINUTE,
@@ -174,7 +174,7 @@ SENSOR_ENTITIES: tuple[ValloxSensorEntityDescription, ...] = (
     ),
     ValloxSensorEntityDescription(
         key="supply_fan_speed",
-        REDACTED_VALUE"supply_fan_speed",
+        translation_key="supply_fan_speed",
         metric_key="A_CYC_SUPP_FAN_SPEED",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=REVOLUTIONS_PER_MINUTE,
@@ -183,19 +183,19 @@ SENSOR_ENTITIES: tuple[ValloxSensorEntityDescription, ...] = (
     ),
     ValloxSensorEntityDescription(
         key="remaining_time_for_filter",
-        REDACTED_VALUE"remaining_time_for_filter",
+        translation_key="remaining_time_for_filter",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_type=ValloxFilterRemainingSensor,
     ),
     ValloxSensorEntityDescription(
         key="cell_state",
-        REDACTED_VALUE"cell_state",
+        translation_key="cell_state",
         metric_key="A_CYC_CELL_STATE",
         entity_type=ValloxCellStateSensor,
     ),
     ValloxSensorEntityDescription(
         key="extract_air",
-        REDACTED_VALUE"extract_air",
+        translation_key="extract_air",
         metric_key="A_CYC_TEMP_EXTRACT_AIR",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -203,7 +203,7 @@ SENSOR_ENTITIES: tuple[ValloxSensorEntityDescription, ...] = (
     ),
     ValloxSensorEntityDescription(
         key="exhaust_air",
-        REDACTED_VALUE"exhaust_air",
+        translation_key="exhaust_air",
         metric_key="A_CYC_TEMP_EXHAUST_AIR",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -211,7 +211,7 @@ SENSOR_ENTITIES: tuple[ValloxSensorEntityDescription, ...] = (
     ),
     ValloxSensorEntityDescription(
         key="outdoor_air",
-        REDACTED_VALUE"outdoor_air",
+        translation_key="outdoor_air",
         metric_key="A_CYC_TEMP_OUTDOOR_AIR",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -219,7 +219,7 @@ SENSOR_ENTITIES: tuple[ValloxSensorEntityDescription, ...] = (
     ),
     ValloxSensorEntityDescription(
         key="supply_air",
-        REDACTED_VALUE"supply_air",
+        translation_key="supply_air",
         metric_key="A_CYC_TEMP_SUPPLY_AIR",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -227,7 +227,7 @@ SENSOR_ENTITIES: tuple[ValloxSensorEntityDescription, ...] = (
     ),
     ValloxSensorEntityDescription(
         key="supply_cell_air",
-        REDACTED_VALUE"supply_cell_air",
+        translation_key="supply_cell_air",
         metric_key="A_CYC_TEMP_SUPPLY_CELL_AIR",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -235,7 +235,7 @@ SENSOR_ENTITIES: tuple[ValloxSensorEntityDescription, ...] = (
     ),
     ValloxSensorEntityDescription(
         key="optional_air",
-        REDACTED_VALUE"optional_air",
+        translation_key="optional_air",
         metric_key="A_CYC_TEMP_OPTIONAL",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -251,7 +251,7 @@ SENSOR_ENTITIES: tuple[ValloxSensorEntityDescription, ...] = (
     ),
     ValloxSensorEntityDescription(
         key="efficiency",
-        REDACTED_VALUE"efficiency",
+        translation_key="efficiency",
         metric_key="A_CYC_EXTRACT_EFFICIENCY",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
@@ -268,7 +268,7 @@ SENSOR_ENTITIES: tuple[ValloxSensorEntityDescription, ...] = (
     ),
     ValloxSensorEntityDescription(
         key="profile_duration",
-        REDACTED_VALUE"profile_duration",
+        translation_key="profile_duration",
         device_class=SensorDeviceClass.DURATION,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTime.MINUTES,

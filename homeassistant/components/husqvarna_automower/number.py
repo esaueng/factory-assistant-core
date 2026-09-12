@@ -69,7 +69,7 @@ class AutomowerNumberEntityDescription(NumberEntityDescription):
 MOWER_NUMBER_TYPES: tuple[AutomowerNumberEntityDescription, ...] = (
     AutomowerNumberEntityDescription(
         key="cutting_height",
-        REDACTED_VALUE"cutting_height",
+        translation_key="cutting_height",
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.CONFIG,
         native_min_value=1,

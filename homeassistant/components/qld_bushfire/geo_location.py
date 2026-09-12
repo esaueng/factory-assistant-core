@@ -131,7 +131,7 @@ class QldBushfireFeedEntityManager:
             self._hass,
             lambda now: self._feed_manager.update(),
             self._scan_interval,
-            REDACTED_VALUE,
+            cancel_on_shutdown=True,
         )
 
     def get_entry(self, external_id: str) -> QldBushfireAlertFeedEntry | None:

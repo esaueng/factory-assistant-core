@@ -46,13 +46,13 @@ async def download_file(service: ServiceCall) -> None:
         except ValueError as err:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"subdir_invalid",
+                translation_key="subdir_invalid",
                 translation_placeholders={"subdir": subdir},
             ) from err
         if os.path.isabs(subdir):
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"subdir_not_relative",
+                translation_key="subdir_not_relative",
                 translation_placeholders={"subdir": subdir},
             )
 
@@ -135,7 +135,7 @@ async def download_file(service: ServiceCall) -> None:
 
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connection_error",
+                translation_key="connection_error",
                 translation_placeholders={"url": url},
             ) from err
         except ValueError as err:
@@ -150,7 +150,7 @@ async def download_file(service: ServiceCall) -> None:
 
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_value",
+                translation_key="invalid_value",
                 translation_placeholders={"url": url},
             ) from err
 

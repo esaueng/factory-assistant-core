@@ -49,7 +49,7 @@ def async_get_device_id_from_entity_id(hass: HomeAssistant, entity_id: str) -> s
     ):
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_entity_id",
+            translation_key="invalid_entity_id",
             translation_placeholders={"entity_id": entity_id},
         )
 

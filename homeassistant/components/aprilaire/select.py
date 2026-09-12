@@ -37,7 +37,7 @@ async def async_setup_entry(
             [
                 AprilaireSelectDescription(
                     key="air_cleaning_event",
-                    REDACTED_VALUE"air_cleaning_event",
+                    translation_key="air_cleaning_event",
                     options_map=AIR_CLEANING_EVENT_MAP,
                     event_value_key=Attribute.AIR_CLEANING_EVENT,
                     mode_value_key=Attribute.AIR_CLEANING_MODE,
@@ -46,7 +46,7 @@ async def async_setup_entry(
                 ),
                 AprilaireSelectDescription(
                     key="air_cleaning_mode",
-                    REDACTED_VALUE"air_cleaning_mode",
+                    translation_key="air_cleaning_mode",
                     options_map=AIR_CLEANING_MODE_MAP,
                     event_value_key=Attribute.AIR_CLEANING_EVENT,
                     mode_value_key=Attribute.AIR_CLEANING_MODE,
@@ -61,7 +61,7 @@ async def async_setup_entry(
             [
                 AprilaireSelectDescription(
                     key="fresh_air_event",
-                    REDACTED_VALUE"fresh_air_event",
+                    translation_key="fresh_air_event",
                     options_map=FRESH_AIR_EVENT_MAP,
                     event_value_key=Attribute.FRESH_AIR_EVENT,
                     mode_value_key=Attribute.FRESH_AIR_MODE,
@@ -70,7 +70,7 @@ async def async_setup_entry(
                 ),
                 AprilaireSelectDescription(
                     key="fresh_air_mode",
-                    REDACTED_VALUE"fresh_air_mode",
+                    translation_key="fresh_air_mode",
                     options_map=FRESH_AIR_MODE_MAP,
                     event_value_key=Attribute.FRESH_AIR_EVENT,
                     mode_value_key=Attribute.FRESH_AIR_MODE,

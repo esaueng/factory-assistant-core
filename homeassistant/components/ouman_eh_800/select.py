@@ -41,7 +41,7 @@ def _select_entity(
     return OumanEh800SelectEntityDescription(
         device=device,
         key=key,
-        REDACTED_VALUEkey,
+        translation_key=key,
     )
 
 

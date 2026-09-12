@@ -33,7 +33,7 @@ FIRMWARE_ENTITY_DESCRIPTIONS: dict[
 ] = {
     ApplicationType.EZSP: FirmwareUpdateEntityDescription(
         key="radio_firmware",
-        REDACTED_VALUE"radio_firmware",
+        translation_key="radio_firmware",
         display_precision=0,
         device_class=UpdateDeviceClass.FIRMWARE,
         entity_category=EntityCategory.CONFIG,
@@ -45,7 +45,7 @@ FIRMWARE_ENTITY_DESCRIPTIONS: dict[
     ),
     ApplicationType.SPINEL: FirmwareUpdateEntityDescription(
         key="radio_firmware",
-        REDACTED_VALUE"radio_firmware",
+        translation_key="radio_firmware",
         display_precision=0,
         device_class=UpdateDeviceClass.FIRMWARE,
         entity_category=EntityCategory.CONFIG,
@@ -57,7 +57,7 @@ FIRMWARE_ENTITY_DESCRIPTIONS: dict[
     ),
     ApplicationType.CPC: FirmwareUpdateEntityDescription(
         key="radio_firmware",
-        REDACTED_VALUE"radio_firmware",
+        translation_key="radio_firmware",
         display_precision=0,
         device_class=UpdateDeviceClass.FIRMWARE,
         entity_category=EntityCategory.CONFIG,
@@ -69,7 +69,7 @@ FIRMWARE_ENTITY_DESCRIPTIONS: dict[
     ),
     ApplicationType.GECKO_BOOTLOADER: FirmwareUpdateEntityDescription(
         key="radio_firmware",
-        REDACTED_VALUE"radio_firmware",
+        translation_key="radio_firmware",
         display_precision=0,
         device_class=UpdateDeviceClass.FIRMWARE,
         entity_category=EntityCategory.CONFIG,
@@ -81,7 +81,7 @@ FIRMWARE_ENTITY_DESCRIPTIONS: dict[
     ),
     None: FirmwareUpdateEntityDescription(
         key="radio_firmware",
-        REDACTED_VALUE"radio_firmware",
+        translation_key="radio_firmware",
         display_precision=0,
         device_class=UpdateDeviceClass.FIRMWARE,
         entity_category=EntityCategory.CONFIG,

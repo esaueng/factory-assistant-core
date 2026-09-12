@@ -23,7 +23,7 @@ _LOGGER = logging.getLogger(__name__)
 RAID_SENSORS: tuple[BinarySensorEntityDescription, ...] = (
     BinarySensorEntityDescription(
         key="raid_degraded",
-        REDACTED_VALUE"raid_degraded",
+        translation_key="raid_degraded",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
     ),

@@ -61,7 +61,7 @@ class NRGkickNumberEntityDescription(NumberEntityDescription):
 NUMBERS: tuple[NRGkickNumberEntityDescription, ...] = (
     NRGkickNumberEntityDescription(
         key="current_set",
-        REDACTED_VALUE"current_set",
+        translation_key="current_set",
         device_class=NumberDeviceClass.CURRENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         native_min_value=MIN_CHARGING_CURRENT,
@@ -73,7 +73,7 @@ NUMBERS: tuple[NRGkickNumberEntityDescription, ...] = (
     ),
     NRGkickNumberEntityDescription(
         key="energy_limit",
-        REDACTED_VALUE"energy_limit",
+        translation_key="energy_limit",
         device_class=NumberDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         native_min_value=0,
@@ -89,7 +89,7 @@ NUMBERS: tuple[NRGkickNumberEntityDescription, ...] = (
 
 PHASE_COUNT_DESCRIPTION = NRGkickNumberEntityDescription(
     key="phase_count",
-    REDACTED_VALUE"phase_count",
+    translation_key="phase_count",
     native_min_value=1,
     native_max_value=3,
     native_step=1,

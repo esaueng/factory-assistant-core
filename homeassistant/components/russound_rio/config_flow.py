@@ -41,7 +41,7 @@ TRANSPORT_SCHEMA = vol.Schema(
         vol.Required(CONF_TYPE, default=TYPE_TCP): SelectSelector(
             SelectSelectorConfig(
                 options=[TYPE_TCP, TYPE_SERIAL],
-                REDACTED_VALUE"connection_type",
+                translation_key="connection_type",
             )
         ),
     }

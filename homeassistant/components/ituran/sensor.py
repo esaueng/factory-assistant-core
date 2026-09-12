@@ -38,7 +38,7 @@ class IturanSensorEntityDescription(SensorEntityDescription):
 SENSOR_TYPES: list[IturanSensorEntityDescription] = [
     IturanSensorEntityDescription(
         key="address",
-        REDACTED_VALUE"address",
+        translation_key="address",
         entity_registry_enabled_default=False,
         value_fn=lambda vehicle: vehicle.address,
     ),
@@ -51,7 +51,7 @@ SENSOR_TYPES: list[IturanSensorEntityDescription] = [
     ),
     IturanSensorEntityDescription(
         key="battery_range",
-        REDACTED_VALUE"battery_range",
+        translation_key="battery_range",
         device_class=SensorDeviceClass.DISTANCE,
         native_unit_of_measurement=UnitOfLength.KILOMETERS,
         suggested_display_precision=0,
@@ -60,7 +60,7 @@ SENSOR_TYPES: list[IturanSensorEntityDescription] = [
     ),
     IturanSensorEntityDescription(
         key="battery_voltage",
-        REDACTED_VALUE"battery_voltage",
+        translation_key="battery_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         suggested_display_precision=0,
@@ -69,7 +69,7 @@ SENSOR_TYPES: list[IturanSensorEntityDescription] = [
     ),
     IturanSensorEntityDescription(
         key="heading",
-        REDACTED_VALUE"heading",
+        translation_key="heading",
         native_unit_of_measurement=DEGREE,
         suggested_display_precision=0,
         entity_registry_enabled_default=False,
@@ -77,14 +77,14 @@ SENSOR_TYPES: list[IturanSensorEntityDescription] = [
     ),
     IturanSensorEntityDescription(
         key="last_update_from_vehicle",
-        REDACTED_VALUE"last_update_from_vehicle",
+        translation_key="last_update_from_vehicle",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_registry_enabled_default=False,
         value_fn=lambda vehicle: vehicle.last_update,
     ),
     IturanSensorEntityDescription(
         key="mileage",
-        REDACTED_VALUE"mileage",
+        translation_key="mileage",
         device_class=SensorDeviceClass.DISTANCE,
         native_unit_of_measurement=UnitOfLength.KILOMETERS,
         suggested_display_precision=2,

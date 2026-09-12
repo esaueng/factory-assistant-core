@@ -48,7 +48,7 @@ async def async_set_panel_date(call: ServiceCall) -> None:
     except asyncio.InvalidStateError as err:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"connection_error",
+            translation_key="connection_error",
             translation_placeholders={"target": config_entry.title},
         ) from err
 

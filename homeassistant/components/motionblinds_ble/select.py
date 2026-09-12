@@ -22,7 +22,7 @@ PARALLEL_UPDATES = 0
 SELECT_TYPES: dict[str, SelectEntityDescription] = {
     ATTR_SPEED: SelectEntityDescription(
         key=ATTR_SPEED,
-        REDACTED_VALUEATTR_SPEED,
+        translation_key=ATTR_SPEED,
         entity_category=EntityCategory.CONFIG,
         options=["1", "2", "3"],
     )

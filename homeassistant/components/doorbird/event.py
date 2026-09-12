@@ -19,13 +19,13 @@ from .models import DoorBirdConfigEntry, DoorBirdData
 EVENT_DESCRIPTIONS = {
     "doorbell": EventEntityDescription(
         key="doorbell",
-        REDACTED_VALUE"doorbell",
+        translation_key="doorbell",
         device_class=EventDeviceClass.DOORBELL,
         event_types=["ring"],
     ),
     "motion": EventEntityDescription(
         key="motion",
-        REDACTED_VALUE"motion",
+        translation_key="motion",
         device_class=EventDeviceClass.MOTION,
         event_types=["motion"],
     ),

@@ -97,21 +97,21 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="current_electricity_usage",
-        REDACTED_VALUE"current_electricity_usage",
+        translation_key="current_electricity_usage",
         obis_reference="CURRENT_ELECTRICITY_USAGE",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     DSMRSensorEntityDescription(
         key="current_electricity_delivery",
-        REDACTED_VALUE"current_electricity_delivery",
+        translation_key="current_electricity_delivery",
         obis_reference="CURRENT_ELECTRICITY_DELIVERY",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     DSMRSensorEntityDescription(
         key="electricity_active_tariff",
-        REDACTED_VALUE"electricity_active_tariff",
+        translation_key="electricity_active_tariff",
         obis_reference="ELECTRICITY_ACTIVE_TARIFF",
         dsmr_versions={"2.2", "4", "5", "5B", "5L", "5EONHU"},
         device_class=SensorDeviceClass.ENUM,
@@ -119,7 +119,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="electricity_used_tariff_1",
-        REDACTED_VALUE"electricity_used_tariff_1",
+        translation_key="electricity_used_tariff_1",
         obis_reference="ELECTRICITY_USED_TARIFF_1",
         dsmr_versions={"2.2", "4", "5", "5B", "5L", "5EONHU"},
         device_class=SensorDeviceClass.ENERGY,
@@ -127,7 +127,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="electricity_used_tariff_2",
-        REDACTED_VALUE"electricity_used_tariff_2",
+        translation_key="electricity_used_tariff_2",
         obis_reference="ELECTRICITY_USED_TARIFF_2",
         dsmr_versions={"2.2", "4", "5", "5B", "5L", "5EONHU"},
         device_class=SensorDeviceClass.ENERGY,
@@ -135,7 +135,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="electricity_used_tariff_3",
-        REDACTED_VALUE"electricity_used_tariff_3",
+        translation_key="electricity_used_tariff_3",
         obis_reference="ELECTRICITY_USED_TARIFF_3",
         dsmr_versions={"5EONHU"},
         force_update=True,
@@ -144,7 +144,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="electricity_used_tariff_4",
-        REDACTED_VALUE"electricity_used_tariff_4",
+        translation_key="electricity_used_tariff_4",
         obis_reference="ELECTRICITY_USED_TARIFF_4",
         dsmr_versions={"5EONHU"},
         force_update=True,
@@ -153,7 +153,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="electricity_delivered_tariff_1",
-        REDACTED_VALUE"electricity_delivered_tariff_1",
+        translation_key="electricity_delivered_tariff_1",
         obis_reference="ELECTRICITY_DELIVERED_TARIFF_1",
         dsmr_versions={"2.2", "4", "5", "5B", "5L", "5EONHU"},
         device_class=SensorDeviceClass.ENERGY,
@@ -161,7 +161,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="electricity_delivered_tariff_2",
-        REDACTED_VALUE"electricity_delivered_tariff_2",
+        translation_key="electricity_delivered_tariff_2",
         obis_reference="ELECTRICITY_DELIVERED_TARIFF_2",
         dsmr_versions={"2.2", "4", "5", "5B", "5L", "5EONHU"},
         device_class=SensorDeviceClass.ENERGY,
@@ -169,7 +169,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="electricity_delivered_tariff_3",
-        REDACTED_VALUE"electricity_delivered_tariff_3",
+        translation_key="electricity_delivered_tariff_3",
         obis_reference="ELECTRICITY_DELIVERED_TARIFF_3",
         dsmr_versions={"5EONHU"},
         force_update=True,
@@ -178,7 +178,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="electricity_delivered_tariff_4",
-        REDACTED_VALUE"electricity_delivered_tariff_4",
+        translation_key="electricity_delivered_tariff_4",
         obis_reference="ELECTRICITY_DELIVERED_TARIFF_4",
         dsmr_versions={"5EONHU"},
         force_update=True,
@@ -187,7 +187,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="instantaneous_active_power_l1_positive",
-        REDACTED_VALUE"instantaneous_active_power_l1_positive",
+        translation_key="instantaneous_active_power_l1_positive",
         obis_reference="INSTANTANEOUS_ACTIVE_POWER_L1_POSITIVE",
         device_class=SensorDeviceClass.POWER,
         entity_registry_enabled_default=False,
@@ -195,7 +195,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="instantaneous_active_power_l2_positive",
-        REDACTED_VALUE"instantaneous_active_power_l2_positive",
+        translation_key="instantaneous_active_power_l2_positive",
         obis_reference="INSTANTANEOUS_ACTIVE_POWER_L2_POSITIVE",
         device_class=SensorDeviceClass.POWER,
         entity_registry_enabled_default=False,
@@ -203,7 +203,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="instantaneous_active_power_l3_positive",
-        REDACTED_VALUE"instantaneous_active_power_l3_positive",
+        translation_key="instantaneous_active_power_l3_positive",
         obis_reference="INSTANTANEOUS_ACTIVE_POWER_L3_POSITIVE",
         device_class=SensorDeviceClass.POWER,
         entity_registry_enabled_default=False,
@@ -211,7 +211,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="instantaneous_active_power_l1_negative",
-        REDACTED_VALUE"instantaneous_active_power_l1_negative",
+        translation_key="instantaneous_active_power_l1_negative",
         obis_reference="INSTANTANEOUS_ACTIVE_POWER_L1_NEGATIVE",
         device_class=SensorDeviceClass.POWER,
         entity_registry_enabled_default=False,
@@ -219,7 +219,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="instantaneous_active_power_l2_negative",
-        REDACTED_VALUE"instantaneous_active_power_l2_negative",
+        translation_key="instantaneous_active_power_l2_negative",
         obis_reference="INSTANTANEOUS_ACTIVE_POWER_L2_NEGATIVE",
         device_class=SensorDeviceClass.POWER,
         entity_registry_enabled_default=False,
@@ -227,7 +227,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="instantaneous_active_power_l3_negative",
-        REDACTED_VALUE"instantaneous_active_power_l3_negative",
+        translation_key="instantaneous_active_power_l3_negative",
         obis_reference="INSTANTANEOUS_ACTIVE_POWER_L3_NEGATIVE",
         device_class=SensorDeviceClass.POWER,
         entity_registry_enabled_default=False,
@@ -235,7 +235,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="short_power_failure_count",
-        REDACTED_VALUE"short_power_failure_count",
+        translation_key="short_power_failure_count",
         obis_reference="SHORT_POWER_FAILURE_COUNT",
         dsmr_versions={"2.2", "4", "5", "5L"},
         entity_registry_enabled_default=False,
@@ -244,7 +244,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="long_power_failure_count",
-        REDACTED_VALUE"long_power_failure_count",
+        translation_key="long_power_failure_count",
         obis_reference="LONG_POWER_FAILURE_COUNT",
         dsmr_versions={"2.2", "4", "5", "5L"},
         entity_registry_enabled_default=False,
@@ -252,8 +252,8 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     DSMRSensorEntityDescription(
-        key="REDACTED_VALUE",
-        REDACTED_VALUE"REDACTED_VALUE",
+        key="voltage_sag_l1_count",
+        translation_key="voltage_sag_l1_count",
         obis_reference="VOLTAGE_SAG_L1_COUNT",
         dsmr_versions={"2.2", "4", "5", "5L"},
         entity_registry_enabled_default=False,
@@ -261,8 +261,8 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     DSMRSensorEntityDescription(
-        key="REDACTED_VALUE",
-        REDACTED_VALUE"REDACTED_VALUE",
+        key="voltage_sag_l2_count",
+        translation_key="voltage_sag_l2_count",
         obis_reference="VOLTAGE_SAG_L2_COUNT",
         dsmr_versions={"2.2", "4", "5", "5L"},
         entity_registry_enabled_default=False,
@@ -270,8 +270,8 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     DSMRSensorEntityDescription(
-        key="REDACTED_VALUE",
-        REDACTED_VALUE"REDACTED_VALUE",
+        key="voltage_sag_l3_count",
+        translation_key="voltage_sag_l3_count",
         obis_reference="VOLTAGE_SAG_L3_COUNT",
         dsmr_versions={"2.2", "4", "5", "5L"},
         entity_registry_enabled_default=False,
@@ -279,8 +279,8 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     DSMRSensorEntityDescription(
-        key="REDACTED_VALUE",
-        REDACTED_VALUE"REDACTED_VALUE",
+        key="voltage_swell_l1_count",
+        translation_key="voltage_swell_l1_count",
         obis_reference="VOLTAGE_SWELL_L1_COUNT",
         dsmr_versions={"2.2", "4", "5", "5L"},
         entity_registry_enabled_default=False,
@@ -288,8 +288,8 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     DSMRSensorEntityDescription(
-        key="REDACTED_VALUE",
-        REDACTED_VALUE"REDACTED_VALUE",
+        key="voltage_swell_l2_count",
+        translation_key="voltage_swell_l2_count",
         obis_reference="VOLTAGE_SWELL_L2_COUNT",
         dsmr_versions={"2.2", "4", "5", "5L"},
         entity_registry_enabled_default=False,
@@ -297,8 +297,8 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     DSMRSensorEntityDescription(
-        key="REDACTED_VALUE",
-        REDACTED_VALUE"REDACTED_VALUE",
+        key="voltage_swell_l3_count",
+        translation_key="voltage_swell_l3_count",
         obis_reference="VOLTAGE_SWELL_L3_COUNT",
         dsmr_versions={"2.2", "4", "5", "5L"},
         entity_registry_enabled_default=False,
@@ -307,7 +307,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="instantaneous_voltage_l1",
-        REDACTED_VALUE"instantaneous_voltage_l1",
+        translation_key="instantaneous_voltage_l1",
         obis_reference="INSTANTANEOUS_VOLTAGE_L1",
         device_class=SensorDeviceClass.VOLTAGE,
         entity_registry_enabled_default=False,
@@ -316,7 +316,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="instantaneous_voltage_l2",
-        REDACTED_VALUE"instantaneous_voltage_l2",
+        translation_key="instantaneous_voltage_l2",
         obis_reference="INSTANTANEOUS_VOLTAGE_L2",
         device_class=SensorDeviceClass.VOLTAGE,
         entity_registry_enabled_default=False,
@@ -325,7 +325,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="instantaneous_voltage_l3",
-        REDACTED_VALUE"instantaneous_voltage_l3",
+        translation_key="instantaneous_voltage_l3",
         obis_reference="INSTANTANEOUS_VOLTAGE_L3",
         device_class=SensorDeviceClass.VOLTAGE,
         entity_registry_enabled_default=False,
@@ -334,7 +334,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="instantaneous_current_l1",
-        REDACTED_VALUE"instantaneous_current_l1",
+        translation_key="instantaneous_current_l1",
         obis_reference="INSTANTANEOUS_CURRENT_L1",
         device_class=SensorDeviceClass.CURRENT,
         entity_registry_enabled_default=False,
@@ -343,7 +343,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="instantaneous_current_l2",
-        REDACTED_VALUE"instantaneous_current_l2",
+        translation_key="instantaneous_current_l2",
         obis_reference="INSTANTANEOUS_CURRENT_L2",
         device_class=SensorDeviceClass.CURRENT,
         entity_registry_enabled_default=False,
@@ -352,7 +352,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="instantaneous_current_l3",
-        REDACTED_VALUE"instantaneous_current_l3",
+        translation_key="instantaneous_current_l3",
         obis_reference="INSTANTANEOUS_CURRENT_L3",
         device_class=SensorDeviceClass.CURRENT,
         entity_registry_enabled_default=False,
@@ -361,7 +361,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="belgium_max_power_per_phase",
-        REDACTED_VALUE"max_power_per_phase",
+        translation_key="max_power_per_phase",
         obis_reference="ACTUAL_TRESHOLD_ELECTRICITY",
         dsmr_versions={"5B"},
         device_class=SensorDeviceClass.POWER,
@@ -371,7 +371,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="belgium_max_current_per_phase",
-        REDACTED_VALUE"max_current_per_phase",
+        translation_key="max_current_per_phase",
         obis_reference="FUSE_THRESHOLD_L1",
         dsmr_versions={"5B"},
         device_class=SensorDeviceClass.CURRENT,
@@ -381,7 +381,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="electricity_imported_total",
-        REDACTED_VALUE"electricity_imported_total",
+        translation_key="electricity_imported_total",
         obis_reference="ELECTRICITY_IMPORTED_TOTAL",
         dsmr_versions={"5L", "5S", "Q3D", "5EONHU"},
         device_class=SensorDeviceClass.ENERGY,
@@ -389,7 +389,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="electricity_exported_total",
-        REDACTED_VALUE"electricity_exported_total",
+        translation_key="electricity_exported_total",
         obis_reference="ELECTRICITY_EXPORTED_TOTAL",
         dsmr_versions={"5L", "5S", "Q3D", "5EONHU"},
         device_class=SensorDeviceClass.ENERGY,
@@ -397,7 +397,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="belgium_current_average_demand",
-        REDACTED_VALUE"current_average_demand",
+        translation_key="current_average_demand",
         obis_reference="BELGIUM_CURRENT_AVERAGE_DEMAND",
         dsmr_versions={"5B"},
         device_class=SensorDeviceClass.POWER,
@@ -405,7 +405,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="belgium_maximum_demand_current_month",
-        REDACTED_VALUE"maximum_demand_current_month",
+        translation_key="maximum_demand_current_month",
         obis_reference="BELGIUM_MAXIMUM_DEMAND_MONTH",
         dsmr_versions={"5B"},
         device_class=SensorDeviceClass.POWER,
@@ -413,7 +413,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="hourly_gas_meter_reading",
-        REDACTED_VALUE"gas_meter_reading",
+        translation_key="gas_meter_reading",
         obis_reference="HOURLY_GAS_METER_READING",
         dsmr_versions={"4", "5", "5L"},
         is_gas=True,
@@ -422,7 +422,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="gas_meter_reading",
-        REDACTED_VALUE"gas_meter_reading",
+        translation_key="gas_meter_reading",
         obis_reference="GAS_METER_READING",
         dsmr_versions={"2.2"},
         is_gas=True,
@@ -431,7 +431,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="actual_threshold_electricity",
-        REDACTED_VALUE"actual_threshold_electricity",
+        translation_key="actual_threshold_electricity",
         obis_reference="ACTUAL_TRESHOLD_ELECTRICITY",  # Misspelled in external tool
         dsmr_versions={"5EONHU"},
         device_class=SensorDeviceClass.POWER,
@@ -441,7 +441,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="eon_hu_electricity_combined",
-        REDACTED_VALUE"electricity_combined",
+        translation_key="electricity_combined",
         obis_reference="EON_HU_ELECTRICITY_COMBINED",
         dsmr_versions={"5EONHU"},
         device_class=SensorDeviceClass.ENERGY,
@@ -449,7 +449,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="eon_hu_instantaneous_power_factor_total",
-        REDACTED_VALUE"instantaneous_power_factor_total",
+        translation_key="instantaneous_power_factor_total",
         obis_reference="EON_HU_INSTANTANEOUS_POWER_FACTOR_TOTAL",
         dsmr_versions={"5EONHU"},
         entity_registry_enabled_default=False,
@@ -459,7 +459,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="eon_hu_instantaneous_power_factor_l1",
-        REDACTED_VALUE"instantaneous_power_factor_l1",
+        translation_key="instantaneous_power_factor_l1",
         obis_reference="EON_HU_INSTANTANEOUS_POWER_FACTOR_L1",
         dsmr_versions={"5EONHU"},
         entity_registry_enabled_default=False,
@@ -469,7 +469,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="eon_hu_instantaneous_power_factor_l2",
-        REDACTED_VALUE"instantaneous_power_factor_l2",
+        translation_key="instantaneous_power_factor_l2",
         obis_reference="EON_HU_INSTANTANEOUS_POWER_FACTOR_L2",
         dsmr_versions={"5EONHU"},
         entity_registry_enabled_default=False,
@@ -479,7 +479,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="eon_hu_instantaneous_power_factor_l3",
-        REDACTED_VALUE"instantaneous_power_factor_l3",
+        translation_key="instantaneous_power_factor_l3",
         obis_reference="EON_HU_INSTANTANEOUS_POWER_FACTOR_L3",
         dsmr_versions={"5EONHU"},
         entity_registry_enabled_default=False,
@@ -489,7 +489,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="eon_hu_frequency",
-        REDACTED_VALUE"frequency",
+        translation_key="frequency",
         obis_reference="EON_HU_FREQUENCY",
         dsmr_versions={"5EONHU"},
         entity_registry_enabled_default=False,
@@ -499,7 +499,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="fuse_threshold_l1",
-        REDACTED_VALUE"fuse_threshold_l1",
+        translation_key="fuse_threshold_l1",
         obis_reference="FUSE_THRESHOLD_L1",
         dsmr_versions={"5EONHU"},
         device_class=SensorDeviceClass.CURRENT,
@@ -509,7 +509,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="fuse_threshold_l2",
-        REDACTED_VALUE"fuse_threshold_l2",
+        translation_key="fuse_threshold_l2",
         obis_reference="FUSE_THRESHOLD_L2",
         dsmr_versions={"5EONHU"},
         device_class=SensorDeviceClass.CURRENT,
@@ -519,7 +519,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="fuse_threshold_l3",
-        REDACTED_VALUE"fuse_threshold_l3",
+        translation_key="fuse_threshold_l3",
         obis_reference="FUSE_THRESHOLD_L3",
         dsmr_versions={"5EONHU"},
         device_class=SensorDeviceClass.CURRENT,
@@ -529,7 +529,7 @@ SENSORS: tuple[DSMRSensorEntityDescription, ...] = (
     ),
     DSMRSensorEntityDescription(
         key="text_message",
-        REDACTED_VALUE"text_message",
+        translation_key="text_message",
         obis_reference="TEXT_MESSAGE",
         dsmr_versions={"5EONHU"},
         entity_registry_enabled_default=False,
@@ -542,7 +542,7 @@ SENSORS_MBUS_DEVICE_TYPE: dict[int, tuple[DSMRSensorEntityDescription, ...]] = {
     MbusDeviceType.GAS: (
         DSMRSensorEntityDescription(
             key="gas_reading",
-            REDACTED_VALUE"gas_meter_reading",
+            translation_key="gas_meter_reading",
             obis_reference="MBUS_METER_READING",
             is_gas=True,
             device_class=SensorDeviceClass.GAS,
@@ -552,7 +552,7 @@ SENSORS_MBUS_DEVICE_TYPE: dict[int, tuple[DSMRSensorEntityDescription, ...]] = {
     MbusDeviceType.HEAT: (
         DSMRSensorEntityDescription(
             key="heat_reading",
-            REDACTED_VALUE"heat_meter_reading",
+            translation_key="heat_meter_reading",
             obis_reference="MBUS_METER_READING",
             is_heat=True,
             device_class=SensorDeviceClass.ENERGY,
@@ -562,7 +562,7 @@ SENSORS_MBUS_DEVICE_TYPE: dict[int, tuple[DSMRSensorEntityDescription, ...]] = {
     MbusDeviceType.WATER: (
         DSMRSensorEntityDescription(
             key="water_reading",
-            REDACTED_VALUE"water_meter_reading",
+            translation_key="water_meter_reading",
             obis_reference="MBUS_METER_READING",
             is_water=True,
             device_class=SensorDeviceClass.WATER,
@@ -572,7 +572,7 @@ SENSORS_MBUS_DEVICE_TYPE: dict[int, tuple[DSMRSensorEntityDescription, ...]] = {
     MbusDeviceType.HEAT_COOL: (
         DSMRSensorEntityDescription(
             key="heat_reading",
-            REDACTED_VALUE"heat_meter_reading",
+            translation_key="heat_meter_reading",
             obis_reference="MBUS_METER_READING",
             is_heat=True,
             device_class=SensorDeviceClass.ENERGY,

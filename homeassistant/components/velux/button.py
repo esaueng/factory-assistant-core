@@ -72,5 +72,5 @@ class VeluxGatewayRebootButton(ButtonEntity):
         except PyVLXException as ex:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"reboot_failed",
+                translation_key="reboot_failed",
             ) from ex

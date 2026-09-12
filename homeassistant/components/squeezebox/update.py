@@ -163,7 +163,7 @@ class ServerStatusUpdatePlugins(ServerStatusUpdate):
             self.async_write_ha_state()
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_restart_failed",
+                translation_key="update_restart_failed",
             )
 
     async def _async_update_catchall(self, now: datetime | None = None) -> None:

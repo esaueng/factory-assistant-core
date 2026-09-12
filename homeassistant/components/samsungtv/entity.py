@@ -100,7 +100,7 @@ class SamsungTVEntity(CoordinatorEntity[SamsungTVDataUpdateCoordinator], Entity)
                 is_fixable=False,
                 breaks_in_ha_version="2026.8.0",
                 severity=ir.IssueSeverity.WARNING,
-                REDACTED_VALUE"deprecated_implicit_wake_on_lan",
+                translation_key="deprecated_implicit_wake_on_lan",
                 translation_placeholders={
                     "mac_address": self._mac,
                     "wol_documentation_url": "https://www.home-assistant.io/integrations/wake_on_lan/",
@@ -114,6 +114,6 @@ class SamsungTVEntity(CoordinatorEntity[SamsungTVDataUpdateCoordinator], Entity)
             )
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_unsupported",
+                translation_key="service_unsupported",
                 translation_placeholders={"entity": self.entity_id},
             )

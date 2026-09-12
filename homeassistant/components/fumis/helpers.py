@@ -35,26 +35,26 @@ def fumis_exception_handler[_FumisEntityT: FumisEntity, **_P](
             )
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"authentication_error",
+                translation_key="authentication_error",
             ) from error
 
         except FumisStoveOfflineError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"stove_offline",
+                translation_key="stove_offline",
             ) from error
 
         except FumisConnectionError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
                 translation_placeholders={"error": str(error)},
             ) from error
 
         except FumisError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unknown_error",
+                translation_key="unknown_error",
                 translation_placeholders={"error": str(error)},
             ) from error
 

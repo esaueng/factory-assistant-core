@@ -99,7 +99,7 @@ class XboxSource(MediaSource):
         if not (entries := self.hass.config_entries.async_loaded_entries(DOMAIN)):
             raise Unresolvable(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"xbox_not_configured",
+                translation_key="xbox_not_configured",
             )
         try:
             entry: XboxConfigEntry = next(
@@ -108,7 +108,7 @@ class XboxSource(MediaSource):
         except StopIteration as e:
             raise Unresolvable(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"account_not_configured",
+                translation_key="account_not_configured",
             ) from e
 
         client = entry.runtime_data.status.client
@@ -130,13 +130,13 @@ class XboxSource(MediaSource):
             except TimeoutException as e:
                 raise Unresolvable(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"timeout_exception",
+                    translation_key="timeout_exception",
                 ) from e
             except (RequestError, HTTPStatusError) as e:
                 _LOGGER.debug("Xbox exception:", exc_info=True)
                 raise Unresolvable(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"request_exception",
+                    translation_key="request_exception",
                 ) from e
             gameclips = gameclips_response.game_clips
             try:
@@ -146,7 +146,7 @@ class XboxSource(MediaSource):
             except StopIteration as e:
                 raise Unresolvable(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"media_not_found",
+                    translation_key="media_not_found",
                 ) from e
             return PlayMedia(clip.game_clip_uris[0].uri, MIME_TYPE_MAP[ATTR_GAMECLIPS])
 
@@ -166,13 +166,13 @@ class XboxSource(MediaSource):
             except TimeoutException as e:
                 raise Unresolvable(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"timeout_exception",
+                    translation_key="timeout_exception",
                 ) from e
             except (RequestError, HTTPStatusError) as e:
                 _LOGGER.debug("Xbox exception:", exc_info=True)
                 raise Unresolvable(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"request_exception",
+                    translation_key="request_exception",
                 ) from e
             screenshots = screenshot_response.screenshots
             try:
@@ -182,7 +182,7 @@ class XboxSource(MediaSource):
             except StopIteration as e:
                 raise Unresolvable(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"media_not_found",
+                    translation_key="media_not_found",
                 ) from e
             return PlayMedia(
                 img.screenshot_uris[0].uri, MIME_TYPE_MAP[identifier.media_type]
@@ -197,13 +197,13 @@ class XboxSource(MediaSource):
             except TimeoutException as e:
                 raise Unresolvable(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"timeout_exception",
+                    translation_key="timeout_exception",
                 ) from e
             except (RequestError, HTTPStatusError) as e:
                 _LOGGER.debug("Xbox exception:", exc_info=True)
                 raise Unresolvable(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"request_exception",
+                    translation_key="request_exception",
                 ) from e
             if images is not None:
                 try:
@@ -216,7 +216,7 @@ class XboxSource(MediaSource):
 
         raise Unresolvable(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"media_not_found",
+            translation_key="media_not_found",
         )
 
     async def async_browse_media(self, item: MediaSourceItem) -> BrowseMediaSource:
@@ -224,7 +224,7 @@ class XboxSource(MediaSource):
         if not (entries := self.hass.config_entries.async_loaded_entries(DOMAIN)):
             raise BrowseError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"xbox_not_configured",
+                translation_key="xbox_not_configured",
             )
 
         # if there is only one entry we can directly jump to it
@@ -254,7 +254,7 @@ class XboxSource(MediaSource):
         except StopIteration as e:
             raise BrowseError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"account_not_configured",
+                translation_key="account_not_configured",
             ) from e
 
         if not identifier.title_id:
@@ -317,13 +317,13 @@ class XboxSource(MediaSource):
         except TimeoutException as e:
             raise BrowseError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"timeout_exception",
+                translation_key="timeout_exception",
             ) from e
         except (RequestError, HTTPStatusError) as e:
             _LOGGER.debug("Xbox exception:", exc_info=True)
             raise BrowseError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"request_exception",
+                translation_key="request_exception",
             ) from e
 
         return [
@@ -352,13 +352,13 @@ class XboxSource(MediaSource):
         except TimeoutException as e:
             raise BrowseError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"timeout_exception",
+                translation_key="timeout_exception",
             ) from e
         except (RequestError, HTTPStatusError) as e:
             _LOGGER.debug("Xbox exception:", exc_info=True)
             raise BrowseError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"request_exception",
+                translation_key="request_exception",
             ) from e
 
         return BrowseMediaSource(
@@ -408,13 +408,13 @@ class XboxSource(MediaSource):
         except TimeoutException as e:
             raise BrowseError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"timeout_exception",
+                translation_key="timeout_exception",
             ) from e
         except (RequestError, HTTPStatusError) as e:
             _LOGGER.debug("Xbox exception:", exc_info=True)
             raise BrowseError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"request_exception",
+                translation_key="request_exception",
             ) from e
 
         return BrowseMediaSource(
@@ -455,13 +455,13 @@ class XboxSource(MediaSource):
         except TimeoutException as e:
             raise BrowseError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"timeout_exception",
+                translation_key="timeout_exception",
             ) from e
         except (RequestError, HTTPStatusError) as e:
             _LOGGER.debug("Xbox exception:", exc_info=True)
             raise BrowseError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"request_exception",
+                translation_key="request_exception",
             ) from e
 
         return [
@@ -499,13 +499,13 @@ class XboxSource(MediaSource):
         except TimeoutException as e:
             raise BrowseError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"timeout_exception",
+                translation_key="timeout_exception",
             ) from e
         except (RequestError, HTTPStatusError) as e:
             _LOGGER.debug("Xbox exception:", exc_info=True)
             raise BrowseError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"request_exception",
+                translation_key="request_exception",
             ) from e
 
         return [
@@ -543,13 +543,13 @@ class XboxSource(MediaSource):
         except TimeoutException as e:
             raise BrowseError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"timeout_exception",
+                translation_key="timeout_exception",
             ) from e
         except (RequestError, HTTPStatusError) as e:
             _LOGGER.debug("Xbox exception:", exc_info=True)
             raise BrowseError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"request_exception",
+                translation_key="request_exception",
             ) from e
 
         return [
@@ -588,13 +588,13 @@ class XboxSource(MediaSource):
         except TimeoutException as e:
             raise BrowseError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"timeout_exception",
+                translation_key="timeout_exception",
             ) from e
         except (RequestError, HTTPStatusError) as e:
             _LOGGER.debug("Xbox exception:", exc_info=True)
             raise BrowseError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"request_exception",
+                translation_key="request_exception",
             ) from e
 
         return [

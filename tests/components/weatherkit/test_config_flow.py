@@ -132,7 +132,10 @@ async def test_form_unsupported_location(hass: HomeAssistant) -> None:
 @pytest.mark.parametrize(
     ("input_header"),
     [
-        "REDACTED_VALUE\n",
+        "-----BEGIN PRIVATE KEY-----\n",
+        "",
+        "  \n\n-----BEGIN PRIVATE KEY-----\n",
+        "—---BEGIN PRIVATE KEY-----\n",
     ],
     ids=["Correct header", "No header", "Leading characters", "Em dash in header"],
 )

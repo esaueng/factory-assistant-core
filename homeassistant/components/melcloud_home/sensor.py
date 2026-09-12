@@ -44,7 +44,7 @@ class ATWSensorEntityDescription(SensorEntityDescription):
 ATA_SENSORS: tuple[ATASensorEntityDescription, ...] = (
     ATASensorEntityDescription(
         key="room_temperature",
-        REDACTED_VALUE"room_temperature",
+        translation_key="room_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -65,7 +65,7 @@ ATA_SENSORS: tuple[ATASensorEntityDescription, ...] = (
 ATW_SENSORS: tuple[ATWSensorEntityDescription, ...] = (
     ATWSensorEntityDescription(
         key="room_temperature_zone_1",
-        REDACTED_VALUE"room_temperature_zone_1",
+        translation_key="room_temperature_zone_1",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -74,7 +74,7 @@ ATW_SENSORS: tuple[ATWSensorEntityDescription, ...] = (
     ),
     ATWSensorEntityDescription(
         key="room_temperature_zone_2",
-        REDACTED_VALUE"room_temperature_zone_2",
+        translation_key="room_temperature_zone_2",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -87,7 +87,7 @@ ATW_SENSORS: tuple[ATWSensorEntityDescription, ...] = (
     ),
     ATWSensorEntityDescription(
         key="tank_water_temperature",
-        REDACTED_VALUE"tank_water_temperature",
+        translation_key="tank_water_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,

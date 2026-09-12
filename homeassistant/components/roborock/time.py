@@ -42,7 +42,7 @@ class RoborockTimeDescription(TimeEntityDescription):
 TIME_DESCRIPTIONS: list[RoborockTimeDescription] = [
     RoborockTimeDescription(
         key="dnd_start_time",
-        REDACTED_VALUE"dnd_start_time",
+        translation_key="dnd_start_time",
         trait=lambda api: api.dnd,
         update_value=lambda trait, desired_time: trait.set_dnd_timer(
             DnDTimer(
@@ -60,7 +60,7 @@ TIME_DESCRIPTIONS: list[RoborockTimeDescription] = [
     ),
     RoborockTimeDescription(
         key="dnd_end_time",
-        REDACTED_VALUE"dnd_end_time",
+        translation_key="dnd_end_time",
         trait=lambda api: api.dnd,
         update_value=lambda trait, desired_time: trait.set_dnd_timer(
             DnDTimer(
@@ -78,7 +78,7 @@ TIME_DESCRIPTIONS: list[RoborockTimeDescription] = [
     ),
     RoborockTimeDescription(
         key="off_peak_start",
-        REDACTED_VALUE"off_peak_start",
+        translation_key="off_peak_start",
         trait=lambda api: api.valley_electricity_timer,
         update_value=lambda trait, desired_time: trait.set_timer(
             ValleyElectricityTimer(
@@ -97,7 +97,7 @@ TIME_DESCRIPTIONS: list[RoborockTimeDescription] = [
     ),
     RoborockTimeDescription(
         key="off_peak_end",
-        REDACTED_VALUE"off_peak_end",
+        translation_key="off_peak_end",
         trait=lambda api: api.valley_electricity_timer,
         update_value=lambda trait, desired_time: trait.set_timer(
             ValleyElectricityTimer(
@@ -169,5 +169,5 @@ class RoborockTimeEntity(RoborockEntityV1, TimeEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_options_failed",
+                translation_key="update_options_failed",
             ) from err

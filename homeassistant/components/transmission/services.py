@@ -121,7 +121,7 @@ async def _async_add_torrent(call: ServiceCall) -> None:
     ):
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"could_not_add_torrent",
+            translation_key="could_not_add_torrent",
         )
 
     await call.hass.async_add_executor_job(

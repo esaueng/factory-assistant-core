@@ -160,7 +160,7 @@ async def async_publish(
     """Publish message to a MQTT topic."""
     if not mqtt_config_entry_enabled(hass):
         raise HomeAssistantError(
-            REDACTED_VALUE"mqtt_not_setup_cannot_publish",
+            translation_key="mqtt_not_setup_cannot_publish",
             translation_domain=DOMAIN,
             translation_placeholders={"topic": topic},
         )
@@ -284,14 +284,14 @@ def async_subscribe_internal(
         mqtt_data = hass.data[DATA_MQTT]
     except KeyError as exc:
         raise HomeAssistantError(
-            REDACTED_VALUE"mqtt_not_setup_cannot_subscribe",
+            translation_key="mqtt_not_setup_cannot_subscribe",
             translation_domain=DOMAIN,
             translation_placeholders={"topic": topic},
         ) from exc
     client = mqtt_data.client
     if not mqtt_config_entry_enabled(hass):
         raise HomeAssistantError(
-            REDACTED_VALUE"mqtt_not_enabled_cannot_subscribe",
+            translation_key="mqtt_not_enabled_cannot_subscribe",
             translation_domain=DOMAIN,
             translation_placeholders={"topic": topic},
         )
@@ -762,7 +762,7 @@ class MQTT:
             if not self.is_mqttv5:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"mqtt_message_expiry_interval_not_supported",
+                    translation_key="mqtt_message_expiry_interval_not_supported",
                     translation_placeholders={
                         "topic": topic,
                         "protocol": self.conf.get(CONF_PROTOCOL, PROTOCOL_311),
@@ -942,7 +942,7 @@ class MQTT:
         except (KeyError, ValueError) as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"mqtt_not_setup_cannot_unsubscribe_twice",
+                translation_key="mqtt_not_setup_cannot_unsubscribe_twice",
                 translation_placeholders={"topic": topic},
             ) from exc
 
@@ -992,7 +992,7 @@ class MQTT:
         if not isinstance(topic, str):
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"mqtt_topic_not_a_string",
+                translation_key="mqtt_topic_not_a_string",
                 translation_placeholders={"topic": topic},
             )
 
@@ -1489,7 +1489,7 @@ class MQTT:
         if result_code != 0:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"mqtt_broker_error",
+                translation_key="mqtt_broker_error",
                 translation_placeholders={
                     "error_message": mqtt.error_string(result_code)
                 },

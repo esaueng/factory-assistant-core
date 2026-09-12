@@ -25,7 +25,7 @@ def migrate_notify_issue(
             issue_domain=domain,
             is_fixable=True,
             is_persistent=True,
-            REDACTED_VALUE"migrate_notify_service",
+            translation_key="migrate_notify_service",
             translation_placeholders={
                 "domain": domain,
                 "integration_title": integration_title,
@@ -42,7 +42,7 @@ def migrate_notify_issue(
         issue_domain=domain,
         is_fixable=True,
         is_persistent=True,
-        REDACTED_VALUE"migrate_notify",
+        translation_key="migrate_notify",
         translation_placeholders={
             "domain": domain,
             "integration_title": integration_title,

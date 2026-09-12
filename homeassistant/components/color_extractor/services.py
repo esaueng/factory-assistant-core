@@ -179,7 +179,7 @@ async def async_handle_get_color(
     except UnidentifiedImageError as ex:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_image",
+            translation_key="invalid_image",
             translation_placeholders={
                 "image_type": image_type,
                 "image_reference": image_reference,
@@ -189,7 +189,7 @@ async def async_handle_get_color(
     if color is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_image",
+            translation_key="invalid_image",
             translation_placeholders={
                 "image_type": image_type,
                 "image_reference": image_reference,

@@ -58,7 +58,7 @@ class SensiboDeviceSensorEntityDescription(SensorEntityDescription):
 
 FILTER_LAST_RESET_DESCRIPTION = SensiboDeviceSensorEntityDescription(
     key="filter_last_reset",
-    REDACTED_VALUE"filter_last_reset",
+    translation_key="filter_last_reset",
     device_class=SensorDeviceClass.TIMESTAMP,
     value_fn=lambda data: data.filter_last_reset,
     extra_fn=None,
@@ -67,7 +67,7 @@ FILTER_LAST_RESET_DESCRIPTION = SensiboDeviceSensorEntityDescription(
 MOTION_SENSOR_TYPES: tuple[SensiboMotionSensorEntityDescription, ...] = (
     SensiboMotionSensorEntityDescription(
         key="rssi",
-        REDACTED_VALUE"rssi",
+        translation_key="rssi",
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
@@ -77,7 +77,7 @@ MOTION_SENSOR_TYPES: tuple[SensiboMotionSensorEntityDescription, ...] = (
     ),
     SensiboMotionSensorEntityDescription(
         key="battery_voltage",
-        REDACTED_VALUE"battery_voltage",
+        translation_key="battery_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
@@ -113,7 +113,7 @@ def _pure_aqi(pm25_pure: PureAQI | None) -> str | None:
 PURE_SENSOR_TYPES: tuple[SensiboDeviceSensorEntityDescription, ...] = (
     SensiboDeviceSensorEntityDescription(
         key="pm25",
-        REDACTED_VALUE"pm25_pure",
+        translation_key="pm25_pure",
         device_class=SensorDeviceClass.ENUM,
         value_fn=lambda data: _pure_aqi(data.pm25_pure),
         extra_fn=None,
@@ -121,7 +121,7 @@ PURE_SENSOR_TYPES: tuple[SensiboDeviceSensorEntityDescription, ...] = (
     ),
     SensiboDeviceSensorEntityDescription(
         key="pure_sensitivity",
-        REDACTED_VALUE"sensitivity",
+        translation_key="sensitivity",
         value_fn=lambda data: data.pure_sensitivity,
         extra_fn=None,
     ),
@@ -132,14 +132,14 @@ PURE_SENSOR_TYPES: tuple[SensiboDeviceSensorEntityDescription, ...] = (
 DEVICE_SENSOR_TYPES: tuple[SensiboDeviceSensorEntityDescription, ...] = (
     SensiboDeviceSensorEntityDescription(
         key="timer_time",
-        REDACTED_VALUE"timer_time",
+        translation_key="timer_time",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda data: data.timer_time,
         extra_fn=lambda data: {"id": data.timer_id, "turn_on": data.timer_state_on},
     ),
     SensiboDeviceSensorEntityDescription(
         key="feels_like",
-        REDACTED_VALUE"feels_like",
+        translation_key="feels_like",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -149,7 +149,7 @@ DEVICE_SENSOR_TYPES: tuple[SensiboDeviceSensorEntityDescription, ...] = (
     ),
     SensiboDeviceSensorEntityDescription(
         key="climate_react_low",
-        REDACTED_VALUE"climate_react_low",
+        translation_key="climate_react_low",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -159,7 +159,7 @@ DEVICE_SENSOR_TYPES: tuple[SensiboDeviceSensorEntityDescription, ...] = (
     ),
     SensiboDeviceSensorEntityDescription(
         key="climate_react_high",
-        REDACTED_VALUE"climate_react_high",
+        translation_key="climate_react_high",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -169,7 +169,7 @@ DEVICE_SENSOR_TYPES: tuple[SensiboDeviceSensorEntityDescription, ...] = (
     ),
     SensiboDeviceSensorEntityDescription(
         key="climate_react_type",
-        REDACTED_VALUE"smart_type",
+        translation_key="smart_type",
         value_fn=lambda data: _smart_type_name(data.smart_type),
         extra_fn=None,
         entity_registry_enabled_default=False,
@@ -180,7 +180,7 @@ DEVICE_SENSOR_TYPES: tuple[SensiboDeviceSensorEntityDescription, ...] = (
 AIRQ_SENSOR_TYPES: tuple[SensiboDeviceSensorEntityDescription, ...] = (
     SensiboDeviceSensorEntityDescription(
         key="airq_tvoc",
-        REDACTED_VALUE"airq_tvoc",
+        translation_key="airq_tvoc",
         native_unit_of_measurement=CONCENTRATION_PARTS_PER_BILLION,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data.tvoc,
@@ -188,7 +188,7 @@ AIRQ_SENSOR_TYPES: tuple[SensiboDeviceSensorEntityDescription, ...] = (
     ),
     SensiboDeviceSensorEntityDescription(
         key="airq_co2",
-        REDACTED_VALUE"airq_co2",
+        translation_key="airq_co2",
         device_class=SensorDeviceClass.CO2,
         native_unit_of_measurement=CONCENTRATION_PARTS_PER_MILLION,
         state_class=SensorStateClass.MEASUREMENT,
@@ -209,7 +209,7 @@ ELEMENT_SENSOR_TYPES: tuple[SensiboDeviceSensorEntityDescription, ...] = (
     ),
     SensiboDeviceSensorEntityDescription(
         key="tvoc",
-        REDACTED_VALUE"tvoc",
+        translation_key="tvoc",
         native_unit_of_measurement=CONCENTRATION_PARTS_PER_BILLION,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data.tvoc,
@@ -227,7 +227,7 @@ ELEMENT_SENSOR_TYPES: tuple[SensiboDeviceSensorEntityDescription, ...] = (
         key="ethanol",
         native_unit_of_measurement=CONCENTRATION_PARTS_PER_MILLION,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"ethanol",
+        translation_key="ethanol",
         value_fn=lambda data: data.etoh,
         extra_fn=None,
     ),

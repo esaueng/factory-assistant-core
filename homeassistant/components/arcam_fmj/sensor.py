@@ -53,7 +53,7 @@ class ArcamFmjSensorEntityDescription(SensorEntityDescription):
 SENSORS: tuple[ArcamFmjSensorEntityDescription, ...] = (
     ArcamFmjSensorEntityDescription(
         key="incoming_video_horizontal_resolution",
-        REDACTED_VALUE"incoming_video_horizontal_resolution",
+        translation_key="incoming_video_horizontal_resolution",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement="px",
@@ -66,7 +66,7 @@ SENSORS: tuple[ArcamFmjSensorEntityDescription, ...] = (
     ),
     ArcamFmjSensorEntityDescription(
         key="incoming_video_vertical_resolution",
-        REDACTED_VALUE"incoming_video_vertical_resolution",
+        translation_key="incoming_video_vertical_resolution",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement="px",
@@ -79,7 +79,7 @@ SENSORS: tuple[ArcamFmjSensorEntityDescription, ...] = (
     ),
     ArcamFmjSensorEntityDescription(
         key="incoming_video_refresh_rate",
-        REDACTED_VALUE"incoming_video_refresh_rate",
+        translation_key="incoming_video_refresh_rate",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.FREQUENCY,
         state_class=SensorStateClass.MEASUREMENT,
@@ -93,7 +93,7 @@ SENSORS: tuple[ArcamFmjSensorEntityDescription, ...] = (
     ),
     ArcamFmjSensorEntityDescription(
         key="incoming_video_aspect_ratio",
-        REDACTED_VALUE"incoming_video_aspect_ratio",
+        translation_key="incoming_video_aspect_ratio",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.ENUM,
         options=_enum_options(IncomingVideoAspectRatio),
@@ -105,7 +105,7 @@ SENSORS: tuple[ArcamFmjSensorEntityDescription, ...] = (
     ),
     ArcamFmjSensorEntityDescription(
         key="incoming_video_colorspace",
-        REDACTED_VALUE"incoming_video_colorspace",
+        translation_key="incoming_video_colorspace",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.ENUM,
         options=_enum_options(IncomingVideoColorspace),
@@ -117,7 +117,7 @@ SENSORS: tuple[ArcamFmjSensorEntityDescription, ...] = (
     ),
     ArcamFmjSensorEntityDescription(
         key="incoming_audio_format",
-        REDACTED_VALUE"incoming_audio_format",
+        translation_key="incoming_audio_format",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.ENUM,
         options=_enum_options(IncomingAudioFormat),
@@ -125,7 +125,7 @@ SENSORS: tuple[ArcamFmjSensorEntityDescription, ...] = (
     ),
     ArcamFmjSensorEntityDescription(
         key="incoming_audio_config",
-        REDACTED_VALUE"incoming_audio_config",
+        translation_key="incoming_audio_config",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.ENUM,
         options=_enum_options(IncomingAudioConfig),
@@ -133,7 +133,7 @@ SENSORS: tuple[ArcamFmjSensorEntityDescription, ...] = (
     ),
     ArcamFmjSensorEntityDescription(
         key="incoming_audio_sample_rate",
-        REDACTED_VALUE"incoming_audio_sample_rate",
+        translation_key="incoming_audio_sample_rate",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.FREQUENCY,
         state_class=SensorStateClass.MEASUREMENT,

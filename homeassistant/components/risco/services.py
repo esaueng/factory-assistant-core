@@ -26,7 +26,7 @@ async def async_setup_services(hass: HomeAssistant) -> None:
         if not (local_data := entry.runtime_data.local_data):
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"not_local_entry",
+                translation_key="not_local_entry",
             )
 
         time_to_send = time

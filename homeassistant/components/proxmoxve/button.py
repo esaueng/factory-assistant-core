@@ -70,7 +70,7 @@ NODE_BUTTONS: tuple[ProxmoxNodeButtonNodeEntityDescription, ...] = (
     ),
     ProxmoxNodeButtonNodeEntityDescription(
         key="shutdown",
-        REDACTED_VALUE"shutdown",
+        translation_key="shutdown",
         press_action=lambda coordinator, node: coordinator.proxmox.nodes(
             node
         ).status.post(command="shutdown"),
@@ -78,7 +78,7 @@ NODE_BUTTONS: tuple[ProxmoxNodeButtonNodeEntityDescription, ...] = (
     ),
     ProxmoxNodeButtonNodeEntityDescription(
         key="start_all",
-        REDACTED_VALUE"start_all",
+        translation_key="start_all",
         permission=ProxmoxPermission.POWER,
         permission_raise=NO_PERM_VM_LXC_POWER,
         permission_target="vms",
@@ -89,7 +89,7 @@ NODE_BUTTONS: tuple[ProxmoxNodeButtonNodeEntityDescription, ...] = (
     ),
     ProxmoxNodeButtonNodeEntityDescription(
         key="stop_all",
-        REDACTED_VALUE"stop_all",
+        translation_key="stop_all",
         permission=ProxmoxPermission.POWER,
         permission_raise=NO_PERM_VM_LXC_POWER,
         permission_target="vms",
@@ -100,7 +100,7 @@ NODE_BUTTONS: tuple[ProxmoxNodeButtonNodeEntityDescription, ...] = (
     ),
     ProxmoxNodeButtonNodeEntityDescription(
         key="suspend_all",
-        REDACTED_VALUE"suspend_all",
+        translation_key="suspend_all",
         permission=ProxmoxPermission.POWER,
         permission_raise=NO_PERM_VM_LXC_POWER,
         permission_target="vms",
@@ -114,7 +114,7 @@ NODE_BUTTONS: tuple[ProxmoxNodeButtonNodeEntityDescription, ...] = (
 VM_BUTTONS: tuple[ProxmoxVMButtonEntityDescription, ...] = (
     ProxmoxVMButtonEntityDescription(
         key="start",
-        REDACTED_VALUE"start",
+        translation_key="start",
         press_action=lambda coordinator, node, vmid: (
             coordinator.proxmox.nodes(node).qemu(vmid).status.start.post()
         ),
@@ -122,7 +122,7 @@ VM_BUTTONS: tuple[ProxmoxVMButtonEntityDescription, ...] = (
     ),
     ProxmoxVMButtonEntityDescription(
         key="stop",
-        REDACTED_VALUE"stop",
+        translation_key="stop",
         press_action=lambda coordinator, node, vmid: (
             coordinator.proxmox.nodes(node).qemu(vmid).status.stop.post()
         ),
@@ -138,7 +138,7 @@ VM_BUTTONS: tuple[ProxmoxVMButtonEntityDescription, ...] = (
     ),
     ProxmoxVMButtonEntityDescription(
         key="hibernate",
-        REDACTED_VALUE"hibernate",
+        translation_key="hibernate",
         press_action=lambda coordinator, node, vmid: (
             coordinator.proxmox.nodes(node).qemu(vmid).status.hibernate.post()
         ),
@@ -146,7 +146,7 @@ VM_BUTTONS: tuple[ProxmoxVMButtonEntityDescription, ...] = (
     ),
     ProxmoxVMButtonEntityDescription(
         key="resume",
-        REDACTED_VALUE"resume",
+        translation_key="resume",
         press_action=lambda coordinator, node, vmid: (
             coordinator.proxmox.nodes(node).qemu(vmid).status.resume.post()
         ),
@@ -154,7 +154,7 @@ VM_BUTTONS: tuple[ProxmoxVMButtonEntityDescription, ...] = (
     ),
     ProxmoxVMButtonEntityDescription(
         key="reset",
-        REDACTED_VALUE"reset",
+        translation_key="reset",
         press_action=lambda coordinator, node, vmid: (
             coordinator.proxmox.nodes(node).qemu(vmid).status.reset.post()
         ),
@@ -162,7 +162,7 @@ VM_BUTTONS: tuple[ProxmoxVMButtonEntityDescription, ...] = (
     ),
     ProxmoxVMButtonEntityDescription(
         key="shutdown",
-        REDACTED_VALUE"shutdown",
+        translation_key="shutdown",
         press_action=lambda coordinator, node, vmid: (
             coordinator.proxmox.nodes(node).qemu(vmid).status.shutdown.post()
         ),
@@ -170,7 +170,7 @@ VM_BUTTONS: tuple[ProxmoxVMButtonEntityDescription, ...] = (
     ),
     ProxmoxVMButtonEntityDescription(
         key="snapshot_create",
-        REDACTED_VALUE"snapshot_create",
+        translation_key="snapshot_create",
         press_action=lambda coordinator, node, vmid: (
             coordinator.proxmox.nodes(node)
             .qemu(vmid)
@@ -191,7 +191,7 @@ VM_BUTTONS: tuple[ProxmoxVMButtonEntityDescription, ...] = (
 CONTAINER_BUTTONS: tuple[ProxmoxContainerButtonEntityDescription, ...] = (
     ProxmoxContainerButtonEntityDescription(
         key="start",
-        REDACTED_VALUE"start",
+        translation_key="start",
         press_action=lambda coordinator, node, vmid: (
             coordinator.proxmox.nodes(node).lxc(vmid).status.start.post()
         ),
@@ -199,7 +199,7 @@ CONTAINER_BUTTONS: tuple[ProxmoxContainerButtonEntityDescription, ...] = (
     ),
     ProxmoxContainerButtonEntityDescription(
         key="stop",
-        REDACTED_VALUE"stop",
+        translation_key="stop",
         press_action=lambda coordinator, node, vmid: (
             coordinator.proxmox.nodes(node).lxc(vmid).status.stop.post()
         ),
@@ -215,7 +215,7 @@ CONTAINER_BUTTONS: tuple[ProxmoxContainerButtonEntityDescription, ...] = (
     ),
     ProxmoxContainerButtonEntityDescription(
         key="snapshot_create",
-        REDACTED_VALUE"snapshot_create",
+        translation_key="snapshot_create",
         press_action=lambda coordinator, node, vmid: (
             coordinator.proxmox.nodes(node)
             .lxc(vmid)
@@ -321,22 +321,22 @@ class ProxmoxBaseButton(ButtonEntity):
         except AuthenticationError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect_no_details",
+                translation_key="cannot_connect_no_details",
             ) from err
         except SSLError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_auth_no_details",
+                translation_key="invalid_auth_no_details",
             ) from err
         except ConnectTimeout as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"timeout_connect_no_details",
+                translation_key="timeout_connect_no_details",
             ) from err
         except (ResourceException, requests.exceptions.ConnectionError) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_error_no_details",
+                translation_key="api_error_no_details",
             ) from err
 
 
@@ -356,7 +356,7 @@ class ProxmoxNodeButtonEntity(ProxmoxNodeEntity, ProxmoxBaseButton):
         ):
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUEself.entity_description.permission_raise,
+                translation_key=self.entity_description.permission_raise,
             )
         await self.hass.async_add_executor_job(
             self.entity_description.press_action,
@@ -381,7 +381,7 @@ class ProxmoxVMButtonEntity(ProxmoxVMEntity, ProxmoxBaseButton):
         ):
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUEself.entity_description.permission_raise,
+                translation_key=self.entity_description.permission_raise,
             )
         await self.hass.async_add_executor_job(
             self.entity_description.press_action,
@@ -408,7 +408,7 @@ class ProxmoxContainerButtonEntity(ProxmoxContainerEntity, ProxmoxBaseButton):
         ):
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUEself.entity_description.permission_raise,
+                translation_key=self.entity_description.permission_raise,
             )
         await self.hass.async_add_executor_job(
             self.entity_description.press_action,

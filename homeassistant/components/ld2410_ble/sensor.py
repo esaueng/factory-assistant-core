@@ -20,7 +20,7 @@ from .models import LD2410BLEConfigEntry
 
 MOVING_TARGET_DISTANCE_DESCRIPTION = SensorEntityDescription(
     key="moving_target_distance",
-    REDACTED_VALUE"moving_target_distance",
+    translation_key="moving_target_distance",
     device_class=SensorDeviceClass.DISTANCE,
     entity_registry_enabled_default=False,
     native_unit_of_measurement=UnitOfLength.CENTIMETERS,
@@ -29,7 +29,7 @@ MOVING_TARGET_DISTANCE_DESCRIPTION = SensorEntityDescription(
 
 STATIC_TARGET_DISTANCE_DESCRIPTION = SensorEntityDescription(
     key="static_target_distance",
-    REDACTED_VALUE"static_target_distance",
+    translation_key="static_target_distance",
     device_class=SensorDeviceClass.DISTANCE,
     entity_registry_enabled_default=False,
     native_unit_of_measurement=UnitOfLength.CENTIMETERS,
@@ -38,7 +38,7 @@ STATIC_TARGET_DISTANCE_DESCRIPTION = SensorEntityDescription(
 
 DETECTION_DISTANCE_DESCRIPTION = SensorEntityDescription(
     key="detection_distance",
-    REDACTED_VALUE"detection_distance",
+    translation_key="detection_distance",
     device_class=SensorDeviceClass.DISTANCE,
     entity_registry_enabled_default=False,
     native_unit_of_measurement=UnitOfLength.CENTIMETERS,
@@ -47,7 +47,7 @@ DETECTION_DISTANCE_DESCRIPTION = SensorEntityDescription(
 
 MOVING_TARGET_ENERGY_DESCRIPTION = SensorEntityDescription(
     key="moving_target_energy",
-    REDACTED_VALUE"moving_target_energy",
+    translation_key="moving_target_energy",
     entity_registry_enabled_default=False,
     native_unit_of_measurement="Target Energy",
     state_class=SensorStateClass.MEASUREMENT,
@@ -55,7 +55,7 @@ MOVING_TARGET_ENERGY_DESCRIPTION = SensorEntityDescription(
 
 STATIC_TARGET_ENERGY_DESCRIPTION = SensorEntityDescription(
     key="static_target_energy",
-    REDACTED_VALUE"static_target_energy",
+    translation_key="static_target_energy",
     entity_registry_enabled_default=False,
     native_unit_of_measurement="Target Energy",
     state_class=SensorStateClass.MEASUREMENT,
@@ -63,7 +63,7 @@ STATIC_TARGET_ENERGY_DESCRIPTION = SensorEntityDescription(
 
 MAX_MOTION_GATES_DESCRIPTION = SensorEntityDescription(
     key="max_motion_gates",
-    REDACTED_VALUE"max_motion_gates",
+    translation_key="max_motion_gates",
     entity_category=EntityCategory.DIAGNOSTIC,
     entity_registry_enabled_default=False,
     native_unit_of_measurement="Gates",
@@ -71,7 +71,7 @@ MAX_MOTION_GATES_DESCRIPTION = SensorEntityDescription(
 
 MAX_STATIC_GATES_DESCRIPTION = SensorEntityDescription(
     key="max_static_gates",
-    REDACTED_VALUE"max_static_gates",
+    translation_key="max_static_gates",
     entity_category=EntityCategory.DIAGNOSTIC,
     entity_registry_enabled_default=False,
     native_unit_of_measurement="Gates",
@@ -80,7 +80,7 @@ MAX_STATIC_GATES_DESCRIPTION = SensorEntityDescription(
 MOTION_ENERGY_GATES = [
     SensorEntityDescription(
         key=f"motion_energy_gate_{i}",
-        REDACTED_VALUEf"motion_energy_gate_{i}",
+        translation_key=f"motion_energy_gate_{i}",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         native_unit_of_measurement="Target Energy",
@@ -91,7 +91,7 @@ MOTION_ENERGY_GATES = [
 STATIC_ENERGY_GATES = [
     SensorEntityDescription(
         key=f"static_energy_gate_{i}",
-        REDACTED_VALUEf"static_energy_gate_{i}",
+        translation_key=f"static_energy_gate_{i}",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         native_unit_of_measurement="Target Energy",

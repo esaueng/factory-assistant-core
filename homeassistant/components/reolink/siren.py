@@ -42,7 +42,7 @@ SIREN_ENTITIES = (
     ReolinkSirenEntityDescription(
         key="siren",
         cmd_id=547,
-        REDACTED_VALUE"siren",
+        translation_key="siren",
         supported=lambda api, ch: api.supported(ch, "siren_play"),
     ),
 )
@@ -50,7 +50,7 @@ SIREN_ENTITIES = (
 HOST_SIREN_ENTITIES = (
     ReolinkHostSirenEntityDescription(
         key="siren",
-        REDACTED_VALUE"siren",
+        translation_key="siren",
         supported=lambda api: api.supported(None, "siren_play"),
     ),
 )

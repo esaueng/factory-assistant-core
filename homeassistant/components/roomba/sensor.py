@@ -30,7 +30,7 @@ class RoombaSensorEntityDescription(SensorEntityDescription):
 DOCK_SENSORS: list[RoombaSensorEntityDescription] = [
     RoombaSensorEntityDescription(
         key="dock_tank_level",
-        REDACTED_VALUE"dock_tank_level",
+        translation_key="dock_tank_level",
         native_unit_of_measurement=PERCENTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda self: self.dock_tank_level,
@@ -47,14 +47,14 @@ SENSORS: list[RoombaSensorEntityDescription] = [
     ),
     RoombaSensorEntityDescription(
         key="tank_level",
-        REDACTED_VALUE"tank_level",
+        translation_key="tank_level",
         native_unit_of_measurement=PERCENTAGE,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda self: self.tank_level,
     ),
     RoombaSensorEntityDescription(
         key="battery_cycles",
-        REDACTED_VALUE"battery_cycles",
+        translation_key="battery_cycles",
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda self: (
@@ -63,21 +63,21 @@ SENSORS: list[RoombaSensorEntityDescription] = [
     ),
     RoombaSensorEntityDescription(
         key="total_cleaning_time",
-        REDACTED_VALUE"total_cleaning_time",
+        translation_key="total_cleaning_time",
         native_unit_of_measurement=UnitOfTime.HOURS,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda self: self.run_stats.get("hr"),
     ),
     RoombaSensorEntityDescription(
         key="average_mission_time",
-        REDACTED_VALUE"average_mission_time",
+        translation_key="average_mission_time",
         native_unit_of_measurement=UnitOfTime.MINUTES,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda self: self.mission_stats.get("aMssnM"),
     ),
     RoombaSensorEntityDescription(
         key="total_missions",
-        REDACTED_VALUE"total_missions",
+        translation_key="total_missions",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement="Missions",
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -85,7 +85,7 @@ SENSORS: list[RoombaSensorEntityDescription] = [
     ),
     RoombaSensorEntityDescription(
         key="successful_missions",
-        REDACTED_VALUE"successful_missions",
+        translation_key="successful_missions",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement="Missions",
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -93,7 +93,7 @@ SENSORS: list[RoombaSensorEntityDescription] = [
     ),
     RoombaSensorEntityDescription(
         key="canceled_missions",
-        REDACTED_VALUE"canceled_missions",
+        translation_key="canceled_missions",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement="Missions",
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -101,7 +101,7 @@ SENSORS: list[RoombaSensorEntityDescription] = [
     ),
     RoombaSensorEntityDescription(
         key="failed_missions",
-        REDACTED_VALUE"failed_missions",
+        translation_key="failed_missions",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement="Missions",
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -109,7 +109,7 @@ SENSORS: list[RoombaSensorEntityDescription] = [
     ),
     RoombaSensorEntityDescription(
         key="scrubs_count",
-        REDACTED_VALUE"scrubs_count",
+        translation_key="scrubs_count",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement="Scrubs",
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -118,7 +118,7 @@ SENSORS: list[RoombaSensorEntityDescription] = [
     ),
     RoombaSensorEntityDescription(
         key="total_cleaned_area",
-        REDACTED_VALUE"total_cleaned_area",
+        translation_key="total_cleaned_area",
         native_unit_of_measurement=UnitOfArea.SQUARE_METERS,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda self: (
@@ -129,7 +129,7 @@ SENSORS: list[RoombaSensorEntityDescription] = [
     ),
     RoombaSensorEntityDescription(
         key="last_mission",
-        REDACTED_VALUE"last_mission",
+        translation_key="last_mission",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda self: self.last_mission,

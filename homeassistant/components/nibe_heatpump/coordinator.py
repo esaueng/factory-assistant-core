@@ -154,7 +154,7 @@ class CoilCoordinator(ContextCoordinator[dict[int, CoilData], int]):
         except WriteTimeoutException as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"write_timeout",
+                translation_key="write_timeout",
                 translation_placeholders={
                     "address": str(coil.address),
                 },
@@ -163,7 +163,7 @@ class CoilCoordinator(ContextCoordinator[dict[int, CoilData], int]):
             LOGGER.debug("Failed to write", exc_info=True)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"write_failed",
+                translation_key="write_failed",
                 translation_placeholders={
                     "address": str(coil.address),
                     "value": str(value),

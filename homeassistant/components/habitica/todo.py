@@ -82,14 +82,14 @@ class BaseHabiticaListEntity(HabiticaBase, TodoListEntity):
             except TooManyRequestsError as e:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"setup_rate_limit_exception",
+                    translation_key="setup_rate_limit_exception",
                     translation_placeholders={"retry_after": str(e.retry_after)},
                 ) from e
             except (HabiticaException, ClientError) as e:
                 _LOGGER.debug(str(e))
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"delete_completed_todos_failed",
+                    translation_key="delete_completed_todos_failed",
                 ) from e
         else:
             for task_id in uids:
@@ -98,14 +98,14 @@ class BaseHabiticaListEntity(HabiticaBase, TodoListEntity):
                 except TooManyRequestsError as e:
                     raise HomeAssistantError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"setup_rate_limit_exception",
+                        translation_key="setup_rate_limit_exception",
                         translation_placeholders={"retry_after": str(e.retry_after)},
                     ) from e
                 except (HabiticaException, ClientError) as e:
                     _LOGGER.debug(str(e))
                     raise ServiceValidationError(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUEf"delete_{self.entity_description.key}_failed",
+                        translation_key=f"delete_{self.entity_description.key}_failed",
                     ) from e
 
         await self.coordinator.async_request_refresh()
@@ -137,14 +137,14 @@ class BaseHabiticaListEntity(HabiticaBase, TodoListEntity):
         except TooManyRequestsError as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"setup_rate_limit_exception",
+                translation_key="setup_rate_limit_exception",
                 translation_placeholders={"retry_after": str(e.retry_after)},
             ) from e
         except (HabiticaException, ClientError) as e:
             _LOGGER.debug(str(e))
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUEf"move_{self.entity_description.key}_item_failed",
+                translation_key=f"move_{self.entity_description.key}_item_failed",
                 translation_placeholders={"pos": str(pos)},
             ) from e
 
@@ -182,14 +182,14 @@ class BaseHabiticaListEntity(HabiticaBase, TodoListEntity):
             except TooManyRequestsError as e:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"setup_rate_limit_exception",
+                    translation_key="setup_rate_limit_exception",
                     translation_placeholders={"retry_after": str(e.retry_after)},
                 ) from e
             except (HabiticaException, ClientError) as e:
                 _LOGGER.debug(str(e))
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUEf"update_{self.entity_description.key}_item_failed",
+                    translation_key=f"update_{self.entity_description.key}_item_failed",
                     translation_placeholders={"name": item.summary or ""},
                 ) from e
 
@@ -216,14 +216,14 @@ class BaseHabiticaListEntity(HabiticaBase, TodoListEntity):
         except TooManyRequestsError as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"setup_rate_limit_exception",
+                translation_key="setup_rate_limit_exception",
                 translation_placeholders={"retry_after": str(e.retry_after)},
             ) from e
         except (HabiticaException, ClientError) as e:
             _LOGGER.debug(str(e))
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUEf"score_{self.entity_description.key}_item_failed",
+                translation_key=f"score_{self.entity_description.key}_item_failed",
                 translation_placeholders={"name": item.summary or ""},
             ) from e
 
@@ -253,7 +253,7 @@ class HabiticaTodosListEntity(BaseHabiticaListEntity):
     )
     entity_description = EntityDescription(
         key=HabiticaTodoList.TODOS,
-        REDACTED_VALUEHabiticaTodoList.TODOS,
+        translation_key=HabiticaTodoList.TODOS,
     )
 
     @property
@@ -304,14 +304,14 @@ class HabiticaTodosListEntity(BaseHabiticaListEntity):
         except TooManyRequestsError as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"setup_rate_limit_exception",
+                translation_key="setup_rate_limit_exception",
                 translation_placeholders={"retry_after": str(e.retry_after)},
             ) from e
         except (HabiticaException, ClientError) as e:
             _LOGGER.debug(str(e))
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUEf"create_{self.entity_description.key}_item_failed",
+                translation_key=f"create_{self.entity_description.key}_item_failed",
                 translation_placeholders={"name": item.summary or ""},
             ) from e
 
@@ -329,7 +329,7 @@ class HabiticaDailiesListEntity(BaseHabiticaListEntity):
     )
     entity_description = EntityDescription(
         key=HabiticaTodoList.DAILIES,
-        REDACTED_VALUEHabiticaTodoList.DAILIES,
+        translation_key=HabiticaTodoList.DAILIES,
     )
 
     @property

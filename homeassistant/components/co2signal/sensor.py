@@ -35,14 +35,14 @@ class CO2SensorEntityDescription(SensorEntityDescription):
 SENSORS = (
     CO2SensorEntityDescription(
         key="carbonIntensity",
-        REDACTED_VALUE"carbon_intensity",
+        translation_key="carbon_intensity",
         unique_id="co2intensity",
         value_fn=lambda response: response.data.carbon_intensity,
         unit_of_measurement_fn=lambda response: response.units.carbon_intensity,
     ),
     CO2SensorEntityDescription(
         key="fossilFuelPercentage",
-        REDACTED_VALUE"fossil_fuel_percentage",
+        translation_key="fossil_fuel_percentage",
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda response: response.data.fossil_fuel_percentage,
     ),

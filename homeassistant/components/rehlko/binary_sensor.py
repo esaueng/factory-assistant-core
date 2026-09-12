@@ -48,13 +48,13 @@ BINARY_SENSORS: tuple[RehlkoBinarySensorEntityDescription, ...] = (
     ),
     RehlkoBinarySensorEntityDescription(
         key="switchState",
-        REDACTED_VALUE"auto_run",
+        translation_key="auto_run",
         on_value="Auto",
         off_value="Off",
     ),
     RehlkoBinarySensorEntityDescription(
         key="engineOilPressureOk",
-        REDACTED_VALUE"oil_pressure",
+        translation_key="oil_pressure",
         device_class=BinarySensorDeviceClass.PROBLEM,
         entity_category=EntityCategory.DIAGNOSTIC,
         on_value=False,
@@ -144,7 +144,7 @@ class RehlkoLoadshedBinarySensorEntity(RehlkoEntity, BinarySensorEntity):
         # Create a synthetic entity description for this loadshed parameter
         description = BinarySensorEntityDescription(
             key=f"loadshed_{definition_id}",
-            REDACTED_VALUE"loadshed_parameter",
+            translation_key="loadshed_parameter",
             entity_registry_enabled_default=False,
         )
         self._definition_id = definition_id

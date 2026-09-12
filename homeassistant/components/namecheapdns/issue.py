@@ -18,7 +18,7 @@ def deprecate_yaml_issue(hass: HomeAssistant, *, import_success: bool) -> None:
             issue_domain=DOMAIN,
             breaks_in_ha_version="2026.8.0",
             severity=IssueSeverity.WARNING,
-            REDACTED_VALUE"deprecated_yaml",
+            translation_key="deprecated_yaml",
             translation_placeholders={
                 "domain": DOMAIN,
                 "integration_title": "Namecheap DynamicDNS",
@@ -33,7 +33,7 @@ def deprecate_yaml_issue(hass: HomeAssistant, *, import_success: bool) -> None:
             is_fixable=False,
             issue_domain=DOMAIN,
             severity=IssueSeverity.WARNING,
-            REDACTED_VALUE"deprecated_yaml_import_issue_error",
+            translation_key="deprecated_yaml_import_issue_error",
             translation_placeholders={
                 "url": f"/config/integrations/dashboard/add?domain={DOMAIN}"
             },

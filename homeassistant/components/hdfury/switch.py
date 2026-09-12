@@ -29,104 +29,104 @@ class HDFurySwitchEntityDescription(SwitchEntityDescription):
 SWITCHES: tuple[HDFurySwitchEntityDescription, ...] = (
     HDFurySwitchEntityDescription(
         key="autosw",
-        REDACTED_VALUE"autosw",
+        translation_key="autosw",
         entity_category=EntityCategory.CONFIG,
         set_value_fn=lambda client, value: client.set_auto_switch_inputs(value),
     ),
     HDFurySwitchEntityDescription(
         key="cec",
-        REDACTED_VALUE"cec",
+        translation_key="cec",
         entity_category=EntityCategory.CONFIG,
         set_value_fn=lambda client, value: client.set_cec(value),
     ),
     HDFurySwitchEntityDescription(
         key="cec0en",
-        REDACTED_VALUE"cec0en",
+        translation_key="cec0en",
         entity_category=EntityCategory.CONFIG,
         set_value_fn=lambda client, value: client.set_cec_rx0(value),
     ),
     HDFurySwitchEntityDescription(
         key="cec1en",
-        REDACTED_VALUE"cec1en",
+        translation_key="cec1en",
         entity_category=EntityCategory.CONFIG,
         set_value_fn=lambda client, value: client.set_cec_rx1(value),
     ),
     HDFurySwitchEntityDescription(
         key="cec2en",
-        REDACTED_VALUE"cec2en",
+        translation_key="cec2en",
         entity_category=EntityCategory.CONFIG,
         set_value_fn=lambda client, value: client.set_cec_rx2(value),
     ),
     HDFurySwitchEntityDescription(
         key="cec3en",
-        REDACTED_VALUE"cec3en",
+        translation_key="cec3en",
         entity_category=EntityCategory.CONFIG,
         set_value_fn=lambda client, value: client.set_cec_rx3(value),
     ),
     HDFurySwitchEntityDescription(
         key="htpcmode0",
-        REDACTED_VALUE"htpcmode0",
+        translation_key="htpcmode0",
         entity_category=EntityCategory.CONFIG,
         set_value_fn=lambda client, value: client.set_htpc_mode_rx0(value),
     ),
     HDFurySwitchEntityDescription(
         key="htpcmode1",
-        REDACTED_VALUE"htpcmode1",
+        translation_key="htpcmode1",
         entity_category=EntityCategory.CONFIG,
         set_value_fn=lambda client, value: client.set_htpc_mode_rx1(value),
     ),
     HDFurySwitchEntityDescription(
         key="htpcmode2",
-        REDACTED_VALUE"htpcmode2",
+        translation_key="htpcmode2",
         entity_category=EntityCategory.CONFIG,
         set_value_fn=lambda client, value: client.set_htpc_mode_rx2(value),
     ),
     HDFurySwitchEntityDescription(
         key="htpcmode3",
-        REDACTED_VALUE"htpcmode3",
+        translation_key="htpcmode3",
         entity_category=EntityCategory.CONFIG,
         set_value_fn=lambda client, value: client.set_htpc_mode_rx3(value),
     ),
     HDFurySwitchEntityDescription(
         key="mutetx0",
-        REDACTED_VALUE"mutetx0",
+        translation_key="mutetx0",
         entity_category=EntityCategory.CONFIG,
         set_value_fn=lambda client, value: client.set_mute_tx0_audio(value),
     ),
     HDFurySwitchEntityDescription(
         key="mutetx1",
-        REDACTED_VALUE"mutetx1",
+        translation_key="mutetx1",
         entity_category=EntityCategory.CONFIG,
         set_value_fn=lambda client, value: client.set_mute_tx1_audio(value),
     ),
     HDFurySwitchEntityDescription(
         key="oled",
-        REDACTED_VALUE"oled",
+        translation_key="oled",
         entity_category=EntityCategory.CONFIG,
         set_value_fn=lambda client, value: client.set_oled(value),
     ),
     HDFurySwitchEntityDescription(
         key="iractive",
-        REDACTED_VALUE"iractive",
+        translation_key="iractive",
         entity_category=EntityCategory.CONFIG,
         set_value_fn=lambda client, value: client.set_ir_active(value),
     ),
     HDFurySwitchEntityDescription(
         key="relay",
-        REDACTED_VALUE"relay",
+        translation_key="relay",
         entity_category=EntityCategory.CONFIG,
         set_value_fn=lambda client, value: client.set_relay(value),
     ),
     HDFurySwitchEntityDescription(
         key="tx0plus5",
-        REDACTED_VALUE"tx0plus5",
+        translation_key="tx0plus5",
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.CONFIG,
         set_value_fn=lambda client, value: client.set_tx0_force_5v(value),
     ),
     HDFurySwitchEntityDescription(
         key="tx1plus5",
-        REDACTED_VALUE"tx1plus5",
+        translation_key="tx1plus5",
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.CONFIG,
         set_value_fn=lambda client, value: client.set_tx1_force_5v(value),
@@ -169,7 +169,7 @@ class HDFurySwitch(HDFuryEntity, SwitchEntity):
         except HDFuryError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
             ) from error
 
         await self.coordinator.async_request_refresh()
@@ -182,7 +182,7 @@ class HDFurySwitch(HDFuryEntity, SwitchEntity):
         except HDFuryError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
             ) from error
 
         await self.coordinator.async_request_refresh()

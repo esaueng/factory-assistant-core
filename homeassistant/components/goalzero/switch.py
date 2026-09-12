@@ -12,15 +12,15 @@ from .entity import GoalZeroEntity
 SWITCH_TYPES: tuple[SwitchEntityDescription, ...] = (
     SwitchEntityDescription(
         key="v12PortStatus",
-        REDACTED_VALUE"v12_port_status",
+        translation_key="v12_port_status",
     ),
     SwitchEntityDescription(
         key="usbPortStatus",
-        REDACTED_VALUE"usb_port_status",
+        translation_key="usb_port_status",
     ),
     SwitchEntityDescription(
         key="acPortStatus",
-        REDACTED_VALUE"ac_port_status",
+        translation_key="ac_port_status",
     ),
 )
 

@@ -27,31 +27,31 @@ class TwenteMilieuSensorDescription(SensorEntityDescription):
 SENSORS: tuple[TwenteMilieuSensorDescription, ...] = (
     TwenteMilieuSensorDescription(
         key="tree",
-        REDACTED_VALUE"christmas_tree_pickup",
+        translation_key="christmas_tree_pickup",
         waste_type=WasteType.TREE,
         device_class=SensorDeviceClass.DATE,
     ),
     TwenteMilieuSensorDescription(
         key="non_recyclable",
-        REDACTED_VALUE"non_recyclable_waste_pickup",
+        translation_key="non_recyclable_waste_pickup",
         waste_type=WasteType.NON_RECYCLABLE,
         device_class=SensorDeviceClass.DATE,
     ),
     TwenteMilieuSensorDescription(
         key="organic",
-        REDACTED_VALUE"organic_waste_pickup",
+        translation_key="organic_waste_pickup",
         waste_type=WasteType.ORGANIC,
         device_class=SensorDeviceClass.DATE,
     ),
     TwenteMilieuSensorDescription(
         key="paper",
-        REDACTED_VALUE"paper_waste_pickup",
+        translation_key="paper_waste_pickup",
         waste_type=WasteType.PAPER,
         device_class=SensorDeviceClass.DATE,
     ),
     TwenteMilieuSensorDescription(
         key="packages",
-        REDACTED_VALUE"packages_waste_pickup",
+        translation_key="packages_waste_pickup",
         waste_type=WasteType.PACKAGES,
         device_class=SensorDeviceClass.DATE,
     ),

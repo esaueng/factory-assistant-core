@@ -14,12 +14,12 @@ from .entity import PoolSenseEntity
 BINARY_SENSOR_TYPES: tuple[BinarySensorEntityDescription, ...] = (
     BinarySensorEntityDescription(
         key="pH Status",
-        REDACTED_VALUE"ph_status",
+        translation_key="ph_status",
         device_class=BinarySensorDeviceClass.PROBLEM,
     ),
     BinarySensorEntityDescription(
         key="Chlorine Status",
-        REDACTED_VALUE"chlorine_status",
+        translation_key="chlorine_status",
         device_class=BinarySensorDeviceClass.PROBLEM,
     ),
 )

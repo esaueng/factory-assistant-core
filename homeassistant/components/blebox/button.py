@@ -14,11 +14,11 @@ from .util import blebox_command
 PARALLEL_UPDATES = 1
 
 BUTTON_TYPES: dict[str, ButtonEntityDescription] = {
-    "up": ButtonEntityDescription(key="up", REDACTED_VALUE"up"),
-    "down": ButtonEntityDescription(key="down", REDACTED_VALUE"down"),
-    "fav": ButtonEntityDescription(key="fav", REDACTED_VALUE"fav"),
-    "open": ButtonEntityDescription(key="open", REDACTED_VALUE"open"),
-    "close": ButtonEntityDescription(key="close", REDACTED_VALUE"close"),
+    "up": ButtonEntityDescription(key="up", translation_key="up"),
+    "down": ButtonEntityDescription(key="down", translation_key="down"),
+    "fav": ButtonEntityDescription(key="fav", translation_key="fav"),
+    "open": ButtonEntityDescription(key="open", translation_key="open"),
+    "close": ButtonEntityDescription(key="close", translation_key="close"),
 }
 
 _DEFAULT_BUTTON = ButtonEntityDescription(key="button")

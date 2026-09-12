@@ -73,7 +73,7 @@ class HabiticaImage(HabiticaBase, ImageEntity):
 
     entity_description = ImageEntityDescription(
         key=HabiticaImageEntity.AVATAR,
-        REDACTED_VALUEHabiticaImageEntity.AVATAR,
+        translation_key=HabiticaImageEntity.AVATAR,
     )
     _attr_content_type = "image/png"
     _avatar: Avatar | None = None
@@ -136,7 +136,7 @@ class HabiticaPartyImage(HabiticaPartyBase, ImageEntity):
 
     entity_description = ImageEntityDescription(
         key=HabiticaImageEntity.QUEST_IMAGE,
-        REDACTED_VALUEHabiticaImageEntity.QUEST_IMAGE,
+        translation_key=HabiticaImageEntity.QUEST_IMAGE,
     )
     _attr_content_type = "image/png"
 

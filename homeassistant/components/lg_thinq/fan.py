@@ -37,7 +37,7 @@ class ThinQFanEntityDescription(FanEntityDescription):
 
 HOOD_FAN_DESC = FanEntityDescription(
     key=ThinQProperty.FAN_SPEED,
-    REDACTED_VALUEThinQProperty.FAN_SPEED,
+    translation_key=ThinQProperty.FAN_SPEED,
 )
 
 DEVICE_TYPE_FAN_MAP: dict[DeviceType, tuple[ThinQFanEntityDescription, ...]] = {
@@ -52,7 +52,7 @@ DEVICE_TYPE_FAN_MAP: dict[DeviceType, tuple[ThinQFanEntityDescription, ...]] = {
         ThinQFanEntityDescription(
             key=ThinQProperty.WIND_STRENGTH,
             name=None,
-            REDACTED_VALUEThinQProperty.WIND_STRENGTH,
+            translation_key=ThinQProperty.WIND_STRENGTH,
             operation_key=ThinQProperty.VENTILATOR_OPERATION_MODE,
             preset_modes=["auto"],
         ),

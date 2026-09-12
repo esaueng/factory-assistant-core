@@ -24,7 +24,7 @@ async def test_issues(hass: HomeAssistant, issue_registry: ir.IssueRegistry) -> 
         is_persistent=True,
         learn_more_url="https://theuselessweb.com",
         severity="error",
-        REDACTED_VALUE"abc_1234",
+        translation_key="abc_1234",
         translation_placeholders={"abc": "123"},
     )
     await hass.async_block_till_done()
@@ -53,7 +53,7 @@ async def test_issues(hass: HomeAssistant, issue_registry: ir.IssueRegistry) -> 
         issue_id="issue 2",
         learn_more_url=None,
         severity="warning",
-        REDACTED_VALUE"abc_1234",
+        translation_key="abc_1234",
         translation_placeholders={"abc": "123"},
     )
     # Add non active issue
@@ -79,7 +79,7 @@ async def test_issues(hass: HomeAssistant, issue_registry: ir.IssueRegistry) -> 
         issue_id="issue 2",
         learn_more_url=None,
         severity="warning",
-        REDACTED_VALUE"abc_1234",
+        translation_key="abc_1234",
         translation_placeholders={"abc": "123"},
     )
     activated_issue_entry = issue_registry.async_get_issue("test", "issue 2")
@@ -107,7 +107,7 @@ async def test_issue(hass: HomeAssistant, issue_registry: ir.IssueRegistry) -> N
         is_persistent=True,
         learn_more_url="https://theuselessweb.com",
         severity="error",
-        REDACTED_VALUE"abc_1234",
+        translation_key="abc_1234",
         translation_placeholders={"abc": "123"},
     )
     await hass.async_block_till_done()

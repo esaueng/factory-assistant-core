@@ -39,7 +39,7 @@ async def _set_max_current(
 ) -> None:
     if coordinator.data.info.in_sharing_mode:
         raise ServiceValidationError(
-            translation_domain=DOMAIN, REDACTED_VALUE"max_current_in_sharing_mode"
+            translation_domain=DOMAIN, translation_key="max_current_in_sharing_mode"
         )
     await coordinator.technove.set_max_current(value)
 
@@ -47,7 +47,7 @@ async def _set_max_current(
 NUMBERS = [
     TechnoVENumberDescription(
         key="max_current",
-        REDACTED_VALUE"max_current",
+        translation_key="max_current",
         entity_category=EntityCategory.CONFIG,
         device_class=NumberDeviceClass.CURRENT,
         mode=NumberMode.BOX,

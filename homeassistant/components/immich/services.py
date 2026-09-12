@@ -46,7 +46,7 @@ async def _async_upload_file(service_call: ServiceCall) -> None:
     media = await async_resolve_media(hass, source_media_id, None)
     if media.path is None:
         raise ServiceValidationError(
-            translation_domain=DOMAIN, REDACTED_VALUE"only_local_media_supported"
+            translation_domain=DOMAIN, translation_key="only_local_media_supported"
         )
 
     coordinator = target_entry.runtime_data
@@ -57,7 +57,7 @@ async def _async_upload_file(service_call: ServiceCall) -> None:
         except ImmichError as ex:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"album_not_found",
+                translation_key="album_not_found",
                 translation_placeholders={"album_id": target_album, "error": str(ex)},
             ) from ex
 
@@ -70,7 +70,7 @@ async def _async_upload_file(service_call: ServiceCall) -> None:
     except (ImmichError, FileNotFoundError) as ex:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"upload_failed",
+            translation_key="upload_failed",
             translation_placeholders={"file": str(media.path), "error": str(ex)},
         ) from ex
 

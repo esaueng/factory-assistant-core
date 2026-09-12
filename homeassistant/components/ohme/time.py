@@ -30,7 +30,7 @@ class OhmeTimeDescription(OhmeEntityDescription, TimeEntityDescription):
 TIME_DESCRIPTION = [
     OhmeTimeDescription(
         key="target_time",
-        REDACTED_VALUE"target_time",
+        translation_key="target_time",
         value_fn=lambda client: time(
             hour=client.target_time[0], minute=client.target_time[1]
         ),
@@ -73,6 +73,6 @@ class OhmeTime(OhmeEntity, TimeEntity):
             await self.entity_description.set_fn(self.coordinator.client, value)
         except ApiException as e:
             raise HomeAssistantError(
-                REDACTED_VALUE"api_failed", translation_domain=DOMAIN
+                translation_key="api_failed", translation_domain=DOMAIN
             ) from e
         await self.coordinator.async_request_refresh()

@@ -106,7 +106,7 @@ class SystemNexa2DataUpdateCoordinator(DataUpdateCoordinator[SystemNexa2Data]):
             )
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_to_initiate_connection",
+                translation_key="failed_to_initiate_connection",
                 translation_placeholders={CONF_HOST: self.config_entry.data[CONF_HOST]},
             ) from e
 
@@ -143,7 +143,7 @@ class SystemNexa2DataUpdateCoordinator(DataUpdateCoordinator[SystemNexa2Data]):
         except (TimeoutError, NotConnectedError, aiohttp.ClientError) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_communication_error",
+                translation_key="device_communication_error",
             ) from err
 
     async def async_turn_on(self) -> None:

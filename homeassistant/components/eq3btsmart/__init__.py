@@ -51,7 +51,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: Eq3ConfigEntry) -> bool:
     if device is None:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_not_found",
+            translation_key="device_not_found",
             translation_placeholders={
                 "mac_address": eq3_config.mac_address,
                 "reason": bluetooth.async_address_reachability_diagnostics(

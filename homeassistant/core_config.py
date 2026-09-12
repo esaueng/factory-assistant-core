@@ -196,7 +196,7 @@ def _raise_issue_if_imperial_unit_system(
             is_fixable=False,
             learn_more_url="homeassistant://config/general",
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"imperial_unit_system",
+            translation_key="imperial_unit_system",
         )
         config[CONF_UNIT_SYSTEM] = _CONF_UNIT_SYSTEM_US_CUSTOMARY
     else:
@@ -217,7 +217,7 @@ def _raise_issue_if_historic_currency(hass: HomeAssistant, currency: str) -> Non
         is_fixable=False,
         learn_more_url="homeassistant://config/general",
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"historic_currency",
+        translation_key="historic_currency",
         translation_placeholders={"currency": currency},
     )
 
@@ -234,7 +234,7 @@ def _raise_issue_if_no_country(hass: HomeAssistant, country: str | None) -> None
         is_fixable=False,
         learn_more_url="homeassistant://config/general",
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"country_not_configured",
+        translation_key="country_not_configured",
     )
 
 

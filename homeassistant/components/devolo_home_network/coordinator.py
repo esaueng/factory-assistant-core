@@ -72,12 +72,12 @@ class DevoloDataUpdateCoordinator[_DataT](DataUpdateCoordinator[_DataT]):
             except DeviceUnavailable as err:
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"update_failed",
+                    translation_key="update_failed",
                     translation_placeholders={"error": str(err)},
                 ) from err
             except DevicePasswordProtected as err:
                 raise ConfigEntryAuthFailed(
-                    translation_domain=DOMAIN, REDACTED_VALUE"password_wrong"
+                    translation_domain=DOMAIN, translation_key="password_wrong"
                 ) from err
 
     @callback

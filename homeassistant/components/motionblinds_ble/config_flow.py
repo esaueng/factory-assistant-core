@@ -127,7 +127,7 @@ class FlowHandler(ConfigFlow, domain=DOMAIN):
                                 blind_type.name.lower()
                                 for blind_type in MotionBlindType
                             ],
-                            REDACTED_VALUECONF_BLIND_TYPE,
+                            translation_key=CONF_BLIND_TYPE,
                             mode=SelectSelectorMode.DROPDOWN,
                         )
                     )

@@ -477,7 +477,7 @@ class ZeroconfDiscovery:
             is_fixable=True,
             is_persistent=False,
             severity=ir.IssueSeverity.ERROR,
-            REDACTED_VALUEDUPLICATE_INSTANCE_ID_ISSUE_ID,
+            translation_key=DUPLICATE_INSTANCE_ID_ISSUE_ID,
             translation_placeholders={
                 "instance_id": local_instance_id,
                 "other_ip": _joined_ips,

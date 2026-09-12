@@ -76,7 +76,7 @@ SELECT_DESCRIPTIONS: list[OverkizSelectDescription] = [
             OverkizCommandParam.CLOSED,
         ],
         select_option=_select_option_open_closed_pedestrian,
-        REDACTED_VALUE"open_closed_pedestrian",
+        translation_key="open_closed_pedestrian",
     ),
     OverkizSelectDescription(
         key=OverkizState.CORE_OPEN_CLOSED_PARTIAL,
@@ -87,7 +87,7 @@ SELECT_DESCRIPTIONS: list[OverkizSelectDescription] = [
             OverkizCommandParam.CLOSED,
         ],
         select_option=_select_option_open_closed_partial,
-        REDACTED_VALUE"open_closed_partial",
+        translation_key="open_closed_partial",
     ),
     OverkizSelectDescription(
         key=OverkizState.IO_MEMORIZED_SIMPLE_VOLUME,
@@ -95,7 +95,7 @@ SELECT_DESCRIPTIONS: list[OverkizSelectDescription] = [
         options=[OverkizCommandParam.STANDARD, OverkizCommandParam.HIGHEST],
         select_option=_select_option_memorized_simple_volume,
         entity_category=EntityCategory.CONFIG,
-        REDACTED_VALUE"memorized_simple_volume",
+        translation_key="memorized_simple_volume",
     ),
     # SomfyHeatingTemperatureInterface
     OverkizSelectDescription(
@@ -106,7 +106,7 @@ SELECT_DESCRIPTIONS: list[OverkizSelectDescription] = [
             OverkizCommand.SET_OPERATING_MODE, option
         ),
         entity_category=EntityCategory.CONFIG,
-        REDACTED_VALUE"operating_mode",
+        translation_key="operating_mode",
     ),
     # StatefulAlarmController
     OverkizSelectDescription(
@@ -114,7 +114,7 @@ SELECT_DESCRIPTIONS: list[OverkizSelectDescription] = [
         name="Active zones",
         options=["", "A", "B", "C", "A,B", "B,C", "A,C", "A,B,C"],
         select_option=_select_option_active_zone,
-        REDACTED_VALUE"active_zones",
+        translation_key="active_zones",
     ),
 ]
 

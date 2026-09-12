@@ -205,7 +205,7 @@ class EnphaseUpdateCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             self.hass,
             self._async_refresh_firmware,
             FIRMWARE_REFRESH_INTERVAL,
-            REDACTED_VALUE,
+            cancel_on_shutdown=True,
         )
         self._schedule_mac_verification()
         self.async_cancel_token_refresh()
@@ -215,7 +215,7 @@ class EnphaseUpdateCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             self.hass,
             self._async_refresh_token_if_needed,
             TOKEN_REFRESH_CHECK_INTERVAL,
-            REDACTED_VALUE,
+            cancel_on_shutdown=True,
         )
 
     async def _async_setup_and_authenticate(self) -> None:
@@ -289,7 +289,7 @@ class EnphaseUpdateCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                     continue
                 raise ConfigEntryAuthFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"authentication_error",
+                    translation_key="authentication_error",
                     translation_placeholders={
                         "host": envoy.host,
                         "args": err.args[0],
@@ -299,7 +299,7 @@ class EnphaseUpdateCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                 _LOGGER.debug("update on try %s, EnvoyError %s", tries, err)
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"envoy_error",
+                    translation_key="envoy_error",
                     translation_placeholders={
                         "host": envoy.host,
                         "args": err.args[0],

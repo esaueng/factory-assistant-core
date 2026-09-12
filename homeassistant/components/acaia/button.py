@@ -26,17 +26,17 @@ class AcaiaButtonEntityDescription(ButtonEntityDescription):
 BUTTONS: tuple[AcaiaButtonEntityDescription, ...] = (
     AcaiaButtonEntityDescription(
         key="tare",
-        REDACTED_VALUE"tare",
+        translation_key="tare",
         press_fn=lambda scale: scale.tare(),
     ),
     AcaiaButtonEntityDescription(
         key="reset_timer",
-        REDACTED_VALUE"reset_timer",
+        translation_key="reset_timer",
         press_fn=lambda scale: scale.reset_timer(),
     ),
     AcaiaButtonEntityDescription(
         key="start_stop",
-        REDACTED_VALUE"start_stop",
+        translation_key="start_stop",
         press_fn=lambda scale: scale.start_stop_timer(),
     ),
 )

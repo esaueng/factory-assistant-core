@@ -55,7 +55,7 @@ def alarm_sound_mode_select_option(
 
 ALARM_SOUND_MODE_SELECT_TYPE = EzvizSelectEntityDescription(
     key="alarm_sound_mod",
-    REDACTED_VALUE"alarm_sound_mode",
+    translation_key="alarm_sound_mode",
     entity_category=EntityCategory.CONFIG,
     options=["soft", "intensive", "silent"],
     supported_switch=DeviceSwitchType.ALARM_TONE.value,
@@ -89,7 +89,7 @@ def battery_work_mode_select_option(
 
 BATTERY_WORK_MODE_SELECT_TYPE = EzvizSelectEntityDescription(
     key="battery_camera_work_mode",
-    REDACTED_VALUE"battery_camera_work_mode",
+    translation_key="battery_camera_work_mode",
     icon="mdi:battery-sync",
     entity_category=EntityCategory.CONFIG,
     options=[

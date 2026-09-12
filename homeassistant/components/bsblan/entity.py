@@ -49,7 +49,7 @@ class BSBLanCircuitEntity(BSBLanEntity):
         main_info = get_bsblan_device_info(data.device, data.info, host, port)
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, f"{mac}-circuit-{circuit}")},
-            REDACTED_VALUE"heating_circuit",
+            translation_key="heating_circuit",
             translation_placeholders={"circuit": str(circuit)},
             via_device=(DOMAIN, mac),
             manufacturer=main_info["manufacturer"],
@@ -97,7 +97,7 @@ class BSBLanWaterHeaterDeviceEntity(BSBLanDualCoordinatorEntity):
         main_info = get_bsblan_device_info(data.device, data.info, host, port)
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, f"{mac}-water-heater")},
-            REDACTED_VALUE"water_heater",
+            translation_key="water_heater",
             via_device=(DOMAIN, mac),
             manufacturer=main_info["manufacturer"],
             model=main_info.get("model"),

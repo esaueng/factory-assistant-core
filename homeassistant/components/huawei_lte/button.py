@@ -67,7 +67,7 @@ class ClearTrafficStatisticsButton(BaseButton):
 
     entity_description = ButtonEntityDescription(
         key=BUTTON_KEY_CLEAR_TRAFFIC_STATISTICS,
-        REDACTED_VALUE"clear_traffic_statistics",
+        translation_key="clear_traffic_statistics",
         entity_category=EntityCategory.CONFIG,
     )
 

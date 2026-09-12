@@ -39,42 +39,42 @@ BINARY_SENSORS: tuple[PlugwiseBinarySensorEntityDescription, ...] = (
     ),
     PlugwiseBinarySensorEntityDescription(
         key="compressor_state",
-        REDACTED_VALUE"compressor_state",
+        translation_key="compressor_state",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     PlugwiseBinarySensorEntityDescription(
         key="cooling_enabled",
-        REDACTED_VALUE"cooling_enabled",
+        translation_key="cooling_enabled",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     PlugwiseBinarySensorEntityDescription(
         key="dhw_state",
-        REDACTED_VALUE"dhw_state",
+        translation_key="dhw_state",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     PlugwiseBinarySensorEntityDescription(
         key="flame_state",
-        REDACTED_VALUE"flame_state",
+        translation_key="flame_state",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     PlugwiseBinarySensorEntityDescription(
         key="heating_state",
-        REDACTED_VALUE"heating_state",
+        translation_key="heating_state",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     PlugwiseBinarySensorEntityDescription(
         key="cooling_state",
-        REDACTED_VALUE"cooling_state",
+        translation_key="cooling_state",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     PlugwiseBinarySensorEntityDescription(
         key="secondary_boiler_state",
-        REDACTED_VALUE"secondary_boiler_state",
+        translation_key="secondary_boiler_state",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     PlugwiseBinarySensorEntityDescription(
         key="plugwise_notification",
-        REDACTED_VALUE"plugwise_notification",
+        translation_key="plugwise_notification",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
 )

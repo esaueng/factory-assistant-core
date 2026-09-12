@@ -61,7 +61,7 @@ LIGHT_ENTITIES = (
         key="floodlight",
         cmd_key="GetWhiteLed",
         cmd_id=[291, 289, 438],
-        REDACTED_VALUE"floodlight",
+        translation_key="floodlight",
         supported=lambda api, ch: api.supported(ch, "floodLight"),
         is_on_fn=lambda api, ch: api.whiteled_state(ch),
         turn_on_off_fn=lambda api, ch, value: api.set_whiteled(ch, state=value),
@@ -75,7 +75,7 @@ LIGHT_ENTITIES = (
     ReolinkLightEntityDescription(
         key="status_led",
         cmd_key="GetPowerLed",
-        REDACTED_VALUE"status_led",
+        translation_key="status_led",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api, ch: api.supported(ch, "power_led"),
         is_on_fn=lambda api, ch: api.status_led_enabled(ch),
@@ -87,7 +87,7 @@ HOST_LIGHT_ENTITIES = (
     ReolinkHostLightEntityDescription(
         key="hub_status_led",
         cmd_key="GetStateLight",
-        REDACTED_VALUE"status_led",
+        translation_key="status_led",
         entity_category=EntityCategory.CONFIG,
         supported=lambda api: api.supported(None, "state_light"),
         is_on_fn=lambda api: api.state_light,

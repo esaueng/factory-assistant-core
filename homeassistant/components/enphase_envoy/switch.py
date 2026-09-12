@@ -50,7 +50,7 @@ class EnvoyStorageSettingsSwitchEntityDescription(SwitchEntityDescription):
 
 ENPOWER_GRID_SWITCH = EnvoyEnpowerSwitchEntityDescription(
     key="mains_admin_state",
-    REDACTED_VALUE"grid_enabled",
+    translation_key="grid_enabled",
     value_fn=lambda enpower: enpower.mains_admin_state == "closed",
     turn_on_fn=lambda envoy: envoy.go_on_grid(),
     turn_off_fn=lambda envoy: envoy.go_off_grid(),
@@ -58,7 +58,7 @@ ENPOWER_GRID_SWITCH = EnvoyEnpowerSwitchEntityDescription(
 
 RELAY_STATE_SWITCH = EnvoyDryContactSwitchEntityDescription(
     key="relay_status",
-    REDACTED_VALUE"relay_status",
+    translation_key="relay_status",
     value_fn=lambda dry_contact: dry_contact.status == DryContactStatus.CLOSED,
     turn_on_fn=lambda envoy, id: envoy.close_dry_contact(id),
     turn_off_fn=lambda envoy, id: envoy.open_dry_contact(id),
@@ -66,7 +66,7 @@ RELAY_STATE_SWITCH = EnvoyDryContactSwitchEntityDescription(
 
 CHARGE_FROM_GRID_SWITCH = EnvoyStorageSettingsSwitchEntityDescription(
     key="charge_from_grid",
-    REDACTED_VALUE"charge_from_grid",
+    translation_key="charge_from_grid",
     value_fn=lambda storage_settings: storage_settings.charge_from_grid,
     turn_on_fn=lambda envoy: envoy.enable_charge_from_grid(),
     turn_off_fn=lambda envoy: envoy.disable_charge_from_grid(),

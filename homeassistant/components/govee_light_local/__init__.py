@@ -52,7 +52,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: GoveeLocalConfigEntry) -
         _LOGGER.error("Port %s already in use", LISTENING_PORT)
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"port_in_use",
+            translation_key="port_in_use",
             translation_placeholders={"port": LISTENING_PORT},
         ) from ex
 
@@ -64,7 +64,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: GoveeLocalConfigEntry) -
                 await asyncio.sleep(delay=1)
     except TimeoutError as ex:
         raise ConfigEntryNotReady(
-            translation_domain=DOMAIN, REDACTED_VALUE"no_devices_found"
+            translation_domain=DOMAIN, translation_key="no_devices_found"
         ) from ex
 
     entry.runtime_data = coordinator

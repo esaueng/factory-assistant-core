@@ -41,7 +41,7 @@ class NestEventEntityDescription(EventEntityDescription):
 ENTITY_DESCRIPTIONS = [
     NestEventEntityDescription(
         key=EVENT_DOORBELL_CHIME,
-        REDACTED_VALUE"chime",
+        translation_key="chime",
         device_class=EventDeviceClass.DOORBELL,
         event_types=[DoorbellEventType.RING],
         trait_types=[TraitType.DOORBELL_CHIME],
@@ -49,7 +49,7 @@ ENTITY_DESCRIPTIONS = [
     ),
     NestEventEntityDescription(
         key=EVENT_CAMERA_MOTION,
-        REDACTED_VALUE"motion",
+        translation_key="motion",
         device_class=EventDeviceClass.MOTION,
         event_types=[EVENT_CAMERA_MOTION, EVENT_CAMERA_PERSON, EVENT_CAMERA_SOUND],
         trait_types=[

@@ -200,7 +200,7 @@ class HomeegramSwitch(SwitchEntity):
         """Turning off homeegrams is not supported."""
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"homeegram_turn_off_not_supported",
+            translation_key="homeegram_turn_off_not_supported",
         )
 
     def _on_homeegram_updated(self, homeegram: HomeeGram) -> None:

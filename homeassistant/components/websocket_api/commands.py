@@ -298,7 +298,7 @@ async def handle_call_service(
                 const.ERR_NOT_FOUND,
                 f"Service {err.domain}.{err.service} not found.",
                 translation_domain=err.translation_domain,
-                REDACTED_VALUEerr.translation_key,
+                translation_key=err.translation_key,
                 translation_placeholders=err.translation_placeholders,
             )
         else:
@@ -309,7 +309,7 @@ async def handle_call_service(
                 f"Service {err.domain}.{err.service} called service "
                 f"{msg['domain']}.{msg['service']} which was not found.",
                 translation_domain=const.DOMAIN,
-                REDACTED_VALUE"child_service_not_found",
+                translation_key="child_service_not_found",
                 translation_placeholders={
                     "domain": msg["domain"],
                     "service": msg["service"],
@@ -327,7 +327,7 @@ async def handle_call_service(
             const.ERR_SERVICE_VALIDATION_ERROR,
             f"Validation error: {err}",
             translation_domain=err.translation_domain,
-            REDACTED_VALUEerr.translation_key,
+            translation_key=err.translation_key,
             translation_placeholders=err.translation_placeholders,
         )
     except HomeAssistantError as err:
@@ -340,7 +340,7 @@ async def handle_call_service(
             const.ERR_HOME_ASSISTANT_ERROR,
             str(err),
             translation_domain=err.translation_domain,
-            REDACTED_VALUEerr.translation_key,
+            translation_key=err.translation_key,
             translation_placeholders=err.translation_placeholders,
         )
     except Exception as err:
@@ -994,7 +994,7 @@ async def handle_subscribe_trigger(
             const.ERR_HOME_ASSISTANT_ERROR,
             str(err),
             translation_domain=err.translation_domain,
-            REDACTED_VALUEerr.translation_key,
+            translation_key=err.translation_key,
             translation_placeholders=err.translation_placeholders,
         )
         return
@@ -1060,7 +1060,7 @@ async def handle_test_condition(
             const.ERR_HOME_ASSISTANT_ERROR,
             str(err),
             translation_domain=err.translation_domain,
-            REDACTED_VALUEerr.translation_key,
+            translation_key=err.translation_key,
             translation_placeholders=err.translation_placeholders,
         )
         return
@@ -1078,7 +1078,7 @@ async def handle_test_condition(
             const.ERR_HOME_ASSISTANT_ERROR,
             str(err),
             translation_domain=err.translation_domain,
-            REDACTED_VALUEerr.translation_key,
+            translation_key=err.translation_key,
             translation_placeholders=err.translation_placeholders,
         )
     else:
@@ -1119,7 +1119,7 @@ async def handle_subscribe_condition(
             const.ERR_HOME_ASSISTANT_ERROR,
             str(err),
             translation_domain=err.translation_domain,
-            REDACTED_VALUEerr.translation_key,
+            translation_key=err.translation_key,
             translation_placeholders=err.translation_placeholders,
         )
         return
@@ -1207,7 +1207,7 @@ async def handle_execute_script(
             const.ERR_SERVICE_VALIDATION_ERROR,
             str(err),
             translation_domain=err.translation_domain,
-            REDACTED_VALUEerr.translation_key,
+            translation_key=err.translation_key,
             translation_placeholders=err.translation_placeholders,
         )
         return

@@ -78,35 +78,35 @@ class OpenUvSensorEntityDescription(SensorEntityDescription):
 SENSOR_DESCRIPTIONS = (
     OpenUvSensorEntityDescription(
         key=TYPE_CURRENT_OZONE_LEVEL,
-        REDACTED_VALUE"current_ozone_level",
+        translation_key="current_ozone_level",
         native_unit_of_measurement="du",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data["ozone"],
     ),
     OpenUvSensorEntityDescription(
         key=TYPE_CURRENT_UV_INDEX,
-        REDACTED_VALUE"current_uv_index",
+        translation_key="current_uv_index",
         native_unit_of_measurement=UV_INDEX,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data["uv"],
     ),
     OpenUvSensorEntityDescription(
         key=TYPE_CURRENT_UV_LEVEL,
-        REDACTED_VALUE"current_uv_level",
+        translation_key="current_uv_level",
         device_class=SensorDeviceClass.ENUM,
         options=[label.value for label in UV_LABEL_DEFINITIONS],
         value_fn=lambda data: get_uv_label(data["uv"]),
     ),
     OpenUvSensorEntityDescription(
         key=TYPE_MAX_UV_INDEX,
-        REDACTED_VALUE"max_uv_index",
+        translation_key="max_uv_index",
         native_unit_of_measurement=UV_INDEX,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data["uv_max"],
     ),
     OpenUvSensorEntityDescription(
         key=TYPE_SAFE_EXPOSURE_TIME_1,
-        REDACTED_VALUE"skin_type_1_safe_exposure_time",
+        translation_key="skin_type_1_safe_exposure_time",
         native_unit_of_measurement=UnitOfTime.MINUTES,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data["safe_exposure_time"][
@@ -115,7 +115,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     OpenUvSensorEntityDescription(
         key=TYPE_SAFE_EXPOSURE_TIME_2,
-        REDACTED_VALUE"skin_type_2_safe_exposure_time",
+        translation_key="skin_type_2_safe_exposure_time",
         native_unit_of_measurement=UnitOfTime.MINUTES,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data["safe_exposure_time"][
@@ -124,7 +124,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     OpenUvSensorEntityDescription(
         key=TYPE_SAFE_EXPOSURE_TIME_3,
-        REDACTED_VALUE"skin_type_3_safe_exposure_time",
+        translation_key="skin_type_3_safe_exposure_time",
         native_unit_of_measurement=UnitOfTime.MINUTES,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data["safe_exposure_time"][
@@ -133,7 +133,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     OpenUvSensorEntityDescription(
         key=TYPE_SAFE_EXPOSURE_TIME_4,
-        REDACTED_VALUE"skin_type_4_safe_exposure_time",
+        translation_key="skin_type_4_safe_exposure_time",
         native_unit_of_measurement=UnitOfTime.MINUTES,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data["safe_exposure_time"][
@@ -142,7 +142,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     OpenUvSensorEntityDescription(
         key=TYPE_SAFE_EXPOSURE_TIME_5,
-        REDACTED_VALUE"skin_type_5_safe_exposure_time",
+        translation_key="skin_type_5_safe_exposure_time",
         native_unit_of_measurement=UnitOfTime.MINUTES,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data["safe_exposure_time"][
@@ -151,7 +151,7 @@ SENSOR_DESCRIPTIONS = (
     ),
     OpenUvSensorEntityDescription(
         key=TYPE_SAFE_EXPOSURE_TIME_6,
-        REDACTED_VALUE"skin_type_6_safe_exposure_time",
+        translation_key="skin_type_6_safe_exposure_time",
         native_unit_of_measurement=UnitOfTime.MINUTES,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: data["safe_exposure_time"][

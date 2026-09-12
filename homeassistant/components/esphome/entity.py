@@ -304,7 +304,7 @@ def convert_api_error_ha_error[**_P, _R, _EntityT: EsphomeBaseEntity](
         except APIConnectionError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"error_communicating_with_device",
+                translation_key="error_communicating_with_device",
                 translation_placeholders={
                     "device_name": self._device_info.name,
                     "error": str(error),

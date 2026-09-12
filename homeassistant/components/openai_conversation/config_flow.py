@@ -411,7 +411,7 @@ class OpenAISubentryFlowHandler(ConfigSubentryFlow):
                     ): SelectSelector(
                         SelectSelectorConfig(
                             options=reasoning_options,
-                            REDACTED_VALUECONF_REASONING_EFFORT,
+                            translation_key=CONF_REASONING_EFFORT,
                             mode=SelectSelectorMode.DROPDOWN,
                         )
                     ),
@@ -429,7 +429,7 @@ class OpenAISubentryFlowHandler(ConfigSubentryFlow):
                     ): SelectSelector(
                         SelectSelectorConfig(
                             options=["low", "medium", "high"],
-                            REDACTED_VALUECONF_VERBOSITY,
+                            translation_key=CONF_VERBOSITY,
                             mode=SelectSelectorMode.DROPDOWN,
                         )
                     ),
@@ -456,7 +456,7 @@ class OpenAISubentryFlowHandler(ConfigSubentryFlow):
                     ): SelectSelector(
                         SelectSelectorConfig(
                             options=reasoning_summary_options,
-                            REDACTED_VALUECONF_REASONING_SUMMARY,
+                            translation_key=CONF_REASONING_SUMMARY,
                             mode=SelectSelectorMode.DROPDOWN,
                         )
                     ),
@@ -475,7 +475,7 @@ class OpenAISubentryFlowHandler(ConfigSubentryFlow):
             ] = SelectSelector(
                 SelectSelectorConfig(
                     options=service_tiers,
-                    REDACTED_VALUECONF_SERVICE_TIER,
+                    translation_key=CONF_SERVICE_TIER,
                     mode=SelectSelectorMode.DROPDOWN,
                 )
             )
@@ -499,7 +499,7 @@ class OpenAISubentryFlowHandler(ConfigSubentryFlow):
                     ): SelectSelector(
                         SelectSelectorConfig(
                             options=["low", "medium", "high"],
-                            REDACTED_VALUECONF_WEB_SEARCH_CONTEXT_SIZE,
+                            translation_key=CONF_WEB_SEARCH_CONTEXT_SIZE,
                             mode=SelectSelectorMode.DROPDOWN,
                         )
                     ),

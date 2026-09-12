@@ -34,7 +34,7 @@ class AirGradientNumberEntityDescription(NumberEntityDescription):
 
 DISPLAY_BRIGHTNESS = AirGradientNumberEntityDescription(
     key="display_brightness",
-    REDACTED_VALUE"display_brightness",
+    translation_key="display_brightness",
     entity_category=EntityCategory.CONFIG,
     native_min_value=0,
     native_max_value=100,
@@ -46,7 +46,7 @@ DISPLAY_BRIGHTNESS = AirGradientNumberEntityDescription(
 
 LED_BAR_BRIGHTNESS = AirGradientNumberEntityDescription(
     key="led_bar_brightness",
-    REDACTED_VALUE"led_bar_brightness",
+    translation_key="led_bar_brightness",
     entity_category=EntityCategory.CONFIG,
     native_min_value=0,
     native_max_value=100,

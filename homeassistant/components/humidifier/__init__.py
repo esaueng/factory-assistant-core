@@ -294,7 +294,7 @@ async def async_service_humidity_set(
     if humidity < min_humidity or humidity > max_humidity:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"humidity_out_of_range",
+            translation_key="humidity_out_of_range",
             translation_placeholders={
                 "humidity": str(humidity),
                 "min_humidity": str(min_humidity),

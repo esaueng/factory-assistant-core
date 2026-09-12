@@ -80,7 +80,7 @@ PAIRED_SENSOR_DESCRIPTIONS = (
 VALVE_CONTROLLER_DESCRIPTIONS = (
     ValveControllerSensorDescription(
         key=SENSOR_KIND_AVG_CURRENT,
-        REDACTED_VALUE"current",
+        translation_key="current",
         device_class=SensorDeviceClass.CURRENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfElectricCurrent.MILLIAMPERE,
@@ -89,7 +89,7 @@ VALVE_CONTROLLER_DESCRIPTIONS = (
     ),
     ValveControllerSensorDescription(
         key=SENSOR_KIND_INST_CURRENT,
-        REDACTED_VALUE"instantaneous_current",
+        translation_key="instantaneous_current",
         device_class=SensorDeviceClass.CURRENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfElectricCurrent.MILLIAMPERE,
@@ -98,7 +98,7 @@ VALVE_CONTROLLER_DESCRIPTIONS = (
     ),
     ValveControllerSensorDescription(
         key=SENSOR_KIND_INST_CURRENT_DDT,
-        REDACTED_VALUE"instantaneous_current_ddt",
+        translation_key="instantaneous_current_ddt",
         device_class=SensorDeviceClass.CURRENT,
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfElectricCurrent.MILLIAMPERE,
@@ -115,7 +115,7 @@ VALVE_CONTROLLER_DESCRIPTIONS = (
     ),
     ValveControllerSensorDescription(
         key=SENSOR_KIND_UPTIME,
-        REDACTED_VALUE"uptime",
+        translation_key="uptime",
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfTime.MINUTES,
         api_category=API_SYSTEM_DIAGNOSTICS,
@@ -123,7 +123,7 @@ VALVE_CONTROLLER_DESCRIPTIONS = (
     ),
     ValveControllerSensorDescription(
         key=SENSOR_KIND_TRAVEL_COUNT,
-        REDACTED_VALUE"travel_count",
+        translation_key="travel_count",
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement="revolutions",
         api_category=API_VALVE_STATUS,

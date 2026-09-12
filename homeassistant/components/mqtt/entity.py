@@ -303,7 +303,7 @@ def async_setup_entity_entry_helper(  # noqa: C901
                     "name": name,
                 },
                 translation_placeholders={"name": name},
-                REDACTED_VALUEmigration_type,
+                translation_key=migration_type,
             )
             return True
 
@@ -450,7 +450,7 @@ def async_setup_entity_entry_helper(  # noqa: C901
                         "config": yaml_config_str,
                         "error": error,
                     },
-                    REDACTED_VALUE"invalid_platform_config",
+                    translation_key="invalid_platform_config",
                 )
                 _LOGGER.error(
                     "%s for manually configured MQTT %s item, in %s, line %s Got %s",

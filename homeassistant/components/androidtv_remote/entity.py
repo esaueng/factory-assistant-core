@@ -72,7 +72,7 @@ class AndroidTVRemoteBaseEntity(Entity):
             self._api.send_key_command(key_code, direction)
         except ConnectionClosed as exc:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"connection_closed"
+                translation_domain=DOMAIN, translation_key="connection_closed"
             ) from exc
 
     def _send_launch_app_command(self, app_link: str) -> None:
@@ -85,5 +85,5 @@ class AndroidTVRemoteBaseEntity(Entity):
             self._api.send_launch_app_command(app_link)
         except ConnectionClosed as exc:
             raise HomeAssistantError(
-                translation_domain=DOMAIN, REDACTED_VALUE"connection_closed"
+                translation_domain=DOMAIN, translation_key="connection_closed"
             ) from exc

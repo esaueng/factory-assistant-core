@@ -59,7 +59,7 @@ async def async_get_service(
         "migrate_notify",
         breaks_in_ha_version="2026.8.0",
         is_fixable=False,
-        REDACTED_VALUE"migrate_notify",
+        translation_key="migrate_notify",
         severity=ir.IssueSeverity.WARNING,
         learn_more_url="https://www.home-assistant.io/integrations/telegram_bot#notifiers",
     )

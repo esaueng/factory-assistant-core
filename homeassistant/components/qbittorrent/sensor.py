@@ -114,21 +114,21 @@ class QBittorrentSensorEntityDescription(SensorEntityDescription):
 SENSOR_TYPES: tuple[QBittorrentSensorEntityDescription, ...] = (
     QBittorrentSensorEntityDescription(
         key=SENSOR_TYPE_CURRENT_STATUS,
-        REDACTED_VALUE"current_status",
+        translation_key="current_status",
         device_class=SensorDeviceClass.ENUM,
         options=[STATE_IDLE, STATE_UP_DOWN, STATE_SEEDING, STATE_DOWNLOADING],
         value_fn=get_state,
     ),
     QBittorrentSensorEntityDescription(
         key=SENSOR_TYPE_CONNECTION_STATUS,
-        REDACTED_VALUE"connection_status",
+        translation_key="connection_status",
         device_class=SensorDeviceClass.ENUM,
         options=["connected", "firewalled", "disconnected"],
         value_fn=get_connection_status,
     ),
     QBittorrentSensorEntityDescription(
         key=SENSOR_TYPE_DOWNLOAD_SPEED,
-        REDACTED_VALUE"download_speed",
+        translation_key="download_speed",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.DATA_RATE,
         native_unit_of_measurement=UnitOfDataRate.BYTES_PER_SECOND,
@@ -138,7 +138,7 @@ SENSOR_TYPES: tuple[QBittorrentSensorEntityDescription, ...] = (
     ),
     QBittorrentSensorEntityDescription(
         key=SENSOR_TYPE_UPLOAD_SPEED,
-        REDACTED_VALUE"upload_speed",
+        translation_key="upload_speed",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.DATA_RATE,
         native_unit_of_measurement=UnitOfDataRate.BYTES_PER_SECOND,
@@ -148,7 +148,7 @@ SENSOR_TYPES: tuple[QBittorrentSensorEntityDescription, ...] = (
     ),
     QBittorrentSensorEntityDescription(
         key=SENSOR_TYPE_DOWNLOAD_SPEED_LIMIT,
-        REDACTED_VALUE"download_speed_limit",
+        translation_key="download_speed_limit",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.DATA_RATE,
         native_unit_of_measurement=UnitOfDataRate.BYTES_PER_SECOND,
@@ -159,7 +159,7 @@ SENSOR_TYPES: tuple[QBittorrentSensorEntityDescription, ...] = (
     ),
     QBittorrentSensorEntityDescription(
         key=SENSOR_TYPE_UPLOAD_SPEED_LIMIT,
-        REDACTED_VALUE"upload_speed_limit",
+        translation_key="upload_speed_limit",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.DATA_RATE,
         native_unit_of_measurement=UnitOfDataRate.BYTES_PER_SECOND,
@@ -170,7 +170,7 @@ SENSOR_TYPES: tuple[QBittorrentSensorEntityDescription, ...] = (
     ),
     QBittorrentSensorEntityDescription(
         key=SENSOR_TYPE_ALLTIME_DOWNLOAD,
-        REDACTED_VALUE"alltime_download",
+        translation_key="alltime_download",
         state_class=SensorStateClass.TOTAL_INCREASING,
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
@@ -180,7 +180,7 @@ SENSOR_TYPES: tuple[QBittorrentSensorEntityDescription, ...] = (
     ),
     QBittorrentSensorEntityDescription(
         key=SENSOR_TYPE_ALLTIME_UPLOAD,
-        REDACTED_VALUE"alltime_upload",
+        translation_key="alltime_upload",
         state_class=SensorStateClass.TOTAL_INCREASING,
         device_class=SensorDeviceClass.DATA_SIZE,
         native_unit_of_measurement="B",
@@ -190,40 +190,40 @@ SENSOR_TYPES: tuple[QBittorrentSensorEntityDescription, ...] = (
     ),
     QBittorrentSensorEntityDescription(
         key=SENSOR_TYPE_GLOBAL_RATIO,
-        REDACTED_VALUE"global_ratio",
+        translation_key="global_ratio",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=get_global_ratio,
         entity_registry_enabled_default=False,
     ),
     QBittorrentSensorEntityDescription(
         key=SENSOR_TYPE_ALL_TORRENTS,
-        REDACTED_VALUE"all_torrents",
+        translation_key="all_torrents",
         value_fn=lambda coordinator: count_torrents_in_states(coordinator, []),
     ),
     QBittorrentSensorEntityDescription(
         key=SENSOR_TYPE_ACTIVE_TORRENTS,
-        REDACTED_VALUE"active_torrents",
+        translation_key="active_torrents",
         value_fn=lambda coordinator: count_torrents_in_states(
             coordinator, ["downloading", "uploading"]
         ),
     ),
     QBittorrentSensorEntityDescription(
         key=SENSOR_TYPE_INACTIVE_TORRENTS,
-        REDACTED_VALUE"inactive_torrents",
+        translation_key="inactive_torrents",
         value_fn=lambda coordinator: count_torrents_in_states(
             coordinator, ["stalledDL", "stalledUP"]
         ),
     ),
     QBittorrentSensorEntityDescription(
         key=SENSOR_TYPE_PAUSED_TORRENTS,
-        REDACTED_VALUE"paused_torrents",
+        translation_key="paused_torrents",
         value_fn=lambda coordinator: count_torrents_in_states(
             coordinator, ["stoppedDL", "stoppedUP"]
         ),
     ),
     QBittorrentSensorEntityDescription(
         key=SENSOR_TYPE_ERRORED_TORRENTS,
-        REDACTED_VALUE"errored_torrents",
+        translation_key="errored_torrents",
         value_fn=lambda coordinator: count_torrents_in_states(
             coordinator, ["error", "missingFiles"]
         ),

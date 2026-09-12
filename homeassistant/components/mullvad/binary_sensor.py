@@ -16,7 +16,7 @@ from .coordinator import MullvadConfigEntry, MullvadCoordinator
 BINARY_SENSORS = (
     BinarySensorEntityDescription(
         key="mullvad_exit_ip",
-        REDACTED_VALUE"exit_ip",
+        translation_key="exit_ip",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
     ),
 )

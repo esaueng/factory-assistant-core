@@ -54,7 +54,7 @@ def _temperature_number(
     return OumanEh800NumberEntityDescription(
         device=device,
         key=key,
-        REDACTED_VALUEkey,
+        translation_key=key,
         device_class=device_class,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         mode=NumberMode.BOX,
@@ -70,7 +70,7 @@ NUMBER_DESCRIPTIONS: dict[
     SystemEndpoints.TREND_SAMPLE_INTERVAL: OumanEh800NumberEntityDescription(
         device=OumanDevice.MAIN,
         key="trend_sampling_interval",
-        REDACTED_VALUE"trend_sampling_interval",
+        translation_key="trend_sampling_interval",
         native_unit_of_measurement=UnitOfTime.SECONDS,
         mode=NumberMode.BOX,
         entity_category=EntityCategory.CONFIG,
@@ -86,7 +86,7 @@ NUMBER_DESCRIPTIONS: dict[
     # L1 heating curve. Three-point and five-point variants share keys
     # where their meaning overlaps.
     L1ThreePointCurve.CURVE_MINUS_20_TEMP: _temperature_number(
-        device=OumanDevice.L1, key="REDACTED_VALUE"
+        device=OumanDevice.L1, key="curve_minus_20_temperature"
     ),
     L1ThreePointCurve.CURVE_0_TEMP: _temperature_number(
         device=OumanDevice.L1, key="curve_0_temperature"
@@ -95,10 +95,10 @@ NUMBER_DESCRIPTIONS: dict[
         device=OumanDevice.L1, key="curve_20_temperature"
     ),
     L1FivePointCurve.CURVE_MINUS_20_TEMP: _temperature_number(
-        device=OumanDevice.L1, key="REDACTED_VALUE"
+        device=OumanDevice.L1, key="curve_minus_20_temperature"
     ),
     L1FivePointCurve.CURVE_MINUS_10_TEMP: _temperature_number(
-        device=OumanDevice.L1, key="REDACTED_VALUE"
+        device=OumanDevice.L1, key="curve_minus_10_temperature"
     ),
     L1FivePointCurve.CURVE_0_TEMP: _temperature_number(
         device=OumanDevice.L1, key="curve_0_temperature"
@@ -154,7 +154,7 @@ NUMBER_DESCRIPTIONS: dict[
         device=OumanDevice.L2, key="water_out_maximum_temperature"
     ),
     L2ThreePointCurve.CURVE_MINUS_20_TEMP: _temperature_number(
-        device=OumanDevice.L2, key="REDACTED_VALUE"
+        device=OumanDevice.L2, key="curve_minus_20_temperature"
     ),
     L2ThreePointCurve.CURVE_0_TEMP: _temperature_number(
         device=OumanDevice.L2, key="curve_0_temperature"
@@ -163,10 +163,10 @@ NUMBER_DESCRIPTIONS: dict[
         device=OumanDevice.L2, key="curve_20_temperature"
     ),
     L2FivePointCurve.CURVE_MINUS_20_TEMP: _temperature_number(
-        device=OumanDevice.L2, key="REDACTED_VALUE"
+        device=OumanDevice.L2, key="curve_minus_20_temperature"
     ),
     L2FivePointCurve.CURVE_MINUS_10_TEMP: _temperature_number(
-        device=OumanDevice.L2, key="REDACTED_VALUE"
+        device=OumanDevice.L2, key="curve_minus_10_temperature"
     ),
     L2FivePointCurve.CURVE_0_TEMP: _temperature_number(
         device=OumanDevice.L2, key="curve_0_temperature"

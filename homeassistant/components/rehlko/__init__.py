@@ -52,13 +52,13 @@ async def async_setup_entry(hass: HomeAssistant, entry: RehlkoConfigEntry) -> bo
     except AuthenticationError as ex:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_auth",
+            translation_key="invalid_auth",
             translation_placeholders={CONF_EMAIL: entry.data[CONF_EMAIL]},
         ) from ex
     except CONNECTION_EXCEPTIONS as ex:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect",
+            translation_key="cannot_connect",
         ) from ex
     coordinators: dict[int, RehlkoUpdateCoordinator] = {}
 

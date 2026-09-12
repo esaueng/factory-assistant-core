@@ -58,25 +58,25 @@ async def async_setup_entry(hass: HomeAssistant, entry: IDriveE2ConfigEntry) -> 
         if code in ("404", "NoSuchBucket"):
             raise ConfigEntryError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"bucket_not_found",
+                translation_key="bucket_not_found",
                 translation_placeholders={"bucket": entry.data[CONF_BUCKET]},
             ) from err
 
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_credentials",
+            translation_key="invalid_credentials",
         ) from err
     except ValueError as err:
         await _async_safe_client_close(client)
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_endpoint_url",
+            translation_key="invalid_endpoint_url",
         ) from err
     except ConnectionError as err:
         await _async_safe_client_close(client)
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect",
+            translation_key="cannot_connect",
         ) from err
 
     entry.runtime_data = client

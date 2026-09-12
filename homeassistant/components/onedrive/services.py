@@ -57,7 +57,7 @@ def _read_file_contents(
         if not hass.config.is_allowed_path(filename):
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_access_to_path",
+                translation_key="no_access_to_path",
                 translation_placeholders={"filename": filename},
             )
         if not Path(filename).exists():
@@ -65,7 +65,7 @@ def _read_file_contents(
     if missing:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"filenames_do_not_exist",
+            translation_key="filenames_do_not_exist",
             translation_placeholders={
                 "filenames": ", ".join(f"`{f}`" for f in missing)
             },
@@ -77,7 +77,7 @@ def _read_file_contents(
         if file_size > CONTENT_SIZE_LIMIT:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"file_too_large",
+                translation_key="file_too_large",
                 translation_placeholders={
                     "filename": filename,
                     "size": str(file_size),
@@ -91,7 +91,7 @@ def _read_file_contents(
 def _raise_invalid_destination_path(destination_path: str) -> None:
     raise HomeAssistantError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"invalid_destination_path",
+        translation_key="invalid_destination_path",
         translation_placeholders={"destination_path": destination_path},
     )
 
@@ -136,7 +136,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
         except OneDriveException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"create_folder_error",
+                translation_key="create_folder_error",
                 translation_placeholders={"message": str(err)},
             ) from err
 
@@ -149,7 +149,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
         except OneDriveException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"upload_error",
+                translation_key="upload_error",
                 translation_placeholders={"message": str(err)},
             ) from err
 
@@ -174,7 +174,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
         except OneDriveException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connection_error",
+                translation_key="connection_error",
             ) from err
 
         results = await asyncio.gather(
@@ -193,7 +193,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
         if failures:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"delete_error",
+                translation_key="delete_error",
                 translation_placeholders={
                     "paths": ", ".join(f"`{path}`" for path, _ in failures)
                 },

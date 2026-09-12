@@ -39,7 +39,7 @@ class GrowattSwitchEntityDescription(SwitchEntityDescription):
 MIN_SWITCH_TYPES: tuple[GrowattSwitchEntityDescription, ...] = (
     GrowattSwitchEntityDescription(
         key="ac_charge",
-        REDACTED_VALUE"ac_charge",
+        translation_key="ac_charge",
         api_key="acChargeEnable",  # Key returned by V1 API
         write_key="ac_charge",  # Key used to write parameter
     ),
@@ -151,7 +151,7 @@ class GrowattSwitch(CoordinatorEntity[GrowattCoordinator], SwitchEntity):
         except GrowattV1ApiError as e:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_error",
+                translation_key="api_error",
                 translation_placeholders={"error": str(e)},
             ) from e
 

@@ -33,21 +33,21 @@ class RingEventEntityDescription(EventEntityDescription, Generic[RingDeviceT]): 
 EVENT_DESCRIPTIONS: tuple[RingEventEntityDescription, ...] = (
     RingEventEntityDescription(
         key=KIND_DING,
-        REDACTED_VALUEKIND_DING,
+        translation_key=KIND_DING,
         device_class=EventDeviceClass.DOORBELL,
         event_types=[DoorbellEventType.RING],
         capability=RingCapability.DING,
     ),
     RingEventEntityDescription(
         key=KIND_MOTION,
-        REDACTED_VALUEKIND_MOTION,
+        translation_key=KIND_MOTION,
         device_class=EventDeviceClass.MOTION,
         event_types=[KIND_MOTION],
         capability=RingCapability.MOTION_DETECTION,
     ),
     RingEventEntityDescription(
         key=KIND_INTERCOM_UNLOCK,
-        REDACTED_VALUEKIND_INTERCOM_UNLOCK,
+        translation_key=KIND_INTERCOM_UNLOCK,
         device_class=EventDeviceClass.BUTTON,
         event_types=[KIND_INTERCOM_UNLOCK],
         capability=RingCapability.OPEN,

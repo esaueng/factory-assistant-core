@@ -48,7 +48,7 @@ class SqueezeboxButtonEntityDescription(ButtonEntityDescription):
 BUTTON_ENTITIES: tuple[SqueezeboxButtonEntityDescription, ...] = tuple(
     SqueezeboxButtonEntityDescription(
         key=f"preset_{i}",
-        REDACTED_VALUE"preset",
+        translation_key="preset",
         translation_placeholders={"index": str(i)},
         press_action=f"preset_{i}.single",
     )
@@ -58,12 +58,12 @@ BUTTON_ENTITIES: tuple[SqueezeboxButtonEntityDescription, ...] = tuple(
 SCREEN_BUTTON_ENTITIES: tuple[SqueezeboxButtonEntityDescription, ...] = (
     SqueezeboxButtonEntityDescription(
         key="brightness_up",
-        REDACTED_VALUE"brightness_up",
+        translation_key="brightness_up",
         press_action="brightness_up",
     ),
     SqueezeboxButtonEntityDescription(
         key="brightness_down",
-        REDACTED_VALUE"brightness_down",
+        translation_key="brightness_down",
         press_action="brightness_down",
     ),
 )
@@ -71,22 +71,22 @@ SCREEN_BUTTON_ENTITIES: tuple[SqueezeboxButtonEntityDescription, ...] = (
 TONE_BUTTON_ENTITIES: tuple[SqueezeboxButtonEntityDescription, ...] = (
     SqueezeboxButtonEntityDescription(
         key="bass_up",
-        REDACTED_VALUE"bass_up",
+        translation_key="bass_up",
         press_action="bass_up",
     ),
     SqueezeboxButtonEntityDescription(
         key="bass_down",
-        REDACTED_VALUE"bass_down",
+        translation_key="bass_down",
         press_action="bass_down",
     ),
     SqueezeboxButtonEntityDescription(
         key="treble_up",
-        REDACTED_VALUE"treble_up",
+        translation_key="treble_up",
         press_action="treble_up",
     ),
     SqueezeboxButtonEntityDescription(
         key="treble_down",
-        REDACTED_VALUE"treble_down",
+        translation_key="treble_down",
         press_action="treble_down",
     ),
 )
@@ -160,6 +160,6 @@ class SqueezeboxButtonEntity(SqueezeboxEntity, ButtonEntity):
             self._player.async_query,
             "button",
             self.entity_description.press_action,
-            REDACTED_VALUE"press_failed",
+            translation_key="press_failed",
             translation_placeholders={"action": self.entity_description.press_action},
         )

@@ -195,7 +195,7 @@ class AlarmControlPanelEntity(Entity, cached_properties=CACHED_PROPERTIES_WITH_A
         if not (_code := self.code_or_default_code(code)) and self.code_arm_required:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"code_arm_required",
+                translation_key="code_arm_required",
                 translation_placeholders={
                     "entity_id": self.entity_id,
                 },

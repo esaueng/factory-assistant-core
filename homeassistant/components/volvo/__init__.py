@@ -81,7 +81,7 @@ async def _async_auth_and_create_api(
     except ImplementationUnavailableError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"oauth2_implementation_unavailable",
+            translation_key="oauth2_implementation_unavailable",
         ) from err
     oauth_session = OAuth2Session(hass, entry, implementation)
     web_session = async_get_clientsession(hass)
@@ -115,12 +115,12 @@ async def _async_load_vehicle(api: VolvoCarsApi) -> VolvoCarsVehicle:
     except VolvoAuthException as ex:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unauthorized",
+            translation_key="unauthorized",
             translation_placeholders={"message": ex.message},
         ) from ex
 
     if vehicle is None:
-        raise ConfigEntryError(translation_domain=DOMAIN, REDACTED_VALUE"no_vehicle")
+        raise ConfigEntryError(translation_domain=DOMAIN, translation_key="no_vehicle")
 
     return vehicle
 
@@ -131,7 +131,7 @@ async def _async_load_supported_commands(api: VolvoCarsApi) -> list[str]:
     except VolvoAuthException as ex:
         raise ConfigEntryAuthFailed(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unauthorized",
+            translation_key="unauthorized",
             translation_placeholders={"message": ex.message},
         ) from ex
 

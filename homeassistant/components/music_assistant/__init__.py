@@ -106,7 +106,7 @@ async def async_setup_entry(  # noqa: C901
             "invalid_server_version",
             is_fixable=False,
             severity=IssueSeverity.ERROR,
-            REDACTED_VALUE"invalid_server_version",
+            translation_key="invalid_server_version",
         )
         raise ConfigEntryNotReady(f"Invalid server version: {err}") from err
     except (AuthenticationRequired, AuthenticationFailed, InvalidToken) as err:

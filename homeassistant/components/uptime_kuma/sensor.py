@@ -59,7 +59,7 @@ class UptimeKumaSensorEntityDescription(SensorEntityDescription):
 SENSOR_DESCRIPTIONS: tuple[UptimeKumaSensorEntityDescription, ...] = (
     UptimeKumaSensorEntityDescription(
         key=UptimeKumaSensor.CERT_DAYS_REMAINING,
-        REDACTED_VALUEUptimeKumaSensor.CERT_DAYS_REMAINING,
+        translation_key=UptimeKumaSensor.CERT_DAYS_REMAINING,
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.DAYS,
         value_fn=lambda m: m.monitor_cert_days_remaining,
@@ -67,7 +67,7 @@ SENSOR_DESCRIPTIONS: tuple[UptimeKumaSensorEntityDescription, ...] = (
     ),
     UptimeKumaSensorEntityDescription(
         key=UptimeKumaSensor.RESPONSE_TIME,
-        REDACTED_VALUEUptimeKumaSensor.RESPONSE_TIME,
+        translation_key=UptimeKumaSensor.RESPONSE_TIME,
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.MILLISECONDS,
         value_fn=(
@@ -78,7 +78,7 @@ SENSOR_DESCRIPTIONS: tuple[UptimeKumaSensorEntityDescription, ...] = (
     ),
     UptimeKumaSensorEntityDescription(
         key=UptimeKumaSensor.STATUS,
-        REDACTED_VALUEUptimeKumaSensor.STATUS,
+        translation_key=UptimeKumaSensor.STATUS,
         device_class=SensorDeviceClass.ENUM,
         options=[m.name.lower() for m in MonitorStatus],
         value_fn=lambda m: m.monitor_status.name.lower(),
@@ -86,7 +86,7 @@ SENSOR_DESCRIPTIONS: tuple[UptimeKumaSensorEntityDescription, ...] = (
     ),
     UptimeKumaSensorEntityDescription(
         key=UptimeKumaSensor.TYPE,
-        REDACTED_VALUEUptimeKumaSensor.TYPE,
+        translation_key=UptimeKumaSensor.TYPE,
         device_class=SensorDeviceClass.ENUM,
         options=[m.name.lower() for m in MonitorType],
         value_fn=lambda m: m.monitor_type.name.lower(),
@@ -95,28 +95,28 @@ SENSOR_DESCRIPTIONS: tuple[UptimeKumaSensorEntityDescription, ...] = (
     ),
     UptimeKumaSensorEntityDescription(
         key=UptimeKumaSensor.URL,
-        REDACTED_VALUEUptimeKumaSensor.URL,
+        translation_key=UptimeKumaSensor.URL,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda m: m.monitor_url,
         create_entity=lambda t: t in HAS_URL,
     ),
     UptimeKumaSensorEntityDescription(
         key=UptimeKumaSensor.HOSTNAME,
-        REDACTED_VALUEUptimeKumaSensor.HOSTNAME,
+        translation_key=UptimeKumaSensor.HOSTNAME,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda m: m.monitor_hostname,
         create_entity=lambda t: t in HAS_HOST,
     ),
     UptimeKumaSensorEntityDescription(
         key=UptimeKumaSensor.PORT,
-        REDACTED_VALUEUptimeKumaSensor.PORT,
+        translation_key=UptimeKumaSensor.PORT,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda m: m.monitor_port,
         create_entity=lambda t: t in HAS_PORT,
     ),
     UptimeKumaSensorEntityDescription(
         key=UptimeKumaSensor.UPTIME_RATIO_1D,
-        REDACTED_VALUEUptimeKumaSensor.UPTIME_RATIO_1D,
+        translation_key=UptimeKumaSensor.UPTIME_RATIO_1D,
         value_fn=lambda m: (
             m.monitor_uptime_ratio_1d * 100
             if m.monitor_uptime_ratio_1d is not None
@@ -129,7 +129,7 @@ SENSOR_DESCRIPTIONS: tuple[UptimeKumaSensorEntityDescription, ...] = (
     ),
     UptimeKumaSensorEntityDescription(
         key=UptimeKumaSensor.UPTIME_RATIO_30D,
-        REDACTED_VALUEUptimeKumaSensor.UPTIME_RATIO_30D,
+        translation_key=UptimeKumaSensor.UPTIME_RATIO_30D,
         value_fn=lambda m: (
             m.monitor_uptime_ratio_30d * 100
             if m.monitor_uptime_ratio_30d is not None
@@ -142,7 +142,7 @@ SENSOR_DESCRIPTIONS: tuple[UptimeKumaSensorEntityDescription, ...] = (
     ),
     UptimeKumaSensorEntityDescription(
         key=UptimeKumaSensor.UPTIME_RATIO_365D,
-        REDACTED_VALUEUptimeKumaSensor.UPTIME_RATIO_365D,
+        translation_key=UptimeKumaSensor.UPTIME_RATIO_365D,
         value_fn=lambda m: (
             m.monitor_uptime_ratio_365d * 100
             if m.monitor_uptime_ratio_365d is not None
@@ -155,7 +155,7 @@ SENSOR_DESCRIPTIONS: tuple[UptimeKumaSensorEntityDescription, ...] = (
     ),
     UptimeKumaSensorEntityDescription(
         key=UptimeKumaSensor.AVG_RESPONSE_TIME_1D,
-        REDACTED_VALUEUptimeKumaSensor.AVG_RESPONSE_TIME_1D,
+        translation_key=UptimeKumaSensor.AVG_RESPONSE_TIME_1D,
         value_fn=lambda m: m.monitor_response_time_seconds_1d,
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.SECONDS,
@@ -165,7 +165,7 @@ SENSOR_DESCRIPTIONS: tuple[UptimeKumaSensorEntityDescription, ...] = (
     ),
     UptimeKumaSensorEntityDescription(
         key=UptimeKumaSensor.AVG_RESPONSE_TIME_30D,
-        REDACTED_VALUEUptimeKumaSensor.AVG_RESPONSE_TIME_30D,
+        translation_key=UptimeKumaSensor.AVG_RESPONSE_TIME_30D,
         value_fn=lambda m: m.monitor_response_time_seconds_30d,
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.SECONDS,
@@ -175,7 +175,7 @@ SENSOR_DESCRIPTIONS: tuple[UptimeKumaSensorEntityDescription, ...] = (
     ),
     UptimeKumaSensorEntityDescription(
         key=UptimeKumaSensor.AVG_RESPONSE_TIME_365D,
-        REDACTED_VALUEUptimeKumaSensor.AVG_RESPONSE_TIME_365D,
+        translation_key=UptimeKumaSensor.AVG_RESPONSE_TIME_365D,
         value_fn=lambda m: m.monitor_response_time_seconds_365d,
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.SECONDS,
@@ -185,7 +185,7 @@ SENSOR_DESCRIPTIONS: tuple[UptimeKumaSensorEntityDescription, ...] = (
     ),
     UptimeKumaSensorEntityDescription(
         key=UptimeKumaSensor.TAGS,
-        REDACTED_VALUEUptimeKumaSensor.TAGS,
+        translation_key=UptimeKumaSensor.TAGS,
         value_fn=lambda m: len(m.monitor_tags),
         create_entity=lambda t: True,
         entity_category=EntityCategory.DIAGNOSTIC,

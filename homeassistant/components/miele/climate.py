@@ -95,7 +95,7 @@ CLIMATE_TYPES: Final[tuple[MieleClimateDefinition, ...]] = (
             target_fn=(
                 lambda value: _get_temperature_value(value.state_target_temperature, 1)
             ),
-            REDACTED_VALUE"zone_2",
+            translation_key="zone_2",
             zone=2,
         ),
     ),
@@ -117,7 +117,7 @@ CLIMATE_TYPES: Final[tuple[MieleClimateDefinition, ...]] = (
             target_fn=(
                 lambda value: _get_temperature_value(value.state_target_temperature, 2)
             ),
-            REDACTED_VALUE"zone_3",
+            translation_key="zone_3",
             zone=3,
         ),
     ),
@@ -252,7 +252,7 @@ class MieleClimate(MieleEntity, ClimateEntity):
             _LOGGER.debug("Error setting climate state for %s: %s", self.entity_id, err)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_state_error",
+                translation_key="set_state_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                 },

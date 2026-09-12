@@ -29,7 +29,7 @@ class SmartySwitchDescription(SwitchEntityDescription):
 ENTITIES: tuple[SmartySwitchDescription, ...] = (
     SmartySwitchDescription(
         key="boost",
-        REDACTED_VALUE"boost",
+        translation_key="boost",
         is_on_fn=lambda smarty: smarty.boost,
         turn_on_fn=lambda smarty: smarty.enable_boost(),
         turn_off_fn=lambda smarty: smarty.disable_boost(),

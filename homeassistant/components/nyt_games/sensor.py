@@ -31,21 +31,21 @@ class NYTGamesWordleSensorEntityDescription(SensorEntityDescription):
 WORDLE_SENSORS: tuple[NYTGamesWordleSensorEntityDescription, ...] = (
     NYTGamesWordleSensorEntityDescription(
         key="wordles_played",
-        REDACTED_VALUE"wordles_played",
+        translation_key="wordles_played",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement="games",
         value_fn=lambda wordle: wordle.games_played,
     ),
     NYTGamesWordleSensorEntityDescription(
         key="wordles_won",
-        REDACTED_VALUE"won",
+        translation_key="won",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement="games",
         value_fn=lambda wordle: wordle.games_won,
     ),
     NYTGamesWordleSensorEntityDescription(
         key="wordles_streak",
-        REDACTED_VALUE"streak",
+        translation_key="streak",
         state_class=SensorStateClass.TOTAL,
         native_unit_of_measurement=UnitOfTime.DAYS,
         device_class=SensorDeviceClass.DURATION,
@@ -53,7 +53,7 @@ WORDLE_SENSORS: tuple[NYTGamesWordleSensorEntityDescription, ...] = (
     ),
     NYTGamesWordleSensorEntityDescription(
         key="wordles_max_streak",
-        REDACTED_VALUE"max_streak",
+        translation_key="max_streak",
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfTime.DAYS,
         device_class=SensorDeviceClass.DURATION,
@@ -72,14 +72,14 @@ class NYTGamesSpellingBeeSensorEntityDescription(SensorEntityDescription):
 SPELLING_BEE_SENSORS: tuple[NYTGamesSpellingBeeSensorEntityDescription, ...] = (
     NYTGamesSpellingBeeSensorEntityDescription(
         key="spelling_bees_played",
-        REDACTED_VALUE"spelling_bees_played",
+        translation_key="spelling_bees_played",
         state_class=SensorStateClass.TOTAL,
         native_unit_of_measurement="games",
         value_fn=lambda spelling_bee: spelling_bee.puzzles_started,
     ),
     NYTGamesSpellingBeeSensorEntityDescription(
         key="spelling_bees_total_words",
-        REDACTED_VALUE"total_words",
+        translation_key="total_words",
         state_class=SensorStateClass.TOTAL,
         native_unit_of_measurement="words",
         entity_registry_enabled_default=False,
@@ -87,7 +87,7 @@ SPELLING_BEE_SENSORS: tuple[NYTGamesSpellingBeeSensorEntityDescription, ...] = (
     ),
     NYTGamesSpellingBeeSensorEntityDescription(
         key="spelling_bees_total_pangrams",
-        REDACTED_VALUE"total_pangrams",
+        translation_key="total_pangrams",
         state_class=SensorStateClass.TOTAL,
         native_unit_of_measurement="pangrams",
         entity_registry_enabled_default=False,
@@ -106,27 +106,27 @@ class NYTGamesConnectionsSensorEntityDescription(SensorEntityDescription):
 CONNECTIONS_SENSORS: tuple[NYTGamesConnectionsSensorEntityDescription, ...] = (
     NYTGamesConnectionsSensorEntityDescription(
         key="connections_played",
-        REDACTED_VALUE"connections_played",
+        translation_key="connections_played",
         state_class=SensorStateClass.TOTAL,
         native_unit_of_measurement="games",
         value_fn=lambda connections: connections.puzzles_completed,
     ),
     NYTGamesConnectionsSensorEntityDescription(
         key="connections_won",
-        REDACTED_VALUE"won",
+        translation_key="won",
         state_class=SensorStateClass.TOTAL,
         native_unit_of_measurement="games",
         value_fn=lambda connections: connections.puzzles_won,
     ),
     NYTGamesConnectionsSensorEntityDescription(
         key="connections_last_played",
-        REDACTED_VALUE"last_played",
+        translation_key="last_played",
         device_class=SensorDeviceClass.DATE,
         value_fn=lambda connections: connections.last_completed,
     ),
     NYTGamesConnectionsSensorEntityDescription(
         key="connections_streak",
-        REDACTED_VALUE"streak",
+        translation_key="streak",
         state_class=SensorStateClass.TOTAL,
         native_unit_of_measurement=UnitOfTime.DAYS,
         device_class=SensorDeviceClass.DURATION,
@@ -134,7 +134,7 @@ CONNECTIONS_SENSORS: tuple[NYTGamesConnectionsSensorEntityDescription, ...] = (
     ),
     NYTGamesConnectionsSensorEntityDescription(
         key="connections_max_streak",
-        REDACTED_VALUE"max_streak",
+        translation_key="max_streak",
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfTime.DAYS,
         device_class=SensorDeviceClass.DURATION,

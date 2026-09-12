@@ -57,12 +57,12 @@ class AqvifyCoordinator(DataUpdateCoordinator[AqvifyCoordinatorData]):
         except AqvifyAuthException:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_api_key",
+                translation_key="invalid_api_key",
             ) from None
         except ClientResponseError as err:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_error",
+                translation_key="api_error",
                 translation_placeholders={
                     "entry": self.config_entry.title,
                 },
@@ -70,7 +70,7 @@ class AqvifyCoordinator(DataUpdateCoordinator[AqvifyCoordinatorData]):
         except TimeoutError as err:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_timeout",
+                translation_key="api_timeout",
                 translation_placeholders={
                     "entry": self.config_entry.title,
                 },
@@ -83,12 +83,12 @@ class AqvifyCoordinator(DataUpdateCoordinator[AqvifyCoordinatorData]):
         except AqvifyAuthException:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_api_key",
+                translation_key="invalid_api_key",
             ) from None
         except ClientResponseError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_error",
+                translation_key="api_error",
                 translation_placeholders={
                     "entry": self.config_entry.title,
                 },
@@ -96,7 +96,7 @@ class AqvifyCoordinator(DataUpdateCoordinator[AqvifyCoordinatorData]):
         except TimeoutError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_timeout",
+                translation_key="api_timeout",
                 translation_placeholders={
                     "entry": self.config_entry.title,
                 },
@@ -112,12 +112,12 @@ class AqvifyCoordinator(DataUpdateCoordinator[AqvifyCoordinatorData]):
             except AqvifyAuthException:
                 raise ConfigEntryAuthFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"invalid_api_key",
+                    translation_key="invalid_api_key",
                 ) from None
             except ClientResponseError as err:
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"api_error",
+                    translation_key="api_error",
                     translation_placeholders={
                         "entry": self.config_entry.title,
                     },
@@ -125,7 +125,7 @@ class AqvifyCoordinator(DataUpdateCoordinator[AqvifyCoordinatorData]):
             except TimeoutError as err:
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"api_timeout",
+                    translation_key="api_timeout",
                     translation_placeholders={
                         "entry": self.config_entry.title,
                     },

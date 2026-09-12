@@ -47,7 +47,7 @@ def async_get_entry_id_for_service_call(
     if (device_entry := device_registry.async_get(device_id)) is None:
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"invalid_device_id",
+            translation_key="invalid_device_id",
             translation_placeholders={"device_id": device_id},
         )
 
@@ -58,14 +58,14 @@ def async_get_entry_id_for_service_call(
             if entry.state is not ConfigEntryState.LOADED:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"entry_not_loaded",
+                    translation_key="entry_not_loaded",
                     translation_placeholders={"entry": entry.title},
                 )
             return (device_entry, entry)
 
     raise ServiceValidationError(
         translation_domain=DOMAIN,
-        REDACTED_VALUE"config_entry_not_found",
+        translation_key="config_entry_not_found",
         translation_placeholders={"device_id": device_id},
     )
 
@@ -82,7 +82,7 @@ async def _async_execute_action(call: ServiceCall, attribute: str) -> None:
         if value not in SOUNDS_LIST:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_sound_value",
+                translation_key="invalid_sound_value",
                 translation_placeholders={"sound": value},
             )
         async with alexa_api_call():
@@ -99,7 +99,7 @@ async def _async_execute_action(call: ServiceCall, attribute: str) -> None:
         if info_skill not in ALEXA_INFO_SKILLS:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_info_skill_value",
+                translation_key="invalid_info_skill_value",
                 translation_placeholders={"info_skill": value},
             )
         async with alexa_api_call():

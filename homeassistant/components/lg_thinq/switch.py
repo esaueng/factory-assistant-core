@@ -30,11 +30,11 @@ class ThinQSwitchEntityDescription(SwitchEntityDescription):
 
 
 DRYER_OPERATION_SWITCH_DESC = ThinQSwitchEntityDescription(
-    key=ThinQProperty.DRYER_OPERATION_MODE, REDACTED_VALUE"operation_power"
+    key=ThinQProperty.DRYER_OPERATION_MODE, translation_key="operation_power"
 )
 
 WASHER_OPERATION_SWITCH_DESC = ThinQSwitchEntityDescription(
-    key=ThinQProperty.WASHER_OPERATION_MODE, REDACTED_VALUE"operation_power"
+    key=ThinQProperty.WASHER_OPERATION_MODE, translation_key="operation_power"
 )
 
 
@@ -42,26 +42,26 @@ DEVICE_TYPE_SWITCH_MAP: dict[DeviceType, tuple[ThinQSwitchEntityDescription, ...
     DeviceType.AIR_CONDITIONER: (
         ThinQSwitchEntityDescription(
             key=ThinQProperty.AIR_CON_OPERATION_MODE,
-            REDACTED_VALUE"operation_power",
+            translation_key="operation_power",
             entity_category=EntityCategory.CONFIG,
         ),
         ThinQSwitchEntityDescription(
             key=ThinQProperty.DISPLAY_LIGHT,
-            REDACTED_VALUEThinQProperty.DISPLAY_LIGHT,
+            translation_key=ThinQProperty.DISPLAY_LIGHT,
             on_key="on",
             off_key="off",
             entity_category=EntityCategory.CONFIG,
         ),
         ThinQSwitchEntityDescription(
             key=ThinQProperty.POWER_SAVE_ENABLED,
-            REDACTED_VALUEThinQProperty.POWER_SAVE_ENABLED,
+            translation_key=ThinQProperty.POWER_SAVE_ENABLED,
             on_key="true",
             off_key="false",
             entity_category=EntityCategory.CONFIG,
         ),
         ThinQSwitchEntityDescription(
             key=ThinQProperty.AIR_CLEAN_OPERATION_MODE,
-            REDACTED_VALUEThinQProperty.AIR_CLEAN_OPERATION_MODE,
+            translation_key=ThinQProperty.AIR_CLEAN_OPERATION_MODE,
             on_key="on",
             off_key="off",
             entity_category=EntityCategory.CONFIG,
@@ -69,18 +69,18 @@ DEVICE_TYPE_SWITCH_MAP: dict[DeviceType, tuple[ThinQSwitchEntityDescription, ...
     ),
     DeviceType.AIR_PURIFIER_FAN: (
         ThinQSwitchEntityDescription(
-            key=ThinQProperty.AIR_FAN_OPERATION_MODE, REDACTED_VALUE"operation_power"
+            key=ThinQProperty.AIR_FAN_OPERATION_MODE, translation_key="operation_power"
         ),
         ThinQSwitchEntityDescription(
             key=ThinQProperty.UV_NANO,
-            REDACTED_VALUEThinQProperty.UV_NANO,
+            translation_key=ThinQProperty.UV_NANO,
             on_key="on",
             off_key="off",
             entity_category=EntityCategory.CONFIG,
         ),
         ThinQSwitchEntityDescription(
             key=ThinQProperty.WARM_MODE,
-            REDACTED_VALUEThinQProperty.WARM_MODE,
+            translation_key=ThinQProperty.WARM_MODE,
             on_key="warm_on",
             off_key="warm_off",
             entity_category=EntityCategory.CONFIG,
@@ -89,51 +89,51 @@ DEVICE_TYPE_SWITCH_MAP: dict[DeviceType, tuple[ThinQSwitchEntityDescription, ...
     DeviceType.AIR_PURIFIER: (
         ThinQSwitchEntityDescription(
             key=ThinQProperty.AIR_PURIFIER_OPERATION_MODE,
-            REDACTED_VALUE"operation_power",
+            translation_key="operation_power",
         ),
     ),
     DeviceType.DEHUMIDIFIER: (
         ThinQSwitchEntityDescription(
             key=ThinQProperty.DEHUMIDIFIER_OPERATION_MODE,
-            REDACTED_VALUE"operation_power",
+            translation_key="operation_power",
         ),
     ),
     DeviceType.DISH_WASHER: (
         ThinQSwitchEntityDescription(
             key=ThinQProperty.DISH_WASHER_OPERATION_MODE,
-            REDACTED_VALUE"operation_power",
+            translation_key="operation_power",
         ),
     ),
     DeviceType.DRYER: (DRYER_OPERATION_SWITCH_DESC,),
     DeviceType.HUMIDIFIER: (
         ThinQSwitchEntityDescription(
             key=ThinQProperty.HUMIDIFIER_OPERATION_MODE,
-            REDACTED_VALUE"operation_power",
+            translation_key="operation_power",
         ),
         ThinQSwitchEntityDescription(
             key=ThinQProperty.WARM_MODE,
-            REDACTED_VALUE"humidity_warm_mode",
+            translation_key="humidity_warm_mode",
             on_key="warm_on",
             off_key="warm_off",
             entity_category=EntityCategory.CONFIG,
         ),
         ThinQSwitchEntityDescription(
             key=ThinQProperty.MOOD_LAMP_STATE,
-            REDACTED_VALUEThinQProperty.MOOD_LAMP_STATE,
+            translation_key=ThinQProperty.MOOD_LAMP_STATE,
             on_key="on",
             off_key="off",
             entity_category=EntityCategory.CONFIG,
         ),
         ThinQSwitchEntityDescription(
             key=ThinQProperty.AUTO_MODE,
-            REDACTED_VALUEThinQProperty.AUTO_MODE,
+            translation_key=ThinQProperty.AUTO_MODE,
             on_key="auto_on",
             off_key="auto_off",
             entity_category=EntityCategory.CONFIG,
         ),
         ThinQSwitchEntityDescription(
             key=ThinQProperty.SLEEP_MODE,
-            REDACTED_VALUEThinQProperty.SLEEP_MODE,
+            translation_key=ThinQProperty.SLEEP_MODE,
             on_key="sleep_on",
             off_key="sleep_off",
             entity_category=EntityCategory.CONFIG,
@@ -142,21 +142,21 @@ DEVICE_TYPE_SWITCH_MAP: dict[DeviceType, tuple[ThinQSwitchEntityDescription, ...
     DeviceType.REFRIGERATOR: (
         ThinQSwitchEntityDescription(
             key=ThinQProperty.EXPRESS_MODE,
-            REDACTED_VALUEThinQProperty.EXPRESS_MODE,
+            translation_key=ThinQProperty.EXPRESS_MODE,
             on_key="true",
             off_key="false",
             entity_category=EntityCategory.CONFIG,
         ),
         ThinQSwitchEntityDescription(
             key=ThinQProperty.RAPID_FREEZE,
-            REDACTED_VALUEThinQProperty.RAPID_FREEZE,
+            translation_key=ThinQProperty.RAPID_FREEZE,
             on_key="true",
             off_key="false",
             entity_category=EntityCategory.CONFIG,
         ),
         ThinQSwitchEntityDescription(
             key=ThinQProperty.EXPRESS_FRIDGE,
-            REDACTED_VALUEThinQProperty.EXPRESS_FRIDGE,
+            translation_key=ThinQProperty.EXPRESS_FRIDGE,
             on_key="true",
             off_key="false",
             entity_category=EntityCategory.CONFIG,
@@ -165,12 +165,12 @@ DEVICE_TYPE_SWITCH_MAP: dict[DeviceType, tuple[ThinQSwitchEntityDescription, ...
     DeviceType.SYSTEM_BOILER: (
         ThinQSwitchEntityDescription(
             key=ThinQProperty.BOILER_OPERATION_MODE,
-            REDACTED_VALUE"operation_power",
+            translation_key="operation_power",
             entity_category=EntityCategory.CONFIG,
         ),
         ThinQSwitchEntityDescription(
             key=ThinQProperty.HOT_WATER_MODE,
-            REDACTED_VALUEThinQProperty.HOT_WATER_MODE,
+            translation_key=ThinQProperty.HOT_WATER_MODE,
             on_key="on",
             off_key="off",
             entity_category=EntityCategory.CONFIG,
@@ -178,13 +178,13 @@ DEVICE_TYPE_SWITCH_MAP: dict[DeviceType, tuple[ThinQSwitchEntityDescription, ...
     ),
     DeviceType.STYLER: (
         ThinQSwitchEntityDescription(
-            key=ThinQProperty.STYLER_OPERATION_MODE, REDACTED_VALUE"operation_power"
+            key=ThinQProperty.STYLER_OPERATION_MODE, translation_key="operation_power"
         ),
     ),
     DeviceType.VENTILATOR: (
         ThinQSwitchEntityDescription(
             key=ThinQProperty.VENTILATOR_OPERATION_MODE,
-            REDACTED_VALUE"operation_power",
+            translation_key="operation_power",
             entity_category=EntityCategory.CONFIG,
         ),
     ),
@@ -200,7 +200,7 @@ DEVICE_TYPE_SWITCH_MAP: dict[DeviceType, tuple[ThinQSwitchEntityDescription, ...
     DeviceType.WINE_CELLAR: (
         ThinQSwitchEntityDescription(
             key=ThinQProperty.OPTIMAL_HUMIDITY,
-            REDACTED_VALUEThinQProperty.OPTIMAL_HUMIDITY,
+            translation_key=ThinQProperty.OPTIMAL_HUMIDITY,
             on_key="on",
             off_key="off",
             entity_category=EntityCategory.CONFIG,

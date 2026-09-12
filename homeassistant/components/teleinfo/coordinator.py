@@ -43,12 +43,12 @@ class TeleinfoCoordinator(DataUpdateCoordinator[dict[str, str]]):
         except serial.SerialException as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
             ) from err
         except TimeoutError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"timeout_error",
+                translation_key="timeout_error",
             ) from err
 
         try:
@@ -56,5 +56,5 @@ class TeleinfoCoordinator(DataUpdateCoordinator[dict[str, str]]):
         except Exception as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"decode_error",
+                translation_key="decode_error",
             ) from err

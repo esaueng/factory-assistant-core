@@ -198,7 +198,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ZwaveJSConfigEntry) -> b
                 "invalid_server_version",
                 is_fixable=False,
                 severity=IssueSeverity.ERROR,
-                REDACTED_VALUE"invalid_server_version",
+                translation_key="invalid_server_version",
             )
         raise ConfigEntryNotReady(f"Invalid server version: {err}") from err
     except (TimeoutError, BaseZwaveJSServerError) as err:
@@ -423,7 +423,7 @@ class DriverEvents:
                 },
                 is_fixable=True,
                 severity=IssueSeverity.ERROR,
-                REDACTED_VALUE"migrate_unique_id",
+                translation_key="migrate_unique_id",
             )
         else:
             data = self.config_entry.data.copy()
@@ -840,7 +840,7 @@ class NodeEvents:
                     data={"device_id": device.id, "device_name": device_name},
                     is_fixable=True,
                     is_persistent=False,
-                    REDACTED_VALUE"device_config_file_changed",
+                    translation_key="device_config_file_changed",
                     translation_placeholders={"device_name": device_name},
                     severity=IssueSeverity.WARNING,
                 )

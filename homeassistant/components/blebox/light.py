@@ -223,7 +223,7 @@ class BleBoxLightEntity(BleBoxEntity[blebox_uniapi.light.Light], LightEntity):
         except ValueError as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"bad_value",
+                translation_key="bad_value",
                 translation_placeholders={"error": str(exc)},
             ) from exc
 
@@ -234,7 +234,7 @@ class BleBoxLightEntity(BleBoxEntity[blebox_uniapi.light.Light], LightEntity):
             except ValueError as exc:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"effect_not_found",
+                    translation_key="effect_not_found",
                     translation_placeholders={"error": str(exc)},
                 ) from exc
 

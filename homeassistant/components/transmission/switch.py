@@ -28,14 +28,14 @@ class TransmissionSwitchEntityDescription(SwitchEntityDescription):
 SWITCH_TYPES: tuple[TransmissionSwitchEntityDescription, ...] = (
     TransmissionSwitchEntityDescription(
         key="on_off",
-        REDACTED_VALUE"on_off",
+        translation_key="on_off",
         is_on_func=lambda coordinator: coordinator.data.active_torrent_count > 0,
         on_func=lambda coordinator: coordinator.start_torrents(),
         off_func=lambda coordinator: coordinator.stop_torrents(),
     ),
     TransmissionSwitchEntityDescription(
         key="turtle_mode",
-        REDACTED_VALUE"turtle_mode",
+        translation_key="turtle_mode",
         is_on_func=lambda coordinator: coordinator.get_alt_speed_enabled(),
         on_func=lambda coordinator: coordinator.set_alt_speed_enabled(True),
         off_func=lambda coordinator: coordinator.set_alt_speed_enabled(False),

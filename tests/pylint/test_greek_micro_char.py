@@ -54,7 +54,7 @@ from . import assert_no_messages
             SENSOR_DESCRIPTION = {
                 "radiation_rate": AranetSensorEntityDescription(
                     key="radiation_rate",
-                    REDACTED_VALUE"radiation_rate",
+                    translation_key="radiation_rate",
                     name="Radiation Dose Rate",
                     native_unit_of_measurement="μSv/h",
                     state_class=SensorStateClass.MEASUREMENT,
@@ -133,7 +133,7 @@ def test_enforce_greek_micro_char(
             SENSOR_DESCRIPTION = {
                 "radiation_rate": AranetSensorEntityDescription(
                     key="radiation_rate",
-                    REDACTED_VALUE"radiation_rate",
+                    translation_key="radiation_rate",
                     name="Radiation Dose Rate",
                     native_unit_of_measurement="µSv/h",
                     state_class=SensorStateClass.MEASUREMENT,

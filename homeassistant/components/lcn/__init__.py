@@ -103,7 +103,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: LcnConfigEntry) -
         await lcn_connection.async_close()
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect",
+            translation_key="cannot_connect",
             translation_placeholders={
                 "config_entry_title": config_entry.title,
             },

@@ -27,7 +27,7 @@ class MonzoSensorEntityDescription(SensorEntityDescription):
 ACCOUNT_SENSORS = (
     MonzoSensorEntityDescription(
         key="balance",
-        REDACTED_VALUE"balance",
+        translation_key="balance",
         value_fn=lambda data: data["balance"]["balance"] / 100,
         device_class=SensorDeviceClass.MONETARY,
         native_unit_of_measurement="GBP",
@@ -35,7 +35,7 @@ ACCOUNT_SENSORS = (
     ),
     MonzoSensorEntityDescription(
         key="total_balance",
-        REDACTED_VALUE"total_balance",
+        translation_key="total_balance",
         value_fn=lambda data: data["balance"]["total_balance"] / 100,
         device_class=SensorDeviceClass.MONETARY,
         native_unit_of_measurement="GBP",
@@ -46,7 +46,7 @@ ACCOUNT_SENSORS = (
 POT_SENSORS = (
     MonzoSensorEntityDescription(
         key="pot_balance",
-        REDACTED_VALUE"pot_balance",
+        translation_key="pot_balance",
         value_fn=lambda data: data["balance"] / 100,
         device_class=SensorDeviceClass.MONETARY,
         native_unit_of_measurement="GBP",

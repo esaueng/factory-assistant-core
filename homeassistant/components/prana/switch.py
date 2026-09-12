@@ -38,27 +38,27 @@ class PranaSwitchEntityDescription(SwitchEntityDescription):
 ENTITIES: tuple[PranaSwitchEntityDescription, ...] = (
     PranaSwitchEntityDescription(
         key=PranaSwitchType.BOUND,
-        REDACTED_VALUE"bound",
+        translation_key="bound",
         value_fn=lambda coord: coord.data.bound,
     ),
     PranaSwitchEntityDescription(
         key=PranaSwitchType.HEATER,
-        REDACTED_VALUE"heater",
+        translation_key="heater",
         value_fn=lambda coord: coord.data.heater,
     ),
     PranaSwitchEntityDescription(
         key=PranaSwitchType.AUTO,
-        REDACTED_VALUE"auto",
+        translation_key="auto",
         value_fn=lambda coord: coord.data.auto,
     ),
     PranaSwitchEntityDescription(
         key=PranaSwitchType.AUTO_PLUS,
-        REDACTED_VALUE"auto_plus",
+        translation_key="auto_plus",
         value_fn=lambda coord: coord.data.auto_plus,
     ),
     PranaSwitchEntityDescription(
         key=PranaSwitchType.WINTER,
-        REDACTED_VALUE"winter",
+        translation_key="winter",
         value_fn=lambda coord: coord.data.winter,
     ),
 )

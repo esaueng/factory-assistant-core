@@ -115,7 +115,7 @@ class PortainerContainerEntity(PortainerCoordinatorEntity):
                 if device_info.stack
                 else f"{coordinator.config_entry.entry_id}_{self.endpoint_id}",
             ),
-            REDACTED_VALUENone if self.device_name else "unknown_container",
+            translation_key=None if self.device_name else "unknown_container",
             entry_type=DeviceEntryType.SERVICE,
         )
         self._attr_unique_id = (

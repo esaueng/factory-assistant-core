@@ -30,7 +30,7 @@ class GaragesAmsterdamBinarySensorEntityDescription(BinarySensorEntityDescriptio
 BINARY_SENSORS: tuple[GaragesAmsterdamBinarySensorEntityDescription, ...] = (
     GaragesAmsterdamBinarySensorEntityDescription(
         key="state",
-        REDACTED_VALUE"state",
+        translation_key="state",
         device_class=BinarySensorDeviceClass.PROBLEM,
         is_on=lambda garage: garage.state != "ok",
     ),

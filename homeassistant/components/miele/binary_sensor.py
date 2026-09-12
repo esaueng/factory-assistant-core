@@ -104,7 +104,7 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
             key="state_signal_info",
             value_fn=lambda value: value.state_signal_info,
             device_class=BinarySensorDeviceClass.PROBLEM,
-            REDACTED_VALUE"notification_active",
+            translation_key="notification_active",
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ),
@@ -177,7 +177,7 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
         ),
         description=MieleBinarySensorDescription(
             key="state_full_remote_control",
-            REDACTED_VALUE"remote_control",
+            translation_key="remote_control",
             value_fn=lambda value: value.state_full_remote_control,
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
@@ -213,7 +213,7 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
         description=MieleBinarySensorDescription(
             key="state_smart_grid",
             value_fn=lambda value: value.state_smart_grid,
-            REDACTED_VALUE"smart_grid",
+            translation_key="smart_grid",
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ),
@@ -249,7 +249,7 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
         description=MieleBinarySensorDescription(
             key="state_mobile_start",
             value_fn=lambda value: value.state_mobile_start,
-            REDACTED_VALUE"mobile_start",
+            translation_key="mobile_start",
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ),

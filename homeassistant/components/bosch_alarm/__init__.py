@@ -47,13 +47,13 @@ async def async_setup_entry(hass: HomeAssistant, entry: BoschAlarmConfigEntry) -
     except (PermissionError, ValueError) as err:
         await panel.disconnect()
         raise ConfigEntryAuthFailed(
-            translation_domain=DOMAIN, REDACTED_VALUE"authentication_failed"
+            translation_domain=DOMAIN, translation_key="authentication_failed"
         ) from err
     except (TimeoutError, OSError, ConnectionRefusedError, SSLError) as err:
         await panel.disconnect()
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect",
+            translation_key="cannot_connect",
         ) from err
 
     entry.runtime_data = panel

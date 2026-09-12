@@ -27,7 +27,7 @@ class NotionSensorDescription(SensorEntityDescription, NotionEntityDescription):
 SENSOR_DESCRIPTIONS = (
     NotionSensorDescription(
         key=SENSOR_MOLD,
-        REDACTED_VALUE"mold_risk",
+        translation_key="mold_risk",
         listener_kind=ListenerKind.MOLD,
     ),
     NotionSensorDescription(

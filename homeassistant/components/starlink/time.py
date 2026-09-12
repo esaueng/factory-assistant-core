@@ -86,7 +86,7 @@ def _time_to_utc_minutes(t: time, timezone: tzinfo) -> int:
 TIMES = [
     StarlinkTimeEntityDescription(
         key="sleep_start",
-        REDACTED_VALUE"sleep_start",
+        translation_key="sleep_start",
         value_fn=lambda data, timezone: _utc_minutes_to_time(data.sleep[0], timezone),
         update_fn=lambda coordinator, time: coordinator.async_set_sleep_start(
             _time_to_utc_minutes(time, coordinator.timezone)
@@ -95,7 +95,7 @@ TIMES = [
     ),
     StarlinkTimeEntityDescription(
         key="sleep_end",
-        REDACTED_VALUE"sleep_end",
+        translation_key="sleep_end",
         value_fn=lambda data, timezone: _utc_minutes_to_time(
             data.sleep[0] + data.sleep[1], timezone
         ),

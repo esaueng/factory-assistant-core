@@ -135,7 +135,7 @@ async def test_invalid_tracker_already_exists(
         f"invalid_fressnapf_tracker_{MOCK_SERIAL_NUMBER}",
         is_fixable=False,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"invalid_fressnapf_tracker",
+        translation_key="invalid_fressnapf_tracker",
         translation_placeholders={"tracker_id": MOCK_SERIAL_NUMBER},
     )
 

@@ -50,7 +50,7 @@ class WeHeatSensorEntityDescription(SensorEntityDescription):
 
 SENSORS = [
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"power_output",
+        translation_key="power_output",
         key="power_output",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
@@ -59,7 +59,7 @@ SENSORS = [
         value_fn=lambda status: status.power_output,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"power_input",
+        translation_key="power_input",
         key="power_input",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
@@ -68,14 +68,14 @@ SENSORS = [
         value_fn=lambda status: status.power_input,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"cop",
+        translation_key="cop",
         key="cop",
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=DISPLAY_PRECISION_COP,
         value_fn=lambda status: status.cop,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"water_inlet_temperature",
+        translation_key="water_inlet_temperature",
         key="water_inlet_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -84,7 +84,7 @@ SENSORS = [
         value_fn=lambda status: status.water_inlet_temperature,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"water_outlet_temperature",
+        translation_key="water_outlet_temperature",
         key="water_outlet_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -93,7 +93,7 @@ SENSORS = [
         value_fn=lambda status: status.water_outlet_temperature,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"ch_inlet_temperature",
+        translation_key="ch_inlet_temperature",
         key="ch_inlet_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -102,7 +102,7 @@ SENSORS = [
         value_fn=lambda status: status.water_house_in_temperature,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"outside_temperature",
+        translation_key="outside_temperature",
         key="outside_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -111,7 +111,7 @@ SENSORS = [
         value_fn=lambda status: status.air_inlet_temperature,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"thermostat_water_setpoint",
+        translation_key="thermostat_water_setpoint",
         key="thermostat_water_setpoint",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -120,7 +120,7 @@ SENSORS = [
         value_fn=lambda status: status.thermostat_water_setpoint,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"thermostat_room_temperature",
+        translation_key="thermostat_room_temperature",
         key="thermostat_room_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -129,7 +129,7 @@ SENSORS = [
         value_fn=lambda status: status.thermostat_room_temperature,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"thermostat_room_temperature_setpoint",
+        translation_key="thermostat_room_temperature_setpoint",
         key="thermostat_room_temperature_setpoint",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -138,7 +138,7 @@ SENSORS = [
         value_fn=lambda status: status.thermostat_room_temperature_setpoint,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"heat_pump_state",
+        translation_key="heat_pump_state",
         key="heat_pump_state",
         name=None,
         device_class=SensorDeviceClass.ENUM,
@@ -150,21 +150,21 @@ SENSORS = [
         ),
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"compressor_rpm",
+        translation_key="compressor_rpm",
         key="compressor_rpm",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=REVOLUTIONS_PER_MINUTE,
         value_fn=lambda status: status.compressor_rpm,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"compressor_percentage",
+        translation_key="compressor_percentage",
         key="compressor_percentage",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda status: status.compressor_percentage,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"central_heating_flow_volume",
+        translation_key="central_heating_flow_volume",
         key="central_heating_flow_volume",
         device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -176,7 +176,7 @@ SENSORS = [
 
 DHW_SENSORS = [
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"dhw_top_temperature",
+        translation_key="dhw_top_temperature",
         key="dhw_top_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -185,7 +185,7 @@ DHW_SENSORS = [
         value_fn=lambda status: status.dhw_top_temperature,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"dhw_bottom_temperature",
+        translation_key="dhw_bottom_temperature",
         key="dhw_bottom_temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -194,7 +194,7 @@ DHW_SENSORS = [
         value_fn=lambda status: status.dhw_bottom_temperature,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"dhw_flow_volume",
+        translation_key="dhw_flow_volume",
         key="dhw_flow_volume",
         device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -206,7 +206,7 @@ DHW_SENSORS = [
 
 ENERGY_SENSORS = [
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"electricity_used",
+        translation_key="electricity_used",
         key="electricity_used",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -214,7 +214,7 @@ ENERGY_SENSORS = [
         value_fn=lambda status: status.energy_total,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"energy_output",
+        translation_key="energy_output",
         key="energy_output",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -222,7 +222,7 @@ ENERGY_SENSORS = [
         value_fn=lambda status: status.energy_output,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"electricity_used_heating",
+        translation_key="electricity_used_heating",
         key="electricity_used_heating",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -230,7 +230,7 @@ ENERGY_SENSORS = [
         value_fn=lambda status: status.energy_in_heating,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"electricity_used_cooling",
+        translation_key="electricity_used_cooling",
         key="electricity_used_cooling",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -238,7 +238,7 @@ ENERGY_SENSORS = [
         value_fn=lambda status: status.energy_in_cooling,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"electricity_used_defrost",
+        translation_key="electricity_used_defrost",
         key="electricity_used_defrost",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -246,7 +246,7 @@ ENERGY_SENSORS = [
         value_fn=lambda status: status.energy_in_defrost,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"electricity_used_standby",
+        translation_key="electricity_used_standby",
         key="electricity_used_standby",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -254,7 +254,7 @@ ENERGY_SENSORS = [
         value_fn=lambda status: status.energy_in_standby,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"energy_output_heating",
+        translation_key="energy_output_heating",
         key="energy_output_heating",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -262,7 +262,7 @@ ENERGY_SENSORS = [
         value_fn=lambda status: status.energy_out_heating,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"energy_output_cooling",
+        translation_key="energy_output_cooling",
         key="energy_output_cooling",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -270,7 +270,7 @@ ENERGY_SENSORS = [
         value_fn=lambda status: status.energy_out_cooling,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"energy_output_defrost",
+        translation_key="energy_output_defrost",
         key="energy_output_defrost",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -281,7 +281,7 @@ ENERGY_SENSORS = [
 
 DHW_ENERGY_SENSORS = [
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"electricity_used_dhw",
+        translation_key="electricity_used_dhw",
         key="electricity_used_dhw",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
@@ -289,7 +289,7 @@ DHW_ENERGY_SENSORS = [
         value_fn=lambda status: status.energy_in_dhw,
     ),
     WeHeatSensorEntityDescription(
-        REDACTED_VALUE"energy_output_dhw",
+        translation_key="energy_output_dhw",
         key="energy_output_dhw",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,

@@ -38,22 +38,22 @@ class PyLoadButtonEntity(StrEnum):
 SENSOR_DESCRIPTIONS: tuple[PyLoadButtonEntityDescription, ...] = (
     PyLoadButtonEntityDescription(
         key=PyLoadButtonEntity.ABORT_DOWNLOADS,
-        REDACTED_VALUEPyLoadButtonEntity.ABORT_DOWNLOADS,
+        translation_key=PyLoadButtonEntity.ABORT_DOWNLOADS,
         press_fn=lambda api: api.stop_all_downloads(),
     ),
     PyLoadButtonEntityDescription(
         key=PyLoadButtonEntity.RESTART_FAILED,
-        REDACTED_VALUEPyLoadButtonEntity.RESTART_FAILED,
+        translation_key=PyLoadButtonEntity.RESTART_FAILED,
         press_fn=lambda api: api.restart_failed(),
     ),
     PyLoadButtonEntityDescription(
         key=PyLoadButtonEntity.DELETE_FINISHED,
-        REDACTED_VALUEPyLoadButtonEntity.DELETE_FINISHED,
+        translation_key=PyLoadButtonEntity.DELETE_FINISHED,
         press_fn=lambda api: api.delete_finished(),
     ),
     PyLoadButtonEntityDescription(
         key=PyLoadButtonEntity.RESTART,
-        REDACTED_VALUEPyLoadButtonEntity.RESTART,
+        translation_key=PyLoadButtonEntity.RESTART,
         press_fn=lambda api: api.restart(),
         entity_registry_enabled_default=False,
     ),
@@ -87,10 +87,10 @@ class PyLoadBinarySensor(BasePyLoadEntity, ButtonEntity):
         except CannotConnect as e:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_call_exception",
+                translation_key="service_call_exception",
             ) from e
         except InvalidAuth as e:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"service_call_auth_exception",
+                translation_key="service_call_auth_exception",
             ) from e

@@ -70,7 +70,7 @@ async def test_create_update_issue(
             is_persistent=False,
             learn_more_url=issue["learn_more_url"],
             severity=issue["severity"],
-            REDACTED_VALUEissue["translation_key"],
+            translation_key=issue["translation_key"],
             translation_placeholders=issue["translation_placeholders"],
         )
 
@@ -102,7 +102,7 @@ async def test_create_update_issue(
         issue_domain="my_issue_domain",
         learn_more_url="blablabla",
         severity=issues[0]["severity"],
-        REDACTED_VALUEissues[0]["translation_key"],
+        translation_key=issues[0]["translation_key"],
         translation_placeholders=issues[0]["translation_placeholders"],
     )
 
@@ -150,7 +150,7 @@ async def test_create_issue_invalid_version(
             is_persistent=False,
             learn_more_url=issue["learn_more_url"],
             severity=issue["severity"],
-            REDACTED_VALUEissue["translation_key"],
+            translation_key=issue["translation_key"],
             translation_placeholders=issue["translation_placeholders"],
         )
 
@@ -200,7 +200,7 @@ async def test_ignore_issue(
             is_persistent=False,
             learn_more_url=issue["learn_more_url"],
             severity=issue["severity"],
-            REDACTED_VALUEissue["translation_key"],
+            translation_key=issue["translation_key"],
             translation_placeholders=issue["translation_placeholders"],
         )
 
@@ -292,7 +292,7 @@ async def test_ignore_issue(
         is_persistent=False,
         learn_more_url="blablabla",
         severity=issues[0]["severity"],
-        REDACTED_VALUEissues[0]["translation_key"],
+        translation_key=issues[0]["translation_key"],
         translation_placeholders=issues[0]["translation_placeholders"],
     )
 
@@ -367,7 +367,7 @@ async def test_delete_issue(
             is_persistent=False,
             learn_more_url=issue["learn_more_url"],
             severity=issue["severity"],
-            REDACTED_VALUEissue["translation_key"],
+            translation_key=issue["translation_key"],
             translation_placeholders=issue["translation_placeholders"],
         )
 
@@ -439,7 +439,7 @@ async def test_delete_issue(
             is_persistent=False,
             learn_more_url=issue["learn_more_url"],
             severity=issue["severity"],
-            REDACTED_VALUEissue["translation_key"],
+            translation_key=issue["translation_key"],
             translation_placeholders=issue["translation_placeholders"],
         )
 
@@ -514,7 +514,7 @@ async def test_sync_methods(
             is_persistent=False,
             learn_more_url="https://theuselessweb.com",
             severity=ir.IssueSeverity.ERROR,
-            REDACTED_VALUE"abc_123",
+            translation_key="abc_123",
             translation_placeholders={"abc": "123"},
         )
 

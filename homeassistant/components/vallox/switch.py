@@ -65,7 +65,7 @@ class ValloxSwitchEntityDescription(SwitchEntityDescription):
 SWITCH_ENTITIES: tuple[ValloxSwitchEntityDescription, ...] = (
     ValloxSwitchEntityDescription(
         key="bypass_locked",
-        REDACTED_VALUE"bypass_locked",
+        translation_key="bypass_locked",
         metric_key="A_CYC_BYPASS_LOCKED",
     ),
 )

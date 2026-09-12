@@ -375,7 +375,7 @@ async def test_device_and_entity_migration(
             platform=DOMAIN,
             config_entry=mock_config_entry,
             unique_id="gateway0-0",
-            REDACTED_VALUE"heating",
+            translation_key="heating",
             device_id=device0.id,
         )
         entry1 = entity_registry.async_get_or_create(
@@ -383,7 +383,7 @@ async def test_device_and_entity_migration(
             platform=DOMAIN,
             config_entry=mock_config_entry,
             unique_id="gateway0_deviceSerialVitodens300W-heating-1",
-            REDACTED_VALUE"heating",
+            translation_key="heating",
             device_id=device0.id,
         )
         # device without serial data point
@@ -399,7 +399,7 @@ async def test_device_and_entity_migration(
             platform=DOMAIN,
             config_entry=mock_config_entry,
             unique_id="gateway1-0",
-            REDACTED_VALUE"heating",
+            translation_key="heating",
             device_id=device1.id,
         )
         # device is not provided by api
@@ -415,7 +415,7 @@ async def test_device_and_entity_migration(
             platform=DOMAIN,
             config_entry=mock_config_entry,
             unique_id="gateway2-0",
-            REDACTED_VALUE"heating",
+            translation_key="heating",
             device_id=device2.id,
         )
 

@@ -57,7 +57,7 @@ class RensonSensorEntityDescription(SensorEntityDescription):
 SENSORS: tuple[RensonSensorEntityDescription, ...] = (
     RensonSensorEntityDescription(
         key="CO2_QUALITY_FIELD",
-        REDACTED_VALUE"co2_quality_category",
+        translation_key="co2_quality_category",
         field=CO2_QUALITY_FIELD,
         raw_format=False,
         device_class=SensorDeviceClass.ENUM,
@@ -65,7 +65,7 @@ SENSORS: tuple[RensonSensorEntityDescription, ...] = (
     ),
     RensonSensorEntityDescription(
         key="AIR_QUALITY_FIELD",
-        REDACTED_VALUE"air_quality_category",
+        translation_key="air_quality_category",
         field=AIR_QUALITY_FIELD,
         raw_format=False,
         device_class=SensorDeviceClass.ENUM,
@@ -81,7 +81,7 @@ SENSORS: tuple[RensonSensorEntityDescription, ...] = (
     ),
     RensonSensorEntityDescription(
         key="AIR_FIELD",
-        REDACTED_VALUE"air_quality",
+        translation_key="air_quality",
         field=AIR_QUALITY_FIELD,
         state_class=SensorStateClass.MEASUREMENT,
         raw_format=True,
@@ -89,7 +89,7 @@ SENSORS: tuple[RensonSensorEntityDescription, ...] = (
     ),
     RensonSensorEntityDescription(
         key="CURRENT_LEVEL_FIELD",
-        REDACTED_VALUE"ventilation_level",
+        translation_key="ventilation_level",
         field=CURRENT_LEVEL_FIELD,
         raw_format=False,
         device_class=SensorDeviceClass.ENUM,
@@ -97,7 +97,7 @@ SENSORS: tuple[RensonSensorEntityDescription, ...] = (
     ),
     RensonSensorEntityDescription(
         key="CURRENT_AIRFLOW_EXTRACT_FIELD",
-        REDACTED_VALUE"total_airflow_out",
+        translation_key="total_airflow_out",
         field=CURRENT_AIRFLOW_EXTRACT_FIELD,
         raw_format=False,
         state_class=SensorStateClass.MEASUREMENT,
@@ -105,7 +105,7 @@ SENSORS: tuple[RensonSensorEntityDescription, ...] = (
     ),
     RensonSensorEntityDescription(
         key="CURRENT_AIRFLOW_INGOING_FIELD",
-        REDACTED_VALUE"total_airflow_in",
+        translation_key="total_airflow_in",
         field=CURRENT_AIRFLOW_INGOING_FIELD,
         raw_format=False,
         state_class=SensorStateClass.MEASUREMENT,
@@ -113,7 +113,7 @@ SENSORS: tuple[RensonSensorEntityDescription, ...] = (
     ),
     RensonSensorEntityDescription(
         key="OUTDOOR_TEMP_FIELD",
-        REDACTED_VALUE"outdoor_air_temperature",
+        translation_key="outdoor_air_temperature",
         field=OUTDOOR_TEMP_FIELD,
         raw_format=False,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -122,7 +122,7 @@ SENSORS: tuple[RensonSensorEntityDescription, ...] = (
     ),
     RensonSensorEntityDescription(
         key="INDOOR_TEMP_FIELD",
-        REDACTED_VALUE"extract_air_temperature",
+        translation_key="extract_air_temperature",
         field=INDOOR_TEMP_FIELD,
         raw_format=False,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -131,7 +131,7 @@ SENSORS: tuple[RensonSensorEntityDescription, ...] = (
     ),
     RensonSensorEntityDescription(
         key="FILTER_REMAIN_FIELD",
-        REDACTED_VALUE"filter_change",
+        translation_key="filter_change",
         field=FILTER_REMAIN_FIELD,
         raw_format=False,
         device_class=SensorDeviceClass.DURATION,
@@ -148,7 +148,7 @@ SENSORS: tuple[RensonSensorEntityDescription, ...] = (
     ),
     RensonSensorEntityDescription(
         key="MANUAL_LEVEL_FIELD",
-        REDACTED_VALUE"manual_level",
+        translation_key="manual_level",
         field=MANUAL_LEVEL_FIELD,
         raw_format=False,
         device_class=SensorDeviceClass.ENUM,
@@ -156,7 +156,7 @@ SENSORS: tuple[RensonSensorEntityDescription, ...] = (
     ),
     RensonSensorEntityDescription(
         key="BREEZE_TEMPERATURE_FIELD",
-        REDACTED_VALUE"breeze_temperature",
+        translation_key="breeze_temperature",
         field=BREEZE_TEMPERATURE_FIELD,
         raw_format=False,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -164,7 +164,7 @@ SENSORS: tuple[RensonSensorEntityDescription, ...] = (
     ),
     RensonSensorEntityDescription(
         key="BREEZE_LEVEL_FIELD",
-        REDACTED_VALUE"breeze_level",
+        translation_key="breeze_level",
         field=BREEZE_LEVEL_FIELD,
         raw_format=False,
         device_class=SensorDeviceClass.ENUM,
@@ -172,7 +172,7 @@ SENSORS: tuple[RensonSensorEntityDescription, ...] = (
     ),
     RensonSensorEntityDescription(
         key="DAY_POLLUTION_FIELD",
-        REDACTED_VALUE"day_pollution_level",
+        translation_key="day_pollution_level",
         field=DAY_POLLUTION_FIELD,
         raw_format=False,
         entity_registry_enabled_default=False,
@@ -181,7 +181,7 @@ SENSORS: tuple[RensonSensorEntityDescription, ...] = (
     ),
     RensonSensorEntityDescription(
         key="NIGHT_POLLUTION_FIELD",
-        REDACTED_VALUE"co2_quality_category",
+        translation_key="co2_quality_category",
         field=NIGHT_POLLUTION_FIELD,
         raw_format=False,
         entity_registry_enabled_default=False,
@@ -190,7 +190,7 @@ SENSORS: tuple[RensonSensorEntityDescription, ...] = (
     ),
     RensonSensorEntityDescription(
         key="CO2_THRESHOLD_FIELD",
-        REDACTED_VALUE"co2_threshold",
+        translation_key="co2_threshold",
         field=CO2_THRESHOLD_FIELD,
         raw_format=False,
         native_unit_of_measurement=CONCENTRATION_PARTS_PER_MILLION,
@@ -198,7 +198,7 @@ SENSORS: tuple[RensonSensorEntityDescription, ...] = (
     ),
     RensonSensorEntityDescription(
         key="CO2_HYSTERESIS_FIELD",
-        REDACTED_VALUE"co2_hysteresis",
+        translation_key="co2_hysteresis",
         field=CO2_HYSTERESIS_FIELD,
         raw_format=False,
         native_unit_of_measurement=CONCENTRATION_PARTS_PER_MILLION,
@@ -206,7 +206,7 @@ SENSORS: tuple[RensonSensorEntityDescription, ...] = (
     ),
     RensonSensorEntityDescription(
         key="BYPASS_TEMPERATURE_FIELD",
-        REDACTED_VALUE"bypass_activation_temperature",
+        translation_key="bypass_activation_temperature",
         field=BYPASS_TEMPERATURE_FIELD,
         raw_format=False,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -215,7 +215,7 @@ SENSORS: tuple[RensonSensorEntityDescription, ...] = (
     ),
     RensonSensorEntityDescription(
         key="BYPASS_LEVEL_FIELD",
-        REDACTED_VALUE"bypass_level",
+        translation_key="bypass_level",
         field=BYPASS_LEVEL_FIELD,
         raw_format=False,
         device_class=SensorDeviceClass.POWER_FACTOR,

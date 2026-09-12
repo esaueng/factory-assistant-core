@@ -89,17 +89,17 @@ class BringDataUpdateCoordinator(BringBaseCoordinator[dict[str, BringData]]):
         except BringRequestException as e:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"setup_request_exception",
+                translation_key="setup_request_exception",
             ) from e
         except BringParseException as e:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"setup_parse_exception",
+                translation_key="setup_parse_exception",
             ) from e
         except BringAuthException as e:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"setup_authentication_exception",
+                translation_key="setup_authentication_exception",
                 translation_placeholders={CONF_EMAIL: self.bring.mail},
             ) from e
 
@@ -123,12 +123,12 @@ class BringDataUpdateCoordinator(BringBaseCoordinator[dict[str, BringData]]):
             except BringRequestException as e:
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"setup_request_exception",
+                    translation_key="setup_request_exception",
                 ) from e
             except BringParseException as e:
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"setup_parse_exception",
+                    translation_key="setup_parse_exception",
                 ) from e
             else:
                 list_dict[lst.listUuid] = BringData(lst, items)
@@ -145,17 +145,17 @@ class BringDataUpdateCoordinator(BringBaseCoordinator[dict[str, BringData]]):
         except BringRequestException as e:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"setup_request_exception",
+                translation_key="setup_request_exception",
             ) from e
         except BringParseException as e:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"setup_parse_exception",
+                translation_key="setup_parse_exception",
             ) from e
         except BringAuthException as e:
             raise ConfigEntryAuthFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"setup_authentication_exception",
+                translation_key="setup_authentication_exception",
                 translation_placeholders={CONF_EMAIL: self.bring.mail},
             ) from e
         self._purge_deleted_lists()
@@ -217,18 +217,18 @@ class BringActivityCoordinator(BringBaseCoordinator[dict[str, BringActivityData]
             except BringAuthException as e:
                 raise ConfigEntryAuthFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"setup_authentication_exception",
+                    translation_key="setup_authentication_exception",
                     translation_placeholders={CONF_EMAIL: self.coordinator.bring.mail},
                 ) from e
             except BringRequestException as e:
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"setup_request_exception",
+                    translation_key="setup_request_exception",
                 ) from e
             except BringParseException as e:
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"setup_parse_exception",
+                    translation_key="setup_parse_exception",
                 ) from e
             else:
                 list_dict[lst.listUuid] = BringActivityData(activity, users)

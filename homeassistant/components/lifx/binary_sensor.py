@@ -16,7 +16,7 @@ from .util import lifx_features
 
 HEV_CYCLE_STATE_SENSOR = BinarySensorEntityDescription(
     key=HEV_CYCLE_STATE,
-    REDACTED_VALUE"clean_cycle",
+    translation_key="clean_cycle",
     entity_category=EntityCategory.DIAGNOSTIC,
     device_class=BinarySensorDeviceClass.RUNNING,
 )

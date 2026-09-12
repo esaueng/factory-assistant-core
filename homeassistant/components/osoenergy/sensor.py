@@ -36,7 +36,7 @@ class OSOEnergySensorEntityDescription(SensorEntityDescription):
 SENSOR_TYPES: dict[str, OSOEnergySensorEntityDescription] = {
     "heater_mode": OSOEnergySensorEntityDescription(
         key="heater_mode",
-        REDACTED_VALUE"heater_mode",
+        translation_key="heater_mode",
         device_class=SensorDeviceClass.ENUM,
         options=[
             "auto",
@@ -52,7 +52,7 @@ SENSOR_TYPES: dict[str, OSOEnergySensorEntityDescription] = {
     ),
     "optimization_mode": OSOEnergySensorEntityDescription(
         key="optimization_mode",
-        REDACTED_VALUE"optimization_mode",
+        translation_key="optimization_mode",
         device_class=SensorDeviceClass.ENUM,
         options=["off", "oso", "gridcompany", "smartcompany", "advanced", "nettleie"],
         value_fn=lambda entity_data: entity_data.state.lower(),
@@ -66,35 +66,35 @@ SENSOR_TYPES: dict[str, OSOEnergySensorEntityDescription] = {
     ),
     "tapping_capacity": OSOEnergySensorEntityDescription(
         key="tapping_capacity",
-        REDACTED_VALUE"tapping_capacity",
+        translation_key="tapping_capacity",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         value_fn=lambda entity_data: entity_data.state,
     ),
-    "REDACTED_VALUE": OSOEnergySensorEntityDescription(
-        key="REDACTED_VALUE",
-        REDACTED_VALUE"REDACTED_VALUE",
+    "capacity_mixed_water_40": OSOEnergySensorEntityDescription(
+        key="capacity_mixed_water_40",
+        translation_key="capacity_mixed_water_40",
         device_class=SensorDeviceClass.VOLUME,
         native_unit_of_measurement=UnitOfVolume.LITERS,
         value_fn=lambda entity_data: entity_data.state,
     ),
     "v40_min": OSOEnergySensorEntityDescription(
         key="v40_min",
-        REDACTED_VALUE"v40_min",
+        translation_key="v40_min",
         device_class=SensorDeviceClass.VOLUME,
         native_unit_of_measurement=UnitOfVolume.LITERS,
         value_fn=lambda entity_data: entity_data.state,
     ),
     "v40_level_min": OSOEnergySensorEntityDescription(
         key="v40_level_min",
-        REDACTED_VALUE"v40_level_min",
+        translation_key="v40_level_min",
         device_class=SensorDeviceClass.VOLUME,
         native_unit_of_measurement=UnitOfVolume.LITERS,
         value_fn=lambda entity_data: entity_data.state,
     ),
     "v40_level_max": OSOEnergySensorEntityDescription(
         key="v40_level_max",
-        REDACTED_VALUE"v40_level_max",
+        translation_key="v40_level_max",
         device_class=SensorDeviceClass.VOLUME,
         native_unit_of_measurement=UnitOfVolume.LITERS,
         value_fn=lambda entity_data: entity_data.state,
@@ -107,28 +107,28 @@ SENSOR_TYPES: dict[str, OSOEnergySensorEntityDescription] = {
     ),
     "temperature_top": OSOEnergySensorEntityDescription(
         key="temperature_top",
-        REDACTED_VALUE"temperature_top",
+        translation_key="temperature_top",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda entity_data: entity_data.state,
     ),
     "temperature_mid": OSOEnergySensorEntityDescription(
         key="temperature_mid",
-        REDACTED_VALUE"temperature_mid",
+        translation_key="temperature_mid",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda entity_data: entity_data.state,
     ),
     "temperature_low": OSOEnergySensorEntityDescription(
         key="temperature_low",
-        REDACTED_VALUE"temperature_low",
+        translation_key="temperature_low",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda entity_data: entity_data.state,
     ),
     "temperature_one": OSOEnergySensorEntityDescription(
         key="temperature_one",
-        REDACTED_VALUE"temperature_one",
+        translation_key="temperature_one",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         value_fn=lambda entity_data: entity_data.state,

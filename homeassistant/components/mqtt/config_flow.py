@@ -536,7 +536,7 @@ BROKER_VERIFICATION_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=CA_VERIFICATION_MODES,
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUESET_CA_CERT,
+        translation_key=SET_CA_CERT,
     )
 )
 # mime configuration from https://pki-tutorial.readthedocs.io/en/latest/mime.html
@@ -587,7 +587,7 @@ ENTITY_CATEGORY_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=[category.value for category in EntityCategory],
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUECONF_ENTITY_CATEGORY,
+        translation_key=CONF_ENTITY_CATEGORY,
         sort=True,
     )
 )
@@ -607,7 +607,7 @@ SUBENTRY_PLATFORM_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=[platform.value for platform in SUBENTRY_PLATFORMS],
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUECONF_PLATFORM,
+        translation_key=CONF_PLATFORM,
     )
 )
 SUGGESTED_DISPLAY_PRECISION_SELECTOR = NumberSelector(
@@ -622,20 +622,20 @@ ALARM_CONTROL_PANEL_FEATURES_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=list(ALARM_CONTROL_PANEL_SUPPORTED_FEATURES),
         multiple=True,
-        REDACTED_VALUE"alarm_control_panel_features",
+        translation_key="alarm_control_panel_features",
     )
 )
 ALARM_CONTROL_PANEL_CODE_MODE = SelectSelector(
     SelectSelectorConfig(
         options=["local_code", "remote_code", "remote_code_text"],
-        REDACTED_VALUE"alarm_control_panel_code_mode",
+        translation_key="alarm_control_panel_code_mode",
     )
 )
 BINARY_SENSOR_DEVICE_CLASS_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=[device_class.value for device_class in BinarySensorDeviceClass],
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUE"device_class_binary_sensor",
+        translation_key="device_class_binary_sensor",
         sort=True,
     )
 )
@@ -643,7 +643,7 @@ BUTTON_DEVICE_CLASS_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=[device_class.value for device_class in ButtonDeviceClass],
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUE"device_class_button",
+        translation_key="device_class_button",
         sort=True,
     )
 )
@@ -651,14 +651,14 @@ CLIMATE_MODE_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=["auto", "off", "cool", "heat", "dry", "fan_only"],
         multiple=True,
-        REDACTED_VALUE"climate_modes",
+        translation_key="climate_modes",
     )
 )
 COVER_DEVICE_CLASS_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=[device_class.value for device_class in CoverDeviceClass],
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUE"device_class_cover",
+        translation_key="device_class_cover",
         sort=True,
     )
 )
@@ -709,14 +709,14 @@ IMAGE_CONTENT_TYPE_SELECTOR = SelectSelector(
 IMAGE_ENCODING_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=["raw", "b64"],
-        REDACTED_VALUE"image_encoding",
+        translation_key="image_encoding",
         mode=SelectSelectorMode.DROPDOWN,
     )
 )
 IMAGE_PROCESSING_MODE_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=["image_url", "image_data"],
-        REDACTED_VALUE"image_processing_mode",
+        translation_key="image_processing_mode",
     )
 )
 KELVIN_SELECTOR = NumberSelector(
@@ -731,7 +731,7 @@ KELVIN_SELECTOR = NumberSelector(
 LIGHT_SCHEMA_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=["basic", "json", "template"],
-        REDACTED_VALUE"light_schema",
+        translation_key="light_schema",
     )
 )
 MIN_MAX_SELECTOR = NumberSelector(NumberSelectorConfig(step=1e-3))
@@ -740,7 +740,7 @@ NUMBER_DEVICE_CLASS_SELECTOR = SelectSelector(
         options=[device_class.value for device_class in NumberDeviceClass],
         mode=SelectSelectorMode.DROPDOWN,
         # The number device classes are all shared with the sensor device classes
-        REDACTED_VALUE"device_class_sensor",
+        translation_key="device_class_sensor",
         sort=True,
     )
 )
@@ -748,7 +748,7 @@ NUMBER_MODE_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=[mode.value for mode in NumberMode],
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUE"number_mode",
+        translation_key="number_mode",
         sort=True,
     )
 )
@@ -756,7 +756,7 @@ ON_COMMAND_TYPE_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=VALUES_ON_COMMAND_TYPE,
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUECONF_ON_COMMAND_TYPE,
+        translation_key=CONF_ON_COMMAND_TYPE,
         sort=True,
     )
 )
@@ -780,7 +780,7 @@ SENSOR_DEVICE_CLASS_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=[device_class.value for device_class in SensorDeviceClass],
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUE"device_class_sensor",
+        translation_key="device_class_sensor",
         sort=True,
     )
 )
@@ -788,7 +788,7 @@ SENSOR_ENTITY_CATEGORY_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=[EntityCategory.DIAGNOSTIC.value],
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUECONF_ENTITY_CATEGORY,
+        translation_key=CONF_ENTITY_CATEGORY,
         sort=True,
     )
 )
@@ -796,7 +796,7 @@ SENSOR_STATE_CLASS_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=[device_class.value for device_class in SensorStateClass],
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUECONF_STATE_CLASS,
+        translation_key=CONF_STATE_CLASS,
     )
 )
 STEP_SELECTOR = NumberSelector(NumberSelectorConfig(min=1e-3, step=1e-3))
@@ -804,7 +804,7 @@ SUPPORTED_COLOR_MODES_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=[platform.value for platform in VALID_COLOR_MODES],
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUECONF_SUPPORTED_COLOR_MODES,
+        translation_key=CONF_SUPPORTED_COLOR_MODES,
         multiple=True,
         sort=True,
     )
@@ -813,14 +813,14 @@ SWITCH_DEVICE_CLASS_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=[device_class.value for device_class in SwitchDeviceClass],
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUE"device_class_switch",
+        translation_key="device_class_switch",
     )
 )
 TARGET_TEMPERATURE_FEATURE_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=["single", "high_low", "none"],
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUE"target_temperature_feature",
+        translation_key="target_temperature_feature",
     )
 )
 TEMPERATURE_UNIT_SELECTOR = SelectSelector(
@@ -836,7 +836,7 @@ TEXT_MODE_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=[TextSelectorType.TEXT.value, TextSelectorType.PASSWORD.value],
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUE"text_mode",
+        translation_key="text_mode",
     )
 )
 TEXT_SIZE_SELECTOR = NumberSelector(
@@ -846,7 +846,7 @@ VALVE_DEVICE_CLASS_SELECTOR = SelectSelector(
     SelectSelectorConfig(
         options=[device_class.value for device_class in ValveDeviceClass],
         mode=SelectSelectorMode.DROPDOWN,
-        REDACTED_VALUE"device_class_valve",
+        translation_key="device_class_valve",
     )
 )
 VALVE_POSITION_SELECTOR = NumberSelector(
@@ -864,7 +864,7 @@ WATER_HEATER_MODE_SELECTOR = SelectSelector(
             "performance",
         ],
         multiple=True,
-        REDACTED_VALUE"water_heater_modes",
+        translation_key="water_heater_modes",
     )
 )
 
@@ -4205,7 +4205,7 @@ class FlowHandler(ConfigFlow, domain=DOMAIN):
         else:
             raise AddonError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"addon_start_failed",
+                translation_key="addon_start_failed",
                 translation_placeholders={"addon": addon_manager.addon_name},
             )
 

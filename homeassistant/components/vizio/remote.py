@@ -62,7 +62,7 @@ class VizioRemote(CoordinatorEntity[VizioDeviceCoordinator], RemoteEntity):
             return resolved
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unknown_command",
+            translation_key="unknown_command",
             translation_placeholders={"command": command},
         )
 

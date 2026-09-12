@@ -36,7 +36,7 @@ class ZinvoltBatteryStateDescription(BinarySensorEntityDescription):
 SENSORS: tuple[ZinvoltBatteryStateDescription, ...] = (
     ZinvoltBatteryStateDescription(
         key="on_grid",
-        REDACTED_VALUE"on_grid",
+        translation_key="on_grid",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         is_on_fn=lambda state: state.battery.current_power.on_grid,

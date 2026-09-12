@@ -75,7 +75,7 @@ def in_game(person: Person) -> bool:
 SENSOR_DESCRIPTIONS: tuple[XboxBinarySensorEntityDescription, ...] = (
     XboxBinarySensorEntityDescription(
         key=XboxBinarySensor.ONLINE,
-        REDACTED_VALUEXboxBinarySensor.ONLINE,
+        translation_key=XboxBinarySensor.ONLINE,
         is_on_fn=lambda x: x.presence_state == "Online",
         name=None,
         entity_picture_fn=profile_pic,
@@ -88,7 +88,7 @@ SENSOR_DESCRIPTIONS: tuple[XboxBinarySensorEntityDescription, ...] = (
     ),
     XboxBinarySensorEntityDescription(
         key=XboxBinarySensor.IN_GAME,
-        REDACTED_VALUEXboxBinarySensor.IN_GAME,
+        translation_key=XboxBinarySensor.IN_GAME,
         is_on_fn=in_game,
     ),
     XboxBinarySensorEntityDescription(
@@ -98,7 +98,7 @@ SENSOR_DESCRIPTIONS: tuple[XboxBinarySensorEntityDescription, ...] = (
     ),
     XboxBinarySensorEntityDescription(
         key=XboxBinarySensor.HAS_GAME_PASS,
-        REDACTED_VALUEXboxBinarySensor.HAS_GAME_PASS,
+        translation_key=XboxBinarySensor.HAS_GAME_PASS,
         is_on_fn=lambda x: x.detail.has_game_pass if x.detail else None,
     ),
 )

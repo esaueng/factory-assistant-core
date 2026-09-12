@@ -185,7 +185,7 @@ class VictronBLESensorEntityDescription(SensorEntityDescription):
 SENSOR_DESCRIPTIONS = {
     Keys.AC_IN_POWER: VictronBLESensorEntityDescription(
         key=Keys.AC_IN_POWER,
-        REDACTED_VALUEKeys.AC_IN_POWER,
+        translation_key=Keys.AC_IN_POWER,
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -193,12 +193,12 @@ SENSOR_DESCRIPTIONS = {
     Keys.AC_IN_STATE: VictronBLESensorEntityDescription(
         key=Keys.AC_IN_STATE,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUE"ac_in_state",
+        translation_key="ac_in_state",
         options=AC_IN_OPTIONS,
     ),
     Keys.AC_OUT_POWER: VictronBLESensorEntityDescription(
         key=Keys.AC_OUT_POWER,
-        REDACTED_VALUEKeys.AC_OUT_POWER,
+        translation_key=Keys.AC_OUT_POWER,
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -206,38 +206,38 @@ SENSOR_DESCRIPTIONS = {
     Keys.AC_OUT_STATE: VictronBLESensorEntityDescription(
         key=Keys.AC_OUT_STATE,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUE"device_state",
+        translation_key="device_state",
         options=DEVICE_STATE_OPTIONS,
     ),
     Keys.ALARM: VictronBLESensorEntityDescription(
         key=Keys.ALARM,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUE"alarm",
+        translation_key="alarm",
         options=ALARM_OPTIONS,
     ),
     Keys.BALANCER_STATUS: VictronBLESensorEntityDescription(
         key=Keys.BALANCER_STATUS,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUE"balancer_status",
+        translation_key="balancer_status",
         options=["balanced", "balancing", "imbalance"],
     ),
     Keys.BATTERY_CURRENT: VictronBLESensorEntityDescription(
         key=Keys.BATTERY_CURRENT,
-        REDACTED_VALUEKeys.BATTERY_CURRENT,
+        translation_key=Keys.BATTERY_CURRENT,
         device_class=SensorDeviceClass.CURRENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     Keys.BATTERY_TEMPERATURE: VictronBLESensorEntityDescription(
         key=Keys.BATTERY_TEMPERATURE,
-        REDACTED_VALUEKeys.BATTERY_TEMPERATURE,
+        translation_key=Keys.BATTERY_TEMPERATURE,
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     Keys.BATTERY_VOLTAGE: VictronBLESensorEntityDescription(
         key=Keys.BATTERY_VOLTAGE,
-        REDACTED_VALUEKeys.BATTERY_VOLTAGE,
+        translation_key=Keys.BATTERY_VOLTAGE,
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -245,18 +245,18 @@ SENSOR_DESCRIPTIONS = {
     Keys.CHARGE_STATE: VictronBLESensorEntityDescription(
         key=Keys.CHARGE_STATE,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUE"charge_state",
+        translation_key="charge_state",
         options=DEVICE_STATE_OPTIONS,
     ),
     Keys.CHARGER_ERROR: VictronBLESensorEntityDescription(
         key=Keys.CHARGER_ERROR,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUE"charger_error",
+        translation_key="charger_error",
         options=CHARGER_ERROR_OPTIONS,
     ),
     Keys.CONSUMED_AMPERE_HOURS: VictronBLESensorEntityDescription(
         key=Keys.CONSUMED_AMPERE_HOURS,
-        REDACTED_VALUEKeys.CONSUMED_AMPERE_HOURS,
+        translation_key=Keys.CONSUMED_AMPERE_HOURS,
         native_unit_of_measurement=Units.ELECTRIC_CURRENT_FLOW_AMPERE_HOUR,
         state_class=SensorStateClass.MEASUREMENT,
     ),
@@ -269,25 +269,25 @@ SENSOR_DESCRIPTIONS = {
     Keys.DEVICE_STATE: VictronBLESensorEntityDescription(
         key=Keys.DEVICE_STATE,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUE"device_state",
+        translation_key="device_state",
         options=DEVICE_STATE_OPTIONS,
     ),
     Keys.ERROR_CODE: VictronBLESensorEntityDescription(
         key=Keys.ERROR_CODE,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUE"charger_error",
+        translation_key="charger_error",
         options=CHARGER_ERROR_OPTIONS,
     ),
     Keys.EXTERNAL_DEVICE_LOAD: VictronBLESensorEntityDescription(
         key=Keys.EXTERNAL_DEVICE_LOAD,
-        REDACTED_VALUEKeys.EXTERNAL_DEVICE_LOAD,
+        translation_key=Keys.EXTERNAL_DEVICE_LOAD,
         device_class=SensorDeviceClass.CURRENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     Keys.INPUT_VOLTAGE: VictronBLESensorEntityDescription(
         key=Keys.INPUT_VOLTAGE,
-        REDACTED_VALUEKeys.INPUT_VOLTAGE,
+        translation_key=Keys.INPUT_VOLTAGE,
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -295,7 +295,7 @@ SENSOR_DESCRIPTIONS = {
     Keys.METER_TYPE: VictronBLESensorEntityDescription(
         key=Keys.METER_TYPE,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUE"meter_type",
+        translation_key="meter_type",
         options=[
             "solar_charger",
             "wind_charger",
@@ -318,7 +318,7 @@ SENSOR_DESCRIPTIONS = {
     ),
     Keys.MIDPOINT_VOLTAGE: VictronBLESensorEntityDescription(
         key=Keys.MIDPOINT_VOLTAGE,
-        REDACTED_VALUEKeys.MIDPOINT_VOLTAGE,
+        translation_key=Keys.MIDPOINT_VOLTAGE,
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -326,7 +326,7 @@ SENSOR_DESCRIPTIONS = {
     Keys.OFF_REASON: VictronBLESensorEntityDescription(
         key=Keys.OFF_REASON,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUE"off_reason",
+        translation_key="off_reason",
         options=[
             "no_reason",
             "no_input_power",
@@ -343,14 +343,14 @@ SENSOR_DESCRIPTIONS = {
     ),
     Keys.OUTPUT_VOLTAGE: VictronBLESensorEntityDescription(
         key=Keys.OUTPUT_VOLTAGE,
-        REDACTED_VALUEKeys.OUTPUT_VOLTAGE,
+        translation_key=Keys.OUTPUT_VOLTAGE,
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     Keys.REMAINING_MINUTES: VictronBLESensorEntityDescription(
         key=Keys.REMAINING_MINUTES,
-        REDACTED_VALUEKeys.REMAINING_MINUTES,
+        translation_key=Keys.REMAINING_MINUTES,
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.MINUTES,
         state_class=SensorStateClass.MEASUREMENT,
@@ -363,7 +363,7 @@ SENSOR_DESCRIPTIONS = {
     ),
     Keys.SOLAR_POWER: VictronBLESensorEntityDescription(
         key=Keys.SOLAR_POWER,
-        REDACTED_VALUEKeys.SOLAR_POWER,
+        translation_key=Keys.SOLAR_POWER,
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -395,26 +395,26 @@ SENSOR_DESCRIPTIONS = {
     Keys.WARNING: VictronBLESensorEntityDescription(
         key=Keys.WARNING,
         device_class=SensorDeviceClass.ENUM,
-        REDACTED_VALUE"warning",
+        translation_key="warning",
         options=ALARM_OPTIONS,
     ),
     Keys.YIELD_TODAY: VictronBLESensorEntityDescription(
         key=Keys.YIELD_TODAY,
-        REDACTED_VALUEKeys.YIELD_TODAY,
+        translation_key=Keys.YIELD_TODAY,
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     Keys.AC_CURRENT: VictronBLESensorEntityDescription(
         key=Keys.AC_CURRENT,
-        REDACTED_VALUEKeys.AC_CURRENT,
+        translation_key=Keys.AC_CURRENT,
         device_class=SensorDeviceClass.CURRENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     Keys.OUTPUT_VOLTAGE_1: VictronBLESensorEntityDescription(
         key=Keys.OUTPUT_VOLTAGE_1,
-        REDACTED_VALUE"output_phase_voltage",
+        translation_key="output_phase_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -422,7 +422,7 @@ SENSOR_DESCRIPTIONS = {
     ),
     Keys.OUTPUT_CURRENT_1: VictronBLESensorEntityDescription(
         key=Keys.OUTPUT_CURRENT_1,
-        REDACTED_VALUE"output_phase_current",
+        translation_key="output_phase_current",
         device_class=SensorDeviceClass.CURRENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -430,7 +430,7 @@ SENSOR_DESCRIPTIONS = {
     ),
     Keys.OUTPUT_VOLTAGE_2: VictronBLESensorEntityDescription(
         key=Keys.OUTPUT_VOLTAGE_2,
-        REDACTED_VALUE"output_phase_voltage",
+        translation_key="output_phase_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -438,7 +438,7 @@ SENSOR_DESCRIPTIONS = {
     ),
     Keys.OUTPUT_CURRENT_2: VictronBLESensorEntityDescription(
         key=Keys.OUTPUT_CURRENT_2,
-        REDACTED_VALUE"output_phase_current",
+        translation_key="output_phase_current",
         device_class=SensorDeviceClass.CURRENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -446,7 +446,7 @@ SENSOR_DESCRIPTIONS = {
     ),
     Keys.OUTPUT_VOLTAGE_3: VictronBLESensorEntityDescription(
         key=Keys.OUTPUT_VOLTAGE_3,
-        REDACTED_VALUE"output_phase_voltage",
+        translation_key="output_phase_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -454,7 +454,7 @@ SENSOR_DESCRIPTIONS = {
     ),
     Keys.OUTPUT_CURRENT_3: VictronBLESensorEntityDescription(
         key=Keys.OUTPUT_CURRENT_3,
-        REDACTED_VALUE"output_phase_current",
+        translation_key="output_phase_current",
         device_class=SensorDeviceClass.CURRENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -466,7 +466,7 @@ for i in range(1, 9):
     cell_key = getattr(Keys, f"CELL_{i}_VOLTAGE")
     SENSOR_DESCRIPTIONS[cell_key] = VictronBLESensorEntityDescription(
         key=cell_key,
-        REDACTED_VALUE"cell_voltage",
+        translation_key="cell_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         state_class=SensorStateClass.MEASUREMENT,

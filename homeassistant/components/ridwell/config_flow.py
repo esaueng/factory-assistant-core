@@ -39,7 +39,7 @@ OPTIONS_SCHEMA = vol.Schema(
                 options=CALENDAR_TITLE_OPTIONS,
                 multiple=False,
                 mode=selector.SelectSelectorMode.LIST,
-                REDACTED_VALUECONF_CALENDAR_TITLE,
+                translation_key=CONF_CALENDAR_TITLE,
             ),
         )
     }

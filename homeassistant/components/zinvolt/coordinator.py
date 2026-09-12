@@ -65,7 +65,7 @@ class ZinvoltDeviceCoordinator(DataUpdateCoordinator[ZinvoltData]):
             units = await self.client.get_units(self.battery.identifier)
         except ZinvoltError as err:
             raise UpdateFailed(
-                REDACTED_VALUE"update_failed", translation_domain=DOMAIN
+                translation_key="update_failed", translation_domain=DOMAIN
             ) from err
         self.battery_units = {
             unit.serial_number: unit for unit in units if unit.type is UnitType.BATTERY
@@ -85,7 +85,7 @@ class ZinvoltDeviceCoordinator(DataUpdateCoordinator[ZinvoltData]):
             }
         except ZinvoltError as err:
             raise UpdateFailed(
-                REDACTED_VALUE"update_failed",
+                translation_key="update_failed",
                 translation_domain=DOMAIN,
             ) from err
         return ZinvoltData(

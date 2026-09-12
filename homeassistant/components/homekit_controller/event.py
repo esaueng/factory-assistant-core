@@ -103,7 +103,7 @@ async def async_setup_entry(
                     EventEntityDescription(
                         key=f"{service.accessory.aid}_{service.iid}",
                         device_class=EventDeviceClass.DOORBELL,
-                        REDACTED_VALUE"doorbell",
+                        translation_key="doorbell",
                     ),
                 )
             )
@@ -127,7 +127,7 @@ async def async_setup_entry(
                     EventEntityDescription(
                         key=f"{service.accessory.aid}_{service.iid}",
                         device_class=EventDeviceClass.BUTTON,
-                        REDACTED_VALUE"button",
+                        translation_key="button",
                     ),
                 )
                 for switch in switches
@@ -144,7 +144,7 @@ async def async_setup_entry(
                         EventEntityDescription(
                             key=f"{service.accessory.aid}_{service.iid}",
                             device_class=EventDeviceClass.BUTTON,
-                            REDACTED_VALUE"button",
+                            translation_key="button",
                         ),
                     )
                 )

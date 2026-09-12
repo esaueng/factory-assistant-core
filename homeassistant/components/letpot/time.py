@@ -32,7 +32,7 @@ class LetPotTimeEntityDescription[_DataT: LetPotDeviceStatus](TimeEntityDescript
 TIME_SENSORS: tuple[LetPotTimeEntityDescription[LetPotGardenStatus], ...] = (
     LetPotTimeEntityDescription[LetPotGardenStatus](
         key="light_schedule_end",
-        REDACTED_VALUE"light_schedule_end",
+        translation_key="light_schedule_end",
         value_fn=lambda status: None if status is None else status.light_schedule_end,
         set_value_fn=(
             lambda device_client, serial, value: device_client.set_light_schedule(
@@ -43,7 +43,7 @@ TIME_SENSORS: tuple[LetPotTimeEntityDescription[LetPotGardenStatus], ...] = (
     ),
     LetPotTimeEntityDescription[LetPotGardenStatus](
         key="light_schedule_start",
-        REDACTED_VALUE"light_schedule_start",
+        translation_key="light_schedule_start",
         value_fn=lambda status: None if status is None else status.light_schedule_start,
         set_value_fn=(
             lambda device_client, serial, value: device_client.set_light_schedule(

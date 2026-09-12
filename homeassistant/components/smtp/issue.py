@@ -24,7 +24,7 @@ def async_deprecate_yaml_issue(
             issue_domain=DOMAIN,
             breaks_in_ha_version="2027.1.0",
             severity=IssueSeverity.WARNING,
-            REDACTED_VALUE"deprecated_yaml",
+            translation_key="deprecated_yaml",
             translation_placeholders={
                 "domain": DOMAIN,
                 "integration_title": "SMTP",
@@ -41,7 +41,7 @@ def async_deprecate_yaml_issue(
             breaks_in_ha_version="2027.1.0",
             is_fixable=False,
             severity=IssueSeverity.WARNING,
-            REDACTED_VALUE"deprecated_yaml_import_issue_error",
+            translation_key="deprecated_yaml_import_issue_error",
             translation_placeholders={
                 "url": f"/config/integrations/dashboard/add?domain={DOMAIN}",
                 "config": yaml_util.dump(config),

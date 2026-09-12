@@ -182,7 +182,7 @@ class EcovacsLegacyVacuum(EcovacsLegacyEntity, StateVacuumEntity):
         """Get bot and chargers positions."""
         raise ServiceValidationError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"vacuum_raw_get_positions_not_supported",
+            translation_key="vacuum_raw_get_positions_not_supported",
         )
 
 
@@ -217,7 +217,7 @@ class EcovacsVacuum(
     )
 
     entity_description = StateVacuumEntityDescription(
-        key="vacuum", REDACTED_VALUE"vacuum", name=None
+        key="vacuum", translation_key="vacuum", name=None
     )
 
     def __init__(self, device: Device) -> None:
@@ -340,14 +340,14 @@ class EcovacsVacuum(
         elif isinstance(params, list):
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"vacuum_send_command_params_dict",
+                translation_key="vacuum_send_command_params_dict",
             )
 
         if command in ["spot_area", "custom_area"]:
             if params is None:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"vacuum_send_command_params_required",
+                    translation_key="vacuum_send_command_params_required",
                     translation_placeholders={"command": command},
                 )
             if self._capability.clean.action.area is None:
@@ -355,7 +355,7 @@ class EcovacsVacuum(
                 name = info.get("nick", info["name"])
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"vacuum_send_command_not_supported",
+                    translation_key="vacuum_send_command_not_supported",
                     translation_placeholders={"command": command, "name": name},
                 )
 
@@ -391,7 +391,7 @@ class EcovacsVacuum(
         ):
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"vacuum_raw_get_positions_not_supported",
+                translation_key="vacuum_raw_get_positions_not_supported",
             )
 
         return await self._device.execute_command(position_commands[0])

@@ -141,7 +141,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     # INFO - General
     NRGkickSensorEntityDescription(
         key="rated_current",
-        REDACTED_VALUE"rated_current",
+        translation_key="rated_current",
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
@@ -153,14 +153,14 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     # INFO - Connector
     NRGkickSensorEntityDescription(
         key="connector_phase_count",
-        REDACTED_VALUE"connector_phase_count",
+        translation_key="connector_phase_count",
         value_fn=lambda data: get_nested_dict_value(
             data.info, "connector", "phase_count"
         ),
     ),
     NRGkickSensorEntityDescription(
         key="connector_max_current",
-        REDACTED_VALUE"connector_max_current",
+        translation_key="connector_max_current",
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
@@ -171,7 +171,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="connector_type",
-        REDACTED_VALUE"connector_type",
+        translation_key="connector_type",
         device_class=SensorDeviceClass.ENUM,
         options=_enum_options_from_mapping(CONNECTOR_TYPE_MAP),
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -182,7 +182,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="connector_serial",
-        REDACTED_VALUE"connector_serial",
+        translation_key="connector_serial",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda data: get_nested_dict_value(data.info, "connector", "serial"),
@@ -190,7 +190,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     # INFO - Grid
     NRGkickSensorEntityDescription(
         key="grid_voltage",
-        REDACTED_VALUE"grid_voltage",
+        translation_key="grid_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
@@ -199,7 +199,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="grid_frequency",
-        REDACTED_VALUE"grid_frequency",
+        translation_key="grid_frequency",
         device_class=SensorDeviceClass.FREQUENCY,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfFrequency.HERTZ,
@@ -209,14 +209,14 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     # INFO - Network
     NRGkickSensorEntityDescription(
         key="network_ssid",
-        REDACTED_VALUE"network_ssid",
+        translation_key="network_ssid",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda data: get_nested_dict_value(data.info, "network", "ssid"),
     ),
     NRGkickSensorEntityDescription(
         key="network_rssi",
-        REDACTED_VALUE"network_rssi",
+        translation_key="network_rssi",
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
@@ -226,7 +226,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     # INFO - Cellular (optional, only if cellular module is available)
     NRGkickSensorEntityDescription(
         key="cellular_mode",
-        REDACTED_VALUE"cellular_mode",
+        translation_key="cellular_mode",
         device_class=SensorDeviceClass.ENUM,
         options=_enum_options_from_mapping(CELLULAR_MODE_MAP),
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -239,7 +239,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="cellular_rssi",
-        REDACTED_VALUE"cellular_rssi",
+        translation_key="cellular_rssi",
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
@@ -250,7 +250,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="cellular_operator",
-        REDACTED_VALUE"cellular_operator",
+        translation_key="cellular_operator",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         requires_sim_module=True,
@@ -259,7 +259,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     # VALUES - Energy
     NRGkickSensorEntityDescription(
         key="total_charged_energy",
-        REDACTED_VALUE"total_charged_energy",
+        translation_key="total_charged_energy",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
@@ -271,7 +271,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="charged_energy",
-        REDACTED_VALUE"charged_energy",
+        translation_key="charged_energy",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
@@ -284,7 +284,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     # VALUES - Powerflow (Total)
     NRGkickSensorEntityDescription(
         key="charging_voltage",
-        REDACTED_VALUE"charging_voltage",
+        translation_key="charging_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
@@ -295,7 +295,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="charging_current",
-        REDACTED_VALUE"charging_current",
+        translation_key="charging_current",
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
@@ -306,7 +306,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="powerflow_grid_frequency",
-        REDACTED_VALUE"powerflow_grid_frequency",
+        translation_key="powerflow_grid_frequency",
         device_class=SensorDeviceClass.FREQUENCY,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfFrequency.HERTZ,
@@ -319,7 +319,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="peak_power",
-        REDACTED_VALUE"peak_power",
+        translation_key="peak_power",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -332,7 +332,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="total_active_power",
-        REDACTED_VALUE"total_active_power",
+        translation_key="total_active_power",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -343,7 +343,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="total_reactive_power",
-        REDACTED_VALUE"total_reactive_power",
+        translation_key="total_reactive_power",
         device_class=SensorDeviceClass.REACTIVE_POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfReactivePower.VOLT_AMPERE_REACTIVE,
@@ -355,7 +355,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="total_apparent_power",
-        REDACTED_VALUE"total_apparent_power",
+        translation_key="total_apparent_power",
         device_class=SensorDeviceClass.APPARENT_POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
@@ -367,7 +367,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="total_power_factor",
-        REDACTED_VALUE"total_power_factor",
+        translation_key="total_power_factor",
         device_class=SensorDeviceClass.POWER_FACTOR,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
@@ -380,7 +380,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     # VALUES - Powerflow L1
     NRGkickSensorEntityDescription(
         key="l1_voltage",
-        REDACTED_VALUE"l1_voltage",
+        translation_key="l1_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
@@ -393,7 +393,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="l1_current",
-        REDACTED_VALUE"l1_current",
+        translation_key="l1_current",
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
@@ -404,7 +404,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="l1_active_power",
-        REDACTED_VALUE"l1_active_power",
+        translation_key="l1_active_power",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -415,7 +415,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="l1_reactive_power",
-        REDACTED_VALUE"l1_reactive_power",
+        translation_key="l1_reactive_power",
         device_class=SensorDeviceClass.REACTIVE_POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfReactivePower.VOLT_AMPERE_REACTIVE,
@@ -427,7 +427,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="l1_apparent_power",
-        REDACTED_VALUE"l1_apparent_power",
+        translation_key="l1_apparent_power",
         device_class=SensorDeviceClass.APPARENT_POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
@@ -439,7 +439,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="l1_power_factor",
-        REDACTED_VALUE"l1_power_factor",
+        translation_key="l1_power_factor",
         device_class=SensorDeviceClass.POWER_FACTOR,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
@@ -452,7 +452,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     # VALUES - Powerflow L2
     NRGkickSensorEntityDescription(
         key="l2_voltage",
-        REDACTED_VALUE"l2_voltage",
+        translation_key="l2_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
@@ -465,7 +465,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="l2_current",
-        REDACTED_VALUE"l2_current",
+        translation_key="l2_current",
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
@@ -476,7 +476,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="l2_active_power",
-        REDACTED_VALUE"l2_active_power",
+        translation_key="l2_active_power",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -487,7 +487,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="l2_reactive_power",
-        REDACTED_VALUE"l2_reactive_power",
+        translation_key="l2_reactive_power",
         device_class=SensorDeviceClass.REACTIVE_POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfReactivePower.VOLT_AMPERE_REACTIVE,
@@ -499,7 +499,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="l2_apparent_power",
-        REDACTED_VALUE"l2_apparent_power",
+        translation_key="l2_apparent_power",
         device_class=SensorDeviceClass.APPARENT_POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
@@ -511,7 +511,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="l2_power_factor",
-        REDACTED_VALUE"l2_power_factor",
+        translation_key="l2_power_factor",
         device_class=SensorDeviceClass.POWER_FACTOR,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
@@ -524,7 +524,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     # VALUES - Powerflow L3
     NRGkickSensorEntityDescription(
         key="l3_voltage",
-        REDACTED_VALUE"l3_voltage",
+        translation_key="l3_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
@@ -537,7 +537,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="l3_current",
-        REDACTED_VALUE"l3_current",
+        translation_key="l3_current",
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
@@ -548,7 +548,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="l3_active_power",
-        REDACTED_VALUE"l3_active_power",
+        translation_key="l3_active_power",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -559,7 +559,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="l3_reactive_power",
-        REDACTED_VALUE"l3_reactive_power",
+        translation_key="l3_reactive_power",
         device_class=SensorDeviceClass.REACTIVE_POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfReactivePower.VOLT_AMPERE_REACTIVE,
@@ -571,7 +571,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="l3_apparent_power",
-        REDACTED_VALUE"l3_apparent_power",
+        translation_key="l3_apparent_power",
         device_class=SensorDeviceClass.APPARENT_POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
@@ -583,7 +583,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="l3_power_factor",
-        REDACTED_VALUE"l3_power_factor",
+        translation_key="l3_power_factor",
         device_class=SensorDeviceClass.POWER_FACTOR,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
@@ -596,7 +596,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     # VALUES - Powerflow Neutral
     NRGkickSensorEntityDescription(
         key="n_current",
-        REDACTED_VALUE"n_current",
+        translation_key="n_current",
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
@@ -610,7 +610,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     # VALUES - General
     NRGkickSensorEntityDescription(
         key="charging_rate",
-        REDACTED_VALUE"charging_rate",
+        translation_key="charging_rate",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfSpeed.KILOMETERS_PER_HOUR,
         value_fn=lambda data: get_nested_dict_value(
@@ -619,7 +619,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="vehicle_connected_since",
-        REDACTED_VALUE"vehicle_connected_since",
+        translation_key="vehicle_connected_since",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda data: (
             _seconds_to_stable_timestamp(
@@ -637,7 +637,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="vehicle_charging_time",
-        REDACTED_VALUE"vehicle_charging_time",
+        translation_key="vehicle_charging_time",
         device_class=SensorDeviceClass.DURATION,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTime.SECONDS,
@@ -648,7 +648,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="status",
-        REDACTED_VALUE"status",
+        translation_key="status",
         device_class=SensorDeviceClass.ENUM,
         options=_enum_options_from_mapping(STATUS_MAP),
         value_fn=lambda data: _map_code_to_translation_key(
@@ -658,7 +658,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="charge_count",
-        REDACTED_VALUE"charge_count",
+        translation_key="charge_count",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.TOTAL_INCREASING,
         suggested_display_precision=0,
@@ -668,7 +668,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="rcd_trigger",
-        REDACTED_VALUE"rcd_trigger",
+        translation_key="rcd_trigger",
         device_class=SensorDeviceClass.ENUM,
         options=_enum_options_from_mapping(RCD_TRIGGER_MAP),
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -681,7 +681,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="warning_code",
-        REDACTED_VALUE"warning_code",
+        translation_key="warning_code",
         device_class=SensorDeviceClass.ENUM,
         options=_enum_options_from_mapping(WARNING_CODE_MAP),
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -694,7 +694,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="error_code",
-        REDACTED_VALUE"error_code",
+        translation_key="error_code",
         device_class=SensorDeviceClass.ENUM,
         options=_enum_options_from_mapping(ERROR_CODE_MAP),
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -708,7 +708,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     # VALUES - Temperatures
     NRGkickSensorEntityDescription(
         key="housing_temperature",
-        REDACTED_VALUE"housing_temperature",
+        translation_key="housing_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -719,7 +719,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="connector_l1_temperature",
-        REDACTED_VALUE"connector_l1_temperature",
+        translation_key="connector_l1_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -730,7 +730,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="connector_l2_temperature",
-        REDACTED_VALUE"connector_l2_temperature",
+        translation_key="connector_l2_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -741,7 +741,7 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
     ),
     NRGkickSensorEntityDescription(
         key="connector_l3_temperature",
-        REDACTED_VALUE"connector_l3_temperature",
+        translation_key="connector_l3_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -751,8 +751,8 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
         ),
     ),
     NRGkickSensorEntityDescription(
-        key="REDACTED_VALUE",
-        REDACTED_VALUE"REDACTED_VALUE",
+        key="domestic_plug_1_temperature",
+        translation_key="domestic_plug_1_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -762,8 +762,8 @@ SENSORS: tuple[NRGkickSensorEntityDescription, ...] = (
         ),
     ),
     NRGkickSensorEntityDescription(
-        key="REDACTED_VALUE",
-        REDACTED_VALUE"REDACTED_VALUE",
+        key="domestic_plug_2_temperature",
+        translation_key="domestic_plug_2_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,

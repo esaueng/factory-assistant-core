@@ -33,7 +33,7 @@ class AOSmithStatusSensorEntityDescription(SensorEntityDescription):
 STATUS_ENTITY_DESCRIPTIONS: tuple[AOSmithStatusSensorEntityDescription, ...] = (
     AOSmithStatusSensorEntityDescription(
         key="hot_water_availability",
-        REDACTED_VALUE"hot_water_availability",
+        translation_key="hot_water_availability",
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda device: device.status.hot_water_status,
     ),

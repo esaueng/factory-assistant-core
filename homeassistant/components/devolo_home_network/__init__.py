@@ -64,7 +64,7 @@ async def async_setup_entry(
     except DeviceNotFound as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"connection_failed",
+            translation_key="connection_failed",
             translation_placeholders={"ip_address": entry.data[CONF_IP_ADDRESS]},
         ) from err
 

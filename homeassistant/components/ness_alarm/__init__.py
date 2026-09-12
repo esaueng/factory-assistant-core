@@ -112,7 +112,7 @@ async def _async_setup(hass: HomeAssistant, config: ConfigType) -> None:
             is_fixable=False,
             issue_domain=DOMAIN,
             severity=IssueSeverity.WARNING,
-            REDACTED_VALUEf"deprecated_yaml_import_issue_{result.get('reason')}",
+            translation_key=f"deprecated_yaml_import_issue_{result.get('reason')}",
             translation_placeholders={
                 "domain": DOMAIN,
                 "integration_title": "Ness Alarm",
@@ -128,7 +128,7 @@ async def _async_setup(hass: HomeAssistant, config: ConfigType) -> None:
         is_fixable=False,
         issue_domain=DOMAIN,
         severity=IssueSeverity.WARNING,
-        REDACTED_VALUE"deprecated_yaml",
+        translation_key="deprecated_yaml",
         translation_placeholders={
             "domain": DOMAIN,
             "integration_title": "Ness Alarm",

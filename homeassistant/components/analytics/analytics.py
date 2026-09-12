@@ -651,7 +651,7 @@ class Analytics:
                 HassJob(
                     self._async_schedule_basic,
                     name="basic analytics schedule",
-                    REDACTED_VALUE,
+                    cancel_on_shutdown=True,
                 ),
             )
 
@@ -688,7 +688,7 @@ class Analytics:
                 HassJob(
                     self._async_schedule_snapshots,
                     name="snapshot analytics schedule",
-                    REDACTED_VALUE,
+                    cancel_on_shutdown=True,
                 ),
             )
 
@@ -702,7 +702,7 @@ class Analytics:
             self.send_analytics,
             INTERVAL,
             name="basic analytics daily",
-            REDACTED_VALUE,
+            cancel_on_shutdown=True,
         )
 
     async def _async_schedule_snapshots(self, _: datetime | None = None) -> None:
@@ -715,7 +715,7 @@ class Analytics:
             self.send_snapshot,
             INTERVAL,
             name="snapshot analytics daily",
-            REDACTED_VALUE,
+            cancel_on_shutdown=True,
         )
 
 

@@ -28,7 +28,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: SnoozConfigEntry) -> boo
     if not (ble_device := async_ble_device_from_address(hass, address)):
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"device_not_found",
+            translation_key="device_not_found",
             translation_placeholders={
                 "address": address,
                 "reason": async_address_reachability_diagnostics(

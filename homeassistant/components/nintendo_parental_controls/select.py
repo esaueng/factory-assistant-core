@@ -35,7 +35,7 @@ class NintendoParentalControlsSelectEntityDescription(SelectEntityDescription):
 SELECT_DESCRIPTIONS: tuple[NintendoParentalControlsSelectEntityDescription, ...] = (
     NintendoParentalControlsSelectEntityDescription(
         key=NintendoParentalSelect.TIMER_MODE,
-        REDACTED_VALUENintendoParentalSelect.TIMER_MODE,
+        translation_key=NintendoParentalSelect.TIMER_MODE,
         get_option=lambda device: device.timer_mode,
         set_option_fn=lambda device, option: device.set_timer_mode(option),
         options_enum=DeviceTimerMode,

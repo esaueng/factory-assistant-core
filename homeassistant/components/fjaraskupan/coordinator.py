@@ -40,20 +40,20 @@ def exception_converter():
         yield
     except FjaraskupanWriteError as exception:
         raise HomeAssistantError(
-            translation_domain=DOMAIN, REDACTED_VALUE"write_error"
+            translation_domain=DOMAIN, translation_key="write_error"
         ) from exception
     except FjaraskupanReadError as exception:
         raise HomeAssistantError(
-            translation_domain=DOMAIN, REDACTED_VALUE"read_error"
+            translation_domain=DOMAIN, translation_key="read_error"
         ) from exception
     except FjaraskupanConnectionError as exception:
         raise HomeAssistantError(
-            translation_domain=DOMAIN, REDACTED_VALUE"connection_error"
+            translation_domain=DOMAIN, translation_key="connection_error"
         ) from exception
     except FjaraskupanError as exception:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unexpected_error",
+            translation_key="unexpected_error",
             translation_placeholders={"msg": str(exception)},
         ) from exception
 

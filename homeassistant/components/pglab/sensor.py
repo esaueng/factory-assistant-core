@@ -29,14 +29,14 @@ SENSOR_INFO: list[SensorEntityDescription] = [
     ),
     SensorEntityDescription(
         key=SENSOR_VOLTAGE,
-        REDACTED_VALUE"mpu_voltage",
+        translation_key="mpu_voltage",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key=SENSOR_REBOOT_TIME,
-        REDACTED_VALUE"runtime",
+        translation_key="runtime",
         device_class=SensorDeviceClass.TIMESTAMP,
         icon="mdi:progress-clock",
     ),

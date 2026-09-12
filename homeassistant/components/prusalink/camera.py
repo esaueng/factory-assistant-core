@@ -34,7 +34,7 @@ class PrusaLinkJobPreviewEntity(PrusaLinkEntity, Camera):
 
     entity_description = PrusaLinkCameraEntityDescription(
         key="job_preview",
-        REDACTED_VALUE"job_preview",
+        translation_key="job_preview",
         available_fn=lambda data: bool(
             data.get("state") != PrinterState.IDLE.value
             and (file := data.get("file"))

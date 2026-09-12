@@ -70,14 +70,14 @@ class CentriConnectSensorEntityDescription(SensorEntityDescription):
 ENTITIES: tuple[CentriConnectSensorEntityDescription, ...] = (
     CentriConnectSensorEntityDescription(
         key=CentriConnectSensorType.ALERT_STATUS,
-        REDACTED_VALUECentriConnectSensorType.ALERT_STATUS,
+        translation_key=CentriConnectSensorType.ALERT_STATUS,
         device_class=SensorDeviceClass.ENUM,
         options=list(_ALERT_STATUS_VALUES.values()),
         value_fn=lambda coord: _ALERT_STATUS_VALUES.get(coord.data.alert_status),
     ),
     CentriConnectSensorEntityDescription(
         key=CentriConnectSensorType.ALTITUDE,
-        REDACTED_VALUECentriConnectSensorType.ALTITUDE,
+        translation_key=CentriConnectSensorType.ALTITUDE,
         native_unit_of_measurement=UnitOfLength.METERS,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.DISTANCE,
@@ -88,7 +88,7 @@ ENTITIES: tuple[CentriConnectSensorEntityDescription, ...] = (
     ),
     CentriConnectSensorEntityDescription(
         key=CentriConnectSensorType.BATTERY_LEVEL,
-        REDACTED_VALUECentriConnectSensorType.BATTERY_LEVEL,
+        translation_key=CentriConnectSensorType.BATTERY_LEVEL,
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.BATTERY,
@@ -97,7 +97,7 @@ ENTITIES: tuple[CentriConnectSensorEntityDescription, ...] = (
     ),
     CentriConnectSensorEntityDescription(
         key=CentriConnectSensorType.BATTERY_VOLTAGE,
-        REDACTED_VALUECentriConnectSensorType.BATTERY_VOLTAGE,
+        translation_key=CentriConnectSensorType.BATTERY_VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.VOLTAGE,
@@ -108,7 +108,7 @@ ENTITIES: tuple[CentriConnectSensorEntityDescription, ...] = (
     ),
     CentriConnectSensorEntityDescription(
         key=CentriConnectSensorType.DEVICE_TEMPERATURE,
-        REDACTED_VALUECentriConnectSensorType.DEVICE_TEMPERATURE,
+        translation_key=CentriConnectSensorType.DEVICE_TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.FAHRENHEIT,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -119,7 +119,7 @@ ENTITIES: tuple[CentriConnectSensorEntityDescription, ...] = (
     ),
     CentriConnectSensorEntityDescription(
         key=CentriConnectSensorType.LTE_SIGNAL_LEVEL,
-        REDACTED_VALUECentriConnectSensorType.LTE_SIGNAL_LEVEL,
+        translation_key=CentriConnectSensorType.LTE_SIGNAL_LEVEL,
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -128,7 +128,7 @@ ENTITIES: tuple[CentriConnectSensorEntityDescription, ...] = (
     ),
     CentriConnectSensorEntityDescription(
         key=CentriConnectSensorType.LTE_SIGNAL_STRENGTH,
-        REDACTED_VALUECentriConnectSensorType.LTE_SIGNAL_STRENGTH,
+        translation_key=CentriConnectSensorType.LTE_SIGNAL_STRENGTH,
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
@@ -138,7 +138,7 @@ ENTITIES: tuple[CentriConnectSensorEntityDescription, ...] = (
     ),
     CentriConnectSensorEntityDescription(
         key=CentriConnectSensorType.SOLAR_LEVEL,
-        REDACTED_VALUECentriConnectSensorType.SOLAR_LEVEL,
+        translation_key=CentriConnectSensorType.SOLAR_LEVEL,
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -147,7 +147,7 @@ ENTITIES: tuple[CentriConnectSensorEntityDescription, ...] = (
     ),
     CentriConnectSensorEntityDescription(
         key=CentriConnectSensorType.SOLAR_VOLTAGE,
-        REDACTED_VALUECentriConnectSensorType.SOLAR_VOLTAGE,
+        translation_key=CentriConnectSensorType.SOLAR_VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.VOLTAGE,
@@ -158,14 +158,14 @@ ENTITIES: tuple[CentriConnectSensorEntityDescription, ...] = (
     ),
     CentriConnectSensorEntityDescription(
         key=CentriConnectSensorType.TANK_LEVEL,
-        REDACTED_VALUECentriConnectSensorType.TANK_LEVEL,
+        translation_key=CentriConnectSensorType.TANK_LEVEL,
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda coord: coord.data.tank_level,
     ),
     CentriConnectSensorEntityDescription(
         key=CentriConnectSensorType.TANK_REMAINING_VOLUME,
-        REDACTED_VALUECentriConnectSensorType.TANK_REMAINING_VOLUME,
+        translation_key=CentriConnectSensorType.TANK_REMAINING_VOLUME,
         native_unit_of_measurement=UnitOfVolume.GALLONS,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.VOLUME_STORAGE,
@@ -178,7 +178,7 @@ ENTITIES: tuple[CentriConnectSensorEntityDescription, ...] = (
     ),
     CentriConnectSensorEntityDescription(
         key=CentriConnectSensorType.TANK_REMAINING_VOLUME,
-        REDACTED_VALUECentriConnectSensorType.TANK_REMAINING_VOLUME,
+        translation_key=CentriConnectSensorType.TANK_REMAINING_VOLUME,
         native_unit_of_measurement=UnitOfVolume.LITERS,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.VOLUME_STORAGE,
@@ -191,7 +191,7 @@ ENTITIES: tuple[CentriConnectSensorEntityDescription, ...] = (
     ),
     CentriConnectSensorEntityDescription(
         key=CentriConnectSensorType.TANK_SIZE,
-        REDACTED_VALUECentriConnectSensorType.TANK_SIZE,
+        translation_key=CentriConnectSensorType.TANK_SIZE,
         native_unit_of_measurement=UnitOfVolume.GALLONS,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.VOLUME_STORAGE,
@@ -204,7 +204,7 @@ ENTITIES: tuple[CentriConnectSensorEntityDescription, ...] = (
     ),
     CentriConnectSensorEntityDescription(
         key=CentriConnectSensorType.TANK_SIZE,
-        REDACTED_VALUECentriConnectSensorType.TANK_SIZE,
+        translation_key=CentriConnectSensorType.TANK_SIZE,
         native_unit_of_measurement=UnitOfVolume.LITERS,
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.VOLUME_STORAGE,

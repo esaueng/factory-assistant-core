@@ -28,38 +28,38 @@ NUMBER_ENTITIES: dict[str, NumberEntityDescription] = {
         NumberEntityDescription(
             key=CharacteristicsTypes.VENDOR_VOCOLINC_HUMIDIFIER_SPRAY_LEVEL,
             name="Spray Quantity",
-            REDACTED_VALUE"spray_quantity",
+            translation_key="spray_quantity",
             entity_category=EntityCategory.CONFIG,
         )
     ),
     CharacteristicsTypes.VENDOR_EVE_DEGREE_ELEVATION: NumberEntityDescription(
         key=CharacteristicsTypes.VENDOR_EVE_DEGREE_ELEVATION,
         name="Elevation",
-        REDACTED_VALUE"elevation",
+        translation_key="elevation",
         entity_category=EntityCategory.CONFIG,
     ),
     CharacteristicsTypes.VENDOR_AQARA_GATEWAY_VOLUME: NumberEntityDescription(
         key=CharacteristicsTypes.VENDOR_AQARA_GATEWAY_VOLUME,
         name="Volume",
-        REDACTED_VALUE"volume",
+        translation_key="volume",
         entity_category=EntityCategory.CONFIG,
     ),
     CharacteristicsTypes.VENDOR_AQARA_E1_GATEWAY_VOLUME: NumberEntityDescription(
         key=CharacteristicsTypes.VENDOR_AQARA_E1_GATEWAY_VOLUME,
         name="Volume",
-        REDACTED_VALUE"volume",
+        translation_key="volume",
         entity_category=EntityCategory.CONFIG,
     ),
     CharacteristicsTypes.VENDOR_EVE_MOTION_DURATION: NumberEntityDescription(
         key=CharacteristicsTypes.VENDOR_EVE_MOTION_DURATION,
         name="Duration",
-        REDACTED_VALUE"duration",
+        translation_key="duration",
         entity_category=EntityCategory.CONFIG,
     ),
     CharacteristicsTypes.VENDOR_EVE_MOTION_SENSITIVITY: NumberEntityDescription(
         key=CharacteristicsTypes.VENDOR_EVE_MOTION_SENSITIVITY,
         name="Sensitivity",
-        REDACTED_VALUE"sensitivity",
+        translation_key="sensitivity",
         entity_category=EntityCategory.CONFIG,
     ),
 }

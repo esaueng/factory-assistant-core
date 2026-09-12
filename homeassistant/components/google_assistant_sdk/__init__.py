@@ -56,14 +56,14 @@ async def async_setup_entry(
     except ImplementationUnavailableError as err:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"oauth2_implementation_unavailable",
+            translation_key="oauth2_implementation_unavailable",
         ) from err
     session = OAuth2Session(hass, entry, implementation)
     try:
         await session.async_ensure_token_valid()
     except OAuth2TokenRequestReauthError as err:
         raise ConfigEntryAuthFailed(
-            translation_domain=DOMAIN, REDACTED_VALUE"reauth_required"
+            translation_domain=DOMAIN, translation_key="reauth_required"
         ) from err
     except (OAuth2TokenRequestError, ClientError) as err:
         raise ConfigEntryNotReady from err

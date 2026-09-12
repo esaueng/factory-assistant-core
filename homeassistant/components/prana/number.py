@@ -38,7 +38,7 @@ class PranaNumberEntityDescription(NumberEntityDescription):
 ENTITIES: tuple[PranaNumberEntityDescription, ...] = (
     PranaNumberEntityDescription(
         key=PranaNumberType.DISPLAY_BRIGHTNESS,
-        REDACTED_VALUE"display_brightness",
+        translation_key="display_brightness",
         native_min_value=0,
         native_max_value=6,
         native_step=1,

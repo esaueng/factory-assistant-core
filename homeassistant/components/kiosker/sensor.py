@@ -41,19 +41,19 @@ SENSORS: tuple[KioskerSensorEntityDescription, ...] = (
     ),
     KioskerSensorEntityDescription(
         key="lastInteraction",
-        REDACTED_VALUE"last_interaction",
+        translation_key="last_interaction",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda x: x.last_interaction,
     ),
     KioskerSensorEntityDescription(
         key="lastMotion",
-        REDACTED_VALUE"last_motion",
+        translation_key="last_motion",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda x: x.last_motion,
     ),
     KioskerSensorEntityDescription(
         key="ambientLight",
-        REDACTED_VALUE"ambient_light",
+        translation_key="ambient_light",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda x: x.ambient_light,
     ),

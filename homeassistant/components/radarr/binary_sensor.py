@@ -17,7 +17,7 @@ from .entity import RadarrEntity
 
 BINARY_SENSOR_TYPE = BinarySensorEntityDescription(
     key="health",
-    REDACTED_VALUE"health",
+    translation_key="health",
     entity_category=EntityCategory.DIAGNOSTIC,
     device_class=BinarySensorDeviceClass.PROBLEM,
 )

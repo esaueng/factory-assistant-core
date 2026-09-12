@@ -242,7 +242,7 @@ async def test_invalid_issue(
         "invalid_issue_id",
         is_fixable=True,
         severity=ir.IssueSeverity.ERROR,
-        REDACTED_VALUE"invalid_issue",
+        translation_key="invalid_issue",
     )
 
     await async_process_repairs_platforms(hass)
@@ -496,7 +496,7 @@ async def test_migrate_unique_id_non_integer_ids(
         },
         is_fixable=True,
         severity=ir.IssueSeverity.ERROR,
-        REDACTED_VALUE"migrate_unique_id",
+        translation_key="migrate_unique_id",
     )
 
     await async_process_repairs_platforms(hass)

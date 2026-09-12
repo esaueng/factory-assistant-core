@@ -52,7 +52,7 @@ class VeSyncSensorEntityDescription(SensorEntityDescription):
 SENSORS: tuple[VeSyncSensorEntityDescription, ...] = (
     VeSyncSensorEntityDescription(
         key="filter-life",
-        REDACTED_VALUE"filter_life",
+        translation_key="filter_life",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -61,7 +61,7 @@ SENSORS: tuple[VeSyncSensorEntityDescription, ...] = (
     ),
     VeSyncSensorEntityDescription(
         key="air-quality",
-        REDACTED_VALUE"air_quality",
+        translation_key="air_quality",
         value_fn=lambda device: device.state.air_quality_string,
         exists_fn=(
             lambda device: rgetattr(device, "state.air_quality_string") is not None
@@ -93,7 +93,7 @@ SENSORS: tuple[VeSyncSensorEntityDescription, ...] = (
     ),
     VeSyncSensorEntityDescription(
         key="power",
-        REDACTED_VALUE"current_power",
+        translation_key="current_power",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -102,7 +102,7 @@ SENSORS: tuple[VeSyncSensorEntityDescription, ...] = (
     ),
     VeSyncSensorEntityDescription(
         key="energy",
-        REDACTED_VALUE"energy_today",
+        translation_key="energy_today",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -111,7 +111,7 @@ SENSORS: tuple[VeSyncSensorEntityDescription, ...] = (
     ),
     VeSyncSensorEntityDescription(
         key="energy-weekly",
-        REDACTED_VALUE"energy_week",
+        translation_key="energy_week",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -122,7 +122,7 @@ SENSORS: tuple[VeSyncSensorEntityDescription, ...] = (
     ),
     VeSyncSensorEntityDescription(
         key="energy-monthly",
-        REDACTED_VALUE"energy_month",
+        translation_key="energy_month",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -133,7 +133,7 @@ SENSORS: tuple[VeSyncSensorEntityDescription, ...] = (
     ),
     VeSyncSensorEntityDescription(
         key="energy-yearly",
-        REDACTED_VALUE"energy_year",
+        translation_key="energy_year",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -144,7 +144,7 @@ SENSORS: tuple[VeSyncSensorEntityDescription, ...] = (
     ),
     VeSyncSensorEntityDescription(
         key="voltage",
-        REDACTED_VALUE"current_voltage",
+        translation_key="current_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -171,7 +171,7 @@ SENSORS: tuple[VeSyncSensorEntityDescription, ...] = (
     ),
     VeSyncSensorEntityDescription(
         key="cook_status",
-        REDACTED_VALUE"cook_status",
+        translation_key="cook_status",
         device_class=SensorDeviceClass.ENUM,
         value_fn=lambda device: AIR_FRYER_MODE_MAP.get(
             device.state.cook_status.lower(), device.state.cook_status.lower()
@@ -190,7 +190,7 @@ SENSORS: tuple[VeSyncSensorEntityDescription, ...] = (
     ),
     VeSyncSensorEntityDescription(
         key="current_temp",
-        REDACTED_VALUE"current_temp",
+        translation_key="current_temp",
         device_class=SensorDeviceClass.TEMPERATURE,
         use_device_temperature_unit=True,
         state_class=SensorStateClass.MEASUREMENT,
@@ -199,7 +199,7 @@ SENSORS: tuple[VeSyncSensorEntityDescription, ...] = (
     ),
     VeSyncSensorEntityDescription(
         key="cook_set_temp",
-        REDACTED_VALUE"cook_set_temp",
+        translation_key="cook_set_temp",
         device_class=SensorDeviceClass.TEMPERATURE,
         use_device_temperature_unit=True,
         state_class=SensorStateClass.MEASUREMENT,
@@ -208,7 +208,7 @@ SENSORS: tuple[VeSyncSensorEntityDescription, ...] = (
     ),
     VeSyncSensorEntityDescription(
         key="cook_set_time",
-        REDACTED_VALUE"cook_set_time",
+        translation_key="cook_set_time",
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.MINUTES,
         value_fn=lambda device: device.state.cook_set_time,
@@ -216,7 +216,7 @@ SENSORS: tuple[VeSyncSensorEntityDescription, ...] = (
     ),
     VeSyncSensorEntityDescription(
         key="preheat_set_time",
-        REDACTED_VALUE"preheat_set_time",
+        translation_key="preheat_set_time",
         device_class=SensorDeviceClass.DURATION,
         native_unit_of_measurement=UnitOfTime.MINUTES,
         value_fn=lambda device: device.state.preheat_set_time,

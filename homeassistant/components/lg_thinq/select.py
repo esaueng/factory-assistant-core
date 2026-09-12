@@ -17,67 +17,67 @@ from .entity import ThinQEntity
 SELECT_DESC: dict[ThinQProperty, SelectEntityDescription] = {
     ThinQProperty.MONITORING_ENABLED: SelectEntityDescription(
         key=ThinQProperty.MONITORING_ENABLED,
-        REDACTED_VALUEThinQProperty.MONITORING_ENABLED,
+        translation_key=ThinQProperty.MONITORING_ENABLED,
     ),
     ThinQProperty.COOK_MODE: SelectEntityDescription(
         key=ThinQProperty.COOK_MODE,
-        REDACTED_VALUEThinQProperty.COOK_MODE,
+        translation_key=ThinQProperty.COOK_MODE,
     ),
     ThinQProperty.DISPLAY_LIGHT: SelectEntityDescription(
         key=ThinQProperty.DISPLAY_LIGHT,
-        REDACTED_VALUEThinQProperty.DISPLAY_LIGHT,
+        translation_key=ThinQProperty.DISPLAY_LIGHT,
     ),
     ThinQProperty.CURRENT_JOB_MODE: SelectEntityDescription(
         key=ThinQProperty.CURRENT_JOB_MODE,
-        REDACTED_VALUEThinQProperty.CURRENT_JOB_MODE,
+        translation_key=ThinQProperty.CURRENT_JOB_MODE,
     ),
     ThinQProperty.FRESH_AIR_FILTER: SelectEntityDescription(
         key=ThinQProperty.FRESH_AIR_FILTER,
-        REDACTED_VALUEThinQProperty.FRESH_AIR_FILTER,
+        translation_key=ThinQProperty.FRESH_AIR_FILTER,
     ),
 }
 AIR_FLOW_SELECT_DESC: dict[ThinQProperty, SelectEntityDescription] = {
     ThinQProperty.WIND_STRENGTH: SelectEntityDescription(
         key=ThinQProperty.WIND_STRENGTH,
-        REDACTED_VALUEThinQProperty.WIND_STRENGTH,
+        translation_key=ThinQProperty.WIND_STRENGTH,
     ),
     ThinQProperty.WIND_ANGLE: SelectEntityDescription(
         key=ThinQProperty.WIND_ANGLE,
-        REDACTED_VALUEThinQProperty.WIND_ANGLE,
+        translation_key=ThinQProperty.WIND_ANGLE,
     ),
 }
 OPERATION_SELECT_DESC: dict[ThinQProperty, SelectEntityDescription] = {
     ThinQProperty.AIR_CLEAN_OPERATION_MODE: SelectEntityDescription(
         key=ThinQProperty.AIR_CLEAN_OPERATION_MODE,
-        REDACTED_VALUE"air_clean_operation_mode",
+        translation_key="air_clean_operation_mode",
     ),
     ThinQProperty.DISH_WASHER_OPERATION_MODE: SelectEntityDescription(
         key=ThinQProperty.DISH_WASHER_OPERATION_MODE,
-        REDACTED_VALUE"operation_mode",
+        translation_key="operation_mode",
     ),
     ThinQProperty.DRYER_OPERATION_MODE: SelectEntityDescription(
         key=ThinQProperty.DRYER_OPERATION_MODE,
-        REDACTED_VALUE"operation_mode",
+        translation_key="operation_mode",
     ),
     ThinQProperty.HYGIENE_DRY_MODE: SelectEntityDescription(
         key=ThinQProperty.HYGIENE_DRY_MODE,
-        REDACTED_VALUEThinQProperty.HYGIENE_DRY_MODE,
+        translation_key=ThinQProperty.HYGIENE_DRY_MODE,
     ),
     ThinQProperty.LIGHT_BRIGHTNESS: SelectEntityDescription(
         key=ThinQProperty.LIGHT_BRIGHTNESS,
-        REDACTED_VALUEThinQProperty.LIGHT_BRIGHTNESS,
+        translation_key=ThinQProperty.LIGHT_BRIGHTNESS,
     ),
     ThinQProperty.OVEN_OPERATION_MODE: SelectEntityDescription(
         key=ThinQProperty.OVEN_OPERATION_MODE,
-        REDACTED_VALUE"operation_mode",
+        translation_key="operation_mode",
     ),
     ThinQProperty.STYLER_OPERATION_MODE: SelectEntityDescription(
         key=ThinQProperty.STYLER_OPERATION_MODE,
-        REDACTED_VALUE"operation_mode",
+        translation_key="operation_mode",
     ),
     ThinQProperty.WASHER_OPERATION_MODE: SelectEntityDescription(
         key=ThinQProperty.WASHER_OPERATION_MODE,
-        REDACTED_VALUE"operation_mode",
+        translation_key="operation_mode",
     ),
 }
 
@@ -100,7 +100,7 @@ DEVICE_TYPE_SELECT_MAP: dict[DeviceType, tuple[SelectEntityDescription, ...]] = 
         AIR_FLOW_SELECT_DESC[ThinQProperty.WIND_STRENGTH],
         SelectEntityDescription(
             key=ThinQProperty.CURRENT_JOB_MODE,
-            REDACTED_VALUE"current_job_mode_dehumidifier",
+            translation_key="current_job_mode_dehumidifier",
         ),
     ),
     DeviceType.DISH_WASHER: (
@@ -122,7 +122,7 @@ DEVICE_TYPE_SELECT_MAP: dict[DeviceType, tuple[SelectEntityDescription, ...]] = 
     DeviceType.VENTILATOR: (
         SelectEntityDescription(
             key=ThinQProperty.CURRENT_JOB_MODE,
-            REDACTED_VALUE"current_job_mode_ventilator",
+            translation_key="current_job_mode_ventilator",
         ),
     ),
     DeviceType.WASHCOMBO_MAIN: (

@@ -71,14 +71,14 @@ SENSOR_DESCRIPTIONS_BATTERY: tuple[TradfriSensorEntityDescription, ...] = (
 SENSOR_DESCRIPTIONS_FAN: tuple[TradfriSensorEntityDescription, ...] = (
     TradfriSensorEntityDescription(
         key="aqi",
-        REDACTED_VALUE"aqi",
+        translation_key="aqi",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
         value=_get_air_quality,
     ),
     TradfriSensorEntityDescription(
         key="filter_life_remaining",
-        REDACTED_VALUE"filter_life_remaining",
+        translation_key="filter_life_remaining",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTime.HOURS,
         value=_get_filter_time_left,

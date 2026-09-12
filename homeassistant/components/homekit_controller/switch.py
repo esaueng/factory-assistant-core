@@ -41,39 +41,39 @@ SWITCH_ENTITIES: dict[str, DeclarativeSwitchEntityDescription] = {
     CharacteristicsTypes.VENDOR_AQARA_PAIRING_MODE: DeclarativeSwitchEntityDescription(
         key=CharacteristicsTypes.VENDOR_AQARA_PAIRING_MODE,
         name="Pairing Mode",
-        REDACTED_VALUE"pairing_mode",
+        translation_key="pairing_mode",
         entity_category=EntityCategory.CONFIG,
     ),
     CharacteristicsTypes.VENDOR_AQARA_E1_PAIRING_MODE: (
         DeclarativeSwitchEntityDescription(
             key=CharacteristicsTypes.VENDOR_AQARA_E1_PAIRING_MODE,
             name="Pairing Mode",
-            REDACTED_VALUE"pairing_mode",
+            translation_key="pairing_mode",
             entity_category=EntityCategory.CONFIG,
         )
     ),
     CharacteristicsTypes.LOCK_PHYSICAL_CONTROLS: DeclarativeSwitchEntityDescription(
         key=CharacteristicsTypes.LOCK_PHYSICAL_CONTROLS,
         name="Lock Physical Controls",
-        REDACTED_VALUE"lock_physical_controls",
+        translation_key="lock_physical_controls",
         entity_category=EntityCategory.CONFIG,
     ),
     CharacteristicsTypes.MUTE: DeclarativeSwitchEntityDescription(
         key=CharacteristicsTypes.MUTE,
         name="Mute",
-        REDACTED_VALUE"mute",
+        translation_key="mute",
         entity_category=EntityCategory.CONFIG,
     ),
     CharacteristicsTypes.VENDOR_AIRVERSA_SLEEP_MODE: DeclarativeSwitchEntityDescription(
         key=CharacteristicsTypes.VENDOR_AIRVERSA_SLEEP_MODE,
         name="Sleep Mode",
-        REDACTED_VALUE"sleep_mode",
+        translation_key="sleep_mode",
         entity_category=EntityCategory.CONFIG,
     ),
     CharacteristicsTypes.AIRPLAY_ENABLE: DeclarativeSwitchEntityDescription(
         key=CharacteristicsTypes.AIRPLAY_ENABLE,
         name="AirPlay Enable",
-        REDACTED_VALUE"airplay_enable",
+        translation_key="airplay_enable",
         entity_category=EntityCategory.CONFIG,
     ),
 }

@@ -74,7 +74,7 @@ class HypontechDataCoordinator(DataUpdateCoordinator[HypontechCoordinatorData]):
             )
         except RequestError as ex:
             raise UpdateFailed(
-                translation_domain=DOMAIN, REDACTED_VALUE"connection_error"
+                translation_domain=DOMAIN, translation_key="connection_error"
             ) from ex
         return HypontechCoordinatorData(
             overview=overview,

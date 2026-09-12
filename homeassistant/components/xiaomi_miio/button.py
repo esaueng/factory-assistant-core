@@ -45,7 +45,7 @@ BUTTON_TYPES = (
     # Fans
     XiaomiMiioButtonDescription(
         key=ATTR_RESET_DUST_FILTER,
-        REDACTED_VALUEATTR_RESET_DUST_FILTER,
+        translation_key=ATTR_RESET_DUST_FILTER,
         icon="mdi:air-filter",
         method_press="reset_dust_filter",
         method_press_error_message="Resetting the dust filter lifetime failed",
@@ -53,7 +53,7 @@ BUTTON_TYPES = (
     ),
     XiaomiMiioButtonDescription(
         key=ATTR_RESET_UPPER_FILTER,
-        REDACTED_VALUEATTR_RESET_UPPER_FILTER,
+        translation_key=ATTR_RESET_UPPER_FILTER,
         icon="mdi:air-filter",
         method_press="reset_upper_filter",
         method_press_error_message="Resetting the upper filter lifetime failed.",
@@ -62,7 +62,7 @@ BUTTON_TYPES = (
     # Vacuums
     XiaomiMiioButtonDescription(
         key=ATTR_RESET_VACUUM_MAIN_BRUSH,
-        REDACTED_VALUEATTR_RESET_VACUUM_MAIN_BRUSH,
+        translation_key=ATTR_RESET_VACUUM_MAIN_BRUSH,
         icon="mdi:brush",
         method_press=METHOD_VACUUM_RESET_CONSUMABLE,
         method_press_params=Consumable.MainBrush,
@@ -71,7 +71,7 @@ BUTTON_TYPES = (
     ),
     XiaomiMiioButtonDescription(
         key=ATTR_RESET_VACUUM_SIDE_BRUSH,
-        REDACTED_VALUEATTR_RESET_VACUUM_SIDE_BRUSH,
+        translation_key=ATTR_RESET_VACUUM_SIDE_BRUSH,
         icon="mdi:brush",
         method_press=METHOD_VACUUM_RESET_CONSUMABLE,
         method_press_params=Consumable.SideBrush,
@@ -80,7 +80,7 @@ BUTTON_TYPES = (
     ),
     XiaomiMiioButtonDescription(
         key=ATTR_RESET_VACUUM_FILTER,
-        REDACTED_VALUEATTR_RESET_VACUUM_FILTER,
+        translation_key=ATTR_RESET_VACUUM_FILTER,
         icon="mdi:air-filter",
         method_press=METHOD_VACUUM_RESET_CONSUMABLE,
         method_press_params=Consumable.Filter,
@@ -89,7 +89,7 @@ BUTTON_TYPES = (
     ),
     XiaomiMiioButtonDescription(
         key=ATTR_RESET_VACUUM_SENSOR_DIRTY,
-        REDACTED_VALUEATTR_RESET_VACUUM_SENSOR_DIRTY,
+        translation_key=ATTR_RESET_VACUUM_SENSOR_DIRTY,
         icon="mdi:eye-outline",
         method_press=METHOD_VACUUM_RESET_CONSUMABLE,
         method_press_params=Consumable.SensorDirty,

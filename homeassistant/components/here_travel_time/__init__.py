@@ -57,7 +57,7 @@ def alert_for_multiple_entries(hass: HomeAssistant) -> None:
             learn_more_url="https://www.home-assistant.io/integrations/here_travel_time/",
             is_fixable=False,
             severity=IssueSeverity.WARNING,
-            REDACTED_VALUE"multiple_here_travel_time_entries",
+            translation_key="multiple_here_travel_time_entries",
             translation_placeholders={
                 "pricing_page": "https://www.here.com/get-started/pricing",
             },

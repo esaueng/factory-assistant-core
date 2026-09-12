@@ -119,7 +119,7 @@ async def _async_import_yaml(hass: HomeAssistant, conf: dict[str, Any]) -> None:
             is_fixable=False,
             issue_domain=DOMAIN,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUEf"deprecated_yaml_import_issue_{result.get('reason')}",
+            translation_key=f"deprecated_yaml_import_issue_{result.get('reason')}",
             translation_placeholders={
                 "domain": DOMAIN,
                 "integration_title": "Splunk",
@@ -136,7 +136,7 @@ async def _async_import_yaml(hass: HomeAssistant, conf: dict[str, Any]) -> None:
         is_fixable=False,
         issue_domain=DOMAIN,
         severity=ir.IssueSeverity.WARNING,
-        REDACTED_VALUE"deprecated_yaml",
+        translation_key="deprecated_yaml",
         translation_placeholders={
             "domain": DOMAIN,
             "integration_title": "Splunk",
@@ -179,32 +179,32 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         _LOGGER.debug("Connection error during setup at %s:%s: %s", host, port, err)
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect",
+            translation_key="cannot_connect",
             translation_placeholders={"host": host, "port": str(port)},
         ) from err
     except TimeoutError as err:
         _LOGGER.debug("Timeout during setup at %s:%s: %s", host, port, err)
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"timeout_connect",
+            translation_key="timeout_connect",
             translation_placeholders={"host": host, "port": str(port)},
         ) from err
     except Exception as err:
         _LOGGER.exception("Unexpected setup error at %s:%s", host, port)
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"unexpected_connect_error",
+            translation_key="unexpected_connect_error",
         ) from err
 
     if not connectivity_ok:
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"cannot_connect",
+            translation_key="cannot_connect",
             translation_placeholders={"host": host, "port": str(port)},
         )
     if not token_ok:
         raise ConfigEntryAuthFailed(
-            translation_domain=DOMAIN, REDACTED_VALUE"invalid_auth"
+            translation_domain=DOMAIN, translation_key="invalid_auth"
         )
 
     # Send startup event

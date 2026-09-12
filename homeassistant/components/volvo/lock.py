@@ -131,7 +131,7 @@ class VolvoLock(VolvoEntity, LockEntity):
 
         return HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"command_failure",
+            translation_key="command_failure",
             translation_placeholders={
                 "command": command,
                 "status": status,

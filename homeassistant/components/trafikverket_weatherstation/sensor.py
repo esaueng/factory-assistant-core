@@ -60,7 +60,7 @@ def add_utc_timezone(date_time: datetime | None) -> datetime | None:
 SENSOR_TYPES: tuple[TrafikverketSensorEntityDescription, ...] = (
     TrafikverketSensorEntityDescription(
         key="air_temp",
-        REDACTED_VALUE"air_temperature",
+        translation_key="air_temperature",
         value_fn=lambda data: data.air_temp,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -68,7 +68,7 @@ SENSOR_TYPES: tuple[TrafikverketSensorEntityDescription, ...] = (
     ),
     TrafikverketSensorEntityDescription(
         key="road_temp",
-        REDACTED_VALUE"road_temperature",
+        translation_key="road_temperature",
         value_fn=lambda data: data.road_temp,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -76,7 +76,7 @@ SENSOR_TYPES: tuple[TrafikverketSensorEntityDescription, ...] = (
     ),
     TrafikverketSensorEntityDescription(
         key="precipitation",
-        REDACTED_VALUE"precipitation",
+        translation_key="precipitation",
         value_fn=lambda data: data.precipitationtype,
         entity_registry_enabled_default=False,
         options=PRECIPITATION_TYPE,
@@ -84,7 +84,7 @@ SENSOR_TYPES: tuple[TrafikverketSensorEntityDescription, ...] = (
     ),
     TrafikverketSensorEntityDescription(
         key="wind_direction",
-        REDACTED_VALUE"wind_direction",
+        translation_key="wind_direction",
         value_fn=lambda data: data.winddirection,
         native_unit_of_measurement=DEGREE,
         state_class=SensorStateClass.MEASUREMENT_ANGLE,
@@ -99,7 +99,7 @@ SENSOR_TYPES: tuple[TrafikverketSensorEntityDescription, ...] = (
     ),
     TrafikverketSensorEntityDescription(
         key="wind_speed_max",
-        REDACTED_VALUE"wind_speed_max",
+        translation_key="wind_speed_max",
         value_fn=lambda data: data.windforcemax,
         native_unit_of_measurement=UnitOfSpeed.METERS_PER_SECOND,
         device_class=SensorDeviceClass.WIND_SPEED,
@@ -123,14 +123,14 @@ SENSOR_TYPES: tuple[TrafikverketSensorEntityDescription, ...] = (
     ),
     TrafikverketSensorEntityDescription(
         key="measure_time",
-        REDACTED_VALUE"measure_time",
+        translation_key="measure_time",
         value_fn=lambda data: data.measure_time,
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.TIMESTAMP,
     ),
     TrafikverketSensorEntityDescription(
         key="dew_point",
-        REDACTED_VALUE"dew_point",
+        translation_key="dew_point",
         value_fn=lambda data: data.dew_point,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -138,7 +138,7 @@ SENSOR_TYPES: tuple[TrafikverketSensorEntityDescription, ...] = (
     ),
     TrafikverketSensorEntityDescription(
         key="visible_distance",
-        REDACTED_VALUE"visible_distance",
+        translation_key="visible_distance",
         value_fn=lambda data: data.visible_distance,
         native_unit_of_measurement=UnitOfLength.METERS,
         device_class=SensorDeviceClass.DISTANCE,
@@ -147,7 +147,7 @@ SENSOR_TYPES: tuple[TrafikverketSensorEntityDescription, ...] = (
     ),
     TrafikverketSensorEntityDescription(
         key="road_ice_depth",
-        REDACTED_VALUE"road_ice_depth",
+        translation_key="road_ice_depth",
         value_fn=lambda data: data.road_ice_depth,
         native_unit_of_measurement=UnitOfLength.MILLIMETERS,
         device_class=SensorDeviceClass.DISTANCE,
@@ -156,7 +156,7 @@ SENSOR_TYPES: tuple[TrafikverketSensorEntityDescription, ...] = (
     ),
     TrafikverketSensorEntityDescription(
         key="road_snow_depth",
-        REDACTED_VALUE"road_snow_depth",
+        translation_key="road_snow_depth",
         value_fn=lambda data: data.road_snow_depth,
         native_unit_of_measurement=UnitOfLength.MILLIMETERS,
         device_class=SensorDeviceClass.DISTANCE,
@@ -165,7 +165,7 @@ SENSOR_TYPES: tuple[TrafikverketSensorEntityDescription, ...] = (
     ),
     TrafikverketSensorEntityDescription(
         key="road_water_depth",
-        REDACTED_VALUE"road_water_depth",
+        translation_key="road_water_depth",
         value_fn=lambda data: data.road_water_depth,
         native_unit_of_measurement=UnitOfLength.MILLIMETERS,
         device_class=SensorDeviceClass.DISTANCE,
@@ -174,7 +174,7 @@ SENSOR_TYPES: tuple[TrafikverketSensorEntityDescription, ...] = (
     ),
     TrafikverketSensorEntityDescription(
         key="road_water_equivalent_depth",
-        REDACTED_VALUE"road_water_equivalent_depth",
+        translation_key="road_water_equivalent_depth",
         value_fn=lambda data: data.road_water_equivalent_depth,
         native_unit_of_measurement=UnitOfLength.MILLIMETERS,
         device_class=SensorDeviceClass.DISTANCE,
@@ -183,7 +183,7 @@ SENSOR_TYPES: tuple[TrafikverketSensorEntityDescription, ...] = (
     ),
     TrafikverketSensorEntityDescription(
         key="wind_height",
-        REDACTED_VALUE"wind_height",
+        translation_key="wind_height",
         value_fn=lambda data: data.wind_height,
         native_unit_of_measurement=UnitOfLength.METERS,
         device_class=SensorDeviceClass.DISTANCE,
@@ -192,7 +192,7 @@ SENSOR_TYPES: tuple[TrafikverketSensorEntityDescription, ...] = (
     ),
     TrafikverketSensorEntityDescription(
         key="modified_time",
-        REDACTED_VALUE"modified_time",
+        translation_key="modified_time",
         value_fn=lambda data: add_utc_timezone(data.modified_time),
         entity_registry_enabled_default=False,
         device_class=SensorDeviceClass.TIMESTAMP,

@@ -141,7 +141,7 @@ async def test_update_firm(
         )
 
     reolink_host.update_firmware.side_effect = ApiError(
-        "Test error", REDACTED_VALUE"firmware_rate_limit"
+        "Test error", translation_key="firmware_rate_limit"
     )
     with pytest.raises(HomeAssistantError):
         await hass.services.async_call(

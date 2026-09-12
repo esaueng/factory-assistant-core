@@ -39,13 +39,13 @@ class SteamistSensorEntityDescription(SensorEntityDescription):
 SENSORS: tuple[SteamistSensorEntityDescription, ...] = (
     SteamistSensorEntityDescription(
         key=_KEY_MINUTES_REMAIN,
-        REDACTED_VALUE"steam_minutes_remain",
+        translation_key="steam_minutes_remain",
         native_unit_of_measurement=UnitOfTime.MINUTES,
         value_fn=lambda status: status.minutes_remain,
     ),
     SteamistSensorEntityDescription(
         key=_KEY_TEMP,
-        REDACTED_VALUE"steam_temperature",
+        translation_key="steam_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda status: status.temp,

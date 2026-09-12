@@ -82,7 +82,7 @@ class HmipSmokeDetectorSensorDescription(SensorEntityDescription):
 SMOKE_DETECTOR_SENSORS: tuple[HmipSmokeDetectorSensorDescription, ...] = (
     HmipSmokeDetectorSensorDescription(
         key="dirt_level",
-        REDACTED_VALUE"smoke_detector_dirt_level",
+        translation_key="smoke_detector_dirt_level",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_registry_enabled_default=False,
@@ -93,7 +93,7 @@ SMOKE_DETECTOR_SENSORS: tuple[HmipSmokeDetectorSensorDescription, ...] = (
     ),
     HmipSmokeDetectorSensorDescription(
         key="smoke_alarm_counter",
-        REDACTED_VALUE"smoke_detector_alarm_counter",
+        translation_key="smoke_detector_alarm_counter",
         state_class=SensorStateClass.TOTAL_INCREASING,
         entity_registry_enabled_default=False,
         channel_field="smokeAlarmCounter",
@@ -101,7 +101,7 @@ SMOKE_DETECTOR_SENSORS: tuple[HmipSmokeDetectorSensorDescription, ...] = (
     ),
     HmipSmokeDetectorSensorDescription(
         key="smoke_test_counter",
-        REDACTED_VALUE"smoke_detector_test_counter",
+        translation_key="smoke_detector_test_counter",
         state_class=SensorStateClass.TOTAL_INCREASING,
         entity_registry_enabled_default=False,
         channel_field="smokeTestCounter",
@@ -109,7 +109,7 @@ SMOKE_DETECTOR_SENSORS: tuple[HmipSmokeDetectorSensorDescription, ...] = (
     ),
     HmipSmokeDetectorSensorDescription(
         key="last_smoke_alarm",
-        REDACTED_VALUE"smoke_detector_last_alarm",
+        translation_key="smoke_detector_last_alarm",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_registry_enabled_default=False,
         channel_field="lastSmokeAlarmTimestamp",
@@ -121,7 +121,7 @@ SMOKE_DETECTOR_SENSORS: tuple[HmipSmokeDetectorSensorDescription, ...] = (
     ),
     HmipSmokeDetectorSensorDescription(
         key="last_smoke_test",
-        REDACTED_VALUE"smoke_detector_last_test",
+        translation_key="smoke_detector_last_test",
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_registry_enabled_default=False,
         channel_field="lastSmokeTestTimestamp",

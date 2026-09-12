@@ -74,7 +74,7 @@ def handle_sending_exception[_Entity: AutomowerBaseEntity, **_P](
             except ApiError as exception:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"command_send_failed",
+                    translation_key="command_send_failed",
                     translation_placeholders={"exception": str(exception)},
                 ) from exception
             else:

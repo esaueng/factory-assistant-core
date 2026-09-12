@@ -47,7 +47,7 @@ class LinkPlaySelectEntityDescription(SelectEntityDescription):
 SELECT_TYPES_WIIM: tuple[LinkPlaySelectEntityDescription, ...] = (
     LinkPlaySelectEntityDescription(
         key="audio_output_hardware_mode",
-        REDACTED_VALUE"audio_output_hardware_mode",
+        translation_key="audio_output_hardware_mode",
         current_option_fn=_get_current_option,
         set_option_fn=(
             lambda linkplay_bridge, option: (

@@ -32,7 +32,7 @@ class SchlageSwitchEntityDescription(SwitchEntityDescription):
 SWITCHES: tuple[SchlageSwitchEntityDescription, ...] = (
     SchlageSwitchEntityDescription(
         key="beeper",
-        REDACTED_VALUE"beeper",
+        translation_key="beeper",
         device_class=SwitchDeviceClass.SWITCH,
         entity_category=EntityCategory.CONFIG,
         on_fn=lambda lock: lock.set_beeper(True),
@@ -41,7 +41,7 @@ SWITCHES: tuple[SchlageSwitchEntityDescription, ...] = (
     ),
     SchlageSwitchEntityDescription(
         key="lock_and_leve",
-        REDACTED_VALUE"lock_and_leave",
+        translation_key="lock_and_leave",
         device_class=SwitchDeviceClass.SWITCH,
         entity_category=EntityCategory.CONFIG,
         on_fn=lambda lock: lock.set_lock_and_leave(True),

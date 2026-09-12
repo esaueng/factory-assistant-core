@@ -113,7 +113,7 @@ class OpowerCoordinator(DataUpdateCoordinator[dict[str, OpowerData]]):
             _LOGGER.error("Error during login: %s", err)
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"login_error",
+                translation_key="login_error",
                 translation_placeholders={"error": str(err)},
             ) from err
 
@@ -496,7 +496,7 @@ class OpowerCoordinator(DataUpdateCoordinator[dict[str, OpowerData]]):
             issue_id=f"return_to_grid_migration_{utility_account_id}",
             is_fixable=False,
             severity=ir.IssueSeverity.WARNING,
-            REDACTED_VALUE"return_to_grid_migration",
+            translation_key="return_to_grid_migration",
             translation_placeholders={
                 "utility_account_id": utility_account_id,
                 "energy_settings": "/config/energy",

@@ -63,7 +63,7 @@ LIGHT_TYPES: Final[tuple[MieleLightDefinition, ...]] = (
             key="light",
             value_fn=lambda value: value.state_light,
             light_type=LIGHT,
-            REDACTED_VALUE"light",
+            translation_key="light",
         ),
     ),
     MieleLightDefinition(
@@ -72,7 +72,7 @@ LIGHT_TYPES: Final[tuple[MieleLightDefinition, ...]] = (
             key="ambient_light",
             value_fn=lambda value: value.state_ambient_light,
             light_type=AMBIENT_LIGHT,
-            REDACTED_VALUE"ambient_light",
+            translation_key="ambient_light",
         ),
     ),
 )
@@ -133,7 +133,7 @@ class MieleLight(MieleEntity, LightEntity):
             _LOGGER.debug("Error setting light state for %s: %s", self.entity_id, err)
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"set_state_error",
+                translation_key="set_state_error",
                 translation_placeholders={
                     "entity": self.entity_id,
                 },

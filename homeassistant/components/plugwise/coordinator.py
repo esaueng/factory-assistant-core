@@ -101,32 +101,32 @@ class PlugwiseDataUpdateCoordinator(DataUpdateCoordinator[dict[str, GwEntityData
         except ConnectionFailedError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_to_connect",
+                translation_key="failed_to_connect",
             ) from err
         except InvalidAuthentication as err:
             raise ConfigEntryError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"authentication_failed",
+                translation_key="authentication_failed",
             ) from err
         except InvalidSetupError as err:
             raise ConfigEntryError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_setup",
+                translation_key="invalid_setup",
             ) from err
         except (InvalidXMLError, ResponseError) as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"response_error",
+                translation_key="response_error",
             ) from err
         except PlugwiseError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"data_incomplete_or_missing",
+                translation_key="data_incomplete_or_missing",
             ) from err
         except UnsupportedDeviceError as err:
             raise ConfigEntryError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"unsupported_firmware",
+                translation_key="unsupported_firmware",
             ) from err
 
         self._add_remove_devices(data)

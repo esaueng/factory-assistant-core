@@ -116,7 +116,7 @@ class GrowattCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                 if err.error_code == GrowattV1ApiErrorCode.NO_PRIVILEGE:
                     raise ConfigEntryAuthFailed(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"auth_failed",
+                        translation_key="auth_failed",
                         translation_placeholders={"error": err.error_msg or str(err)},
                     ) from err
                 _LOGGER.debug("Failed to fetch V1 device list during scan: %s", err)
@@ -160,11 +160,11 @@ class GrowattCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                 if msg == LOGIN_INVALID_AUTH_CODE:
                     raise ConfigEntryAuthFailed(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"invalid_credentials",
+                        translation_key="invalid_credentials",
                     )
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"login_failed",
+                    translation_key="login_failed",
                     translation_placeholders={"message": msg},
                 )
 
@@ -189,14 +189,14 @@ class GrowattCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                     if err.error_code == GrowattV1ApiErrorCode.NO_PRIVILEGE:
                         raise ConfigEntryAuthFailed(
                             translation_domain=DOMAIN,
-                            REDACTED_VALUE"auth_failed",
+                            translation_key="auth_failed",
                             translation_placeholders={
                                 "error": err.error_msg or str(err)
                             },
                         ) from err
                     raise UpdateFailed(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"fetch_data_failed",
+                        translation_key="fetch_data_failed",
                         translation_placeholders={"error": str(err)},
                     ) from err
                 total_info["todayEnergy"] = total_info["today_energy"]
@@ -227,12 +227,12 @@ class GrowattCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                 if err.error_code == GrowattV1ApiErrorCode.NO_PRIVILEGE:
                     raise ConfigEntryAuthFailed(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"auth_failed",
+                        translation_key="auth_failed",
                         translation_placeholders={"error": err.error_msg or str(err)},
                     ) from err
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"fetch_data_failed",
+                    translation_key="fetch_data_failed",
                     translation_placeholders={"error": str(err)},
                 ) from err
 
@@ -260,12 +260,12 @@ class GrowattCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                 if err.error_code == GrowattV1ApiErrorCode.NO_PRIVILEGE:
                     raise ConfigEntryAuthFailed(
                         translation_domain=DOMAIN,
-                        REDACTED_VALUE"auth_failed",
+                        translation_key="auth_failed",
                         translation_placeholders={"error": err.error_msg or str(err)},
                     ) from err
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"fetch_data_failed",
+                    translation_key="fetch_data_failed",
                     translation_placeholders={"error": str(err)},
                 ) from err
 
@@ -337,7 +337,7 @@ class GrowattCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         except json.decoder.JSONDecodeError as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"fetch_data_failed",
+                translation_key="fetch_data_failed",
                 translation_placeholders={"error": str(err)},
             ) from err
 
@@ -478,7 +478,7 @@ class GrowattCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         if self.api_version != "v1":
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"token_auth_required",
+                translation_key="token_auth_required",
             )
 
         try:
@@ -497,7 +497,7 @@ class GrowattCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         except growattServer.GrowattV1ApiError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_error",
+                translation_key="api_error",
                 translation_placeholders={"error": str(err)},
             ) from err
 
@@ -524,7 +524,7 @@ class GrowattCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         if self.api_version != "v1":
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"token_auth_required",
+                translation_key="token_auth_required",
             )
 
         # Ensure we have current data
@@ -610,7 +610,7 @@ class GrowattCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         if self.api_version != "v1":
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"token_auth_required",
+                translation_key="token_auth_required",
             )
 
         try:
@@ -625,7 +625,7 @@ class GrowattCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         except growattServer.GrowattV1ApiError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_error",
+                translation_key="api_error",
                 translation_placeholders={"error": str(err)},
             ) from err
 
@@ -661,7 +661,7 @@ class GrowattCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         if self.api_version != "v1":
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"token_auth_required",
+                translation_key="token_auth_required",
             )
 
         try:
@@ -675,7 +675,7 @@ class GrowattCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         except growattServer.GrowattV1ApiError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"api_error",
+                translation_key="api_error",
                 translation_placeholders={"error": str(err)},
             ) from err
 
@@ -699,7 +699,7 @@ class GrowattCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         if self.api_version != "v1":
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"token_auth_required",
+                translation_key="token_auth_required",
             )
 
         if not self.data:
@@ -714,7 +714,7 @@ class GrowattCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         if self.api_version != "v1":
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"token_auth_required",
+                translation_key="token_auth_required",
             )
 
         if not self.data:

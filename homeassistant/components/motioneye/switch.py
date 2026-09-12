@@ -26,34 +26,34 @@ from .entity import MotionEyeEntity
 MOTIONEYE_SWITCHES = [
     SwitchEntityDescription(
         key=KEY_MOTION_DETECTION,
-        REDACTED_VALUE"motion_detection",
+        translation_key="motion_detection",
         entity_category=EntityCategory.CONFIG,
     ),
     SwitchEntityDescription(
         key=KEY_TEXT_OVERLAY,
-        REDACTED_VALUE"text_overlay",
+        translation_key="text_overlay",
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.CONFIG,
     ),
     SwitchEntityDescription(
         key=KEY_VIDEO_STREAMING,
-        REDACTED_VALUE"video_streaming",
+        translation_key="video_streaming",
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.CONFIG,
     ),
     SwitchEntityDescription(
         key=KEY_STILL_IMAGES,
-        REDACTED_VALUE"still_images",
+        translation_key="still_images",
         entity_category=EntityCategory.CONFIG,
     ),
     SwitchEntityDescription(
         key=KEY_MOVIES,
-        REDACTED_VALUE"movies",
+        translation_key="movies",
         entity_category=EntityCategory.CONFIG,
     ),
     SwitchEntityDescription(
         key=KEY_UPLOAD_ENABLED,
-        REDACTED_VALUE"upload_enabled",
+        translation_key="upload_enabled",
         entity_registry_enabled_default=False,
         entity_category=EntityCategory.CONFIG,
     ),

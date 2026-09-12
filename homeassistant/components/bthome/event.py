@@ -27,7 +27,7 @@ from .types import BTHomeConfigEntry
 DESCRIPTIONS_BY_EVENT_CLASS = {
     EVENT_CLASS_BUTTON: EventEntityDescription(
         key=EVENT_CLASS_BUTTON,
-        REDACTED_VALUE"button",
+        translation_key="button",
         event_types=[
             "press",
             "double_press",
@@ -41,12 +41,12 @@ DESCRIPTIONS_BY_EVENT_CLASS = {
     ),
     EVENT_CLASS_DIMMER: EventEntityDescription(
         key=EVENT_CLASS_DIMMER,
-        REDACTED_VALUE"dimmer",
+        translation_key="dimmer",
         event_types=["rotate_left", "rotate_right"],
     ),
     EVENT_CLASS_COMMAND: EventEntityDescription(
         key=EVENT_CLASS_COMMAND,
-        REDACTED_VALUE"command",
+        translation_key="command",
         event_types=["off", "on", "toggle", "step_up", "step_down"],
     ),
 }

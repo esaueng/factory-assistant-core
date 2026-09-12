@@ -30,12 +30,12 @@ RELAY_ENTITY_DESCRIPTION = DoorbirdButtonEntityDescription(
 BUTTON_DESCRIPTIONS: tuple[DoorbirdButtonEntityDescription, ...] = (
     DoorbirdButtonEntityDescription(
         key="__ir_light__",
-        REDACTED_VALUE"ir",
+        translation_key="ir",
         press_action=lambda door_station, _: door_station.device.turn_light_on(),
     ),
     DoorbirdButtonEntityDescription(
         key="reset_favorites",
-        REDACTED_VALUE"reset_favorites",
+        translation_key="reset_favorites",
         press_action=lambda door_station, _: async_reset_device_favorites(door_station),
         entity_category=EntityCategory.CONFIG,
     ),

@@ -62,7 +62,7 @@ AIDOO_SENSOR_TYPES: Final[tuple[SensorEntityDescription, ...]] = (
         key=AZD_INDOOR_EXCHANGER_TEMP,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"indoor_exchanger_temp",
+        translation_key="indoor_exchanger_temp",
     ),
     SensorEntityDescription(
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -70,7 +70,7 @@ AIDOO_SENSOR_TYPES: Final[tuple[SensorEntityDescription, ...]] = (
         key=AZD_INDOOR_RETURN_TEMP,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"indoor_return_temp",
+        translation_key="indoor_return_temp",
     ),
     SensorEntityDescription(
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -78,7 +78,7 @@ AIDOO_SENSOR_TYPES: Final[tuple[SensorEntityDescription, ...]] = (
         key=AZD_INDOOR_WORK_TEMP,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"indoor_work_temp",
+        translation_key="indoor_work_temp",
     ),
     SensorEntityDescription(
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -86,7 +86,7 @@ AIDOO_SENSOR_TYPES: Final[tuple[SensorEntityDescription, ...]] = (
         key=AZD_OUTDOOR_CONDENSER_PRESS,
         native_unit_of_measurement=UnitOfPressure.KPA,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"outdoor_condenser_press",
+        translation_key="outdoor_condenser_press",
     ),
     SensorEntityDescription(
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -94,7 +94,7 @@ AIDOO_SENSOR_TYPES: Final[tuple[SensorEntityDescription, ...]] = (
         key=AZD_OUTDOOR_DISCHARGE_TEMP,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"outdoor_discharge_temp",
+        translation_key="outdoor_discharge_temp",
     ),
     SensorEntityDescription(
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -102,7 +102,7 @@ AIDOO_SENSOR_TYPES: Final[tuple[SensorEntityDescription, ...]] = (
         key=AZD_OUTDOOR_ELECTRIC_CURRENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"outdoor_electric_current",
+        translation_key="outdoor_electric_current",
     ),
     SensorEntityDescription(
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -110,7 +110,7 @@ AIDOO_SENSOR_TYPES: Final[tuple[SensorEntityDescription, ...]] = (
         key=AZD_OUTDOOR_EVAPORATOR_PRESS,
         native_unit_of_measurement=UnitOfPressure.KPA,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"outdoor_evaporator_press",
+        translation_key="outdoor_evaporator_press",
     ),
     SensorEntityDescription(
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -118,7 +118,7 @@ AIDOO_SENSOR_TYPES: Final[tuple[SensorEntityDescription, ...]] = (
         key=AZD_OUTDOOR_EXCHANGER_TEMP,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"outdoor_exchanger_temp",
+        translation_key="outdoor_exchanger_temp",
     ),
     SensorEntityDescription(
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -126,7 +126,7 @@ AIDOO_SENSOR_TYPES: Final[tuple[SensorEntityDescription, ...]] = (
         key=AZD_OUTDOOR_TEMP,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"outdoor_temp",
+        translation_key="outdoor_temp",
     ),
     SensorEntityDescription(
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -143,7 +143,7 @@ WEBSERVER_SENSOR_TYPES: Final[tuple[SensorEntityDescription, ...]] = (
         key=AZD_CPU_USAGE,
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"cpu_usage",
+        translation_key="cpu_usage",
     ),
     SensorEntityDescription(
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -151,7 +151,7 @@ WEBSERVER_SENSOR_TYPES: Final[tuple[SensorEntityDescription, ...]] = (
         key=AZD_MEMORY_FREE,
         native_unit_of_measurement=UnitOfInformation.BYTES,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"free_memory",
+        translation_key="free_memory",
     ),
     SensorEntityDescription(
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
@@ -211,7 +211,7 @@ ZONE_SENSOR_TYPES: Final[tuple[SensorEntityDescription, ...]] = (
         key=AZD_THERMOSTAT_COVERAGE,
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
-        REDACTED_VALUE"thermostat_coverage",
+        translation_key="thermostat_coverage",
     ),
 )
 

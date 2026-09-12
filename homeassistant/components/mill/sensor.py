@@ -41,28 +41,28 @@ from .entity import MillBaseEntity
 HEATER_SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key=CONSUMPTION_YEAR,
-        REDACTED_VALUE"year_consumption",
+        translation_key="year_consumption",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     SensorEntityDescription(
         key=CONSUMPTION_TODAY,
-        REDACTED_VALUE"day_consumption",
+        translation_key="day_consumption",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     SensorEntityDescription(
         key="current_power",
-        REDACTED_VALUE"current_power",
+        translation_key="current_power",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="control_signal",
-        REDACTED_VALUE"control_signal",
+        translation_key="control_signal",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
@@ -92,13 +92,13 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
         key=ECO2,
         device_class=SensorDeviceClass.CO2,
         native_unit_of_measurement=CONCENTRATION_PARTS_PER_MILLION,
-        REDACTED_VALUE"estimated_co2",
+        translation_key="estimated_co2",
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key=TVOC,
         native_unit_of_measurement=CONCENTRATION_PARTS_PER_BILLION,
-        REDACTED_VALUE"tvoc",
+        translation_key="tvoc",
         state_class=SensorStateClass.MEASUREMENT,
     ),
 )
@@ -106,20 +106,20 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
 LOCAL_SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key="control_signal",
-        REDACTED_VALUE"control_signal",
+        translation_key="control_signal",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="current_power",
-        REDACTED_VALUE"current_power",
+        translation_key="current_power",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="raw_ambient_temperature",
-        REDACTED_VALUE"uncalibrated_temperature",
+        translation_key="uncalibrated_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,

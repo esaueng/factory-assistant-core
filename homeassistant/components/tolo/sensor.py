@@ -37,7 +37,7 @@ class ToloSensorEntityDescription(SensorEntityDescription):
 SENSORS = (
     ToloSensorEntityDescription(
         key="water_level",
-        REDACTED_VALUE"water_level",
+        translation_key="water_level",
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=PERCENTAGE,
         getter=lambda status: status.water_level_percent,
@@ -45,7 +45,7 @@ SENSORS = (
     ),
     ToloSensorEntityDescription(
         key="tank_temperature",
-        REDACTED_VALUE"tank_temperature",
+        translation_key="tank_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -54,7 +54,7 @@ SENSORS = (
     ),
     ToloSensorEntityDescription(
         key="power_timer_remaining",
-        REDACTED_VALUE"power_timer_remaining",
+        translation_key="power_timer_remaining",
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfTime.MINUTES,
         getter=lambda status: status.power_timer,
@@ -64,7 +64,7 @@ SENSORS = (
     ),
     ToloSensorEntityDescription(
         key="salt_bath_timer_remaining",
-        REDACTED_VALUE"salt_bath_timer_remaining",
+        translation_key="salt_bath_timer_remaining",
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfTime.MINUTES,
         getter=lambda status: status.salt_bath_timer,
@@ -74,7 +74,7 @@ SENSORS = (
     ),
     ToloSensorEntityDescription(
         key="fan_timer_remaining",
-        REDACTED_VALUE"fan_timer_remaining",
+        translation_key="fan_timer_remaining",
         entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfTime.MINUTES,
         getter=lambda status: status.fan_timer,

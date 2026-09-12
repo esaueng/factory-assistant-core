@@ -30,7 +30,7 @@ class AsekoSensorEntityDescription(SensorEntityDescription):
 SENSORS: list[AsekoSensorEntityDescription] = [
     AsekoSensorEntityDescription(
         key="airTemp",
-        REDACTED_VALUE"air_temperature",
+        translation_key="air_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
@@ -38,14 +38,14 @@ SENSORS: list[AsekoSensorEntityDescription] = [
     ),
     AsekoSensorEntityDescription(
         key="electrolyzer",
-        REDACTED_VALUE"electrolyzer",
+        translation_key="electrolyzer",
         native_unit_of_measurement="g/h",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda unit: unit.electrolyzer,
     ),
     AsekoSensorEntityDescription(
         key="free_chlorine",
-        REDACTED_VALUE"free_chlorine",
+        translation_key="free_chlorine",
         native_unit_of_measurement="mg/l",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda unit: unit.cl_free,
@@ -58,21 +58,21 @@ SENSORS: list[AsekoSensorEntityDescription] = [
     ),
     AsekoSensorEntityDescription(
         key="rx",
-        REDACTED_VALUE"redox",
+        translation_key="redox",
         native_unit_of_measurement=UnitOfElectricPotential.MILLIVOLT,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda unit: unit.redox,
     ),
     AsekoSensorEntityDescription(
         key="salinity",
-        REDACTED_VALUE"salinity",
+        translation_key="salinity",
         native_unit_of_measurement="kg/m³",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda unit: unit.salinity,
     ),
     AsekoSensorEntityDescription(
         key="waterTemp",
-        REDACTED_VALUE"water_temperature",
+        translation_key="water_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,

@@ -77,7 +77,7 @@ class IndevoltCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         except (ClientError, OSError) as err:
             raise ConfigEntryNotReady(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"config_entry_not_ready",
+                translation_key="config_entry_not_ready",
                 translation_placeholders={"error": str(err)},
             ) from err
 
@@ -99,7 +99,7 @@ class IndevoltCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         except (ClientError, OSError) as err:
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"update_failed",
+                translation_key="update_failed",
                 translation_placeholders={"error": str(err)},
             ) from err
 
@@ -124,14 +124,14 @@ class IndevoltCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         if current_mode is None:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_to_retrieve_current_energy_mode",
+                translation_key="failed_to_retrieve_current_energy_mode",
             )
 
         # Ensure device is not in "Outdoor/Portable mode"
         if current_mode == IndevoltEnergyMode.OUTDOOR_PORTABLE:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"energy_mode_change_unavailable_outdoor_portable",
+                translation_key="energy_mode_change_unavailable_outdoor_portable",
             )
 
         # Switch energy mode if required
@@ -143,7 +143,7 @@ class IndevoltCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             if not success:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"failed_to_switch_energy_mode",
+                    translation_key="failed_to_switch_energy_mode",
                 )
 
             if refresh:
@@ -181,7 +181,7 @@ class IndevoltCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         if not success:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_to_execute_realtime_action",
+                translation_key="failed_to_execute_realtime_action",
             )
 
         self.async_set_updated_data(

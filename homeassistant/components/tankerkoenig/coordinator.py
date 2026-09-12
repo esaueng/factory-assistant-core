@@ -72,7 +72,7 @@ class TankerkoenigDataUpdateCoordinator(DataUpdateCoordinator[dict[str, PriceInf
                 )
                 raise ConfigEntryAuthFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"invalid_api_key",
+                    translation_key="invalid_api_key",
                 ) from err
             except TankerkoenigConnectionError as err:
                 _LOGGER.debug(
@@ -82,7 +82,7 @@ class TankerkoenigDataUpdateCoordinator(DataUpdateCoordinator[dict[str, PriceInf
                 )
                 raise ConfigEntryNotReady(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"connection_error",
+                    translation_key="connection_error",
                 ) from err
             except TankerkoenigError as err:
                 _LOGGER.error("Error when adding station %s %s", station_id, err)
@@ -138,7 +138,7 @@ class TankerkoenigDataUpdateCoordinator(DataUpdateCoordinator[dict[str, PriceInf
                 )
                 raise ConfigEntryAuthFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"invalid_api_key",
+                    translation_key="invalid_api_key",
                 ) from err
             except TankerkoenigRateLimitError as err:
                 _LOGGER.warning(
@@ -146,7 +146,7 @@ class TankerkoenigDataUpdateCoordinator(DataUpdateCoordinator[dict[str, PriceInf
                 )
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"rate_limit_reached",
+                    translation_key="rate_limit_reached",
                 ) from err
             except (TankerkoenigError, TankerkoenigConnectionError) as err:
                 _LOGGER.debug(
@@ -156,7 +156,7 @@ class TankerkoenigDataUpdateCoordinator(DataUpdateCoordinator[dict[str, PriceInf
                 )
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"station_update_failed",
+                    translation_key="station_update_failed",
                     translation_placeholders={
                         "station_ids": ", ".join(stations),
                     },

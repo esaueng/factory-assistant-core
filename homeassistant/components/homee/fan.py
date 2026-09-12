@@ -125,7 +125,7 @@ class HomeeFan(HomeeNodeEntity, FanEntity):
             if preset_mode != "manual":
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"invalid_preset_mode",
+                    translation_key="invalid_preset_mode",
                     translation_placeholders={"preset_mode": preset_mode},
                 )
 

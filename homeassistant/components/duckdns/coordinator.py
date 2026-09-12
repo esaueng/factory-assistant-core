@@ -62,7 +62,7 @@ class DuckDnsUpdateCoordinator(DataUpdateCoordinator[None]):
                 self.failed += 1
                 raise UpdateFailed(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"update_failed",
+                    translation_key="update_failed",
                     translation_placeholders={
                         CONF_DOMAIN: self.config_entry.data[CONF_DOMAIN],
                     },
@@ -72,7 +72,7 @@ class DuckDnsUpdateCoordinator(DataUpdateCoordinator[None]):
             self.failed += 1
             raise UpdateFailed(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"connection_error",
+                translation_key="connection_error",
                 translation_placeholders={
                     CONF_DOMAIN: self.config_entry.data[CONF_DOMAIN],
                 },

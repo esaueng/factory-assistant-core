@@ -22,7 +22,7 @@ from .entity import LoqedEntity
 SENSORS: Final[tuple[SensorEntityDescription, ...]] = (
     SensorEntityDescription(
         key="ble_strength",
-        REDACTED_VALUE"ble_strength",
+        translation_key="ble_strength",
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         state_class=SensorStateClass.MEASUREMENT,

@@ -108,7 +108,7 @@ class QbusClimate(QbusEntity, ClimateEntity):
         if preset_mode not in self._attr_preset_modes:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"invalid_preset",
+                translation_key="invalid_preset",
                 translation_placeholders={
                     "preset": preset_mode,
                     "options": ", ".join(self._attr_preset_modes),

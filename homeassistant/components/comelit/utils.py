@@ -105,21 +105,21 @@ def bridge_api_call[_T: ComelitBridgeBaseEntity, **_P](
             self.coordinator.last_update_success = False
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_connect",
+                translation_key="cannot_connect",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except CannotRetrieveData as err:
             self.coordinator.last_update_success = False
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cannot_retrieve_data",
+                translation_key="cannot_retrieve_data",
                 translation_placeholders={"error": repr(err)},
             ) from err
         except DeviceStorageFailureError as err:
             self.coordinator.last_update_success = False
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_storage_failure",
+                translation_key="device_storage_failure",
             ) from err
         except CannotAuthenticate:
             self.coordinator.last_update_success = False

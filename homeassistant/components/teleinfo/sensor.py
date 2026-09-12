@@ -63,14 +63,14 @@ SENSOR_DESCRIPTIONS: tuple[TeleinfoSensorEntityDescription, ...] = (
     # ------------------------------------------------------------------
     TeleinfoSensorEntityDescription(
         key="PAPP",
-        REDACTED_VALUE"apparent_power",
+        translation_key="apparent_power",
         device_class=SensorDeviceClass.APPARENT_POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
     ),
     TeleinfoSensorEntityDescription(
         key="IINST",
-        REDACTED_VALUE"instantaneous_current",
+        translation_key="instantaneous_current",
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
@@ -78,7 +78,7 @@ SENSOR_DESCRIPTIONS: tuple[TeleinfoSensorEntityDescription, ...] = (
     ),
     TeleinfoSensorEntityDescription(
         key="PTEC",
-        REDACTED_VALUE"current_tariff_period",
+        translation_key="current_tariff_period",
         device_class=SensorDeviceClass.ENUM,
         options=list(PTEC_OPTIONS.values()),
         value_fn=PTEC_OPTIONS.get,
@@ -88,7 +88,7 @@ SENSOR_DESCRIPTIONS: tuple[TeleinfoSensorEntityDescription, ...] = (
     # ------------------------------------------------------------------
     TeleinfoSensorEntityDescription(
         key="BASE",
-        REDACTED_VALUE"base_index",
+        translation_key="base_index",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
@@ -98,14 +98,14 @@ SENSOR_DESCRIPTIONS: tuple[TeleinfoSensorEntityDescription, ...] = (
     # ------------------------------------------------------------------
     TeleinfoSensorEntityDescription(
         key="HCHC",
-        REDACTED_VALUE"off_peak_index",
+        translation_key="off_peak_index",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
     ),
     TeleinfoSensorEntityDescription(
         key="HCHP",
-        REDACTED_VALUE"peak_index",
+        translation_key="peak_index",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
@@ -115,21 +115,21 @@ SENSOR_DESCRIPTIONS: tuple[TeleinfoSensorEntityDescription, ...] = (
     # ------------------------------------------------------------------
     TeleinfoSensorEntityDescription(
         key="EJPHN",
-        REDACTED_VALUE"normal_hours_index",
+        translation_key="normal_hours_index",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
     ),
     TeleinfoSensorEntityDescription(
         key="EJPHPM",
-        REDACTED_VALUE"peak_mobile_hours_index",
+        translation_key="peak_mobile_hours_index",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
     ),
     TeleinfoSensorEntityDescription(
         key="PEJP",
-        REDACTED_VALUE"ejp_warning",
+        translation_key="ejp_warning",
         device_class=SensorDeviceClass.DURATION,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTime.MINUTES,
@@ -140,49 +140,49 @@ SENSOR_DESCRIPTIONS: tuple[TeleinfoSensorEntityDescription, ...] = (
     # ------------------------------------------------------------------
     TeleinfoSensorEntityDescription(
         key="BBRHCJB",
-        REDACTED_VALUE"blue_day_off_peak_index",
+        translation_key="blue_day_off_peak_index",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
     ),
     TeleinfoSensorEntityDescription(
         key="BBRHPJB",
-        REDACTED_VALUE"blue_day_peak_index",
+        translation_key="blue_day_peak_index",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
     ),
     TeleinfoSensorEntityDescription(
         key="BBRHCJW",
-        REDACTED_VALUE"white_day_off_peak_index",
+        translation_key="white_day_off_peak_index",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
     ),
     TeleinfoSensorEntityDescription(
         key="BBRHPJW",
-        REDACTED_VALUE"white_day_peak_index",
+        translation_key="white_day_peak_index",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
     ),
     TeleinfoSensorEntityDescription(
         key="BBRHCJR",
-        REDACTED_VALUE"red_day_off_peak_index",
+        translation_key="red_day_off_peak_index",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
     ),
     TeleinfoSensorEntityDescription(
         key="BBRHPJR",
-        REDACTED_VALUE"red_day_peak_index",
+        translation_key="red_day_peak_index",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
     ),
     TeleinfoSensorEntityDescription(
         key="DEMAIN",
-        REDACTED_VALUE"tomorrow_color",
+        translation_key="tomorrow_color",
         device_class=SensorDeviceClass.ENUM,
         options=[v for v in DEMAIN_OPTIONS.values() if v is not None],
         entity_registry_enabled_default=False,

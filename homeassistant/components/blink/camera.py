@@ -79,7 +79,7 @@ class BlinkCamera(CoordinatorEntity[BlinkUpdateCoordinator], Camera):
         except TimeoutError as er:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_arm",
+                translation_key="failed_arm",
             ) from er
         except UnauthorizedError as er:
             self.coordinator.config_entry.async_start_reauth(self.hass)
@@ -95,7 +95,7 @@ class BlinkCamera(CoordinatorEntity[BlinkUpdateCoordinator], Camera):
         except TimeoutError as er:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_disarm",
+                translation_key="failed_disarm",
             ) from er
         except UnauthorizedError as er:
             self.coordinator.config_entry.async_start_reauth(self.hass)
@@ -121,7 +121,7 @@ class BlinkCamera(CoordinatorEntity[BlinkUpdateCoordinator], Camera):
         except TimeoutError as er:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_clip",
+                translation_key="failed_clip",
             ) from er
         except UnauthorizedError as er:
             self.coordinator.config_entry.async_start_reauth(self.hass)
@@ -136,7 +136,7 @@ class BlinkCamera(CoordinatorEntity[BlinkUpdateCoordinator], Camera):
         except TimeoutError as er:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"failed_snap",
+                translation_key="failed_snap",
             ) from er
         except UnauthorizedError as er:
             self.coordinator.config_entry.async_start_reauth(self.hass)
@@ -162,7 +162,7 @@ class BlinkCamera(CoordinatorEntity[BlinkUpdateCoordinator], Camera):
         if not self.hass.config.is_allowed_path(file_path):
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_path",
+                translation_key="no_path",
                 translation_placeholders={"target": file_path},
             )
 
@@ -171,7 +171,7 @@ class BlinkCamera(CoordinatorEntity[BlinkUpdateCoordinator], Camera):
         except OSError as err:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cant_write",
+                translation_key="cant_write",
             ) from err
         except UnauthorizedError as er:
             self.coordinator.config_entry.async_start_reauth(self.hass)
@@ -182,7 +182,7 @@ class BlinkCamera(CoordinatorEntity[BlinkUpdateCoordinator], Camera):
         if not self.hass.config.is_allowed_path(filename):
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"no_path",
+                translation_key="no_path",
                 translation_placeholders={"target": filename},
             )
 
@@ -191,7 +191,7 @@ class BlinkCamera(CoordinatorEntity[BlinkUpdateCoordinator], Camera):
         except OSError as err:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"cant_write",
+                translation_key="cant_write",
             ) from err
         except UnauthorizedError as er:
             self.coordinator.config_entry.async_start_reauth(self.hass)

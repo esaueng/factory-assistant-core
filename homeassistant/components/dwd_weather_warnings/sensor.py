@@ -42,11 +42,11 @@ from .coordinator import DwdWeatherWarningsConfigEntry, DwdWeatherWarningsCoordi
 SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key=CURRENT_WARNING_SENSOR,
-        REDACTED_VALUECURRENT_WARNING_SENSOR,
+        translation_key=CURRENT_WARNING_SENSOR,
     ),
     SensorEntityDescription(
         key=ADVANCE_WARNING_SENSOR,
-        REDACTED_VALUEADVANCE_WARNING_SENSOR,
+        translation_key=ADVANCE_WARNING_SENSOR,
     ),
 )
 

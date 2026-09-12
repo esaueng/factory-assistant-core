@@ -133,7 +133,7 @@ class ReolinkHost:
         self._cancel_tcp_push_check: CALLBACK_TYPE | None = None
         self._cancel_onvif_check: CALLBACK_TYPE | None = None
         self._cancel_long_poll_check: CALLBACK_TYPE | None = None
-        self._poll_job = HassJob(self._async_poll_all_motion, REDACTED_VALUE)
+        self._poll_job = HassJob(self._async_poll_all_motion, cancel_on_shutdown=True)
         self._fast_poll_error: bool = False
         self._long_poll_task: asyncio.Task | None = None
         self._lost_subscription_start: bool = False
@@ -178,7 +178,7 @@ class ReolinkHost:
                     f"password_too_long_{self._config_entry.entry_id}",
                     is_fixable=True,
                     severity=ir.IssueSeverity.ERROR,
-                    REDACTED_VALUE"password_too_long",
+                    translation_key="password_too_long",
                     translation_placeholders={"name": self._config_entry.title},
                 )
 
@@ -281,7 +281,7 @@ class ReolinkHost:
                     "enable_port",
                     is_fixable=False,
                     severity=ir.IssueSeverity.WARNING,
-                    REDACTED_VALUE"enable_port",
+                    translation_key="enable_port",
                     translation_placeholders={
                         "name": self._api.nvr_name,
                         "ports": ports,
@@ -320,7 +320,7 @@ class ReolinkHost:
                     f"firmware_update_{key}",
                     is_fixable=False,
                     severity=ir.IssueSeverity.WARNING,
-                    REDACTED_VALUE"firmware_update",
+                    translation_key="firmware_update",
                     translation_placeholders={
                         "required_firmware": self._api.camera_sw_version_required(
                             ch
@@ -437,7 +437,7 @@ class ReolinkHost:
                 "webhook_url",
                 is_fixable=False,
                 severity=ir.IssueSeverity.WARNING,
-                REDACTED_VALUE"webhook_url",
+                translation_key="webhook_url",
                 translation_placeholders={
                     "name": self._api.nvr_name,
                     "base_url": self._base_url,
@@ -454,7 +454,7 @@ class ReolinkHost:
                     "https_webhook",
                     is_fixable=False,
                     severity=ir.IssueSeverity.WARNING,
-                    REDACTED_VALUE"https_webhook",
+                    translation_key="https_webhook",
                     translation_placeholders={
                         "base_url": self._base_url,
                         "network_link": "https://my.home-assistant.io/redirect/network/",
@@ -472,7 +472,7 @@ class ReolinkHost:
                     "ssl",
                     is_fixable=False,
                     severity=ir.IssueSeverity.WARNING,
-                    REDACTED_VALUE"ssl",
+                    translation_key="ssl",
                     translation_placeholders={
                         "ssl_link": "https://www.home-assistant.io/integrations/http/#ssl_certificate",
                         "base_url": self._base_url,

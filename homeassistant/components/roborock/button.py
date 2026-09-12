@@ -49,35 +49,35 @@ class RoborockButtonDescription(ButtonEntityDescription):
 CONSUMABLE_BUTTON_DESCRIPTIONS = [
     RoborockButtonDescription(
         key="reset_sensor_consumable",
-        REDACTED_VALUE"reset_sensor_consumable",
+        translation_key="reset_sensor_consumable",
         attribute=ConsumableAttribute.SENSOR_DIRTY_TIME,
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
     ),
     RoborockButtonDescription(
         key="reset_air_filter_consumable",
-        REDACTED_VALUE"reset_air_filter_consumable",
+        translation_key="reset_air_filter_consumable",
         attribute=ConsumableAttribute.FILTER_WORK_TIME,
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
     ),
     RoborockButtonDescription(
         key="reset_side_brush_consumable",
-        REDACTED_VALUE"reset_side_brush_consumable",
+        translation_key="reset_side_brush_consumable",
         attribute=ConsumableAttribute.SIDE_BRUSH_WORK_TIME,
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
     ),
     RoborockButtonDescription(
         key="reset_main_brush_consumable",
-        REDACTED_VALUE"reset_main_brush_consumable",
+        translation_key="reset_main_brush_consumable",
         attribute=ConsumableAttribute.MAIN_BRUSH_WORK_TIME,
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
     ),
     RoborockButtonDescription(
         key="reset_dock_strainer_consumable",
-        REDACTED_VALUE"reset_dock_strainer_consumable",
+        translation_key="reset_dock_strainer_consumable",
         attribute=ConsumableAttribute.STRAINER_WORK_TIME,
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
@@ -88,7 +88,7 @@ CONSUMABLE_BUTTON_DESCRIPTIONS = [
     ),
     RoborockButtonDescription(
         key="reset_dock_cleaning_brush_consumable",
-        REDACTED_VALUE"reset_dock_cleaning_brush_consumable",
+        translation_key="reset_dock_cleaning_brush_consumable",
         attribute=ConsumableAttribute.CLEANING_BRUSH_WORK_TIME,
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
@@ -111,17 +111,17 @@ ZEO_BUTTON_DESCRIPTIONS = [
     RoborockButtonDescriptionA01(
         key="start",
         data_protocol=RoborockZeoProtocol.START,
-        REDACTED_VALUE"start",
+        translation_key="start",
     ),
     RoborockButtonDescriptionA01(
         key="pause",
         data_protocol=RoborockZeoProtocol.PAUSE,
-        REDACTED_VALUE"pause",
+        translation_key="pause",
     ),
     RoborockButtonDescriptionA01(
         key="shutdown",
         data_protocol=RoborockZeoProtocol.SHUTDOWN,
-        REDACTED_VALUE"shutdown",
+        translation_key="shutdown",
     ),
 ]
 
@@ -129,7 +129,7 @@ ZEO_BUTTON_DESCRIPTIONS = [
 Q10_BUTTON_DESCRIPTIONS = [
     ButtonEntityDescription(
         key="empty_dustbin",
-        REDACTED_VALUE"empty_dustbin",
+        translation_key="empty_dustbin",
     ),
 ]
 
@@ -223,7 +223,7 @@ class RoborockButtonEntity(RoborockEntityV1, ButtonEntity):
             # name of the attribute being reset.
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={
                     "command": "RESET_CONSUMABLE",
                 },
@@ -280,7 +280,7 @@ class RoborockButtonEntityA01(RoborockCoordinatedEntityA01, ButtonEntity):
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"button_press_failed",
+                translation_key="button_press_failed",
             ) from err
         finally:
             await self.coordinator.async_request_refresh()
@@ -313,7 +313,7 @@ class RoborockQ10EmptyDustbinButtonEntity(
         except RoborockException as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"command_failed",
+                translation_key="command_failed",
                 translation_placeholders={
                     "command": "empty_dustbin",
                 },

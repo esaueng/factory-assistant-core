@@ -71,19 +71,19 @@ class TailwindDoorCoverEntity(TailwindDoorEntity, CoverEntity):
         except TailwindDoorDisabledError as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"door_disabled",
+                translation_key="door_disabled",
             ) from exc
         except TailwindDoorLockedOutError as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"door_locked_out",
+                translation_key="door_locked_out",
             ) from exc
         except TailwindDoorAlreadyInStateError:
             LOGGER.debug("Already in the requested state: %s", self.entity_id)
         except TailwindError as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
             ) from exc
         finally:
             self._attr_is_opening = False
@@ -105,19 +105,19 @@ class TailwindDoorCoverEntity(TailwindDoorEntity, CoverEntity):
         except TailwindDoorDisabledError as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"door_disabled",
+                translation_key="door_disabled",
             ) from exc
         except TailwindDoorLockedOutError as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"door_locked_out",
+                translation_key="door_locked_out",
             ) from exc
         except TailwindDoorAlreadyInStateError:
             LOGGER.debug("Already in the requested state: %s", self.entity_id)
         except TailwindError as exc:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"communication_error",
+                translation_key="communication_error",
             ) from exc
         finally:
             self._attr_is_closing = False

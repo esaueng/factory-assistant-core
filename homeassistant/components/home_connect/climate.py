@@ -69,7 +69,7 @@ FAN_MODES_OPTIONS_INVERTED = {v: k for k, v in FAN_MODES_OPTIONS.items()}
 
 AIR_CONDITIONER_ENTITY_DESCRIPTION = ClimateEntityDescription(
     key="air_conditioner",
-    REDACTED_VALUE"air_conditioner",
+    translation_key="air_conditioner",
     name=None,
 )
 
@@ -268,7 +268,7 @@ class HomeConnectAirConditioningEntity(HomeConnectEntity, ClimateEntity):
         except HomeConnectError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"power_on",
+                translation_key="power_on",
                 translation_placeholders={
                     **get_dict_from_home_connect_error(err),
                     "appliance_name": self.appliance.info.name,
@@ -286,7 +286,7 @@ class HomeConnectAirConditioningEntity(HomeConnectEntity, ClimateEntity):
         except HomeConnectError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"power_off",
+                translation_key="power_off",
                 translation_placeholders={
                     **get_dict_from_home_connect_error(err),
                     "appliance_name": self.appliance.info.name,
@@ -302,7 +302,7 @@ class HomeConnectAirConditioningEntity(HomeConnectEntity, ClimateEntity):
         except HomeConnectError as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"start_program",
+                translation_key="start_program",
                 translation_placeholders={
                     **get_dict_from_home_connect_error(err),
                     "program": program_key.value,

@@ -33,14 +33,14 @@ DEVICE_TYPE_CLIMATE_MAP: dict[DeviceType, tuple[ClimateEntityDescription, ...]] 
         ClimateEntityDescription(
             key=ExtendedProperty.CLIMATE_AIR_CONDITIONER,
             name=None,
-            REDACTED_VALUEExtendedProperty.CLIMATE_AIR_CONDITIONER,
+            translation_key=ExtendedProperty.CLIMATE_AIR_CONDITIONER,
         ),
     ),
     DeviceType.SYSTEM_BOILER: (
         ClimateEntityDescription(
             key=ExtendedProperty.CLIMATE_SYSTEM_BOILER,
             name=None,
-            REDACTED_VALUEExtendedProperty.CLIMATE_SYSTEM_BOILER,
+            translation_key=ExtendedProperty.CLIMATE_SYSTEM_BOILER,
         ),
     ),
 }

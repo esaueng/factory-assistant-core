@@ -51,7 +51,7 @@ class DucoBoxSensorEntityDescription(SensorEntityDescription):
 SENSOR_DESCRIPTIONS: tuple[DucoSensorEntityDescription, ...] = (
     DucoSensorEntityDescription(
         key="ventilation_state",
-        REDACTED_VALUE"ventilation_state",
+        translation_key="ventilation_state",
         device_class=SensorDeviceClass.ENUM,
         options=[
             state.lower()
@@ -67,7 +67,7 @@ SENSOR_DESCRIPTIONS: tuple[DucoSensorEntityDescription, ...] = (
     ),
     DucoSensorEntityDescription(
         key="target_flow_level",
-        REDACTED_VALUE"target_flow_level",
+        translation_key="target_flow_level",
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
         suggested_display_precision=0,
@@ -78,7 +78,7 @@ SENSOR_DESCRIPTIONS: tuple[DucoSensorEntityDescription, ...] = (
     ),
     DucoSensorEntityDescription(
         key="time_state_end",
-        REDACTED_VALUE"time_state_end",
+        translation_key="time_state_end",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda node: (
             dt_util.utc_from_timestamp(node.ventilation.time_state_end).replace(
@@ -99,7 +99,7 @@ SENSOR_DESCRIPTIONS: tuple[DucoSensorEntityDescription, ...] = (
     ),
     DucoSensorEntityDescription(
         key="iaq_co2",
-        REDACTED_VALUE"iaq_co2",
+        translation_key="iaq_co2",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_registry_enabled_default=False,
@@ -116,7 +116,7 @@ SENSOR_DESCRIPTIONS: tuple[DucoSensorEntityDescription, ...] = (
     ),
     DucoSensorEntityDescription(
         key="iaq_rh",
-        REDACTED_VALUE"iaq_rh",
+        translation_key="iaq_rh",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_registry_enabled_default=False,

@@ -256,7 +256,7 @@ FAN_KNX_SCHEMA = AllSerializeFirst(
             ),
             vol.Optional(CONF_SPEED): GroupSelect(
                 GroupSelectOption(
-                    REDACTED_VALUE"percentage_mode",
+                    translation_key="percentage_mode",
                     schema={
                         vol.Required(CONF_GA_SPEED): GASelector(
                             write_required=True, valid_dpt="5.001"
@@ -264,7 +264,7 @@ FAN_KNX_SCHEMA = AllSerializeFirst(
                     },
                 ),
                 GroupSelectOption(
-                    REDACTED_VALUE"step_mode",
+                    translation_key="step_mode",
                     schema={
                         vol.Required(CONF_GA_STEP): GASelector(
                             write_required=True, valid_dpt="5.010"
@@ -342,7 +342,7 @@ LIGHT_KNX_SCHEMA = AllSerializeFirst(
             ),
             vol.Optional(CONF_COLOR): GroupSelect(
                 GroupSelectOption(
-                    REDACTED_VALUE"single_address",
+                    translation_key="single_address",
                     schema={
                         vol.Optional(CONF_GA_COLOR): GASelector(
                             write_required=True, dpt=LightColorMode
@@ -350,7 +350,7 @@ LIGHT_KNX_SCHEMA = AllSerializeFirst(
                     },
                 ),
                 GroupSelectOption(
-                    REDACTED_VALUE"individual_addresses",
+                    translation_key="individual_addresses",
                     schema={
                         vol.Optional(CONF_GA_RED_SWITCH): GASelector(
                             write_required=False, valid_dpt="1"
@@ -379,7 +379,7 @@ LIGHT_KNX_SCHEMA = AllSerializeFirst(
                     },
                 ),
                 GroupSelectOption(
-                    REDACTED_VALUE"hsv_addresses",
+                    translation_key="hsv_addresses",
                     schema={
                         vol.Required(CONF_GA_HUE): GASelector(
                             write_required=True, valid_dpt="5.003"
@@ -452,7 +452,7 @@ NUMBER_KNX_SCHEMA = AllSerializeFirst(
             vol.Required(CONF_MODE, default=NumberMode.AUTO): selector.SelectSelector(
                 selector.SelectSelectorConfig(
                     options=list(NumberMode),
-                    REDACTED_VALUE"component.knx.config_panel.entities.create.number.knx.mode",
+                    translation_key="component.knx.config_panel.entities.create.number.knx.mode",
                 ),
             ),
             vol.Optional(NumberConf.MIN): selector.NumberSelector(),
@@ -480,7 +480,7 @@ NUMBER_KNX_SCHEMA = AllSerializeFirst(
                 selector.SelectSelectorConfig(
                     options=[cls.value for cls in NumberDeviceClass],
                     # should align with sensor
-                    REDACTED_VALUE"component.knx.selector.sensor_device_class",
+                    translation_key="component.knx.selector.sensor_device_class",
                     sort=True,
                 )
             ),
@@ -524,7 +524,7 @@ TEXT_KNX_SCHEMA = vol.Schema(
         vol.Required(CONF_MODE, default=TextMode.TEXT): selector.SelectSelector(
             selector.SelectSelectorConfig(
                 options=list(TextMode),
-                REDACTED_VALUE"component.knx.config_panel.entities.create.text.knx.mode",
+                translation_key="component.knx.config_panel.entities.create.text.knx.mode",
             ),
         ),
         vol.Optional(CONF_RESPOND_TO_READ, default=False): selector.BooleanSelector(),
@@ -567,7 +567,7 @@ CLIMATE_KNX_SCHEMA = vol.Schema(
         ),
         vol.Required(CONF_TARGET_TEMPERATURE): GroupSelect(
             GroupSelectOption(
-                REDACTED_VALUE"group_direct_temp",
+                translation_key="group_direct_temp",
                 schema={
                     vol.Required(CONF_GA_TEMPERATURE_TARGET): GASelector(
                         write_required=True, valid_dpt="9.001"
@@ -596,7 +596,7 @@ CLIMATE_KNX_SCHEMA = vol.Schema(
                 },
             ),
             GroupSelectOption(
-                REDACTED_VALUE"group_setpoint_shift",
+                translation_key="group_setpoint_shift",
                 schema={
                     vol.Required(CONF_GA_TEMPERATURE_TARGET): GASelector(
                         write=False, state_required=True, valid_dpt="9.001"
@@ -657,7 +657,7 @@ CLIMATE_KNX_SCHEMA = vol.Schema(
         ): selector.SelectSelector(
             selector.SelectSelectorConfig(
                 options=list(HVACMode),
-                REDACTED_VALUE"component.climate.selector.hvac_mode",
+                translation_key="component.climate.selector.hvac_mode",
             )
         ),
         "section_fan": KNXSectionFlat(collapsible=True),
@@ -673,7 +673,7 @@ CLIMATE_KNX_SCHEMA = vol.Schema(
         ): selector.SelectSelector(
             selector.SelectSelectorConfig(
                 options=list(FanZeroMode),
-                REDACTED_VALUE"component.knx.config_panel.entities.create.climate.knx.fan_zero_mode",
+                translation_key="component.knx.config_panel.entities.create.climate.knx.fan_zero_mode",
             )
         ),
         vol.Optional(CONF_GA_FAN_SWING): GASelector(valid_dpt="1"),
@@ -708,7 +708,7 @@ SENSOR_KNX_SCHEMA = AllSerializeFirst(
                         }
                     ),
                     mode=selector.SelectSelectorMode.DROPDOWN,
-                    REDACTED_VALUE"component.knx.selector.sensor_unit_of_measurement",
+                    translation_key="component.knx.selector.sensor_unit_of_measurement",
                     custom_value=True,
                 ),
             ),
@@ -719,14 +719,14 @@ SENSOR_KNX_SCHEMA = AllSerializeFirst(
                         for cls in SensorDeviceClass
                         if cls != SensorDeviceClass.ENUM
                     ],
-                    REDACTED_VALUE"component.knx.selector.sensor_device_class",
+                    translation_key="component.knx.selector.sensor_device_class",
                     sort=True,
                 )
             ),
             vol.Optional(CONF_SENSOR_STATE_CLASS): selector.SelectSelector(
                 selector.SelectSelectorConfig(
                     options=list(SensorStateClass),
-                    REDACTED_VALUE"component.knx.selector.sensor_state_class",
+                    translation_key="component.knx.selector.sensor_state_class",
                     mode=selector.SelectSelectorMode.DROPDOWN,
                 )
             ),

@@ -24,7 +24,7 @@ class SensiboButtonEntityDescription(ButtonEntityDescription):
 
 DEVICE_BUTTON_TYPES = SensiboButtonEntityDescription(
     key="reset_filter",
-    REDACTED_VALUE"reset_filter",
+    translation_key="reset_filter",
     entity_category=EntityCategory.CONFIG,
     data_key="filter_clean",
 )

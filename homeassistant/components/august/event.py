@@ -35,7 +35,7 @@ class AugustEventEntityDescription(EventEntityDescription):
 TYPES_VIDEO_DOORBELL: tuple[AugustEventEntityDescription, ...] = (
     AugustEventEntityDescription(
         key="motion",
-        REDACTED_VALUE"motion",
+        translation_key="motion",
         device_class=EventDeviceClass.MOTION,
         event_types=["motion"],
         value_fn=retrieve_doorbell_motion_activity,
@@ -46,7 +46,7 @@ TYPES_VIDEO_DOORBELL: tuple[AugustEventEntityDescription, ...] = (
 TYPES_DOORBELL: tuple[AugustEventEntityDescription, ...] = (
     AugustEventEntityDescription(
         key="doorbell",
-        REDACTED_VALUE"doorbell",
+        translation_key="doorbell",
         device_class=EventDeviceClass.DOORBELL,
         event_types=["ring"],
         value_fn=retrieve_ding_activity,

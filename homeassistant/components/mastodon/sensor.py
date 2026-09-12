@@ -48,25 +48,25 @@ def account_meta(data: Account) -> Mapping[str, Any]:
 ENTITY_DESCRIPTIONS = (
     MastodonSensorEntityDescription(
         key="followers",
-        REDACTED_VALUE"followers",
+        translation_key="followers",
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data, _: data.followers_count,
     ),
     MastodonSensorEntityDescription(
         key="following",
-        REDACTED_VALUE"following",
+        translation_key="following",
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data, _: data.following_count,
     ),
     MastodonSensorEntityDescription(
         key="posts",
-        REDACTED_VALUE"posts",
+        translation_key="posts",
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda data, _: data.statuses_count,
     ),
     MastodonSensorEntityDescription(
         key="last_post",
-        REDACTED_VALUE"last_post",
+        translation_key="last_post",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=(
             lambda data, _: (
@@ -76,7 +76,7 @@ ENTITY_DESCRIPTIONS = (
     ),
     MastodonSensorEntityDescription(
         key="username",
-        REDACTED_VALUE"username",
+        translation_key="username",
         value_fn=lambda data, instance: construct_mastodon_username(instance, data),
         attributes_fn=account_meta,
         entity_picture_fn=lambda data: data.avatar,

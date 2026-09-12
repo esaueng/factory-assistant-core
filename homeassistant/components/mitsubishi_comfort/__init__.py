@@ -69,7 +69,7 @@ async def async_setup_entry(
     if not devices:
         raise ConfigEntryError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"no_devices",
+            translation_key="no_devices",
         )
 
     # The cloud provides each device's MAC but never its LAN IP. Register every

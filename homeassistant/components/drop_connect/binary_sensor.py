@@ -49,33 +49,33 @@ class DROPBinarySensorEntityDescription(BinarySensorEntityDescription):
 BINARY_SENSORS: list[DROPBinarySensorEntityDescription] = [
     DROPBinarySensorEntityDescription(
         key=LEAK_DETECTED,
-        REDACTED_VALUELEAK_DETECTED,
+        translation_key=LEAK_DETECTED,
         device_class=BinarySensorDeviceClass.MOISTURE,
         value_fn=lambda device: device.drop_api.leak_detected(),
     ),
     DROPBinarySensorEntityDescription(
         key=PENDING_NOTIFICATION,
-        REDACTED_VALUEPENDING_NOTIFICATION,
+        translation_key=PENDING_NOTIFICATION,
         value_fn=lambda device: device.drop_api.notification_pending(),
     ),
     DROPBinarySensorEntityDescription(
         key=SALT_LOW,
-        REDACTED_VALUESALT_LOW,
+        translation_key=SALT_LOW,
         value_fn=lambda device: device.drop_api.salt_low(),
     ),
     DROPBinarySensorEntityDescription(
         key=RESERVE_IN_USE,
-        REDACTED_VALUERESERVE_IN_USE,
+        translation_key=RESERVE_IN_USE,
         value_fn=lambda device: device.drop_api.reserve_in_use(),
     ),
     DROPBinarySensorEntityDescription(
         key=PUMP_STATUS,
-        REDACTED_VALUEPUMP_STATUS,
+        translation_key=PUMP_STATUS,
         value_fn=lambda device: device.drop_api.pump_status(),
     ),
     DROPBinarySensorEntityDescription(
         key=ALERT_SENSOR,
-        REDACTED_VALUEALERT_SENSOR,
+        translation_key=ALERT_SENSOR,
         device_class=BinarySensorDeviceClass.PROBLEM,
         value_fn=lambda device: device.drop_api.sensor_high(),
     ),

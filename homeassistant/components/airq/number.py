@@ -27,7 +27,7 @@ class AirQBrightnessDescription(NumberEntityDescription):
 
 AIRQ_LED_BRIGHTNESS = AirQBrightnessDescription(
     key="airq_led_brightness",
-    REDACTED_VALUE"airq_led_brightness",
+    translation_key="airq_led_brightness",
     native_min_value=0.0,
     native_max_value=100.0,
     native_step=1.0,

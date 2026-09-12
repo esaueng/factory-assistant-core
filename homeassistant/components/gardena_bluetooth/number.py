@@ -52,7 +52,7 @@ class GardenaBluetoothNumberEntityDescription(NumberEntityDescription):
 DESCRIPTIONS = (
     GardenaBluetoothNumberEntityDescription(
         key=Valve.manual_watering_time.unique_id,
-        REDACTED_VALUE"manual_watering_time",
+        translation_key="manual_watering_time",
         native_unit_of_measurement=UnitOfTime.SECONDS,
         mode=NumberMode.BOX,
         native_min_value=0.0,
@@ -64,7 +64,7 @@ DESCRIPTIONS = (
     ),
     GardenaBluetoothNumberEntityDescription(
         key=AquaContourWatering.manual_watering_time.unique_id,
-        REDACTED_VALUE"manual_watering_time",
+        translation_key="manual_watering_time",
         native_unit_of_measurement=UnitOfTime.SECONDS,
         mode=NumberMode.BOX,
         native_min_value=0.0,
@@ -76,7 +76,7 @@ DESCRIPTIONS = (
     ),
     GardenaBluetoothNumberEntityDescription(
         key=Valve.remaining_open_time.unique_id,
-        REDACTED_VALUE"remaining_open_time",
+        translation_key="remaining_open_time",
         native_unit_of_measurement=UnitOfTime.SECONDS,
         native_min_value=0.0,
         native_max_value=24 * 60 * 60,
@@ -87,7 +87,7 @@ DESCRIPTIONS = (
     ),
     GardenaBluetoothNumberEntityDescription(
         key=DeviceConfiguration.rain_pause.unique_id,
-        REDACTED_VALUE"rain_pause",
+        translation_key="rain_pause",
         native_unit_of_measurement=UnitOfTime.MINUTES,
         mode=NumberMode.BOX,
         native_min_value=0.0,
@@ -99,7 +99,7 @@ DESCRIPTIONS = (
     ),
     GardenaBluetoothNumberEntityDescription(
         key=DeviceConfiguration.seasonal_adjust.unique_id,
-        REDACTED_VALUE"seasonal_adjust",
+        translation_key="seasonal_adjust",
         native_unit_of_measurement=UnitOfTime.DAYS,
         mode=NumberMode.BOX,
         native_min_value=-128.0,
@@ -111,7 +111,7 @@ DESCRIPTIONS = (
     ),
     GardenaBluetoothNumberEntityDescription(
         key=Sensor.threshold.unique_id,
-        REDACTED_VALUE"sensor_threshold",
+        translation_key="sensor_threshold",
         native_unit_of_measurement=PERCENTAGE,
         mode=NumberMode.BOX,
         native_min_value=0.0,
@@ -123,7 +123,7 @@ DESCRIPTIONS = (
     ),
     GardenaBluetoothNumberEntityDescription(
         key="spray_sector",
-        REDACTED_VALUE"spray_sector",
+        translation_key="spray_sector",
         native_unit_of_measurement=DEGREE,
         mode=NumberMode.BOX,
         native_min_value=0.0,
@@ -134,7 +134,7 @@ DESCRIPTIONS = (
     ),
     GardenaBluetoothNumberEntityDescription(
         key="spray_distance",
-        REDACTED_VALUE"spray_distance",
+        translation_key="spray_distance",
         native_unit_of_measurement=PERCENTAGE,
         mode=NumberMode.SLIDER,
         native_min_value=0.0,

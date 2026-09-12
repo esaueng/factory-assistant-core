@@ -43,7 +43,7 @@ class PterodactylSensorEntityDescription(SensorEntityDescription):
 SENSOR_DESCRIPTIONS = [
     PterodactylSensorEntityDescription(
         key=KEY_CPU_UTILIZATION,
-        REDACTED_VALUEKEY_CPU_UTILIZATION,
+        translation_key=KEY_CPU_UTILIZATION,
         value_fn=lambda data: data.cpu_utilization,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
@@ -52,7 +52,7 @@ SENSOR_DESCRIPTIONS = [
     ),
     PterodactylSensorEntityDescription(
         key=KEY_CPU_LIMIT,
-        REDACTED_VALUEKEY_CPU_LIMIT,
+        translation_key=KEY_CPU_LIMIT,
         value_fn=lambda data: data.cpu_limit,
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
@@ -62,7 +62,7 @@ SENSOR_DESCRIPTIONS = [
     ),
     PterodactylSensorEntityDescription(
         key=KEY_MEMORY_USAGE,
-        REDACTED_VALUEKEY_MEMORY_USAGE,
+        translation_key=KEY_MEMORY_USAGE,
         value_fn=lambda data: data.memory_usage,
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -73,7 +73,7 @@ SENSOR_DESCRIPTIONS = [
     ),
     PterodactylSensorEntityDescription(
         key=KEY_MEMORY_LIMIT,
-        REDACTED_VALUEKEY_MEMORY_LIMIT,
+        translation_key=KEY_MEMORY_LIMIT,
         value_fn=lambda data: data.memory_limit,
         device_class=SensorDeviceClass.DATA_SIZE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -85,7 +85,7 @@ SENSOR_DESCRIPTIONS = [
     ),
     PterodactylSensorEntityDescription(
         key=KEY_DISK_USAGE,
-        REDACTED_VALUEKEY_DISK_USAGE,
+        translation_key=KEY_DISK_USAGE,
         value_fn=lambda data: data.disk_usage,
         device_class=SensorDeviceClass.DATA_SIZE,
         state_class=SensorStateClass.MEASUREMENT,
@@ -96,7 +96,7 @@ SENSOR_DESCRIPTIONS = [
     ),
     PterodactylSensorEntityDescription(
         key=KEY_DISK_LIMIT,
-        REDACTED_VALUEKEY_DISK_LIMIT,
+        translation_key=KEY_DISK_LIMIT,
         value_fn=lambda data: data.disk_limit,
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -108,7 +108,7 @@ SENSOR_DESCRIPTIONS = [
     ),
     PterodactylSensorEntityDescription(
         key=KEY_NETWORK_INBOUND,
-        REDACTED_VALUEKEY_NETWORK_INBOUND,
+        translation_key=KEY_NETWORK_INBOUND,
         value_fn=lambda data: data.network_inbound,
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -120,7 +120,7 @@ SENSOR_DESCRIPTIONS = [
     ),
     PterodactylSensorEntityDescription(
         key=KEY_NETWORK_OUTBOUND,
-        REDACTED_VALUEKEY_NETWORK_OUTBOUND,
+        translation_key=KEY_NETWORK_OUTBOUND,
         value_fn=lambda data: data.network_outbound,
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.DATA_SIZE,
@@ -132,7 +132,7 @@ SENSOR_DESCRIPTIONS = [
     ),
     PterodactylSensorEntityDescription(
         key=KEY_UPTIME,
-        REDACTED_VALUEKEY_UPTIME,
+        translation_key=KEY_UPTIME,
         value_fn=(
             lambda data: (
                 dt_util.utcnow() - timedelta(milliseconds=data.uptime)

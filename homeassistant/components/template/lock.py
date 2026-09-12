@@ -249,7 +249,7 @@ class AbstractTemplateLock(AbstractTemplateEntity, LockEntity):
         if self._code_format_template_error is not None:
             raise ServiceValidationError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"code_format_template_error",
+                translation_key="code_format_template_error",
                 translation_placeholders={
                     "entity_id": self.entity_id,
                     "code_format_template": self._templates[CONF_CODE_FORMAT].template,

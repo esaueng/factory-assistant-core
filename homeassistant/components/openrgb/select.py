@@ -88,7 +88,7 @@ class OpenRGBProfileSelect(CoordinatorEntity[OpenRGBCoordinator], SelectEntity):
             except CONNECTION_ERRORS as err:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"communication_error",
+                    translation_key="communication_error",
                     translation_placeholders={
                         "server_address": self.coordinator.server_address,
                         "error": str(err),
@@ -97,7 +97,7 @@ class OpenRGBProfileSelect(CoordinatorEntity[OpenRGBCoordinator], SelectEntity):
             except ValueError as err:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"openrgb_error",
+                    translation_key="openrgb_error",
                     translation_placeholders={
                         "error": str(err),
                     },

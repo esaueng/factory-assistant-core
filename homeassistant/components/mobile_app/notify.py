@@ -113,7 +113,7 @@ class MobileAppNotifyEntity(NotifyEntity):
         else:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"device_not_connected_for_local_push_notifications",
+                translation_key="device_not_connected_for_local_push_notifications",
                 translation_placeholders={"device_name": self._config_entry.title},
             )
 
@@ -295,18 +295,18 @@ async def _send_message(
         if response.status == HTTPStatus.TOO_MANY_REQUESTS:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"rate_limit_exceeded_sending_notification",
+                translation_key="rate_limit_exceeded_sending_notification",
                 translation_placeholders={"device_name": entry.title},
             )
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"error_sending_notification",
+            translation_key="error_sending_notification",
             translation_placeholders={"device_name": entry.title},
         )
     except TimeoutError as e:
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"timeout_sending_notification",
+            translation_key="timeout_sending_notification",
             translation_placeholders={"device_name": entry.title},
         ) from e
     except ClientError as e:
@@ -318,6 +318,6 @@ async def _send_message(
         )
         raise HomeAssistantError(
             translation_domain=DOMAIN,
-            REDACTED_VALUE"error_sending_notification",
+            translation_key="error_sending_notification",
             translation_placeholders={"device_name": entry.title},
         ) from e

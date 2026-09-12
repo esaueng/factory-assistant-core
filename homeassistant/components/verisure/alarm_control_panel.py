@@ -68,7 +68,7 @@ class VerisureAlarm(
             await self.coordinator.async_refresh()
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"arm_state_failed",
+                translation_key="arm_state_failed",
             )
         result = None
         attempts = 0

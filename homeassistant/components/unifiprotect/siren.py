@@ -170,7 +170,7 @@ class ProtectSiren(SirenEntity):
         if (siren := self._siren) is None:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"siren_not_available",
+                translation_key="siren_not_available",
             )
 
         duration: int | None = kwargs.get(ATTR_DURATION)
@@ -191,7 +191,7 @@ class ProtectSiren(SirenEntity):
                 )
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
-                    REDACTED_VALUE"siren_invalid_duration",
+                    translation_key="siren_invalid_duration",
                     translation_placeholders={
                         "duration": str(duration),
                         "valid": valid,
@@ -211,7 +211,7 @@ class ProtectSiren(SirenEntity):
         if (siren := self._siren) is None:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
-                REDACTED_VALUE"siren_not_available",
+                translation_key="siren_not_available",
             )
         await siren.stop()
         # The server does not emit a WS event after a manual stop, so we set
